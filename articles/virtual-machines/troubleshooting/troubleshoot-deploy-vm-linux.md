@@ -1,6 +1,6 @@
 ---
 title: Problemen met implementatie Linux virtuele machine in Azure | Microsoft Docs
-description: Problemen met implementatie Linux virtuele machine in Azurethe Resource Manager-implementatiemodel.
+description: Problemen met implementatie Linux virtuele machine in het Azure Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1317a4731d3598c5fba317167ba4a45d95823ca2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729707"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539816"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Problemen met implementatie Linux virtuele machine in Azure
 
@@ -32,11 +32,7 @@ Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnem
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Het cluster kan niet de aangevraagde VM-grootte ondersteunt
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Probeer de aanvraag met een kleinere virtuele machine.
 - Als de grootte van de aangevraagde virtuele machine kan niet worden gewijzigd:
     - Stop alle virtuele machines in de beschikbaarheidsset. Klik op **resourcegroepen** > uw resourcegroep > **Resources** > uw beschikbaarheidsset > **virtuele Machines** > uw virtuele machine >  **Stop**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Het cluster heeft geen gratis resources
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - De aanvraag later opnieuw proberen.
 - Als de nieuwe virtuele machine deel van een andere beschikbaarheidsset uitmaken kan
     - Een virtuele machine maken in een andere beschikbaarheidsset (in dezelfde regio).

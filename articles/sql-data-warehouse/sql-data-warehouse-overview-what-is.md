@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 393fca972676f2584a9ef4fc457b33161a325089
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477774"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521632"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Wat is Azure SQL Data Warehouse?
 
-SQL Data Warehouse is een op de cloud gebaseerde EDW (Enterprise Data Warehouse) die MPP (Massively Parallel Processing) gebruikt om snel complexe query's uit te voeren in petabytes aan gegevens. SQL Data Warehouse gebruiken als belangrijkste onderdeel van een big data-oplossing. Big data importeren in SQL Data Warehouse met eenvoudige PolyBase T-SQL-query's en vervolgens de kracht van MPP gebruiken om analyses met hoge prestaties uit te voeren. Door te integreren en analyseren, wordt Data Warehouse de centrale bron voor het verkrijgen van zakelijke inzichten door uw bedrijf.  
+SQL Data Warehouse is een op de cloud gebaseerde EDW (Enterprise Data Warehouse) die MPP (Massively Parallel Processing) gebruikt om snel complexe query's uit te voeren in petabytes aan gegevens. SQL Data Warehouse gebruiken als belangrijkste onderdeel van een big data-oplossing. Big data importeren in SQL Data Warehouse met eenvoudige [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL-query's, en gebruik de kracht van MPP te krachtige analyses uitvoeren. Door te integreren en analyseren, wordt Data Warehouse de centrale bron voor het verkrijgen van zakelijke inzichten door uw bedrijf.  
 
 
 ## <a name="key-component-of-big-data-solution"></a>Belangrijk onderdeel van big data-oplossing

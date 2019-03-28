@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372401"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517314"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
-[Azure-netwerk](../virtual-network/virtual-networks-overview.md) biedt beveiligde, particuliere netwerken, inclusief filters, Routering en voor uw Azure-peering en on-premises resources. Uw containers kunnen door groepen met containers implementeren in een Azure-netwerk, veilig communiceren met andere resources in het virtuele netwerk.
+[Azure-netwerk](../virtual-network/virtual-networks-overview.md) biedt beveiligde, particuliere netwerken voor uw Azure- en on-premises resources. Uw containers kunnen door groepen met containers implementeren in een Azure-netwerk, veilig communiceren met andere resources in het virtuele netwerk.
 
 Containergroepen geïmplementeerd in een Azure-netwerk inschakelen scenario's zoals:
 
@@ -34,7 +34,6 @@ Containergroepen geïmplementeerd in een Azure-netwerk inschakelen scenario's zo
 Er gelden bepaalde beperkingen wanneer u groepen met containers in een virtueel netwerk implementeert.
 
 * Voor het implementeren van containergroepen aan een subnet, mag niet het subnet een andere resourcetypen bevatten. Verwijder alle bestaande resources uit een bestaand subnet vóór de implementatie van containergroepen toe of maak een nieuw subnet.
-* Containergroepen geïmplementeerd met een virtueel netwerk ondersteunen momenteel geen openbare IP-adressen of DNS-naam van labels.
 * U kunt geen gebruiken een [beheerde identiteit](container-instances-managed-identity.md) in een containergroep geïmplementeerd in een virtueel netwerk.
 * Vanwege de extra netwerkresources die betrokken zijn is een containergroep implementeren met een virtueel netwerk meestal iets langzamer dan het implementeren van een standard containerexemplaar.
 
@@ -46,10 +45,14 @@ Hoewel deze functie nog in preview, gelden de volgende beperkingen bij het imple
 
 Bronlimieten container kunnen afwijken van de limieten voor de niet in een netwerk-containerexemplaren in deze regio's. Momenteel worden alleen Linux-containers worden ondersteund voor deze functie. Windows-ondersteuning staat op de planning.
 
-### <a name="unsupported-network-resources-and-features"></a>Niet-ondersteunde netwerkbronnen en functies
+### <a name="unsupported-networking-scenarios"></a>Niet-ondersteunde netwerkscenario 's 
 
-* Azure Load Balancer
-* Peering op virtueel netwerk
+* **Azure Load Balancer** -een Azure Load Balancer in het zicht van containerinstanties plaatsen in een netwerk containergroep wordt niet ondersteund
+* **Peering op virtueel netwerk** -u een virtueel netwerk met een subnet in Azure Container Instances gedelegeerd naar een ander virtueel netwerk kan niet koppelen
+* **Routetabellen** -gebruiker gedefinieerde routes kunnen niet worden ingesteld in een subnet gedelegeerd naar Azure Container Instances
+* **Netwerkbeveiligingsgroepen** -uitgaande beveiligingsregels in nsg's die worden toegepast op een subnet gedelegeerd naar Azure Container Instances op dit moment niet worden afgedwongen 
+* **Openbare IP-adres of de DNS-label** -Container-groepen die zijn geïmplementeerd met een virtueel netwerk waardoor containers rechtstreeks met internet via een openbaar IP-adres of een volledig gekwalificeerde domeinnaam momenteel niet ondersteund
+* **Interne naamomzetting** -naamomzetting voor Azure-resources in het virtuele netwerk via de interne Azure DNS-server wordt niet ondersteund.
 
 **Verwijderen van de resource-netwerk** vereist [extra stappen](#delete-network-resources) nadat u groepen met containers hebt geïmplementeerd in het virtuele netwerk.
 

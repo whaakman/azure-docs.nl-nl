@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250837"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540448"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Realtimeplatform Azure SQL DW Marketplace bieden installatiehandleiding
 
@@ -29,7 +29,7 @@ Configureer de Striim-VM met de opgegeven eigenschappen, noteert de Realtimeplat
 
 ![Realtimeplatform configureren][configure]
 
-Als geïmplementeerd, klikt u op <VM Name>- masternode in Azure portal, klik op verbinding maken en kopiëren van de aanmelding met lokaal VM-account 
+Als geïmplementeerd, klikt u op \<VM-naam >-masternode in Azure portal, klik op verbinding maken en kopiëren van de aanmelding met lokaal VM-account 
 
 ![Realtimeplatform verbinden met SQL datawarehouse][connect]
 
@@ -55,7 +55,7 @@ Voer de volgende opdrachten het JDBC jar-bestand naar Realtimeplatform van lib m
 
 ![Het Realtimeplatform cluster starten][start-striim]
 
-Nu, open uw favoriete browser en navigeer naar <DNS Name>: 9080
+Nu, open uw favoriete browser en navigeer naar \<DNS-naam >: 9080
 
 ![Navigeer naar het aanmeldingsscherm][navigate]
 

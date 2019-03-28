@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 03/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438084"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521768"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
@@ -102,9 +102,9 @@ Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount w
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- De [Systeemvereisten voor Data Box Edge](https://aka.ms/dbe-docs) lezen.
-- De [limieten voor Data Box Edge](https://aka.ms/dbe-docs) begrijpen.
-- [Azure Data Box Edge](https://aka.ms/dbe-docs) in de Azure-portal implementeren.
+- De [Systeemvereisten voor Data Box Edge](data-box-edge-system-requirements.md) lezen.
+- De [limieten voor Data Box Edge](data-box-edge-limits.md) begrijpen.
+- [Azure Data Box Edge](data-box-edge-deploy-prep.md) in de Azure-portal implementeren.
 
 
 

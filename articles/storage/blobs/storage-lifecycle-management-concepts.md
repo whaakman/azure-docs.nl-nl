@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500420"
+ms.locfileid: "58522210"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob-opslag beheren
 
@@ -227,7 +227,7 @@ Dit voorbeeld laat zien hoe u voor de overgang van blok-blobs voorafgegaan door 
 
 ### <a name="archive-data-at-ingest"></a>Archiveer gegevens in de opname 
 
-Sommige gegevens in de cloud blijft niet-actieve en zelden, als tot nooit geopend eenmaal opgeslagen. Deze gegevens archiveren onmiddellijk één keer worden opgenomen. De volgende lifecycle-beleid is geconfigureerd voor het archiveren van data-at-opname. In dit voorbeeld overgangen blok-blobs in de storage-account in container `archivecontainer` onmiddellijk in een archive-laag. De onmiddellijke overgang wordt bereikt door het uitvoeren van blobs 0 dagen na het tijdstip laatst gewijzigd:
+Sommige gegevens in de cloud blijft niet-actieve en zelden, als tot nooit geopend eenmaal opgeslagen. De volgende lifecycle-beleid is geconfigureerd voor het archiveren van gegevens nadat deze is opgenomen. In dit voorbeeld overgangen blok-blobs in de storage-account in container `archivecontainer` in een archive-laag. De overgang wordt bereikt door het uitvoeren van blobs 0 dagen na het tijdstip laatst gewijzigd:
 
 ```json
 {

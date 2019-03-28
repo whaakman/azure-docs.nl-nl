@@ -4,14 +4,14 @@ description: Informatie over het instellen van ingerichte doorvoer voor uw Azure
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005060"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520901"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -75,6 +75,20 @@ U kunt de twee modellen kunt combineren. Inrichting doorvoer voor de database en
 * U kunt expliciet "P" ru's de ingerichte doorvoer configureren op de container met de naam B.
 * De 'K' RUs-doorvoer wordt gedeeld door de vier containers A, C, D en E. De exacte hoeveelheid doorvoer beschikbaar voor A, C, D of E-varieert. Er zijn geen Sla's voor elke afzonderlijke containerdoorvoer.
 * De container met de naam B wordt om op te halen van de doorvoer "P" ru's voortdurend gegarandeerd. Wordt ondersteund door Sla's.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Doorvoer van de update op een database of een container
+
+Nadat u een Azure Cosmos-container of een database hebt gemaakt, kunt u de ingerichte doorvoer kunt bijwerken. Er is geen limiet voor de maximale ingerichte doorvoer die u op de database of de container configureren kunt. De minimaal ingerichte doorvoer is afhankelijk van de volgende factoren: 
+
+* De maximale grootte die u ooit in de container opslaat
+* De maximale doorvoer die u ooit te op de container richten
+* Het maximum aantal Azure-Cosmos-containers die u ooit in een database met gedeelde doorvoer maken. 
+
+U kunt de minimale doorvoer van een container of een database programmatisch met behulp van de SDK's ophalen of weergeven van de waarde in de Azure-portal. Bij het gebruik van de .NET SDK, de [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) methode kunt u de waarde van de ingerichte doorvoer te schalen. Bij het gebruik van de Java SDK, de [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) methode kunt u de waarde van de ingerichte doorvoer te schalen. 
+
+Bij het gebruik van de .NET SDK, de [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) methode kunt u de minimale doorvoer van een container of een database ophalen. 
+
+U kunt de ingerichte doorvoer van een container of een database schalen op elk gewenst moment. U kunt de bewerking omlaag schalen na de niet-actieve periode van vier uur uitvoeren. De niet-actieve periode is gedefinieerd als de periode wanneer er geen aanbieding vervangen (waaronder omhoog en omlaag schalen) in een container of een database. 
 
 ## <a name="comparison-of-models"></a>Vergelijking van modellen
 

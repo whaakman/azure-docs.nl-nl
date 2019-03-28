@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479969"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540139"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ Het doel is het installeren van meerdere SAP Advanced Business Application Progr
 
 _**Afbeelding 2:** SAP-multi-SID-configuratie in twee clusters_
 
-De installatie van een extra **SAP \<SID2 >** system is vrijwel identiek aan de installatie van een <SID> system. Twee aanvullende voorbereidende stappen zijn vereist in de ASCS/SCS-cluster, maar ook op het bestandsshare SOFS-cluster.
+De installatie van een extra **SAP \<SID2 >** system is vrijwel identiek aan de installatie van een \<SID > systeem. Twee aanvullende voorbereidende stappen zijn vereist in de ASCS/SCS-cluster, maar ook op het bestandsshare SOFS-cluster.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>De infrastructuur voorbereiden voor een SAP-multi-SID-scenario
 
@@ -261,7 +261,7 @@ Deze stappen worden beschreven in [infrastructuur is voorbereid voor een multi-S
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>De infrastructuur op een SOFS-cluster met behulp van de bestaande SAP globale Host voorbereiden
 
-U kunt opnieuw gebruiken de bestaande \<SAPGlobalHost > en Volume1 van de eerste SAP <SID1> system.
+U kunt opnieuw gebruiken de bestaande \<SAPGlobalHost > en Volume1 van de eerste SAP \<SID1 > systeem.
 
 ![Afbeelding 3: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP-Host][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Afbeelding 3:** Multi-SID scale-out Bestandsserver is hetzelfde als de naam v
 >Voor de tweede **SAP \<SID2 >** systeem, de dezelfde Volume1 en hetzelfde  **\<SAPGlobalHost >** netwerknaam worden gebruikt.
 >Omdat u al hebt ingesteld **SAPMNT** als de sharenaam voor verschillende SAP-systemen, om te gebruiken de  **\<SAPGlobalHost >** netwerknaam, moet u dezelfde **Volume1**.
 >
->Het pad voor de <SID2> globale host is C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
+>Het pad voor de \<SID2 > globale host is C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 Voor de \<SID2 > systeem, moet u de globale SAP-Host voorbereiden... \SYS\.. de map op de scale-out-bestandsservercluster.

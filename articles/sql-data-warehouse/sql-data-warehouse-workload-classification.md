@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994006"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520128"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse workload classificatie (Preview)
 
@@ -33,6 +33,8 @@ Workload management classificatie kunt werkbelasting beleid moet worden toegepas
 Er zijn veel manieren om te classificeren datawarehousing-workloads, is de eenvoudigste en meest voorkomende classificatie laden en query's uitvoeren. Laden van gegevens met insert, update en delete-instructies.  U de gegevens opvragen met selecteert. Een datawarehouse-oplossing hebben vaak een beleid voor werkbelasting voor de load-activiteit, zoals het toewijzen van een hogere resourceklasse met meer resources. Een beleid voor verschillende werkbelastingen kan toepassen op query's, zoals een lagere prioriteit ten opzichte van voor het laden van activiteiten.
 
 U kunt ook uw workloads laden en query subclassify. Subclassificatie biedt u meer controle over uw workloads. Querywerkbelastingen kunnen bijvoorbeeld bestaan uit de kubus wordt vernieuwd, dashboard query's of ad-hocquery's. U kunt elk van deze query-workloads met een andere resource-klassen of instellingen van belang te classificeren. Belasting kan ook profiteren van subclassificatie. Grote transformaties kunnen worden toegewezen aan grotere resourceklassen. Hogere prioriteit kan worden gebruikt om ervoor te zorgen sleutel verkoopgegevens loader voordat weergegevens of een sociale gegevensfeed.
+
+Niet alle instructies zijn geclassificeerd als ze niet bronnen nodig of moet van belang zijn voor de uitvoering van invloed zijn op.  DBCC-opdrachten, BEGIN en COMMIT ROLLBACK TRANSACTION-instructies zijn niet ingedeeld.
 
 ## <a name="classification-process"></a>Classificatieproces
 

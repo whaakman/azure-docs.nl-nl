@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781711"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520561"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure C
 > * [Overzicht van de search-services in uw abonnement](#list-search-services)
 > * [Informatie ophalen over een specifieke search-service](#get-search-service-information)
 > * [Maken of verwijderen van een service](#create-or-delete-a-service)
-> * [Admin API-sleutels opnieuw genereren](#regenerate-admin-api-keys)
+> * Admin API-sleutels opnieuw genereren
 > * [Maken of verwijderen van de query api-sleutels](#create-or-delete-query-keys)
 > * [Een service schaalt door vergroten of verkleinen van replica's en partities](#scale-replicas-and-partitions)
 

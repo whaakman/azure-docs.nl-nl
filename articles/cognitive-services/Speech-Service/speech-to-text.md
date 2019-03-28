@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224437"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520663"
 ---
 # <a name="what-is-speech-to-text"></a>Wat is de spraak-naar-tekst?
 
@@ -24,7 +24,7 @@ Spraak-naar-tekst van Azure Speech Services, ook wel bekend als spraak naar teks
 
 De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en is de cloud geïmplementeerd. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. 
 
-U kunt eenvoudig vastleggen audio van een microfoon, lezen via een stroom of toegang tot audio-bestanden uit de opslag met de spraak-SDK en REST-API's. De spraak-SDK biedt ondersteuning voor WAV/PCM-16-bits, 16 kHz, één kanaal audio voor spraakherkenning. Aanvullende audio-indelingen worden ondersteund met behulp van de [REST-eindpunt voor spraak-naar-tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) of de [batch-service transcriptie](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+U kunt eenvoudig vastleggen audio van een microfoon, lezen via een stroom of toegang tot audio-bestanden uit de opslag met de spraak-SDK en REST-API's. De spraak-SDK biedt ondersteuning voor WAV/PCM-16-bits, 16 kHz, één kanaal audio voor spraakherkenning. Aanvullende audio-indelingen worden ondersteund met behulp van de [REST-eindpunt voor spraak-naar-tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) of de [batch-service transcriptie](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Belangrijkste functies
 

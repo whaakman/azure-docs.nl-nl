@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871637"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519626"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -39,9 +39,9 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 
 Meer informatie over wat is er nieuw in de Azure-Services voor spraak.
 
+* Maart 2019 - is een nieuw eindpunt voor tekst naar spraak die als resultaat een volledige lijst met beschikbare stemmen in een specifieke regio's geeft nu beschikbaar. Zie voor meer informatie, [Text to Speech-API reference (REST)](rest-text-to-speech.md).
 * Februari 2019 - die zijn uitgebracht spraak SDK 1.3.0 met ondersteuning voor [Unity (bèta)](quickstart-csharp-unity.md). Ondersteuning toegevoegd voor de `AudioInput` klasse, kunt u de streamingbron van audio kiezen. Zie voor een volledige lijst van verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * December 2018 - die zijn uitgebracht spraak SDK 1.2.0 met ondersteuning voor [Python](quickstart-python.md) en [Node.js](quickstart-js-node.md), en als Ubuntu 18.04 LTS. Zie voor meer informatie, [opmerkingen bij de Release](releasenotes.md).
-* December 2018 - snelstartgidsen van tekst naar spraak toegevoegd voor [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Aanvullende voorbeelden zijn beschikbaar op [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
 ## <a name="try-speech-services"></a>Speech Services proberen
 

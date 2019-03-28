@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213922"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519133"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -100,10 +100,14 @@ Threat detection verbetert de controle door een analyse van controlelogboeken vo
 
 SQL-Database beveiligt de gegevens van de klant door het versleutelen van gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server afgedwongen versleuteling (SSL/TLS) op alle tijden voor alle verbindingen. Dit zorgt ervoor dat alle gegevens worden versleuteld 'in transit' tussen de client en server, ongeacht de instelling van **versleutelen** of **TrustServerCertificate** in de verbindingsreeks.
+
+Als een best practice aangeraden die in de verbinding van uw toepassing tekenreeks u een versleutelde verbinding opgeven en _**niet**_ het servercertificaat vertrouwen. Dit zorgt ervoor dat de uw toepassing om te controleren of het servercertificaat en zo wordt voorkomen dat uw toepassing worden vatbaar voor man in het middelste aanvallen.
+
+Bijvoorbeeld bij het gebruik van het stuurprogramma ADO.NET dit wordt bereikt **Encrypt = True** en **TrustServerCertificate = False**. Als u de verbindingsreeks vanuit Azure portal hebt verkregen, is er de juiste instellingen.
+
 > [!IMPORTANT]
-> Azure SQL-Database wordt afgedwongen versleuteling (SSL/TLS) op alle tijden voor alle verbindingen die garandeert dat alle gegevens worden versleuteld 'in transit' tussen de database en de client. Dit gebeurt, ongeacht de instelling van **versleutelen** of **TrustServerCertificate** in de verbindingsreeks.
->
-> Zorg ervoor dat u opgeeft dat een versleutelde verbinding in de verbindingsreeks van uw toepassing, en _niet_ het servercertificaat vertrouwen (dit is voor de ADO.NET-stuurprogramma **Encrypt = True** en  **TrustServerCertificate = False**). Dit helpt voorkomen dat uw toepassing een man in de middelste aanval door af te dwingen van de toepassing om te controleren of de server en de uitvoerende versleuteling. Als u de verbindingsreeks vanuit Azure portal hebt verkregen, is er de juiste instellingen.
+> Houd er rekening mee dat bepaalde niet-Microsoft-stuurprogramma's mogelijk maken standaard gebruik van TLS of afhankelijk van een oudere versie van TLS zijn (< 2.0) om te kunnen werken. In dit geval SQL Server nog steeds kunt u verbinding maakt met uw database. We raden echter aan dat u het beveiligingsrisico van zodat deze stuurprogramma's en de toepassing verbinding maken met SQL-Database, met name als u gevoelige gegevens opslaat evalueren. 
 >
 > Zie voor meer informatie over de TLS- en -connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38c8e98d92c21e3dc7d37337466dc79c85d0a15f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401121"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517909"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Zelfstudie: Richt Azure Data Box-Gateway in Hyper-V
 
@@ -136,7 +136,9 @@ Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
 18. Op de pagina **Naam en locatie opgeven** geeft u een **Naam** en een **Locatie** voor de gegevensschijf op (u kunt naar een locatie bladeren). Klik op **volgende**.
 
     ![Pagina naam en locatie opgeven](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Op de pagina **Schijf configureren** selecteert u de optie **Nieuwe lege virtuele harde schijf maken** en geeft u een grootte op van **2 TB** (of meer). Hoewel 2 TB de minimumvereiste is, kunt u altijd een grotere schijf inrichten. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen.  U kunt de schijf echter wel uitbreiden door een gegevensschijf toe te voegen. Klik op **volgende**.
+19. Op de pagina **Schijf configureren** selecteert u de optie **Nieuwe lege virtuele harde schijf maken** en geeft u een grootte op van **2 TB** (of meer). 
+    
+    Hoewel 2 TB de minimumvereiste is, kunt u altijd een grotere schijf inrichten. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen. Er wordt geprobeerd voor het verkleinen van de resultaten van de schijf in een verlies van de lokale gegevens op het apparaat. U kunt de schijf echter wel uitbreiden door een gegevensschijf toe te voegen. Klik op **volgende**.
 
     ![Pagina van de schijf configureren](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Op de pagina **Samenvatting** controleert u de details van uw virtuele gegevensschijf en als u tevreden bent, klikt u op **Voltooien** om de schijf te maken. De wizard wordt gesloten en er wordt een virtuele harde schijf aan uw machine toegevoegd.

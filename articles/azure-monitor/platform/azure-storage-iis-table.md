@@ -1,6 +1,6 @@
 ---
-title: Blob storage gebruiken voor IIS en table storage voor gebeurtenissen in Azure Log Analytics | Microsoft Docs
-description: Log Analytics kunt u de logboeken voor Azure-services die schrijft diagnostische gegevens naar table storage of IIS-logboeken geschreven naar de blobopslag lezen.
+title: Blob storage gebruiken voor IIS en table storage voor gebeurtenissen in Azure Monitor | Microsoft Docs
+description: Azure Monitor kunt u de logboeken voor Azure-services die schrijft diagnostische gegevens naar table storage of IIS-logboeken geschreven naar de blobopslag lezen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306626"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540598"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Log Analytics
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Azure Monitor
 
-Log Analytics kunt u de logboeken voor de volgende services die schrijft diagnostische gegevens naar table storage of IIS-logboeken geschreven naar de blobopslag lezen:
+Azure Monitor kunt u de logboeken voor de volgende services die schrijft diagnostische gegevens naar table storage of IIS-logboeken geschreven naar de blobopslag lezen:
 
 * Service Fabric-clusters (Preview)
 * Virtuele machines
 * Web-/ werkrollen
 
-Voordat u Log Analytics kunt verzamelen van gegevens voor deze resources, moet Azure diagnostics zijn ingeschakeld.
+Voordat u Azure Monitor kunt u gegevens verzamelen in Log Analytics-werkruimte voor deze resources, moet Azure diagnostics zijn ingeschakeld.
 
-Als diagnostische gegevens zijn ingeschakeld, kunt u de Azure-portal of PowerShell Log Analytics configureren om de logboeken te verzamelen.
+Als diagnostische gegevens zijn ingeschakeld, kunt u de Azure-portal of PowerShell configureren van de werkruimte om de logboeken te verzamelen.
 
-Azure Diagnostics is een Azure-extensie waarmee u diagnostische gegevens verzamelen uit een werkrol, Webrol of virtuele machine in Azure. De gegevens worden opgeslagen in Azure storage-account en vervolgens kan worden verzameld door Log Analytics.
+Azure Diagnostics is een Azure-extensie waarmee u diagnostische gegevens verzamelen uit een werkrol, Webrol of virtuele machine in Azure. De gegevens worden opgeslagen in Azure storage-account en vervolgens kan worden verzameld door Azure Monitor.
 
-Voor Log Analytics voor het verzamelen van deze Azure Diagnostics-Logboeken, moeten de logboeken zich in de volgende locaties:
+Voor Azure Monitor om deze Azure Diagnostics-logboeken te verzamelen, moet de logboeken op de volgende locaties:
 
 | Logboektype | Resourcetype | Locatie |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ Zorg ervoor dat uw ConfigurationSettings Hiermee geeft u een opslagaccount, zoal
 
 De **AccountName** en **AccountKey** waarden worden gevonden in de Azure portal in het dashboard van de storage-account onder toegangssleutels beheren. Het protocol voor de verbindingsreeks moet **https**.
 
-Als de bijgewerkte diagnostische configuratie is toegepast in uw cloud-service en diagnostische gegevens naar Azure Storage schrijven, klikt u vervolgens bent u klaar om te configureren van Log Analytics.
+Als de bijgewerkte diagnostische configuratie is toegepast in uw cloud-service en diagnostische gegevens naar Azure Storage schrijven, klikt u vervolgens bent u klaar om te configureren van de Log Analytics-werkruimte.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>De Azure portal gebruiken voor het verzamelen van Logboeken van Azure Storage
-De Azure-portal kunt u Log Analytics voor het verzamelen van de logboeken voor de volgende Azure-services configureren:
+De Azure-portal kunt u een Log Analytics-werkruimte configureren in Azure Monitor om de logboeken voor de volgende Azure-services te verzamelen:
 
 * Service Fabric-clusters
 * Virtuele machines
@@ -136,9 +136,9 @@ In de Azure-portal, gaat u naar uw Log Analytics-werkruimte en de volgende taken
 5. De waarde voor de bron wordt automatisch ingevuld op basis van het gegevenstype en kan niet worden gewijzigd
 6. Klik op OK om de configuratie op te slaan
 
-Herhaal stappen 2 tot en met 6 voor extra opslagaccounts en gegevenstypen die u wilt verzamelen in Log Analytics.
+Herhaal stappen 2 tot en met 6 voor extra opslagaccounts en gegevenstypen die u wilt verzamelen en onderbrengen in de werkruimte.
 
-In ongeveer 30 minuten bent u gegevens uit het opslagaccount in Log Analytics. U ziet alleen de gegevens die worden geschreven naar opslag nadat de configuratie is toegepast. Log Analytics heeft de vooraf bestaande gegevens niet lezen uit het opslagaccount.
+In ongeveer 30 minuten bent u gegevens uit het opslagaccount in de Log Analytics-werkruimte. U ziet alleen de gegevens die worden geschreven naar opslag nadat de configuratie is toegepast. De werkruimte heeft de vooraf bestaande gegevens niet lezen uit het opslagaccount.
 
 > [!NOTE]
 > De portal wordt niet gevalideerd of de bron in het opslagaccount bestaat of als nieuwe gegevens worden geschreven.
@@ -149,7 +149,7 @@ In ongeveer 30 minuten bent u gegevens uit het opslagaccount in Log Analytics. U
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Gebruik de stappen in [Log Analytics configureren om te indexeren van Azure diagnostics](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) PowerShell gebruiken om te lezen van Azure diagnostics die zijn geschreven naar table storage.
+Gebruik de stappen in [Azure Monitor configureren om te indexeren van Azure diagnostics](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) PowerShell gebruiken om te lezen van Azure diagnostics die zijn geschreven naar table storage.
 
 U kunt meer precies een de gebeurtenissen die worden geschreven naar Azure Storage opgeven met behulp van Azure PowerShell.
 Zie voor meer informatie, [inschakelen van diagnostische gegevens in Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

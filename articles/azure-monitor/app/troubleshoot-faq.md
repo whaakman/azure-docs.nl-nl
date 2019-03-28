@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905053"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521811"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -153,7 +153,7 @@ Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren a
 
 **Alle** octetten van het webadres van de client altijd zijn ingesteld op 0 nadat de geo-locatie-kenmerken worden opgezocht.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mijn iKey is zichtbaar in de bron van mijn webpagina. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mijn Instrumentatiesleutel is zichtbaar in de bron van mijn webpagina. 
 
 * Dit is gebruikelijk om in oplossingen voor de controle.
 * Het kan niet worden gebruikt voor het stelen van uw gegevens.
@@ -162,7 +162,7 @@ Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren a
 
 U kunt de onderstaande:
 
-* Gebruik twee verschillende iKeys (Scheid Application Insights-resources), voor client en server-gegevens. of
+* Gebruik twee afzonderlijke Instrumentatiesleutels (Scheid Application Insights-resources), voor client en server-gegevens. of
 * Schrijven van een proxy die wordt uitgevoerd op uw server en de web client verzenden van gegevens via deze proxy.
 
 ## <a name="post"></a>Hoe kan ik postgegevens doorzoeken van diagnostische gegevens zien?

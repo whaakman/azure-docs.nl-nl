@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214569"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522244"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het configuratiebestand aanpassen, kunt u inschakelen of uitschakelen telemetrie-modules en initializers, en parameters voor sommige hiervan zijn ingesteld.
@@ -30,7 +30,7 @@ Er is niet een gelijkwaardige-bestand om te bepalen de [SDK in een webpagina][cl
 Dit document beschrijft de secties u in de configuratie van ziet het bestand, hoe ze de onderdelen van de SDK, beheren en welke NuGet-pakketten deze onderdelen te laden.
 
 > [!NOTE]
-> ApplicationInsights.config en XML-instructies niet van toepassing op de .NET Core SDK. Voor wijzigingen in een .NET Core-toepassing gebruiken we meestal het bestand appsettings.json. Een voorbeeld hiervan vindt u de [Snapshot Debugger documentatie.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> ApplicationInsights.config en XML-instructies niet van toepassing op de .NET Core SDK. Voor wijzigingen in een .NET Core-toepassing gebruiken we meestal het bestand appsettings.json. Een voorbeeld hiervan vindt u de [Snapshot Debugger documentatie.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetrie-Modules (ASP.NET)
 Elke module telemetrie een specifiek type gegevens verzamelt en maakt gebruik van de core API om de gegevens te verzenden. De modules worden geïnstalleerd door verschillende NuGet-pakketten, die ook de vereiste regels aan het .config-bestand toevoegen.
@@ -49,7 +49,7 @@ U kunt ook uw eigen afhankelijkheid bijhouden met behulp van code schrijven de [
 [Systeemprestatiemeteritems verzamelt](../../azure-monitor/app/performance-counters.md) , zoals CPU, geheugen en het netwerk laden van de IIS-installaties. U kunt opgeven welke items u wilt verzamelen, met inbegrip van prestatiemeteritems die u zelf hebt gedefinieerd.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-pakket.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Diagnostische gegevens telemetrie van Application Insights
 De `DiagnosticsTelemetryModule` fouten in de code van de Application Insights-instrumentation zelf worden gemeld. Bijvoorbeeld, als de code heeft geen toegang prestatiemeteritems tot of als een `ITelemetryInitializer` een uitzondering genereert. Met deze module wordt bijgehouden-tracetelemetrie wordt weergegeven in de [diagnostische gegevens doorzoeken][diagnostic]. Diagnostische gegevens verzendt naar dc.services.vsallin.net.
@@ -67,13 +67,13 @@ De `DiagnosticsTelemetryModule` fouten in de code van de Application Insights-in
 Rapporten de [tijd en resultaat antwoordcode](../../azure-monitor/app/asp-net.md) van HTTP-aanvragen.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet-pakket
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 
 ### <a name="exception-tracking"></a>Uitzonderingen bijhouden
 `ExceptionTrackingTelemetryModule` onverwerkte uitzonderingen worden bijgehouden in uw web-app. Zie [fouten en uitzonderingen][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet-pakket
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -nummers [taak uitzonderingen onopgemerkt](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` -niet-verwerkte uitzonderingen voor werkrollen, windows-services en consoletoepassingen worden bijgehouden.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet-pakket.
@@ -180,7 +180,7 @@ Deze parameters van invloed op hoe de Java-SDK moet opslaan en leegmaken van de 
 #### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
 Het aantal telemetrie-items die kunnen worden opgeslagen in de SDK in-memory-opslag. Wanneer dit aantal is bereikt, wordt de telemetrie-buffer worden leeggemaakt - dat wil zeggen, de telemetrie-items worden verzonden naar de Application Insights-server.
 
-* Min.: 1
+* Min: 1
 * Max.: 1000
 * Standaard: 500
 
@@ -198,7 +198,7 @@ Het aantal telemetrie-items die kunnen worden opgeslagen in de SDK in-memory-ops
 #### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
 Bepaalt hoe vaak de gegevens die zijn opgeslagen in de opslag in het geheugen moet worden leeggemaakt (verzonden naar Application Insights).
 
-* Min.: 1
+* Min: 1
 * Max.: 300
 * Standaard: 5
 
@@ -216,7 +216,7 @@ Bepaalt hoe vaak de gegevens die zijn opgeslagen in de opslag in het geheugen mo
 #### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
 Bepaalt de maximale grootte in MB die is toegewezen aan de permanente opslag op de lokale schijf. Deze opslag wordt gebruikt voor persistente telemetrie-items die niet worden verzonden naar het eindpunt van de Application Insights. Wanneer de maximale grootte is bereikt, gaan nieuwe telemetrie-items verloren.
 
-* Min.: 1
+* Min: 1
 * Max.: 100
 * Standaard: 10
 
@@ -297,7 +297,7 @@ Het doel van deze provider is voor het opzoeken van een toepassings-ID op basis 
 
 Deze optie is beschikbaar door in te stellen `TelemetryConfiguration.ApplicationIdProvider` in code of configuratie.
 
-### <a name="interface-iapplicationidprovider"></a>-Interface: IApplicationIdProvider
+### <a name="interface-iapplicationidprovider"></a>Interface: IApplicationIdProvider
 
 ```csharp
 public interface IApplicationIdProvider

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329163"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540581"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Rolling upgrades van cloud-Apps beheren met behulp van SQL-Database van actieve geo-replicatie
 
@@ -103,7 +103,21 @@ Als u wilt maken het mogelijk is de upgrade terugdraaien, moet u een faseringsom
 Wanneer de voorbereidende stappen voltooid zijn, is de staging-omgeving gereed is voor de upgrade. Het volgende diagram illustreert deze stappen voor de upgrade:
 
 1. De primaire database instellen in de productie-omgeving naar de modus alleen-lezen (10). In deze modus wordt gegarandeerd dat de productiedatabase (V1) niet worden gewijzigd tijdens de upgrade, waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1 en V2-database-exemplaren.
-2. Verbinding met het verbreken van de secundaire database in dezelfde regio met behulp van de geplande beëindiging-modus (11). Deze actie maakt een onafhankelijke maar volledig gesynchroniseerde kopie van de productiedatabase. Deze database wordt bijgewerkt.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Geo-replicatie beëindigen door de secundaire (11). Deze actie maakt een onafhankelijke maar volledig gesynchroniseerde kopie van de productiedatabase. Deze database wordt bijgewerkt. Het volgende voorbeeld maakt gebruik van Transact-SQL, maar [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) is ook beschikbaar. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Voer het script bijwerken op basis van `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, en de primaire faseringsdatabase (12). Wijzigingen in de database zal automatisch worden gerepliceerd naar de secundaire fasering.
 
 ![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

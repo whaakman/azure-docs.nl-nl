@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403105"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518555"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -47,7 +47,7 @@ De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer in
 
 U moet een sjabloon te implementeren. Als u dit niet al hebt, downloaden en slaat u een [voorbeeldsjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) vanuit de opslagplaats voor Azure Quickstart-sjablonen. De lokale bestandsnaam gebruikt in dit artikel is **c:\MyTemplates\azuredeploy.json**.
 
-Tenzij u de [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) voor het implementeren van sjablonen, moet u Azure PowerShell installeren en verbinding maken met Azure:
+Tenzij u de Azure Cloud shell gebruiken om sjablonen te implementeren, moet u Azure PowerShell installeren en verbinding maken met Azure:
 
 - **Azure PowerShell-cmdlets installeren op uw lokale computer.** Zie [Aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps) voor meer informatie.
 - **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).

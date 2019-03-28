@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d1b5125c2e3904900adb0a121d60cba8a1731d43
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499638"
+ms.locfileid: "58516889"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>De Azure Portal gebruiken om shares te beheren in uw Azure Data Box Gateway 
 
@@ -84,6 +84,9 @@ De lijst met shares wordt bijgewerkt en de verwijderde share wordt niet meer wee
 
 Met de functie Vernieuwen kunt u de inhoud van een on-premises share vernieuwen. Wanneer u een share vernieuwt, wordt er een zoekopdracht gestart om de Azure-objecten te zoeken, inclusief blobs en bestanden die aan de cloud zijn toegevoegd na de laatste vernieuwing. Deze aanvullende bestanden worden vervolgens gebruikt om de inhoud te vernieuwen van de on-premises share op het apparaat. 
 
+> [!NOTE]
+> Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking. 
+
 Voer in de Azure Portal de volgende stappen uit om een share te vernieuwen.
 
 1.  Ga in de Azure Portal naar **Shares**. Klik op de share die u wilt vernieuwen.
@@ -107,7 +110,7 @@ Voer in de Azure Portal de volgende stappen uit om een share te vernieuwen.
 Als er een fout optreedt, wordt er een waarschuwing gegenereerd. De waarschuwing bevat meer informatie over de oorzaak en een aanbeveling om het probleem te verhelpen. De waarschuwing bevat ook een koppeling naar een bestand dat een volledig overzicht bevat van de fouten en van de bestanden die niet zijn bijgewerkt of verwijderd.
 
 >[!IMPORTANT]
-> In deze preview-versie is het niet mogelijk om meer dan één share tegelijk te vernieuwen.
+> In deze release niet vernieuwen meer dan één share op een tijdstip.
 
 ## <a name="sync-storage-keys"></a>Opslagsleutels synchroniseren
 

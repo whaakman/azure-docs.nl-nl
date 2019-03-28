@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472851"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519881"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Quickstart: Een Cognitive Services-account maken in Azure portal
 
@@ -33,27 +33,6 @@ Voordat u begint, is het belangrijk te weten dat er twee soorten Azure Cognitive
 
 De volgende secties helpen u bij het maken van een abonnement één of meerdere services.
 
-### <a name="single-service-subscription"></a>Enkele service-abonnement
-
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en klikt u op **+ een resource maken**.
-
-    ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. Selecteer onder Azure Marketplace, **AI + Machine Learning**. Als u de service u geïnteresseerd bent in niet ziet, klikt u op **alle** om de volledige catalogus van Cognitive Services API's weer te geven.
-
-    ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. Op de **maken** pagina, geef de volgende informatie:
-
-    |    |    |
-    |--|--|
-    | **Naam** | Een beschrijvende naam voor uw cognitive services-resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFaceAPIAccount*. |
-    | **Abonnement** | Selecteer een van uw beschikbare Azure-abonnementen. |
-    | **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
-    | **Prijscategorie** | De kosten van uw Cognitive Services-account, is afhankelijk van de opties die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) waarin uw Cognitive Services-resource. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
-
-    ![Maken van het scherm](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### <a name="multi-service-subscription"></a>Meerdere service-abonnement
 
@@ -80,6 +59,28 @@ De volgende secties helpen u bij het maken van een abonnement één of meerdere 
     | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) waarin uw Cognitive Services-resource. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
 
     ![Maken van het scherm](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### <a name="single-service-subscription"></a>Enkele service-abonnement
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en klikt u op **+ een resource maken**.
+
+    ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. Selecteer onder Azure Marketplace, **AI + Machine Learning**. Als u de service u geïnteresseerd bent in niet ziet, klikt u op **alle** om de volledige catalogus van Cognitive Services API's weer te geven.
+
+    ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. Op de **maken** pagina, geef de volgende informatie:
+
+    |    |    |
+    |--|--|
+    | **Naam** | Een beschrijvende naam voor uw cognitive services-resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFaceAPIAccount*. |
+    | **Abonnement** | Selecteer een van uw beschikbare Azure-abonnementen. |
+    | **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+    | **Prijscategorie** | De kosten van uw Cognitive Services-account, is afhankelijk van de opties die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) waarin uw Cognitive Services-resource. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
+
+    ![Maken van het scherm](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>Toegang tot uw resource
 

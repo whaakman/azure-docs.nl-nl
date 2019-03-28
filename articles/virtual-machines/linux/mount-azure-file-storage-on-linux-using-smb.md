@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: bc4de2d406ea2c1814825daf89d5e6a576c94036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764809"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540054"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een nieuw opslagaccount, binnen de resourcegroep die u hebt gemaakt, met behulp van [az storage-account maken](/cli/azure/storage/account). Dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT<random number>*  en plaatst u de naam van dat opslagaccount in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` enkele toegevoegd aan het einde uniek te maken.
+Maak een nieuw opslagaccount, binnen de resourcegroep die u hebt gemaakt, met behulp van [az storage-account maken](/cli/azure/storage/account). Dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT\<willekeurig getal >* en plaatst u de naam van dat opslagaccount in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` enkele toegevoegd aan het einde uniek te maken.
 
 ```bash
 STORAGEACCT=$(az storage account create \

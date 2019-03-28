@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405110"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518742"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -211,7 +211,7 @@ Configuratie van de indexeerfunctie is in de hoofdtekst van de aanvraag. Hiervoo
 
 Planning en parameters zijn optioneel. Als u ze niet opgeeft, de indexeerfunctie wordt uitgevoerd onmiddellijk, met behulp van `json` als de modus voor het parseren.
 
-Deze specifieke indexeerfunctie bevat geen [veldtoewijzingen](#field-mappings). In het definitie van de indexeerfunctie, u kunt weglaten **veldtoewijzingen** als de eigenschappen van de bron-JSON-document overeenkomt met de velden van uw doel search-index. 
+Deze specifieke indexeerfunctie bevat geen veld-verwijzingen. In het definitie van de indexeerfunctie, u kunt weglaten **veldtoewijzingen** als de eigenschappen van de bron-JSON-document overeenkomt met de velden van uw doel search-index. 
 
 
 ### <a name="rest-example"></a>REST-voorbeeld
@@ -253,7 +253,7 @@ Alle indexeerfuncties vereisen een doelindex waarin de gegevens worden ontvangen
 
 ### <a name="indexer-request"></a>Indexeerfunctie voor aanvraag
 
-Deze aanvraag bevat een indexeerfunctie volledig opgegeven. Het bevat [veldtoewijzingen](#field-mappings), die in de vorige voorbeelden zijn weggelaten. Intrekken van 'schema', 'parameters' en 'fieldMappings' zijn optioneel, zolang er een standaardinstelling beschikbaar is. Als u weglaat 'plannen' zorgt ervoor dat de indexeerfunctie onmiddellijk wilt uitvoeren. Als "parsingMode" zorgt ervoor dat de index van de standaard 'json'.
+Deze aanvraag bevat een indexeerfunctie volledig opgegeven. Het bevat veldtoewijzingen, die zijn opgegeven in de vorige voorbeelden. Intrekken van 'schema', 'parameters' en 'fieldMappings' zijn optioneel, zolang er een standaardinstelling beschikbaar is. Als u weglaat 'plannen' zorgt ervoor dat de indexeerfunctie onmiddellijk wilt uitvoeren. Als "parsingMode" zorgt ervoor dat de index van de standaard 'json'.
 
 Het maken van de indexeerfunctie voor Azure Search, activeert het importeren van gegevens. Deze wordt uitgevoerd onmiddellijk, en daarna volgens een schema als u een hebt opgegeven.
 

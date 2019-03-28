@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749029"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540479"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Herstellen van een Azure SQL Database of een failover naar een secundaire
 
@@ -32,6 +32,13 @@ Zie voor meer informatie over scenario's voor zakelijke continuïteit en de onde
 
 > [!NOTE]
 > Als u zone-redundante Premium en bedrijfskritiek databases of pools, het herstelproces is geautomatiseerd en de rest van dit materiaal is niet van toepassing.
+
+> [!NOTE]
+> Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat de secundaire database is gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Zie voor meer informatie, [upgraden of downgraden als primaire database](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Een of meer failovergroepen gebruiken voor het beheren van failovers van meerdere databases.
+> Als u een bestaande geo-replicatie-relatie aan de failovergroep toevoegt, zorg er dan voor dat de geo-secundaire is geconfigureerd met de dezelfde servicelaag en de grootte van de compute als de primaire. Zie voor meer informatie, [automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Voorbereiden voor het geval van een storing
 
@@ -73,6 +80,7 @@ Gebruik een van de volgende handleidingen voor failover naar een secundaire data
 
 - [Failover naar een geo-replicatie secundaire server met behulp van de Azure portal](sql-database-geo-replication-portal.md)
 - [Een failover uitvoeren naar de secundaire server met behulp van PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Failover naar een secundaire server met behulp van Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Herstellen met behulp van geo-herstel
 
@@ -90,7 +98,7 @@ Zie voor meer informatie over het wijzigen van tekenreeksen voor databaseverbind
 
 ### <a name="configure-firewall-rules"></a>Firewall-regels configureren
 
-U moet ervoor zorgen dat de firewallregels op server en op de database geconfigureerd overeenkomen met die die zijn geconfigureerd op de primaire server en de primaire database. Zie voor meer informatie, [het: Configureer Firewall-instellingen (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+U moet ervoor zorgen dat de firewallregels op server en op de database geconfigureerd overeenkomen met die die zijn geconfigureerd op de primaire server en de primaire database. Zie voor meer informatie [Procedure: Configureer Firewall-instellingen (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Aanmeldingen en databasegebruikers configureren
 

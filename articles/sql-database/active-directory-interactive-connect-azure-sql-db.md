@@ -12,45 +12,41 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7f151c45920a51b3c9a25f36de34b2c1800e4e71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834588"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520680"
 ---
-# <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Verbinding maken met Azure SQL Database met Active Directory-MFA
+# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Verbinding maken met Azure SQL Database met Azure multi-factor Authentication
 
-Dit artikel bevat een C# programma dat is verbonden met uw Microsoft Azure SQL-Database. Het programma wordt gebruikt voor verificatie in de interactieve modus, die ondersteuning biedt voor [Azure Active Directory (Azure AD) Multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Dit artikel bevat een C# programma dat verbinding met Azure SQL Database maakt. Het programma wordt gebruikt voor verificatie in de interactieve modus, die ondersteuning biedt voor [Azure multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
-Zie voor meer informatie over MFA-ondersteuning voor SQL-hulpprogramma's, [ondersteuning van Azure Active Directory in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
+Zie voor meer informatie over multi-factor Authentication-ondersteuning voor SQL-hulpprogramma's, [ondersteuning van Azure Active Directory in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
-## <a name="multi-factor-authentication-for-azure-sql-database"></a>Multi-factor authentication voor Azure SQL Database
+## <a name="multi-factor-authentication-for-azure-sql-database"></a>Multi-factor Authentication voor Azure SQL Database
 
-.NET Framework versie 4.7.2, de enum-waarde vanaf [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) heeft een nieuwe waarde - `ActiveDirectoryInteractive`. In een client C# -programma, de enum-waarde zorgt ervoor dat de interactieve modus MFA ondersteuning van Azure AD gebruiken voor verbinding met een Azure SQL Database. De gebruiker die het programma uitvoert, ziet het volgende dialoogvenster:
+.NET Framework versie 4.7.2, de enum-waarde vanaf [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) heeft een nieuwe waarde: `ActiveDirectoryInteractive`. In een client C# -programma, de enum-waarde zorgt ervoor dat het systeem moet worden gebruikt de interactieve modus van Azure Active Directory (Azure AD) die ondersteuning biedt voor multi-factor Authentication verbinding maken met een Azure SQL database. De gebruiker die het programma uitvoert, ziet het volgende dialoogvenster:
 
 * Een dialoogvenster waarin wordt weergegeven de naam van een Azure AD-gebruiker en wachtwoord van de gebruiker wordt gevraagd.
 
-   Als het domein van de gebruiker is gefedereerd met Azure AD, klikt u vervolgens dit dialoogvenster niet wordt weergegeven als er geen wachtwoord nodig is.
+   Als het domein van de gebruiker is gefedereerd met Azure AD, in dit dialoogvenster niet wordt weergegeven, omdat er geen wachtwoord nodig is.
 
-   Als het beleid voor Azure AD MFA opgelegd, de gebruiker, worden klikt u vervolgens de volgende twee dialoogvensters weergegeven.
+   Als het beleid voor Azure AD legt een multi-factor Authentication de gebruiker, worden de volgende twee dialoogvensters worden weergegeven.
 
-* De eerste keer dat een gebruiker via MFA verloopt, geeft het systeem een dialoogvenster waarin wordt gevraagd voor een mobiel telefoonnummer SMS-berichten te verzenden. Elk bericht bevat de *verificatiecode* die de gebruiker moet invoeren in het volgende dialoogvenster.
+* De eerste keer dat een gebruiker multi-factor Authentication, doorloopt geeft een dialoogvenster waarin u wordt gevraagd voor een mobiel telefoonnummer voor het verzenden van SMS-berichten op het systeem. Elk bericht bevat de *verificatiecode* die de gebruiker moet invoeren in het volgende dialoogvenster.
 
-* Een dialoogvenster waarin wordt gevraagd voor een MFA-verificatiecode, die het systeem naar een mobiele telefoon is verzonden.
+* Een dialoogvenster waarin u wordt gevraagd een verificatiecode multi-Factor Authentication, die het systeem naar een mobiele telefoon is verzonden.
 
-Zie voor meer informatie over het configureren van Azure AD om MFA te vereisen [aan de slag met Azure multi-factor Authentication in de cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+Zie voor meer informatie over het configureren van Azure AD om te vereisen dat multi-factor Authentication [aan de slag met Azure multi-factor Authentication in de cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
 Zie voor schermafbeeldingen van deze dialoogvensters [meervoudige verificatie configureren voor SQL Server Management Studio en Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!TIP]
-> U kunt zoeken naar .NET Framework-API's met onze **.NET API-Browser** hulpprogramma-pagina:
+> U kunt zoeken naar .NET Framework-API's met de [.NET API-Browser hulpprogramma pagina](https://docs.microsoft.com/dotnet/api/).
 >
-> [https://docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/)
->
-> U kunt ook zoeken naar rechtstreeks met de optionele **? term =&lt;waarde zoeken&gt;**  parameter:
->
-> [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
+> U kunt ook zoeken naar rechtstreeks met de [optioneel? term =&lt;waarde zoeken&gt; parameter](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Configureer uw C# toepassing in Azure portal
 
@@ -58,70 +54,67 @@ Voordat u begint, moet u een [Azure SQL Database-server](sql-database-get-starte
 
 ### <a name="register-your-app-and-set-permissions"></a>Uw app registreren en machtigingen instellen
 
+Gebruik van Azure AD-verificatie, uw C# programma heeft als een Azure AD-toepassing wilt registreren. Voor het registreren van een app, moet u een Azure AD-beheerder of de Azure AD aan een gebruiker toegewezen *toepassingsontwikkelaar* rol. Zie voor meer informatie over het toewijzen van rollen [beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-Gebruik van Azure AD-verificatie, uw C# programma heeft als een Azure AD-toepassing wilt registreren. Voor het registreren van een app, moet u een Azure AD-beheerder of de Azure AD aan een gebruiker toegewezen *toepassingsontwikkelaar* rol. Zie voor meer informatie over het toewijzen van rollen [beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
-
- Voltooien van de registratie van een app genereert en toont een **toepassings-ID**. Uw programma heeft om op te nemen van deze ID om verbinding te maken.
-
+Voltooien van de registratie van een app genereert en toont een **toepassings-ID**. Uw programma heeft om op te nemen van deze ID om verbinding te maken.
 
 Om te registreren en de benodigde machtigingen instellen voor uw toepassing:
 
-1. Azure portal > **Azure Active Directory** > **App-registraties** > **nieuwe toepassing registreren**
+1. Selecteer in de Azure portal, **Azure Active Directory** > **App-registraties** > **nieuwe toepassing registreren**.
 
     ![App-registratie](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-    Zodra de app-registratie is gemaakt, de **toepassings-ID** waarde wordt gegenereerd en weergegeven.
+    Nadat de app-registratie is gemaakt, de **toepassings-ID** waarde wordt gegenereerd en weergegeven.
 
     ![App-ID weergeven](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. **Geregistreerde app** > **instellingen** > **vereiste machtigingen** > **toevoegen**
+2. Selecteer **geregistreerde app** > **instellingen** > **vereiste machtigingen** > **toevoegen**.
 
     ![Machtigingsinstellingen voor geregistreerde app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. **Vereiste machtigingen** > **toevoegen** > **Select an API** > **Azure SQL Database**
+3. Selecteer **vereiste machtigingen** > **toevoegen** > **Select an API** > **Azure SQL Database**.
 
     ![Toegang tot API voor Azure SQL Database toevoegen](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. **API-toegang** > **machtigingen selecteren** > **gedelegeerde machtigingen**
+4. Selecteer **API-toegang** > **machtigingen selecteren** > **overgedragen machtigingen**.
 
     ![Het overdragen van machtigingen voor API voor Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 ### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>Een Azure AD-beheerder voor uw SQL Database-server instellen
 
+Voor uw C# programma om uit te voeren, een Azure SQL server-beheerder moet een Azure AD-beheerder voor uw SQL Database-server toewijzen. 
 
-Voor uw C# programma om uit te voeren, een Azure SQL server-beheerder moet een Azure AD-beheerder voor uw Azure SQL-server toewijzen. 
+Op de **SQL Server** weergeeft, schakelt **Active Directory-beheerder** > **beheerder instellen**.
 
- * **SQL Server** > **Active Directory-beheerder** > **beheerder instellen**
-
-Zie voor meer informatie over Azure AD-beheerders en gebruikers voor Azure SQL Database, de schermafbeeldingen in [configureren en beheren van Azure Active Directory-verificatie met SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in de sectie **inrichten van een Azure Active Directory-beheerder voor uw Azure SQL Database-server**.
+Zie voor meer informatie over Azure AD-beheerders en gebruikers voor Azure SQL Database, de schermafbeeldingen in [configureren en beheren van Azure Active Directory-verificatie met SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
 ### <a name="add-a-non-admin-user-to-a-specific-database-optional"></a>Een gebruiker niet-beheerders toevoegen aan een specifieke database (optioneel)
 
 Een Azure AD-beheerder voor een SQL Database-server kan worden uitgevoerd de C# voorbeeldprogramma. Een Azure AD-gebruiker kan het programma uitvoeren als ze zich in de database. Een Azure AD-SQL-beheerder of een Azure AD-gebruiker die al bestaat in de database en heeft de `ALTER ANY USER` machtiging voor de database een gebruiker kunt toevoegen.
 
-U kunt een gebruiker toevoegen aan de database met behulp van de SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) opdracht. Bijvoorbeeld `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+U kunt een gebruiker toevoegen aan de database met behulp van de SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) opdracht. Een voorbeeld is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Zie voor meer informatie, [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database Managed Instance of SQL Data Warehouse](sql-database-aad-authentication.md).
 
 ## <a name="new-authentication-enum-value"></a>Nieuwe verificatie enum-waarde
 
-De C# voorbeeld is afhankelijk van de [ `System.Data.SqlClient` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) naamruimte. Is van belang zijn speciaal voor multi-factor authentication de enum `SqlAuthenticationMethod`, heeft de volgende waarden:
+De C# voorbeeld is afhankelijk van de [ `System.Data.SqlClient` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) naamruimte. Is van belang zijn speciaal voor multi-factor Authentication de enum `SqlAuthenticationMethod`, heeft de volgende waarden:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
-   Gebruik deze waarde met de naam van een Azure AD-gebruiker voor het implementeren van MFA. Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door het weergeven van dialoogvensters voor het wachtwoord van de gebruiker, en vervolgens voor MFA-validatie als MFA is ingesteld op deze gebruiker. Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
+   Gebruik deze waarde met de naam van een Azure AD-gebruiker voor het implementeren van multi-factor Authentication. Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door dialoogvensters wachtwoord van de gebruiker en klik vervolgens voor de validatie van de multi-factor Authentication weergegeven als multi-factor Authentication is die zijn opgelegd voor deze gebruiker. Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  Gebruik deze waarde voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze verificatiemethode biedt geen ondersteuning voor MFA.
+  Gebruik deze waarde voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze verificatiemethode biedt geen ondersteuning voor multi-factor Authentication.
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-  Deze waarde gebruiken voor verificatie met een Azure AD-gebruikersnaam en wachtwoord zijn vereist. Azure SQL Database doet de verificatie. Deze methode biedt geen ondersteuning voor MFA.
+  Deze waarde gebruiken voor verificatie met een Azure AD-gebruikersnaam en wachtwoord zijn vereist. Azure SQL Database doet de verificatie. Deze methode biedt geen ondersteuning voor multi-factor Authentication.
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Stel C# parameterwaarden vanuit Azure portal
 
-Voor de C# programma moeten worden uitgevoerd, moet u de juiste waarden toewijzen aan statische velden. Hier wordt weergegeven, zijn de velden met voorbeelden van waarden. Ook wordt weergegeven, zijn de Azure-portal locaties waar u de benodigde waarden kunt krijgen:
+Voor de C# programma moeten worden uitgevoerd, moet u de juiste waarden toewijzen aan statische velden. Hier wordt weergegeven, zijn de velden met voorbeelden van waarden. Ook wordt weergegeven, zijn de Azure-portal locaties waar u de benodigde waarden kunt krijgen.
 
 | Statische veldnaam | Voorbeeldwaarde | Waar in Azure portal |
 | :---------------- | :------------ | :-------------------- |
@@ -129,25 +122,25 @@ Voor de C# programma moeten worden uitgevoerd, moet u de juiste waarden toewijze
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **gebruiker** > **nieuwe gastgebruiker** |
 | Initial_DatabaseName | "myDatabase" | **SQL-servers** > **SQL-databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > **toepassings-ID** |
-| RedirectUri | nieuwe Uri ("https://mywebserver.com/") | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > *[Your-App-Gereg]*  >  **Instellingen** > **RedirectURIs**<br /><br />In dit artikel is geldige waarde is prima voor RedirectUri, zoals het hier niet wordt gebruikt. |
+| RedirectUri | nieuwe Uri ("https://mywebserver.com/") | **Azure Active Directory** > **App-registraties** > **zoeken op naam** > *[uw App-registratie]*  >  **Instellingen** > **RedirectURIs**<br /><br />In dit artikel is geldige waarde is prima voor RedirectUri, omdat het hier niet wordt gebruikt. |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="verify-with-sql-server-management-studio-ssms"></a>Controleer of met SQL Server Management Studio (SSMS)
+## <a name="verify-with-sql-server-management-studio"></a>Verifiëren met SQL Server Management Studio
 
-Voordat u de C# -programma, is het een goed idee om te controleren of uw instellingen en configuraties in SSMS juist zijn. Alle C# programma storing kan vervolgens worden teruggebracht tot de broncode.
+Voordat u de C# -programma, is het een goed idee om te controleren of uw instellingen en configuraties juist in SQL Server Management Studio (SSMS) zijn. Alle C# programma storing kan vervolgens worden teruggebracht tot de broncode.
 
 ### <a name="verify-sql-database-firewall-ip-addresses"></a>Controleer of IP-adressen voor SQL Database-firewall
 
-SSMS uitvoeren vanaf dezelfde computer, in hetzelfde gebouw, waar u van plan bent om uit te voeren de C# programma. Voor deze test alle **verificatie** modus klopt. Als er een indicatie dat de firewall van de database-server is niet worden gebruikt voor het accepteren van uw IP-adres, Zie [Azure SQL Database op serverniveau en databaseniveau firewallregels](sql-database-firewall-configure.md) voor hulp.
+SSMS uitvoeren vanaf dezelfde computer, in hetzelfde gebouw, waar u van plan bent om uit te voeren de C# programma. Voor deze test alle **verificatie** modus is OK. Als er een indicatie dat de firewall van de database-server is niet worden gebruikt voor het accepteren van uw IP-adres, Zie [Azure SQL Database op serverniveau en databaseniveau firewallregels](sql-database-firewall-configure.md) voor hulp.
 
-### <a name="verify-azure-active-directory-mfa"></a>Verify Azure Active Directory MFA
+### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Controleer of Active Directory van Azure multi-factor Authentication
 
 SSMS opnieuw uitvoert, dit keer met **verificatie** ingesteld op **Active Directory - Universal met ondersteuning voor MFA**. Deze optie vereist SSMS 17,5 of hoger.
 
-Zie voor meer informatie, [configureren multi-factor authentication voor SSMS en Azure AD](sql-database-ssms-mfa-authentication-configure.md).
+Zie voor meer informatie, [multi-factor Authentication configureren voor SSMS en Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Als u een gastgebruiker in de database, moet u ook opgeven de naam van de Azure AD-domein voor de database - **opties** > **AD-domein of tenant-ID**. Als u zoekt de domeinnaam in Azure portal, selecteert u **Azure Active Directory** > **aangepaste-domeinnamen**. In de C# voorbeeldprogramma biedt een domeinnaam is niet nodig.
+> Als u een gastgebruiker in de database bent, moet u ook de naam van de Azure AD-domein voor de database te geven: Selecteer **opties** > **AD-domein of tenant-ID**. Als u zoekt de domeinnaam in Azure portal, selecteert u **Azure Active Directory** > **aangepaste-domeinnamen**. In de C# voorbeeldprogramma biedt een domeinnaam is niet nodig.
 
 ## <a name="c-code-example"></a>Voorbeeld van C#-code
 
@@ -155,7 +148,7 @@ Het voorbeeld C# programma is afhankelijk van de [ *Microsoft.IdentityModel.Clie
 
 Als u wilt dit pakket installeren in Visual Studio, selecteer **Project** > **NuGet-pakketten beheren**. Zoek en installeer **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
-### <a name="c-source-code"></a>C#broncode
+Dit is een voorbeeld van C# broncode.
 
 ```csharp
 
@@ -247,11 +240,11 @@ namespace ADInteractive5
                 Console.ResetColor();
             }
         }
-    } // EOClass Program .
+    } // EOClass Program.
 
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
-    /// authentication methods.  The methods are supported in the new .NET 4.7.2 .
+    /// authentication methods.  The methods are supported in the new .NET 4.7.2.
     ///  . 
     /// 1. Interactive,  2. Integrated,  3. Password
     ///  . 
@@ -318,14 +311,14 @@ namespace ADInteractive5
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryInteractive
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryPassword;
         }
-    } // EOClass ActiveDirectoryAuthProvider .
+    } // EOClass ActiveDirectoryAuthProvider.
 } // EONamespace.  End of entire program source code.
 
 ```
 
 &nbsp;
 
-#### <a name="actual-test-output-from-c"></a>Werkelijke testuitvoer van C#
+Dit is een voorbeeld van de C# uitvoer testen.
 
 ```
 [C:\Test\VSProj\ADInteractive5\ADInteractive5\bin\Debug\]

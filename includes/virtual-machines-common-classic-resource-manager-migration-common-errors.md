@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319752"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505678"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Algemene fouten bij de migratie van klassiek naar Azure Resource Manager
 In dit artikel behandelen we de meest voorkomende fouten en oplossingen tijdens de migratie van IaaS-resources van het klassieke Azure-implementatiemodel naar de Azure Resource Manager-stack.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Lijst met fouten
 
@@ -22,7 +24,7 @@ In dit artikel behandelen we de meest voorkomende fouten en oplossingen tijdens 
 | Migratie wordt niet ondersteund voor de implementatie {naam-implementatie} in HostedService {naam-gehoste-service} omdat dit een PaaS-implementatie (web-/werkrol) is. |Dit gebeurt wanneer een implementatie een web-/werkrol bevat. Omdat de migratie alleen wordt ondersteund voor virtuele machines, moet u de web-/werkrol uit de implementatie verwijderen. Probeer hierna het opnieuw. |
 | Sjabloonimplementatie {sjabloonnaam} is mislukt. CorrelationId = {guid} |In de back-end van de migratieservice gebruiken we Azure Resource Manager-sjablonen om resources te maken in de Azure Resource Manager-stack. Aangezien sjablonen idempotent zijn, kunt u de migratiebewerking meestal veilig opnieuw proberen om deze fout te verhelpen. Als deze fout zich blijft voordoen, [neemt u contact op met de ondersteuning van Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) en verstrekt u hen de CorrelationId. <br><br> **OPMERKING:** Zodra het incident wordt gevolgd door het ondersteuningsteam,. Probeer niet alle zelfstandige risicobeperking omdat deze mogelijk ongewenste gevolgen voor uw omgeving. |
 | Het virtuele netwerk {naam-virtueel-netwerk} bestaat niet. |Dit kan gebeuren als u het virtuele netwerk hebt gemaakt in de nieuwe Azure portal. De werkelijke naam van het virtuele netwerk heeft de indeling 'Groep * <VNET name>' |
-| VM {vm-naam} in HostedService {naam-gehoste-service} bevat de extensie {naam-extensie}. Deze wordt niet ondersteund in Azure Resource Manager. We raden u aan deze te verwijderen uit de virtuele machine voordat u doorgaat met de migratie. |XML-extensies, zoals BGInfo 1.* worden niet ondersteund in Azure Resource Manager. Daarom kunnen deze extensies niet worden gemigreerd. Als deze uitbreidingen geïnstalleerd blijven op de virtuele machine, worden ze automatisch verwijderd voordat de migratie is voltooid. |
+| VM {vm-naam} in HostedService {naam-gehoste-service} bevat de extensie {naam-extensie}. Deze wordt niet ondersteund in Azure Resource Manager. We raden u aan deze te verwijderen uit de virtuele machine voordat u doorgaat met de migratie. |XML-extensies, zoals BGInfo-1. \* worden niet ondersteund in Azure Resource Manager. Daarom kunnen deze extensies niet worden gemigreerd. Als deze uitbreidingen geïnstalleerd blijven op de virtuele machine, worden ze automatisch verwijderd voordat de migratie is voltooid. |
 | VM {vm-naam} in HostedService {naam-gehoste-service} bevat de extensie VMSnapshot/VMSnapshotLinux. Deze wordt momenteel niet ondersteund voor migratie. Verwijder deze uit de virtuele machine en voeg de extensie opnieuw toe met Azure Resource Manager nadat de migratie is voltooid |Dit is het scenario waarin de virtuele machine is geconfigureerd voor Azure Backup. Aangezien dit momenteel een niet-ondersteund scenario is, moet u de oplossing op https://aka.ms/vmbackupmigration |
 | VM {vm-naam} in HostedService {naam-gehoste-service} bevat de extensie {naam-extensie}. De status van deze extensie wordt niet gerapporteerd door de VM. Daarom kan deze virtuele machine niet worden gemigreerd. Zorg ervoor dat de status van de extensie wordt gerapporteerd of verwijder de extensie uit de virtuele machine en voer de migratie nogmaals uit. <br><br> VM {vm-naam} in HostedService {naam-gehoste-service} bevat de extensie {naam-extensie}. Deze rapporteert de volgende handlerstatus: {handlerstatus}. Daarom kan de virtuele machine niet worden gemigreerd. Zorg ervoor dat de status van de extensiehandler die wordt gerapporteerd {handlerstatus} is of verwijder de extensie uit de virtuele machine en voer de migratie nogmaals uit. <br><br> VM-agent voor de virtuele machine {vm-naam} in HostedService {naam-gehoste-service} rapporteert de algehele agentstatus Niet gereed. Daarom kan de virtuele machine niet worden gemigreerd, als deze een extensie heeft die kan worden gemigreerd. Zorg ervoor dat de VM-agent de algehele agentstatus Gereed rapporteert. Raadpleeg https://aka.ms/classiciaasmigrationfaqs. |De Azure-gastagent en VM-extensies hebben uitgaande internettoegang nodig tot het VM-opslagaccount om hun status te vullen. Algemene oorzaken van de statusfout zijn <li> een netwerkbeveiligingsgroep waarmee uitgaande toegang tot het internet wordt geblokkeerd <li> Als het VNET on-premises DNS-servers en DNS-verbinding verbroken is <br><br> Als de melding dat een extensie niet wordt ondersteund nog steeds wordt weergegeven, kunt u de extensies verwijderen om deze controle over te slaan en verder te gaan met de migratie. |
 | Migratie wordt niet ondersteund voor de implementatie {naam-implementatie} in HostedService {naam-gehoste-service} omdat deze meerdere beschikbaarheidssets heeft. |Op dit moment kunnen alleen gehoste services die maximaal één beschikbaarheidsset hebben worden gemigreerd. U kunt dit probleem omzeilen. Verplaats de extra beschikbaarheidssets en virtuele machines in deze beschikbaarheidssets naar een andere gehoste service. |
@@ -44,7 +46,7 @@ Dit gebeurt wanneer de logische grootte van de gegevensschijf asynchroon kan lop
 
 #### <a name="verifying-the-issue"></a>Het probleem verifiëren
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Het probleem oplossen
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

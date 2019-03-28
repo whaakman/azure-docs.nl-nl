@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367879"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517229"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -112,4 +112,5 @@ U hebt geleerd hoe u regels maken in uw Azure IoT Central-toepassing, zijn hier 
 
 - [Microsoft Flow-actie toevoegen in regels](howto-add-microsoft-flow.md)
 - [Webhook-actie toevoegen in regels](howto-create-webhooks.md)
+- [Groep meerdere acties uit te voeren vanaf een of meer regels](howto-use-action-groups.md)
 - [Uw apparaten beheren](howto-manage-devices.md)

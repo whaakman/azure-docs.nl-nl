@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484425"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539629"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
@@ -40,7 +40,7 @@ Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met
 
 - [Ik zie een aanzienlijke afname van prestaties](#sync-perf)
 
-- [Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen?](#sync-nulls)
+- [Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom \<kolom >. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen?](#sync-nulls)
 
 - [Hoe wordt Data Sync kringverwijzingen verwerkt? Dat wil zeggen, wanneer dezelfde gegevens in meerdere synchronisatiegroepen is gesynchroniseerd en als gevolg hiervan blijft wijzigen?](#sync-circ)
 
@@ -105,7 +105,7 @@ De prestaties van uw vermindert aanzienlijk, mogelijk op het punt waar u de gebr
 
 - **Resolutie**. De beste oplossing is voorkomen. Zorg ervoor dat u geen kringverwijzingen in uw synchronisatiegroepen hebt. Een rij die is gesynchroniseerd met een synchronisatiegroep kan niet worden gesynchroniseerd door een andere synchronisatiegroep.
 
-### <a name="sync-nulls"></a> Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom <column>. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen? 
+### <a name="sync-nulls"></a> Kan ik ziet dit bericht: ' Kan niet de waarde NULL niet invoegen in de kolom \<kolom >. Kolom staat niet toe dat null-waarden." Wat betekent dit en hoe kan ik doen? 
 Dit foutbericht geeft aan dat een van de twee volgende problemen is opgetreden:
 -  Een tabel hebben niet een primaire sleutel. U kunt dit probleem oplossen, toevoegen een primaire sleutel voor alle tabellen die u synchroniseert.
 -  Er is een WHERE-component in de instructie CREATE INDEX is. Data Sync afhandelen niet van dit probleem. Om op te lossen dit probleem, verwijder de component WHERE of wijzigingen handmatig aanbrengen voor alle databases. 

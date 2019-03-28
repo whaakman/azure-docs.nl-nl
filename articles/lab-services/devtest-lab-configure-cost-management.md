@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096772"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517263"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>De kosten die zijn gekoppeld aan een lab in Azure DevTest Labs bijhouden
 In dit artikel bevat informatie over hoe u kunt de kosten van uw lab bijhouden. Het laat zien hoe u om weer te geven de geschatte kosten Theo voor de huidige kalendermaand voor de testomgeving. Het artikel ziet u ook de kosten maand tot heden per resource weergeven in het lab.
@@ -71,7 +71,7 @@ DevTest Labs kunt u beter de kosten in uw testomgeving door in te stellen van ee
    - Geef een **doel kosten**. Bijvoorbeeld hoeveel u van plan bent om te besteden in voor dit lab in de periode die u hebt gedefinieerd.
    - Selecteer deze optie in- of uitschakelen van een drempelwaarde dat u wilt, gerapporteerd: in stappen van 25% – maximaal 125% van de opgegeven **doel kosten**.
       - **Op de hoogte stellen**: Als deze drempelwaarde wordt voldaan, wordt u gewaarschuwd door een webhook-URL die u opgeeft.
-      - **Vykreslit v grafu**: Als deze drempelwaarde wordt voldaan, de resultaten worden weergegeven op de kosten trend grafiek die u weergeven kunt, zoals beschreven in [de grafiek maandelijkse Trend voor de geschatte kosten weergeven](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Vykreslit v grafu**: Als deze drempelwaarde wordt voldaan, worden de resultaten worden getekend op de kosten trend grafiek die u weergeven kunt, zoals beschreven in de grafiek maandelijkse Trend voor de geschatte kosten weergeven.
    - Als u wilt **waarschuwen** wanneer de drempelwaarde is bereikt, moet u een webhook-URL opgeven. Selecteer in het gebied van de integratie van kosten **Klik hier als u wilt toevoegen van een integratie**. Voer een **Webhook-URL** in het meldingsvenster configureren en selecteer vervolgens **OK**.
 
        ![Meldingsvenster configureren](./media/devtest-lab-configure-cost-management/configure-notification.png)

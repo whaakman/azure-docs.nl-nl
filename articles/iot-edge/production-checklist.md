@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433447"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521751"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Voorbereidingen voor het implementeren van uw IoT Edge-oplossing in productie
 
@@ -134,7 +134,7 @@ In de zelfstudies en andere documentatie vertelt u dezelfde container registerre
 
 ### <a name="use-tags-to-manage-versions"></a>Tags gebruiken voor het beheren van versies
 
-Een label is een Docker-concept kunt u onderscheid maken tussen de versies van Docker-containers. Tags zijn achtervoegsels, zoals **1.0** die gaat u aan het einde van de containeropslagplaats van een. Bijvoorbeeld, **mcr.microsoft.com/azureiotedge-agent:1.0**. Tags zijn veranderlijke en kunnen worden gewijzigd om te verwijzen naar een andere container op elk gewenst moment, zodat uw team op een overeenkomst te volgen bij het bijwerken van uw module installatiekopieën vooruit moet overeenkomen. 
+Een label is een docker-concept kunt u onderscheid maken tussen de versies van docker-containers. Tags zijn achtervoegsels, zoals **1.0** die gaat u aan het einde van de containeropslagplaats van een. Bijvoorbeeld, **mcr.microsoft.com/azureiotedge-agent:1.0**. Tags zijn veranderlijke en kunnen worden gewijzigd om te verwijzen naar een andere container op elk gewenst moment, zodat uw team op een overeenkomst te volgen bij het bijwerken van uw module installatiekopieën vooruit moet overeenkomen. 
 
 Labels helpen u om af te dwingen van updates op uw IoT Edge-apparaten. Wanneer u een bijgewerkte versie van een module naar het containerregister hebt gepusht, verhogen de tag. Push vervolgens een nieuwe implementatie naar uw apparaten met de tag verhoogd. De container-engine herkent de tag verhoogd als een nieuwe versie en de meest recente moduleversie naar uw apparaat wordt opgehaald. 
 
@@ -172,7 +172,7 @@ Deze controlelijst is een beginpunt voor firewall-regels:
    | \*.azurecr.io | 443 | Persoonlijke en 3e partij container Registry |
    | \*.blob.core.windows.net | 443 | Het downloaden van de installatiekopie van delta 's | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub-toegang |
-   | \*.docker.io  | 443 | Docker-toegang (optioneel) |
+   | \*.docker.io  | 443 | Docker Hub-toegang (optioneel) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Communicatie via een proxy configureren
 
@@ -186,16 +186,57 @@ Als uw apparaten worden geïmplementeerd op een netwerk dat gebruikmaakt van een
 
 ### <a name="set-up-logs-and-diagnostics"></a>Instellen van Logboeken en diagnostische gegevens
 
-Op Linux gebruikt de IoT Edge-daemon tijdschriften als de standaard logboekregistratie stuurprogramma. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-WinEvent` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit de standaardinstelling voor Docker is.  
+Op Linux gebruikt de IoT Edge-daemon tijdschriften als de standaard logboekregistratie stuurprogramma. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-WinEvent` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit is de standaardinstelling.  
 
 Wanneer u een IoT Edge-implementatie test, kunt u uw apparaten op te halen van Logboeken en oplossen van meestal openen. In een implementatiescenario, hebt u mogelijk geen die optie. Houd rekening met hoe u gegevens verzamelen over uw apparaten in productie gaat. Een optie is het gebruik van een logboekregistratiemodule die u verzamelt gegevens van de andere modules en verzendt dit naar de cloud. Een voorbeeld van een logboekregistratiemodule is [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), of u kunt ze zelf kunt ontwerpen. 
 
-Als u bang over Logboeken te groot is op een apparaat resource beperkt bent, hebt u een aantal opties voor het gebruik van geheugen verminderen. 
+### <a name="place-limits-on-log-size"></a>Plaats beperkingen met betrekking tot de grootte van logboekbestand
 
-* U kunt de grootte van alle docker-logboekbestanden in de Docker-daemon zelf specifiek beperken. Voor Linux, configureert u de daemon op `/etc/docker/daemon.json`. Voor Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* Als u de grootte van het logboekbestand voor elke container aanpassen wilt, kunt u dit doen in de CreateOptions van elke module. 
-* Docker voor het beheren van logboeken automatisch door in te stellen tijdschriften als de standaard-stuurprogramma van de logboekregistratie voor Docker configureren. 
-* Oude logboeken van uw apparaat periodiek verwijderen door het installeren van een logrotate-hulpprogramma voor Docker. Gebruik de specificatie van het volgende bestand: 
+Standaard wordt de container Moby engine maximale grootte van container logboek niet ingesteld. Dit kan na verloop van tijd leiden tot het apparaat wordt gevuld met Logboeken en bijna geen schijfruimte meer. Houd rekening met de volgende opties om dit te voorkomen:
+
+**Optie: Algemene beperkingen die van toepassing op alle modules van de container instellen**
+
+U kunt de grootte van alle container logboekbestanden in de container-engine logopties kunt beperken. In het volgende voorbeeld wordt het stuurprogramma van logboek ingesteld op `json-file` (aanbevolen) met beperkingen met betrekking tot de grootte en het aantal bestanden:
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Deze gegevens naar een bestand met de naam toevoegen (of toevoegen) `daemon.json` en plaats deze de juiste locatie voor uw apparaatplatform.
+
+| Platform | Locatie |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+De container-engine moet opnieuw worden gestart om de wijzigingen worden doorgevoerd.
+
+**Optie: Logboekinstellingen aanpassen voor elke containermodule**
+
+U kunt hiervoor de **createOptions** van elke module. Bijvoorbeeld:
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Extra opties op Linux-systemen**
+
+* Configureren van de container-engine voor het verzenden van logboeken naar `systemd` [logboek](https://docs.docker.com/config/containers/logging/journald/) door in te stellen `journald` als het standaard-stuurprogramma voor logboekregistratie. 
+
+* Verwijder regelmatig oude logboeken van uw apparaat door een hulpprogramma logrotate te installeren. Gebruik de specificatie van het volgende bestand: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

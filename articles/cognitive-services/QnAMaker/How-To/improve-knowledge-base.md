@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337422"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522193"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -208,7 +208,7 @@ Een geslaagde respons retourneert een status van 204 en er is geen JSON-antwoord
 
 Wanneer uw app actief leren ingeschakeld is, en u de app exporteren de `SuggestedQuestions` kolom in de tsv-bestand worden de gegevens actief leren bewaard. 
 
-De `SuggestedQuestions` kolom is een JSON-object van informatie van de impliciete (`autosuggested`) en expliciet (`usersuggested`) [feedback](#active-learning). Een voorbeeld van dit JSON-object voor een enkele gebruiker ingediend vraag van `help` is:
+De `SuggestedQuestions` kolom is een JSON-object van informatie van de impliciete (`autosuggested`) en expliciet (`usersuggested`) feedback. Een voorbeeld van dit JSON-object voor een enkele gebruiker ingediend vraag van `help` is:
 
 ```JSON
 [

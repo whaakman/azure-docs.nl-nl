@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087394"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541033"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>Voorbeelden van filters  
 
- Zoek alle hotels met een basistarief kleiner is dan $100 die worden beoordeeld op of boven de 4:  
+ Zoek alle hotels met een basistarief kleiner is dan $200 die worden beoordeeld op of boven de 4:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  Zoek alle hotels dan "Roach Motel" hebben is renovated sinds 2010:  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- Zoek alle hotels met een basistarief kleiner is dan $200 die u hebt zijn renovated sinds 2012, met een letterlijke datetime-waarde die informatie over de tijdzone voor Pacific (standaardtijd bevat):  
+ Zoek alle hotels met een basistarief kleiner is dan $200 die u hebt zijn renovated sinds 2010, met een letterlijke datetime-waarde die informatie over de tijdzone voor Pacific (standaardtijd bevat):  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Zoek alle hotels die van de vervangende domeinpagina opgenomen en soorten niet toestaan:  

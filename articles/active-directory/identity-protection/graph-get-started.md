@@ -4,7 +4,7 @@ description: Leer hoe u Microsoft Graph op te vragen voor een lijst met risico's
 services: active-directory
 keywords: Azure active directory identity protection, risicogebeurtenis, beveiligingsproblemen, beveiligingsbeleid, Microsoft Graph
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295535"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517450"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 
-Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. Er zijn drie API's die beschikbaar maken van informatie over riskante gebruikers en -aanmeldingen. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. De tweede API **riskyUsers**, kunt u Microsoft Graph-query voor informatie over gebruikers Identity Protection als risico gedetecteerd. De derde API **signIn**, kunt u Microsoft Graph op te vragen voor meer informatie over Azure AD-aanmeldingen met specifieke eigenschappen met betrekking tot de status van de risico's, informatie en niveau. In dit artikel helpt u op weg met [verbinding te maken met de Microsoft Graph](#Connect-to-Microsoft-Graph) en [uitvoeren van query's deze API's](#Query-the-APIs). Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke documentatie bij deze API's:
+Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. Er zijn drie API's die beschikbaar maken van informatie over riskante gebruikers en -aanmeldingen. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. De tweede API **riskyUsers**, kunt u Microsoft Graph-query voor informatie over gebruikers Identity Protection als risico gedetecteerd. De derde API **signIn**, kunt u Microsoft Graph op te vragen voor meer informatie over Azure AD-aanmeldingen met specifieke eigenschappen met betrekking tot de status van de risico's, informatie en niveau. In dit artikel helpt u op weg met verbinding te maken met de Microsoft Graph en opvragen van deze API's. Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke documentatie bij deze API's:
 
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)

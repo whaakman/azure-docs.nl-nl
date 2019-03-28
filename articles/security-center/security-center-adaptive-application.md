@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2019
+ms.date: 03/26/2019
 ms.author: monhaber
-ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088992"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517977"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Wat zijn adaptieve toepassingsbesturingselementen in Security Center?
-Adaptieve toepassingsbesturingselementen is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen van Azure Security Center. Hiermee kunt u bepalen welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure, die onder andere voordelen, helpt de beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op uw virtuele machines en helpt u bij het toepassen van de specifieke basis van deze informatie in de whitelist. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van beleidsregels voor toepassingen in een whitelist opnemen, zodat u kunt:
+Adaptieve toepassingsbesturingselementen is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen van Azure Security Center. Hiermee kunt u beheren welke toepassingen kunnen worden uitgevoerd op uw Azure- en niet - Azure VM's (Windows en Linux), die, onder andere voordelen, helpt de beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op uw virtuele machines en helpt u bij het toepassen van de specifieke basis van deze informatie in de whitelist. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van beleidsregels voor toepassingen in een whitelist opnemen, zodat u kunt:
 
 - Blokkeren of waarschuwing op pogingen tot uitvoering van schadelijke toepassingen, waaronder pogingen die anders mogelijk worden gemist door antimalwareoplossingen.
 - Voldoen aan het beveiligingsbeleid van uw organisatie waarin alleen het gebruik van gelicentieerde software is toegestaan.
@@ -34,8 +34,11 @@ Adaptieve toepassingsbesturingselementen is een oplossing voor het in de whiteli
 - Voorkomen dat bepaalde softwareprogramma's worden uitgevoerd die in uw organisatie niet zijn toegestaan.
 - De IT-afdeling in staat stellen de toegang tot gevoelige gegevens te beheren via het gebruik van apps.
 
+> [!NOTE]
+> Voor niet-Azure- en Linux-machines zijn besturingselementen voor adaptieve toepassingen worden ondersteund in de controlemodus alleen.
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hoe worden adaptieve toepassingsbesturingselementen ingeschakeld?
-Besturingselementen voor adaptieve toepassingen helpen u bij het definiëren van een set toepassingen die mogen worden uitgevoerd op de geconfigureerde groepen virtuele machines. Deze functie is alleen beschikbaar voor Windows-machines (alle versies, klassieke implementatie of Azure Resource Manager-implementatie). Met de onderstaande stappen kunt u de whitelist met toepassingen in Security Center configureren:
+Besturingselementen voor adaptieve toepassingen helpen u bij het definiëren van een set toepassingen die mogen worden uitgevoerd op de geconfigureerde groepen virtuele machines. Deze functie is beschikbaar voor zowel Azure en niet - Azure Windows (alle versies, klassieke of Azure Resource Manager) en virtuele Linux-machines en servers. Met de onderstaande stappen kunt u de whitelist met toepassingen in Security Center configureren:
 
 1. Open het dashboard van **Security Center**.
 2. Ga naar het deelvenster aan de linkerkant en selecteer **Adaptieve toepassingsbesturingselementen** onder **Geavanceerde cloudbeveiliging**.
@@ -64,10 +67,10 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
    De lijst bevat:
 
-   - **NAAM**: de naam van het abonnement en de groep
-   - **VM's**: het aantal virtuele machines in de groep
-   - **STATUS**: de status van de aanbevelingen
-   - **ERNST**: de ernst van de aanbevelingen
+   - **Naam van de groep**: De naam van het abonnement en de groep
+   - **Virtuele machines en Computers**: Het aantal virtuele machines in de groep
+   - **Status**: de status van de aanbevelingen
+   - **Ernst**: de ernst van de aanbevelingen
 
 2. Klik op een groep te openen de **regels voor toepassingsbeheer maken** optie.
 
@@ -102,8 +105,8 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
    De lijst bevat:
 
-   - **Naam**: de naam van het abonnement en de groep
-   - **VM's**: het aantal virtuele machines in de groep
+   - **Naam van de groep**: de naam van het abonnement en de groep
+   - **Virtuele machines en Computers**: het aantal virtuele machines in de groep
    - **Modus**: Controlemodus legt pogingen tot uitvoering van niet-goedgekeurde toepassingen. Afdwingen van wordt niet toe dat niet-goedgekeurde toepassingen worden uitgevoerd
    - **Waarschuwingen**: eventuele actuele overtredingen
 
@@ -146,14 +149,14 @@ Security Center raadt alleen opname in de whitelist toepassingsbeleid voor virtu
 ![Aanbeveling](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 De lijst bevat:
-- **NAAM**: de naam van het abonnement en de groep
-- **VM's**: het aantal virtuele machines in de groep
+- **Naam van de groep**: de naam van het abonnement en de groep
+- **Virtuele machines en Computers**: het aantal virtuele machines in de groep
 
 Azure Security Center kunt u een toepassing in de whitelist om beleid te definiëren op niet-aanbevolen VM-groepen ook. Volg dezelfde principes als eerder zijn beschreven, een toepassing in de whitelist om beleid te configureren op deze groepen ook.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u gebruik kunt maken van adaptieve toepassingsbesturingselementen in Azure Security Center om toepassingen die op virtuele Azure-machines worden uitgevoerd, op te nemen in de whitelist. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
+In dit document hebt u geleerd hoe u adaptieve toepassingsbesturingselementen in Azure Security Center met geaccepteerde toepassingen die worden uitgevoerd in Azure en niet - Azure VM's. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

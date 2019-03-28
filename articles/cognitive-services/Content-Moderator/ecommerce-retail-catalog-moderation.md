@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855951"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539493"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Zelfstudie: E-commerce-productafbeeldingen beheren met Azure Content Moderator
 
@@ -61,7 +61,7 @@ In deze zelfstudie wordt aandacht besteed aan de code die essentieel is voor het
 
 ## <a name="define-api-keys-and-endpoints"></a>API-sleutels en -eindpunten definiëren
 
-Zoals eerder gezegd, worden in deze zelfstudie drie cognitieve services gebruikt. Daarom zijn er drie bijbehorende sleutels en API-eindpunten vereist. Bekijk de volgende velden in de klasse **Program**: 
+Zoals eerder gezegd, worden in deze zelfstudie drie cognitieve services gebruikt. Daarom zijn er drie bijbehorende sleutels en API-eindpunten vereist. Bekijk de volgende velden in de klasse **Program**:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Bekijk de methode **EvaluateAdultRacy** in de klasse **Program**. Deze methode a
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>EvaluateComputerVisionTags-methode
+## <a name="evaluatecomputervisiontags-method"></a>Methode EvaluateComputerVisionTags
 
-De volgende methode verwerkt een afbeeldings-URL en de gegevens van uw Computer Vision-abonnement en analyseert de afbeelding op de aanwezigheid van beroemdheden. Als er een of meer beroemdheden worden gevonden in de afbeelding, wordt de bijbehorende waarde in de matrix **ReviewTags** ingesteld op **True**. 
+De volgende methode verwerkt een afbeeldings-URL en de gegevens van uw Computer Vision-abonnement en analyseert de afbeelding op de aanwezigheid van beroemdheden. Als er een of meer beroemdheden worden gevonden in de afbeelding, wordt de bijbehorende waarde in de matrix **ReviewTags** ingesteld op **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateComputerVisionTags-methode
 
-Bekijk nu de methode **EvaluateCustomVisionTags**, waarmee de daadwerkelijke producten worden geclassificeerd&mdash;in dit geval vlaggen, speelgoed en pennen. Volg de instructies in [Een classificatie bouwen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) om uw eigen aangepaste afbeeldingsclassificatie te bouwen om te detecteren op de aanwezigheid van vlaggen, speelgoed en pennen (of wat u ook maar hebt gekozen als aangepaste tags) in afbeeldingen.
+Bekijk nu de methode **EvaluateCustomVisionTags**, waarmee de daadwerkelijke producten worden geclassificeerd&mdash;in dit geval vlaggen, speelgoed en pennen. Volg de instructies in [Een classificatie bouwen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) om uw eigen aangepaste afbeeldingsclassificatie te bouwen om te detecteren op de aanwezigheid van vlaggen, speelgoed en pennen (of wat u ook maar hebt gekozen als aangepaste tags) in afbeeldingen. U kunt de afbeeldingen in de **voorbeeldafbeeldingen** map van de [GitHub-opslagplaats](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) te trainen snel enkele van de categorieën in dit voorbeeld.
 
 ![Webpagina van Custom Vision met trainingsafbeeldingen van pennen, speelgoed en vlaggen](images/tutorial-ecommerce-custom-vision.PNG)
 
-Als u de classificatie hebt getraind, haalt u de sleutel en de eindpunt-URL van de voorspelling op en wijst u deze toe aan respectievelijk de velden `CustomVisionKey` en `CustomVisionUri`. Zie eventueel [De URL en voorspellingssleutel ophalen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) voor instructies. De methode gebruikt deze waarden om query's uit te voeren op de classificatie. Als de classificatie een of meer van de aangepaste tags vindt in de afbeelding, worden de bijbehorende waarden in de matrix **ReviewTags** ingesteld op **True**. 
+Als u de classificatie hebt getraind, haalt u de sleutel en de eindpunt-URL van de voorspelling op en wijst u deze toe aan respectievelijk de velden `CustomVisionKey` en `CustomVisionUri`. Zie eventueel [De URL en voorspellingssleutel ophalen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) voor instructies. De methode gebruikt deze waarden om query's uit te voeren op de classificatie. Als de classificatie een of meer van de aangepaste tags vindt in de afbeelding, worden de bijbehorende waarden in de matrix **ReviewTags** ingesteld op **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

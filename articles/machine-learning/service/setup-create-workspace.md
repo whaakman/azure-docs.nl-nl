@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369153"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521003"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning-service-werkruimte maken
 
@@ -24,7 +24,7 @@ Voor het gebruik van Azure Machine Learning-service, moet u een [ **werkruimte v
 In dit artikel leert u hoe u een werkruimte maken met behulp van deze methoden: 
 * De [Azure-portal](#portal) interface
 * De [Azure Machine Learning-SDK voor Python](#sdk)
-* Een [Azure Resource Manager-sjabloon](#template)
+* Een Azure Resource Manager-sjabloon
 * De [Azure Machine Learning CLI](#cli)
 
 De werkruimte die u maakt met behulp van de stappen die u hier in kan worden gebruikt als een vereiste voor andere zelfstudies en artikelen met procedures. 

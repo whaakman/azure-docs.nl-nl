@@ -8,33 +8,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634623"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521192"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight
 
-Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight:
-
-| **Gebruik deze**... | **...om hiervoor** | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** (voorbeelden gebruiken we cURL) |Linux of Windows |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |De taak op afstand indienen met behulp van **Windows PowerShell** |Linux of Windows |Windows |
-
-> [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
+Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. 
 
 ## <a id="whatis"></a>Wat is MapReduce
 
 Apache Hadoop MapReduce is een softwareframework voor het schrijven van taken die grote hoeveelheden gegevens verwerken. Invoergegevens is opgedeeld in segmenten onafhankelijk. Elk segment worden parallel verwerkt op de knooppunten in uw cluster. Een MapReduce-taak bestaat uit twee functies:
 
-* **Toewijzer**: Invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
+* **Mapper**: Invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
 
 * **Reducer**: Tuples die zijn gegenereerd door het toewijzen van de verbruikt en wordt een samenvatting uitgevoerd die u een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
 
@@ -160,11 +150,8 @@ HDInsight uitvoeren HiveQL taken met behulp van verschillende methoden. Gebruik 
 | **Gebruik deze**... | **...om hiervoor** | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** |Linux of Windows |Linux, Unix, Mac OS X of Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** |Linux of Windows |Linux, Unix, Mac OS X of Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |De taak op afstand indienen met behulp van **Windows PowerShell** |Linux of Windows |Windows |
-
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="nextsteps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454801"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517943"
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -173,46 +173,46 @@ API Management biedt momenteel diagnostische logboeken (ingedeeld in batches per
 }  
 ```
 
-| Eigenschap  | Type | Beschrijving |
+| Eigenschap  | Type | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleaans | Waar als de HTTP-aanvraag is voltooid met een antwoordstatuscode binnen 2xx tot 3xx |
-| tijd | date-time | Tijdstempel van ontvangst van de HTTP-aanvraag door de gateway |
-| operationName | tekenreeks | Constante waarde 'Microsoft.ApiManagement/GatewayLogs' |
-| category | tekenreeks | Constante waarde 'GatewayLogs' |
+| time | date-time | Tijdstempel van ontvangst van de HTTP-aanvraag door de gateway |
+| operationName | string | Constante waarde 'Microsoft.ApiManagement/GatewayLogs' |
+| category | string | Constante waarde 'GatewayLogs' |
 | durationMs | geheel getal | Aantal milliseconden vanaf het moment dat de gateway de aanvraag ontving tot het moment dat het antwoord volledig werd verzonden |
-| callerIpAddress | tekenreeks | IP-adres van de onmiddellijke gatewayaanroeper (kan een tussenschakel zijn) |
-| correlationId | tekenreeks | Unieke HTTP-aanvraag-ID die is toegewezen door API Management |
-| location | tekenreeks | Naam van de Azure-regio waar de gateway die de aanvraag heeft verwerkt zicht bevond |
-| httpStatusCodeCategory | tekenreeks | Categorie van HTTP-antwoordstatuscode: Geslaagd (301 of minder of 304 of 307), niet geautoriseerd (401, 403, 429), fout (400, tussen 500 en 600), anders |
-| resourceId | tekenreeks | ID van de API Management-resource /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| callerIpAddress | string | IP-adres van de onmiddellijke gatewayaanroeper (kan een tussenschakel zijn) |
+| correlationId | string | Unieke HTTP-aanvraag-ID die is toegewezen door API Management |
+| location | string | Naam van de Azure-regio waar de gateway die de aanvraag heeft verwerkt zicht bevond |
+| httpStatusCodeCategory | string | Categorie van HTTP-antwoordstatuscode: Geslaagd (301 of minder of 304 of 307), niet geautoriseerd (401, 403, 429), fout (400, tussen 500 en 600), anders |
+| resourceId | string | Id van de API Management-resource /SUBSCRIPTIONS/\<abonnement > /RESOURCEGROUPS/\<resource-group >/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<naam > |
 | properties | object | Eigenschappen van de huidige aanvraag |
-| method | tekenreeks | HTTP-methode van de inkomende aanvraag |
-| url | tekenreeks | URL van de binnenkomende aanvraag |
-| clientProtocol | tekenreeks | HTTP-protocolversie van de inkomende aanvraag |
+| method | string | HTTP-methode van de inkomende aanvraag |
+| url | string | URL van de binnenkomende aanvraag |
+| clientProtocol | string | HTTP-protocolversie van de inkomende aanvraag |
 | responseCode | geheel getal | Statuscode van het HTTP-antwoord dat is verzonden naar een client |
-| backendMethod | tekenreeks | HTTP-methode van de aanvraag die is verzonden naar een back-end |
-| backendUrl | tekenreeks | URL van de aanvraag die is verzonden naar een back-end |
+| backendMethod | string | HTTP-methode van de aanvraag die is verzonden naar een back-end |
+| backendUrl | string | URL van de aanvraag die is verzonden naar een back-end |
 | backendResponseCode | geheel getal | Code van het HTTP-antwoord dat is ontvangen van een back-end |
-| backendProtocol | tekenreeks | HTTP-protocolversie van de aanvraag die is verzonden naar een back-end | 
+| backendProtocol | string | HTTP-protocolversie van de aanvraag die is verzonden naar een back-end | 
 | requestSize | geheel getal | Aantal bytes dat van een client is ontvangen tijdens de verwerking van aanvragen | 
 | responseSize | geheel getal | Aantal bytes dat naar een client is verzonden tijdens de verwerking van aanvragen | 
-| cache | tekenreeks | Status van de betrokkenheid van de API Management-cache bij het verwerken van aanvragen (dat wil zeggen, treffer, misser, geen) | 
+| cache | string | Status van de betrokkenheid van de API Management-cache bij het verwerken van aanvragen (dat wil zeggen, treffer, misser, geen) | 
 | cacheTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de API Management-cache (verbinding maken, bytes verzenden en ontvangen) | 
 | backendTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de back-end (verbinding maken, bytes verzenden en ontvangen) | 
 | clientTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de client (verbinding maken, bytes verzenden en ontvangen) | 
-| apiId | tekenreeks | ID van de API-entiteit voor de huidige aanvraag | 
-| operationId | tekenreeks | ID van de bewerkingsentiteit voor de huidige aanvraag | 
-| productId | tekenreeks | ID van de productentiteit voor de huidige aanvraag | 
-| userId | tekenreeks | ID van de gebruikersentiteit voor de huidige aanvraag | 
-| apimSubscriptionId | tekenreeks | ID van de abonnemententiteit voor de huidige aanvraag | 
-| backendId | tekenreeks | ID van de back-end-entiteit voor de huidige aanvraag | 
+| apiId | string | ID van de API-entiteit voor de huidige aanvraag | 
+| operationId | string | ID van de bewerkingsentiteit voor de huidige aanvraag | 
+| productId | string | ID van de productentiteit voor de huidige aanvraag | 
+| userId | string | ID van de gebruikersentiteit voor de huidige aanvraag | 
+| apimSubscriptionId | string | ID van de abonnemententiteit voor de huidige aanvraag | 
+| backendId | string | ID van de back-end-entiteit voor de huidige aanvraag | 
 | LastError | object | Laatste fout bij de aanvraagverwerking | 
 | elapsed | geheel getal | Het aantal milliseconden tussen het moment dat de gateway de aanvraag ontving tot het moment dat de fout optrad | 
-| source | tekenreeks | Naam van de interne handler voor beleid of verwerking die de fout heeft veroorzaakt | 
-| scope | tekenreeks | Bereik van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
-| section | tekenreeks | Gedeelte van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
-| reason | tekenreeks | Reden voor de fout | 
-| message | tekenreeks | Foutbericht | 
+| source | string | Naam van de interne handler voor beleid of verwerking die de fout heeft veroorzaakt | 
+| scope | string | Bereik van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
+| section | string | Gedeelte van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
+| reason | string | Reden voor de fout | 
+| message | string | Foutbericht | 
 
 ## <a name="next-steps"></a>Volgende stappen
 

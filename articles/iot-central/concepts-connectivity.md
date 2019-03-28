@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418768"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522091"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -69,7 +69,7 @@ Voor het registreren van een groot aantal apparaten met uw IoT Central-toepassin
 Om op te halen van de verbindingsgegevens voor de geïmporteerde apparaten [exporteren van een CSV-bestand van uw toepassing IoT Central](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, verbinding maken zonder eerst registreren apparaten.
+> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, [verbinden zonder eerst registreren apparaten](#connect-without-registering-devices).
 
 ### <a name="set-up-your-devices"></a>Instellen van uw apparaten
 

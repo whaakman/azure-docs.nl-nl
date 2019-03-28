@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319445"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519745"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -72,7 +72,7 @@ U kunt de toepassingsgateway om ofwel een openbaar IP-adres of een privé IP-adr
 
 Slechts één openbaar IP-adres of een privé IP-adres wordt ondersteund. Het front-end-IP-adres kiest u tijdens het maken van de toepassingsgateway. 
 
-- U kunt in het geval van een openbaar IP-adres, een nieuw openbaar IP-adres maken of een bestaande openbare IP-adres wilt gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuw openbaar IP-adres maakt, kan het type IP-adres geselecteerd (statisch of dynamisch) kan niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- U kunt in het geval van een openbaar IP-adres, een nieuw openbaar IP-adres maken of een bestaande openbare IP-adres wilt gebruiken op dezelfde locatie als de toepassingsgateway. Als u een nieuw openbaar IP-adres maakt, kan het type IP-adres geselecteerd (statisch of dynamisch) kan niet later worden gewijzigd. Zie voor meer informatie, [statische versus dynamische openbare IP-adres](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - In het geval van een privé IP-adres, kunt u kiezen om op te geven van een privé IP-adres van het subnet waarin de Application Gateway is gemaakt. Als u niet expliciet is opgegeven, worden automatisch een willekeurige IP-adres geselecteerd uit het subnet. Zie voor meer informatie, [een toepassingsgateway maken met een interne load balancer (ILB)-eindpunt.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ U moet kiezen tussen HTTP en HTTPS-protocol.
 
 - Als u ervoor HTTP kiest, het verkeer tussen de gateway van de client en de toepassing worden overgebracht niet-versleuteld.
 
-- Selecteer HTTPS als u geïnteresseerd bent in [Secure Sockets Layer (SSL) beëindiging](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) of [end to end SSL-versleuteling](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Als u HTTPS kiest, wordt het verkeer tussen de client en de application gateway, worden versleuteld en de SSL-verbinding wordt beëindigd bij de application gateway.  Als u wilt dat end to end SSL-versleuteling, Daarnaast moet u HTTPS-protocol kiezen tijdens het configureren van *back-end-HTTP-instelling*. Dit zorgt ervoor dat het verkeer wordt opnieuw versleuteld wanneer ze uit de Application Gateway naar de back-end.
+- Selecteer HTTPS als u geïnteresseerd bent in [Secure Sockets Layer (SSL) beëindiging](https://docs.microsoft.com/azure/application-gateway/overview) of [end to end SSL-versleuteling](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Als u HTTPS kiest, wordt het verkeer tussen de client en de application gateway, worden versleuteld en de SSL-verbinding wordt beëindigd bij de application gateway.  Als u wilt dat end to end SSL-versleuteling, Daarnaast moet u HTTPS-protocol kiezen tijdens het configureren van *back-end-HTTP-instelling*. Dit zorgt ervoor dat het verkeer wordt opnieuw versleuteld wanneer ze uit de Application Gateway naar de back-end.
 
   Een certificaat is vereist voor het configureren van Secure Sockets Layer (SSL)-beëindiging en end-to-end SSL-versleuteling, moet worden toegevoegd aan de listener om het inschakelen van de toepassingsgateway voor het afleiden van een symmetrische sleutel volgens de specificatie van de SSL-protocol. De symmetrische sleutel wordt vervolgens gebruikt voor het versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar de gateway. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. De bestandsindeling kunt u exporteert de persoonlijke sleutel die is vereist voor de toepassingsgateway om uit te voeren van de versleuteling en ontsleuteling van verkeer. 
 

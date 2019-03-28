@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110151"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540768"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Log Analytics-werkruimte met behulp van Azure Resource Manager-sjablonen beheren
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
+U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten in Azure Monitor. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
 
 * Een werkruimte met inbegrip van de prijscategorie instelling maken 
 * Een oplossing toevoegen

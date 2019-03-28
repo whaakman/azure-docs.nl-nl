@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483435"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540785"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Hoge beschikbaarheid van SAP NetWeaver op een Windows failover cluster en bestandsshare voor SAP ASCS/SCS-exemplaren op Azure installeren
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 De volgende volume en bestandsshare maken op de scale-out bestandsservercluster:
 
-* SAP GLOBALHOST bestand C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ structuur op scale-out bestandsservercluster gedeeld clustervolume (CSV)
+* SAP GLOBALHOST bestand `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` structuur op scale-out bestandsservercluster gedeeld clustervolume (CSV)
 
 * SAPMNT-bestandsshare
 
@@ -347,8 +347,8 @@ Voer de volgende stappen uit:
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Verplaats de \SYS\... map op de scale-out bestandsservercluster
 
 Voer de volgende stappen uit:
-1. Kopieer de SYS-map (bijvoorbeeld C:\usr\sap\\<SID>\SYS) van een van de ASCS/SCS clusterknooppunten op de scale-out bestandsservercluster (bijvoorbeeld, voor C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
-2. Verwijderen van de C:\usr\sap\\<SID>\SYS map vanaf beide knooppunten ASCS/SCS-cluster.
+1. Kopieer de SYS-map (bijvoorbeeld `C:\usr\sap\<SID>\SYS`) van een van de ASCS/SCS clusterknooppunten op de scale-out bestandsservercluster (bijvoorbeeld, voor `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. Verwijder de `C:\usr\sap\<SID>\SYS` map vanaf beide knooppunten ASCS/SCS-cluster.
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>De cluster-beveiligingsinstelling in het cluster SAP ASCS/SCS bijwerken
 
@@ -374,7 +374,7 @@ De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>De standaard- en SAP ASCS/SCS-exemplaar profiel bijwerken
 
-Voor het gebruik van de nieuwe virtuele SAP ASCS/SCS-hostnaam en SAP globale hostnaam, moet u de standaard- en SAP ASCS/SCS-exemplaar profiel bijwerken \<SID >_ASCS/SCS\<Nr >_<Host>.
+Voor het gebruik van de nieuwe virtuele SAP ASCS/SCS-hostnaam en SAP globale hostnaam, moet u de standaard- en SAP ASCS/SCS-exemplaar profiel bijwerken \<SID >_ASCS/SCS\<Nr >_\<Host >.
 
 
 | Oude waarden |  |
@@ -459,7 +459,7 @@ Het nieuwe saprc.dll-bestand is geïnstalleerd op beide clusterknooppunten ASCS/
 
 Zie voor meer informatie, [1596496 van SAP-notitie - het bijwerken van SAP-resourcetype dll-bestanden voor Cluster Broncontrole][1596496].
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Maken van een SAP <SID> groep, de netwerknaam van het en IP-cluster
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Maken van een SAP \<SID > groep, de netwerknaam van het en IP-cluster
 
 Het maken van een SAP \<SID > clustergroep, de naam van een ASCS/SCS-netwerk en een bijbehorende IP-adres, de volgende PowerShell-cmdlet uitvoeren:
 

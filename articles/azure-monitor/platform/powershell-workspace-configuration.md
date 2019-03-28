@@ -1,6 +1,6 @@
 ---
 title: PowerShell gebruiken om te maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
-description: Log Analytics maakt gebruik van gegevens van servers in uw on-premises of cloud-infrastructuur. U kunt gegevens van de machine verzamelen uit Azure storage wanneer die worden gegenereerd door Azure diagnostics.
+description: Log Analytics-werkruimten in Azure Monitor opslaan van gegevens van servers in uw on-premises of in de cloud-infrastructuur. U kunt gegevens van de machine verzamelen uit Azure storage wanneer die worden gegenereerd door Azure diagnostics.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482096"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539374"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>Log Analytics beheren met PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Log Analytics-werkruimte in Azure Monitor met behulp van PowerShell beheren
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-U kunt de [Log Analytics PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) verschillende functies in Log Analytics uitvoeren vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
+U kunt de [Log Analytics PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) voor het uitvoeren van verschillende functies in een Log Analytics-werkruimte in Azure Monitor vanaf de opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
 
 * Een werkruimte maken
 * Toevoegen of verwijderen van een oplossing
@@ -195,7 +195,7 @@ In het bovenstaande voorbeeld regexDelimiter is gedefinieerd als '\\n "voor nieu
 | `yyyy-MM-ddTHH:mm:ss` <br> De T is een letterlijke letter T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Log Analytics voor het verzenden van Azure diagnostics configureren
-Voor bewaking zonder agent van Azure-resources, moeten de resources hebben van Azure diagnostics ingeschakeld en geconfigureerd voor het schrijven naar Log Analytics-werkruimte. Deze methode verzendt die gegevens rechtstreeks naar Log Analytics en vereist geen gegevens worden geschreven naar een opslagaccount. Ondersteunde resources zijn onder andere:
+Voor bewaking zonder agent van Azure-resources, moeten de resources hebben van Azure diagnostics ingeschakeld en geconfigureerd voor het schrijven naar Log Analytics-werkruimte. Deze methode verzendt die gegevens rechtstreeks naar de werkruimte en vereist geen gegevens worden geschreven naar een opslagaccount. Ondersteunde resources zijn onder andere:
 
 | Resourcetype | Logboeken | Metrische gegevens |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 U kunt ook de voorgaande cmdlet gebruiken om Logboeken te verzamelen uit resources die zich in verschillende abonnementen. De cmdlet kan werken voor abonnementen, omdat u bij het leveren van de ID van zowel de bron die het maken van Logboeken en de werkruimte die de logboeken zijn verzonden naar.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Log Analytics voor het verzamelen van diagnostische gegevens van Azure uit de opslag configureren
-Voor het verzamelen van logboekgegevens van binnen een actief exemplaar van een klassieke cloudservice of een service fabric-cluster, moet u eerst de gegevens schrijven naar Azure storage. Log Analytics wordt dan geconfigureerd voor het verzamelen van de logboeken van het storage-account. Ondersteunde resources zijn onder andere:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Werkruimte voor logboekanalyse voor het verzamelen van diagnostische gegevens van Azure uit de opslag configureren
+Voor het verzamelen van logboekgegevens van binnen een actief exemplaar van een klassieke cloudservice of een service fabric-cluster, moet u eerst de gegevens schrijven naar Azure storage. Een Log Analytics-werkruimte wordt dan geconfigureerd voor het verzamelen van de logboeken van het storage-account. Ondersteunde resources zijn onder andere:
 
 * Klassieke cloudservices (web- en werkrollen rollen)
 * Service fabric-clusters
 
 Het volgende voorbeeld wordt getoond hoe u:
 
-1. De bestaande opslagaccounts en de locaties die Log Analytics worden gegevens van index
+1. De bestaande opslagaccounts en de locaties die gegevens uit de werkruimte geïndexeerd
 2. Een configuratie lezen van een storage-account maken
 3. Werk de zojuist gemaakte configuratie om gegevens te indexeren vanaf meer locaties
 4. De zojuist gemaakte configuratie verwijderen
@@ -250,7 +250,7 @@ Het volgende voorbeeld wordt getoond hoe u:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

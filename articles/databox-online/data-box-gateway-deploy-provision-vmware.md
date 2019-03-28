@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 61fc72fe295fc292f944d6fea0f67fce0d537c32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402319"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517774"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Zelfstudie: Richt Azure Data Box-Gateway in VMware
 
@@ -139,7 +139,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 15. Selecteer op de pagina **Opslag selecteren** een gegevensopslag die u wilt gebruiken voor het inrichten van uw virtuele machine. Klik op **volgende**.
 
     ![Storage-pagina selecteren](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies **SCSI harde schijf** om toe te voegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen.
+16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies **SCSI harde schijf** om toe te voegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u een ingerichte schijf niet kunt verkleinen. Er wordt geprobeerd voor het verkleinen van de resultaten van de schijf in een verlies van de lokale gegevens op het apparaat. 
 
     ![Instellingenpagina aanpassen](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 

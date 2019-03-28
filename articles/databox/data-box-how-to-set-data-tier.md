@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118371"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517144"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box gebruiken om gegevens te verzenden naar de juiste Azure Storage blob-laag
 
@@ -27,7 +27,7 @@ Azure-opslag kunnen drie verschillende lagen voor het opslaan van gegevens in de
 
 Er is een Cool storage-laag voor minder vaak gebruikte gegevens die moeten worden bewaard voor minimaal 30 dagen. De opslagkosten voor de koude laag is lager dan die van de hot storage-laag, maar de kosten voor gegevenstoegang hoog in vergelijking met Hot-laag zijn.
 
-De Azure Archive-laag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten. Deze laag is bedoeld voor gegevens die in archiefopslag voor een minimum van 180 dagen achterblijven. Voor meer informatie over elk van deze lagen en het prijsmodel, gaat u naar [vergelijking van de opslaglagen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+De Azure Archive-laag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten. Deze laag is bedoeld voor gegevens die in archiefopslag voor een minimum van 180 dagen achterblijven. Voor meer informatie over elk van deze lagen en het prijsmodel, gaat u naar [vergelijking van de opslaglagen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 De gegevens van de Data Box is geüpload naar een opslaglaag die is gekoppeld aan de storage-account. Wanneer u een opslagaccount maakt, geeft u de toegangslaag op warm of koud. Afhankelijk van het toegangspatroon van uw werkbelasting en de kosten, kunt u deze gegevens verplaatsen van de standaardlaag naar een andere opslaglaag.
 

@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337084"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518997"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 
 In plaats van het maken van uw eigen runbooks en modules in Azure Automation, kunt u scenario's die al zijn gebouwd door Microsoft en de community openen.
 
-U kunt krijgen [PowerShell-runbooks](#runbooks-in-runbook-gallery) en [modules](#modules-in-powerShell-gallery) vanuit de PowerShell Gallery en [Python runbooks](#python-runbooks) uit de galerie met Script Center. U kunt ook bijdragen aan de community door sharing-scenario's die u hebt ontwikkeld, Zie [een runbook toe te voegen aan de galerie](#adding-a-runbook-to-the-runbook-gallery)
+U kunt PowerShell-runbooks ophalen en [modules](#modules-in-powershell-gallery) vanuit de PowerShell Gallery en [Python runbooks](#python-runbooks) uit de galerie met Script Center. U kunt ook bijdragen aan de community door sharing-scenario's die u hebt ontwikkeld, Zie een runbook toe te voegen aan de galerie
 
 ## <a name="runbooks-in-powershell-gallery"></a>Runbooks in PowerShell Gallery
 

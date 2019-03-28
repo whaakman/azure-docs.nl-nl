@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371380"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540002"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Aanbiedingen voor Azure Marketplace en AppSource of SKU's verwijderen
 
@@ -28,7 +28,7 @@ Diverse redenen zijn waarom besluiten u om in te trekken van uw aanbieding uit d
 - *Verwijdering bieden* zorgt ervoor dat nieuwe klanten niet meer kunnen kopen of implementeren van uw aanbieding, maar heeft geen invloed op bestaande klanten, die u op basis van uw licentieovereenkomst en de relevante wetten ondersteunen moet. 
 - *Beëindiging bieden* is het proces van beëindiging van de service en/of licentieovereenkomst tussen u en uw bestaande klanten. 
 
-Richtlijnen en beleidsregels met betrekking tot de aanbieding verwijderen en beëindigen vallen onder [Microsoft Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?LinkID=699560) (sectie 7) en de [beleidsregels voor deelname aan](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sectie [ Aanbieding onderbreking en verwijdering](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Richtlijnen en beleidsregels met betrekking tot de aanbieding verwijderen en beëindigen vallen onder [Microsoft Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?LinkID=699560) en de [beleidsregels voor deelname aan](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sectie [aanbieding onderbreking en verwijdering](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 In dit artikel praat over de verschillende scenario's voor verwijdering en de stappen die nodig zijn om uit te voeren op elk ondersteund.  
 

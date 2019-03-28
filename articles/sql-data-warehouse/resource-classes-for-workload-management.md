@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5b21c16a166a3a264156b7719be6a331e00e6e8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881364"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520051"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resourceklassen in Azure SQL Data Warehouse
 
@@ -130,7 +130,21 @@ Aantal query's worden altijd uitgevoerd in de resourceklasse smallrc zelfs als d
 
 De volgende instructies zijn vrijgesteld van resource-klassen en altijd in smallrc uitgevoerd:
 
--MAKEN of DROP TABLE - ALTER TABLE... SWITCH, splitsen of samenvoegen partitie-ALTER INDEX uitschakelen - DROP INDEX-maken, bijwerken of DROP STATISTICS-TRUNCATE TABLE-ALTER AUTHORIZATION-CREATE LOGIN-maken, ALTER of DROP USER-maken, ALTER of DROP PROCEDURE-maken of verwijderen VIEW - invoegen waarden - selecteren systeemweergaven en DMV's-- DBCC UITGELEGD
+- MAKEN of DROP TABLE
+- DE TABEL WIJZIGEN... SWITCH, splitsen of samenvoegen partitie
+- ALTER INDEX UITSCHAKELEN
+- INDEX VERWIJDEREN
+- MAKEN, bijwerken of DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTORISATIE
+- AANMELDING MAKEN
+- CREATE, ALTER of DROP USER
+- CREATE, ALTER of DROP PROCEDURE
+- MAKEN of de weergave niet verwijderen
+- WAARDEN INVOEGEN
+- Selecteer in systeemweergaven en DMV 's
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW

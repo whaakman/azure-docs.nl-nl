@@ -1,5 +1,5 @@
 ---
-title: Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics | Microsoft Docs
+title: Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics-werkruimte | Microsoft Docs
 description: U kunt de oplossing Azure-activiteitenlogboeken gebruiken om te analyseren en te zoeken naar de Azure-activiteitenlogboek in al uw Azure abonnementen.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540235"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540428"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics-werkruimte in Azure Monitor
 
 ![Azure-activiteitenlogboeken symbool](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ De oplossing Activity Log Analytics helpt u bij het analyseren en te zoeken naar
 
 Met het activiteitenlogboek, kunt u bepalen de *wat*, *die*, en *wanneer* voor (PUT, POST, DELETE schrijfbewerkingen) die voor de resources in uw abonnement. U kunt ook de status van de bewerkingen en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen lees (GET)-bewerkingen of bewerkingen voor resources die gebruikmaken van het klassieke implementatiemodel.
 
-Wanneer u uw Azure-activiteitenlogboeken verbinden met Log Analytics, kunt u het volgende doen:
+Wanneer u uw Azure-activiteitenlogboeken verbinding met een Log Analytics-werkruimte, kunt u het volgende doen:
 
 - De activiteitenlogboeken met vooraf gedefinieerde weergaven analyseren
 - Analyseren en zoek- en logboeken van meerdere Azure-abonnementen
@@ -40,15 +40,15 @@ Wanneer u uw Azure-activiteitenlogboeken verbinden met Log Analytics, kunt u het
 - Om onderbreking of service problemen die invloed hebben op uw resources te identificeren
 - Zoeken in Logboeken correleren gebruikersactiviteiten, bewerkingen voor automatisch schalen, autorisatie wijzigingen en status van de service met andere logboeken of de metrische gegevens uit uw omgeving gebruiken
 
-<sup>1</sup>standaard Log Analytics blijft uw Azure-activiteitenlogboeken gedurende 90 dagen, zelfs als u op de gratis laag. Of, als u een instelling van de werkruimte behoud van minder dan 90 dagen. Als uw werkruimte behoud die langer is dan 90 dagen bevat, worden de activiteitenlogboeken bewaard op basis van de bewaarperiode van uw werkruimte.
+<sup>1</sup>standaard Azure Monitor, blijft uw Azure-activiteitenlogboeken in een Log Analytics-werkruimte gedurende 90 dagen, zelfs als u op de gratis laag. Of, als u een instelling van de werkruimte behoud van minder dan 90 dagen. Als uw werkruimte behoud die langer is dan 90 dagen bevat, worden de activiteitenlogboeken bewaard op basis van de bewaarperiode van uw werkruimte.
 
-Log Analytics verzamelt gratis activiteitenlogboeken en slaat de logboeken voor 90 dagen gratis. Als u Logboeken voor meer dan 90 dagen opslaat, worden er kosten voor het bewaren van gegevens voor de gegevens langer dan 90 dagen opgeslagen.
+De Log Analytics-werkruimte activiteitenlogboeken gratis verzamelt en slaat de logboeken voor 90 dagen gratis. Als u Logboeken voor meer dan 90 dagen opslaat, worden er kosten voor het bewaren van gegevens voor de gegevens langer dan 90 dagen opgeslagen.
 
 Wanneer u zich in de prijscategorie gratis, activiteitenlogboeken niet van toepassing op uw dagelijkse gegevensverbruik.
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 
-In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet-gegevens voor activiteitenlogboeken verzameld door agents. Alle gegevens die worden gebruikt door de oplossing wordt geleverd rechtstreeks vanuit Azure.
+In tegenstelling tot de meeste andere Azure Monitor-oplossingen, is niet-gegevens voor activiteitenlogboeken verzameld door agents. Alle gegevens die worden gebruikt door de oplossing wordt geleverd rechtstreeks vanuit Azure.
 
 | Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |

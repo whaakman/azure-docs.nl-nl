@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369476"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522329"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Releaseopmerkingen voor Azure SQL Data Warehouse
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de
 |**Workload urgentie is nu beschikbaar voor Preview-versie**|De werkbelasting belang kunt gegevenstechnici belang gebruiken voor het classificeren van aanvragen. Aanvragen met hogere prioriteit worden gegarandeerd sneller toegang tot resources, die helpt te voldoen aan Sla's.  Urgentie van de werkbelasting kunt hoge zakelijke waarde werk om te voldoen aan Sla's in een gedeelde omgeving met minder bronnen.<br/><br/>Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/>[Concepten van werkbelasting Management](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**GROEPEREN OP SAMENVOUWEN**|UPDATEPAKKET is nu een ondersteunde GROUP BY-optie in Azure Data Warehouse.   TOTALISATIE groep maakt een groep voor elke combinatie van kolom expressies. GROUP BY ook samengevouwen"" de resultaten in subtotalen en eindtotalen weergeven. U doet dit door wordt verplaatst van rechts naar links, verminderen het aantal expressies van kolom waarover deze groepen en aggregation(s) maakt.  De volgorde van kolommen is van invloed op de ROLLUP-uitvoer en kan invloed hebben op het aantal rijen in de resultatenset.<br/><br/>Zie het artikel voor meer informatie over TOTALISATIE groep [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Verbeterde nauwkeurigheid voor gebruikte DWU en CPU portal metrische gegevens**|SQL Data Warehouse aanzienlijk verbetert de nauwkeurigheid van de metrische gegevens in Azure portal.  Deze versie bevat een oplossing voor de metrische definitie van CPU en gebruikte DWU in overeenstemming met uw werkbelasting goed voor alle computerknooppunten.|
-|**Als u meer T-SQL-ondersteuning**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met de ondersteuning voor:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**Als u meer T-SQL-ondersteuning**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met de ondersteuning voor:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij

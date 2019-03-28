@@ -1,0 +1,71 @@
+---
+title: Inzicht krijgen in ASC voor IoT-agent beveiligingsarchitectuur Preview | Microsoft Docs
+description: Meer informatie over de beveiligingsarchitectuur van agent voor agents die worden gebruikt in de ASC voor IoT-service.
+services: ascforiot
+documentationcenter: na
+author: mlottner
+manager: barbkess
+editor: ''
+ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
+ms.service: ascforiot
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/25/2019
+ms.author: mlottner
+ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541870"
+---
+# <a name="security-agent-reference-architecture"></a>Security agent-referentiearchitectuur
+
+> [!IMPORTANT]
+> ASC voor IoT is momenteel in openbare preview.
+> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+
+
+ASC voor IoT biedt referentiearchitectuur voor beveiliging-agents die zich, verwerken, samenvoegen en verzenden van beveiligingsgegevens via IoT hub.
+
+Beveiligingsagenten zijn ontworpen voor gebruik in een omgeving met beperkte IoT en hoge mate aanpasbaar in termen van waarden die ze bieden in vergelijking tot de bronnen die waarvan ze gebruikmaken.
+
+Beveiligingsagenten ondersteunen de volgende functies van de IoT-oplossing:
+
+- Onbewerkte beveiligingsgebeurtenissen verzamelen van het onderliggende besturingssysteem (Linux, Windows). Zie voor meer informatie over beschikbare beveiligingsupdates gegevens collectors, [ASC voor de configuratie van de agent IoT](concept-agent-configuration.md).
+
+- Cumulatieve onbewerkte beveiligingsgebeurtenissen in berichten die worden verzonden via IoT hub.
+
+- Verifiëren met het bestaande apparaat-id of een specifieke module-identiteit. Zie [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md) voor meer informatie.
+
+- Op afstand configureren door het gebruik van de **ascforiot** moduledubbel. Zie voor meer informatie, [een ASC voor IoT-agent configureren](concept-agent-configuration.md).
+
+ASC voor IoT-beveiliging agents als open-source-projecten zijn ontwikkeld en zijn beschikbaar via GitHub: 
+
+- [IoT-ASC-Agent-C](https://github.com/Azure/IoT-ASC-Agent-C) 
+- [IoT-ASC-Agent-CS](https://github.com/Azure/IoT-ASC-Agent-CS)
+
+## <a name="agent-supported-platforms"></a>Agent die wordt ondersteund platforms
+
+ASC voor IoT biedt verschillende installer-agents voor 32-bits en 64-bits Windows- en hetzelfde voor 32-bits en 64-bits Linux. Zorg ervoor dat u het juiste agent-installatieprogramma voor elk van uw apparaten op basis van de volgende tabel:
+
+| 32- of 64-bits | Linux | Windows |    Details|
+|----------|----------------------------------------------|-------------|-------------------------------------------|
+| 32-bits  | C  | C#  ||
+| 64-bits  | C#of C           | C#      | De C-agent gebruiken voor apparaten met minimale resources|
+
+## <a name="next-steps"></a>Volgende stappen
+
+In dit artikel hebt u geleerd over ASC voor IoT-beveiligingsarchitectuur agent en installatieprogramma's van het beschikbaar.
+
+Gebruik de volgende artikelen om door te gaan aan de slag met ASC voor IoT-implementatie:
+
+
+- Bekijk de ASC voor IoT [vereisten-Service](service-prerequisites.md)
+- Meer informatie over het [ASC inschakelen voor IoT-service in uw IoT-Hub](quickstart-onboard-iot-hub.md)
+- De Snelstartgids om te gebruiken voor [uw oplossing configureren](quickstart-configure-your-solution.md)
+- Inzicht in [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)
+- Selecteer en implementeer een [security-agent](select-deploy-agent.md)
+- Meer informatie over de service van de [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)

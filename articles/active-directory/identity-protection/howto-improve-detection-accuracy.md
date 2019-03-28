@@ -4,7 +4,7 @@ description: Klik hier voor meer informatie over het verbeteren van de nauwkeuri
 services: active-directory
 keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1385442ace852c310ca6796da9294ca57c797690
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211033"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517671"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Procedure: De nauwkeurigheid van de detectie te verbeteren 
 
@@ -49,7 +49,7 @@ Er zijn drie manieren om de nauwkeurigheid van de detectie te: bevestig waarmee 
 Uw feedback wordt verwerkt door Azure AD voor het verbeteren van de nauwkeurigheid van de resultaten. Normaal gesproken feedback u geven als onderdeel van een gebruikersrisico of aanmeldingsrisico onderzoek. Zie voor meer informatie, [onderzoeken riskante gebruikers en aanmeldingen](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Inbreuk bevestigen
+## <a name="confirm-compromised"></a>Inbraak bevestigen
 
 Bevestiging van een gebeurtenis aanmelden als geknoeid geeft aan Azure AD dat de aanmelding is niet gemachtigd door de eigenaar van de identiteit. Wanneer u selecteert "bevestigen aangetast", wordt Azure AD
 

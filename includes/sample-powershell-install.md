@@ -4,11 +4,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 3c88d94eb763edc2562ad9cd640c63c4a7b9622d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ae9fa2cf860307405baa576ff5685af2bedef339
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246839"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505857"
 ---
-Installeer zo nodig de Azure PowerShell-module door de instructies in de [Azure PowerShell-handleiding](/powershell/azure/azurerm/) uit te voeren en voer vervolgens `Connect-AzureRmAccount` uit om verbinding te maken met Azure. Er moet zich ook een openbare SSH-sleutel met de naam `id_rsa.pub` in de map .ssh van uw gebruikersprofiel bevinden.
+Installeer zo nodig de Azure PowerShell-module door de instructies in de [Azure PowerShell-handleiding](/powershell/azure/) uit te voeren en voer vervolgens `Connect-AzAccount` uit om verbinding te maken met Azure. Er moet zich ook een openbare SSH-sleutel met de naam `id_rsa.pub` in de map .ssh van uw gebruikersprofiel bevinden.

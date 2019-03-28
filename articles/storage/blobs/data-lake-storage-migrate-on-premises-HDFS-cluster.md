@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258527"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518030"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box gebruiken om gegevens te migreren vanuit een on-premises HDFS gegevensopslag naar Azure Storage
 
@@ -111,7 +111,7 @@ Voor het verbeteren van de snelheid kopiëren:
 
 Volg deze stappen voor het voorbereiden en verzenden van de Data Box-apparaat naar Microsoft.
 
-1. Nadat het kopiëren van gegevens voltooid is, voert u [voorbereiding voor verzending](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) op uw Data Box. Nadat de voorbereiding van het apparaat voltooid is, moet u de stuklijst-bestanden downloaden. U gaat deze stuklijst gebruiken of manifest van de bestanden later om te controleren of de gegevens geüpload naar Azure. Het apparaat uitschakelen en verwijderen van de kabels. 
+1. Nadat het kopiëren van gegevens voltooid is, voert u [voorbereiding voor verzending](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) op uw Data Box. Nadat de voorbereiding van het apparaat voltooid is, moet u de stuklijst-bestanden downloaden. U gaat deze stuklijst gebruiken of manifest van de bestanden later om te controleren of de gegevens geüpload naar Azure. Het apparaat uitschakelen en verwijderen van de kabels. 
 2.  Plannen van een ophalen met UPS [uw Data Box terug naar Azure verzenden](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Nadat Microsoft het apparaat ontvangt, is verbonden met het netwerk-datacenter en gegevens worden geüpload naar het opslagaccount dat u hebt opgegeven (met hiërarchische naamruimten uitgeschakeld) wanneer u de Data Box gerangschikt. Controleer of op basis van de bestanden stuklijst dat al uw gegevens is geüpload naar Azure. Nu kunt u deze gegevens verplaatsen naar een Data Lake Storage Gen2 storage-account.
 

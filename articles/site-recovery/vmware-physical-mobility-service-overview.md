@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 523567a0db79e54bea1ed6ff23557c7fa29c74f6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449256"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541100"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Over de Mobility-service voor VMware-VM's en fysieke servers
 
@@ -125,7 +125,7 @@ Setup-logboeken | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 #### <a name="registration-settings"></a>Registratie-instellingen
 **Instelling** | **Details**
 --- | ---
-Gebruik | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Gebruik | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agent-logboeken voor configuratie | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Verplichte parameter. Hiermee geeft u het IP-adres van de configuratieserver. Gebruik een geldig IP-adres.
 /PassphraseFilePath |  Verplicht. Locatie van de wachtwoordzin. Gebruik een geldig UNC- of lokaal bestandspad.
@@ -154,7 +154,7 @@ Agent-logboeken voor configuratie | Under %ProgramData%\ASRSetupLogs\ASRUnifiedA
 #### <a name="installation-settings"></a>Installatie-instellingen
 **Instelling** | **Details**
 --- | ---
-Gebruik | . / install -d <Install Location> - r < MS|MT> -v VmWare -q
+Gebruik | . / install -d \<installatielocatie > - r < MS|MT> -v VmWare -q
 -r | De van de verplichte installatieparameter. Hiermee geeft u op of de Mobility-service (MS) of een master target (MT) moet worden geïnstalleerd.
 -d | Een optionele parameter. Hiermee geeft u de installatielocatie van de Mobility-service: /usr/local/ASR.
 -v | Verplicht. Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. **VMware** voor VMware-machines/fysieke servers; **Azure** voor Azure VM's. 
@@ -163,7 +163,7 @@ Gebruik | . / install -d <Install Location> - r < MS|MT> -v VmWare -q
 #### <a name="registration-settings"></a>Registratie-instellingen
 **Instelling** | **Details**
 --- | ---
-Gebruik | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Gebruik | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP > -P \<PassphraseFilePath >
 -i | Verplichte parameter. Hiermee geeft u het IP-adres van de configuratieserver. Gebruik een geldig IP-adres.
 -P |  Verplicht. Volledige pad van het bestand waarin de wachtwoordzin die is opgeslagen. Gebruik een geldige map.
 

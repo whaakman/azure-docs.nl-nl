@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446595"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517297"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 
@@ -24,22 +24,14 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
-
-  > [!IMPORTANT]  
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
+* Een Hadoop-cluster op HDInsight. Zie [aan de slag met HDInsight op Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Een webbrowser
 
 ## <a name="run-a-hive-query"></a>Een Hive-query uitvoeren
 
-1. Open de [Azure Portal](https://portal.azure.com).
+1. Uit de [Azure-portal](https://portal.azure.com/), selecteert u uw cluster.  Zie [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#showClusters) voor instructies. Het cluster wordt geopend in een nieuwe portalblade.
 
-2. Selecteer uw HDInsight-cluster en selecteer vervolgens **Ambari-weergaven** uit de **snelkoppelingen** sectie.
-
-    ![Snelkoppelingen-sectie van de portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Wanneer u hierom wordt gevraagd om te verifiëren, de aanmelding bij cluster gebruiken (standaard `admin`) account naam en het wachtwoord die u hebt opgegeven tijdens het maken van het cluster.
+2. Van **Clusterdashboards**, selecteer **Ambari-weergaven**. Wanneer u hierom wordt gevraagd om te verifiëren, de aanmelding bij cluster gebruiken (standaard `admin`) account naam en het wachtwoord die u hebt opgegeven tijdens het maken van het cluster.
 
 3. Selecteer in de lijst met weergaven __Hive-weergave__.
 
@@ -81,30 +73,30 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
    * `SELECT`: Selecteert een telling van alle rijen waar kolom t4 de waarde [fout bevat].
 
-     > [!IMPORTANT]  
-     > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
+   > [!IMPORTANT]  
+   > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
 
-5. Voor het starten van de query, gebruikt u de **Execute** knop onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
+5. Selecteer eerst de query **Execute** onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
 
 6. Nadat de query is voltooid, de **resultaten** tabblad geeft de resultaten van de bewerking. De volgende tekst is het resultaat van de query:
 
         loglevel       count
         [ERROR]        3
 
-    U kunt de **logboeken** tabblad om de logboekgegevens die de taak hebt gemaakt.
+    U kunt de **LOG** tabblad om de logboekgegevens die de taak hebt gemaakt.
 
    > [!TIP]  
-   > Downloaden of opslaan van resultaten van de **resultaten opslaan** in het dialoogvenster van de vervolgkeuzelijst in de rechterbovenhoek links van de **resultaten queryproces** sectie.
+   > Downloaden of opslaan van resultaten van de **acties** vervolgkeuzelijst dialoogvenster onder de **resultaten** tabblad.
 
 ### <a name="visual-explain"></a>Visueel element wordt uitgelegd
 
 Als u een visualisatie van het queryplan weergeven, selecteert u de **Visual uitgelegd** tabblad onder het werkblad.
 
-De **Visual uitgelegd** weergave van de query kan nuttig zijn bij het begrijpen van de stroom van complexe query's zijn. U kunt een tekstuele equivalent van deze weergave zien met behulp van de **uitleg** knop in de Query-Editor.
+De **Visual uitgelegd** weergave van de query kan nuttig zijn bij het begrijpen van de stroom van complexe query's zijn.
 
 ### <a name="tez-ui"></a>Tez-gebruikersinterface
 
-Als de Tez UI voor de query weergeven, selecteert u de **Tez** tabblad onder het werkblad.
+Als de Tez UI voor de query weergeven, selecteert u de **Tez UI** tabblad onder het werkblad.
 
 > [!IMPORTANT]  
 > Tez wordt niet gebruikt voor het oplossen van alle query's. U kunt veel query's oplossen zonder gebruik van Tez. 

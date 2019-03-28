@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403643"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519830"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>De Azure portal gebruiken voor het beheren van bestandsshares voor uw Azure Data Box-edge-apparaten
 
@@ -63,7 +63,7 @@ Voer in de Azure Portal de volgende stappen uit om een share te maken.
 
         ![NFS-share toevoegen](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Voor eenvoudig toegang tot de shares via Edge Computing-modules, gebruikt u het lokale koppelpunt. Selecteer **gebruik van de bestandsshare met Edge Computing** zodat de share automatisch wordt gekoppeld nadat deze zijn gemaakt. Wanneer deze optie is geselecteerd, kan het Edge-module de compute ook gebruiken met het lokale koppelpunt.
+7. Voor eenvoudig toegang tot de shares via Edge Computing-modules, gebruikt u het lokale koppelpunt. Selecteer **gebruik van de bestandsshare met Edge Computing** zodat de share is automatisch gekoppeld nadat deze is gemaakt. Wanneer deze optie is geselecteerd, kan het Edge-module de compute ook gebruiken met het lokale koppelpunt.
 
 8. Klik op **Maken** om de share te maken. U ontvangt een melding als wordt begonnen met het maken van de share. Als de share met de opgegeven instellingen is gemaakt, wordt de blade **Shares** bijgewerkt in overeenstemming met de nieuwe share.
 
@@ -97,6 +97,30 @@ Voer in de Azure Portal de volgende stappen uit om een share te maken.
 
     ![Details van de lokale share weergeven](media/data-box-edge-manage-shares/add-local-share-4.png)
 
+## <a name="mount-a-share"></a>Een bestandsshare koppelen
+
+Als u een share gemaakt voordat u compute op uw gegevens in het Edge-apparaat hebt geconfigureerd, moet u de bestandsshare koppelen. Voer de volgende stappen uit om een bestandsshare te koppelen.
+
+
+1. In de Azure-portal, gaat u naar uw gegevens in het Edge-resource en ga vervolgens naar **Gateway > Shares**. Selecteer in de lijst van de shares, de share die u wilt koppelen. De **gebruikt voor compute** kolom wordt de status weergegeven **uitgeschakelde** voor de geselecteerde bestandsshare.
+
+    ![Share selecteren](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Selecteer **koppelen**.
+
+    ![Selecteer koppelen](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Wanneer u hierom wordt gevraagd om bevestiging, selecteert u **Ja**. Hiermee wordt de bestandsshare koppelen.
+
+    ![Koppelpunten bevestigen](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Nadat de share is gekoppeld, gaat u naar de lijst met shares. U ziet dat de **gebruikt voor compute** kolom ziet u de status van de share als **ingeschakeld**.
+
+    ![Gekoppelde share](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Selecteer de share opnieuw om weer te geven van de lokale koppelpunt voor de share. Edge compute-module gebruikt deze lokale koppelpunt voor de share.
+
+    ![Lokale koppelpunt voor de share](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## <a name="unmount-a-share"></a>Een bestandsshare te ontkoppelen
 
@@ -142,7 +166,8 @@ De lijst met shares updates in overeenstemming met het verwijderen.
 De functie vernieuwen kunt u de inhoud van een share vernieuwen. Wanneer u een share vernieuwt, wordt er een zoekopdracht gestart om de Azure-objecten te zoeken, inclusief blobs en bestanden die aan de cloud zijn toegevoegd na de laatste vernieuwing. Deze extra bestanden zijn vervolgens om te vernieuwen van de inhoud van de bestandsshare op het apparaat gedownload.
 
 > [!IMPORTANT]
-> U kunt openbare shares niet vernieuwen.
+> - U kunt openbare shares niet vernieuwen.
+> - Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking. 
 
 Voer in de Azure Portal de volgende stappen uit om een share te vernieuwen.
 

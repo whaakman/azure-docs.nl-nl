@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317065"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518725"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317065"
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions heeft ook [geïntegreerde bewaking die geen gebruik maakt van Application Insights](#monitoring-without-application-insights). We raden u Application Insights omdat deze optie biedt meer gegevens en betere manieren om de gegevens te analyseren.
+Azure Functions heeft ook ingebouwde controle die geen gebruik maakt van Application Insights. We raden u Application Insights omdat deze optie biedt meer gegevens en betere manieren om de gegevens te analyseren.
 
 ## <a name="application-insights-pricing-and-limits"></a>Prijzen van Application Insights en limieten
 
@@ -77,7 +77,7 @@ De volgende stap is het [ingebouwde logboekregistratie uitschakelen](#disable-bu
 
 ## <a name="disable-built-in-logging"></a>Ingebouwde logboekregistratie uitschakelen
 
-Wanneer u Application Insights hebt ingeschakeld, uitgeschakeld. de [ingebouwde logboekregistratie die gebruikmaakt van Azure Storage](#logging-to-storage). De ingebouwde logboekregistratie is handig voor het testen met lichte workloads, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor het bewaken van de productie, wordt aangeraden Application Insights. Als ingebouwde logboekregistratie in productie wordt gebruikt, de record logboekregistratie mogelijk onvolledig vanwege beperkingen in Azure Storage.
+Als u Application Insights inschakelt, schakelt u de ingebouwde logboekregistratie die gebruikmaakt van Azure Storage. De ingebouwde logboekregistratie is handig voor het testen met lichte workloads, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor het bewaken van de productie, wordt aangeraden Application Insights. Als ingebouwde logboekregistratie in productie wordt gebruikt, de record logboekregistratie mogelijk onvolledig vanwege beperkingen in Azure Storage.
 
 Als u wilt ingebouwde logboekregistratie uitschakelen, verwijdert de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure-portal, de **toepassingsinstellingen** sectie van [over het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings). Voordat u de app-instelling verwijderen, zorg ervoor dat er zijn geen bestaande functies in dezelfde functie-app gebruikt de instelling voor Azure Storage-triggers of bindingen.
 
@@ -125,7 +125,7 @@ In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kunt u grafieke
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeren [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
+Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren.
 
 ![Fouten](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ In C#-script-functies, kunt u de `LogMetric` uitbreidingsmethode op `ILogger` te
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Deze code is een alternatief voor aanroepen `TrackMetric` met behulp van [de Application Insights-API voor .NET](#custom-telemetry-in-c-functions).
+Deze code is een alternatief voor aanroepen `TrackMetric` met behulp van de Application Insights-API voor .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Schrijven Logboeken in JavaScript-functies
 
@@ -441,7 +441,7 @@ Wanneer u uitvoert op [versie 1.x](functions-versions.md#creating-1x-apps) van d
 context.log.metric("TestMetric", 1234);
 ```
 
-Deze code is een alternatief voor aanroepen `trackMetric` met behulp van [de Node.js-SDK voor Application Insights](#custom-telemetry-in-javascript-functions).
+Deze code is een alternatief voor aanroepen `trackMetric` met behulp van de Node.js-SDK voor Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Meld u aangepaste telemetrie C# functies
 
@@ -632,7 +632,7 @@ De `tagOverrides` parametersets de `operation_Id` aan van de functie aanroep-ID.
 
 ### <a name="dependencies"></a>Afhankelijkheden
 
-Afhankelijkheden die de functie met andere services heeft weergegeven niet automatisch. U kunt aangepaste code om de afhankelijkheden weer te schrijven. Zie voor voorbeelden van de voorbeeldcode in de [ C# aangepaste telemetrie sectie](#custom-telemetry-in-c-functions). De voorbeeldcode resulteert in een *toepassingsoverzicht* in Application Insights die vergelijkbaar is de volgende afbeelding:
+Afhankelijkheden die de functie met andere services heeft weergegeven niet automatisch. U kunt aangepaste code om de afhankelijkheden weer te schrijven. Zie voor voorbeelden van de voorbeeldcode in de [ C# aangepaste telemetrie sectie](#log-custom-telemetry-in-c-functions). De voorbeeldcode resulteert in een *toepassingsoverzicht* in Application Insights die vergelijkbaar is de volgende afbeelding:
 
 ![Overzicht van de toepassing](media/functions-monitoring/app-map.png)
 

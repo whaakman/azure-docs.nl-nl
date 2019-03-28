@@ -2,7 +2,7 @@
 title: Veelgestelde vragen - Azure toegewezen HSM | Microsoft Docs
 description: Veelgestelde vragen over die betrekking hebben op andere onderwerpen over Azure toegewezen HSM
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540819"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -58,9 +58,28 @@ Op dit moment biedt Azure toegewezen HSM alleen HSM's met verificatie op basis v
 
 Microsoft biedt de Gemalto SafeNet Luna netwerk-HSM via de toegewezen HSM-service alleen en kan geen host zijn geen apparaten klant worden geleverd.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>V: Ondersteunt Azure toegewezen HSM PINCODE/ETF functies of voldoen aan de vereisten van PCI HSM v1 of v2-certificering?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>V: Betaling van Azure toegewezen HSM-ondersteuning (PINCODE/ETF)-functies gebruikt?
 
-De service Azure toegewezen HSM gebruikt SafeNet Luna netwerk HSM 7 (model A790)-apparaten. Deze apparaten bieden geen ondersteuning voor betaling HSM specifieke functionaliteit (zoals een PINCODE of ETF) of certificaten. Als u Azure toegewezen HSM-service voor de ondersteuning van betaling HSM's in de toekomst, geef u hieronder feedback geven.
+De service Azure toegewezen HSM gebruikt SafeNet Luna netwerk HSM 7 (model A790)-apparaten. Deze apparaten bieden geen ondersteuning voor betaling HSM specifieke functionaliteit (zoals een PINCODE of ETF) of certificaten. Als u Azure toegewezen HSM-service voor de ondersteuning van betaling HSM's in de toekomst, Geef op de feedback aan uw Microsoft-accountvertegenwoordiger.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>V: Welke Azure-regio's is toegewezen HSM beschikbaar in?
+
+Vanaf eind maart 2019, toegewezen HSM is beschikbaar in de 14 regio's die hieronder worden vermeld. Meer regio's zijn gepland en via uw Microsoft-accountvertegenwoordiger kunnen worden besproken.
+
+* US - oost
+* US - oost 2
+* US - west
+* US - zuid-centraal
+* Azië - zuidoost
+* Azië - oost
+* Europa - noord
+* Europa -west
+* Verenigd Koninkrijk Zuid
+* Verenigd Koninkrijk West
+* Canada - midden
+* Canada - oost
+* Australië - oost
+* Australië - zuidoost
 
 ## <a name="interoperability"></a>Interoperabiliteit
 

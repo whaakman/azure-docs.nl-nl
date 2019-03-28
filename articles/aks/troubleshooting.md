@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432631"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540921"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -90,3 +90,7 @@ Bewerkingen voor een cluster worden beperkt wanneer actieve upgrade bewerkingen 
 
 * Als het cluster is actief bijwerkt, wacht u totdat de bewerking wordt beëindigd. Als deze is geslaagd, probeert u de eerder mislukte bewerking opnieuw uit.
 * Als het cluster is de upgrade mislukt, volgt u stappen die hierboven worden beschreven
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan ik mijn cluster verplaatsen naar een ander abonnement of mijn abonnement met mijn cluster naar een nieuwe tenant?
+
+Als u uw AKS-cluster hebt verplaatst naar een ander abonnement of het cluster abonnement naar een nieuwe tenant die eigenaar is, wordt het cluster functionaliteit vanwege verloren gaat roltoewijzingen en service-principals rechten verbroken. **AKS biedt geen ondersteuning voor clusters verplaatsen over abonnementen of tenants** vanwege deze beperking.

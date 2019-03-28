@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261261"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541074"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Aangepaste velden maken in Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Maken van aangepaste velden in een Log Analytics-werkruimte in Azure Monitor
 
 > [!NOTE]
-> In dit artikel wordt beschreven hoe u gegevens in Log Analytics worden geparseerd als deze verzameld. Er zijn voordelen van het parseren van tekstgegevens in een query nadat deze verzameld, zoals beschreven in [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md).
+> In dit artikel wordt beschreven hoe u tekstgegevens in een Log Analytics-werkruimte parseren als deze verzameld. Er zijn voordelen van het parseren van tekstgegevens in een query nadat deze verzameld, zoals beschreven in [parseren van tekstgegevens in Azure Monitor](../log-query/parse-text.md).
 
-De **aangepaste velden** functie van Log Analytics kunt u bestaande records in Log Analytics uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld op basis van gegevens die zijn geëxtraheerd uit andere eigenschappen in dezelfde record.
+De **aangepaste velden** functie van Azure Monitor kunt u bestaande records in de werkruimte van Log Analytics uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld op basis van gegevens die zijn geëxtraheerd uit andere eigenschappen in dezelfde record.
 
 ![Overzicht van aangepaste velden](media/custom-fields/overview.png)
 

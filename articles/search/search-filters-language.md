@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311181"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522261"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Hoe kunt u filteren op taal in Azure Search 
 
@@ -39,11 +39,11 @@ In onze voorbeelden, met inbegrip van de [onroerend goed-voorbeeld](search-get-s
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Zie voor voorbeelden van code met velddefinities met talen analysefuncties, [definiëren van een index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) en [definiëren van een index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> Zie voor voorbeelden van code met velddefinities met talen analysefuncties, [definiëren van een index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) en [definiëren van een index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Bouw en een index laden
 
-Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) voordat u een query te formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst indexen de [portal](https://portal.azure.com).
+Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-create-index-dotnet) voordat u een query te formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst indexen de [portal](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Beperken van de query en trim resultaten
 

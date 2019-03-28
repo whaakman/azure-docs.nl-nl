@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769163"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522057"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -408,19 +408,19 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 
 |Opgeslagen procedure  |Description  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Hiermee wordt een nieuwe taak toegevoegd.    |
-|[sp_update_job](#spupdatejob)    |      Een bestaande taak voor het bijwerken.   |
-|[sp_delete_job](#spdeletejob)     |      Hiermee verwijdert u een bestaande taak.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Voegt een stap toe aan een taak.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Een stap in logboektaak-updates.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Hiermee verwijdert u een stap in logboektaak.    |
-|[sp_start_job](#spstartjob)    |  Start een taak wordt uitgevoerd.       |
-|[sp_stop_job](#spstopjob)     |     Hiermee stopt u het uitvoeren van een taak.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Een doel-gebruikersgroep wordt toegevoegd.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Hiermee verwijdert u een doelgroep.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Een database of een groep databases toegevoegd aan een doelgroep.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Hiermee verwijdert u een lid van een doel van een doelgroep.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Hiermee verwijdert u de geschiedenisrecords voor een taak.     |
+|sp_add_job     |     Hiermee wordt een nieuwe taak toegevoegd.    |
+|sp_update_job    |      Een bestaande taak voor het bijwerken.   |
+|sp_delete_job     |      Hiermee verwijdert u een bestaande taak.   |
+|sp_add_jobstep    |    Voegt een stap toe aan een taak.     |
+|sp_update_jobstep     |     Een stap in logboektaak-updates.    |
+|sp_delete_jobstep     |     Hiermee verwijdert u een stap in logboektaak.    |
+|sp_start_job    |  Start een taak wordt uitgevoerd.       |
+|sp_stop_job     |     Hiermee stopt u het uitvoeren van een taak.   |
+|sp_add_target_group    |     Een doel-gebruikersgroep wordt toegevoegd.    |
+|sp_delete_target_group     |    Hiermee verwijdert u een doelgroep.     |
+|sp_add_target_group_member     |    Een database of een groep databases toegevoegd aan een doelgroep.     |
+|sp_delete_target_group_member     |     Hiermee verwijdert u een lid van een doel van een doelgroep.    |
+|sp_purge_jobhistory    |    Hiermee verwijdert u de geschiedenisrecords voor een taak.     |
 
 
 
@@ -1195,13 +1195,13 @@ De volgende weergaven zijn beschikbaar in de [taken database](sql-database-job-a
 
 |Weergave  |Description  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  Geeft de taakgeschiedenis worden uitgevoerd.      |
+|jobs_executions     |  Geeft de taakgeschiedenis worden uitgevoerd.      |
 |[jobs](#jobs-view)     |   Geeft alle taken.      |
-|[job_versions](#jobversions-view)     |   Bevat alle versies van de taak.      |
+|job_versions     |   Bevat alle versies van de taak.      |
 |[jobsteps](#jobsteps-view)     |     Ziet u alle stappen in de huidige versie van elke taak.    |
-|[jobstep_versions](#jobstepversions-view)     |     Ziet u alle stappen in alle versies van elke taak.    |
-|[target_groups](#targetgroups-view)     |      Geeft alle doelgroepen.   |
-|[target_group_members](#targetgroups-view)     |   Ziet u alle leden van alle doelgroepen.      |
+|jobstep_versions     |     Ziet u alle stappen in alle versies van elke taak.    |
+|target_groups     |      Geeft alle doelgroepen.   |
+|target_group_members     |   Ziet u alle leden van alle doelgroepen.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions weergeven

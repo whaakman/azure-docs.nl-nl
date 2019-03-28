@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371312"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521836"
 ---
 # <a name="mapping-data-flow-datasets"></a>Toewijzing van gegevensstroom gegevenssets
 
@@ -49,9 +49,27 @@ In de gegevensstroom, kunt u vragen ADF kunt u de tabeldefinitie van een nieuwe 
 
 ![Schema van de gegevensbron transformatie](media/data-flow/dataset2.png "SQL-Schema")
 
-## <a name="delimited-text-dataset"></a>Tekst met scheidingstekens gegevensset
+## <a name="choose-your-type-of-data-first"></a>Kies het type van de gegevens eerst
 
-In de gegevensset tekst met scheidingstekens, stelt u het scheidingsteken voor het afhandelen van een van beide één scheidingstekens ("\t"voor TSV,',' voor CSV, ' |'...) of meerdere tekens te gebruiken voor het scheidingsteken. Zet de wisselknop van de rij header en gaat u naar de bron-transformatie gegevenstypen automatisch te detecteren.
+### <a name="delimited-text"></a>Tekst met scheidingstekens
+
+In de gegevensset tekst met scheidingstekens, stelt u het scheidingsteken voor het afhandelen van een van beide één scheidingstekens ("\t"voor TSV,',' voor CSV, ' |'...) of meerdere tekens te gebruiken voor het scheidingsteken. Zet de wisselknop van de rij header en gaat u naar de bron-transformatie gegevenstypen automatisch te detecteren. Als u van een gegevensset gescheiden tekst naar gegevens overbrengen in een sink gebruikmaakt, selecteer een doelmap. U kunt de naam van de uitvoerbestanden definiëren in de instellingen voor Sink.
+
+### <a name="parquet"></a>Parquet
+
+Parquet gebruiken als de gewenste staging gegevenssettype in ADF gegevensstromen. Parquet, uitgebreide metagegevensschema samen met de gegevens wordt opgeslagen.
+
+### <a name="database-types"></a>Gegevenstypen van de database
+
+U kunt Azure SQL DB of Azure SQL DW selecteren.
+
+Voor de andere ADF gegevenssettypen, door de Kopieeractiviteit te gebruiken om te zetten van uw gegevens. Er is een ADF-sjabloon in de galerie met sjablonen waarmee u dit patroon.
+
+![kopiëren van fasering](media/data-flow/templatedf.png "fasering kopiëren")
+
+## <a name="choose-your-connection-type"></a>Kies het verbindingstype
+
+Als u de Parquet of gescheiden tekst gegevenssets worden gebruikt, kunt u vervolgens de locatie voor uw gegevens selecteren: ADLS- of Blob.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895801"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520799"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>De ervaring van een doeltreffende anker maken met behulp van Azure ruimtelijke ankers
 
@@ -86,7 +86,7 @@ In het doelscenario kunt foto's. Als u gebruikers een foto van het beoogde doel 
 
 Gebruikers opgeven in het scenario ruimte, een spatie gewoon wetenschap dat er ergens is hier een anker. Gebruikers de ruimte scannen met hun apparaat en het anker snel te vinden.
 
-Deze ervaring doorgaans vereist dat u goed samengestelde ankers te maken zoals beschreven in [verschillende perspectieven van de weergave](#consider-various-viewing-perspectives). Als u de ruimte van vele perspectieven gescand tijdens het maken van het anker, kunnen gebruikers vrijwel overal scannen wanneer ze proberen te zoeken.
+Deze ervaring doorgaans vereist dat u goed samengestelde ankers te maken zoals beschreven in verschillende perspectieven van de weergave. Als u de ruimte van vele perspectieven gescand tijdens het maken van het anker, kunnen gebruikers vrijwel overal scannen wanneer ze proberen te zoeken.
 
 ![Afbeelding van hoe een gebruiker een ruimte om een anker kunt scannen](./media/scan-room.png)
 

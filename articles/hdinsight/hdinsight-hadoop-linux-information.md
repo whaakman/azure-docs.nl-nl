@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/09/2018
-ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/20/2019
+ms.openlocfilehash: c149c6466f7d86f5cb22c840d4353c3939768768
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202449"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518980"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -28,8 +28,9 @@ Azure HDInsight-clusters bieden Apache Hadoop op een vertrouwde Linux-omgeving, 
 Veel van de stappen in dit document met de volgende hulpprogramma's, die mogelijk moeten worden geïnstalleerd op uw systeem.
 
 * [cURL](https://curl.haxx.se/) : wordt gebruikt om te communiceren met Internet gebaseerde services.
-* [jq](https://stedolan.github.io/jq/) : wordt gebruikt voor het parseren van JSON-documenten.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services.
+* **jq**, een opdrachtregelprogramma JSON-processor.  Zie [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) : wordt gebruikt voor het extern beheren van Azure-services.
+* **Een SSH-client**. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Gebruikers
 
@@ -39,23 +40,23 @@ Aan domein gekoppelde HDInsight biedt ondersteuning voor meerdere gebruikers en 
 
 ## <a name="domain-names"></a>Domeinnamen
 
-De volledig gekwalificeerde domeinnaam (FQDN) om verbinding te maken met het cluster vanaf het internet is  **&lt;clustername >. azurehdinsight.net** of (voor SSH)  **&lt;clustername-ssh >. azurehdinsight.NET**.
+De volledig gekwalificeerde domeinnaam (FQDN) om verbinding te maken met het cluster vanaf het internet is `CLUSTERNAME.azurehdinsight.net` of `CLUSTERNAME-ssh.azurehdinsight.net` (voor SSH).
 
 Intern, heeft elk knooppunt in het cluster een naam die is toegewezen tijdens de configuratie van het cluster. De clusternamen van de, Zie de **Hosts** pagina op de Ambari-Webgebruikersinterface. U kunt ook het volgende gebruiken om te retourneren van een lijst met hosts uit de Ambari REST-API:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Vervang **CLUSTERNAME** door de naam van uw cluster. Wanneer u hierom wordt gevraagd, voert u het wachtwoord voor het beheeraccount. Met deze opdracht retourneert een JSON-document dat een lijst van de hosts in het cluster bevat. Jq wordt gebruikt om op te halen de `host_name` elementwaarde voor elke host.
+Vervang `CLUSTERNAME` door de naam van uw cluster. Wanneer u hierom wordt gevraagd, voert u het wachtwoord voor het beheeraccount. Met deze opdracht retourneert een JSON-document dat een lijst van de hosts in het cluster bevat. [jq](https://stedolan.github.io/jq/) wordt gebruikt om op te halen de `host_name` elementwaarde voor elke host.
 
 Als u de naam van het knooppunt vinden voor een bepaalde service wilt, kunt u Ambari query voor het betreffende onderdeel. Bijvoorbeeld, als u zoekt de hosts voor het knooppunt van de naam HDFS, gebruik de volgende opdracht:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-Met deze opdracht retourneert een JSON-document met een beschrijving van de service en jq vervolgens haalt uit alleen de `host_name` waarde voor de hosts.
+Met deze opdracht retourneert een JSON-document met een beschrijving van de service, en vervolgens [jq](https://stedolan.github.io/jq/) alleen ophaalt uit de `host_name` waarde voor de hosts.
 
 ## <a name="remote-access-to-services"></a>Externe toegang tot services
 
-* **Ambari (web)** - https://&lt;clustername >. azurehdinsight.net
+* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
 
     Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord en meld u aan Ambari.
 
@@ -66,21 +67,21 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > Als u de volledige functionaliteit van de Ambari-Webgebruikersinterface, gebruikt u een SSH-tunnel voor proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
     >
     > Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **WebHCat (Templeton)** - https://&lt;clustername >.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
     >
     > Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **SSH** - &lt;clustername >-ssh.azurehdinsight.net op poort 22 en 23. Poort 22 wordt gebruikt voor verbinding met het primaire hoofdknooppunt terwijl 23 wordt gebruikt om te verbinden met de secundaire server. Zie voor meer informatie over de hoofdknooppunten [beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** -CLUSTERNAAM-ssh.azurehdinsight.net op poort 22 en 23. Poort 22 wordt gebruikt voor verbinding met het primaire hoofdknooppunt terwijl 23 wordt gebruikt om te verbinden met de secundaire server. Zie voor meer informatie over de hoofdknooppunten [beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]  
     > U kunt alleen toegang tot de hoofdknooppunten van het cluster via SSH vanaf een clientcomputer. Nadat verbinding is gemaakt, kunt u vervolgens toegang tot de worker-knooppunten met behulp van SSH uit een hoofdknooppunt.
@@ -91,8 +92,8 @@ Zie voor meer informatie de [poorten die worden gebruikt door de services van Ap
 
 Hadoop-bestanden kunnen u vinden op de clusterknooppunten op `/usr/hdp`. Deze map bevat de volgende submappen:
 
-* **2.2.4.9-1**: Naam van de map is de versie van de Hortonworks Data Platform die door HDInsight worden gebruikt. Het nummer van uw cluster mogelijk anders is dan de hier weergegeven.
-* **huidige**: Deze map bevat koppelingen naar submappen onder de **2.2.4.9-1** directory. Deze map bestaat, zodat u niet hoeft te onthouden van het versienummer.
+* **2.6.5.3006-29**: Naam van de map is de versie van de Hortonworks Data Platform die door HDInsight worden gebruikt. Het nummer van uw cluster mogelijk anders is dan de hier weergegeven.
+* **huidige**: Deze map bevat koppelingen naar submappen onder de **2.6.5.3006-29** directory. Deze map bestaat, zodat u niet hoeft te onthouden van het versienummer.
 
 Van de voorbeeldgegevens en de JAR-bestanden kunnen u vinden op Hadoop Distributed File System op `/example` en `/HdiSamples`.
 
@@ -150,7 +151,9 @@ Bij het gebruik van __Azure Data Lake Storage Gen1__, gebruikt u een van de volg
 
 U kunt Ambari gebruiken om op te halen van de standaardconfiguratie van de opslag voor het cluster. Gebruik de volgende opdracht om op te halen van HDFS-configuratiegegevens met curl en filteren met behulp van [jq](https://stedolan.github.io/jq/):
 
-```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```bash
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+```
 
 > [!NOTE]  
 > Met deze opdracht retourneert de eerste configuratie toegepast op de server (`service_config_version=1`), die deze informatie bevat. Mogelijk moet u alle configuratie-versies om de meest recente versie.
@@ -163,19 +166,23 @@ Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende UR
 
 * `adl://home` Als u met behulp van Azure Data Lake-opslag. Als u de naam van de Data Lake-opslag, gebruikt u de volgende REST-aanroep:
 
-    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+     ```bash
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
+    ```
 
     Met deze opdracht retourneert de naam van de volgende: `<data-lake-store-account-name>.azuredatalakestore.net`.
 
     Als u de map in het archief is de hoofdmap voor HDInsight, gebruikt u de volgende REST-aanroep:
 
-    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+    ```bash
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
+    ```
 
     Met deze opdracht retourneert een pad die vergelijkbaar is met het volgende pad: `/clusters/<hdinsight-cluster-name>/`.
 
 U vindt hier ook de storage-gegevens met behulp van de Azure-portal met behulp van de volgende stappen uit:
 
-1. In de [Azure-portal](https://portal.azure.com/), selecteer uw HDInsight-cluster.
+1. Uit de [Azure-portal](https://portal.azure.com/), selecteer uw HDInsight-cluster.
 
 2. Uit de **eigenschappen** sectie, selecteer **Opslagaccounts**. De opslaginformatie voor het cluster wordt weergegeven.
 
@@ -210,7 +217,7 @@ Als u __Azure Data Lake Storage__, Zie de volgende koppelingen voor manieren waa
 
 ## <a name="scaling"></a>Uw cluster schalen
 
-Het cluster schalen functie kunt u het aantal gegevensknooppunten die worden gebruikt door een cluster dynamisch wijzigen. U kunt vergroten / verkleinen terwijl andere taken uitvoeren of processen worden uitgevoerd op een cluster.
+Het cluster schalen functie kunt u het aantal gegevensknooppunten die worden gebruikt door een cluster dynamisch wijzigen. U kunt vergroten / verkleinen terwijl andere taken uitvoeren of processen worden uitgevoerd op een cluster.  Zie ook [schaal HDInsight-clusters](./hdinsight-scaling-best-practices.md)
 
 De verschillende clustertypen worden beïnvloed door te schalen als volgt:
 
@@ -237,7 +244,7 @@ De verschillende clustertypen worden beïnvloed door te schalen als volgt:
 
     * **Storm-gebruikersinterface**: Gebruik de volgende stappen uit om te herverdelen een topologie met behulp van de Storm-gebruikersinterface.
 
-        1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in uw webbrowser, waarbij CLUSTERNAME de naam van uw Storm-cluster is. Als u hierom wordt gevraagd, voert u de HDInsight-cluster (beheerder)-beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
+        1. Open `https://CLUSTERNAME.azurehdinsight.net/stormui` in uw webbrowser, waarbij `CLUSTERNAME` is de naam van uw Storm-cluster. Als u hierom wordt gevraagd, voert u de HDInsight-cluster (beheerder)-beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
         2. Selecteer de topologie die u wilt opnieuw verdelen en selecteer vervolgens de **opnieuw verdelen** knop. Voer de vertraging voordat de herverdeling wordt uitgevoerd.
 
 * **Kafka**: U moet partitiereplica's na het schalen herverdelen. Zie voor meer informatie de [hoge beschikbaarheid van gegevens met Apache Kafka in HDInsight](./kafka/apache-kafka-high-availability.md) document.
@@ -275,7 +282,7 @@ Bijvoorbeeld, als u wilt gebruiken van de meest recente versie van [Apache DataF
 
 Upload voor het gebruik van een andere versie van een onderdeel, de versie die u nodig hebt en deze gebruiken in uw taken.
 
-> [!WARNING]
+> [!IMPORTANT]
 > Onderdelen van het HDInsight-cluster volledig worden ondersteund en Microsoft Support helpt bij het opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
 > Aangepaste onderdelen commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ https://apache.org ](https://apache.org), bijvoorbeeld: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
@@ -283,6 +290,7 @@ Upload voor het gebruik van een andere versie van een onderdeel, de versie die u
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Migreren van HDInsight op basis van Windows op basis van Linux](hdinsight-migrate-from-windows-to-linux.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari REST-API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce-taken gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)

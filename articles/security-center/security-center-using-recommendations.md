@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402759"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517688"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Gebruik Azure Security Center aanbevelingen om beveiliging te verbeteren
 U kunt de kans op een aanzienlijke beveiligingsgebeurtenis beperken door een beveiligingsbeleid configureren en vervolgens implementeren van de aanbevelingen die door Azure Security Center. Dit artikel ziet u hoe u beveiligingsbeleid en aanbevelingen in Security Center gebruikt om te beperken van een aanval op de beveiliging. 
 
-Security Center wordt automatisch uitgevoerd continue scans voor het analyseren van de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het begeleiden configureren van de vereiste beveiligingscontroles. Security Center werkt de aanbevelingen voor elke 24 uur.
+Security Center wordt automatisch uitgevoerd continue scans voor het analyseren van de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het begeleiden configureren van de vereiste beveiligingscontroles. Security Center-updates zijn aanbevelingen binnen 24 uur, met de volgende uitzonderingen:
+
+- Besturingssysteem beveiligingsaanbevelingen voor de configuratie worden bijgewerkt binnen 48 uur
+- Aanbevelingen voor Endpoint Protection problemen worden binnen acht uur bijgewerkt
 
 ## <a name="scenario"></a>Scenario
 In dit scenario laat zien hoe u Security Center gebruiken om te helpen verminderen de kans op een beveiligingsincident door Security Center aanbevelingen voor bewaking en actie te ondernemen. Het scenario wordt gebruikt voor het fictieve bedrijf, Contoso en rollen die zijn gepresenteerd in het Security Center [planning- en bedieningsgids voor](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). In dit scenario focussen we op de functies van de volgende personen:

@@ -1,19 +1,19 @@
 ---
 title: Overzicht van diagnostische logboeken in Azure
 description: Leer wat diagnostische logboeken in Azure zijn en hoe u deze kunt gebruiken om te begrijpen van gebeurtenissen die plaatsvinden binnen een Azure-resource.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310179"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519388"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -49,11 +49,6 @@ U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abo
 > [!NOTE]
 >  U kan momenteel niet archiveren stroomlogboeken netwerk naar een opslagaccount die zich achter een beveiligd virtueel netwerk bevindt.
 
-> [!WARNING]
-> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Diagnostische instellingen
 
 Diagnostische logboeken van resources zijn geconfigureerd met behulp van de instellingen voor resourcediagnose. Diagnostische logboeken tenant zijn geconfigureerd met behulp van de diagnostische instelling van een tenant. **Diagnostische instellingen** voor een service-besturingselement:
@@ -61,7 +56,7 @@ Diagnostische logboeken van resources zijn geconfigureerd met behulp van de inst
 * Waar diagnostische logboeken en metrische gegevens worden verzonden (Storage-Account, Event Hubs en/of Azure Monitor).
 * Welke logboekcategorieën worden verzonden en of u metrische gegevens ook worden verzonden.
 * Hoe lang elke logboekcategorie moet worden bewaard in een storage-account
-    - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
+    - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 365 zijn.
     - Als Logboeken opslaan in een Storage-Account is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), bewaarbeleid worden ingesteld, maar hebben het bewaarbeleid geen effect.
     - Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account.
 

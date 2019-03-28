@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436690"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520153"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -309,6 +309,11 @@ Vanuit de portal LUIS, selecteert u uw app en vervolgens **eindpunt-logboeken im
 
 Nadat het logboek is geüpload, [bekijken van het eindpunt](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) uitingen in de LUIS-portal.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>De container stoppen
 
 Als u wilt afsluiten van de container, in de opdrachtregelomgeving waarop de container wordt uitgevoerd, drukt u op **Ctrl + C**.
@@ -316,10 +321,6 @@ Als u wilt afsluiten van de container, in de opdrachtregelomgeving waarop de con
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
-
-## <a name="containers-api-documentation"></a>API-documentatie van de container
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Billing
 

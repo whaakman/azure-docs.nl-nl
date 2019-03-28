@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113342"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539969"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure-implementatie van toegewezen HSM-architectuur
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architectuur van Azure toegewezen HSM-implementatie
 
 Azure toegewezen HSM biedt opslag van cryptografische sleutels in Azure. Deze voldoet aan strenge beveiligingsvereisten. Klanten profiteren van Azure toegewezen HSM als ze:
 
@@ -37,6 +37,12 @@ De HSM's worden verdeeld over de Microsoft-datacenters en kunnen eenvoudig worde
 * Azië - oost
 * Europa - noord
 * Europa -west
+* Verenigd Koninkrijk Zuid
+* Verenigd Koninkrijk West
+* Canada - midden
+* Canada - oost
+* Australië - oost
+* Australië - zuidoost
 
 Elk van deze regio's heeft HSM rekken geïmplementeerd in datacenters met twee onafhankelijke of ten minste twee onafhankelijke beschikbaarheidszones. Zuidoost-Azië heeft drie beschikbaarheidszones en VS-Oost 2 heeft twee. Er is een totaal van acht regio's in Europa, Azië en de VS die worden geboden door de toegewezen HSM-service. Zie voor meer informatie over Azure-regio's, de officiële [informatie van de Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/).
 Bepaalde factoren ontwerp voor een oplossing op basis van toegewezen HSM locatie/latentie, hoge beschikbaarheid en ondersteuning voor andere gedistribueerde toepassingen.

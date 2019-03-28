@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310282"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540717"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure naar Azure disaster recovery-architectuur
 
@@ -144,7 +144,7 @@ Voor het beheren van uitgaande connectiviteit voor virtuele machines met behulp 
 
 **Regel** |  **Details** | **Servicetag**
 --- | --- | --- 
-Uitgaand verkeer toestaan van HTTPS: poort 443 | Bereiken die overeenkomen met de storage-accounts in de bronregio toestaan | Opslag. < regionaam >.
+Uitgaand verkeer toestaan van HTTPS: poort 443 | Bereiken die overeenkomen met de storage-accounts in de bronregio toestaan | Opslag. \<regio-name >.
 Uitgaand verkeer toestaan van HTTPS: poort 443 | Sta de adresbereiken die overeenkomen met de Azure Active Directory (Azure AD) toe.<br/><br/> Als Azure AD-adressen in de toekomst worden toegevoegd die u wilt maken van nieuwe Netwerkbeveiligingsgroep (NSG)-regels.  | AzureActiveDirectory
 Uitgaand verkeer toestaan van HTTPS: poort 443 | Toegang tot [Site Recovery-eindpunten](https://aka.ms/site-recovery-public-ips) die overeenkomen met de doellocatie. 
 
@@ -152,7 +152,7 @@ Uitgaand verkeer toestaan van HTTPS: poort 443 | Toegang tot [Site Recovery-eind
 
 **Regel** |  **Details** | **Servicetag**
 --- | --- | --- 
-Uitgaand verkeer toestaan van HTTPS: poort 443 | Sta de adresbereiken die overeenkomen met de storage-accounts in de doelregio toe. | Opslag. < regionaam >.
+Uitgaand verkeer toestaan van HTTPS: poort 443 | Sta de adresbereiken die overeenkomen met de storage-accounts in de doelregio toe. | Opslag. \<regio-name >.
 Uitgaand verkeer toestaan van HTTPS: poort 443 | Sta de adresbereiken die overeenkomen met de Azure AD toe.<br/><br/> Als Azure AD-adressen in de toekomst worden toegevoegd die u wilt maken van nieuwe NSG-regels.  | AzureActiveDirectory
 Uitgaand verkeer toestaan van HTTPS: poort 443 | Toegang tot [Site Recovery-eindpunten](https://aka.ms/site-recovery-public-ips) die overeenkomen met de bronlocatie. 
 

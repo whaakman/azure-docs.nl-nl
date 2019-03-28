@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 8e82e0ebd988ab82e9090a83a061f36dfdb40341
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f04a4ca8c0b160dc2bcc762cc1c570737dc945d5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318220"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505866"
 ---
-Voor dit voorbeeld is versie 5.1.1 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). 
+Voor dit voorbeeld Azure PowerShell is vereist. Voer `Get-Module -ListAvailable Az` om te zien of deze geïnstalleerd. Als u installeren wilt, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps). 
 
-Voer `Connect-AzureRmAccount` uit om een verbinding op te zetten met Azure. 
+Voer `Connect-AzAccount` uit om een verbinding op te zetten met Azure. 

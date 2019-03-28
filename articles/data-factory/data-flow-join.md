@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726869"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540037"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Toewijzing van Flow Join transformatie
 
@@ -67,6 +67,10 @@ U kunt voorwaarden in ADF gegevensstroom self-join bereiken met behulp van de op
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 In het bovenstaande diagram, wordt de optie transformatie is aan de bovenkant. Alle Bezig aliasing is de oorspronkelijke stroom naar 'OrigSourceBatting'. In de gemarkeerde Join-transformatie eronder kunt u zien dat we deze stroom Selecteer alias als de rechter join gebruiken, zodat we om te verwijzen naar dezelfde sleutel in de linker & de rechterkant van de Inner Join.
+
+## <a name="composite-and-custom-keys"></a>Samengestelde en aangepaste sleutels
+
+U kunt aangepaste en samengestelde sleutels bouwen op elk gewenst moment in de Join-transformatie. Rijen voor extra join-kolommen met het plusteken (+) naast elke rij van de relatie toevoegen. Of de waarde van een nieuwe sleutel in de opbouwfunctie voor een waarde op het begeven join compute.
 
 ## <a name="next-steps"></a>Volgende stappen
 
