@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456809"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541159"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
+# <a name="azure-resource-manager-test-drive"></a>Test Drive voor Azure Resource Manager
 
 Dit artikel is voor uitgevers die hebben hun aanbieding op Azure Marketplace, of die op AppSource, maar wilt maken van de Test Drive met alleen Azure-resources.
 
@@ -51,7 +51,7 @@ Dit is het proces voor het bouwen van een Azure Resource Manager Test Drive:
 
 Het belangrijkste gedeelte over het bouwen van een Azure Resource Manager Test Drive is te definiëren welke scenario('s) u wilt dat uw klanten ondervinden. Weet u die een firewallproduct en u wilt demonstreren hoe goed het verwerken van script-injectieaanvallen? Weet u die een opslagproduct en u wilt demonstreren hoe snel en eenvoudig uw oplossing kunt u bestanden comprimeren?
 
-Controleer borgstelling besteden aan een voldoende hoeveelheid tijd evalueren wat de beste manieren zijn om te pronken met uw product zijn. Specifiek rond de vereiste resources moet u, zoals het verpakken van de Resource Manager-sjabloon voldoende eenvoudiger maakt.
+Zorg ervoor dat u de uitgaven van een voldoende hoeveelheid tijd evalueren wat de beste manieren zijn om te pronken met uw product zijn. Specifiek rond de vereiste resources moet u, zoals het verpakken van de Resource Manager-sjabloon voldoende eenvoudiger maakt.
 
 Om door te gaan met ons voorbeeld firewall, is de architectuur mogelijk moet u een openbare IP-URL voor uw service en een andere openbare IP-URL voor de website die uw firewall beveiligt. Elke IP is geïmplementeerd op een virtuele Machine en verbonden, samen met een netwerkbeveiligingsgroep + netwerkinterface.
 

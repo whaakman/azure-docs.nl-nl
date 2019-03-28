@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295263"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540972"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -77,14 +77,12 @@ Weergeven van uw Batch-accountquota in de [Azure-portal][portal].
 1. Selecteer **Batch-accounts** in de portal, schakelt u vervolgens de Batch-account dat u geïnteresseerd bent in.
 1. Selecteer **quota** in het menu van de Batch-account.
 1. De quota die momenteel wordt toegepast op het Batch-account weergeven
-   
+
     ![Batch-accountquota][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Een quotum verhogen
 
-Volg deze stappen om aan te vragen van een quotum voor uw Batch-account of uw abonnement met verhogen de [Azure-portal][portal]. Het type van de verhoging van het quotum is afhankelijk van de pooltoewijzingsmodus van uw Batch-account.
+Volg deze stappen om aan te vragen van een quotum voor uw Batch-account of uw abonnement met verhogen de [Azure-portal][portal]. Het type van de verhoging van het quotum is afhankelijk van de pooltoewijzingsmodus van uw Batch-account. Om aan te vragen een quotaverhoging, moet u de VM-reeks die u graag zou willen Verhoog het quotum voor opnemen. Wanneer de verhoging is toegepast, wordt deze toegepast op alle reeksen van virtuele machines.
 
 ### <a name="increase-a-batch-cores-quota"></a>Verhoog het quotum voor een Batch-kerngeheugens 
 

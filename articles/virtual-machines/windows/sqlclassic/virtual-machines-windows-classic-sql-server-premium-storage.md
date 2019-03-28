@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905117"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540870"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Stap 2: Verhoog de toegestane fouten op resources <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Stap 2: Verhoog de toegestane fouten op resources \<optioneel >
 
 Voor bepaalde resources die deel uitmaken van de AlwaysOn-beschikbaarheidsgroep zijn er beperkingen voor het aantal storingen die in een periode waarin de cluster-service probeert optreden kunnen te starten van de resourcegroep. Het is raadzaam dat u deze verhogen terwijl u via deze procedure zijn doorlopen sinds als u dit niet handmatig failover en trigger failovers door machines u dicht bij deze limiet krijgt wordt afgesloten.
 
@@ -692,7 +692,7 @@ Moet worden beperkt op het dubbele van de aftrek van de fout, om dit te doen in 
 
 Wijzig het maximum aantal fouten in 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Stap 3: Bronnen voor het IP-adres voor de clustergroep toevoegen <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Stap 3: Bronnen voor het IP-adres voor de clustergroep toevoeging \<optioneel >
 
 Als u slechts één IP-adres hebt voor de clustergroep, en deze wordt uitgelijnd op het subnet van de cloud, houd er rekening mee, als u per ongeluk offline alle clusterknooppunten in de cloud op dat netwerk zetten en vervolgens de Cluster-IP-resource en de naam van clusternetwerk zijn pas weer online komt. In dit geval voorkomt updates dat naar andere clusterresources.
 

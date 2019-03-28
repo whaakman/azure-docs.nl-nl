@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999564"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541023"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -243,7 +243,7 @@ Zie voor een voorbeeld [101-vm-SSH-sleutelbestand GitHub quickstart-sjabloon](ht
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Wanneer ik uitvoeren `Update-AzVmss` na het toevoegen van meer dan één certificaat vanuit de dezelfde key vault, zie ik het volgende bericht:
 
->Update-AzVmss: Lijst met geheim bevat herhaalde exemplaren van /subscriptions/ < Mijn-abonnement-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, die niet is toegestaan.
+>Update-AzVmss: Lijst met geheim bevat herhaalde exemplaren van /subscriptions/\<mijn-abonnement-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, die niet is toegestaan.
 
 Dit kan gebeuren als u probeert toe te voegen opnieuw de dezelfde kluis in plaats van een nieuwe kluis-certificaat voor de bestaande bronkluis. De `Add-AzVmssSecret` opdracht werkt niet goed als u extra geheimen toevoegt.
 
@@ -303,7 +303,7 @@ De CRP-component is niet persistent geheimen van de klant. Als u `stop deallocat
 
 U kunt dit probleem niet tegenkomen bij het uitschalen omdat er een kopie van het geheim in Azure Service Fabric (in het model met één fabric tenant).
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Waarom heb ik de exacte locatie opgeven voor de URL van het certificaat (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), zoals aangegeven in [Service Fabric-clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Waarom heb ik de exacte locatie opgeven voor de URL van het certificaat (https:\/\/\<naam van de kluis >.vault.azure.net:443/secrets/\<exacte locatie >), zoals aangegeven in [Service Fabric clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
 
 De Azure Key Vault-documentatie wordt aangegeven dat de ophalen-geheim REST-API de nieuwste versie van de geheime sleutel retourneren moet als de versie is niet opgegeven.
 

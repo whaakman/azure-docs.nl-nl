@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499910"
+ms.locfileid: "58540955"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -41,7 +41,7 @@ Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?Link
 >[!NOTE]
 >Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13900"></a>1.3.90.0 
+## <a name="13100"></a>1.3.10.0 
 
 ### <a name="release-status"></a>Releasestatus 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0eead6201f737448b4de76476802518a506375da
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446231"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541261"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Sjablonen voor toepassingen in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -75,15 +75,15 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
 ### <a name="controls"></a>Besturingselementen  
  De `Product list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Zoekresultaten oproepen|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling van toepassingen.|  
-|Toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen die zichtbaar is voor de huidige gebruiker.|  
-|Categorienaam|tekenreeks|De categorie van toepassing.|  
+|`Paging`|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling van toepassingen.|  
+|`Applications`|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen die zichtbaar is voor de huidige gebruiker.|  
+|`CategoryName`|string|De categorie van toepassing.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   

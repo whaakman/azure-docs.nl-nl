@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861040"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541210"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
@@ -34,7 +34,7 @@ In de ontwikkeling van toepassingen vormt schrijven van code die wordt gemaakt v
 ## <a name="sample-code-and-demo"></a>Voorbeeldcode en demo
 In dit artikel wordt een taak search-portal als voorbeeld gebruikt. Het voorbeeld wordt geïmplementeerd als een ASP.NET MVC-toepassing.
 
--   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](https://azjobsdemo.azurewebsites.net/).
+-   Bekijken en testen van de demo werkt online op [Azure Search taak Portal-Demo](http://azjobsdemo.azurewebsites.net/).
 
 -   Download de code uit de [opslagplaats voor Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -364,7 +364,7 @@ Er zijn twee georuimtelijke functies in Azure Search **geo.distance** en **geo.i
 * De **geo.distance** functie wordt de afstand in kilometer zijn verwijderd tussen de twee punten. Een punt is een veld en andere is een constante doorgegeven als onderdeel van het filter. 
 * De **geo.intersects** functie retourneert waar als een opgegeven punt zich binnen een bepaalde veelhoek. Het punt is een veld en de veelhoek is opgegeven als een constante lijst coördinaten doorgegeven als onderdeel van het filter.
 
-Vindt u voorbeelden van het filter in [syntaxis voor OData-expressie (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Vindt u voorbeelden van het filter in [syntaxis voor OData-expressie (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 

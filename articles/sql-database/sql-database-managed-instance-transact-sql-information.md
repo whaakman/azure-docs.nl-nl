@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903127"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541278"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -217,7 +217,7 @@ Zie voor meer informatie, [ALTER DATABASE SET PARTNER en SET WITNESS](https://do
 
 - Meerdere logboekbestanden worden niet ondersteund.
 - Objecten in het geheugen worden niet ondersteund in de categorie Algemeen gebruik-service.  
-- Er is een limiet van 280 bestanden per exemplaar: maximaal 280 bestanden per database voor de overdracht. Zowel de gegevens en logboekbestanden worden geteld naar deze limiet.  
+- Er is een limiet van 280 bestanden per exemplaar van algemeen gebruik: maximaal 280 bestanden per database voor de overdracht. Gegevens- en logboekbestanden bestanden in het algemeen doel laag worden geteld naar deze limiet. [Kritieke bedrijfslaag ondersteunt 32.767 bestanden per database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Database mag geen bestandsgroepen met filestream-gegevens bevatten.  Herstellen mislukt als .bak bevat `FILESTREAM` gegevens.  
 - Elk bestand is in Azure Blob-opslag geplaatst. I/o- en doorvoer per bestand, is afhankelijk van de grootte van elk afzonderlijk bestand.  
 
@@ -485,9 +485,9 @@ Beheerd exemplaar kan niet worden hersteld [ingesloten databases](https://docs.m
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
-Elk beheerd exemplaar met maximaal 35 TB opslag is gereserveerd voor Azure Premium-schijfruimte en elk databasebestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijfgrootten is 128 GB, 256 GB, 512 GB, 1 TB of 4 TB. Ongebruikte ruimte op schijf is niet in rekening gebracht, maar de totale som van Azure Premium Disk-groottes mag niet meer dan 35 TB. In sommige gevallen een beheerd exemplaar dat niet 8 TB in totaal hoeft kan groter zijn dan de 35 TB Azure de limiet voor opslaggrootte, vanwege een interne fragmentatie.
+Elke algemeen doel beheerd exemplaar met maximaal 35 TB opslag is gereserveerd voor Azure Premium-schijfruimte en elk databasebestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijfgrootten is 128 GB, 256 GB, 512 GB, 1 TB of 4 TB. Ongebruikte ruimte op schijf is niet in rekening gebracht, maar de totale som van Azure Premium Disk-groottes mag niet meer dan 35 TB. In sommige gevallen een beheerd exemplaar dat niet 8 TB in totaal hoeft kan groter zijn dan de 35 TB Azure de limiet voor opslaggrootte, vanwege een interne fragmentatie.
 
-Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf met 4 TB en 248 bestanden (elke 1 GB groot) die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
+Een algemeen doel beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf met 4 TB en 248 bestanden (elke 1 GB groot) die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
 
 - De grootte van de totale toegewezen schijfruimte is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - de totale gereserveerde ruimte voor databases op het exemplaar is 1 x-1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -495,6 +495,8 @@ Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wo
 Dit wordt dit duidelijk gemaakt onder bepaalde omstandigheden, vanwege een specifieke distributie van bestanden, een beheerd exemplaar de 35 TB gereserveerd voor de gekoppelde Azure Premium-schijf wanneer u niet verwacht het dat mogelijk mogelijk bereikt.
 
 In dit voorbeeld bestaande databases blijven werken en zonder problemen kan groeien zolang er nieuwe bestanden worden niet toegevoegd. Echter nieuwe databases kunnen niet worden gemaakt of hersteld omdat er niet voldoende ruimte voor nieuwe schijfstations, zelfs als de totale grootte van alle databases niet aan de grootte van het exemplaar komt. De fout die wordt geretourneerd is in dat geval niet wissen.
+
+U kunt [aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) systeemweergaven gebruiken. Als u verbinding probeert u deze limiet te [leeg en verwijder enkele van de kleinere bestanden met de instructie DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of shitch naar [laag bedrijfskritiek die niet is deze limiet](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van de SAS-sleutel tijdens de database herstellen
 

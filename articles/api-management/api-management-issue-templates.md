@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760747"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540836"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Probleem-sjablonen in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -99,11 +99,11 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 |Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Problemen|Verzameling van [probleem](api-management-template-data-model-reference.md#Issue) entiteiten.|De problemen die zichtbaar is voor de huidige gebruiker.|  
-|Zoekresultaten oproepen|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling van toepassingen.|  
-|IsAuthenticated|booleaans|Of de huidige gebruiker is aangemeld bij het ontwikkelaarsportal.|  
-|CanReportIssues|booleaans|Bepaalt of de huidige gebruiker heeft machtigingen voor een probleem melden.|  
-|Search|string|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
+|`Issues`|Verzameling van [probleem](api-management-template-data-model-reference.md#Issue) entiteiten.|De problemen die zichtbaar is voor de huidige gebruiker.|  
+|`Paging`|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling van toepassingen.|  
+|`IsAuthenticated`|booleaans|Of de huidige gebruiker is aangemeld bij het ontwikkelaarsportal.|  
+|`CanReportIssues`|booleaans|Bepaalt of de huidige gebruiker heeft machtigingen voor een probleem melden.|  
+|`Search`|string|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   

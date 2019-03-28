@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107726"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541227"
 ---
 # <a name="backup-and-restore"></a>Back-ups en herstellen
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 De details van de parameters zijn als volgt: 
 
 - De eerste parameter geeft het type van de momentopname van back-up. De toegestane waarden zijn **hana**, **logboeken**, en **boot**. 
-- De parameter **<HANA Large Instance Type>** nodig is voor opstarten volume back-ups alleen. Er zijn twee geldige waarden met "TypeI" of "TypeII" afhankelijk van de eenheid van HANA grote instantie. Om erachter te komen wat typt u de eenheid is, raadpleegt u [SAP HANA (grote instanties) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- De parameter **< snapshot_prefix >** is een momentopname of een back-label voor het type van de momentopname. Het heeft twee doeleinden: Eén meter is voor u het een naam geven zodat u wat deze momentopnamen zijn weet over. Het tweede doel is van het script *azure\_hana\_backup.pl* om te bepalen het aantal opslagmomentopnamen van die onder dat specifieke label worden bewaard. Als u twee opslagmomentopnamen van hetzelfde type plannen (zoals **hana**), met twee verschillende labels, en definieer dat 30 momentopnamen moeten worden opgeslagen voor elk, krijgt u uiteindelijk met 60 opslagmomentopnamen van de volumes die worden beïnvloed. Alleen alfanumerieke ("A-Z, a-z, 0-9'), onderstrepingsteken ('_') en dash ('-') tekens zijn toegestaan. 
-- De parameter **< snapshot_frequency >** is gereserveerd voor toekomstige ontwikkelingen en heeft geen invloed. Stel deze in op "3 minuten" bij het uitvoeren van back-ups van het type **log**, en "15 min" bij het uitvoeren van de back-uptypen.
-- De parameter **<number of snapshots retained>** definieert de retentie van de momentopnamen indirect met het definiëren van het aantal momentopnamen met hetzelfde momentopname voorvoegsel (label). Deze parameter is belangrijk voor geplande uitvoeringen via cron. Als het aantal momentopnamen met de dezelfde snapshot_prefix het aantal door deze parameter is opgegeven overschrijdt, wordt de oudste momentopname verwijderd alvorens een momentopname van een nieuwe opslag.
+- De parameter  **\<HANA grote Instantietype >** nodig is voor opstarten volume back-ups alleen. Er zijn twee geldige waarden met "TypeI" of "TypeII" afhankelijk van de eenheid van HANA grote instantie. Om erachter te komen wat typt u de eenheid is, raadpleegt u [SAP HANA (grote instanties) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- De parameter  **\<snapshot_prefix >** is een momentopname of een back-label voor het type van de momentopname. Het heeft twee doeleinden: Eén meter is voor u het een naam geven zodat u wat deze momentopnamen zijn weet over. Het tweede doel is van het script *azure\_hana\_backup.pl* om te bepalen het aantal opslagmomentopnamen van die onder dat specifieke label worden bewaard. Als u twee opslagmomentopnamen van hetzelfde type plannen (zoals **hana**), met twee verschillende labels, en definieer dat 30 momentopnamen moeten worden opgeslagen voor elk, krijgt u uiteindelijk met 60 opslagmomentopnamen van de volumes die worden beïnvloed. Alleen alfanumerieke ("A-Z, a-z, 0-9'), onderstrepingsteken ('_') en dash ('-') tekens zijn toegestaan. 
+- De parameter  **\<snapshot_frequency >** is gereserveerd voor toekomstige ontwikkelingen en heeft geen invloed. Stel deze in op "3 minuten" bij het uitvoeren van back-ups van het type **log**, en "15 min" bij het uitvoeren van de back-uptypen.
+- De parameter  **\<aantal momentopnamen bewaard >** definieert de retentie van de momentopnamen indirect met het definiëren van het aantal momentopnamen met hetzelfde momentopname voorvoegsel (label). Deze parameter is belangrijk voor geplande uitvoeringen via cron. Als het aantal momentopnamen met de dezelfde snapshot_prefix het aantal door deze parameter is opgegeven overschrijdt, wordt de oudste momentopname verwijderd alvorens een momentopname van een nieuwe opslag.
 
 In het geval van een scale-out wordt het script extra controles om ervoor te zorgen dat u toegang hebt tot alle HANA-servers. Het script wordt ook gecontroleerd dat alle HANA-exemplaren de juiste status van de exemplaren geretourneerd voordat een SAP HANA-momentopname wordt gemaakt. De SAP HANA-momentopname wordt gevolgd door een momentopname van de opslag.
 
