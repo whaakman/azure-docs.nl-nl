@@ -12,7 +12,7 @@ keywords: Pivotal Cloud Foundry, Cloud Foundry, Open Service Broker, Open Servic
 tags: Cloud-Foundry
 ms.openlocfilehash: d553cd09ef42e47e3a10fb96039063b8aae665cb
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54258858"
@@ -38,7 +38,7 @@ Voordat u verdergaat, moet u:
 * [Pivotal Cloud Foundry hebben geïnstalleerd en geconfigureerd](create-cloud-foundry-on-azure.md)
 * [Open Service Broker for Azure hebben geïnstalleerd en geconfigureerd](https://network.pivotal.io/products/azure-open-service-broker-pcf) met uw Cloud Foundry-exemplaar
 
-Hier volgt een voorbeeld van het Ops Manager-scherm in Pivotal Cloud Foundry met de tegel Open Service Broker for Azure geïnstalleerd en geconfigureerd:
+Hier ziet u een voorbeeld van het Ops Manager-scherm in Pivotal Cloud Foundry met de tegel Open Service Broker for Azure geïnstalleerd en geconfigureerd:
 
 ![Pivotal Cloud Foundry met Open Service Broker for Azure geïnstalleerd](media/pcf-ops-manager.png)
 
@@ -46,7 +46,7 @@ Hier volgt een voorbeeld van het Ops Manager-scherm in Pivotal Cloud Foundry met
 
 Als u uw toepassing wilt implementeren in uw Pivotal Cloud Foundry-exemplaar, moet u zijn aangemeld met het opdrachtregelprogramma `cf`. U moet ook de beoogde organisatie en ruimte weten.
 
-Gebruik `cf target` om te verifiëren dat u bent aangemeld, en om de ruimte weer te geven die u wilt gebruiken. In het onderstaande voorbeeld ziet u een gebruiker die al is aangemeld als *beheerder*, met behulp van de organisatie *myorg*, en met als doel de ruimte *dev*:
+Gebruik `cf target` om te verifiëren dat u bent aangemeld en om de ruimte weer te geven die u wilt gebruiken. In het onderstaande voorbeeld ziet u een gebruiker die al is aangemeld als *beheerder*, met de organisatie *myorg* en met als doel de ruimte *dev*:
 
 ```cmd
 $ cf target
@@ -157,15 +157,14 @@ cf logs spring-music --recent | grep jdbcUrl
 2018-12-07T14:44:30.57-0600 [APP/PROC/WEB/0] OUT 2018-12-07 20:44:30.574 DEBUG 24 --- [           main] com.zaxxer.hikari.HikariConfig           : jdbcUrl.........................jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
 ```
 
-Opmerking: de toepassing gebruikt *h2:mem:testdb* uit de 
-in-memory database. Een Spring-toepassing wordt automatisch geconfigureerd voor gebruik van een in-memory database, wanneer er een afhankelijkheid van een in-memory database op het klassepad is en [automatische configuratie](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-auto-configuration.html) is ingeschakeld. Voor de voorbeeldtoepassing is de [afhankelijkheid h2 in-memory database geconfigureerd](https://github.com/cloudfoundry-samples/spring-music/blob/master/build.gradle#L49) en automatische configuratie is ingeschakeld in [src/main/java/org/cloudfoundry/samples/music/Application.java](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/java/org/cloudfoundry/samples/music/Application.java#L8).
+Opmerking: de toepassing gebruikt *h2:mem:testdb* uit de in-memory database. Een Spring-toepassing wordt automatisch geconfigureerd voor gebruik van een in-memory database wanneer er een afhankelijkheid van een in-memory database op het klassepad is en [automatische configuratie](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-auto-configuration.html) is ingeschakeld. Voor de voorbeeldtoepassing is de [afhankelijkheid h2 in-memory database geconfigureerd](https://github.com/cloudfoundry-samples/spring-music/blob/master/build.gradle#L49) en automatische configuratie is ingeschakeld in [src/main/java/org/cloudfoundry/samples/music/Application.java](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/java/org/cloudfoundry/samples/music/Application.java#L8).
 
 Gebruik de route van de toepassing om deze te vinden met een browser. De route, of URL, wordt weergegeven in de uitvoer van de opdracht `cf push`.
 
 > [!TIP]
 > U kunt de URL van de toepassing ook weergeven door `cf apps` uit te voeren.
 
-Als u naar de toepassing bent genavigeerd met behulp van de browser, kunt u met de toepassing werken door een aantal bestaande albums te verwijderen en een aantal nieuwe albums te maken. De voorbeeldtoepassing maakt gebruik van de in-memory database om uw wijzigingen op te slaan. U ziet ook dat de toepassing is ingevuld met een aantal [standaardgegevens](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/resources/albums.json). 
+Als u naar de toepassing bent genavigeerd met behulp van de browser, kunt u met de toepassing werken door een aantal bestaande albums te verwijderen en een aantal nieuwe albums te maken. De voorbeeldtoepassing maakt gebruik van de in-memory database om uw wijzigingen op te slaan. U ziet ook dat er een aantal [standaardgegevens](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/resources/albums.json) zijn ingevuld in de toepassing. 
 
 ![Spring Music-app met standaardgegevens](media/music-app.png)
 
