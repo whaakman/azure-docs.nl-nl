@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884724"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619999"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics op de Media Services-platform 
 
@@ -40,8 +40,6 @@ Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Medi
 
 ### <a name="indexer"></a>Indexer
 Met Azure Media Indexer, kunt u doorzoekbare inhoud en het genereren van ondertitels sporen te wissen. Vergeleken met de vorige versie, heeft Azure Media Indexer 2-Preview-indexering en sneller bredere taal ondersteunen. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees, Portugees en Arabisch. Zie voor gedetailleerde informatie en voorbeelden, [video's verwerken met Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse combineert video stabilization en timelapsevideo mogelijkheid om te maken van snelle, verbruikbare video's van uw inhoud lange vorm. Naast het maken van timelapsevideo video, kunt u Hyperlapse stabiele video's van schokkerige video's die zijn vastgelegd via mobiele telefoons en camcorders maken. Zie voor gedetailleerde informatie en voorbeelden, [Hyperlapse media-bestanden met Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Bewegingsherkenning
 Bewegingsherkenning kunt u beweging detecteren in een video met een stilstaande achtergrond. Dit maakt het mogelijk om te controleren voor fout-positieven op bewegingsgebeurtenissen van surveillancecamera's gedetecteerd. Zie voor gedetailleerde informatie en voorbeelden, [Bewegingsdetectie voor Azure Media Analytics](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Gezichtsherkenning
@@ -53,7 +51,7 @@ Met Azure Media OCR (optische tekenherkenning), kunt u de tekstinhoud in video's
 ### <a name="scalable-face-redaction"></a>Schaalbare gezichten onherkenbaar maken
 Azure Media Redactor is een mediaverwerkingsprogramma van Media Analytics biedt schaalbare gezichten onherkenbaar maken in de cloud. Met behulp van gezichten onherkenbaar maken, kunt u uw video om gezichten van geselecteerde personen onherkenbaar te wijzigen. Het is raadzaam de gezichten onherkenbaar maken-service gebruiken nieuwsmedia of als de openbare veiligheid is betrokken. Pas een paar minuten beeldmateriaal met meerdere gezichten uur redigeer handmatig, maar met deze service gezichten onherkenbaar maken duurt een paar eenvoudige stappen. Zie voor meer informatie de [Redigeer gezichten met Azure Media Analytics](media-services-face-redaction.md) artikel.
 ### <a name="content-moderation"></a>Content Moderation
-Azure Content Moderator kunt u geautomatiseerd beheer gebruiken voor uw video's. U wilt bijvoorbeeld detecteren van mogelijk erotische en ongepaste inhoud in video's en bekijk de gemarkeerde inhoud door uw teams menselijk toezicht. Handmatig toezicht houden op video's voor ongewenste inhoud is een tijd in beslag nemen en dure taak. Met deze service en de bijbehorende programma's combineren u geautomatiseerd beheer met human-in-the-loop mogelijkheden voor de beste resultaten, efficiënte en rendabele wijze. Zie voor meer informatie, de [verwerken van uw video's met Azure Content Moderator](media-services-content-moderation.md) artikel.
+Azure Content Moderator kunt u geautomatiseerd beheer gebruiken voor uw video's. Stel, u wilt mogelijk erotische en racistische inhoud detecteren in video's en de gemarkeerde inhoud laten controleren door uw team. Handmatig toezicht houden op video's voor ongewenste inhoud is een tijd in beslag nemen en dure taak. Met deze service en de bijbehorende programma's combineren u geautomatiseerd beheer met human-in-the-loop mogelijkheden voor de beste resultaten, efficiënte en rendabele wijze. Zie voor meer informatie, de [verwerken van uw video's met Azure Content Moderator](media-services-content-moderation.md) artikel.
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 Media Analytics-organisaties kan helpen en ondernemingen vindt nieuwe inzichten uit video en meer grote volumes van video-inhoud effectief te beheren. Hier volgen enkele scenario's:

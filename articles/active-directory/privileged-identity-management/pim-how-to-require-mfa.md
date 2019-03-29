@@ -1,5 +1,5 @@
 ---
-title: Multi-factor authentication (MFA) en PIM - Azure | Microsoft Docs
+title: Multi-factor authentication (MFA) en PIM - Azure Active Directory | Microsoft Docs
 description: Meer informatie over hoe multi-factor authentication (MFA) in Azure AD Privileged Identity Management (PIM) wordt gevalideerd.
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187250"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578795"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Multi-factor authentication (MFA) en PIM
 
 Het is raadzaam dat u multi-factor authentication (MFA) voor alle uw beheerders vereist. Dit vermindert het risico van een aanval vanwege een wachtwoord is verdacht.
 
-U kunt vereisen dat gebruikers een MFA-controle voltooien wanneer ze zich aanmelden. U kunt ook vereisen dat gebruikers een MFA-controle voltooien wanneer ze een rol in Azure AD Privileged Identity Management (PIM) activeert. Op deze manier als de gebruiker is niet een MFA-controle uitvoeren wanneer zij is aangemeld, wordt ze gevraagd om dit te doen door PIM.
+U kunt vereisen dat gebruikers een MFA-controle voltooien wanneer ze zich aanmelden. U kunt ook vereisen dat gebruikers een MFA-controle voltooien wanneer ze een rol in Azure Active Directory (Azure AD) Privileged Identity Management (PIM) activeert. Op deze manier als de gebruiker is niet een MFA-controle uitvoeren wanneer zij is aangemeld, wordt ze gevraagd om dit te doen door PIM.
 
 > [!IMPORTANT]
 > Rechts nu werkt alleen voor Azure MFA met werk- of schoolaccounts, geen Microsoft-accounts (meestal een persoonlijk account dat wordt gebruikt voor het aanmelden bij Microsoft-services zoals Skype, Xbox, Outlook.com, enz.). Als gevolg hiervan kan iedereen met een Microsoft-account een in aanmerking komende beheerder niet omdat ze niet MFA gebruiken om te activeren van hun rollen. Als deze gebruikers gaan met het beheren van werkbelastingen met behulp van een Microsoft-account wilt, uitbreiden u ze naar de permanente beheerders nu.
@@ -40,5 +40,5 @@ Als gebruikers on-premises verificatie kunt u ook uw id-provider die verantwoord
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Azure AD-rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
 - [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)

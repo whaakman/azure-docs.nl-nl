@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541930"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575144"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Veelgestelde vragen over ASC voor IoT  
 
@@ -77,7 +77,7 @@ Gedetailleerde installatie- en agent-implementatie-informatie vindt u in GitHub:
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Wat zijn de afhankelijkheden en de vereisten van de agent?
 
-ASC voor IoT biedt ondersteuning voor een groot aantal verschillende platformen. Zie [ondersteunde apparaatplatformen](select-deploy-agent.md) om te controleren of ondersteuning voor uw specifieke apparaten. 
+ASC voor IoT biedt ondersteuning voor een groot aantal verschillende platformen. Zie [ondersteunde apparaatplatformen](how-to-deploy-agent.md) om te controleren of ondersteuning voor uw specifieke apparaten. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Welke gegevens worden verzameld door de agent?
 
@@ -97,9 +97,9 @@ Ja. Verzonden agent gegevens wordt in uw IoT Hub-quotum geteld.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Wat zijn de volgende stappen? Kan ik een agent hebt geïnstalleerd en u ziet geen activiteiten of Logboeken
 
-1. Controleer de [agenttype geschikt is voor de opgegeven OS-platform van uw apparaat](select-deploy-agent.md)
+1. Controleer de [agenttype geschikt is voor de opgegeven OS-platform van uw apparaat](how-to-deploy-agent.md)
 
-1. Controleer of de [agent wordt uitgevoerd op het apparaat](concept-agent-configuration.md).
+1. Controleer of de [agent wordt uitgevoerd op het apparaat](how-to-agent-configuration.md).
 
 2. Controleer de [service is ingeschakeld](quickstart-onboard-iot-hub.md) naar **Security** in uw IoT-Hub. 
 

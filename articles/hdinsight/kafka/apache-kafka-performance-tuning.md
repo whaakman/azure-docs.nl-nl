@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373148"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576755"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimalisatie van prestaties voor Apache Kafka HDInsight-clusters
 
@@ -66,7 +66,7 @@ Storage-schijven hebben beperkte IOPS (invoer/uitvoer-bewerkingen Per seconde) e
 
 ### <a name="number-of-topics-and-partitions"></a>Aantal onderwerpen en partities
 
-Kafka producenten schrijven naar onderwerpen. Kafka-consumenten van onderwerpen lezen. Een onderwerp is gekoppeld aan een logboek, een gegevensstructuur op schijf is. Kafka voegt records uit een producent(en) aan het einde van het logboek van een onderwerp. Een onderwerp logboek bestaat uit veel partities die worden verdeeld over meerdere bestanden. Deze bestanden worden, op zijn beurt verdeeld over meerdere clusterknooppunten voor Kafka. Consumenten lezen van Kafka-onderwerpen op hun uitgebracht en en hun positie (offset) in het onderwerp logboek kan kiezen.
+Kafka producenten schrijven naar onderwerpen. Kafka-consumenten van onderwerpen lezen. Een onderwerp is gekoppeld aan een logboek, een gegevensstructuur op schijf is. Kafka voegt records uit een producent(en) aan het einde van het logboek van een onderwerp. Een onderwerp logboek bestaat uit veel partities die worden verdeeld over meerdere bestanden. Deze bestanden worden, op zijn beurt verdeeld over meerdere clusterknooppunten voor Kafka. Consumenten lezen van Kafka-onderwerpen op hun uitgebracht en hun positie (offset) in het onderwerp logboek kunnen kiezen.
 
 Elke partitie Kafka is een logboekbestand op het systeem en producent threads gelijktijdig naar meerdere logboeken kunnen schrijven. Omdat elke thread consumenten berichten van één partitie leest, wordt verbruikt uit meerdere partities op deze manier uitgevoerd ook parallel.
 

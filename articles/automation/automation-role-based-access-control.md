@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544977"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621376"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -231,6 +231,9 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 |Onboardingstatus van de controleren - oplossing lezen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Oplossing         |
 |Controleren van de onboarding - lezen-VM      | Microsoft.Compute/virtualMachines/read         | Virtuele machine         |
 |Onboardingstatus van de controleren - account lezen      | Microsoft.Automation/automationAccounts/read  |  Automation-account   |
+| Onboarding werkruimte controle voor de virtuele machine<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
+
+<sup>1</sup> deze machtiging is vereist voor de onboarding via de portal-ervaring voor virtuele machine.
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding van Automation-account
 

@@ -1,17 +1,17 @@
 ---
 title: Opnieuw opstarten van Azure Database voor MySQL-server met behulp van Azure portal
-description: Dit artikel wordt beschreven hoe u een Azure Database for MySQL-server met behulp van de Azure-Portal opnieuw kunt starten.
+description: Dit artikel wordt beschreven hoe u een Azure Database for MySQL-server met behulp van de Azure portal opnieuw kunt starten.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 6cf6679dc6398b112ffc964f50986b2ab30aba47
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882481"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621393"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Opnieuw opstarten van Azure Database voor MySQL-server met behulp van Azure portal
 In dit onderwerp wordt beschreven hoe u een Azure Database for MySQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
@@ -22,7 +22,7 @@ De tijd die nodig is om te voltooien van opnieuw opstarten, is afhankelijk van h
 
 ## <a name="prerequisites"></a>Vereisten
 Voor deze handleiding, hebt u het volgende nodig:
-- Een [Azure Database for MySQL-server en database](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Een [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Server opnieuw moet worden opgestart
 

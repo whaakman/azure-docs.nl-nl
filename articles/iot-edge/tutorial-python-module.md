@@ -1,24 +1,25 @@
 ---
-title: 'Zelfstudie: aangepaste Python-module maken - Azure IoT Edge | Microsoft Docs'
+title: Maken van aangepaste Python-module - Azure IoT Edge | Microsoft Docs
 description: In deze zelfstudie ziet u hoe u een IoT Edge-module met Python-code maakt en deze implementeert op een Edge-apparaat.
 services: iot-edge
 author: shizn
 manager: philmea
+ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 0affd965bbfc587933a9cdbf5b96c470a6e4dd6a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565765"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578285"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: een Python IoT Edge-module maken en implementeren op uw gesimuleerde apparaat
 
-U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de snelstarts. In deze zelfstudie leert u het volgende:    
+U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie helpt u bij het maken en implementeren van een IoT Edge-module waarmee sensorgegevens op het IoT Edge-apparaat dat u hebt ingesteld in de Snelstartgids gefilterd. In deze zelfstudie leert u het volgende:    
 
 > [!div class="checklist"]
 > * Visual Studio Code gebruiken om een IoT Edge Python-module te maken.
@@ -36,8 +37,8 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux](quickstart-linux.md).
-* Python-modules voor IoT Edge ondersteunen geen Windows-apparaten.
+* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md).
+* Python-modules voor IoT Edge bieden geen ondersteuning voor Windows-containers.
 
 Cloudresources:
 
@@ -48,9 +49,10 @@ Ontwikkelingsresources:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code.
 * [Python-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (Engelstalig). 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) voor de installatie van Python-pakketten (over het algemeen opgenomen in uw Python-installatie).
+* [Docker CE](https://docs.docker.com/install/). 
+  * Als u op een Windows-machine ontwikkelt, controleert u of Docker is [geconfigureerd voor het gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 >[!Note]
 >Zorg ervoor dat uw map `bin` zich op het pad voor uw platform bevindt. Normaal gesproken is dat `~/.local/` voor UNIX en macOS of `%APPDATA%\Python` voor Windows.
@@ -67,7 +69,7 @@ Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw contain
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
-   | Veld | Waarde | 
+   | Veld | Value | 
    | ----- | ----- |
    | Registernaam | Geef hier een unieke naam op. |
    | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
@@ -91,7 +93,7 @@ Gebruik het Python-pakket **cookiecutter** om een Python-oplossingssjabloon te m
 
 1. Selecteer in Visual Studio Code **View** > **Terminal** om de met VS code geïntegreerde terminal te openen.
 
-2. Voer in de geïntegreerde terminal de volgende opdracht in voor het installeren (of bijwerken) van **cookiecutter**, wat u gebruikt om de IoT Edge-oplossingssjabloon te maken in VS Code:
+2. In de terminal en voer de volgende opdracht uit om te installeren (of bijwerken) **cookiecutteru**, die u gebruiken om de sjabloon van de IoT Edge-oplossing:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -105,9 +107,9 @@ Gebruik het Python-pakket **cookiecutter** om een Python-oplossingssjabloon te m
 
 4. Voer in het opdrachtpalet de opdracht **Azure: Aanmelden** in, voer deze uit en volg de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
 
-5. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
+5. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen en geeft u de volgende informatie voor het maken van uw oplossing:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |
@@ -129,9 +131,9 @@ Als u geen containerregister hebt opgegeven bij het maken van uw oplossing, maar
 
 In het omgevingsbestand worden de referenties voor de containeropslagplaats opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen. 
 
-1. Open in VS Code Explorer het .env-bestand. 
+1. Open in VS Code Explorer het bestand **.env**. 
 2. Werk de velden **gebruikersnaam** en **wachtwoord** bij met de waarden die u hebt gekopieerd uit het Azure-containerregister. 
-3. Sla dit bestand op. 
+3. Sla het .env-bestand op. 
 
 ### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
@@ -206,7 +208,7 @@ Elke sjabloon bevat voorbeeldcode. Met deze code worden gesimuleerde sensorgegev
 
 8. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand laat aan de IoT Edge-agent weten welke modules moeten worden geïmplementeerd. In dit geval gaat het om **tempSensor** en **PythonModule**. Het bestand laat de IoT Edge-hub ook weten hoe berichten tussen de modules moeten worden gerouteerd. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
-   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **PythonModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
+   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **PythonModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** als dit de architectuur van het IoT Edge-apparaat is. 
 
       ![Het installatiekopieplatform van de module bijwerken](./media/tutorial-python-module/image-platform.png)
 
@@ -241,6 +243,9 @@ In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan
    ```
    Gebruik de gebruikersnaam, het wachtwoord en de aanmeldingsserver die u in de eerste sectie hebt gekopieerd uit het Azure-containerregister. U kunt deze waarden ook ophalen in de sectie **Toegangssleutels** van het register in de Azure-portal.
 
+   U ziet mogelijk een beveiligingswaarschuwing geadviseerd het gebruik van de--wachtwoord stdin-parameter. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) opdrachten. 
+
+
 2. Klik in VS Code Explorer met de rechtermuisknop op het bestand deployment.template.json en selecteer **Build and Push IoT Edge solution**. 
 
 Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een bestand deployment.json gemaakt in een nieuwe map genaamd **config** op basis van de informatie in de distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt uw Python-code gebouwd, in een container opgeslagen en vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
@@ -249,8 +254,8 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 
 >[!TIP]
 >Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
->* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Microsoft Azure-portal.
->* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/pythonmodule**. 
+>* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure Portal.
+>* Hebt u de juiste containeropslagplaats? Open **modules** > **PythonModule** > **module.json** en zoek de **opslagplaats** veld. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/pythonmodule**. 
 >* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het VS Code-venster, zodat dit overeenkomt. Python-modules bieden geen ondersteuning voor Windows-containers. 
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
@@ -267,7 +272,7 @@ In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een m
 
    ![Implementatie voor één apparaat maken](./media/tutorial-python-module/create-deployment.png)
 
-5. Selecteer het bestand **deployment.json** in de **configuratiemap** en klik vervolgens op **Edge-distributiemanifest selecteren**. Gebruik niet het bestand deployment.template.json. 
+5. Selecteer de **deployment.amd64** of **deployment.arm32v7** (afhankelijk van uw doel-architectuur)-bestand in de **config** map en klik vervolgens op **selecteren Manifest van de implementatie van de rand**. Gebruik niet het bestand deployment.template.json. 
 
 6. Klik op de knop Vernieuwen. U ziet nu dat de nieuwe **PythonModule** wordt uitgevoerd, samen met de module **TempSensor** en de **$edgeAgent** en **$edgeHub**. 
 
@@ -277,7 +282,7 @@ Als u het implementatiemanifest op uw IoT Edge-apparaat toepast, verzamelt de Io
 
 U kunt de status van uw IoT Edge-apparaat bekijken via de sectie **Azure IoT Hub Devices** van de Visual Studio Code explorer. Vouw de details van uw apparaat uit voor een overzicht van de modules die worden geïmplementeerd en uitgevoerd. 
 
-Op het IoT Edge-apparaat kunt u de status van uw implementatiemodules bekijken met behulp van de opdracht `iotedge list`. U ziet vier modules: de twee modules van de IoT Edge-runtime, tempSensor en de aangepaste module die u in deze zelfstudie hebt gemaakt. Het kan een paar minuten duren voordat alle modules zijn gestart, dus voer de opdracht opnieuw uit als u ze in eerste instantie niet allemaal ziet. 
+Op het IoT Edge-apparaat zelf, ziet u de status van uw implementatie-modules met de opdracht `iotedge list`. U ziet vier modules: de twee modules van de IoT Edge-runtime, tempSensor en de aangepaste module die u in deze zelfstudie hebt gemaakt. Het kan een paar minuten duren voordat alle modules zijn gestart, dus voer de opdracht opnieuw uit als u ze in eerste instantie niet allemaal ziet. 
 
 Als u de berichten die worden gegenereerd door een module wilt weergeven, gebruikt u de opdracht `iotedge logs <module name>`. 
 
@@ -287,7 +292,7 @@ U kunt de berichten weergeven wanneer ze binnenkomen op uw IoT-hub met behulp va
 2. Als u de D2C-berichten voor een specifiek apparaat wilt controleren, klikt u met de rechtermuisknop op dit apparaat in de lijst en selecteert u **Controle D2C-berichten starten**.
 3. Als u wilt stoppen met het bewaken van gegevens, voert u de opdracht **Azure IoT Hub: Stop monitoring D2C message** in het opdrachtpalet uit. 
 4. Als u de moduledubbel wilt weergeven of bewerken, klikt u met de rechtermuisknop op deze moduledubbel in de lijst en selecteert u **Moduledubbel bewerken**. Als u de moduledubbel wilt bijwerken, slaat u het dubbele JSON-bestand op, klikt u met de rechtermuisknop in de editor en selecteert u **Moduledubbel bijwerken**.
-5. Als u Docker-logboeken wilt bekijken, installeert u [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) voor VS Code. U kunt de actieve modules lokaal zoeken in Docker Explorer. Klik in het contextmenu op **Logboeken weergeven** om ze te bekijken in de geïntegreerde terminal. 
+5. Als u wilt weergeven van Docker-Logboeken, installeert de [Docker-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). U kunt de actieve modules lokaal zoeken in Docker Explorer. Klik in het contextmenu op **Logboeken weergeven** om ze te bekijken in de geïntegreerde terminal. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
@@ -297,36 +302,6 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-### <a name="delete-local-resources"></a>Lokale resources verwijderen
-
-Als u de IoT Edge-runtime en de bijbehorende resources van uw apparaat wilt verwijderen, moet u de volgende opdrachten gebruiken. 
-
-Verwijder de IoT Edge-runtime.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Wanneer de IoT Edge-runtime is verwijderd, worden de containers die deze heeft gemaakt gestopt. Ze worden echter niet van uw apparaat verwijderd. Geef alle containers weer.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Verwijder de runtime-containers die op uw apparaat zijn gemaakt.
-
-   ```bash
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
-   ```
-
-Verwijder alle aanvullende containers die zijn vermeld in de `docker ps` uitvoer door te verwijzen naar de namen van containers. 
-
-Verwijder de container-runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

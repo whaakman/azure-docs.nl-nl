@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087598"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576085"
 ---
 # <a name="connect-windows-security-events"></a>Verbinding maken met Windows-beveiligingsgebeurtenissen 
 
@@ -45,7 +45,7 @@ Om uw Windows-beveiligingsgebeurtenissen volledig te integreren met Azure Sentin
 1. Selecteer in de portal voor Azure Sentinel **gegevensverzameling** en klik vervolgens op de **Windows-beveiligingsgebeurtenissen** tegel. 
 1. Selecteer welke gegevenstypen die u wilt streamen.
 1. Klik op **Update**.
-
+6. Zoek voor het gebruik van de relevante schema in Log Analytics voor het Windows-beveiligingsgebeurtenissen, **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Verbinding valideren
 

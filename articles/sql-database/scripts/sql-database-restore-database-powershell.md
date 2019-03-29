@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell-voorbeeld: back-up herstellen van een Azure SQL-database | Microsoft Docs'
-description: Azure PowerShell-voorbeeldscript om een enkele Azure SQL-database te herstellen vanuit geografisch redundante back-ups
+description: Azure PowerShell-voorbeeldscript voor het herstellen van een individuele Azure SQL-database naar een eerder tijdstip via automatische back-ups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883607"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621342"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>PowerShell gebruiken voor het herstellen van een enkele Azure SQL-database vanuit back-ups
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>PowerShell gebruiken voor het herstellen van een individuele Azure SQL-database naar een eerder tijdstip
 
-Met dit PowerShell-script wordt een Azure SQL-database teruggezet vanuit een geografisch redundante back-up, wordt een verwijderde Azure SQL-database naar de laatste back-up hersteld en wordt een Azure SQL-database hersteld naar een specifiek tijdstip.  
+Met dit PowerShell-voorbeeldscript wordt een Azure SQL database hersteld naar een bepaald punt in de tijd.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

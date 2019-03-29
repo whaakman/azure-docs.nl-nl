@@ -1,5 +1,5 @@
 ---
-title: Functies die u niet in PIM - Azure beheren | Microsoft Docs
+title: Rollen in PIM - Azure Active Directory kunt u niet beheren | Microsoft Docs
 description: Beschrijving van de rollen die u niet in Azure AD Privileged Identity Management (PIM beheren).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181572"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579543"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Rollen die in PIM kunt u niet beheren
 
-Azure AD Privileged Identity Management (PIM) kunt u voor het beheren van alle [Azure AD-maprollen](../users-groups-roles/directory-assign-admin-roles.md) en alle [Azure-resourcerollen](../../role-based-access-control/built-in-roles.md). Deze rollen bevatten ook uw aangepaste rollen die zijn gekoppeld aan uw beheergroepen, abonnementen, resourcegroepen en resources. Er zijn echter enkele functies die u niet kunt beheren. Dit artikel beschrijft de rollen die in PIM kunt u niet beheren.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kunt u voor het beheren van alle [Azure AD-rollen](../users-groups-roles/directory-assign-admin-roles.md) en alle [Azure-resourcerollen](../../role-based-access-control/built-in-roles.md). Deze rollen bevatten ook uw aangepaste rollen die zijn gekoppeld aan uw beheergroepen, abonnementen, resourcegroepen en resources. Er zijn echter enkele functies die u niet kunt beheren. Dit artikel beschrijft de rollen die in PIM kunt u niet beheren.
 
 ## <a name="classic-subscription-administrator-roles"></a>Klassieke abonnementsbeheerdersrollen
 
@@ -44,5 +44,5 @@ Rollen in Exchange Online of SharePoint Online, met uitzondering van de beheerde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
+- [Azure AD-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
 - [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)

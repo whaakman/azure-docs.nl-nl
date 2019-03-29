@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775319"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620629"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>De schaal van partities en replica's voor query's en indexering van workloads in Azure Search
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een service voor zoeken](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal factureringseenheden. In dit artikel wordt uitgelegd hoe u de eenheden voor het bereiken van een optimale configuratie die een van uw vereisten voor het uitvoeren van query's, indexering en opslag toewijzen.
 
-Resourceconfiguratie is beschikbaar bij het instellen van een service op de [Basic-laag](https://aka.ms/azuresearchbasic) of een van de [standaardlagen](search-limits-quotas-capacity.md). Voor services op deze lagen, capaciteit is aangeschaft, in stappen van *eenheden zoeken* (SUs) waar elke partitie en de replica telt als één SU. 
+Resourceconfiguratie is beschikbaar bij het instellen van een service op de [Basic-laag](https://aka.ms/azuresearchbasic) of een van de [Standard- of met geoptimaliseerde opslag lagen](search-limits-quotas-capacity.md). Voor services op deze lagen, capaciteit is aangeschaft, in stappen van *eenheden zoeken* (SUs) waar elke partitie en de replica telt als één SU. 
 
 Gebruik minder SUs resulteert in een proportioneel lagere factuur. Facturering is in feite voor zolang de service is ingesteld. Als u een service tijdelijk niet gebruikt, is de enige manier om facturering te voorkomen dat door de service verwijderen en vervolgens opnieuw te maken wanneer u ze nodig hebt.
 
@@ -81,7 +81,7 @@ Zoektoepassingen over het algemeen moeten meer replica's dan partities bevatten,
 
 Een eenvoudige service kan exact één partitie en maximaal drie replica's, voor een maximale beperken van drie su's. De alleen aanpasbare resource heeft replica's. U moet er minimaal twee replica's voor hoge beschikbaarheid op query's.
 
-Alle standard-services kunnen ervan uitgaan dat de volgende combinaties van replica's en partities, afhankelijk van de 36 SU-limiet. 
+Alle Standard- en opslag geoptimaliseerd search-services kunnen ervan uitgaan dat de volgende combinaties van replica's en partities, afhankelijk van de 36 SU-limiet. 
 
 |   | **1 partitie** | **2 partities** | **3 partities** | **4-partities** | **6-partities** | **12 partities** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Algemene aanbevelingen voor hoge beschikbaarheid zijn:
 
 Service level agreements (SLA) voor Azure Search is gericht op querybewerkingen en op index-updates die bestaan uit het toevoegen, bijwerken of verwijderen van documenten.
 
-Basic-laag boven uit op één partitie en drie replica's. Als u wilt dat de flexibiliteit om te kunnen onmiddellijk reageren op fluctuaties in de vraag voor indexeren en query-doorvoer, kunt u overwegen een van de standaardlagen.
+Basic-laag boven uit op één partitie en drie replica's. Als u wilt dat de flexibiliteit om te kunnen onmiddellijk reageren op fluctuaties in de vraag voor indexeren en query-doorvoer, kunt u overwegen een van de standaardlagen.  Als u uw vereisten groeien veel sneller dan de querydoorvoer van uw hebt gevonden, kunt u overwegen een van de lagen met geoptimaliseerde opslag.
 
 ### <a name="index-availability-during-a-rebuild"></a>Beschikbaarheid van indexen tijdens het opnieuw opbouwen
 

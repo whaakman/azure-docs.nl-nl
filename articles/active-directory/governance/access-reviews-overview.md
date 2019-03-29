@@ -1,6 +1,6 @@
 ---
-title: Wat zijn Azure AD-Toegangsbeoordelingen? | Microsoft Docs
-description: Azure Active Directory-Toegangsbeoordelingen kunt u lidmaatschap en de toepassing toegang om te voldoen aan governance, risicobeheer en nalevingsinitiatieven in uw organisatie beheren.
+title: Wat zijn toegangsbeoordelingen? - Azure Active Directory | Microsoft Azure
+description: Azure Active Directory-toegangsbeoordelingen kunt u lidmaatschap en de toepassing toegang om te voldoen aan governance, risicobeheer en nalevingsinitiatieven in uw organisatie beheren.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845151"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576119"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Wat zijn Azure AD-Toegangsbeoordelingen?
+# <a name="what-are-azure-ad-access-reviews"></a>Wat zijn Azure AD-toegang beoordeelt?
 
-Azure Active Directory (Azure AD)-Toegangsbeoordelingen kunnen organisaties op efficiënte wijze groepslidmaatschappen beheren, toegang tot bedrijfstoepassingen en roltoewijzingen. Van de gebruiker toegang kan worden gecontroleerd op regelmatige basis om ervoor te zorgen dat alleen de juiste personen blijven toegang houden.
+Azure Active Directory (Azure AD)-toegangsbeoordelingen kunnen organisaties op efficiënte wijze groepslidmaatschappen beheren, toegang tot bedrijfstoepassingen en roltoewijzingen. Van de gebruiker toegang kan worden gecontroleerd op regelmatige basis om ervoor te zorgen dat alleen de juiste personen blijven toegang houden.
 
 Hier volgt een video waarin een kort overzicht van toegangsbeoordelingen geeft:
 
@@ -42,7 +42,7 @@ Azure AD kunt u intern samenwerken binnen uw organisatie en gebruikers van exter
 
 ## <a name="when-to-use-access-reviews"></a>Wanneer u de toegang beoordeelt?
 
-- **Te veel gebruikers in bevoorrechte rollen:** Er is een goed idee om te controleren hoeveel gebruikers met beheerdersrechten toegang hebben, hoeveel hiervan zijn globale beheerders, en als er een uitgenodigd gasten of partners die zijn niet verwijderd nadat ze zijn toegewezen aan het doen van een beheertaak. U kunt opnieuw certificeren voor de rol van toewijzing van gebruikers in [Azure AD-maprollen](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals globale beheerders of [Azure-resources-rollen](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals Administrator voor gebruikerstoegang in de [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) optreden.
+- **Te veel gebruikers in bevoorrechte rollen:** Er is een goed idee om te controleren hoeveel gebruikers met beheerdersrechten toegang hebben, hoeveel hiervan zijn globale beheerders, en als er een uitgenodigd gasten of partners die zijn niet verwijderd nadat ze zijn toegewezen aan het doen van een beheertaak. U kunt opnieuw certificeren voor de rol van toewijzing van gebruikers in [Azure AD-rollen](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals globale beheerders of [Azure-resources-rollen](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals Administrator voor gebruikerstoegang in de [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) optreden.
 - **Automation is wanneer onbruikbare:** U kunt regels voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen, maar wat gebeurt er als de HR-gegevens zijn niet in Azure AD of als gebruikers nog steeds toegang nodig na het verlaten van de groep hun vervanging van de trein maken? Vervolgens kunt u een evaluatie maken voor de groep om ervoor te zorgen die nog steeds toegang nodig blijvende toegang moeten hebben.
 - **Wanneer een groep wordt gebruikt voor een nieuw doel:** Als u een groep die u wilt worden gesynchroniseerd met Azure AD hebt, of als u van plan bent om in te schakelen van de Salesforce-toepassing voor iedereen in de groep Sales-team, is het handig om te vragen van de eigenaar van de groep om te controleren van het groepslidmaatschap voorafgaand aan de groep wordt gebruikt in een co verschillende risico 's inhoud.
 - **Toegang tot kritieke gegevens van zakelijke:** voor bepaalde resources, kan het worden vereist om aan te vragen mensen buiten IT regelmatig afmelden en geef een reden op waarom ze toegang nodig hebben voor controledoeleinden.
@@ -52,13 +52,13 @@ Azure AD kunt u intern samenwerken binnen uw organisatie en gebruikers van exter
 
 ## <a name="where-do-you-create-reviews"></a>Waar ik u beoordelingen maken?
 
-Afhankelijk van wat u bekijken wilt, maakt u de toegangsbeoordeling in Azure AD-Toegangsbeoordelingen, Azure AD enterprise-apps (in Preview-versie) of Azure AD PIM.
+Afhankelijk van wat u bekijken wilt, maakt u de toegangsbeoordeling in Azure AD toegang tot beoordelingen, Azure AD enterprise-apps (in Preview-versie) of Azure AD PIM.
 
 | Rechten van gebruikers | Revisoren kunnen zijn | Revisie is gemaakt in | Revisor-ervaring |
 | --- | --- | --- | --- |
-| Leden van beveiliging</br>Leden van Office | Opgegeven revisoren</br>Groepseigenaren</br>Self bekijken | Azure AD-Toegangsbeoordelingen</br>Azure AD-groepen | Toegangsvenster |
-| Toegewezen aan een verbonden app | Opgegeven revisoren</br>Self bekijken | Azure AD-Toegangsbeoordelingen</br>Azure AD-enterprise-apps (in Preview-versie) | Toegangsvenster |
-| Azure AD-directory-rol | Opgegeven revisoren</br>Self bekijken | Azure AD PIM | Azure Portal |
+| Leden van beveiliging</br>Leden van Office | Opgegeven revisoren</br>Groepseigenaren</br>Self bekijken | Azure AD-toegangsbeoordelingen</br>Azure AD-groepen | Toegangsvenster |
+| Toegewezen aan een verbonden app | Opgegeven revisoren</br>Self bekijken | Azure AD-toegangsbeoordelingen</br>Azure AD-enterprise-apps (in Preview-versie) | Toegangsvenster |
+| Azure AD-rol | Opgegeven revisoren</br>Self bekijken | Azure AD PIM | Azure Portal |
 | De rol van de Azure-resource | Opgegeven revisoren</br>Self bekijken | Azure AD PIM | Azure Portal |
 
 ## <a name="prerequisites"></a>Vereisten
@@ -90,7 +90,7 @@ Volg deze stappen zodat toegangsbeoordelingen.
 
 1. Klik op **Toegangsbeoordelingen**.
 
-    ![Alle services - Toegangsbeoordelingen](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Alle services - toegangsbeoordelingen](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Klik in de navigatielijst **Onboard** openen de **toegangsbeoordelingen Onboarden** pagina.
 

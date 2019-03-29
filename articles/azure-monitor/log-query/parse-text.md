@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268189"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620856"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Tekstgegevens in Azure Monitor logboeken parseren
 Sommige logboekgegevens die zijn verzameld door Azure Monitor bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.
@@ -55,7 +55,7 @@ Voordelen van deze methode zijn:
  
 Deze methode nadelen omvatten het volgende:
 
-- Vereist meer complexe query's. Dit kan worden verholpen door met behulp van [functies voor het simuleren van een tabel](#Use-function-to-simulate-a-table).
+- Vereist meer complexe query's. Dit kan worden verholpen door met behulp van [functies voor het simuleren van een tabel](#use-function-to-simulate-a-table).
 - Bij het parseren van de logica in meerdere query's moeten worden gerepliceerd. Kan bepaalde logica via functies delen.
 - Kunt maken overhead bij het uitvoeren van complexe logica op zeer grote record (miljarden records) ingesteld.
 

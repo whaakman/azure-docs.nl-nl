@@ -1,6 +1,6 @@
 ---
-title: Een toegangsbeoordeling van groepen of toepassingen maken in Azure AD-Toegangsbeoordelingen | Microsoft Docs
-description: Informatie over het maken van een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen.
+title: Een toegangsbeoordeling van groepen of toepassingen - Azure Active Directory maken | Microsoft Docs
+description: Informatie over het maken van een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure Active Directory-toegangsbeoordelingen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847379"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576192"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Een toegangsbeoordeling van groepen of toepassingen maken in Azure AD-Toegangsbeoordelingen
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Maken van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
 Toegang tot groepen en toepassingen voor werknemers en gasten gewijzigd na verloop van tijd. Beheerders kunnen Azure Active Directory (Azure AD) gebruiken voor het maken van toegangsbeoordelingen voor groepsleden of toegang tot toepassingen, verminderen het risico dat samenhangt met verouderde toegangstoewijzingen. Als u regelmatig toegang beoordelen wilt, kunt u ook terugkerende toegangsbeoordelingen te maken. Zie voor meer informatie over deze scenario's, [gebruikerstoegang beheren](manage-user-access-with-access-reviews.md) en [beheren van toegang voor gasten](manage-guest-access-with-access-reviews.md).
 
@@ -35,7 +35,7 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 ## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
-1. Aanmelden bij Azure portal en open de [Toegangsbeoordelingen pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Aanmelden bij Azure portal en open de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Klik op **besturingselementen**.
 
@@ -130,7 +130,7 @@ Op basis van uw selecties in na voltooiing van de instellingen, auto-toepassing 
 
 ## <a name="create-reviews-via-apis"></a>Beoordelingen via API's maken
 
-U kunt ook toegangsbeoordelingen met behulp van API's maken. Wat u doet voor het beheren van toegang tot beoordelingen van groepen en gebruikers van de toepassing in Azure portal kunnen ook worden uitgevoerd met behulp van Microsoft Graph-API's. Zie voor meer informatie de [Azure AD-Toegangsbeoordelingen API-verwijzing](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Zie voor een codevoorbeeld, [voorbeeld van het ophalen van Azure AD-Toegangsbeoordelingen via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+U kunt ook toegangsbeoordelingen met behulp van API's maken. Wat u doet voor het beheren van toegang tot beoordelingen van groepen en gebruikers van de toepassing in Azure portal kunnen ook worden uitgevoerd met behulp van Microsoft Graph-API's. Zie voor meer informatie de [API-verwijzing voor Azure AD-toegangsbeoordelingen](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Zie voor een codevoorbeeld, [beoordelingen van voorbeeld van het ophalen van Azure AD-toegang via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Volgende stappen
 

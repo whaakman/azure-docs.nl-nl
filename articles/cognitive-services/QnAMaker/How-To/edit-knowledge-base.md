@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314871"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577201"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Een kennisdatabase in QnA Maker bewerken
 
 QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van een bewerkingservaring eenvoudig te gebruiken.
+
+<a name="add-datasource"></a>
 
 ## <a name="edit-your-knowledge-base-content"></a>Uw knowledge base-inhoud bewerken
 
@@ -52,7 +54,7 @@ QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van ee
 
 ## <a name="add-a-qna-pair"></a>Een QnA-set toevoegen
 
-Selecteer **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowledge base.
+Op de **instellingen** weergeeft, schakelt **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowledge base.
 
 ![QnA paar toevoegen](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

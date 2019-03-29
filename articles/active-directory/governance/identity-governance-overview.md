@@ -1,6 +1,6 @@
 ---
-title: Azure AD identity governance | Microsoft Docs
-description: Azure AD identity governance kunt u saldo van uw organisatie behoefte aan beveiligings- en werknemer productiviteit met de juiste processen en zichtbaarheid.
+title: Identity governance - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory identity governance kunt u saldo van uw organisatie behoefte aan beveiligings- en werknemer productiviteit met de juiste processen en zichtbaarheid.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167573"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579713"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD identity governance?
 
@@ -77,7 +77,7 @@ Hoewel er geen perfecte oplossing of de aanbeveling voor elke klant, bieden de v
 - [Wat is een toegangsbeoordeling?](access-reviews-overview.md)
 - [Gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
 - [Gastentoegang beheren met toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
-- [Een toegangscontrole van een directory-rol starten](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Een toegangscontrole van Azure AD-rollen starten](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 

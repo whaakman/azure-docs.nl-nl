@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317745"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621733"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -79,12 +79,14 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 De API v3 heeft de volgende functiehiaten met betrekking tot de v2-API. Sluit de hiaten wordt gewerkt.
 
 * De [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) en verouderde [media analytics-processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2-Preview, Face Redactor, enzovoort) zijn niet toegankelijk is via v3.<br/>Klanten die willen migreren van de Media Indexer 1 of 2-preview kunnen onmiddellijk de AudioAnalyzer vooraf ingesteld in de API v3 gebruiken.  Deze nieuwe definitie bevat meer functionaliteit dan de oudere Media Indexer 1 of 2. 
-* Veel van de geavanceerde functies van de Media Encoder Standard in v2 API's zijn momenteel niet beschikbaar zijn in v3, zoals:
+* Veel van de [geavanceerde functies van de Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) API's zijn momenteel niet beschikbaar zijn in v3, zoals:
     * Knippen (voor on-demand en live-scenario's)
     * Samenvoegen van Assets
     * Overlays
     * Bijsnijden
     * Miniaturen Sprites
+    * Invoegen van een op de achtergrond audiotrack als invoer heeft geen audio
+    * Invoegen van een video bijhouden als invoer heeft geen video
 * Live-evenementen met transcodering op dit moment bieden geen ondersteuning voor Slate invoegen halverwege stream en ad markering invoeging via API-aanroep. 
 
 > [!NOTE]

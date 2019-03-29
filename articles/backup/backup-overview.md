@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122009"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621665"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
 
@@ -28,10 +28,14 @@ Azure Backup biedt deze belangrijke voordelen:
 - **Geen on-premises back-up meer nodig**: Azure Backup biedt een eenvoudige oplossing voor het maken van back-ups van uw on-premises resources naar de cloud. Back-ups op korte en lange termijn zonder de noodzaak om complexe on-premises back-upoplossingen te implementeren. 
 - **Back-ups van Azure IaaS-VM's**: Azure Backup biedt onafhankelijke en geïsoleerde back-ups om te voorkomen dat oorspronkelijke gegevens per ongeluk worden vernietigd. Back-ups worden opgeslagen in een Recovery Services-kluis met ingebouwde beheerde herstelpunten. Configuratie en schaalbaarheid is eenvoudig, back-ups zijn geoptimaliseerd en kunt u eenvoudig naar behoefte herstellen.
 - **Gemakkelijk schalen**: Azure Backup gebruikt de onderliggende kracht en onbeperkte schaal van de Azure-cloud voor hoge beschikbaarheid, zonder overhead voor onderhoud of bewaking. 
-- **Onbeperkte gegevensoverdracht**: Azure Backup stelt geen beperking aan de hoeveelheid binnenkomende of uitgaande gegeven die u overbrengt en brengt geen kosten in rekening voor de gegevens die worden overgebracht.
+- **Onbeperkte gegevensoverdracht ophalen**: Azure Backup stelt geen beperking voor de hoeveelheid binnenkomende of uitgaande gegevens u overdragen of kosten in rekening gebracht voor de gegevens die worden overgedragen.
     - Uitgaande gegevens zijn gegevens die tijdens een herstelbewerking worden overgebracht uit een Recovery Services-kluis.
     - Als u met de Azure Import/Exportservice een offline eerste back-up uitvoert voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens.  [Meer informatie](backup-azure-backup-import-export.md). 
-- **Gegevens veilig houden**: Gegevensversleuteling zorgt voor een beveiligde overdracht en opslag van uw gegevens in de openbare cloud. U slaat de wachtwoordzin voor versleuteling lokaal op. Deze wordt nooit verzonden naar of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
+- **Gegevens veilig houden**:
+    - On-premises gegevens die onderweg zijn, worden versleuteld op de on-premises virtuele machine met AES256. De verstrekte gegevens wordt beveiligd door middel van HTTPS tussen opslag en back-up. Het iSCSI-protocol voor beveiliging van de gegevens tussen back-up en de computer van de gebruiker verzonden. Secure tunneling wordt gebruikt voor het beveiligen van het iSCSI-kanaal.
+    - Voor on-premises naar Azure backup is gegevens in Azure het versleuteld in rust met de wachtwoordzin die u opgeeft bij het instellen van back-up. De wachtwoordzin of de sleutel wordt nooit verzonden of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
+    - Voor virtuele Azure-machines, gegevens worden versleuteld met behulp van Storage Service Encryption (SSE) op herstellen. Back-up versleutelt gegevens automatisch voordat u opslaat. Azure Storage ontsleutelt gegevens voordat u ze ophaalt.
+    - Back-up biedt ook ondersteuning voor Azure VM's die zijn versleuteld met behulp van Azure Disk Encryption (ADE). [Meer informatie](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **App-consistente back-ups**: Een app-consistente back-up betekent dat een herstelpunt alle vereiste gegevens heeft om de back-up te kunnen herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
 - **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. [Lees meer](backup-introduction-to-azure-backup.md#backup-and-retention) over de invloed van deze limiet op uw back-upbehoeften.
 - **Automatisch opslagbeheer**: voor hybride omgevingen is vaak heterogene opslag vereist, soms on-premises en soms in de cloud. Met Azure Backup zijn er geen kosten voor het gebruik van on-premises opslagapparaten. De back-upopslag wordt automatisch door Azure Backup toegewezen en beheerd en u betaalt naar gebruik. Dat betekent dat u alleen betaalt voor de opslag die u verbruikt. [Lees meer](https://azure.microsoft.com/pricing/details/backup) over prijzen.
@@ -56,7 +60,7 @@ Gebruik de tabel om uw behoeften op BCDR-gebied te bepalen.
 
 **Doel** | **Details** | **Vergelijking**
 --- | --- | --- 
-**Gegevensback-up/-retentie** | Back-upgegevens kunnen dagen, maanden of zelfs jaren worden bewaard en opgeslagen als dat vanuit complianceperspectief nodig is. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery staat niet dezelfde fijnafstemming toe.
+**Gegevensback-up/-retentie** | Back-upgegevens kunnen dagen, maanden of zelfs jaren worden bewaard en opgeslagen als dat vanuit complianceperspectief nodig is. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery toegestaan niet in de dezelfde optimaliseren.
 **Recovery point objective (RPO)** | Acceptabele hoeveelheid gegevens die verloren gaat wanneer een herstelbewerking moet worden uitgevoerd. | Back-ups hebben meer variabele RPO.<br/><br/> Back-ups van VM's hebben doorgaans een RPO van één dag, terwijl de RPO bij databaseback-up soms maar 15 minuten is.<br/><br/> Site Recovery biedt een lage RPO omdat replicatie continu of frequent is, zodat de verschillen tussen het bron- en replica-exemplaar klein zijn.
 **Beoogde hersteltijd (RTO)** |De hoeveelheid tijd die nodig is om een terugzet- of herstelbewerking te voltooien. | Vanwege de grotere RPO is de hoeveelheid gegevens die een back-upoplossing moet verwerken doorgaans veel grote, wat resulteert in langere RTO's. Het kan bijvoorbeeld dagen duren om gegevens te herstellen vanaf tapes, afhankelijk van de tijd die nodig is voor het transport van de tape vanaf een externe locatie. 
 
@@ -66,7 +70,7 @@ Azure Backup kan een back-up maken van zowel on-premises machines als Azure-VM's
 
 **Machine** | **Back-upscenario**
 --- | ---
-**On-premises back-up** |  1) Voer de MARS-agent (Azure Backup Microsoft Azure Recovery Services) uit op on-premises Windows-machines om een back-up te maken van afzonderlijke bestanden en systeemstatus. <br/><br/>2) Maak een back-up van on-premises machines naar een back-upserver (System Center Data Protection Manager (DPM) of Microsoft Azure Backup Server (MABS)) en configureer de back-upserver om een back-up te maken naar een Azure Backup Recovery Services-kluis in Azure.
+**On-premises back-up** |  1) Voer de MARS-agent (Azure Backup Microsoft Azure Recovery Services) uit op on-premises Windows-machines om een back-up te maken van afzonderlijke bestanden en systeemstatus. <br/><br/>2) back-up on-premises machines naar een back-upserver (System Center Data Protection Manager (DPM) of Microsoft Azure Backup Server (MABS)) en configureer vervolgens de back-upserver back-up naar een Azure Backup Recovery Services-kluis in Azure.
 **Azure VM's** | (1) Schakel het maken van back-ups voor afzonderlijke Azure-VM's in. Wanneer u het maken van back-ups inschakelt, installeert Azure Backup een extensie op de Azure VM-agent die op de virtuele machine wordt uitgevoerd. De agent maakt een back-up van de hele virtuele machine.<br/><br/> 2) Voer de MARS-agent uit op een Azure-VM. Dit is handig als u een back-up wilt maken van afzonderlijke bestanden en mappen op de virtuele machine.<br/><br/> 3) Maak een back-up van een Azure-VM naar een DPM-server of MABS die wordt uitgevoerd in Azure. Gebruik vervolgens Azure Backup om een back-up van de DPM-server/MABS te maken naar een kluis. 
 
 
@@ -75,10 +79,10 @@ Azure Backup kan een back-up maken van zowel on-premises machines als Azure-VM's
 
 
 
-Het maken van een back-up van machines en apps naar MABS/DPM-opslag en de DPM/MABS-opslag vervolgens te kopiëren naar een kluis heeft de volgende voordelen:
+De voordelen van het back-ups van machines en apps naar MABS/DPM-opslag, en vervolgens back-ups van DPM/MABS-opslag naar een kluis zijn als volgt:
 
 - Een back-up naar MABS/DPM biedt app-aware back-ups die zijn geoptimaliseerd voor veelgebruikte apps zoals SQL Server, Exchange en SharePoint, naast back-ups van bestanden/mappen/volumes en back-ups van de machinestatus (bare-metal, systeemstatus).
-- Voor on-premises machines hoeft u de MARS-agent niet te installeren op elke machine waarvan u een back-up wilt maken. Op elke machine wordt de DPM/MABS-beveiligingsagent uitgevoerd en de MARS-agent wordt alleen op de MABS/DPM uitgevoerd.
+- Voor on-premises machines hoeft u de MARS-agent niet te installeren op elke machine waarvan u een back-up wilt maken. Elke machine wordt uitgevoerd de beveiligingsagent van DPM/MABS. de MARS-agent wordt uitgevoerd op de alleen MABS/DPM.
 - U hebt meer flexibiliteit en gedetailleerde planningsopties voor het uitvoeren van back-ups.
 - U kunt één console gebruiken voor het beheren van back-ups van meerdere machines die u verzamelt in beveiligingsgroepen. Dit is bijzonder nuttig wanneer apps gelaagd zijn over meerdere virtuele machines en u er een gezamenlijke back-up van wilt maken.
 

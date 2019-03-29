@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226705"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579577"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
 
@@ -45,13 +45,19 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 
 ## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratiearchief
 
-1. Open *Function1.cs*, en voeg een verwijzing naar een provider van de configuratie van App-configuratie .NET Core.
+1. Met de rechtermuisknop op uw project en selecteer **NuGet-pakketten beheren**. Op de **Bladeren** tabblad, zoeken en de volgende NuGet-pakketten toevoegen aan uw project. Als u niet kunt vinden, selecteert u de **Include prerelease** selectievakje.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Open *Function1.cs*, en voeg een verwijzing naar een provider van de configuratie van App-configuratie .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Werk de methode `Run` bij voor het gebruik van app-configuratie door `builder.AddAzureAppConfiguration()` aan te roepen.
+3. Werk de methode `Run` bij voor het gebruik van app-configuratie door `builder.AddAzureAppConfiguration()` aan te roepen.
 
     ```csharp
     public static async Task<IActionResult> Run(

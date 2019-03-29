@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285544"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578897"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -67,6 +67,8 @@ De incrementele momentopnamen worden opgeslagen in de storage-account van de vir
 In de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
 
 ![Instant Restore-mogelijkheid](./media/backup-azure-vms/instant-restore-capability.png)
+
+Als u wilt configureren momentopname upretentie met Powershell, raadpleegt u [dit document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

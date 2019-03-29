@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544517"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578472"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -304,6 +304,10 @@ Wanneer u de SOQL of SQL-query opgeven, betaalt u aandacht wordt besteed aan het
 
 * **Voorbeeld van SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL-voorbeeld**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+
+### <a name="error-of-malformedquerytruncated"></a>Fout van MALFORMED_QUERY: ingekort
+
+Als u de fout van bereikt "MALFORMED_QUERY: "Wordt afgekapt, normaal gesproken is vanwege hebt typekolom JunctionIdList in gegevens en Salesforce geldt een beperking voor ondersteuning van dergelijke gegevens met een groot aantal rijen. Als u wilt oplossen, wilt uitsluiten JunctionIdList kolom of Beperk het aantal rijen dat u wilt kopiëren (u kunt partitioneren op meerdere kopiëren voor de uitvoeringen van activiteit).
 
 ## <a name="data-type-mapping-for-salesforce"></a>Toewijzing voor Salesforce-gegevenstype
 

@@ -1,5 +1,5 @@
 ---
-title: Azure-resource-rollen in PIM toewijzen | Microsoft Docs
+title: Azure-resource-rollen in PIM - Azure Active Directory toewijzen | Microsoft Docs
 description: Informatie over het toewijzen van rollen voor Azure-resource in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086187"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578659"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM toewijzen
 
-Azure AD PIM kunt beheren de ingebouwde Azure-resourcerollen, evenals aangepaste rollen, inclusief (maar niet beperkt tot):
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kunt beheren de ingebouwde Azure-resourcerollen, evenals aangepaste rollen, inclusief (maar niet beperkt tot):
 
 - Eigenaar
 - Beheerder van gebruikerstoegang
@@ -129,4 +129,4 @@ Volg deze stappen als u wilt bijwerken of verwijderen van een bestaande roltoewi
 
 - [Azure-resource-rollen in PIM verlengen of vernieuwen](pim-resource-roles-renew-extend.md)
 - [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)
-- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
+- [Azure AD-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)

@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886658"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575093"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van SSH en Azure Logic Apps
 
@@ -27,10 +27,16 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 * Inhoud van bestanden en metagegevens ophalen.
 * Pak archieven voor mappen.
 
-In vergelijking met de [SFTP-connector](../connectors/connectors-create-api-sftp.md), de SFTP-SSH-connector kan lezen of schrijven van bestanden tot *1 GB* stuks in grootte met het beheren van gegevens in 50 MB. Voor bestanden die groter zijn dan 1 GB, acties gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Raadpleeg voor meer verschillen [vergelijken SFTP-SSH versus SFTP](#comparison) verderop in dit artikel.
-
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Limieten
+
+* SFTP-SSH-acties kunnen lezen of schrijven van bestanden die zijn *1 GB of kleiner* door het beheer van gegevens als *50 MB stuks*, niet 1 GB-onderdelen.
+
+* Voor bestanden *groter is dan 1 GB*, acties kunt [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen SFTP-SSH triggers geen logische groepen te verdelen.
+
+Raadpleeg voor meer verschillen [vergelijken SFTP-SSH versus SFTP](#comparison) verderop in de volgende sectie.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 Hier volgen andere belangrijke verschillen tussen de SFTP-SSH-connector en de SFTP-connector waar de SFTP-SSH-connector heeft voor deze mogelijkheden:
 
-* Maakt gebruik van de <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> library, die is een open-source Secure Shell (SSH)-bibliotheek die ondersteuning biedt voor .NET. 
+* Maakt gebruik van de <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> library, die is een open-source Secure Shell (SSH)-bibliotheek die ondersteuning biedt voor .NET.
 
   > [!NOTE]
   >
   > De SFTP-SSH-connector ondersteunt *alleen* deze persoonlijke sleutels, indelingen, algoritmen en vingerafdrukken:
-  > 
+  >
   > * **Persoonlijke sleutel indelingen**: RSA (Rivest-Shamir-Adleman) en sleutels in OpenSSH- en ssh.com indelingen DSA (Digital Signature Algorithm)
   > * **Versleutelingsalgoritmen**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC 192-AES-CBC en AES-256-CBC
   > * **Fingerprint**: MD5
 
-* Leest of schrijft bestanden tot *1 GB* in grootte in vergelijking met de SFTP-connector, gegevens in 50 MB stukken, niet 1 GB-onderdelen, maar verwerkt. Voor bestanden die groter zijn dan 1 GB, kunnen acties ook gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen triggers geen logische groepen te verdelen.
+* Acties kunnen lezen of schrijven van bestanden *maximaal 1 GB* vergeleken met de SFTP-connector, maar de gegevens verwerkt in 50 MB-onderdelen, niet 1 GB-onderdelen. Voor bestanden die groter zijn dan 1 GB, kunnen acties ook gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). Op dit moment ondersteunen SFTP-SSH triggers geen logische groepen te verdelen.
 
 * Biedt de **map maken** actie maakt u een map op het opgegeven pad op de SFTP-server.
 
 * Biedt de **bestandsnaam wijzigen** actie, die u wijzigt de naam van een bestand op de SFTP-server.
 
-* De verbinding met SFTP-server in de cache opslaat *voor maximaal 1 uur*, die zorgt voor betere prestaties en vermindert het aantal pogingen tot verbinding met de server. Om in te stellen de duur voor deze cachegedrag, bewerk de <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> eigenschap in de SSH-configuratie op uw SFTP-server. 
+* De verbinding met SFTP-server in de cache opslaat *voor maximaal 1 uur*, die zorgt voor betere prestaties en vermindert het aantal pogingen tot verbinding met de server. Om in te stellen de duur voor deze cachegedrag, bewerk de <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> eigenschap in de SSH-configuratie op uw SFTP-server.
 
 ## <a name="prerequisites"></a>Vereisten
 

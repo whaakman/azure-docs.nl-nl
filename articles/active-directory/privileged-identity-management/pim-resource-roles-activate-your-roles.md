@@ -1,5 +1,5 @@
 ---
-title: Mijn Azure-resource-rollen in PIM activeren | Microsoft Docs
+title: Mijn Azure-resource-rollen in PIM - Azure Active Directory activeren | Microsoft Docs
 description: Informatie over het activeren van uw Azure-resource-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002050"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575803"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Mijn Azure-resource-rollen in PIM activeren
 
-Met behulp van Azure AD Privileged Identity Management (PIM), kunnen in aanmerking komende rolleden voor de Azure-resources plannen dat activering voor een toekomstige datum en tijd. Ze kunnen ook een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders) selecteren.
+Met behulp van Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kunnen in aanmerking komende rolleden voor de Azure-resources plannen dat activering voor een toekomstige datum en tijd. Ze kunnen ook een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders) selecteren.
 
 In dit artikel geldt voor leden die willen hun Azure-resource-rollen in PIM activeren.
 
@@ -38,7 +38,7 @@ Wanneer u nodig hebt om de rol van een Azure-resource te, kunt u activering aanv
 
 1. Klik op **mijn rollen**.
 
-    ![Azure AD-directory-rollen en functies van Azure-resource - rollen](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Azure AD-rollen en functies van Azure-resource - rollen](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Klik op **Azure-resourcerollen** voor een overzicht van uw in aanmerking komende Azure-resource-rollen.
 
@@ -84,7 +84,7 @@ In het geval van eventuele vertraging na de activering door deze stappen uit te 
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-directory-rollen en functies van Azure-resource.
+1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-rollen en functies van Azure-resource.
 
 1. Klik op **Azure-resourcerollen**.
 
@@ -100,9 +100,9 @@ U ziet de status van de in behandeling zijnde aanvragen om te activeren.
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op **mijn aanvragen** aanvragen voor een overzicht van uw Azure AD directory-rol en de rol van Azure-resource.
+1. Klik op **mijn aanvragen** aanvragen voor een overzicht van uw Azure AD-rol en de rol van Azure-resource.
 
-    ![Azure AD-directory-rollen en functies van Azure-resource - mijn aanvragen](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Azure AD-rollen en functies van Azure-resource - mijn aanvragen](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Schuif naar rechts om weer te geven de **de Status van wijzigingsaanvragen** kolom.
 
@@ -138,4 +138,4 @@ Als u een bericht dat wordt een Azure-resource vergrendeld wanneer u probeert om
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure-resource-rollen in PIM verlengen of vernieuwen](pim-resource-roles-renew-extend.md)
-- [Mijn Azure AD-directory-rollen in PIM activeren](pim-how-to-activate-role.md)
+- [Mijn Azure AD-rollen in PIM activeren](pim-how-to-activate-role.md)

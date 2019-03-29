@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497430"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577105"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Suggesties toevoegen aan een index voor typeahead in Azure Search
 
-Een **suggestie** is een constructie in een [Azure Search-index](search-what-is-an-index.md) die ondersteuning biedt voor een 'search-als-u-type'-ervaring. Het bevat een lijst met velden waarvoor u wilt om in te schakelen typeahead query invoer. Er zijn twee varianten van typeahead: *automatisch aanvullen* is voltooid de term of woordgroep die u hebt getypt, *suggesties* bevat een korte lijst met resultaten. 
+Een **suggestie** is een constructie in een [Azure Search-index](search-what-is-an-index.md) die ondersteuning biedt voor een 'search-als-u-type'-ervaring. Het bevat een lijst met velden waarvoor u wilt om in te schakelen typeahead query invoer. In een index, de dezelfde suggestie biedt ondersteuning voor een of beide van deze twee typeahead-varianten: *automatisch aanvullen* is voltooid de term of woordgroep die u hebt getypt, *suggesties* bevat een korte lijst met resultaten. 
 
-Op deze pagina van de zoekopdracht Xbox gaat de items automatisch aanvullen u naar een nieuwe pagina met zoekresultaten voor deze query, terwijl de suggesties worden de werkelijke resultaten naar een pagina voor die bepaalde spel. U kunt automatisch aanvullen naar één item in een zoekbalk beperken of geef een lijst op zoals hier weergegeven. Voor suggesties, kunt u een deel van een document die het beste het resultaat beschrijft surface.
+De volgende schermafbeelding ziet u beide functies typeahead. Op deze pagina van de zoekopdracht Xbox gaat de items automatisch aanvullen u naar een nieuwe pagina met zoekresultaten voor deze query, terwijl de suggesties worden de werkelijke resultaten naar een pagina voor die bepaalde spel. U kunt automatisch aanvullen naar één item in een zoekbalk beperken of geef een lijst op zoals hier weergegeven. Voor suggesties, kunt u een deel van een document die het beste het resultaat beschrijft surface.
 
 ![Visuele vergelijking van automatisch aanvullen en voorgestelde query's](./media/index-add-suggesters/visual-comparison-suggest-complete.png "visuele vergelijking van automatisch aanvullen en voorgestelde query's")
 
 Voor het implementeren van deze problemen in Azure Search, is er een index en query-onderdeel. 
 
-+ In een index, voegt u een suggestie toe. U kunt de portal, REST-API of .NET SDK gebruiken om te maken van een suggestie. 
++ Het onderdeel van de index is een suggestie. U kunt de portal, REST-API of .NET SDK gebruiken om te maken van een suggestie. 
 
-+ Geef een suggestie of sutocomplete actie op een query. 
++ Het queryonderdeel is een actie die is opgegeven in de queryaanvraag (actie die een suggestie of automatisch aanvullen). 
 
 > [!Important]
-> Automatisch aanvullen is momenteel in preview, beschikbaar in preview REST-API's en SDK voor .NET en niet ondersteund voor productie-Apps. 
+> Automatisch aanvullen is momenteel in preview, beschikbaar in preview REST-API's en SDK voor .NET. Het is niet bedoeld voor productietoepassingen. 
 
 Search-as-u-type ondersteuning is ingeschakeld op basis van per veld. Als u een ervaring die vergelijkbaar is met de aangegeven in de schermafbeelding wilt, kunt u beide gedrag typeahead binnen de dezelfde search-oplossing implementeren. Het doel van beide aanvragen de *documenten* verzameling van specifieke index en -antwoorden worden geretourneerd nadat een gebruiker ten minste een invoerreeks drie tekens heeft geleverd.
 
@@ -77,7 +77,7 @@ Nadat een suggestie is gemaakt, voegt u toe de [suggesties API](https://docs.mic
 
 ### <a name="use-the-net-sdk"></a>De .NET SDK gebruiken
 
-In C#, definieert een [suggestie klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Suggestie is een verzameling, maar duurt slechts één item.
+In C#, definieert een [suggestie klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Een suggestie is een verzameling die kan slechts één item uitvoeren. Zorg ervoor dat om toe te voegen `using System.Collections.Generic;` zodat u een lijst met objecten kunt maken. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Het maakt gebruik van een sandbox met Azure Search-service en een index vooraf g
 U wordt aangeraden het volgende voorbeeld om te zien hoe de aanvragen worden geformuleerd.
 
 > [!div class="nextstepaction"]
-> [Voorbeeld van Autocompleted (preview)](search-autocomplete-tutorial.md) 
+> [Suggesties en voorbeelden van automatisch aanvullen](search-autocomplete-tutorial.md) 

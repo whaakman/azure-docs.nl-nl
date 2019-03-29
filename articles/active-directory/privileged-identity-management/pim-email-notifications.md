@@ -1,5 +1,5 @@
 ---
-title: E-mailmeldingen in PIM - Azure | Microsoft Docs
+title: E-mailmeldingen in PIM - Azure Active Directory | Microsoft Docs
 description: Beschrijving van e-mailmeldingen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905168"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576944"
 ---
 # <a name="email-notifications-in-pim"></a>E-mailmeldingen in PIM
 
-Azure AD Privileged Identity Management (PIM) laat u weten wanneer belangrijke gebeurtenissen zoals wanneer een rol is toegewezen of geactiveerd. PIM blijft u op de hoogte door te sturen dat u en andere deelnemers aan de e-mailmeldingen. Deze e-mailberichten kunnen ook koppelingen naar relevante taken, zoals activeren of vernieuwen van een rol bevatten. Dit artikel wordt beschreven hoe deze e-mailberichten eruit zien en wie deze ontvangt wanneer ze worden verzonden.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) laat u weten wanneer belangrijke gebeurtenissen zoals wanneer een rol is toegewezen of geactiveerd. PIM blijft u op de hoogte door te sturen dat u en andere deelnemers aan de e-mailmeldingen. Deze e-mailberichten kunnen ook koppelingen naar relevante taken, zoals activeren of vernieuwen van een rol bevatten. Dit artikel wordt beschreven hoe deze e-mailberichten eruit zien en wie deze ontvangt wanneer ze worden verzonden.
 
 ## <a name="sender-email-address-and-subject-line"></a>Afzender e-mailadres en onderwerp regel
 
@@ -101,5 +101,5 @@ Hieronder ziet u een voorbeeld van de e-mailbericht wordt verzonden wanneer een 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
-- [Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM](azure-ad-pim-approval-workflow.md)
+- [Azure AD-rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Goedkeuren of weigeren van aanvragen voor Azure AD-rollen in PIM](azure-ad-pim-approval-workflow.md)

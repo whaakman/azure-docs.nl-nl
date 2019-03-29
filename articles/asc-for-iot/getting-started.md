@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541885"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575212"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Aan de slag met Azure Security Center (ASC) voor IoT 
 
@@ -67,7 +67,7 @@ Maakt gebruik van ASC voor IoT enhanced security mogelijkheden, zoals het contro
 1. Als uw IoT-Hub geen geregistreerde apparaten heeft [registreren van een nieuw apparaat](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Maken van een module van de beveiliging azureiotsecurity](quickstart-create-security-twin.md) voor uw apparaten.
 1. De agent installeren op een Azure-gesimuleerd apparaat in plaats van installatie op een daadwerkelijk apparaat [draaien van een nieuwe Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in een zone beschikbaar. 
-1. [Een ASC voor IoT security-agent implementeren](tutorial-deploy-linux-cs.md) op uw IoT-apparaat of een nieuwe virtuele machine.
+1. [Een ASC voor IoT security-agent implementeren](how-to-deploy-linux-cs.md) op uw IoT-apparaat of een nieuwe virtuele machine.
 1. Volg de instructies voor [trigger_events](https://aka.ms/iot-security-github-trigger-events) om uit te voeren een simulatie van een aanval onschadelijk.
 1. Controleer of u ASC voor IoT-waarschuwingen in reactie op de gesimuleerde aanval in de vorige stap. 
     - Beginnen met verificatie van vijf minuten nadat het script is uitgevoerd.
@@ -79,4 +79,4 @@ Maakt gebruik van ASC voor IoT enhanced security mogelijkheden, zoals het contro
 - Configureer uw [oplossing](quickstart-configure-your-solution.md)
 - [Beveiligingsmodules maken](quickstart-create-security-twin.md)
 - Configureer [aangepaste waarschuwingen](quickstart-create-custom-alerts.md)
-- [Een beveiligingsagent implementeren](select-deploy-agent.md)
+- [Een beveiligingsagent implementeren](how-to-deploy-agent.md)

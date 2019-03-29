@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309125"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620873"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -104,7 +104,7 @@ U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en probl
 
 U hebt drie opties voor het opslaan van uw logboeken:
 
-* **Storage-account**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
+* **Opslagaccount**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
 * **Eventhubs**: Eventhubs zijn een goede optie voor het integreren met andere security information en event management (SEIM) hulpprogramma's voor waarschuwingen over uw resources.
 * **Logboeken in Azure Monitor**: Logboeken in Azure Monitor is best gebruikt voor algemene realtime-controle van uw toepassing of trends kijken.
 
@@ -131,7 +131,7 @@ Activiteitenlogboekregistratie is automatisch ingeschakeld voor elke Resource Ma
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Logboekregistratie inschakelen via de Azure-portal
 
-1. In de Azure-portal zoeken uw resource en klikt u op **diagnostische logboeken**.
+1. Uw resource gevonden in de Azure-portal en selecteer **diagnostische instellingen**.
 
    Voor Application Gateway zijn de drie logboeken beschikbaar:
 
@@ -139,21 +139,15 @@ Activiteitenlogboekregistratie is automatisch ingeschakeld voor elke Resource Ma
    * Logboekbestand voor prestaties
    * Firewall-logboek
 
-2. Klik op **Diagnostische gegevens inschakelen** om te beginnen met het verzamelen van gegevens.
+2. Selecteer eerst het verzamelen van gegevens **diagnostische gegevens inschakelen**.
 
    ![Diagnostische gegevens inschakelen][1]
 
-3. De **diagnostische instellingen** blade bevat de instellingen voor de diagnostische logboeken. In dit voorbeeld worden de logboeken met Log Analytics opgeslagen. Klik op **configureren** onder **Log Analytics** het configureren van uw werkruimte. U kunt ook Event Hubs en een opslagaccount gebruiken om de diagnostische logboeken op te slaan.
+3. Op de pagina **Diagnostische instellingen** staan de instellingen voor de diagnostische logboeken. In dit voorbeeld worden de logboeken met Log Analytics opgeslagen. U kunt ook Event Hubs en een opslagaccount gebruiken om de diagnostische logboeken op te slaan.
 
    ![Het configuratieproces starten][2]
 
-4. Kies een bestaande Log Analytics-werkruimte of maak een nieuwe. Dit voorbeeld wordt een bestaande resourcegroep.
-
-   ![Opties voor Log Analytics-werkruimten][3]
-
-5. Bevestig de instellingen en klik op **opslaan**.
-
-   ![Instellingen-blade diagnostische gegevens over met selecties][4]
+5. Typ een naam voor de instellingen, bevestig de instellingen en selecteer **opslaan**.
 
 ### <a name="activity-log"></a>Activiteitenlogboek
 
@@ -255,7 +249,7 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |ruleId     | Regel-ID van de activerende gebeurtenis.        |
 |message     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
-|Actie     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
+|action     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
 |site     | De site waarvoor het logboek is gegenereerd. Op dit moment alleen Global vermeld omdat er regels zijn van toepassing.|
 |details     | De details van de triggergebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |
@@ -295,8 +289,8 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 
 U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgende methoden:
 
-* **Azure-hulpprogramma's**: Informatie ophalen uit het activiteitenlogboek via Azure PowerShell, de Azure CLI, de Azure REST API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
-* **Power BI**: Als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) -account, kunt u proberen deze gratis. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
+* **Azure-hulpprogramma's**: haal informatie uit het activiteitenlogboek op via Azure PowerShell, de Azure CLI, de Azure REST-API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
+* **Power BI**: als u nog geen [Power BI](https://powerbi.microsoft.com/pricing)-account hebt, kunt u het gratis uitproberen. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Bekijk en analyseer de toegang, prestaties en firewall-Logboeken
 
@@ -334,7 +328,7 @@ Metrische gegevens zijn een functie voor bepaalde Azure-resources waar u prestat
 
    U kunt filteren op een per back-end-pool basis om weer te geven in orde/slecht hosts in een specifieke back-endpool.
 
-Blader naar een toepassingsgateway onder **bewaking** klikt u op **metrische gegevens**. Om de beschikbare waarden te zien, selecteert u de vervolgkeuzelijst **METRISCH**.
+Blader naar een toepassingsgateway onder **bewaking** Selecteer **metrische gegevens**. Om de beschikbare waarden te zien, selecteert u de vervolgkeuzelijst **METRISCH**.
 
 In de volgende afbeelding ziet u een voorbeeld met drie metrische gegevens weergegeven voor de laatste 30 minuten:
 
@@ -348,11 +342,11 @@ U kunt regels voor waarschuwingen op basis van metrische gegevens voor een resou
 
 Het volgende voorbeeld wordt beschreven hoe u een waarschuwingsregel die een e-mailbericht naar een beheerder na schendingen van de doorvoer van een drempelwaarde verzendt:
 
-1. Klik op **metrische waarschuwing toevoegen** openen de **regel toevoegen** blade. U kunt deze blade vanuit de blade met metrische gegevens ook bereiken.
+1. Selecteer **metrische waarschuwing toevoegen** openen de **regel toevoegen** pagina. Ook kunt u deze pagina van de metrische gegevens over pagina bereiken.
 
    ![Knop 'Waarschuwing voor metrische gegevens toevoegen'][6]
 
-2. Op de **regel toevoegen** blade, vul de naam van de voorwaarde, en op de hoogte stellen secties en klikt u op **OK**.
+2. Op de **regel toevoegen** pagina, vul de naam van de voorwaarde, en op de hoogte stellen secties en selecteer **OK**.
 
    * In de **voorwaarde** selector, selecteert u een van de vier waarden: **Groter dan**, **groter dan of gelijk**, **minder dan**, of **kleiner dan of gelijk zijn aan**.
 
@@ -360,7 +354,7 @@ Het volgende voorbeeld wordt beschreven hoe u een waarschuwingsregel die een e-m
 
    * Als u selecteert **e-eigenaren, bijdragers en lezers**, het e-mailbericht worden dynamisch op basis van de gebruikers die toegang tot die resource hebben. Anders krijgt u een door komma's gescheiden lijst van gebruikers in de **beheerder email(s)** vak.
 
-   ![De blade van de regel toevoegen][7]
+   ![Regel pagina toevoegen][7]
 
 Als de drempelwaarde is geschonden, ontvangt een e-mailbericht dat vergelijkbaar is met het scherm in de volgende afbeelding:
 

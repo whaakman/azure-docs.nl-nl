@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/28/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311692"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621971"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -108,7 +108,7 @@ QnA Maker kunnen gebruikers [samenwerken](../How-to/collaborate-knowledge-base.m
 
 ## <a name="active-learning"></a>Actief leren
 
-[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de portal voor QnA Maker, moet u beoordeelt en accepteert of weigert die suggesties. 
+[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de QnA Maker portal, kunt u **[filteren op suggesties](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** vervolgens beoordeelt en accepteert of weigert die suggesties. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

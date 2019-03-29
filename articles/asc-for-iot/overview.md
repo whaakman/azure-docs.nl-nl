@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 9ca55a1c977b887e8d1ea51186068e57627e78f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542020"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578812"
 ---
-# <a name="introducing-asc-for-iot"></a>Maak kennis met ASC voor IoT 
+# <a name="introducing-asc-for-iot"></a>Maak kennis met ASC voor IoT
 
 > [!IMPORTANT]
 > ASC voor IoT is momenteel in openbare preview.
@@ -45,7 +45,7 @@ Krijg een overzicht van beveiliging in al uw on-premises en cloudworkloads, met 
 
 ### <a name="adaptive-threat-prevention"></a>Geavanceerde bedreigingen voorkomen
 
-ASC voor IoT gebruiken voor het continu bewaken van de beveiliging van computers, netwerken en Azure-services, met inbegrip van uw Azure-IoT-oplossing van edge-apparaten voor toepassingen. U kunt kiezen uit honderden ingebouwde beveiligingscontroles of maak uw eigen in het centrale ASC voor IoT Hub-dashboard. De beveiligingsinstellingen te optimaliseren en verbeteren van uw beveiligingsscore met bruikbare aanbevelingen voor virtuele machines, netwerken, apps en gegevens. Met de zojuist toegevoegde IoT-mogelijkheden, kunt u nu het verminderen van kwetsbaarheid voor aanvallen voor uw Azure-IoT-oplossing en oplossen voordat ze kunnen worden misbruikt. 
+ASC voor IoT gebruiken voor het continu bewaken van de beveiliging van computers, netwerken en Azure-services, met inbegrip van uw Azure-IoT-oplossing van edge-apparaten voor toepassingen. U kunt kiezen uit honderden ingebouwde beveiligingscontroles of maak uw eigen in het centrale ASC voor IoT Hub-dashboard. De beveiligingsinstellingen te optimaliseren en verbeteren van uw beveiligingsscore met bruikbare aanbevelingen voor virtuele machines, netwerken, apps en gegevens. Met de zojuist toegevoegde IoT-mogelijkheden, kunt u nu het verminderen van kwetsbaarheid voor aanvallen voor uw Azure-IoT-oplossing en oplossen voordat ze kunnen worden misbruikt.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Intelligente detectie van bedreigingen en het antwoord
 

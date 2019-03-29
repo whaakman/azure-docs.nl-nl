@@ -1,6 +1,6 @@
 ---
-title: Externe gasten uitnodigen en Privileged Identity Management voor Azure AD-beheerdersrollen - toewijzen | Microsoft Docs
-description: Informatie over het uitnodigen van gastgebruikers en Azure Active Directory beheerdersrollen toewijzen in Azure AD Privileged Identity Management.
+title: Gasten uitnodigen en toewijzen van Azure-resource-rollen in PIM - Azure Active Directory | Microsoft Docs
+description: Leer hoe u externe gastgebruikers uitnodigen en Azure-resource-rollen in Azure AD Privileged Identity Management (PIM) toe te wijzen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853253"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576876"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>Gastgebruikers uitnodigen en toewijzen van toegang tot Azure-resources in PIM
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Gastgebruikers uitnodigen en Azure-resource-rollen in PIM toewijzen
 
 Azure Active Directory (Azure AD) business-to-business (B2B) is een verscheidenheid aan functies in Azure AD waarmee organisaties om samen te werken met externe gastgebruikers (gasten) en leveranciers met behulp van een account. Wanneer u B2B met Azure AD Privileged Identity Management (PIM) combineert, kunt u blijven uw vereisten voor naleving en governance toepassen voor gasten. Bijvoorbeeld, kunt u deze functies PIM voor Azure identity-taken met gasten:
 

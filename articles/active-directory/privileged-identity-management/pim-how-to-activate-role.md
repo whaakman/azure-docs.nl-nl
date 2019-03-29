@@ -1,6 +1,6 @@
 ---
-title: Mijn Azure AD-directory-rollen in PIM activeren | Microsoft Docs
-description: Informatie over het activeren van Azure AD-directory-rollen in Azure AD Privileged Identity Management (PIM).
+title: Mijn Azure AD-rollen in PIM - Azure Active Directory activeren | Microsoft Docs
+description: Informatie over het activeren van Azure AD-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,38 +14,38 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542740"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576808"
 ---
-# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Mijn Azure AD-directory-rollen in PIM activeren
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Mijn Azure AD-rollen in PIM activeren
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
 
 Als u hebt aangebracht in aanmerking voor een beheerdersrol, betekent dit dat u die rol kunt activeren wanneer u nodig hebt bevoegde acties uit te voeren. Bijvoorbeeld als u Office 365-functies van tijd tot tijd beheert, beheerders met bevoegdheid van uw organisatie mogelijk niet moet u een permanente globale beheerder, omdat die rol te invloed is op andere services. In plaats daarvan moeten deze u in aanmerking voor Azure AD-rollen, zoals Exchange Online-beheerder. U kunt aanvragen om te activeren die rol wanneer u de bevoegdheden nodig hebt, en vervolgens beheerdersbevoegdheden voor een vooraf vastgestelde periode hebt u.
 
-Dit artikel is bedoeld voor beheerders die u nodig hebt om hun Azure AD directory-rol in PIM te activeren.
+Dit artikel is bedoeld voor beheerders die nodig zijn om hun Azure AD-rol in PIM te activeren.
 
 ## <a name="activate-a-role"></a>Een rol activeren
 
-Als u uitvoeren op een Azure AD-directory-rol wilt, kunt u activering aanvragen met behulp van de **mijn rollen** navigatieoptie in PIM.
+Als u uitvoeren op een Azure AD-rol wilt, kunt u activering aanvragen met behulp van de **mijn rollen** navigatieoptie in PIM.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management**. Zie voor meer informatie over het toevoegen van de PIM-tegel aan uw dashboard [beginnen met PIM](pim-getting-started.md).
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
-1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-maprollen.
+1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-rollen.
 
-    ![Azure AD-maprollen - mijn rollen](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD-rollen - mijn rollen](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Zoek een rol die u wilt activeren.
 
-    ![Azure AD-maprollen - mijn lijst met gebruikersrollen](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD-rollen - mijn lijst met gebruikersrollen](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Klik op **activeren** openen van het detailvenster van de rol activeren.
 
@@ -87,11 +87,11 @@ U ziet de status van de in behandeling zijnde aanvragen om te activeren.
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **mijn aanvragen** voor een overzicht van de aanvragen.
 
-    ![Azure AD-maprollen - mijn aanvragen](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD-rollen - mijn aanvragen](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Een rol deactiveren
 
@@ -101,7 +101,7 @@ Als u uw beheerderstaken vroeg hebt voltooid, kunt u ook een rol handmatig in Az
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **mijn rollen**.
 
@@ -115,7 +115,7 @@ Als u geen activering van een rol waarvoor goedkeuring wordt vereist, kunt u een
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **mijn aanvragen**.
 

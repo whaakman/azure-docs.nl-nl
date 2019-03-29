@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 59c274c0967ef73bb7843fb1e155953bccce4857
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0fb6ea527c46ab6a9de95ba5f5ae39b8a5d50b1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183370"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576979"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snelstartgids: Aangepaste gebeurtenissen routeren naar het webeindpunt met behulp van Azure Portal en Event Grid
 
@@ -35,49 +35,38 @@ Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar de web-app zijn ver
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. 
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+2. Selecteer **alle services** Zoek in het menu voor links navigeerbare **Event Grid**, en selecteer **Event Grid-onderwerpen**. 
 
-1. Selecteer **Een resource maken** om een aangepast onderwerp te maken. 
+    ![Selecteer Event Grid-onderwerpen](./media/custom-event-quickstart-portal/select-event-grid-topics.png)
+3. Op de **Event Grid-onderwerpen** weergeeft, schakelt **+ toevoegen** op de werkbalk. 
 
-   ![Een resource maken](./media/custom-event-quickstart-portal/create-resource.png)
+    ![Knop voor Event Grid-onderwerp toevoegen](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
+4. Op de **onderwerp maken** pagina, als volgt te werk:
+    1. Geef een unieke **naam** voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan uw eigen naam - deze moet tussen 3 en 50 tekens lang zijn en mag alleen de waarden a-z, A-Z, 0-9 en '-' bevatten.
+    2. Selecteer uw Azure-**abonnement**.
+    3. Selecteer een bestaande resourcegroep of selecteer **nieuw**, en voer een **naam** voor de **resourcegroep**.
+    4. Selecteer een **locatie** voor de event grid-onderwerp.
+    5. Hou de standaardwaarde **gebeurtenisschema in het raster** voor de **gebeurtenisschema** veld. 
 
-1. Zoek naar *Event Grid-onderwerp* en selecteer dat uit de beschikbare opties.
-
-   ![event grid-onderwerp zoeken](./media/custom-event-quickstart-portal/search-event-grid.png)
-
-1. Selecteer **Maken**.
-
-   ![Eerste stappen](./media/custom-event-quickstart-portal/select-create.png)
-
-1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan uw eigen naam - deze moet tussen 3 en 50 tekens lang zijn en mag alleen de waarden a-z, A-Z, 0-9 en '-' bevatten. Geef een naam op voor de resourcegroep. Selecteer **Maken**.
-
-   ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/create-custom-topic.png)
-
-1. Nadat het aangepaste onderwerp is gemaakt, ziet u een melding dat de implementatie gelukt is.
+       ![Onderwerp-pagina maken](./media/custom-event-quickstart-portal/create-custom-topic.png)
+    6. Selecteer **Maken**. 
+5. Nadat het aangepaste onderwerp is gemaakt, ziet u een melding dat de implementatie gelukt is. Selecteer **gaat u naar de resourcegroep**. 
 
    ![Zie melding implementatie gelukt](./media/custom-event-quickstart-portal/success-notification.png)
+6. Op de **resourcegroep** pagina, selecteert u de event grid-onderwerp. 
 
-   Is de implementatie mislukt, ga dan na waardoor de fout werd veroorzaakt. Selecteer **Implementatie mislukt**.
+   ![Selecteer de resource van event grid-onderwerp](./media/custom-event-quickstart-portal/select-event-grid-topic.png)
+7. U ziet de **Event Grid-onderwerp** pagina voor uw event grid. Houd deze pagina geopend. U deze later in deze snelstart gebruiken. 
 
-   ![Selecteer implementatie mislukt](./media/custom-event-quickstart-portal/select-failed.png)
-
-   Selecteer het foutbericht.
-
-   ![Selecteer implementatie mislukt](./media/custom-event-quickstart-portal/failed-details.png)
-
-   De volgende afbeelding toont een implementatie die is mislukt omdat de naam van het aangepaste onderwerp al in gebruik is. Als u deze fout ziet, voert u de implementatie opnieuw uit met een andere naam.
-
-   ![Naamconflict](./media/custom-event-quickstart-portal/name-conflict.png)
+    ![Startpagina voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/event-grid-topic-home-page.png)
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
+Voordat u een abonnement voor het aangepaste onderwerp maakt, moet u een eindpunt voor het gebeurtenisbericht maken. Het eindpunt onderneemt normaal gesproken actie op basis van de gebeurtenisgegevens. Ter vereenvoudiging van deze snelstart gaat u een [vooraf gebouwde web-app](https://github.com/Azure-Samples/azure-event-grid-viewer) implementeren waarmee de gebeurtenisberichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-plan, een App Service-web-app en broncode van GitHub.
 
-Voordat u zich abonneert op het aangepaste onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. Het eindpunt onderneemt normaal gesproken actie op basis van de gebeurtenisgegevens. Ter vereenvoudiging van deze snelstart gaat u een [vooraf gebouwde web-app](https://github.com/Azure-Samples/azure-event-grid-viewer) implementeren waarmee de gebeurtenisberichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-plan, een App Service-web-app en broncode van GitHub.
-
-1. Selecteer **Implementeren in Azure** om de oplossing voor uw abonnement te implementeren. Geef in Azure Portal waarden op voor de parameters.
+1. Selecteer op de artikelpagina **implementeren in Azure** voor het implementeren van de oplossing aan uw abonnement. Geef in Azure Portal waarden op voor de parameters.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
-
 1. De implementatie kan enkele minuten duren. Controleer of uw web-app wordt uitgevoerd nadat de implementatie is voltooid. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
-
 1. De site wordt weergegeven, maar er zijn nog geen gebeurtenissen op gepubliceerd.
 
    ![Nieuwe site weergeven](./media/custom-event-quickstart-portal/view-site.png)
@@ -86,101 +75,131 @@ Voordat u zich abonneert op het aangepaste onderwerp, gaan we het eindpunt voor 
 
 U abonneert u op een Event Grid-onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren en waar de gebeurtenissen naartoe moeten worden gestuurd.
 
-1. Selecteer het aangepaste onderwerp in de portal.
-
-   ![Aangepaste onderwerp selecteren](./media/custom-event-quickstart-portal/select-custom-topic.png)
-
-1. Selecteer **+ Gebeurtenisabonnement**.
+1. Nu op de **Event Grid-onderwerp** pagina voor uw aangepaste onderwerp, selecteer **+ gebeurtenisabonnement** op de werkbalk.
 
    ![Gebeurtenisabonnement toevoegen](./media/custom-event-quickstart-portal/new-event-subscription.png)
+2. Op de **gebeurtenisabonnement maken** pagina, als volgt te werk:
+    1. Gebeurtenis een **naam** voor het gebeurtenisabonnement.
+    3. Selecteer **Webhook** voor de **eindpunttype**. 
+    4. Kies **selecteert u een eindpunt**. 
 
-1. Selecteer **Webhook** voor het eindpunttype. Geef een naam op voor het gebeurtenisabonnement.
+       ![Waarden opgeven voor gebeurtenisabonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+    5. Voor het webhookeindpunt geeft u de URL van uw web-app op en voegt u `api/updates` toe aan de URL van de startpagina. Selecteer **Confirm Selection** (Selectie bevestigen).
 
-   ![Waarden opgeven voor gebeurtenisabonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+       ![Eindpunt-URL opgeven](./media/custom-event-quickstart-portal/provide-endpoint.png)
+    6. Terug op de **gebeurtenisabonnement maken** weergeeft, schakelt **maken**.
 
-1. Selecteer **Select an endpoint** (Een eindpunt selecteren). 
+3. Bekijk opnieuw uw web-app en u zult zien dat er een validatiegebeurtenis voor een abonnement naartoe is verzonden. Selecteer het oogpictogram om de gebeurtenisgegevens uit te breiden. Via Event Grid wordt de validatiegebeurtenis verzonden zodat het eindpunt kan controleren of de gebeurtenisgegevens in aanmerking komen om ontvangen te worden. De web-app bevat code waarmee het abonnement kan worden gevalideerd.
 
-1. Voor het webhookeindpunt geeft u de URL van uw web-app op en voegt u `api/updates` toe aan de URL van de startpagina. Selecteer **Confirm Selection** (Selectie bevestigen).
-
-   ![Eindpunt-URL opgeven](./media/custom-event-quickstart-portal/provide-endpoint.png)
-
-1. Wanneer u klaar bent het opgeven van de waarden voor het gebeurtenisabonnement, selecteert u **Create** (Maken).
-
-Bekijk opnieuw uw web-app en u zult zien dat er een validatiegebeurtenis voor een abonnement naartoe is verzonden. Selecteer het oogpictogram om de gebeurtenisgegevens uit te breiden. Via Event Grid wordt de validatiegebeurtenis verzonden zodat het eindpunt kan controleren of de gebeurtenisgegevens in aanmerking komen om ontvangen te worden. De web-app bevat code waarmee het abonnement kan worden gevalideerd.
-
-![Een abonnementgebeurtenis weergeven](./media/custom-event-quickstart-portal/view-subscription-event.png)
+    ![Een abonnementgebeurtenis weergeven](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Een gebeurtenis verzenden naar het onderwerp
 
 Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Gebruik Azure CLI of PowerShell om een testgebeurtenis te verzenden naar uw aangepaste onderwerp. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service.
 
-Het eerste voorbeeld maakt gebruik van Azure CLI. In dit voorbeeld worden de URL en de sleutel voor het aangepaste onderwerp, plus de voorbeeldgegevens van de gebeurtenis opgehaald. Gebruik de naam van het aangepaste onderwerp voor `<topic_name>`. Hiermee worden voorbeeldgebeurtenisgegevens gemaakt. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden.
+Het eerste voorbeeld maakt gebruik van Azure CLI. In dit voorbeeld worden de URL en de sleutel voor het aangepaste onderwerp, plus de voorbeeldgegevens van de gebeurtenis opgehaald. Gebruik de naam van het aangepaste onderwerp voor `<topic name>`. Hiermee worden voorbeeldgebeurtenisgegevens gemaakt. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden.
 
-```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+### <a name="azure-cli"></a>Azure-CLI
+1. Selecteer in de Azure portal, **Cloud Shell**. Selecteer **Bash** in de linkerbovenhoek van de Cloud Shell-venster. 
 
-curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
-```
+    ![Cloudshell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+1. Voer de volgende opdracht uit om op te halen de **eindpunt** voor het onderwerp: Nadat u kopieert en plakt u de opdracht, werkt u de **onderwerpnaam** en **groepsnaam voor accountresources** voordat u de opdracht uitvoert. 
 
+    ```azurecli
+    endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
+    ```
+2. Voer de volgende opdracht uit om op te halen de **sleutel** voor het aangepaste onderwerp: Nadat u kopieert en plakt u de opdracht, werkt u de **onderwerpnaam** en **resourcegroep** naam voordat u de opdracht uitvoert. 
+
+    ```azurecli
+    key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
+    ```
+3. Kopieer de volgende instructie met de gebeurtenisdefinitie, en druk op **ENTER**. 
+
+    ```json
+    event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+    ```
+4. Voer de volgende **Curl** opdracht voor het plaatsen van de gebeurtenis:
+
+    ```
+    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
+    ```
+
+### <a name="azure-powershell"></a>Azure PowerShell
 In het tweede voorbeeld wordt PowerShell gebruikt om gelijksoortige stappen uit te voeren.
 
-```azurepowershell-interactive
-$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+1. Selecteer in de Azure portal, **Cloud Shell**. Selecteer **PowerShell** in de linkerbovenhoek van de Cloud Shell-venster. Zie het voorbeeld **Cloud Shell** venster installatiekopie in de sectie Azure CLI. 
+2. Voer de volgende opdracht uit om op te halen de **eindpunt** voor het onderwerp: Nadat u kopieert en plakt u de opdracht, werkt u de **onderwerpnaam** en **groepsnaam voor accountresources** voordat u de opdracht uitvoert. 
 
-$eventID = Get-Random 99999
+    ```powershell
+    $endpoint = (Get-AzEventGridTopic -ResourceGroupName <resource group name> -Name <topic name>).Endpoint
+    ```
+3. Voer de volgende opdracht uit om op te halen de **sleutel** voor het aangepaste onderwerp: Nadat u kopieert en plakt u de opdracht, werkt u de **onderwerpnaam** en **resourcegroep** naam voordat u de opdracht uitvoert.
 
-#Date format should be SortableDateTimePattern (ISO 8601)
-$eventDate = Get-Date -Format s
+    ```powershell
+    $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic name>
+    ```
+4. Bereid de gebeurtenis. Kopieer en voer de instructies uit in de Cloud Shell-venster. 
 
-#Construct body using Hashtable
-$htbody = @{
-    id= $eventID
-    eventType="recordInserted"
-    subject="myapp/vehicles/motorcycles"
-    eventTime= $eventDate   
-    data= @{
-        make="Ducati"
-        model="Monster"
+    ```azurepowershell
+    $eventID = Get-Random 99999
+
+    #Date format should be SortableDateTimePattern (ISO 8601)
+    $eventDate = Get-Date -Format s
+
+    #Construct body using Hashtable
+    $htbody = @{
+        id= $eventID
+        eventType="recordInserted"
+        subject="myapp/vehicles/motorcycles"
+        eventTime= $eventDate   
+        data= @{
+            make="Ducati"
+            model="Monster"
+        }
+        dataVersion="1.0"
     }
-    dataVersion="1.0"
-}
+    
+    #Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+    #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
+    $body = "["+(ConvertTo-Json $htbody)+"]"
+    ```
+5. Gebruik de **Invoke-WebRequest** cmdlet om de gebeurtenis te verzenden. 
 
-#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
-#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
-$body = "["+(ConvertTo-Json $htbody)+"]"
+    ```powershell
+    Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+    ```
 
-Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
-```
-
+### <a name="verify-in-the-event-grid-viewer"></a>Controleer in de Event Grid-Logboeken
 U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
 
 ```json
-[{
-  "id": "1807",
+{
+  "id": "974",
   "eventType": "recordInserted",
   "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "eventTime": "2019-03-28T01:11:59+00:00",
   "data": {
     "make": "Ducati",
     "model": "Monster"
   },
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
+  "topic": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myegridrg/providers/Microsoft.EventGrid/topics/myegridtopic"
+}
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Resources opschonen
-
 Als u verder wilt werken met deze gebeurtenis, schoon dan de resources die u in dit artikel hebt gemaakt, niet op. Verwijder anders de resources die u in dit artikel hebt gemaakt.
 
-Selecteer de resourcegroep en klik op **Resourcegroep verwijderen**.
+1. Selecteer **resourcegroepen** in het menu links. Als u dit niet in het menu links ziet, selecteer **alle Services** op het menu aan de linkerkant en selecteer **resourcegroepen**. 
+2. Selecteer de resourcegroep om te starten de **resourcegroep** pagina. 
+3. Selecteer **resourcegroep verwijderen** op de werkbalk. 
+4. De verwijdering bevestigt door in te voeren van de naam van de resourcegroep en selecteer **verwijderen**. 
+
+    ![Resourcegroepen](./media/custom-event-quickstart-portal/delete-resource-groups.png)
+
+    De andere resourcegroep die u in de installatiekopie ziet is gemaakt en die worden gebruikt door de Cloud Shell-venster. Het verwijderen als u niet van plan bent de Cloud Shell-venster om later te gebruiken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

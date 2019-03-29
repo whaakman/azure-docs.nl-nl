@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985747"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577035"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Oplossen van problemen met Azure Monitor voor containers
 
 Wanneer u de bewaking van uw cluster Azure Kubernetes Service (AKS) met Azure Monitor voor containers configureert, kunt u een probleem te voorkomen dat het verzamelen van gegevens of rapportage over de status kunt tegenkomen. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Autorisatiefout tijdens het onboarding- of update-bewerking
+Tijdens het inschakelen van Azure Monitor voor containers of bijwerken van een cluster ter ondersteuning van verzameld metrische gegevens, kan er een foutmelding die lijkt op het volgende - *de client < van gebruikers-id >' met object-id "< gebruiker van object-id >" geen om uit te voeren actie 'Microsoft.Authorization/roleAssignments/write' over scope*
+
+Tijdens de onboarding of update verlenen de **bewaking metrische gegevens Publisher** roltoewijzing wordt toegepast op de cluster-bron. De gebruiker het proces starten om in te schakelen van Azure Monitor voor containers of de update voor de ondersteuning van het verzamelen van metrische gegevens moet toegang hebben tot de **Microsoft.Authorization/roleAssignments/write** machtiging voor het AKS-cluster bereik van de resource. Alleen leden van de **eigenaar** en **Administrator voor gebruikerstoegang** ingebouwde rollen toegang tot deze machtiging worden verleend. Als uw beveiligingsbeleid gedetailleerde machtigingen toe te wijzen vereisen, raden wij aan u [aangepaste rollen](../../role-based-access-control/custom-roles.md) en wijs deze toe aan de gebruikers die moeten worden opgeslagen. 
+
+U kunt ook handmatig deze rol verlenen vanuit Azure portal door de volgende stappen uit:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
+2. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Kubernetes**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Azure Kubernetes**.
+3. Selecteer in de lijst met Kubernetes-clusters, een in de lijst.
+2. Klik in het menu links op **toegangsbeheer (IAM)**.
+3. Selecteer **+ toevoegen** een roltoewijzing toevoegen en selecteer de **Publisher van metrische gegevens controleren** rol en klikt u onder de **selecteren** vak **AKS** naar filter de resultaten op alleen de clusters service-principals die zijn gedefinieerd in het abonnement. Selecteer in de lijst die specifiek is voor dat cluster.
+4. Selecteer **opslaan** voltooien van de rol toe te wijzen. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor voor containers zijn ingeschakeld, maar niet alle informatie rapporteren
 Als Azure Monitor voor containers met succes is ingeschakeld en geconfigureerd, maar u kunt geen statusinformatie weergeven of er zijn geen resultaten worden geretourneerd door een logboekquery, kunt u het probleem onderzoeken door de volgende stappen: 

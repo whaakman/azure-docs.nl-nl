@@ -4,17 +4,17 @@ description: Informatie over hoe om te onboarden een Azure-machine met updatebeh
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837759"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619719"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen van een virtuele machine van Azure
 
@@ -26,7 +26,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>De oplossingen inschakelen
 
-Ga naar een bestaande virtuele machine. Onder **OPERATIONS**, selecteer **updatebeheer**, **voorraad**, of **wijzigingen bijhouden**. De virtuele machine kan bestaan in andere regio's, ongeacht de locatie van uw Automation-Account.
+Ga naar een bestaande virtuele machine. Onder **OPERATIONS**, selecteer **updatebeheer**, **voorraad**, of **wijzigingen bijhouden**. De virtuele machine kan bestaan in andere regio's, ongeacht de locatie van uw Automation-Account. Wanneer onboarding van een oplossing van een virtuele machine die u wilt dat de `Microsoft.OperationalInsights/workspaces/read` machtiging om te bepalen of de virtuele machine toegevoegd aan een werkruimte. Zie voor meer informatie over aanvullende machtigingen die nodig zijn in het algemeen, [machtigingen die nodig zijn voor Onboarding van machines](automation-role-based-access-control.md#onboarding).
 
 Zorg ervoor dat zodat de oplossing voor de virtuele machine alleen **inschakelen voor deze virtuele machine** is geselecteerd. Onboarding meerdere virtuele machines aan de oplossing selecteert **inschakelen voor virtuele machines in dit abonnement**, en selecteer vervolgens **Selecteer machines om in te schakelen**. Voor meer informatie over hoe onboarding meerdere virtuele machines in één keer, Zie [onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u w
 
 1. Open uw Automation-account vanuit Azure portal, en op de Automation-account selecteren pagina **gekoppelde werkruimte** onder de sectie **gerelateerde Resources** aan de linkerkant.
 
-1. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
+2. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
 
    ![Pagina voor werkruimte ontkoppelen](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.
 
-1. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
+3. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
 
 Als u de oplossing Update Management gebruikt, kunt indien gewenst u verwijderen van de volgende items die niet meer nodig zijn nadat u de oplossing te verwijderen.
 

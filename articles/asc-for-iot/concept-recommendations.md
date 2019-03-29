@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541855"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576191"
 ---
 # <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541855"
 > ASC voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Op basis van continue oplossing analyse, biedt ASC voor IoT de volgende aanbevelingen wanneer dat nodig is om te verbeteren en bescherming van uw apparaten, de operationele status en de algemene IoT-Hub-omgeving. 
+ASC voor IoT scant uw Azure-resources en IoT-apparaten en aanbevelingen voor beveiliging te verminderen van uw kwetsbaarheid voor biedt. Aanbevelingen voor beveiliging zijn bruikbare en richt u op het helpen van klanten in die voldoet aan best practices voor beveiliging.
 
+In dit artikel vindt u een lijst met aanbevelingen die kan worden geactiveerd op uw IoT-Hub en/of IoT-apparaten.
 
-## <a name="device-recommendations"></a>Aanbevelingen voor apparaat
+## <a name="recommendations-for-iot-devices"></a>Aanbevelingen voor IoT-apparaten
 
-Apparaat aanbevelingen bieden inzicht en suggesties voor het verbeteren van de beveiliging van apparaten en het gedrag. 
+Apparaat aanbevelingen bieden inzicht en suggesties voor het apparaat het beveiligingspostuur verbeteren. 
 
 | Severity | Name                                                      | Gegevensbron | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ Apparaat aanbevelingen bieden inzicht en suggesties voor het verbeteren van de b
 | Middelgroot   | Strikte firewallregel in de uitvoer-keten is gevonden    | Agent       | Een regel in de firewall is gebleken dat een ruime patroon voor een breed scala aan IP-adressen of -poorten bevat.                                                                                   |
 | Middelgroot   | Bewerking basislijn systeemvalidatie is mislukt           | Agent       | Apparaat voldoet niet aan [benchmarks van CIS-Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>Operationele aanbeveling
+### <a name="operational-recommendations-for-iot-devices"></a>Operationele aanbevelingen voor IoT-apparaten
 
-Operationele aanbevelingen bieden inzicht en suggesties voor het verbeteren van de configuratie van agent.
+Operationele aanbevelingen bieden inzicht en suggesties voor het verbeteren van de beveiligingsconfiguratie voor de agent.
 
 | Severity | Name                                    | Gegevensbron | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Operationele aanbevelingen bieden inzicht en suggesties voor het verbeteren van 
 | Laag      | Beveiliging dubbele configuratieconflict    | Agent       | Conflicten zijn gevonden in de beveiligingsconfiguratie van de apparaatdubbel.                           |
 
 
-## <a name="iot-hub-recommendations"></a>IoT Hub-aanbevelingen
+## <a name="recommendations-for-iot-hub"></a>Aanbevelingen voor IoT-Hub
 
 Aanbeveling waarschuwingen bieden inzicht en suggesties voor bewerkingen voor het verbeteren van de beveiligingsstatus van uw omgeving.  
 

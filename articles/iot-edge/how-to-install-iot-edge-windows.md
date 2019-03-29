@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481872"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621070"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -26,7 +26,16 @@ Zie voor meer informatie over IoT Edge-runtime, [inzicht in de Azure IoT Edge-ru
 In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. Windows-ondersteuning is momenteel in Preview.
 
 > [!NOTE]
-> Met behulp van Linux-containers op Windows-systemen is geen aanbevolen of ondersteund productieconfiguratie voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
+> Een bekend probleem van de Windows-besturingssysteem wordt voorkomen dat de overgang naar de slaapstand en stand-bymodus energiestatussen bij het uitvoeren van IoT Edge-modules (Windows Nano Server-containers proces afgeschermd). Dit probleem heeft invloed op de accu van het apparaat.
+>
+> Als tijdelijke oplossing, gebruikt u de opdracht `Stop-Service iotedge` eventuele actieve IoT Edge-modules stoppen voordat u deze energiestatussen. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Met Linux is-container op Windows-systemen geen aanbevolen of ondersteund productieconfiguratie voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests. 
 
 ## <a name="prerequisites"></a>Vereisten
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e394f6025f7898aad7dde7b1acefd9f95029a554
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541990"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576636"
 ---
 # <a name="access-your-security-data"></a>Toegang tot uw beveiligingsgegevens 
 
@@ -39,20 +39,20 @@ Configureren welke Log Analytics-werkruimte wordt gebruikt:
 
 Toegang krijgen tot uw Log Analytics-werkruimte na de configuratie:
 
-1. Kies een waarschuwing in ASC voor IoT. 
+1. Kies een waarschuwing of een aanbeveling in ASC voor IoT. 
 2. Klik op **nader onderzoek**, klikt u vervolgens op **om te zien welke apparaten deze waarschuwing klikt u hier en weergeven van de apparaat-id-kolom**.
 
 Zie voor meer informatie over het opvragen van gegevens van Log Analytics [aan de slag met query's in Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
 
-Beveiligingswaarschuwingen zijn opgeslagen in de **ASCforIoT.SecurityAlert** tabel binnen de geconfigureerde werkruimte van Log Analytics.
+Beveiligingswaarschuwingen zijn opgeslagen in _AzureSecurityOfThings.SecurityAlert_ tabel in de Log Analytics-werkruimte die is geconfigureerd voor de ASC voor IoT-oplossing.
 
-Gebruik de volgende eenvoudige kql-query's om te beginnen met het verkennen van beveiligingswaarschuwingen.
+We hebt opgegeven een aantal handige query's om u te helpen aan de slag beveiligingswaarschuwingen verkennen.
 
-### <a name="sample-records-query"></a>Voorbeeldquery records
+### <a name="sample-records"></a>Voorbeeldrecords
 
-Een paar om records te selecteren in willekeurige volgorde: 
+Selecteer een paar willekeurige records
 
 ```
 // Select a few random records
@@ -69,17 +69,15 @@ SecurityAlert
 | take 3
 ```
 
-#### <a name="sample-query-results"></a>De resultaten van de voorbeeld-query 
-
 | TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Description                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Brute force-aanval is geslaagd           | Een Brute force-aanval op het apparaat is geslaagd        |    {"Volledige bronadres": "[\"10.165.12.18:\"]", "Naam": "[\"\"] ', 'DeviceId': "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Lokale aanmelding die is voltooid op apparaat      | Een geslaagde lokale aanmelding op het apparaat is gedetecteerd     | { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": '28207', 'gebruikersnaam': 'aanvaller', 'DeviceId': "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Poging van de lokale aanmelding die op het apparaat is mislukt  | Een mislukte lokale aanmeldingspoging met het apparaat is gedetecteerd |  { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": '22644', 'gebruikersnaam': 'aanvaller', 'DeviceId': "IoT-Device-Linux" } |
 
-### <a name="device-summary-query"></a>Samenvatting query van apparaat
+### <a name="device-summary"></a>Apparaatsamenvatting
 
-Gebruik deze query kql om te selecteren van een aantal verschillende beveiligingswaarschuwingen afgelopen week door IoT Hub, apparaat, de ernst van waarschuwing, type waarschuwing gedetecteerd.
+Selecteer het aantal afzonderlijke beveiligingswaarschuwingen afgelopen week door IoT Hub, apparaat, de ernst van waarschuwing, type waarschuwing gedetecteerd.
 
 ```
 // Select number of distinct security alerts detected last week by 
@@ -94,19 +92,16 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="device-summary-query-results"></a>Samenvatting queryresultaten voor apparaat
-
-| IoTHubId | DeviceId| AlertSeverity| DisplayName | Count |
-|----------|---------|------------------|---------|---------|
-|/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Brute force-aanval is geslaagd           | 9   |    
+| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Count |
+|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Brute force-aanval is geslaagd           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | Poging van de lokale aanmelding die op het apparaat is mislukt  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | Lokale aanmelding die is voltooid op apparaat      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | Crypto Coin Miner                     | 4   |
-|
 
-### <a name="iot-hub-summary"></a>Overzicht van IoT Hub
+### <a name="iot-hub-summary"></a>IoT hub-overzicht
 
-Gebruik deze query kql een aantal unieke apparaten met waarschuwingen in de afgelopen week door IoT hub, de ernst van waarschuwing, Waarschuwingstype selecteren:
+Selecteer een aantal unieke apparaten met waarschuwingen in de afgelopen week, via de IoT Hub, de ernst van waarschuwing Waarschuwingstype
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -121,8 +116,6 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="iot-hub-summary-query-results"></a>De samenvatting queryresultaten IoT-Hub
-
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hoog          | Brute force-aanval is geslaagd           | 1          |    
@@ -130,6 +123,58 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hoog          | Lokale aanmelding die is voltooid op apparaat      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Middelgroot        | Crypto Coin Miner                     | 1          |
 
+## <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
+
+Aanbevelingen voor beveiliging worden opgeslagen in _AzureSecurityOfThings.SecurityRecommendation_ tabel in de Log Analytics-werkruimte die is geconfigureerd voor de ASC voor IoT-oplossing.
+
+We hebt een aantal handige query's kunt u start het verkennen van de aanbevelingen voor beveiliging opgegeven.
+
+### <a name="sample-records"></a>Voorbeeldrecords
+
+Selecteer een paar willekeurige records
+
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+    
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
+
+### <a name="device-summary"></a>Apparaatsamenvatting
+
+Selecteer het aantal afzonderlijke active beveiligingsaanbevelingen door IoT Hub, apparaat, aanbeveling ernst en type.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
+```
+
+| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Count |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Hoog          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot        | 4   |
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -137,3 +182,4 @@ SecurityAlert
 - Lees de ASC voor IoT [overzicht](overview.md)
 - Meer informatie over ASC voor IoT [architectuur](architecture.md)
 - Begrijpen en verkennen [ASC voor IoT-waarschuwingen](concept-security-alerts.md)
+- Begrijpen en verkennen [ASC voor IoT-aanbeveling](concept-recommendations.md)

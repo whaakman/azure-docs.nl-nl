@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994418"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621648"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -37,7 +37,11 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 **Onbeperkt gegevensoverdracht**: Azure Backup stelt geen beperking aan de hoeveelheid binnenkomende of uitgaande gegeven die u overbrengt. In Azure Backup wordt gegevensoverdracht niet in rekening gebracht. Als u de Azure Import/Exportservice gebruikt voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens. Zie [Offline back-upworkflow in Azure Backup](backup-azure-backup-import-export.md) (Offline back-upwerkstroom in Azure Backup) voor meer informatie over deze kosten. Uitgaande gegevens zijn gegevens die tijdens een herstelbewerking worden overgebracht uit een Recovery Services-kluis.
 
-**Gegevensversleuteling**: gegevensversleuteling zorgt voor een beveiligde overdracht en opslag van uw gegevens in de openbare cloud. U slaat de wachtwoordzin voor versleuteling lokaal op. Deze wordt nooit verzonden naar of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
+**Gegevensversleuteling**:
+- On-premises gegevens die onderweg zijn, worden versleuteld op de on-premises virtuele machine met AES256. De verstrekte gegevens wordt beveiligd door middel van HTTPS tussen opslag en back-up. Het iSCSI-protocol voor beveiliging van de gegevens tussen back-up en de computer van de gebruiker verzonden. Secure tunneling wordt gebruikt voor het beveiligen van het iSCSI-kanaal.
+- Voor on-premises naar Azure backup is gegevens in Azure het versleuteld in rust met de wachtwoordzin die u opgeeft bij het instellen van back-up. De wachtwoordzin of de sleutel wordt nooit verzonden of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
+- Voor virtuele Azure-machines, gegevens worden versleuteld met behulp van Storage Service Encryption (SSE) op herstellen. Back-up versleutelt gegevens automatisch voordat u opslaat. Azure Storage ontsleutelt gegevens voordat u ze ophaalt.
+- Back-up biedt ook ondersteuning voor Azure VM's die zijn versleuteld met behulp van Azure Disk Encryption (ADE). [Meer informatie](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Toepassingsconsistente back-up**: een toepassingsconsistente back-up betekent dat een herstelpunt alle vereiste gegevens heeft om de back-up te kunnen herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
 
@@ -83,10 +87,10 @@ De volgende tabel bevat Azure Backup-onderdelen die ondersteuning bieden voor Li
 
 **Onderdeel** | **Linux (goedgekeurd door Azure)**
 --- | ---
-Azure Backup-agent (MARS) | Nee (alleen Windows-agent)
-System Center DPM | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
+Azure Backup-agent (MARS) | Geen (op basis van een Windows-agent alleen)
+System Center DPM | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Herstelt de virtuele machine van Hyper-V en VMWare Linux Gast-VM 's</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
 Azure Backup-server | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
-Back-up van virtuele machines van Azure IaaS | App-consistente back-up met het [prescript- en postscript-framework](backup-azure-linux-app-consistent.md)<br/><br/> [Herstel op bestandsniveau](backup-azure-restore-files-from-vm.md)<br/><br/> [Een VM maken op basis van een herstelde schijf](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Een VM maken op basis van een herstelpunt](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
+Back-up van virtuele machines van Azure IaaS | App-consistente back-up met het [prescript- en postscript-framework](backup-azure-linux-app-consistent.md)<br/><br/> [Herstel op bestandsniveau](backup-azure-restore-files-from-vm.md)<br/><br/> [Een VM maken op basis van een herstelde schijf](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Een VM maken op basis van een herstelpunt](backup-azure-arm-restore-vms.md#create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
 Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Een schijftype selecteren](../virtual-machines/windows/disks-types.md) voor meer informatie over Premium Storage en andere schijftypen.

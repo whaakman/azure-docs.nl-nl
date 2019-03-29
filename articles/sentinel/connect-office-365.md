@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547013"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574855"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Verzamelen van gegevens van Office 365-Logboeken
 
@@ -33,7 +33,7 @@ U kunt de logboeken voor controle van streamen [Office 365](https://docs.microso
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een globale beheerder of beveiligingsbeheerder voor uw tenant
-- Als u wilt toevoegen van een tenant, poort 4433 voor webverkeer op de computer van waaruit u de verbinding uitvoeren te openen.
+- Op de computer van waaruit u aangemeld bij Azure Sentinel om de verbinding te maken is maken suretha poort 4433 openen voor webverkeer.
 
 ## <a name="connect-to-office-365"></a>Verbinding maken met Office 365
 

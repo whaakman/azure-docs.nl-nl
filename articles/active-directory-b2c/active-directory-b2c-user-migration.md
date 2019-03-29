@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484709"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621312"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Gebruikersmigratie
 Wanneer u uw id-provider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het gebruikersaccount te migreren. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreren van een id-provider naar Azure AD B2C. Het artikel is niet bedoeld om te worden duidelijk, maar in plaats daarvan worden enkele scenario's beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
@@ -257,7 +257,7 @@ Als u wilt wijzigen van het wachtwoord bijhouden, moet u een Azure-tabel gebruik
 ### <a name="41-update-your-application-setting"></a>4.1: De toepassingsinstelling van de bijwerken
 1. Als u wilt testen van de RESTful-API-demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-1. In de `AADB2C.UserMigration.API` project, open de *appsettings.json* bestand. De instelling vervangen door het geconfigureerd in [stap 2.2](#step-22-configure-the-application-settings):
+1. In de `AADB2C.UserMigration.API` project, open de *Web.config* bestand. De instelling vervangen door het geconfigureerd in [stap 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {

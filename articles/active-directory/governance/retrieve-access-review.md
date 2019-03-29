@@ -1,6 +1,6 @@
 ---
-title: Ophalen van de resultaten van de toegangsbeoordeling voor groepen of toepassingen in Azure AD-Toegangsbeoordelingen | Microsoft Docs
-description: Informatie over het ophalen van resultaten van de toegangsbeoordeling voor leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen.
+title: Resultaten van de toegangsbeoordeling voor groepen of toepassingen in toegangsbeoordelingen - Azure Active Directory ophalen | Microsoft Docs
+description: Informatie over het ophalen van resultaten van de toegangsbeoordeling voor leden van beveiligingsgroep of toegang tot toepassingen in Azure Active Directory-toegangsbeoordelingen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839641"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578698"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Ophalen van de resultaten van de toegangsbeoordeling voor groepen of toepassingen in Azure AD-Toegangsbeoordelingen
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Ophalen van de toegangsbeoordeling resultaten voor groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
 Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing.  Een gebruiker die zich in de **hoofdbeheerder**, **Gebruikerbeheerder**, **beveiligingsbeheerder** of **beveiligingslezer** rol kan ook Lees de resultaten van een toegangscontrole.  U gebruikers toewijzen aan een van deze rollen, kan een beheerder met bevoorrechte rol Azure AD PIM gebruiken zodat een gebruiker in aanmerking voor het activeren van de rol of globale beheerder permanent kunt [een gebruiker toewijzen aan de rol](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 

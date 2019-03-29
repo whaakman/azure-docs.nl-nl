@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Beveiligingsagents
     href: security-agent-architecture.md
+  - name: Edge-beveiligingsmodule
+    href: security-edge-architecture.md
   - name: Servicevereisten
     href: service-prerequisites.md
   - name: Aan de slag met ASC voor IoT
@@ -23,26 +25,8 @@ items:
   - name: Aangepaste beveiligingswaarschuwingen maken
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Zelfstudies
-  items:
-  - name: Beveiligingsagents implementeren
-    items:
-    - name: Een beveiligingsagent op basis van C# implementeren op een Windows-apparaat
-      href: tutorial-deploy-windows-cs.md
-    - name: Een beveiligingsagent op basis van C# implementeren op een Linux-apparaat
-      href: tutorial-deploy-linux-cs.md
-    - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
-      href: tutorial-deploy-linux-c.md
-  - name: Een apparaat onderzoeken
-    href: tutorial-investigate-device.md
-  - name: Uw eigen beveiligingsberichten verzenden
-    href: tutorial-send-security-messages.md
 - name: Concepten
   items:
-  - name: Welke agent moet ik implementeren?
-    href: select-deploy-agent.md
-  - name: Beveiligingsagents configureren
-    href: concept-agent-configuration.md
   - name: Verificatie voor beveiligingsagents
     href: concept-security-agent-authentication-methods.md
   - name: Beveiligingsmodule
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Aanbevelingen voor beveiliging
     href: concept-recommendations.md
+  - name: Prijs en bijbehorende kosten
+    href: concept-pricing.md
 - name: Handleidingen
   items:
+  - name: Welke agent moet ik implementeren?
+    items:
+    - name: Selecteer een te implementeren agent
+      href: how-to-deploy-agent.md
+    - name: Een beveiligingsagent op basis van C# implementeren op een Windows-apparaat
+      href: how-to-deploy-windows-cs.md
+    - name: Een beveiligingsagent op basis van C# implementeren op een Linux-apparaat
+      href: how-to-deploy-linux-cs.md
+    - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
+      href: how-to-deploy-linux-c.md
+  - name: Edge-beveiligingsmodule implementeren
+    href: how-to-deploy-edge.md
+  - name: Beveiligingsagents configureren
+    href: how-to-agent-configuration.md
+  - name: Uw eigen beveiligingsberichten verzenden
+    href: how-to-send-security-messages.md
   - name: Toegang tot onbewerkte beveiligingsgegevens
     href: how-to-security-data-access.md
-  - name: Een beveiligingsmoduledubbel aanpassen
-    href: how-to-modify-security-module-twin.md
+  - name: Een apparaat onderzoeken
+    href: how-to-investigate-device.md
 - name: Resources
   items:
   - name: Veelgestelde vragen
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Regionale beschikbaarheid
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541315"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575161"

@@ -7,34 +7,36 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 956cf6c8fac34d5fc3e4d3c5bee663247665b69e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002867"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621478"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
-Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
+Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met officiële business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Onze business intelligence-partners
-| Partner | Description | Koppelingen | Video's |
-| --- | --- | --- | --- |
-| ![Birst][1] |**Birst**<br>Birst is een wereldwijde leider in Cloud-BI en analyses. Ondernemingen kunnen maken van een vertrouwde bron van gegevens binnen de context van de belangrijkste zakelijke gebruikers. Zakelijke gebruikers binnen de gehele organisatie kunnen vervolgens rapporteren en analyseren van gegevens met hoogwaardige BI-hulpprogramma's. |[Marketplace][birst_marketplace]<br>[Website][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
-| ![ClearStory gegevens][2] |**ClearStory gegevens**<br>Fast-cyclus analysis biedt clearStory gegevens voor verschillende gegevens die zijn opgeslagen in SQL Data Warehouse. ClearStory van geïntegreerde Spark gebaseerd platform en analyses snelheid van toegang tot toepassingsgegevens en onderlinge aanpassing van verschillende gegevenssets. Ze inschakelen van verkenning van fast, samenwerkende waarmee zakelijke gebruikers om te worden gewortelde autonome om inzicht te krijgen. |[Website][clearstory_website]<br>[Gegevensblad][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
-| ![Dell Statistica][3] |**Dell Statistica**<br>Dell Statistica is een geavanceerd analyseplatform waarmee organisaties voorspellingen over de toekomst, processen te optimaliseren, kosten te verlagen en de opbrengst te verhogen.  Dell Statistica maakt analyse van big data eenvoudiger, stroomlijnt implementatie & implementatie, extraheert praktische informatie uit tekst en biedt uitgebreide mogelijkheden met uw bedrijf. |[Website][dell_statistica_website]<br>[Gegevensblad][dell_statistica_datasheet]<br>[Twitter][dell_statistica_twitter] |[![Statistica video](./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_video.jpg)](https://www.youtube.com/watch?v=0b8sPW2UHrU) |
-| ![Dundas][4] |**Dundas BI**<br>Gegevensvisualisatie Dundas is een toonaangevende, wereldwijde leverancier van de software Business Intelligence en visualisatie van gegevens.  Dundas-dashboards, rapporten en visuele gegevensanalyse bieden naadloze integratie met business-toepassingen en zorgt voor betere beslissingen kunt nemen en sneller inzichten worden verkregen. |[Marketplace][dundas_bi_marketplace]<br>[Website][dundas_bi_website]<br>[Gegevensblad][dundas_bi_datasheet]<br>[Twitter][dundas_bi_twitter]<br>[YouTube][dundas_bi_youtube] |[![dundas-video](./media/sql-data-warehouse-partner-business-intelligence/dundas_bi_video.jpg)](https://www.youtube.com/watch?v=TEbc3_e7o60) |
-| ![Jinfonet][5] |**JReport**<br>JReport is een ingesloten BI-oplossing voor de onderneming. De oplossing biedt gebruikers maken van rapporten, dashboards en analyse van gegevens op de cloud, big data en transactionele gegevensbronnen worden verlaagd. Door gegevens te visualiseren, kunt u uw eigen rapportage- en detectie uitvoeren voor flexibele, op het begeven besluitvorming. |[Website][jinfonet_website]<br>[Gegevensblad][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] |[![jreport video](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
-| ![LogiAnalytics][6] |**Logi Analytics**<br>Kan uw organisatie verzamelen, analyseren en direct reageren op de grootste en meest diverse gegevenssets in de hele wereld samen Logi Analytics en Azure SQL Data Warehouse. |[Website][logianalytics_website]<br>[Gegevensblad][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] |[![logianalytics video](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
-| ![Looker][7] |**Looker BI**<br>Looker biedt iedereen in uw bedrijf de mogelijkheid om te verkennen en begrijpen van de gegevens waar uw bedrijf. Looker biedt ook de gegevensanalist een flexibele en herbruikbare laag om te beheren en cureren die gegevens.  Bedrijven hebben hun cultuur Looker gebruiken als de katalysator fundamenteel omgezet. |[Marketplace][looker_marketplace]<br>[Website][looker_website]<br>[Gegevensblad][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] |[![looker video](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
-| ![Qlik][8] |**Qlik Sense Enterprise**<br>Station inzicht detectie aan de visualisatie-app voor gegevens die iedereen kan gebruiken. Met Qlik Sense, kan iedereen in uw organisatie eenvoudig flexibele, interactieve visualisaties maken en zinvolle beslissingen te nemen. |[Website][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] |[![qlikview video](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
-| ![SiSense][9] |**SiSense**<br>SiSense is een volledige stack Business Intelligence-software die wordt geleverd met hulpprogramma's die een bedrijf nodig heeft om te analyseren en visualiseren van gegevens: een krachtige analytische database, de mogelijkheid om toe te voegen van meerdere bronnen, eenvoudige gegevensextractie (ETL) en gegevens op het web visualisatie. Beginnen met het analyseren en visualiseren van grote gegevenssets met SiSense BI en Analytics vandaag nog. |[Website][sisense_website]<br>[Gegevensblad][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![sisense video](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
-| ![Tableau][10] |**Tableau**<br>Tableau van selfservice-analyses kunt iedereen en begrijpen van hun gegevens, op allerlei gegevens uit platte bestanden naar databases. Tableau heeft een eigen, geoptimaliseerde connector naar Microsoft Azure SQL Data Warehouse die ondersteuning biedt voor zowel dynamische gegevens en in-memory analyse. |[Marketplace][tableau_marketplace]<br>[Website][tableau_website]<br>[Gegevensblad][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
-| ![Targit][11] |**Targit**<br>Targit besluit Suite biedt BI en Analytics platform dat voorziet in realtime-dashboards, selfservice-analyses, gebruiksvriendelijke reporting, verbluffende mobiele mogelijkheden en eenvoudige gegevensdetectie technologie in een enkele, samenhangend-oplossing. Targit biedt bedrijven de durft uit te dagen om te fungeren. |[Marketplace][targit_marketplace]<br>[Website][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![targit video](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![Yellowfin als beste][12] |**Yellowfin als beste**<br>Yellowfin is een Best beoordeeld van Cloud-BI leverancier voor ad-hoc rapporten en Dashboards op uit; De enquête BI. Verbinding maken met Azure SQL Data Warehouse, en vervolgens maken en delen van geweldige rapporten en dashboards met bekroonde samenwerkende BI en de locatie intelligentiefuncties. |[Marketplace][yellowfin_marketplace]<br>[Website][yellowfin_website]<br>[Gegevensblad][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![yellowfin als beste video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| Partner | Description | Koppeling naar website/Product |
+| ------- | ----------- | -------------------- |
+| ![Birst][1] |**Birst**<br>Birst verbindt de hele organisatie via een netwerk van ineengevlochten gevirtualiseerde BI exemplaren op-bovenaan een gedeelde algemene analytische-infrastructuur|[Productpagina][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
+| ![ClearStory gegevens][2] |**ClearStory gegevens (continue zakelijke inzichten worden verkregen)**<br>Fast-cyclus analysis biedt clearStory gegevens voor verschillende gegevens die zijn opgeslagen in SQL Data Warehouse. ClearStory van geïntegreerde Spark gebaseerd platform en analyses snelheid van toegang tot toepassingsgegevens en onderlinge aanpassing van verschillende gegevenssets. Ze inschakelen van verkenning van fast, samenwerkende waarmee zakelijke gebruikers om te worden gewortelde autonome om inzicht te krijgen. |[Productpagina][clearstory_website]<br> |
+| ![Dundas][4] |**Dundas BI**<br>Gegevensvisualisatie Dundas is een toonaangevende, wereldwijde leverancier van de software Business Intelligence en visualisatie van gegevens.  Dundas-dashboards, rapporten en visuele gegevensanalyse bieden naadloze integratie met business-toepassingen en zorgt voor betere beslissingen kunt nemen en sneller inzichten worden verkregen.|[Productpagina][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
+| ![IBM Hiermee][3] |**IBM Hiermee Analytics**< brCognos Analytics bevat slimme selfservice mogelijkheden waarmee u eenvoudig, duidelijk en gemakkelijk te gebruiken of u nu een ervaren bedrijfsanalist onderzoek van de kinks in een enorme toeleveringsketen of een verkoper optimaliseren een één campagne. Hiermee Analytics maakt gebruik van AI en andere intelligente mogelijkheden voor het zware werk aan om te helpen gegevens verkennen en maken het gemakkelijker voor gebruikers om op te halen van de antwoorden die ze nodig hebben|[Productpagina][cognosanalytics_website]<br>|
+| ![Builders van informatie][13] |**Builders van informatie (WebFOCUS)**<br>WebFOCUS business intelligence helpt bedrijven gebruiken gegevens meer strategisch in en buiten de onderneming. Gebruikers en beheerders snel om dashboards te maken die inhoud uit meerdere gegevensbronnen en indelingen combineren en biedt een robuuste beveiliging en uitgebreide governance naadloze waarmee veilig kunnen diverly en delen van BI en analytics inhoud|[Productpagina][informationbuilders_website]<br> |
+![Jinfonet][5] |**Jinfonet JReport**<br>JReport is een ingesloten BI-oplossing voor de onderneming. De oplossing biedt gebruikers maken van rapporten, dashboards en analyse van gegevens op de cloud, big data en transactionele gegevensbronnen worden verlaagd. Door gegevens te visualiseren, kunt u uw eigen rapportage- en detectie uitvoeren voor flexibele, op het begeven besluitvorming. |[Productpagina][jinfonet_website]<br> |
+| ![LogiAnalytics][6] |**Logi Analytics**<br>Kan uw organisatie verzamelen, analyseren en direct reageren op de grootste en meest diverse gegevenssets in de hele wereld samen Logi Analytics en Azure SQL Data Warehouse. |[Productpagina][logianalytics_website]<br>|
+| ![Looker][7] |**Looker BI**<br>Looker biedt iedereen in uw bedrijf de mogelijkheid om te verkennen en begrijpen van de gegevens waar uw bedrijf. Looker biedt ook de gegevensanalist een flexibele en herbruikbare laag om te beheren en cureren die gegevens.  Bedrijven hebben hun cultuur Looker gebruiken als de katalysator fundamenteel omgezet.|[Productpagina][looker_website]<br> [Azure Marketplace][looker_marketplace]<br> |
+| ![Microstrategy][14] |**MicroStrategy**<br>Het MicroStrategy-platform biedt een compleet pakket aan business intelligence en analyse mogelijkheden waarmee organisaties waarde op te halen uit hun zakelijke gegevens. Controleer of dat u alles wat die u moet toegang tot analytics uitbreiden naar elke functie-team en bedrijven hebben MicroStrategy van krachtige analytische engine, uitgebreide toolsets, verschillende gegevensconnectoren en schaalbare, open architectuur |[Productpagina][microstrategy_website]<br> [Azure Marketplace][microstrategy_marketplace]<br> |
+| ![Qlik][8] |**Qlik Sense Enterprise**<br>Station inzicht detectie aan de visualisatie-app voor gegevens die iedereen kan gebruiken. Met Qlik Sense, kan iedereen in uw organisatie eenvoudig flexibele, interactieve visualisaties maken en zinvolle beslissingen te nemen. |[Productpagina][qlik_website]<br> |
+| ![SiSense][9] |**SiSense**<br>SiSense is een volledige stack Business Intelligence-software die wordt geleverd met hulpprogramma's die een bedrijf nodig heeft om te analyseren en visualiseren van gegevens: een krachtige analytische database, de mogelijkheid om toe te voegen van meerdere bronnen, eenvoudige gegevensextractie (ETL) en gegevens op het web visualisatie. Beginnen met het analyseren en visualiseren van grote gegevenssets met SiSense BI en Analytics vandaag nog. |[Productpagina][sisense_website]<br> |
+| ![Tableau][10] |**Tableau**<br>Tableau van selfservice-analyses kunt iedereen en begrijpen van hun gegevens, op allerlei gegevens uit platte bestanden naar databases. Tableau heeft een eigen, geoptimaliseerde connector naar Microsoft Azure SQL Data Warehouse die ondersteuning biedt voor zowel dynamische gegevens en in-memory analyse. |[Productpagina][tableau_website]<br> [Azure Marketplace][tableau_marketplace]<br>|
+| ![Targit][11] |**Targit (Decision Suite)**<br>Targit besluit Suite biedt BI en Analytics platform dat voorziet in realtime-dashboards, selfservice-analyses, gebruiksvriendelijke reporting, verbluffende mobiele mogelijkheden en eenvoudige gegevensdetectie technologie in een enkele, samenhangend-oplossing. Targit biedt bedrijven de durft uit te dagen om te fungeren. |[Productpagina][targit_website]<br> [Azure Marketplace][targit_marketplace]<br> |
+| ![Yellowfin als beste][12] |**Yellowfin als beste**<br>Yellowfin is een Best beoordeeld van Cloud-BI leverancier voor ad-hoc rapporten en Dashboards op uit; De enquête BI. Verbinding maken met Azure SQL Data Warehouse, en vervolgens maken en delen van geweldige rapporten en dashboards met bekroonde samenwerkende BI en de locatie intelligentiefuncties. |[Productpagina][yellowfin_website]<br> [Azure Marketplace][yellowfin_marketplace] |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
@@ -44,7 +46,7 @@ Zie voor meer informatie over een aantal van onze andere partners, [gegevensinte
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png
 [2]: ./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png
-[3]: ./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_logo.png
+[3]: ./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png
 [4]: ./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png
 [5]: ./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png
 [6]: ./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png
@@ -54,119 +56,39 @@ Zie voor meer informatie over een aantal van onze andere partners, [gegevensinte
 [10]: ./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png
 [11]: ./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png
 [12]: ./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png
-
+[13]: ./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png
+[14]: ./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png
 
 <!--Article links-->
+
 [bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[dm_partners]: ./sql-data-warehouse-partner-data-management.md
 [di_partners]: ./sql-data-warehouse-partner-data-integration.md
+[dm_partners]: ./sql-data-warehouse-partner-data-management.md
 
 <!--Website links -->
+
 [birst_website]:https://www.birst.com/
-[clearstory_website]:https://www.clearstorydata.com/
-[dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
+[clearstory_website]:https://www.clearstorydata.com/product/continuous-insights/
 [dundas_bi_website]:https://www.dundas.com/dundas-bi
 [jinfonet_website]:https://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]:https://www.logianalytics.com/
 [looker_website]:https://looker.com/partners/microsoft-azure/
+[cognosanalytics_website]:https://www.ibm.com/products/cognos-analytics
 [qlik_website]:https://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]:https://www.sisense.com/product/
 [tableau_website]:https://www.tableau.com/
 [targit_website]:https://www.targit.com/en/software/deployment/targitonazure
 [yellowfin_website]:https://www.yellowfinbi.com/
-
-<!--Get Started Links-->
-[qlik_getstarted]:https://www.qlik.com/us/products/qlik-sense/getting-started
-
-<!--Datasheet Links-->
-
-<!--[birst_datasheet]:-->
-
-[clearstory_datasheet]:https://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
-[dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
-[dundas_bi_datasheet]:https://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
-[jinfonet_datasheet]:https://www.jinfonet.com/products/JReport%20Brief.pdf
-[logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
-
-[looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
-
-[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family
-[sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
-
-[tableau_datasheet]:https://www.tableau.com/stories/workbook/azure-sql-data
-
-<!--[targit_datasheet]:-->
-
-[yellowfin_datasheet]:https://www.yellowfinbi.com/Document.i4?DocumentId=877299
+[informationbuilders_website]:https://www.informationbuilders.com/products/bi-and-analytics-platform
+[microstrategy_website]:https://www.microstrategy.com/us/product/analytics
 
 <!--Marketplace Links -->
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
-
-<!--[clearstory_marketplace]:-->
-
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-
-<!--[jinfonet_marketplace]:-->
-
 [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
-
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
-
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
-
-<!--Press links-->
-
-<!--[birst_press]:-->
-
-[clearstory_press]:https://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
-
-<!--[dell_statistica_press]:-->
-
-[dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
-
-<!--[jinfonet_press]:-->
-
-[logianalytics_press]:https://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
-[looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
-
-<!--[qlik_press]:-->
-
-<!--[sisense_press]:-->
-
-[tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
-
-<!--[targit_press]:-->
-<!--[yellowfin_press]:-->
-
-<!--YouTube links-->
-[birst_youtube]:https://www.youtube.com/user/BirstBI
-
-[clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-[dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
-[jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
-[logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog
-[looker_youtube]:https://www.youtube.com/user/LookerData
-[qlik_youtube]:https://www.youtube.com/user/qlikview
-[sisense_youtube]:https://www.youtube.com/user/sisenseanalytics
-[tableau_youtube]:https://www.youtube.com/user/tableausoftware
-
-[targit_youtube]:https://www.youtube.com/user/TargitAS
-
-[yellowfin_youtube]:https://www.youtube.com/user/YellowfinTeam
-
-<!--Twitter links-->
-[birst_twitter]:https://twitter.com/BirstBI
-[clearstory_twitter]:https://twitter.com/ClearStoryData
-[dell_statistica_twitter]:https://twitter.com/hashtag/DellStatistica
-[dundas_bi_twitter]:https://twitter.com/dundasdata
-[jinfonet_twitter]:https://twitter.com/Jinfonet
-[logianalytics_twitter]:https://twitter.com/LogiAnalytics
-[looker_twitter]:https://twitter.com/LookerData
-[qlik_twitter]:https://twitter.com/qlik
-[sisense_twitter]:https://twitter.com/Sisense
-[tableau_twitter]:https://twitter.com/tableau
-[targit_twitter]:https://twitter.com/TARGIT
-[yellowfin_twitter]:https://twitter.com/YellowfinBI
+[microstrategy_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm

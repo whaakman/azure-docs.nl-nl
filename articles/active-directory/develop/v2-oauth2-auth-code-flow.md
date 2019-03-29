@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/24/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551055"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577591"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter    | Vereist/optioneel | Description |
 |--------------|-------------|--------------|
 | `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | vereist    | De toepassing (client)-ID die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) of **(Preview) van de App-registraties** optreden in de Azure portal voor uw app is toegewezen.  |
+| `client_id`   | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
 | `response_type` | vereist    | Moet bevatten `code` voor de autorisatiecodestroom.       |
 | `redirect_uri`  | Aanbevolen | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | vereist    | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md) dat u wilt dat de gebruiker toe te staan. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Vereist/optioneel | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | vereist  | De aanvraag-ID die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uw app is toegewezen. |
+| `client_id` | vereist  | De toepassing (client)-ID die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |
 | `grant_type` | vereist   | Moet `authorization_code` voor de autorisatiecodestroom.   |
 | `scope`      | vereist   | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de eerste arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het v2.0-eindpunt. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
 | `code`          | vereist  | De authorization_code die u hebt verkregen in de eerste zijde van de stroom. |
@@ -267,7 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter     |                | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | vereist     | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | vereist    | De **(client) toepassings-ID** die de app-registratieportal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) of **(Preview) van de App-registraties** heeft ervaring in Azure portal uw app is toegewezen.  |
+| `client_id`     | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
 | `grant_type`    | vereist    | Moet `refresh_token` voor deze kant van de autorisatiecodestroom. |
 | `scope`         | vereist    | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de oorspronkelijke authorization_code aanvraag arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het v2.0-eindpunt. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
 | `refresh_token` | vereist    | De refresh_token die u hebt verkregen in het tweede gedeelte van de stroom. |

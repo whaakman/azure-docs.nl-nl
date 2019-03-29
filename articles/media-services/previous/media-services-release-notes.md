@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499077"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621427"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
 
 > [!NOTE]
-> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Bekijk de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
 We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die invloed hebben op u. Als u een probleem melden of vragen stellen, verzendt een bericht in de [Azure Media Services MSDN Forum]. 
 
@@ -42,13 +42,12 @@ We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van
 | Sommige clients kunnen afkomstig zijn via een probleem met herhaald label in het manifest Smooth Streaming. |Zie voor meer informatie, [in deze sectie](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK objecten kunnen niet worden geserialiseerd en als gevolg hiervan werken niet met Azure Cache voor Redis. |Als u probeert om de SDK AssetCollection-object toe te voegen aan Azure-Cache voor Redis te serialiseren, wordt er een uitzondering gegenereerd. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API
 Zie voor meer informatie over de geschiedenis van Media Services REST API-versie, de [Azure Media Services REST API-naslaginformatie].
 
 ## <a name="december-2018"></a>December 2018
 
-De [Media Hyperlapse Preview](media-services-hyperlapse-content.md) functie van Azure Media Services wordt binnenkort beëindigd. Vanaf 19 December 2018, maken Media Services niet meer wilt voor wijzigingen of verbeteringen Media Hyperlapse. Op 29 maart 2019, wordt het buiten gebruik is gesteld en niet meer beschikbaar zijn.
+De Media Hyperlapse Preview-functie van Azure Media Services wordt binnenkort beëindigd. Vanaf 19 December 2018, maken Media Services niet meer wilt voor wijzigingen of verbeteringen Media Hyperlapse. Op 29 maart 2019, wordt het buiten gebruik is gesteld en niet meer beschikbaar zijn.
 
 ## <a name="october-2018"></a>Oktober 2018
 
@@ -260,7 +259,6 @@ De volgende nieuwe functies zijn aangekondigd:
 
 * [Een voorbeeld van live coderen met Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Dynamische manifest](media-services-dynamic-manifest-overview.md)
-* [Een Preview-versie van de Azure Media Hyperlapse media-processor](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Release van april 2015
 ### <a name="general-media-services-updates"></a>Algemene Media Services-updates

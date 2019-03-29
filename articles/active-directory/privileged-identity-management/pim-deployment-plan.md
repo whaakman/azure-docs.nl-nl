@@ -1,5 +1,5 @@
 ---
-title: Implementeren van Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Privileged Identity Management (PIM) - Azure Active Directory implementeren | Microsoft Docs
 description: Beschrijft hoe u van plan bent de implementatie van Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227028"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578190"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
-Deze stapsgewijze handleiding wordt beschreven hoe u de implementatie van Azure AD Privileged Identity Management (PIM) in uw organisatie van plan bent.
+Deze stapsgewijze handleiding wordt beschreven hoe u de implementatie van Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in uw organisatie van plan bent.
 
 > [!TIP]
 > In dit document ziet u de items die zijn gemarkeerd als:
@@ -79,7 +79,7 @@ Zie voor meer informatie, [wat is Azure AD Privileged Identity Management?](pim-
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>Rollen die kunnen worden beheerd door PIM
 
-**Azure AD-rollen** – deze rollen zijn alle directory-rollen in Azure Active Directory (zoals globale beheerder, Exchange-beheerder en Beveiligingsbeheerder). U kunt meer lezen over de functies en hun functionaliteit in [rol beheerdersmachtigingen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Zie voor hulp bij het bepalen van welke rollen u wilt uw beheerders toewijst aan [minste bevoorrechte rollen door taak](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD-rollen** – deze rollen bevinden zich allemaal in Azure Active Directory (zoals globale beheerder, Exchange-beheerder en Beveiligingsbeheerder). U kunt meer lezen over de functies en hun functionaliteit in [rol beheerdersmachtigingen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Zie voor hulp bij het bepalen van welke rollen u wilt uw beheerders toewijst aan [minste bevoorrechte rollen door taak](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure-resourcerollen** – deze rollen zijn gekoppeld aan een Azure-resource, resourcegroep, abonnement of beheergroep. PIM biedt just-in-time-toegang tot zowel ingebouwde rollen, zoals eigenaar, beheerder van gebruikerstoegang en Inzender, evenals [aangepaste rollen](../../role-based-access-control/custom-roles.md). Zie voor meer informatie over Azure-resourcerollen [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md).
 
@@ -294,7 +294,7 @@ Nu dat u hebt vastgesteld dat de testgebruikers, gebruikt u deze stap PIM config
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>PIM voor Azure AD-rollen configureren
 
-1. [Configureer de instellingen van Azure AD directory-rol](pim-how-to-change-default-settings.md) op basis van wat u van plan.
+1. [Configureer de instellingen van de rol van Azure AD](pim-how-to-change-default-settings.md) op basis van wat u van plan.
 
 1. Navigeer naar **Azure AD-rollen**, klikt u op **rollen**, en selecteer vervolgens de rol die u zojuist hebt geconfigureerd.
 

@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762922"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621265"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-In Azure Search, een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, of **Standard**, waarbij **Standard** is beschikbaar in verschillende configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
+In Azure Search, een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, **Standard**, of **met geoptimaliseerde opslag**.  **Standard** en **met geoptimaliseerde opslag** zijn beschikbaar in verschillende configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar een van de hogere betaalde lagen voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken.
+
+> [!NOTE]
+> De Servicelagen met geoptimaliseerde opslag zijn momenteel beschikbaar als preview op kortingsprijzen voor testen en experimenteren met het doel van het verzamelen van feedback. Laatste prijzen worden later aangekondigd wanneer deze lagen algemeen beschikbaar zijn. We raden u aan die deze lagen gebruiken voor productie-Apps.
 
 Lagen weerspiegelen de eigenschappen van de hardware die als host fungeert voor de service (in plaats functies) en door elkaar worden onderscheiden:
 
@@ -42,11 +45,16 @@ De volgende tabel bevat de beschikbare categorieën. Andere bronnen van laaggege
 |-----|-------------|
 |Gratis | Gedeeld met andere abonnees. Niet-schaalbare, beperkt tot 3 indexen en 50 MB opslag. |
 |Basic | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
-|Standard 1 (S1) | Van S1 op van toegewezen machines met meer capaciteit voor de opslag en verwerking op ieder niveau. Partitiegrootte is 25 GB per partitie (maximaal 300 GB aan documenten per service) voor S1. |
-|Standard 2 (S2) | Lijkt naar S1 uitvoert, maar met 100 GB/partities (max 1,2 TB documenten per service) |
-|Standard 3 (S3) | 200 GB per partitie (max 2,4 TB documenten per service). |
+|Standard 1 (S1) | Van S1 op van toegewezen machines met meer capaciteit voor de opslag en verwerking op ieder niveau. Partitiegrootte is 25 GB per partitie (maximaal 300 GB per service) voor S1. |
+|Standard 2 (S2) | Lijkt naar S1 uitvoert, maar met 100 GB/partities (max 1,2 TB per service) |
+|Standard 3 (S3) | 200 GB per partitie (max 2,4 TB per service) |
 |Standard 3 met hoge dichtheid (S3-HD) | High-densitysampling is een *hostmodus* voor S3. De onderliggende hardware is geoptimaliseerd voor een groot aantal kleinere indexen, bedoeld voor scenario's voor multitenancy. S3 HD heeft de dezelfde per eenheid kosten in rekening gebracht zoals S3, maar de hardware is geoptimaliseerd voor het snel bestanden lezen op een groot aantal kleinere indexen.|
+|1 (L1) met geoptimaliseerde opslag | 1 TB per partitie (maximaal 12 TB per service) |
+|2 (L2) met geoptimaliseerde opslag | 2 TB per partitie (maximaal 24 TB per service) |
 
+> [!NOTE] 
+> De lagen met geoptimaliseerde opslag bieden grotere opslagcapaciteit tegen een lagere prijs per TB dan de standaard-laag.  Primaire afweging is hogere latentie van query, die u voor uw specifieke toepassingsvereisten controleren moet.  Zie voor meer informatie over Prestatieoverwegingen van deze laag [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Werking van facturering
 
@@ -56,7 +64,7 @@ Er zijn drie manieren u kosten maken in Azure Search in Azure Search en zijn er 
 
 Voor de service zelf, de minimale kosten is de eerste zoekeenheid (1 replica x 1 partitie) en deze hoeveelheid constant gedurende de levensduur van de service is omdat de service kan niet worden uitgevoerd op iets minder dan deze configuratie. 
 
-In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis, basis en S1 (S2 en S3 worden niet weergegeven). Als u een eenvoudige service of een standaard service hebt gemaakt, uw maandelijkse kosten kan worden gebruikt voor het gemiddelde van de waarde die wordt weergegeven voor *prijs 1* en *prijs 2* respectievelijk. Kosten per eenheid terecht voor elke laag omdat de rekenkundige power- en opslagcapaciteit op elke opeenvolgende lagen valt.
+In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis, basis en S1 (S2, S3, L1 en L2 worden niet weergegeven). Als u hebt gemaakt een **Basic**, **Standard**, of **met geoptimaliseerde opslag** -service, uw maandelijkse kosten zou de waarde die wordt weergegeven voor de gemiddelde *prijs-1*en *prijs 2* respectievelijk. Kosten per eenheid terecht voor elke laag omdat de rekenkundige power- en opslagcapaciteit op elke opeenvolgende laag valt.
 
 ![Per eenheid prijzen](./media/search-sku-tier/per-unit-pricing.png "Per eenheid prijzen")
 
@@ -117,7 +125,7 @@ In Azure Search capaciteit is gestructureerd als *replica's* en *partities*.
 + Partities indexen opslaan en doorzoekbare gegevens automatisch splitsen: twee partities uw index in de helft, drie partities splitsen in derde, enzovoort. Wat betreft de capaciteit, *partitie grootte* is van de primaire functie van de onderscheidende voor lagen.
 
 > [!NOTE]
-> Alle **Standard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het veranderen van de balans. **Basic** biedt u drie replica's voor hoge beschikbaarheid, maar slechts één partitie heeft. **Gratis** lagen bieden geen toegewezen resources: computing resources worden gedeeld door meerdere abonnees.
+> Alle **Standard** en **met geoptimaliseerde opslag** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het veranderen van de balans. **Basic** biedt u drie replica's voor hoge beschikbaarheid, maar slechts één partitie heeft. **Gratis** lagen bieden geen toegewezen resources: computing resources worden gedeeld door meerdere abonnees.
 
 ### <a name="more-about-service-limits"></a>Meer informatie over Servicelimieten
 
@@ -125,7 +133,7 @@ Hostresources, zoals indexen en indexeerfuncties-Services. Elke laag legt [Servi
 
 ## <a name="consumption-patterns"></a>Gebruikspatronen voor databasebronnen
 
-De meeste klanten beginnen met de **gratis** service, die ze voor onbepaalde tijd houden, en kies vervolgens een van de **Standard** lagen voor ernstige ontwikkeling of productie workloads. 
+De meeste klanten beginnen met de **gratis** service, die ze voor onbepaalde tijd houden, en kies vervolgens een van de **Standard** of **met geoptimaliseerde opslag** lagen voor het ontwikkelen van ernstige of werkbelastingen voor productie. 
 
 ![Azure search-lagen](./media/search-sku-tier/tiers.png "Azure search Prijscategorieën")
 
@@ -147,6 +155,15 @@ Portal- en prijsmodel pagina's plaatsen de focus op de grootte van partitie en o
 > [!NOTE]
 > Voorheen, document limieten overweging zijn, maar zijn niet langer van toepassing op nieuwe services. Zie voor meer informatie over de voorwaarden waaronder document limieten nog steeds van toepassing, [Servicelimieten: document limieten](search-limits-quotas-capacity.md#document-limits).
 >
+
+Opslaglagen geoptimaliseerd, **L1 L2**, zijn ideaal voor toepassingen met vereisten voor grote hoeveelheden gegevens, maar een relatief klein aantal eindgebruikers waar Minimalisatie van het aantal Querylatentie niet de hoogste prioriteit is.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| Partitiegrootte|  1 TB | 2 TB |  |  |  |  |  |
+| limieten voor index en indexeerfunctie| 10 | 10 |  |  |  |  |  |
+
+*L2* biedt tweemaal de totale opslagcapaciteit aan een *L1*.  De laag op basis van de maximale hoeveelheid gegevens die u vindt dat de index moet kiezen.  De *L1* laag schaal van partities in stappen van 1 TB tot een maximum van 12 TB, terwijl de *L2* verhogen door 2 TB per partitie tot een maximum van 24 TB.
 
 ## <a name="evaluate-capacity"></a>Capaciteit evalueren
 
@@ -174,16 +191,17 @@ Ervan uitgaande dat het voorbeeld is zowel vertegenwoordiger en tien procent van
 
 Sommige klanten de voorkeur geeft aan om te beginnen met toegewezen resources die kunnen grotere steekproeven en verwerkingstijden en realistische maakt een schatting van de index aantal, de grootte en de query volumes tijdens het ontwikkelen van ontwikkelen. In eerste instantie een service is ingericht op basis van een schatting inschatting en vervolgens als het project voor de ontwikkeling zich verder ontwikkelt, teams meestal weten of de bestaande service boven of onder de capaciteit voor geplande productieworkloads. 
 
-1. [Bekijk Servicelimieten op elke laag](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) om te bepalen of het aantal indexen, u moet kunnen ondersteuning voor lagere niveaus. In de **Basic**-**S1**- **S2** index limieten voor de lagen zijn 15-50-200, respectievelijk.
+1. [Bekijk Servicelimieten op elke laag](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) om te bepalen of het aantal indexen, u moet kunnen ondersteuning voor lagere niveaus. In de **Basic**-**S1**-**S2** index limieten voor de lagen zijn 15-50-200, respectievelijk.  De **met geoptimaliseerde opslag** laag geldt een limiet van 10 indexen omdat het designer voor de ondersteuning van een klein aantal grote indexen.
 
 1. [Een service maken op een factureerbare laag](search-create-service-portal.md):
 
     + Start op laag **Basic** of **S1** als u aan het begin van de leercurve.
     + Start op hoog **S2** of zelfs **S3**, als voor de hand liggende grootschalige indexeren en query-belastingen.
+    + Opslag geoptimaliseerd, op **L1** of **L2**, als u een grote hoeveelheid gegevens indexeert en querybelasting relatief klein, zoals een interne bedrijfstoepassing is.
 
 1. [Bouw een eerste index](search-create-index-portal.md) om te bepalen hoe gegevens worden omgezet naar een index. Dit is de enige manier om te schatten van de indexgrootte van de.
 
-1. [Opslag, Servicelimieten, queryvolume en latentie controleren](search-monitor-usage.md) in de portal. In de portal ziet u query's per seconde, beperkte query's en zoeklatentie; die allemaal kunt u bepalen of u op de juiste laag zijn. Afgezien van portal metrische gegevens, kunt u configureren diepe bewaking, zoals clickthrough-analyses door in te schakelen [zoekverkeer](search-traffic-analytics.md). 
+1. [Opslag, Servicelimieten, queryvolume en latentie controleren](search-monitor-usage.md) in de portal. In de portal ziet u query's per seconde, beperkte query's en zoeklatentie; die allemaal kunt u bepalen als u de juiste laag hebt geselecteerd. Afgezien van portal metrische gegevens, kunt u configureren diepe bewaking, zoals clickthrough-analyses door in te schakelen [zoekverkeer](search-traffic-analytics.md). 
 
 Index aantal en de grootte zijn net zo relevant voor uw analyse, omdat de maximale limieten zijn bereikt via volledig benut opslag (partities) of door de maximale limieten voor resources (indexen, indexeerfuncties, enzovoort), afhankelijk van wat het eerste komt. De portal kunt u bijhouden van beide, van huidige gebruiks- en maximumlimieten naast elkaar op de pagina overzicht.
 
@@ -197,8 +215,9 @@ Query's-per-seconde (QPS) is een meetwaarde die verf laat komen krijgt bij het a
 
 De standaard-laag kunnen u een balans tussen de replica's leveren naar partities, sneller query kunt worden geholpen door extra replica's ondersteunen voor het laden van netwerktaakverdeling en extra partities voor parallelle verwerking. U kunt afstemmen van prestaties nadat de service is ingericht.
 
-Klanten die verwachten dat strong aanhoudend query volumes vanaf het begin moeten rekening houden met hogere lagen, ondersteund door krachtigere hardware. U kunt vervolgens partities en replica's offline te halen, of zelfs overschakelen naar een lagere laag-service als de query-volumes niet om te realiseren. Zie voor meer informatie over het berekenen van de query-doorvoer [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+Klanten die verwachten sterke langdurige query volumes vanaf het begin dat moeten rekening houden met hogere **Standard** lagen, ondersteund door krachtigere hardware. U kunt vervolgens partities en replica's offline te halen, of zelfs overschakelen naar een lagere laag-service als de query-volumes niet om te realiseren. Zie voor meer informatie over het berekenen van de query-doorvoer [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
 
+De opslag geoptimaliseerd voor workloads met veel gegevens, ondersteuning van meer algemene index opslagruimte beschikbaar is, waar query latentievereisten enigszins soepele zijn lean lagen.  Extra replica's moeten nog steeds worden gebruikt voor het laden van netwerktaakverdeling en extra partities voor parallelle verwerking. U kunt afstemmen van prestaties nadat de service is ingericht.
 
 **Serviceovereenkomsten**
 
@@ -216,7 +235,7 @@ De **gratis** laag en preview-functies worden niet geleverd met [service level a
 
 Beginnen met een **gratis** -laag en het bouwen van een eerste index met behulp van een subset van uw gegevens om te begrijpen van de kenmerken ervan. De gegevensstructuur in Azure Search is een omgekeerde index, waarbij de grootte en complexiteit van een omgekeerde index wordt bepaald door de inhoud. Houd er rekening mee dat maximaal redundante inhoud leidt doorgaans tot een kleinere-index dan maximaal onregelmatige inhoud. Het is daarom inhoud kenmerken in plaats van de grootte van de gegevensset waarmee wordt bepaald index opslagvereisten.
 
-Zodra u een eerste idee van de indexgrootte hebt, [een factureerbare service inrichten](search-create-service-portal.md) op een van de lagen die in dit artikel worden besproken, ofwel **Basic** of een **Standard** laag. Versoepelen kunstmatig opgelegde beperkingen op gegevenssubsets en [opnieuw opbouwen van uw index](search-howto-reindex.md) om op te nemen alle gegevens die u daadwerkelijk wilt worden doorzocht.
+Zodra u een eerste idee van de indexgrootte hebt, [een factureerbare service inrichten](search-create-service-portal.md) op een van de lagen die in dit artikel worden besproken, ofwel **Basic**, **Standard**, of **Met geoptimaliseerde opslag** laag. Een kunstmatig opgelegde beperkingen gelden voor het formaat van de gegevens te versoepelen en [opnieuw opbouwen van uw index](search-howto-reindex.md) om op te nemen alle gegevens die u daadwerkelijk wilt worden doorzocht.
 
 [Partities en replica's toewijzen](search-capacity-planning.md) indien nodig om op te halen van de prestaties en schaal die u nodig hebt.
 

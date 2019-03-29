@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621402"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
@@ -1809,7 +1809,7 @@ Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basi
     ...
 ```
 
-Als u wilt maken van een nieuwe unieke naam telkens wanneer u een sjabloon implementeren, en niet kunt u lezen wat de resource wilt bijwerken, kunt u de [utcNow](#utcnow) functie met uniqueString. U kunt deze aanpak gebruiken in een testomgeving. Zie voor een voorbeeld [utcNow](#utcNow).
+Als u wilt maken van een nieuwe unieke naam telkens wanneer u een sjabloon implementeren, en niet kunt u lezen wat de resource wilt bijwerken, kunt u de [utcNow](#utcnow) functie met uniqueString. U kunt deze aanpak gebruiken in een testomgeving. Zie voor een voorbeeld [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Retourwaarde
 

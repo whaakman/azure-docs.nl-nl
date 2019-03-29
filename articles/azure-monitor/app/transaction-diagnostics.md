@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903620"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619829"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostische gegevens voor geïntegreerde tussen onderdelen transacties
 
@@ -32,7 +32,7 @@ Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedi
 * Onderdelen kunnen worden afzonderlijke Application Insights-instrumentatiesleutels (zelfs als abonnementen verschillen) of verschillende rollen die rapporteren aan een enkele Application Insights-instrumentatiesleutel. De nieuwe ervaring worden details weergegeven voor alle onderdelen, ongeacht hoe ze zijn ingesteld.
 
 > [!NOTE]
-> * **Ontbreekt de bijbehorende koppelingen?** Alle van de gerelateerde telemetrie zijn in de [boven](#cross-component-transaction-chart) en [onder](#all-telemetry-with-this-Operation-Id) secties van aan de linkerkant. 
+> * **Ontbreekt de bijbehorende koppelingen?** Alle van de gerelateerde telemetrie zijn in de [boven](#cross-component-transaction-chart) en [onder](#all-telemetry-with-this-operation-id) secties van aan de linkerkant. 
 
 ## <a name="transaction-diagnostics-experience"></a>Ervaring van diagnostische gegevens voor transacties
 In deze weergave heeft vier belangrijke onderdelen: resultaten van de lijst, een grafiek transacties tussen onderdelen, een tijdreeks lijst met alle telemetrie met betrekking tot deze bewerking en het deelvenster met details voor elk geselecteerde telemetrie-item aan de linkerkant.

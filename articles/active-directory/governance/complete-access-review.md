@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole van groepen of toepassingen in Azure AD-Toegangsbeoordelingen voltooien | Microsoft Docs
-description: Leer hoe u een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure AD-Toegangsbeoordelingen voltooien.
+title: Een toegangscontrole van groepen of toepassingen - Azure Active Directory voltooien | Microsoft Docs
+description: Leer hoe u een toegangscontrole van leden van beveiligingsgroep of toegang tot toepassingen in Azure Active Directory-toegangsbeoordelingen voltooien.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729607"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579594"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Een toegangscontrole van groepen of toepassingen in Azure AD-Toegangsbeoordelingen voltooien
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Voltooien van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
 Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing. Azure AD stuurt revisoren automatisch een e-mailbericht waarin wordt gevraagd om ze toegang beoordelen. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [toegang met groepen of toepassingen beoordelen](perform-access-review.md). (Houd er rekening mee dat gasten die zijn toegewezen als beoordelaar, maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht wordt ontvangen van toegangsbeoordelingen, als ze moeten eerst akkoord gaan met een uitnodiging voordat bekijken.) Nadat de periode van de toegangsbeoordeling voltooid is, of als een beheerder de toegangsbeoordeling stopt, volg de stappen in dit artikel om te zien en de resultaten van toepassing.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433107"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578625"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -32,7 +32,11 @@ De onderstaande tabel bevat een overzicht van de typen inhoud en bestandsindelin
 
 ## <a name="data-source-locations"></a>Gegevensbronnen
 
-Alleen openbare URL's zijn geldig voor alle gegevensbronnen. Niet inzendt gegevensbronnen waarvoor verificatie vereist is. U kunt het bestand downloaden van de geverifieerde site en vervolgens de bestand-upload-optie gebruiken om te vragen en antwoorden extraheren.
+De meeste gegevensbronlocaties moeten opgeven openbare URL's of bestanden waarvoor geen verificatie vereist is. 
+
+[SharePoint-gegevensbron locaties](../How-to/add-sharepoint-datasources.md) voor geverifieerde bestanden zijn toegestaan. SharePoint-resources moeten bestanden, niet webpagina's. 
+
+Hebt u een geverifieerde bestand of de URL, een alternatief is het downloaden van het bestand van de geverifieerde site naar de lokale computer, klikt u vervolgens het bestand toevoegen vanaf uw lokale computer naar de knowledge base. 
 
 ## <a name="faq-urls"></a>Veelgestelde vragen over URL 's
 

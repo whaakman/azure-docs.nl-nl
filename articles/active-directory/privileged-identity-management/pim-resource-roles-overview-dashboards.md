@@ -1,5 +1,5 @@
 ---
-title: Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM - Azure | Microsoft Docs
+title: Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM - Azure Active Directory | Microsoft Docs
 description: Hierin wordt beschreven hoe u een resource-dashboard met een toegangscontrole uitvoeren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012667"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574957"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM
 
-Een resource-dashboard kunt u een toegangscontrole uitvoeren in Privileged Identity Management (PIM) voor Azure-resources. Het dashboard Beheerdersweergave heeft drie primaire onderdelen:
+Een resource-dashboard kunt u een toegangscontrole uitvoeren in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Het dashboard Beheerdersweergave heeft drie primaire onderdelen:
 
 - Een grafische weergave van rolactiveringen resource.
 - Twee grafieken die de distributie van roltoewijzingen door toewijzingstype weergeven.
@@ -43,4 +43,4 @@ Onder de grafieken ziet u het aantal gebruikers en groepen met nieuwe roltoewijz
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangscontrole voor Azure resource-rollen in PIM starten](pim-resource-roles-start-access-review.md) 
+- [Een toegangsbeoordeling starten voor mijn Azure AD-resourcerollen in PIM](pim-resource-roles-start-access-review.md) 

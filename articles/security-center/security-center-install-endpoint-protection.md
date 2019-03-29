@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099794"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579322"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Problemen met endpoint protection met Azure Security Center beheren
 Azure Security Center bewaakt de status van bescherming tegen malware en rapporteert deze op de blade problemen van Endpoint protection. Security Center worden de kwesties, zoals de gedetecteerde bedreigingen en onvoldoende beveiliging, waardoor uw virtuele machines (VM's) en de computers kwetsbaar voor antimalwarebedreigingen gemarkeerd. Met behulp van de gegevens in onder **problemen met Endpoint protection**, kunt u een plan om alle vastgestelde problemen identificeren.
@@ -31,12 +31,12 @@ Security Center de volgende problemen met endpoint protection-rapporten:
 - Endpoint protection-status:
 
   - De handtekening is verouderd: een antimalwareoplossing op deze virtuele machines en computers is geïnstalleerd, maar de oplossing beschikt niet over de nieuwste definitiebestanden voor antimalware.
-  - Er is geen realtime-beveiliging: een antimalwareoplossing op deze virtuele machines en computers is geïnstalleerd, maar deze is niet geconfigureerd voor realtime-beveiliging.   De service kan worden uitgeschakeld of het is mogelijk dat Security Center kan niet de status ophalen omdat de oplossing wordt niet ondersteund. Zie [partnerintegratie](security-center-partner-integration.md) voor een lijst van ondersteunde oplossingen.
+  - Er is geen realtime-beveiliging: een antimalwareoplossing op deze virtuele machines en computers is geïnstalleerd, maar deze is niet geconfigureerd voor realtime-beveiliging.   De service kan worden uitgeschakeld of het is mogelijk dat Security Center kan niet de status ophalen omdat de oplossing wordt niet ondersteund. Zie [partnerintegratie](security-center-os-coverage.md#supported-endpoint-protection-solutions) voor een lijst van ondersteunde oplossingen.
   - Niet rapporteren: een malwareoplossing voor anti-is geïnstalleerd maar niet de rapportagegegevens.
   - Onbekend: een malwareoplossing voor anti-is geïnstalleerd, maar de status is onbekend of het melden van een onbekende fout.
 
     > [!NOTE]
-    > Zie [beveiligingsoplossingen integreren](security-center-partner-integration.md#integrated-azure-security-solutions) voor een lijst met endpoint protection-beveiligingsoplossingen is geïntegreerd met Security Center.
+    > Zie [beveiligingsoplossingen integreren](security-center-os-coverage.md#supported-endpoint-protection-solutions) voor een lijst met endpoint protection-beveiligingsoplossingen is geïntegreerd met Security Center.
     >
     >
 

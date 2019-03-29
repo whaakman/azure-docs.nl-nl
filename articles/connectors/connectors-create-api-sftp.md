@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910281"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578370"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
 
@@ -27,10 +27,18 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 * Inhoud van bestanden en metagegevens ophalen.
 * Pak archieven voor mappen.
 
-In vergelijking met de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md), de SFTP-connector kan lezen of schrijven maximaal 50 MB in grootte van bestanden, tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md). U niet op dit moment gebruiken logische groepen te verdelen voor triggers. Voor bestanden van maximaal 1 GB in grootte, gebruik de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md). Voor bestanden die groter zijn dan 1 GB, kunt u de SFTP-SSH connector plus [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). 
-
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Limieten
+
+* SFTP-acties kunnen lezen of schrijven van bestanden die zijn *50 MB of kleiner* , tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md), die kunt u deze limiet overschrijdt. Op dit moment ondersteunen SFTP triggers geen logische groepen te verdelen.
+
+* Voor bestanden *maximaal 1 GB*, gebruikt u de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md).
+
+* Voor bestanden *groter is dan 1 GB*, gebruik de SFTP-SSH-connector plus [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
+
+Raadpleeg voor andere verschillen tussen de SFTP-connector en de SFTP-SSH-connector, [vergelijken SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in de SFTP-SSH-artikel.
 
 ## <a name="prerequisites"></a>Vereisten
 

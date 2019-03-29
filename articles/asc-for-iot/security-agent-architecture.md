@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541870"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578455"
 ---
 # <a name="security-agent-reference-architecture"></a>Security agent-referentiearchitectuur
 
@@ -32,15 +32,15 @@ ASC voor IoT biedt referentiearchitectuur voor beveiliging-agents die zich, verw
 
 Beveiligingsagenten zijn ontworpen voor gebruik in een omgeving met beperkte IoT en hoge mate aanpasbaar in termen van waarden die ze bieden in vergelijking tot de bronnen die waarvan ze gebruikmaken.
 
-Beveiligingsagenten ondersteunen de volgende functies van de IoT-oplossing:
+Beveiligingsagenten ondersteunen de volgende functies:
 
-- Onbewerkte beveiligingsgebeurtenissen verzamelen van het onderliggende besturingssysteem (Linux, Windows). Zie voor meer informatie over beschikbare beveiligingsupdates gegevens collectors, [ASC voor de configuratie van de agent IoT](concept-agent-configuration.md).
+- Onbewerkte beveiligingsgebeurtenissen verzamelen van het onderliggende besturingssysteem (Linux, Windows). Zie voor meer informatie over beschikbare beveiligingsupdates gegevens collectors, [ASC voor de configuratie van de agent IoT](how-to-agent-configuration.md).
 
 - Cumulatieve onbewerkte beveiligingsgebeurtenissen in berichten die worden verzonden via IoT hub.
 
 - Verifiëren met het bestaande apparaat-id of een specifieke module-identiteit. Zie [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md) voor meer informatie.
 
-- Op afstand configureren door het gebruik van de **ascforiot** moduledubbel. Zie voor meer informatie, [een ASC voor IoT-agent configureren](concept-agent-configuration.md).
+- Op afstand configureren door het gebruik van de **azureiotsecurity** moduledubbel. Zie voor meer informatie, [een ASC voor IoT-agent configureren](how-to-agent-configuration.md).
 
 ASC voor IoT-beveiliging agents als open-source-projecten zijn ontwikkeld en zijn beschikbaar via GitHub: 
 
@@ -62,10 +62,8 @@ In dit artikel hebt u geleerd over ASC voor IoT-beveiligingsarchitectuur agent e
 
 Gebruik de volgende artikelen om door te gaan aan de slag met ASC voor IoT-implementatie:
 
-
+- Inzicht in [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)
+- Selecteer en implementeer een [security-agent](how-to-deploy-agent.md)
 - Bekijk de ASC voor IoT [vereisten-Service](service-prerequisites.md)
 - Meer informatie over het [ASC inschakelen voor IoT-service in uw IoT-Hub](quickstart-onboard-iot-hub.md)
-- De Snelstartgids om te gebruiken voor [uw oplossing configureren](quickstart-configure-your-solution.md)
-- Inzicht in [Security agent verificatiemethoden](concept-security-agent-authentication-methods.md)
-- Selecteer en implementeer een [security-agent](select-deploy-agent.md)
 - Meer informatie over de service van de [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)

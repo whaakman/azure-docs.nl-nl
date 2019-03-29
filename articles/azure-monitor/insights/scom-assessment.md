@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621767"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -297,7 +297,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
 
 *Waarom worden alleen de top 10 aanbevelingen weergegeven?* In plaats van geeft u een uitgebreide en overweldigend lijst van taken, is het raadzaam dat u zich richten op de aanbevelingen met prioriteit eerst adressering. Nadat u deze kunt oplossen, worden extra aanbevelingen beschikbaar. Als u liever de gedetailleerde lijst, kunt u alle aanbevelingen met behulp van zoeken in Logboeken kunt weergeven.
 
-*Is er een manier om een aanbeveling negeren?* Ja, Zie de [aanbevelingen negeren](#Ignore-recommendations).
+*Is er een manier om een aanbeveling negeren?* Ja, Zie de [aanbevelingen negeren](#ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Volgende stappen

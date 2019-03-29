@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren | Microsoft Docs
-description: Leer hoe u een toegangscontrole van uw Azure AD-maprollen uitvoeren in Azure AD Privileged Identity Management (PIM).
+title: Een toegangscontrole van mijn Azure AD-rollen in PIM - Azure Active Directory uitvoeren | Microsoft Docs
+description: Leer hoe u een toegangscontrole van uw Azure AD-rollen uitvoeren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b3905d05e62bd3f11ef4de7f966e6bf9340f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178903"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578307"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren
-Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
+# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Een toegangscontrole van mijn Azure AD-rollen in PIM uitvoeren
+Azure Active Directory (AD) Privileged Identity Management (PIM) vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
 
 Als u aan een beheerdersrol toegewezen bent, kan beheerder met bevoorrechte rol van uw organisatie vragen u om regelmatig te bevestigen dat u die rol nog voor de taak moet. U kunt een e-mailbericht een koppeling bevat krijgen of gaat u rechtstreeks naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf bekijken van de toegewezen rollen.
 

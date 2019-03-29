@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444530"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578915"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
@@ -21,7 +21,7 @@ Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfun
 Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen gebruik v1- of Blob storage-accounts is eenvoudig. U kunt upgraden met behulp van de Azure portal, PowerShell of Azure CLI.
 
 > [!IMPORTANT]
-> Upgraden van een voor algemeen gebruik v1- of Blob storage-opslagaccount voor algemeen gebruik v2 is permanent en kan niet ongedaan worden gemaakt.
+> Upgraden van een voor algemeen gebruik v1- of Blob storage-account voor algemeen gebruik v2 is permanent en kan niet ongedaan worden gemaakt.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Upgraden met Azure portal
 

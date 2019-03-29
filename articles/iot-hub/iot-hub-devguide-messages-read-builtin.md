@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538558"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579407"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt
 
@@ -24,7 +24,7 @@ Standaard berichten worden doorgestuurd naar het eindpunt van de ingebouwde serv
 | **Aantal partities** | Deze eigenschap instellen tijdens het maken van voor het definiëren van het aantal [partities](../event-hubs/event-hubs-features.md#partitions) voor gebeurtenisopname van apparaat-naar-cloud. |
 | **Bewaartijd**  | Deze eigenschap geeft aan hoe lang in dagen berichten door de IoT Hub worden bewaard. De standaardwaarde is één dag, maar deze kan worden verhoogd tot zeven dagen. |
 
-IoT Hub kunt het bewaren van gegevens in de ingebouwde Event Hubs maximaal 7 dagen. U kunt de bewaartijd tijdens het maken van uw IoT-Hub kunt instellen. Grootte van de gegevens bewaren in IoT Hub, is afhankelijk van uw IoT hub tier en eenheidstype. Wat betreft grootte, kan de ingebouwde Event Hubs-berichten van de maximale berichtgrootte tot ten minste 24 uur van quota bewaren. Bijvoorbeeld: voor IoT Hub voldoende opslagruimte biedt voor het behouden van ten minste 1 S1-eenheid 400K berichten van 4k het formaat van elk. Als uw apparaten kleiner berichten verzendt zijn, kunnen ze worden bewaard voor langer (tot 7 dagen), afhankelijk van hoeveel opslag wordt gebruikt. We garanderen dat die de gegevens bewaren gedurende het opgegeven bewaartijd als een minimum.
+IoT Hub kunt het bewaren van gegevens in de ingebouwde Event Hubs maximaal 7 dagen. U kunt de bewaartijd tijdens het maken van uw IoT-Hub kunt instellen. Bewaartijd van gegevens van IoT-Hub, is afhankelijk van uw IoT hub tier en eenheidstype. Wat betreft grootte, kan de ingebouwde Event Hubs-berichten van de maximale berichtgrootte tot ten minste 24 uur van quota bewaren. Bijvoorbeeld: voor IoT Hub voldoende opslagruimte biedt voor het behouden van ten minste 1 S1-eenheid 400K berichten van 4k het formaat van elk. Als uw apparaten kleiner berichten verzendt zijn, kunnen ze worden bewaard voor langer (tot 7 dagen), afhankelijk van hoeveel opslag wordt gebruikt. We garanderen dat die de gegevens bewaren gedurende het opgegeven bewaartijd als een minimum.
 
 IoT Hub ook kunt u voor het beheren van consumentengroepen van de ingebouwde apparaat-naar-cloud eindpunt ontvangen.
 

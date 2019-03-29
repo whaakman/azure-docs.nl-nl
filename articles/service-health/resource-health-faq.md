@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884534"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579560"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health Veelgestelde vragen
 Meer informatie over de antwoorden op veelgestelde vragen over Azure Resource Health.
@@ -50,7 +50,7 @@ Ja, wanneer een resource niet beschikbaar is, identificeert Resource Health de h
 De gebruiker geïnitieerde acties worden weergegeven met een blauw pictogram tijdens geplande en ongeplande gebeurtenissen worden weergegeven met een rood waarschuwingspictogram weergegeven in de portal. Meer informatie vindt u in de [Resource Health overzicht](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Integreer ik Resource Health met mijn controleprogramma's?
-Resource health is een service waarmee u kunt vaststellen en oplossen van problemen met Azure-service die van invloed zijn op uw resources. Hoewel de Resource Health API kunt u de integriteitsstatus van via een programma te verkrijgen, adviseren we dat u metrische gegevens gebruiken voor het bewaken van uw resources. Zodra er een probleem wordt gedetecteerd, worden de Resource Health helpt u bij het bepalen van de hoofdoorzaak en leidt u door acties voor deze. Ga naar [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) voor meer informatie over hoe u metrische gegevens gebruiken kunt om te controleren of uw resources.
+Resourcestatus heeft [ondersteuning preview](resource-health-alert-arm-template-guide.md) voor activiteitenlogboek op basis van waarschuwingen. Activiteitenlogboek waarschuwingen gebruik [actiegroepen](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) gebruikers melden dat een waarschuwing is geactiveerd. Actiegroepen ondersteuning voor diverse meldingskanalen, zoals e-mail, SMS, webhook en ITSM-acties.
 
 ## <a name="where-do-i-find-resource-health"></a>Waar vind ik Resource Health?
 Nadat u zich hebt aangemeld bij Azure portal, zijn er meerdere manieren waarop u hebt toegang tot Resource Health:
@@ -67,13 +67,7 @@ De lijst met statuscontroles en resourcetypen ondersteund via Resource Health vi
 Tijdens het controleren van de status van een resource, direct onder de status, kunt u **rapporteren onjuiste integriteitsstatus**. Voordat u het rapport verzendt, hebt u de mogelijkheid van het leveren van aanvullende informatie op waarom u denkt dat ze dat de huidige status is onjuist.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Resource Health beschikbaar is voor alle Azure-regio's? 
-Resource health is beschikbaar in voor alle geografische gebieden voor Azure, met uitzondering van de volgende regio's:
-- VS (overheid) - Virginia
-- US Gov - Iowa
-- US DoD - oost
-- US DoD - centraal
-- Duitsland - centraal
-- Duitsland - noordoost
+Resource health is beschikbaar in alle geografische gebieden voor Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Wat is Resource Health verschil met Azure-status of de Service Health-dashboard?
 De informatie die door Resource Health is ook specifieker dan wat wordt verstrekt door Azure status of de Service Health-dashboard.

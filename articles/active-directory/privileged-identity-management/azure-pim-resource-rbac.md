@@ -1,5 +1,5 @@
 ---
-title: De activiteit en audit geschiedenis weergeven voor Azure-resource-rollen in PIM | Microsoft Docs
+title: De activiteit en audit geschiedenis weergeven voor Azure-resource-rollen in PIM - Azure Active Directory | Microsoft Docs
 description: Activiteiten bekijken en controlegeschiedenis voor Azure-resource-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afbbad9b956d41252ff9121c99a91669c71aaab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6fb97c416d0e34635b8aa4c19fc6b94889f566c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211730"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578132"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Activiteiten bekijken en controlegeschiedenis voor Azure-resource-rollen in PIM
 
@@ -113,4 +113,4 @@ Mijn controle kunt u om uw persoonlijke rol activiteit weer te geven.
 
 - [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)
 - [Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM](pim-resource-roles-approval-workflow.md)
-- [Controlegeschiedenis voor Azure AD directory-rollen in PIM weergeven](pim-how-to-use-audit-log.md)
+- [Controlegeschiedenis voor Azure AD-rollen in PIM weergeven](pim-how-to-use-audit-log.md)

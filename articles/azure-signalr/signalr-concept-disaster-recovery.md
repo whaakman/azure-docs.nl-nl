@@ -6,17 +6,17 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 69a2d9e7858c0f152056e821c19caa9852b420d5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555021"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620273"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Tolerantie en herstel na noodgevallen
 
 Tolerantie en herstel na noodgevallen is een algemene behoefte voor online systemen. Azure SignalR-Service garandeert al een beschikbaarheid van 99,9%, maar het is nog steeds een regionale service.
-Uw service-exemplaar wordt altijd uitgevoerd in één regio en er is geen failover naar een andere regio wanneer er een storing in de gehele regio is.
+Uw service-exemplaar wordt altijd uitgevoerd in één regio en wordt niet failover naar een andere regio wanneer er een storing in de gehele regio.
 
 In plaats daarvan biedt onze service-SDK een functionaliteit voor het ondersteunen van meerdere exemplaren van SignalR-service en automatisch overschakelen naar de andere exemplaren wanneer sommige hiervan niet beschikbaar zijn.
 Met deze functie kunt u zelf herstellen als er een noodgeval plaatsvindt, maar u moet zelf de topologie van het systeem instellen. U leert in dit document hoe dit moet.
@@ -28,8 +28,8 @@ Wanneer meerdere service-exemplaren verbinding maken met de appserver, zijn er t
 De primaire is een exemplaar dat online verkeer gebruikt en de secundaire is een volledig functioneel back-upexemplaar voor de primaire.
 In de SDK-implementatie worden alleen primaire eindpunten geretourneerd, zodat in normale gevallen clients alleen verbinding maken met primaire eindpunten.
 Maar als het primaire exemplaar niet actief is, worden secundaire eindpunten geretourneerd, zodat de client nog steeds verbinding kan maken.
-Het primaire exemplaar en de app-server zijn verbonden via normale serververbindingen, maar het secundaire exemplaar en de en app-server zijn verbonden via een speciaal soort verbindingen met de naam zwakke verbindingen.
-De belangrijkste eigenschap van een zwakke verbinding is dat deze geen clientverbindingsroutering accepteert, want het secundaire-exemplaar bevindt zich meestal in een andere regio. Routering van een client naar een andere regio is doorgaans niet de optimale keuze (verhoogt latentie).
+Primaire instantie als app-server zijn verbonden via normale serververbindingen maar secundaire exemplaar en app-server zijn verbonden via een speciaal type verbinding zwakke-verbinding genoemd.
+Het belangrijkste verschil van een zwakke verbinding is dat deze niet akkoord met client verbindingsroutering, gaat omdat de secundaire-exemplaar bevindt zich in een andere regio. Routering van een client naar een andere regio is niet een optimale keuze (neemt de latentie).
 
 Een service-exemplaar kan verschillende rollen hebben bij het verbinden met meerdere app-servers.
 Een typische installatie voor een scenario met meerdere regio’s is dat u twee (of meer) paren van SignalR service-exemplaren en app-servers heeft.
@@ -51,7 +51,7 @@ Er zijn twee manieren waarop u dit kunt doen:
 
 ### <a name="through-config"></a>Via config
 
-U dient al te weten over hoe u een verbindingsreeks van SignalR-service via omgevingsvariabelen/app-instellingen/web.cofig moet instellen, via een configuratie-item met de naam `Azure:SignalR:ConnectionString`.
+U had moet over het instellen van de verbindingsreeks van SignalR-service via omgeving variabelen/app settings/web.cofig via een configuratie-item met de naam `Azure:SignalR:ConnectionString`.
 Als u meerdere eindpunten hebt, kunt u ze instellen in meerdere configuratie-items, elk in de volgende indeling:
 
 ```
@@ -121,7 +121,7 @@ De SignalR-service kan beide patronen ondersteunen, het belangrijkste verschil i
 Als app-servers actief/passief zijn, is SignalR-service ook actief/passief (omdat de primaire app-server alleen het primaire SignalR service-exemplaar retourneert).
 Als app-servers actief/actief zijn, is SignalR-service ook actief/actief (omdat alle app-servers hun eigen primaire SignalR-instanties retourneren, zodat ze allemaal verkeer kunnen hebben).
 
-Let op, ongeacht welke patronen die u wilt gebruiken, moet u elk SignalR-service-exemplaar als primair met een app-server verbinden.
+Worden vermeld, ongeacht welke patronen die u wilt gebruiken, moet u verbinding maken met elk SignalR service-exemplaar naar een appserver als primair.
 
 Ook zullen clients vanwege de aard van SignalR-verbinding (dit is een lange verbinding), ondervinden dat de verbinding wordt verbroken wanneer er een calamiteit en failover plaatsvinden.
 U moet dergelijke gevallen aan clientzijde afhandelen om de situatie transparant te maken voor uw eindgebruikers. Bijvoorbeeld, opnieuw verbinden nadat een verbinding is gesloten.
@@ -129,3 +129,5 @@ U moet dergelijke gevallen aan clientzijde afhandelen om de situatie transparant
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u geleerd hoe u uw toepassing moet configureren voor het bereiken van tolerantie voor SignalR-service. Voor meer informatie over server/client-verbindingen en verbindingsroutering in SignalR-service, kunt u [dit artikel](signalr-concept-internals.md) voor SignalR-service-inhoud lezen.
+
+Lees voor scenario's zoals sharding, die meerdere exemplaren samen gebruiken om grote aantallen verbindingen te verwerken, schalen [over meerdere instanties schalen](signalr-howto-scale-multi-instances.md)?

@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd0612f865b82537e914ce6b6e062038a570c98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449119"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578574"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources
 
@@ -217,7 +217,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Preview |
-| Azure Government |  | Niet beschikbaar |
-| Azure Duitsland |   | Niet beschikbaar |
-| Azure China 21Vianet |  | Niet beschikbaar |
+| Azure Global | `https://storage.azure.com/` | Beschikbaar |
+| Azure Government | `https://storage.azure.com/` | Beschikbaar |
+| Azure Duitsland | `https://storage.azure.com/` | Beschikbaar |
+| Azure China 21Vianet | `https://storage.azure.com/` | Beschikbaar |

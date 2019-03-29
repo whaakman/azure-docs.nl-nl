@@ -1,21 +1,21 @@
 ---
-title: Verbinding maken met de FTP-server - Azure Logic Apps | Microsoft Docs
+title: Verbinding maken met de FTP-server - Azure Logic Apps
 description: Maken, bewaken en beheren van bestanden op een FTP-server met Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913356"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576323"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Maken, bewaken en beheren van FTP-bestanden met behulp van Azure Logic Apps
 
@@ -28,10 +28,11 @@ Met Azure Logic Apps en de FTP-connector, kunt u geautomatiseerde taken en werks
 
 U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschikbaar voor andere acties. U kunt acties uitvoeren in uw logische apps gebruiken voor het beheren van bestanden op uw FTP-server. U kunt ook andere acties waarmee de uitvoer van de FTP-acties hebben. Als u regelmatig bestanden van uw FTP-server, kunt u e-mailberichten over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> De FTP-connector ondersteunt alleen de bestanden die zijn dan 50 MB of kleiner, tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md). U niet op dit moment gebruiken logische groepen te verdelen voor triggers.
->
-> Ook de FTP-connector ondersteunt alleen expliciete FTP via SSL (FTPS) en is niet compatibel met impliciete FTPS. 
+## <a name="limits"></a>Limieten
+
+* FTP-acties ondersteunen alleen de bestanden die zijn *50 MB of kleiner* , tenzij u [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md), die kunt u deze limiet overschrijdt. FTP-triggers ondersteund niet op dit moment logische groepen te verdelen.
+
+* De FTP-connector ondersteunt alleen expliciete FTP via SSL (FTPS) en is niet compatibel met impliciete FTPS.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -51,7 +52,7 @@ U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschi
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
 
-1. Typ 'ftp' als filter voor lege, logische apps, in het zoekvak. Selecteer de gewenste trigger onder de lijst met triggers. 
+1. Typ 'ftp' als filter voor lege, logische apps, in het zoekvak. Selecteer de gewenste trigger onder de lijst met triggers.
 
    -of-
 
@@ -82,7 +83,7 @@ Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt ge
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een FTP-map voor nieuwe bestanden die klanten en orders te beschrijven. U kunt vervolgens een FTP-actie zoals gebruiken **bestandsinhoud ophalen**, zodat u kunt de volgorde van de inhoud voor verdere verwerking ophalen en deze volgorde opslaan in een orderdatabase.
 
-Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+Bij het aanvragen van de inhoud van bestand triggers kunnen niet ophalen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
 * Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
 
@@ -121,7 +122,7 @@ Nu dat uw logische app een trigger heeft, voeg de acties die u wilt dat wordt ui
 
 Deze actie wordt de inhoud opgehaald van een bestand in een FTP-server wanneer dat bestand is toegevoegd of bijgewerkt. U kunt bijvoorbeeld de trigger toevoegen uit het vorige voorbeeld en een actie die de inhoud van het bestand opgehaald nadat dit bestand wordt toegevoegd of bewerkt. 
 
-Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+Bij het aanvragen van de inhoud van bestand triggers kunnen niet ophalen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
 
 * Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
 
@@ -151,7 +152,7 @@ Hier volgt een voorbeeld waarin deze actie: **Inhoud ophalen**
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 
-Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/ftpconnector/).
+Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving, Controleer de [van de connector-verwijzingspagina](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

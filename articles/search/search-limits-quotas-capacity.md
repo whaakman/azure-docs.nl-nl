@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780402"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620634"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
-Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**, of **Standard** Prijscategorieën.
+Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
 
 + **Gratis** is een multitenant gedeelde service die wordt geleverd met uw Azure-abonnement.
 
 + **Basic** biedt speciale computerbronnen voor productieworkloads op kleinere schaal.
 
 + **Standard** wordt uitgevoerd op toegewezen virtuele machines met meer capaciteit voor opslag en verwerking op ieder niveau. Er is standaard beschikbaar in vier niveaus: S1, S2, S3 en S3 HD.
+
++ **Opslag geoptimaliseerd** wordt uitgevoerd op toegewezen virtuele machines met meer totale opslag, opslag, bandbreedte en geheugen dan **Standard**. Opslag geoptimaliseerd wordt geleverd met twee niveaus: L1 en L2
+
+> [!NOTE]
+> De Servicelagen met geoptimaliseerde opslag zijn momenteel beschikbaar als preview op kortingsprijzen voor testen en experimenteren met het doel van het verzamelen van feedback. Laatste prijzen worden later aangekondigd wanneer deze lagen algemeen beschikbaar zijn. We raden u aan die deze lagen gebruiken voor productie-Apps.
 
   S3 High Density (S3 HD) is ontworpen voor specifieke werkbelastingen: [multitenancy](search-modeling-multitenant-saas-applications.md) en grote hoeveelheden kleine indexen (1 miljoen documenten per index, drie duizend indexen per service). Deze laag biedt de [indexeerfunctie functie](search-indexer-overview.md). Opname van gegevens moet gebruikmaken van de push-benadering, met behulp van API-aanroepen om gegevens te pushen van bron naar een index op S3 HD. 
 
@@ -42,13 +47,13 @@ Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en an
 
 ## <a name="index-limits"></a>Index-limieten
 
-| Resource | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| Maximale aantal indexen |3 |5 of 15 |50 |200 |200 |1000 per partitie of 3000 per service |
-| Maximum aantal velden per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximale [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
-| Maximale [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
-| Maximumaantal functies per profiel |8 |8 |8 |8 |8 |8 |
+| Resource | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| Maximale aantal indexen |3 |5 of 15 |50 |200 |200 |1000 per partitie of 3000 per service |10 |10 |
+| Maximum aantal velden per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximale [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Maximale [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Maximumaantal functies per profiel |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> basisservices gemaakt nadat laat 2017 een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebben. Services die eerder hebt gemaakt, hebben 5. Basic-laag is de enige SKU met een lagere limiet van 100 velden per index.
 
@@ -98,16 +103,16 @@ Eenvoudige services die zijn gemaakt na laat 2017 hebben een hogere limiet van 1
 
 Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure blob-indexering of verwerking van natuurlijke taal in cognitief zoeken hebben kortere maximum aantal actieve keren herhaald, zodat andere indexeertaken laten kunnen worden aangepast. Als een indexeringstaak kan niet worden voltooid binnen de maximale tijd die is toegestaan, probeert u deze volgens een schema uitvoert. De scheduler houdt van Indexstatus. Als een geplande taak voor indexering is onderbroken voor een bepaalde reden, de indexeerfunctie verder kan gaan waar het laatste bij de volgende geplande run afgebroken.
 
-| Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |
-| Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |
-| Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |
-| Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |
-| Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |
-| Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |
-| Indexeerfunctie voor BLOB: maximum blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |
-| Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N/A |
+| Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |10 |10 |
+| Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
+| Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
+| Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
+| Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
+| Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |
+| Indexeerfunctie voor BLOB: maximum blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
+| Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N/A |4 miljoen |4 miljoen |
 
 <sup>1</sup> gratis services hebben een maximale uitvoeringstijd van 3 minuten indexeerfunctie voor blob-bronnen en 1 minuut voor alle andere gegevensbronnen.
 
@@ -124,6 +129,8 @@ Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure 
 Maakt een schatting QPS moeten onafhankelijk van elkaar zijn ontwikkeld door elke klant. Zijn de primaire factoren van QPS indexgrootte en complexiteit, query-grootte en complexiteit en de hoeveelheid verkeer. Er is geen manier voor een zinvolle schattingen bij deze factoren zijn onbekend.
 
 Er zijn geen schattingen beter te voorspellen wanneer berekend op services die worden uitgevoerd op specifieke resources (Basic en Standard-lagen). U kunt meer QPS nauw schatten omdat u controle over meer van de parameters hebt. Zie voor instructies over het benadering schatting [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+
+Voor de lagen met geoptimaliseerde opslag, moet u verwachten dat een lagere query-doorvoer en een hogere latentie dan de standaard-laag.  De methodologie voor het schatten van de prestaties van query's die u zult ervaren is hetzelfde als de standaard-laag.
 
 ## <a name="data-limits-cognitive-search"></a>Gegevenslimieten (cognitief zoeken)
 

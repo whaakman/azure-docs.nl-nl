@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541244"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621920"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-sjabloon naslaginformatie over gegevensmodellen
 Dit onderwerp beschrijft de entiteits- en type representaties voor algemene artikelen die worden gebruikt in de gegevensmodellen voor de sjablonen voor ontwikkelaarsportals in Azure API Management.  
@@ -162,7 +162,7 @@ De portal voor ontwikkelaars is niet beschikbaar in de laag verbruik.
 ##  <a name="Header"></a> Koptekst  
  Deze sectie beschrijft de `parameter` weergave.  
   
-|Eigenschap|Description|Type|  
+|Eigenschap|Type|Description|  
 |--------------|-----------------|----------|  
 |`name`|string|Parameternaam.|  
 |`description`|string|Beschrijving van de parameter.|  
@@ -239,7 +239,7 @@ De portal voor ontwikkelaars is niet beschikbaar in de laag verbruik.
 ##  <a name="Parameter"></a> Parameter  
  Deze sectie beschrijft de `parameter` weergave.  
   
-|Eigenschap|Description|Type|  
+|Eigenschap|Type|Description|  
 |--------------|-----------------|----------|  
 |`name`|string|Parameternaam.|  
 |`description`|string|Beschrijving van de parameter.|  

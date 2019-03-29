@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977232"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579747"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticaal automatisch schalen met virtuele-machineschaalset
 
@@ -43,16 +43,52 @@ U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrisc
 4. Een waarschuwing toevoegen aan uw VM-schaalset met behulp van een webhook-melding.
 
 > [!NOTE]
-> Verticaal automatisch schalen kan alleen plaatsvinden binnen bepaalde bereiken van VM-grootten. De specificaties van elke grootte vergelijken voordat u besluit te schalen van één naar een andere (hoe hoger de waarde geeft niet altijd aan grotere VM-grootte). U kunt kiezen om te schalen tussen de volgende sets grootten:
+> Vanwege de grootte van de eerste virtuele Machine, de grootte die het kan worden geschaald, mogelijk beperkt omdat de beschikbaarheid van de andere grootten in het cluster die in huidige virtuele Machine is geïmplementeerd. In de gepubliceerde automation-runbooks die worden gebruikt in dit artikel we in dit geval regelt en alleen schalen binnen de hieronder paren van VM-grootte. Dit betekent dat een Standard_D1v2 virtuele Machine niet plotseling worden opgeschaald naar Standard_G5 of omlaag worden geschaald naar Basic_A0. Ook wordt beperkte virtuele Machine grootten omhoog/omlaag schalen niet ondersteund. U kunt kiezen om te schalen tussen de volgende sets grootten:
 > 
 > | VM-grootten paar schalen |  |
 > | --- | --- |
-> | Standard_A0 |Standard_A11 |
-> | Standard_D1 |Standard_D14 |
-> | Standard_DS1 |Standard_DS14 |
-> | Standard_D1v2 |Standard_D15v2 |
+> | Basic_A0 |Basic_A4 |
+> | Standard_A0 |Standard_A4 |
+> | Standard_A5 |Standard_A7 |
+> | Standard_A8 |Standard_A9 |
+> | Standard_A10 |Standard_A11 |
+> | Standard_A1_v2 |Standard_A8_v2 |
+> | Standard_A2m_v2 |Standard_A8m_v2  |
+> | Standard_B1s |Standard_B2s |
+> | Standard_B1ms |Standard_B8ms |
+> | Standard_D1 |Standard_D4 |
+> | Standard_D11 |Standard_D14 |
+> | Standard_DS1 |Standard_DS4 |
+> | Standard_DS11 |Standard_DS14 |
+> | Standard_D1_v2 |Standard_D5_v2 |
+> | Standard_D11_v2 |Standard_D14_v2 |
+> | Standard_DS1_v2 |Standard_DS5_v2 |
+> | Standard_DS11_v2 |Standard_DS14_v2 |
+> | Standard_D2_v3 |Standard_D64_v3 |
+> | Standard_D2s_v3 |Standard_D64s_v3 |
+> | Standard_DC2s |Standard_DC4s |
+> | Standard_E2_v3 |Standard_E64_v3 |
+> | Standard_E2s_v3 |Standard_E64s_v3 |
+> | Standard_F1 |Standard_F16 |
+> | Standard_F1s |Standard_F16s |
+> | Standard_F2sv2 |Standard_F72sv2 |
 > | Standard_G1 |Standard_G5 |
 > | Standard_GS1 |Standard_GS5 |
+> | Standard_H8 |Standard_H16 |
+> | Standard_H8m |Standard_H16m |
+> | Standard_L4s |Standard_L32s |
+> | Standard_L8s_v2 |Standard_L80s_v2 |
+> | Standard_M8ms  |Standard_M128ms |
+> | Standard_M32ls  |Standard_M64ls |
+> | Standard_M64s  |Standard_M128s |
+> | Standard_M64  |Standard_M128 |
+> | Standard_M64m  |Standard_M128m |
+> | Standard_NC6 |Standard_NC24 |
+> | Standard_NC6s_v2 |Standard_NC24s_v2 |
+> | Standard_NC6s_v3 |Standard_NC24s_v3 |
+> | Standard_ND6s |Standard_ND24s |
+> | Standard_NV6 |Standard_NV24 |
+> | Standard_NV6s_v2 |Standard_NV24s_v2 |
 > 
 > 
 
@@ -64,7 +100,7 @@ Het eerste wat dat u moet doen is een Azure Automation-account dat als host fung
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Verticaal schalen van Azure Automation-runbooks in uw abonnement importeren
 De runbooks die nodig zijn voor uw schaalsets voor virtuele machines verticaal schalen zijn al gepubliceerd in de Azure Automation Runbook Gallery. Als u wilt importeren Volg in uw abonnement de stappen in dit artikel:
 
-* [Runbook- en galerieën voor Azure Automation](../automation/automation-runbook-gallery.md)
+* [Runbook- en modulegalerieën voor Azure Automation](../automation/automation-runbook-gallery.md)
 
 Kies de optie Bladeren in galerie in het menu Runbooks:
 

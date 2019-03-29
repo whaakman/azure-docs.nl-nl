@@ -6,62 +6,53 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439002"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620114"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
 Dit artikel wordt beschreven hoe u verwijdert een [Azure Backup](backup-overview.md) Recovery Services-kluis. Deze bevat instructies voor afhankelijkheden verwijderen en vervolgens een kluis verwijderen en verwijderen van een kluis geforceerd beëindigd.
 
 
-
-
 ## <a name="before-you-start"></a>Voordat u begint
 
 Voordat u begint, is het belangrijk om te begrijpen dat u een Recovery Services-kluis met de servers niet verwijderen die is geregistreerd in het of die back-upgegevens bevat.
 
-
-- Als u wilt verwijderen zonder problemen een kluis, unregister-servers in deze en de gegevens van de kluis verwijderen.
+- Als u wilt verwijderen zonder problemen een kluis, unregister-servers in het, gegevens van de kluis verwijderen en verwijder vervolgens de kluis.
+- Als u probeert te verwijderen van een kluis die nog steeds afhankelijkheden heeft, wordt er een foutbericht weergegeven. en moet u handmatig verwijderen van de kluis afhankelijkheden, met inbegrip van:
+    - Back-ups van items
+    - Beveiligde servers
+    - Back-up van beheerservers (Azure Backup Server, DPM) ![selecteert u de kluis om het dashboard te openen](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Als u niet wilt behouden van gegevens in de Recovery Services-kluis en de kluis wilt verwijderen, kunt u de kluis geforceerd beëindigd verwijderen.
 - Als u probeert te verwijderen van een kluis, maar niet, is nog steeds de kluis geconfigureerd voor het ontvangen van back-upgegevens.
 
-Voor informatie over het verwijderen van een kluis, Zie de sectie [een kluis verwijderen uit Azure portal](#delete-a-vault-from-the-azure-portal). Als sectie [verwijderen van de kluis geforceerd beëindigd](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Als u niet zeker weet wat er in de kluis en u ervoor zorgen moet dat kunt u de kluis verwijderen, Zie de sectie [verwijderen kluis afhankelijkheden en de kluis verwijderen](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Een kluis verwijderen uit de Azure portal
 
-1. Open de lijst met Recovery Services-kluizen in de portal.
-2. Selecteer de kluis die u wilt verwijderen uit de lijst. Het kluisdashboard wordt geopend.
+1. Open het dashboard van de kluis.  
+2. Klik in het dashboard op **verwijderen**. Controleer of dat u wilt verwijderen.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. Klik in het kluisdashboard op **verwijderen**. Controleer of dat u wilt verwijderen.
+Als u een foutbericht krijgt, verwijdert u [back-up items](#remove-backup-items), [infrastructuurservers](#remove-backup-infrastructure-servers), en [herstelpunten](#remove-azure-backup-agent-recovery-points), en verwijder vervolgens de kluis.
 
-    ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![Fout bij de kluis verwijderen](./media/backup-azure-delete-vault/error.png)
 
-2. Als er afhankelijkheden van de kluis, de **fout bij verwijderen van kluis** wordt weergegeven: 
-
-    ![Fout tijdens verwijderen van kluis](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - Volg deze instructies om afhankelijkheden te verwijderen voordat u de kluis verwijdert, controleert u
-    - [Volg deze instructies](#delete-the-recovery-services-vault-by-force) PowerShell gebruiken voor het verwijderen van de kluis geforceerd beëindigd. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Verwijder de Recovery Services-kluis geforceerd beëindigd
 
+U kunt een kluis geforceerd beëindigd met PowerShell verwijderen. Geforceerd verwijderen betekent dat de kluis en alle gekoppelde back-upgegevens permanent worden verwijderd.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-U kunt PowerShell gebruiken om te verwijderen van een Recovery Services-kluis geforceerd beëindigd. Dit betekent dat de kluis en alle gekoppelde back-upgegevens permanent worden verwijderd. 
 
-> [!Warning]
-> Wanneer met behulp van PowerShell een Recovery Services-kluis verwijderen, moet u controleren dat u wilt alle back-upgegevens in de kluis permanent te verwijderen.
->
-
-Een Recovery Services-kluis verwijderen:
+Een kluis geforceerd beëindigd verwijderen:
 
 1. Aanmelden bij uw Azure-abonnement met de `Connect-AzAccount` opdracht in en volg de aanwijzingen aanwijzingen.
 
@@ -90,28 +81,18 @@ Een Recovery Services-kluis verwijderen:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Als de kluis niet leeg zijn, ontvangt u de fout 'Kluis kan niet worden verwijderd omdat er bestaande resources binnen deze kluis'. Als u wilt verwijderen van een container in een kluis, het volgende doen:
+9. Als de kluis niet leeg zijn, ontvangt u de fout 'Kluis kan niet worden verwijderd omdat er bestaande resources binnen deze kluis'. Als u wilt verwijderen een ingesloten in een kluis, het volgende doen:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Aanmelden bij uw abonnement in Azure portal en controleer of de kluis is verwijderd.
+10. Controleer of de kluis is verwijderd in de Azure-portal.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Afhankelijkheden van de kluis verwijderen en de kluis verwijderen
+## <a name="remove-vault-items-and-delete-the-vault"></a>Items van de kluis verwijderen en de kluis verwijderen
 
-U kunt handmatig de afhankelijkheden van de kluis, als volgt verwijderen:
-
-- In de **back-Upitems** menu, remove-afhankelijkheden:
-    - Back-ups van Azure Storage (Azure-bestanden)
-    - SQL Server in virtuele Azure-machines
-    - Back-ups van virtuele machines van Azure
-- In de **back-upinfrastructuur** menu, remove-afhankelijkheden:
-    - Back-ups van Microsoft Azure Backup-Server (MABS)
-    - Back-ups van System Center DPM
-
-![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+Deze procedure vindt u enkele voorbeelden voor het verwijderen van back-upgegevens en infrastructuurservers. Nadat u alles uit een kluis verwijderd, kunt u deze kunt verwijderen.
 
 ### <a name="remove-backup-items"></a>Back-up items verwijderen
 
@@ -200,12 +181,13 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>De kluis verwijderen na het verwijderen van afhankelijkheden
 
 1. Wanneer alle afhankelijkheden zijn verwijderd, schuif naar de **Essentials** deelvenster in het kluismenu.
-
-    - Er mag niet een **back-up items**, **back-up van beheerservers**, of **gerepliceerde items** vermeld.
-    - Als items is nog steeds worden weergegeven in de kluis, verwijdert u deze.
+2. Controleren of dat er een **back-up items**, **back-up van beheerservers**, of **gerepliceerde items** vermeld. Als items is nog steeds worden weergegeven in de kluis, verwijdert u deze.
 
 2. Wanneer er zijn geen items meer in de kluis, op het kluisdashboard klikt u op **verwijderen**.
 

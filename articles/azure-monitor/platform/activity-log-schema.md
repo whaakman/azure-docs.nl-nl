@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868541"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622209"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
 De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
@@ -358,6 +358,7 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
 | description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
+| category | Always "Alert" |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing' en "Informatieve" |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de naam van de resourcegroep waarin de waarschuwing zelf voor andere typen waarschuwingen. |
 | resourceProviderName |Naam van de resourceprovider voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Het is de naam van de resourceprovider voor de waarschuwing zelf voor andere typen waarschuwingen. |
@@ -556,6 +557,7 @@ Deze categorie bevat de record geen waarschuwingen gegenereerd door Azure Securi
 | description |De beschrijving van de statische tekst van de beveiligingsgebeurtenis. |
 | eventDataId |De unieke id van de beveiligingsgebeurtenis. |
 | eventName |Beschrijvende naam van de beveiligingsgebeurtenis. |
+| category | Altijd 'beveiliging' |
 | id |De unieke resource-id van de beveiligingsgebeurtenis. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', "Error", 'Waarschuwing' of 'Informatie' |
 | resourceGroupName |De naam van de resourcegroep voor de resource. |

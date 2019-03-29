@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482088"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622039"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -57,13 +57,11 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Ondersteunde Linux-besturingssystemen
-De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor afhankelijkheden op Red Hat Enterprise Linux, CentOS Linux en Oracle Linux (met RHEL Kernel).  
+De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor afhankelijkheden op Linux.  
 
 - Alleen standaard- en SMP Linux kernelversies worden ondersteund.
 - Niet-standaard kernelversies, zoals PAE en Xen, worden voor geen enkele Linux-distributie ondersteund. Bijvoorbeeld, wordt een systeem met de tekenreeks voor de release van '2.6.16.21-0.8-xen' niet ondersteund.
 - Aangepaste kernels, met inbegrip van hercompilaties van standaardkernels, worden niet ondersteund.
-- CentOSPlus kernel wordt ondersteund.
-- Oracle Unbreakable Enterprise Kernel (UEK) wordt verderop in dit artikel beschreven.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

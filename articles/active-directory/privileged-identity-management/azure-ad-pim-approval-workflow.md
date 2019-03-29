@@ -1,6 +1,6 @@
 ---
-title: Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM | Microsoft Docs
-description: Meer informatie over het goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in Azure AD Privileged Identity Management (PIM).
+title: Goedkeuren of weigeren van aanvragen voor Azure AD-rollen in PIM - Azure Active Directory | Microsoft Docs
+description: Meer informatie over het goedkeuren of weigeren van aanvragen voor Azure AD-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,32 +16,32 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244978"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576791"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure AD-rollen in PIM
 
-Met Azure AD Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs. Gedelegeerde fiatteurs hebt 24 uur verzoeken goed te keuren. Als een aanvraag niet binnen 24 uur is goedgekeurd, moet klikt u vervolgens de in aanmerking komende gebruiker opnieuw een nieuwe aanvraag indienen. Het tijdvenster voor goedkeuring van 24 uur per dag kan niet worden geconfigureerd.
+Met Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs. Gedelegeerde fiatteurs hebt 24 uur verzoeken goed te keuren. Als een aanvraag niet binnen 24 uur is goedgekeurd, moet klikt u vervolgens de in aanmerking komende gebruiker opnieuw een nieuwe aanvraag indienen. Het tijdvenster voor goedkeuring van 24 uur per dag kan niet worden geconfigureerd.
 
-Volg de stappen in dit artikel voor het goedkeuren of weigeren van aanvragen voor Azure AD-maprollen.
+Volg de stappen in dit artikel voor het goedkeuren of weigeren van aanvragen voor Azure AD-rollen.
 
 ## <a name="view-pending-requests"></a>De aanvragen in de wachtrij weergeven
 
-Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag om de Azure AD directory rol moeten worden goedgekeurd. U kunt deze aanvragen in behandeling weergeven in PIM.
+Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag om de rol Azure AD moeten worden goedgekeurd. U kunt deze aanvragen in behandeling weergeven in PIM.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **aanvragen goedkeuren**.
 
-    ![Rollen in PIM-Azure AD directory - rollen](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Rollen in PIM-Azure AD - rollen](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     U ziet een lijst met aanvragen moeten worden goedgekeurd.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850357"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576289"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Geavanceerde codering met MES-standaardinstellingen aanpassen 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850357"
 
 In dit onderwerp laat zien hoe voorinstellingen van Media Encoder Standard aanpassen. De [codering met Media Encoder Standard met behulp van aangepaste voorinstellingen](media-services-custom-mes-presets-with-dotnet.md) onderwerp wordt beschreven hoe u .NET gebruikt om een coderingstaak en een taak die wordt uitgevoerd met deze taak te maken. Wanneer u een vooraf ingestelde aanpast, geef de aangepaste voorinstellingen voor de coderingstaak. 
 
->[!NOTE]
->Als u een XML-definitie gebruikt, zorg ervoor dat u het behouden van de volgorde van elementen, zoals wordt weergegeven in de onderstaande voorbeelden voor XML (bijvoorbeeld KeyFrameInterval moet worden voorafgegaan door SceneChangeDetection).
->
+Als u een XML-definitie gebruikt, zorg ervoor dat u het behouden van de volgorde van elementen, zoals wordt weergegeven in de onderstaande voorbeelden voor XML (bijvoorbeeld KeyFrameInterval moet worden voorafgegaan door SceneChangeDetection).
 
-In dit onderwerp worden de aangepaste voorinstellingen die uitvoeren van de volgende coderingstaken geïllustreerd.
+> [!NOTE] 
+> Veel van de geavanceerde Media Services v2-functies van de Media Encoder Standard zijn momenteel niet beschikbaar zijn in v3. Zie voor meer informatie, [hiaten functie](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Ondersteuning voor de relatieve grootte
 

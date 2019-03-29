@@ -1,6 +1,6 @@
 ---
-title: Controleer toegang tot groepen of toepassingen in Azure AD-Toegangsbeoordelingen | Microsoft Docs
-description: Meer informatie over het bekijken van de groepsleden of toepassing toegang in Azure Active Directory-Toegangsbeoordelingen.
+title: Toegang met groepen of toepassingen in toegangsbeoordelingen - Azure Active Directory controleren | Microsoft Docs
+description: Meer informatie over het bekijken van de groepsleden of toepassing toegang in Azure Active Directory-toegangsbeoordelingen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728383"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579679"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Toegang met groepen of toepassingen in Azure AD-Toegangsbeoordelingen beoordelen
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Controleer toegang tot groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
-Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang aan groepen en toepassingen beheren in Azure AD en andere Microsoft Online Services met een functie voor Azure AD-Toegangsbeoordelingen.
+Azure Active Directory (Azure AD) vereenvoudigt hoe bedrijven toegang aan groepen en toepassingen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang van Azure AD-toegangsbeoordelingen.
 
 Dit artikel wordt beschreven hoe een aangewezen revisor voert een toegangscontrole uit voor leden van een groep of gebruikers met toegang tot een toepassing.
 
@@ -44,11 +44,11 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
     ![MyApps-portal](./media/perform-access-review/myapps-access-panel.png)
 
-1. Klik op het symbool gebruiker, die uw organisatie naam en een standaardwaarde weergegeven in de rechterbovenhoek van de pagina. Als meer dan één organisatie wordt weergegeven, selecteert u de organisatie die een toegangsbeoordeling aangevraagd.
+1. Klik in de rechterbovenhoek van de pagina op het gebruikerssymbool, waar uw naam en standaardorganisatie worden weergegeven. Als er meerdere organisaties vermeld staan, selecteert u de organisatie waarvoor een toegangsbeoordeling is aangevraagd.
 
 1. Aan de rechterkant van de pagina, klikt u op de **Toegangsbeoordelingen** tegel voor een overzicht van de in behandeling zijnde toegangsbeoordelingen.
 
-    Als de tegel niet zichtbaar is, er zijn geen toegangsbeoordelingen om uit te voeren voor deze organisatie en is er op dit moment geen actie nodig.
+    Als de tegel niet zichtbaar is, zijn er geen toegangsbeoordelingen die voor die organisatie moeten worden uitgevoerd en hoeft er momenteel geen actie te worden ondernomen.
 
     ![Lijst met toegangsbeoordelingen](./media/perform-access-review/access-reviews-list.png)
 

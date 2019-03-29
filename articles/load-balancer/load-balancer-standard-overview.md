@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382567"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578523"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Overzicht van Azure Standard Load Balancer
 
-Azure Load Balancer kunt u uw toepassingen schalen en hoge beschikbaarheid voor uw services te maken. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
+Met Azure Load Balancer kunt u uw toepassingen schalen en zorgen voor hoge beschikbaarheid voor de services. Load Balancer kan worden gebruikt voor zowel inkomende als uitgaande scenario's en lage latentie, hoge doorvoer, en kan worden geschaald tot miljoenen stromen voor alle TCP en UDP-toepassingen. 
 
 In dit artikel is gericht op Standard Load Balancer.  Voor een meer algemeen overzicht voor Azure Load Balancer, raadpleegt u [overzicht van Load Balancer](load-balancer-overview.md) ook.
 
@@ -73,6 +73,9 @@ Bovendien, als de volledige back-endpool [tests omlaag](load-balancer-custom-pro
 Beoordeling [Load Balancer statuscontroles](load-balancer-custom-probe-overview.md) voor meer informatie.
 
 ### <a name="az"></a>Beschikbaarheidszones
+
+>[!IMPORTANT]
+>Beoordeling [Beschikbaarheidszones](../availability-zones/az-overview.md) voor verwante onderwerpen, waaronder de specifieke gegevens van elke regio.
 
 Standard Load Balancer biedt ondersteuning voor aanvullende mogelijkheden in regio's waar Beschikbaarheidszones beschikbaar zijn.  Deze functies zijn alle Standard Load Balancer biedt.  Beschikbaarheidszones configuraties zijn beschikbaar voor openbare en interne Standard Load Balancer.
 
@@ -213,8 +216,8 @@ Standard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de 
 
 Gebruik van Standard Load Balancer wordt in rekening gebracht.
 
-- Aantal regels voor taakverdeling en uitgaande geconfigureerd (binnenkomende NAT-regels niet meegeteld in het totale aantal regels)
-- Hoeveelheid gegevens verwerkte regel voor binnenkomende en uitgaande ongeacht. 
+- Aantal geconfigureerde load-balancing- en uitgaande regels (inkomende NAT-regels worden niet meegeteld in het totale aantal regels)
+- Hoeveelheid verwerkte inkomende en uitgaande gegevens, ongeacht de regel. 
 
 Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.
 

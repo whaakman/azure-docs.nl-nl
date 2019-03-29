@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432138"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622073"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP-tabellen ophalen in het Resource Manager-implementatiemodel
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Zorg ervoor dat u het volgende hebt voordat u verder de voortgang
 * IP-adresbereiken gebruikt voor het configureren van de peerings (Azure privé, Azure openbaar en Microsoft). Bekijk de voorbeelden IP-adres toewijzing in de [pagina voor ExpressRoute routing requirements](expressroute-routing.md) om op te halen van een goed begrip van hoe ip-adressen zijn toegewezen aan de interfaces op uw kant- en aan de ExpressRoute. Krijgt u informatie over de configuratie voor peering aan de hand van de [configuratiepagina van de ExpressRoute-peering](expressroute-howto-routing-arm.md).
 * Gegevens van uw netwerken team / connectiviteitsprovider op de MAC-adressen van de interfaces die worden gebruikt met deze IP-adressen.
 * U moet de meest recente PowerShell-module voor Azure (versie 1,50 of hoger) hebben.
+
+> [!NOTE]
+> Als laag-3 wordt geleverd door de service-provider en de ARP-tabellen leeg in de onderstaande portal/uitvoer zijn, moet u de configuratie van het Circuit met de vernieuwknop in de portal vernieuwen. Met deze bewerking is de juiste configuratie van de routering van toepassing op uw circuit. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>De ARP-tabellen ophalen voor uw ExpressRoute-circuit
 In deze sectie vindt instructies voor hoe u de ARP-tabellen per peering met behulp van PowerShell kunt bekijken. U of uw connectiviteitsprovider moet hebben geconfigureerd de peering voordat u verder uitgevoerd. Elk circuit heeft twee paden (primaire en secundaire). U kunt de ARP-tabel voor elk pad onafhankelijk van elkaar controleren.

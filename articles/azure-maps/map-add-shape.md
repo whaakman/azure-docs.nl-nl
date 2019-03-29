@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497241"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579288"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm toevoegen aan een kaart
 
@@ -32,6 +32,16 @@ Het eerste vereiste blok van code in de bovenstaande code wordt een kaartobject.
 In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) object wordt gemaakt en toegevoegd aan de gegevensbron.
 
 Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Het laatste blok van code wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de regel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de regel wordt weergegeven nadat de kaart volledig is geladen.
+
+## <a name="add-symbols-along-a-line"></a>Symbolen langs een lijn toevoegen
+
+In dit voorbeeld laat zien hoe pictogrammen langs een lijn toevoegen op de kaart. Wanneer met behulp van een laag symbool, stelt u de plaatsingsoptie '' naar 'line', wordt dit weergegeven van de symbolen op de lijn en draaien de pictogrammen (0 graden = rechts).
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Pijl langs lijn weergeven" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show pijl langs lijn</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-line-layer"></a>Een lijnlaag aanpassen
 
@@ -84,6 +94,16 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) is een matrix van regels. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Het derde codeblok maakt polygoon- en lijnlagen.
 
 Het laatste blok van code wordt de polygoon- en lijnlagen toegevoegd aan de kaart. De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
+
+## <a name="fill-a-polygon-with-a-pattern"></a>Vul een veelhoek met een patroon
+
+Een installatiekopie-patroon kan ook worden gebruikt naast het invullen van een veelhoek met een kleur. Laden van een installatiekopie-patroon in de maps-installatiekopie sprite resources en deze vervolgens deze installatiekopie met de `fillPattern` eigenschap van de polygoonlaag.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Het patroon opvulling veelhoek" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>veelhoek opvulling patroon</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-polygon-layer"></a>Een polygoonlaag aanpassen
 

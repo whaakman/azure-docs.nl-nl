@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541629"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576442"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Quickstart: Configureren van uw IoT-oplossing
 
@@ -33,7 +33,7 @@ In dit artikel bevat een uitleg van het uitvoeren van de oorspronkelijke configu
 
 ASC voor IoT biedt volledige end-to-end beveiliging voor op basis van Azure IoT-oplossingen.
 
-Met ASC voor IoT. u kunt uw volledige IoT-oplossing in één dashboard, bewaken zichtbaar te maken van al uw IoT-apparaten, IoT-platformen en back-endresources in Azure.
+Met ASC voor IoT, kunt u uw volledige IoT-oplossing in één dashboard, bewaken zichtbaar te maken van al uw IoT-apparaten, IoT-platformen en back-endresources in Azure.
 
 Eenmaal is ingeschakeld op uw IoT-Hub, identificeert ASC voor IoT automatisch andere Azure-services ook verbonden met uw IoT-hub en die betrekking hebben op uw IoT-oplossing.
 
@@ -50,7 +50,7 @@ Nieuwe resource toevoegen aan uw IoT-oplossing, het volgende doen:
 2. Selecteer en open **Resources** onder **Security** in het menu links. 
 3. Selecteer **resources toevoegen**.
 4. Kies de resources die deel uitmaken van uw IoT-oplossing.
-4. Klik op **Add**. 
+5. Klik op **Add**. 
 
 Gefeliciteerd! U hebt een nieuwe resource toegevoegd aan uw IoT-oplossing.
 

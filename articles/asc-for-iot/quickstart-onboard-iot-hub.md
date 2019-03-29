@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 4fd7fb68fd2eb8be0c1c109d76cff341faba9391
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541630"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576221"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Quickstart: In IoT Hub-service inschakelen
 
@@ -36,7 +36,7 @@ In dit artikel bevat een uitleg over het inschakelen van de ASC voor IoT preview
 ## <a name="prerequisites-for-enabling-the-service"></a>Vereisten voor het inschakelen van de service
 
 - Log Analytics-werkruimte
-  - Twee typen gegevens worden opgeslagen in uw Log Analytics-werkruimte door door ASC standaard voor IoT; **beveiligingswaarschuwingen** en **aanbevelingen**. 
+  - Twee typen gegevens worden opgeslagen in uw Log Analytics-werkruimte door ASC standaard voor IoT; **beveiligingswaarschuwingen** en **aanbevelingen**. 
   - U kunt opslag van een type aanvullende informatie toevoegen **ruwe gebeurtenissen**. Houd er rekening mee dat opslaan **ruwe gebeurtenissen** in Log Analytics voert u de kosten voor extra opslag. 
 - IoT Hub (standard-laag of hoger)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f39fee9b59dfec643a640a4e17460ed9199c858f
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542065"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579441"
 ---
 # <a name="asc-for-iot-security-alerts"></a>ASC voor IoT-beveiligingswaarschuwingen
 
@@ -27,8 +27,15 @@ ms.locfileid: "58542065"
 > ASC voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
+ASC voor IoT analyseert voortdurend uw IoT-oplossing met behulp van geavanceerde analyses en bedreigingsinformatie informatie om u te waarschuwen voor schadelijke activiteiten.
+U kunt bovendien aangepaste waarschuwingen op basis van uw kennis van het gedrag van het verwachte apparaat maken.
+Een waarschuwing moet fungeert als een indicator van comprise, en worden onderzocht en hersteld.
 
-## <a name="device-alerts"></a>Apparaatwaarschuwingen
+In dit artikel vindt u een lijst met ingebouwde waarschuwingen die op uw IoT-Hub en/of IoT-apparaten kan worden geactiveerd.
+Naast ingebouwde waarschuwing kunt ASC voor IoT u voor het definiëren van aangepaste waarschuwingen op basis van de verwachte Hub en/of gedrag van het apparaat.
+Zie voor meer informatie, [aangepaste waarschuwingen maken](quickstart-create-custom-alerts.md).
+
+## <a name="built-in-alerts-for-iot-devices"></a>Ingebouwde waarschuwingen voor IoT-apparaten
 
 | Severity | Name                                                   | Gegevensbron | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -72,7 +79,7 @@ ms.locfileid: "58542065"
 | Laag      | Bash-geschiedenis is uitgeschakeld                                   | Agent       | Bash-geschiedenislogboek gewist. Aanvallers kunnen hun eigen opdrachten verbergen van worden weergegeven in de logboeken                                                                                                                                                                                                                                                                                                                                                   |
 | Laag      | Brute force is mislukt                                      | Agent       | Meerdere mislukte aanmeldingspogingen geïdentificeerd. Een geprobeerd en mislukt brute force-aanval op het apparaat is gemaakt.                                                                                                                                                                                                                                                                                                                                                  |
 
-## <a name="iot-hub-alerts"></a>IoT Hub-waarschuwingen
+## <a name="built-in-alerts-for-iot-hub"></a>Ingebouwde waarschuwingen voor IoT-Hub
 
 | Severity | Name                                                                         | Description                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -88,4 +95,4 @@ ms.locfileid: "58542065"
 
 - [Overzicht](overview.md)
 - [Toegang tot uw beveiligingsgegevens](how-to-security-data-access.md)
-- [Een apparaat onderzoeken](tutorial-investigate-device.md)
+- [Een apparaat onderzoeken](how-to-investigate-device.md)

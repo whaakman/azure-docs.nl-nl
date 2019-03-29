@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2356a7e5426037ffe9fc8b304ac113f4a3fe2a17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103346"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574837"
 ---
 # <a name="connect-windows-firewall"></a>Verbinding maken met Windows-firewall
 
@@ -39,6 +39,7 @@ De Windows firewall-connector kunt u eenvoudig verbinding maken met uw Windows F
 1. Selecteer in de portal voor Azure Sentinel **gegevensverzameling** en klik vervolgens op de **Windows firewall** tegel. 
 1. Selecteer welke gegevenstypen die u wilt streamen.
 1. Klik op **Install**.
+6. Zoek voor het gebruik van de relevante schema in Log Analytics voor Windows firewall, **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Verbinding valideren
 

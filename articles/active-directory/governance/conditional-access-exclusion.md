@@ -1,6 +1,6 @@
 ---
-title: Azure AD-Toegangsbeoordelingen gebruiken voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang | Microsoft Docs
-description: Informatie over het gebruik van Toegangsbeoordelingen voor Azure Active Directory (Azure AD) voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
+title: Toegangsbeoordelingen gebruiken voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang - Azure Active Directory | Microsoft Docs
+description: Informatie over het gebruik van toegangsbeoordelingen voor Azure Active Directory (Azure AD) voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892712"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577121"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-Toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
-In een ideaal volgt alle gebruikers de toegang tot de beleidsregels voor beveiligde toegang tot resources van uw organisatie. Soms zijn er echter bedrijfsscenario's waarvoor u uitzonderingen maken. In dit artikel staan enkele voorbeelden waar uitsluitingen mogelijk vereist zijn en hoe u als IT-beheerder kunt met deze taak beheren, toezicht van beleidsuitzonderingen voorkomen en auditors voorzien van bewijs dat deze uitzonderingen worden gecontroleerd regelmatig met behulp van Azure Active Directory (Azure AD)-Toegangsbeoordelingen.
+In een ideaal volgt alle gebruikers de toegang tot de beleidsregels voor beveiligde toegang tot resources van uw organisatie. Soms zijn er echter bedrijfsscenario's waarvoor u uitzonderingen maken. In dit artikel staan enkele voorbeelden waar uitsluitingen mogelijk vereist zijn en hoe u als IT-beheerder kunt met deze taak beheren, toezicht van beleidsuitzonderingen voorkomen en auditors voorzien van bewijs dat deze uitzonderingen worden gecontroleerd regelmatig met behulp van Azure Active Directory (Azure AD)-toegangsbeoordelingen.
 
 > [!NOTE]
 > Een geldige Azure AD Premium P2, Enterprise Mobility + Security E5 betaalde versie of proefversie licentie is vereist voor het gebruik van Azure AD-toegangsbeoordelingen. Zie [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md) voor meer informatie.
@@ -44,7 +44,7 @@ Een ander voorbeeld is mogelijk dat u een beleid voor voorwaardelijke toegang he
 
 ## <a name="why-are-exclusions-challenging"></a>Waarom zijn uitsluitingen uitdagende?
 
-In Azure AD, kunt u een beleid voor voorwaardelijke toegang om een groep gebruikers te beperken. U kunt ook enkele van deze gebruikers uitsluiten door directory-rollen, afzonderlijke gebruikers of gasten van gebruikers te selecteren. Het is belangrijk te onthouden dat wanneer deze uitzonderingen worden geconfigureerd, kunt u lezen wat het beleid kan niet worden afgedwongen voor gebruikers. Als deze uitsluitingen zijn geconfigureerd als een overzicht van afzonderlijke gebruikers of via een verouderde on-premises-beveiligingsgroep, wordt Hiermee beperkt u de zichtbaarheid van deze lijst met uitsluitingen (gebruikers weet mogelijk niet van het bestaan van) en de IT-beheerder controle over het (gebruikers kunnen deelnemen aan de beveiligingsgroep kunnen overslaan het beleid). Bovendien kunnen gebruikers die in aanmerking voor het Uitsluitingsfilter in één keer niet meer nodig hebt of in aanmerking komen voor het.
+In Azure AD, kunt u een beleid voor voorwaardelijke toegang om een groep gebruikers te beperken. U kunt ook enkele van deze gebruikers uitsluiten door Azure AD-rollen, afzonderlijke gebruikers of gasten van gebruikers te selecteren. Het is belangrijk te onthouden dat wanneer deze uitzonderingen worden geconfigureerd, kunt u lezen wat het beleid kan niet worden afgedwongen voor gebruikers. Als deze uitsluitingen zijn geconfigureerd als een overzicht van afzonderlijke gebruikers of via een verouderde on-premises-beveiligingsgroep, wordt Hiermee beperkt u de zichtbaarheid van deze lijst met uitsluitingen (gebruikers weet mogelijk niet van het bestaan van) en de IT-beheerder controle over het (gebruikers kunnen deelnemen aan de beveiligingsgroep kunnen overslaan het beleid). Bovendien kunnen gebruikers die in aanmerking voor het Uitsluitingsfilter in één keer niet meer nodig hebt of in aanmerking komen voor het.
 
 Aan het begin van een uitsluiting is er een korte lijst met gebruikers die het beleid negeren. Na verloop van tijd steeds meer gebruikers zijn uitgesloten en de lijst groeit. Op een bepaald moment is er een nodig om te controleren van de lijst en Bevestig dat elk van deze gebruikers moet nog steeds worden uitgesloten. De lijst beheren vanuit technisch oogpunt betrekkelijk eenvoudig kunnen worden, maar uit wie de zakelijke beslissingen te nemen en hoe zorgt u ervoor dat deze alle controleerbare?
 

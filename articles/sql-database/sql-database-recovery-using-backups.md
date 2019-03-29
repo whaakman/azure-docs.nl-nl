@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855092"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620475"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -175,7 +175,7 @@ Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 ### <a name="azure-cli"></a>Azure-CLI
 
 - Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/db)
+- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>Samenvatting
 

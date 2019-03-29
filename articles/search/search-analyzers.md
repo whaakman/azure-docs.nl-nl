@@ -4,17 +4,17 @@ description: De analyzers toewijzen aan doorzoekbare velden in een index te verv
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343269"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578759"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -97,16 +97,18 @@ Als een zoekopdracht niet de verwachte resultaten worden geretourneerd, is het m
 
 De [Search Analyzer-Demo](https://alice.unearth.ai/) is een derde partij demo-app van de vergelijking van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor van side-by-side. De index is opgelost; Deze bevat tekst uit een populaire verhaal. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de deelvensters van de aangrenzende, zodat u een beeld van hoe elke analyzer dezelfde tekenreeks verwerkt. 
 
-## <a name="examples"></a>Voorbeelden
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>REST-voorbeelden
 
 De voorbeelden hieronder ziet u analyzer definities voor enkele belangrijke scenario's.
 
-+ [Voorbeeld van de aangepaste analyzer](#Example1)
-+ [Analyzers toewijzen aan een voorbeeld van een veld](#Example2)
-+ [Met een combinatie van analysefuncties voor indexeren en zoeken](#Example3)
-+ [Voorbeeld van de taal analyzer](#Example4)
++ [Voorbeeld van de aangepaste analyzer](#Custom-analyzer-example)
++ [Analyzers toewijzen aan een voorbeeld van een veld](#Per-field-analyzer-assignment-example)
++ [Met een combinatie van analysefuncties voor indexeren en zoeken](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Voorbeeld van de taal analyzer](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Voorbeeld van de aangepaste analyzer
 
@@ -180,7 +182,7 @@ Stap voor stap in het volgende voorbeeld:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Voorbeeld van een toewijzing analyzer per veld
 
@@ -213,7 +215,7 @@ Het element 'analyzer' overschrijft de standaard analyzer op basis van de door v
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Met een combinatie van analysefuncties voor indexeren en zoeken
 
@@ -241,7 +243,7 @@ De API's bevatten extra indexkenmerken voor het opgeven van verschillende analyz
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Voorbeeld van de taal analyzer
 
@@ -273,6 +275,69 @@ Velden met tekenreeksen in verschillende talen kunt een taalanalyse, terwijl and
      ],
   }
 ~~~~
+
+## <a name="c-examples"></a>C#Voorbeelden
+
+Als u van de .NET SDK-codevoorbeelden gebruikmaakt, kunt u deze voorbeelden om te gebruiken of analyzers configureren kunt toevoegen.
+
++ [Een ingebouwde analyzer toewijzen](#Assign-a-language-analyzer)
++ [Een analyzer configureren](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Toewijzen van een taalanalyse
+
+Elke die wordt gebruikt als analyzer-is, zonder configuratie, is opgegeven in de velddefinitie van een. Er is geen vereiste voor het maken van een analyzer om voor te bereiden. 
+
+In dit voorbeeld wijst Microsoft English- en Franstaligen analyzers beschrijving velden toe. Het is een codefragment is afkomstig uit een grotere definitie van de index hotels, maken gebruik van de klasse Hotel in het bestand hotels.cs van de [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) voorbeeld.
+
+Bel [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), waarmee de [AnalyzerName klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) waarmee alle van de analyse van de tekst in Azure Search wordt ondersteund.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Een aangepaste analysefunctie definiëren
+
+Als aanpassings- of vereist is, moet u een analyzer-constructie toevoegen aan een index. Zodra u deze hebt gedefinieerd, kunt u dit toevoegen als de definitie van het veld zoals in het vorige voorbeeld wordt gedemonstreerd.
+
+Gebruik [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) om het object te maken. Zie voor meer voorbeelden van [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 6bfcb17d0a81c6e23c4bfa3dd4f4dd8cc3079379
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331467"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577081"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Over het beheren van de Azure-Monitor voor containers-agent
 Azure Monitor voor containers maakt gebruik van een beperkte versie van de Log Analytics-agent voor Linux. Na de eerste implementatie zijn routine of optionele taken die u wilt uitvoeren tijdens de levenscyclus. In dit artikel meer informatie over het handmatig bijwerken van de agent en verzameling van omgevingsvariabelen van een bepaalde container uitschakelen. 
@@ -29,13 +29,13 @@ Azure Monitor voor containers maakt gebruik van een beperkte versie van de Log A
 Als de upgrade van de agent mislukt, wordt in dit artikel wordt beschreven van het proces van de agent handmatig te upgraden. Als u wilt volgen de versies die zijn uitgebracht, Zie [agent aankondigingen](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
 
 ### <a name="upgrading-agent-on-monitored-kubernetes-cluster"></a>Agent op de bewaakte Kubernetes-cluster upgraden
-Het proces voor het bijwerken van de agent bestaat uit twee duidelijk stappen. De eerste stap is om uit te schakelen controleren met Azure Monitor voor containers met behulp van Azure CLI.  Volg de stappen de [uitschakelen bewaking](container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json#azure-cli) artikel. Met behulp van Azure CLI, kunnen we de agent verwijderen van de knooppunten in het cluster zonder gevolgen voor de oplossing en de bijbehorende gegevens die zijn opgeslagen in de werkruimte. 
+Het proces voor het bijwerken van de agent bestaat uit twee duidelijk stappen. De eerste stap is om uit te schakelen controleren met Azure Monitor voor containers met behulp van Azure CLI.  Volg de stappen de [uitschakelen bewaking](container-insights-optout.md?#azure-cli) artikel. Met behulp van Azure CLI, kunnen we de agent verwijderen van de knooppunten in het cluster zonder gevolgen voor de oplossing en de bijbehorende gegevens die zijn opgeslagen in de werkruimte. 
 
 >[!NOTE]
 >Terwijl u deze activiteit onderhoud uitvoert, de knooppunten in het cluster niet van verzamelde gegevens doorsturen zijn en prestatieweergaven worden geen gegevens weergegeven tussen het moment dat u de agent verwijderen en de nieuwe versie installeert. 
 >
 
-Voor het installeren van de nieuwe versie van de agent, volg de stappen de [ingebouwde bewaking](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-using-azure-cli) artikel met behulp van Azure CLI, om dit proces te voltooien.  
+Voor het installeren van de nieuwe versie van de agent, volg de stappen de [ingebouwde bewaking](container-insights-onboard.md?#enable-using-azure-cli) artikel met behulp van Azure CLI, om dit proces te voltooien.  
 
 Wanneer u bewaking opnieuw inschakelt, is het duurt ongeveer 15 minuten voordat u de bijgewerkte status metrische gegevens voor het cluster kunt weergeven. Als u wilt controleren of de agent is bijgewerkt, moet u de opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
 

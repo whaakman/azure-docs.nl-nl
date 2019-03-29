@@ -1,7 +1,7 @@
 ---
 title: Syntaxis voor OData-expressie voor filters en volgorde van de EU - Azure Search
 description: Filteren en sorteren expressie OData-syntaxis voor Azure Search-query's.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541033"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578404"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Zoek alle hotels met de naam gelijk is aan een van beide Roach motel' of 'Budget hotel'):  
+Zoek alle hotels met de naam gelijk is aan 'Roach motel' of 'Budget hotel'). Zinnen bevatten spaties, dit is een standaardscheidingsteken. Als u een onderdrukking scheidingsteken, plaatst u het nieuwe scheidingsteken tussen enkele aanhalingstekens als onderdeel van de filterexpressie:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Zoek alle hotels met de tag 'Wi-Fi' of 'groep':
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Een overeenkomst op meerdere tags, 'hete handdoeken rekken' of 'hairdryer opgenomen' vinden. Vergeet niet om op te geven van een alternatieve scheidingsteken als de standaard spatie als scheidingsteken onwerkbare is. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Alle hotels zonder de tag 'motel' en 'handbagage' niet vinden:  

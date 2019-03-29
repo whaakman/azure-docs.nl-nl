@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770336"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620747"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resourcetypen en statuscontroles in Azure resource health
 Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource health door resourcetypen.
@@ -51,10 +51,15 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |---|
 |<ul><li>Is de server die als host fungeert deze virtuele machine omhoog en uitgevoerd?</li><li>Is de host OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er een netwerkverbinding is tussen de host en de storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+|Uitgevoerde controles|
+|---|
+|<ul><li>Zijn er mislukte pijplijnuitvoering?</li><li>Het cluster als host fungeert voor de Data Factory in orde?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Hebt u ervaren problemen van gebruikers verzenden of de Data Lake Analytics-taken weergeven?</li><li>Data Lake Analytics-taken kan niet worden voltooid op systeemfouten?</li></ul>|
+|<ul><li>Hebt u ervaren problemen van gebruikers verzenden of de Data Lake Analytics-taken weergeven?</li><li>Data Lake Analytics-taken kan niet worden voltooid vanwege systeemfouten?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |---|
 |<ul><li>Gebruikers gegevens uploaden naar Data Lake Store problemen ondervonden?</li><li>Gebruikers downloaden uit Data Lake Store problemen ondervonden?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+|Uitgevoerde controles|
+|---|
+|<ul><li>Heeft de database migratieservice is mislukt om in te richten?</li><li>Is de database migratieservice gestopt vanwege inactiviteit of gebruiker aanvraag?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|Uitgevoerde controles|
+|---|
+|<ul><li>Is de server niet beschikbaar vanwege onderhoud?</li><li>De server niet beschikbaar vanwege herconfiguratie is?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|Uitgevoerde controles|
+|---|
+|<ul><li>Is de server niet beschikbaar vanwege onderhoud?</li><li>De server niet beschikbaar vanwege herconfiguratie is?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|Uitgevoerde controles|
+|---|
+|<ul><li>Is de server niet beschikbaar vanwege onderhoud?</li><li>De server niet beschikbaar vanwege herconfiguratie is?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Uitgevoerde controles|
 |---|
 |<ul><li>De IoT-hub is actief en werkend?</li></ul>|
@@ -73,15 +97,40 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |---|
 |<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een Azure Cosmos DB-service niet beschikbaar zijn?</li><li>Er zijn documentaanvragen niet worden geleverd vanwege een Azure Cosmos DB-service niet beschikbaar zijn?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|Uitgevoerde controles|
+|---|
+|<ul><li>De Event Hubs-naamruimte de gebruiker gegenereerde fouten ondervindt?</li><li>De Event Hubs-naamruimte momenteel wordt bijgewerkt?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|Uitgevoerde controles|
+|---|
+|<ul><li>Vindt u belangrijke services op het HDInsight-cluster?</li><li>Kan de sleutel voor BYOK-versleuteling ' at rest ' toegang tot het HDInsight-cluster?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Uitgevoerde controles|
 |---|
 |<ul><li>Aanvragen voor key vault mislukken vanwege problemen met het platform van Azure Key Vault?</li><li>Worden de aanvragen voor key vault wordt beperkt vanwege te veel aanvragen door de klant?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|Uitgevoerde controles|
+|---|
+|<ul><li>Prestaties van de toepassingsgateway gedegradeerd is?</li><li>De Application Gateway beschikbaar is?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Uitgevoerde controles|
 |---|
 |<ul><li>Is de VPN-tunnel verbonden?</li><li>Zijn er configuratieconflicten in de verbinding?</li><li>De vooraf gedeelde sleutels correct zijn geconfigureerd?</li><li>De on-premises VPN-apparaat bereikbaar is?</li><li>Zijn er verschillen in het IPSec/IKE-beveiligingsbeleid?</li><li>De S2S VPN-verbinding is goed ingericht of in een foutstatus?</li><li>De VNET-naar-VNET-verbinding is goed ingericht of in een foutstatus?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|Uitgevoerde controles|
+|---|
+|<ul><li>Het ExpressRoute-circuit in orde is?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|Uitgevoerde controles|
+|---|
+|<ul><li>Back-ends voor voordeur reageren met fouten op statuscontroles?</li><li>Wijzigingen in de configuratie vertraagd zijn?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Uitgevoerde controles|
@@ -91,7 +140,12 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Uitgevoerde controles|
 |---|
-|<ul><li> Kunnen de runtime-bewerkingen, zoals registratie, installatie of verzenden worden uitgevoerd op de naamruimte?</li></ul>|
+|<ul><li>Kunnen de runtime-bewerkingen, zoals registratie, installatie of verzenden worden uitgevoerd op de naamruimte?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|Uitgevoerde controles|
+|---|
+|<ul><li>Zijn er vertragingen zijn voor de werkruimte indexeren?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Uitgevoerde controles|
@@ -101,7 +155,7 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Uitgevoerde controles|
 |---|
-|<ul><li>Het hostbesturingssysteem actief is?</li><li>Is de workspaceCollection bereikbaar is vanaf buiten het datacenter?</li><li>Is de Resourceprovider van Power BI beschikbaar?</li><li>De PowerBI-Service is beschikbaar in de juiste regio?</li></ul>|
+|<ul><li>Het hostbesturingssysteem actief is?</li><li>Is de workspaceCollection bereikbaar is vanaf buiten het datacenter?</li><li>Is de Resourceprovider van Power BI beschikbaar?</li><li>De Power BI-Service is beschikbaar in de juiste regio?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Uitgevoerde controles|

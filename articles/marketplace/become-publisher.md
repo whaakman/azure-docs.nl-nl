@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620152"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -44,6 +44,8 @@ Deelname aan Microsoft cloud-marketplace vereist lidmaatschap in het Microsoft P
 Noteer het Microsoft Partner Network-ID voor uw organisatie na de registratie. U moet dit tijdens de stap 3 bij het indienen van uw marketplace-registratieformulier.
 *   Meer informatie over de voordelen van de [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Als uw organisatie een bestaande lidmaatschap heeft, wordt u tijdens de registratie van uw organisatie toevoegen. Als u [Partner Center](https://partnercenter.microsoft.com/partner/home), kunt u zich om te zien van de ID van uw Partner Center-account. Als u [Partner lidmaatschap Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), kunt u zich niet in uw account lidmaatschap Partnercentrum zien. 
+
+Open een ticket bij Microsoft [partner ondersteuning](https://partner.microsoft.com/support) voor problemen met de registratie van MPN.
 
 ---
 

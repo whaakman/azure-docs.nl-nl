@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014194"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579696"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Toewijzing van het voorbeeld van de blauwdruk Azure blauwdrukken ISO 27001-besturingselement
 
@@ -122,7 +122,7 @@ Inzicht krijgen in waar uw Azure-resources mogelijk niet-optimale cryptografisch
 
 ## <a name="a1241-event-logging"></a>A.12.4.1-logboekregistratie
 
-Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven [Azure Policy](../../../policy/overview.md) definities die die controle-instellingen op de Azure-resources. Een toegewezen beleid controleert ook als virtuele machines worden niet logboeken te naar een opgegeven log analytics-werkruimte verzenden.
+Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven [Azure Policy](../../../policy/overview.md) definities die de instellingen voor op Azure-resources controleren. Een toegewezen beleid controleert ook als virtuele machines worden niet logboeken te naar een opgegeven log analytics-werkruimte verzenden.
 
 - [Preview]: Implementatie van de afhankelijkheid Agent - VM-installatiekopie (OS) niet-vermelde controleren
 - [Preview]: Implementatie van de Agent in VMSS - VM-installatiekopie (OS) niet-vermelde afhankelijkheden controleren
@@ -187,10 +187,10 @@ Nu dat u de toewijzing van het besturingselement van het voorbeeld met ISO 27001
 > [ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk - overzicht](./index.md)
 > [ISO 27001-App Service Environment/SQL Database-workload blauwdruk - stappen implementeren](./deploy.md)
 
-Toevoeging artikelen over blauwdrukken en hoe ze te gebruiken:
+Aanvullende artikelen over blauwdrukken en het gebruik hiervan:
 
-- Meer informatie over de [blauwdruk levenscyclus](../../concepts/lifecycle.md).
-- Meer informatie over het gebruik van [statische en dynamische parameters](../../concepts/parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](../../concepts/sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](../../concepts/resource-locking.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](../../how-to/update-existing-assignments.md).
+- Meer informatie over de [levenscyclus van een blauwdruk](../../concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](../../concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](../../concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../../concepts/resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../../how-to/update-existing-assignments.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259683"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619438"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Uw media analyseren met de Azure-portal 
 > [!NOTE]
@@ -73,11 +73,6 @@ Een beschrijvende naam die u kunt herkennen de taak. [Dit](media-services-portal
 
 ### <a name="output-file"></a>Uitvoerbestand
 Een beschrijvende naam die u kunt de uitvoerinhoud herkennen. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse is een Management Pack dat smooth timelapsevideo's te versoepelen uit de eerste persoon of het actie-camera inhoud maakt.  Raadpleeg [dit](media-services-hyperlapse-content.md) onderwerp voor meer informatie. In deze sectie biedt enkele details over de opties die u voor deze MP opgeeft.
-
-![Video's analyseren](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Snelheid
 Geef de snelheid waarmee de invoervideo versnellen. De uitvoer is een weergave gestabiliseerde en verstreken tijd van de video-invoer.

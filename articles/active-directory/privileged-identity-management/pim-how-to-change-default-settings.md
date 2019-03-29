@@ -1,6 +1,6 @@
 ---
-title: Azure AD directory rolinstellingen in PIM configureren | Microsoft Docs
-description: Informatie over het configureren van instellingen voor Azure AD directory-rol in Azure AD Privileged Identity Management (PIM).
+title: Azure AD-rolinstellingen in PIM - Azure Active Directory configureren | Microsoft Docs
+description: Informatie over het configureren van instellingen voor Azure AD-rol in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162540"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576859"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Azure AD-rolinstellingen in PIM configureren
 
-Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity Management (PIM) in hun organisatie, met inbegrip van de ervaring voor een gebruiker die is een in aanmerking komende roltoewijzing activeren wijzigen.
+Een beheerder met bevoorrechte rol kunt aanpassen Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in hun organisatie, met inbegrip van de ervaring voor een gebruiker die is een in aanmerking komende roltoewijzing activeren wijzigen.
 
 ## <a name="open-role-settings"></a>Rolinstellingen openen
 
-Volg deze stappen om de instellingen voor een Azure AD-directory-rol te openen.
+Volg deze stappen om de instellingen voor een Azure AD-rol te openen.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **Instellingen**.
 
-    ![Azure AD-maprollen - instellingen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Azure AD-rollen - instellingen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Klik op **rollen**.
 
 1. Klik op de rol waarvan u de instellingen u wilt configureren.
 
-    ![Azure AD-maprollen - instellingen voor rollen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD-rollen - instellingen voor rollen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Op de instellingenpagina voor elke rol zijn er enkele instellingen die u kunt configureren. Deze instellingen alleen van invloed op gebruikers die zijn **in aanmerking komende** toewijzingen, niet **permanente** toewijzingen.
 
@@ -98,13 +98,13 @@ Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
 1. Stel de **goedkeuring vereisen** overschakelen naar **ingeschakeld**. Hiermee breidt u het deelvenster met opties voor het selecteren van de goedkeurders.
 
-    ![Azure AD-maprollen - Settings - goedkeuring vereisen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD-rollen - Settings - goedkeuring vereisen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Als u **niet** alle goedkeurders opgeeft, worden de Privileged Role Administrators worden de standaard-goedkeurders. Privileged Role Administrators nodig om goed te keuren **alle** activeringsaanvragen voor deze rol.
 
 1. Als u wilt goedkeurders opgeven, klikt u op **fiatteurs selecteren**.
 
-    ![Azure AD-maprollen - Settings - goedkeuring vereisen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD-rollen - Settings - goedkeuring vereisen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Een of meer fiatteurs selecteren en klik vervolgens op **Selecteer**. U kunt gebruikers of groepen selecteren. Ten minste 2 fiatteurs wordt aanbevolen. Zelf goedkeuren is niet toegestaan.
 
@@ -117,5 +117,5 @@ Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
-- [Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren](pim-how-to-configure-security-alerts.md)
+- [Azure AD-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
+- [Beveiligingswaarschuwingen voor Azure AD-rollen in PIM configureren](pim-how-to-configure-security-alerts.md)

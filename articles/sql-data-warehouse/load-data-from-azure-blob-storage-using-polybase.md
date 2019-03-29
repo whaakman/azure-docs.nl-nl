@@ -2,20 +2,20 @@
 title: "Zelfstudie: Laden van gegevens over taxi's in New York met Azure SQL Data Warehouse | Microsoft Docs"
 description: Zelfstudie wordt gebruikgemaakt van Azure portal en SQL Server Management Studio om het laden van gegevens over taxi's in New York vanuit een openbare Azure-blob naar Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620186"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens over taxi's in New York met Azure SQL Data Warehouse laden
 
@@ -80,7 +80,7 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
 
 6. Klik op **prestatieniveau** om op te geven of het datawarehouse Gen1 of Gen2 is en het aantal datawarehouse-eenheden. 
 
-7. Selecteer voor deze zelfstudie **Gen1** van SQL Data Warehouse. De schuifregelaar standaard is ingesteld op **DW1000c**.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
+7. Selecteer voor deze zelfstudie **Gen2** van SQL Data Warehouse. De schuifregelaar is ingesteld op **DW1000c** standaard.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
 
     ![prestaties configureren](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
     | ------------ | --------------- | ----------- | 
     | Servertype | Database-engine | Deze waarde is verplicht |
     | Servernaam | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt: **mynewserver-20180430.database.windows.net**. |
-    | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
+    | Authentication | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
     | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
     | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
 

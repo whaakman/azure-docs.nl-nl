@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001968"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620662"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
-Vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de SQL-API. Wanneer u Azure Cosmos DB gebruikt, is de SQL-API de standaardinstelling. 
+Azure Cosmos DB biedt ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Het gaat hierbij om MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties met betrekking tot de consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. 
 
-Azure Cosmos DB biedt ook ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Databases omvatten MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden niet nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties voor consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. Voor de SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op de Azure Cosmos-account gebruikt. 
+Wanneer u SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op de Azure Cosmos-account wordt gebruikt. 
 
-De volgende secties ziet de toewijzing tussen de consistentie van de gegevens aangevraagd door een OSS-client-stuurprogramma voor Apache Cassandra, MongoDB en de bijbehorende consistentieniveaus in Azure Cosmos DB.
+Wanneer u de Cassandra-API of Azure Cosmos DB-API voor MongoDB, ophalen van de toepassingen een volledige set van consistentieniveaus die Apache Cassandra en MongoDB, respectievelijk, met nog krachtiger consistentie en garanties voor duurzaamheid. Dit document bevat de bijbehorende Azure Cosmos DB-consistentieniveaus voor Apache Cassandra en MongoDB-consistentieniveaus.
+
 
 ## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra en Azure Cosmos DB-consistentieniveaus
 
-Onderstaande tabel beschrijft de combinatie van verschillende consistentie op basis van de Cassandra-API en de equivalente systeemeigen consistentie niveau toewijzing van Cosmos DB kunt gebruiken. Alle combinatie van Apache Cassandra schrijven en lezen modi systeemeigen worden ondersteund door Cosmos DB. In elke combinaties van Apache Cassandra schrijven en lezen van consistentie-model biedt Cosmos DB even hoog of hoger consistentie gegarandeerd dan Apache Cassandra. Cosmos DB biedt bovendien een hogere duurzaamheid dan Apache Cassandra zelfs in de zwakste modus van schrijven wordt gegarandeerd.
+In tegenstelling tot AzureCosmos DB biedt Apache Cassandra systeemeigen geen garanties voor nauwkeurig gedefinieerd consistentie.  Apache Cassandra biedt in plaats daarvan een consistentieniveau schrijven en een niveau lezen van consistentie, zodat de hoge beschikbaarheid, consistentie en latentie compromissen. Als u Azure Cosmos DB Cassandra-API: 
 
-De volgende tabel toont de **schrijven consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
+* Het niveau van de consistentie schrijven van Apache Cassandra wordt toegewezen aan het standaardconsistentieniveau geconfigureerd in uw Azure Cosmos-account. 
 
-| Cassandra | Azure Cosmos DB | Guarantee |
-| - | - | - |
-|ALLE|Sterk  | Linearisabiliteit |
-| EACH_QUORUM   | Sterk    | Linearisabiliteit | 
-| QUORUM, SERIËLE |  Sterk |    Linearisabiliteit |
-| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix |Globale Consistent Prefix |
-| EACH_QUORUM   | Sterk    | Linearisabiliteit |
-| QUORUM, SERIËLE |  Sterk |    Linearisabiliteit |
-| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix | Globale Consistent Prefix |
-| QUORUM, SERIËLE | Sterk   | Linearisabiliteit |
-| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix | Globale Consistent Prefix |
-| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Gebonden veroudering | <ul><li>Gebonden veroudering.</li><li>Maximaal K versies of t keer achter.</li><li>De meest recente toegezegde waarde in de regio lezen.</li></ul> |
-| EEN LOCAL_ONE,   | Consistent prefix | Consistent Prefix per regio |
+* Azure Cosmos DB wordt dynamisch toegewezen voor het lezen van consistentieniveau dat is opgegeven door het stuurprogramma van de Cassandra-client op een van de Azure Cosmos DB-consistentieniveaus dynamisch geconfigureerd op een leesaanvraag. 
 
-De volgende tabel toont de **lezen consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
+De volgende tabel ziet u hoe de systeemeigen Cassandra-consistentieniveaus zijn toegewezen aan de Azure Cosmos DB-consistentieniveaus bij het gebruik van de Cassandra-API:  
 
-| Cassandra | Azure Cosmos DB | Guarantee |
-| - | - | - |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Sterk  | Linearisabiliteit|
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Sterk |   Linearisabiliteit |
-|LOCAL_ONE, ÉÉN | Consistent prefix | Globale Consistent Prefix |
-| ALLE, QUORUM, SERIENUMMER   | Sterk    | Linearisabiliteit |
-| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Consistent prefix   | Globale Consistent Prefix |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Consistent prefix   | Globale Consistent Prefix |
-| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Sterk |   Linearisabiliteit |
-| LOCAL_ONE, ÉÉN    | Consistent prefix | Globale Consistent Prefix|
-| ALLE, QUORUM, seriële sterke verwerkingen
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Consistent prefix  | Globale Consistent Prefix |
-|ALLE    |Sterk |Linearisabiliteit |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Consistent prefix  |Globale Consistent Prefix|
-|ALLE, QUORUM, seriële sterke verwerkingen
-LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Consistent prefix  |Globale Consistent Prefix |
-|ALLE    |Sterk | Linearisabiliteit |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Consistent prefix | Globale Consistent Prefix |
-| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Gebonden veroudering   | <ul><li>Gebonden veroudering.</li><li>Maximaal K versies of t keer achter. </li><li>De meest recente toegezegde waarde in de regio lezen.</li></ul>
-| LOCAL_ONE, ÉÉN |Consistent prefix | Consistent Prefix per regio |
-| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Consistent prefix | Consistent Prefix per regio |
+[ ![Toewijzing van Cassandra consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB en Azure Cosmos DB-consistentieniveaus
 
-## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB 3.4 en Azure Cosmos DB-consistentieniveaus
+In tegenstelling tot Azure Cosmos DB biedt de systeemeigen MongoDB geen nauwkeurig gedefinieerde consistentiegarantie. In plaats daarvan systeemeigen MongoDB kan gebruikers de volgende garanties voor consistentie configureren: een probleem schrijven, lezen belang en de richtlijn isMaster - om de leesbewerkingen op de primaire of secundaire replica's om de gewenste consistentieniveau te regelen. 
 
-De volgende tabel ziet u de toewijzing 'lezen problemen' tussen MongoDB 3.4 en het standaardconsistentieniveau in Azure Cosmos DB. De tabel ziet u implementaties in meerdere regio's en één regio.
+Wanneer u Azure Cosmos DB-API voor MongoDB, de MongoDB-stuurprogramma wordt uw schrijfregio beschouwd als de primaire replica en alle andere regio's worden gelezen replica. U kunt kiezen welke regio die is gekoppeld aan uw Azure Cosmos-account als een primaire replica. 
 
-| **MongoDB 3.4** | **Azure Cosmos DB (multi-region)** | **Azure Cosmos DB (één regio)** |
-| - | - | - |
-| Linearizable | Sterk | Sterk |
-| Meerderheid | Gebonden veroudering | Sterk |
-| Lokaal | Consistent voorvoegsel | Consistent voorvoegsel |
+Tijdens het gebruik van Azure Cosmos DB-API voor MongoDB:
+
+* De bezorgdheid schrijven is toegewezen aan het standaardconsistentieniveau geconfigureerd in uw Azure Cosmos-account.
+ 
+* Azure Cosmos DB wordt dynamisch toegewezen voor het lezen aandachtspunt opgegeven door het stuurprogramma van de MongoDB-client op een van de Azure Cosmos DB-consistentieniveaus die dynamisch is geconfigureerd op een leesaanvraag. 
+
+* U kunt aantekeningen toevoegen aan een specifieke regio die is gekoppeld aan uw Azure Cosmos-account als 'Master' door de regio bevinden als de eerste beschrijfbare regio. 
+
+De volgende tabel ziet u hoe de systeemeigen MongoDB schrijven/lezen problemen worden toegewezen aan de Azure Cosmos-consistentieniveaus bij het gebruik van Azure Cosmos DB-API voor MongoDB:
+
+[ ![Toewijzing van MongoDB consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

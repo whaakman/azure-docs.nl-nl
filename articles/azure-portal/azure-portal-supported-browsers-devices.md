@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888750"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576391"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Ondersteunde browsers en apparaten voor de Azure-portal
-U kunt uitvoeren de [Azure-portal](https://portal.azure.com) tablet op alle moderne bureaublad, apparaten en browsers.
+# <a name="supported-devices"></a>Ondersteunde apparaten
 
-### <a name="supported-devices"></a>Ondersteunde apparaten
-De Azure-portal moeiteloos op moderne pc's, Macs en tablets. Als u nodig hebt voor het beheren van uw Azure-resources vanaf een mobiel apparaat, probeert u de mobiele Apps van Azure die beschikbaar is op de iPhone en Android. Zie voor meer informatie, [mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+De [Azure-portal](https://portal.azure.com) en een webgebaseerde console wordt uitgevoerd in de browser van alle moderne pc's en tablet-apparaten. Als u nodig hebt voor het beheren van Azure-resources vanaf een mobiel apparaat, probeert de [mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Het is beschikbaar voor iOS en Android.
 
-### <a name="supported-browsers"></a>Ondersteunde browsers
+## <a name="recommended-browsers"></a>Aanbevolen browsers
+
 U wordt aangeraden dat u de meest recente browser die compatibel is met het besturingssysteem. De volgende browsers worden ondersteund:
 
 * Microsoft Edge (meest recente versie)
@@ -36,4 +35,3 @@ U wordt aangeraden dat u de meest recente browser die compatibel is met het best
 * Safari (meest recente versie, alleen Mac)
 * Chrome (meest recente versie)
 * Firefox (meest recente versie)
-

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900859"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579339"
 ---
 # <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
 
@@ -39,7 +39,7 @@ Berichten worden verzonden naar en ontvangen van *wachtrijen*. Wachtrijen maken 
 
 ![Wachtrij](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Berichten in wachtrijen worden bij ontvangst geordend en voorzien van een tijdstempel. Als een bericht is geaccepteerd, wordt het veilig ondergebracht in redundante opslag. Berichten worden afgeleverd in de  *pull*-modus, wat inhoudt dat berichten op aanvraag worden bezorgd.
+Messages in queues are ordered and timestamped on arrival. Als een bericht is geaccepteerd, wordt het veilig ondergebracht in redundante opslag. Berichten worden geleverd *pull* modus, die voorziet in een berichten op aanvraag.
 
 ## <a name="topics"></a>Onderwerpen
 

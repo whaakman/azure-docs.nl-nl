@@ -4,216 +4,187 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: tutorial
+ms.date: 03/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 286af8b927f488acaf2877e753f6e4689c4b000f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 164b0a92e8b4bb291f3576ba8ebcc0915838f834
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199456"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Zelfstudie: Azure Active Directory-integratie met QPrism
 
 In deze zelfstudie leert u hoe u QPrism integreren met Azure Active Directory (Azure AD).
-
 QPrism integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot QPrism heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld op QPrism (eenmalige aanmelding) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie kunt beheren: de Azure-portal.
+* U kunt beheren in Azure AD die toegang tot QPrism heeft.
+* U kunt uw gebruikers worden automatisch aangemeld QPrism (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met QPrism, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een QPrism eenmalige aanmelding ingeschakeld abonnement
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Eenmalige aanmelding QPrism ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. QPrism uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-qprism-from-the-gallery"></a>QPrism uit de galerie toevoegen
+* Biedt ondersteuning voor QPrism **SP** gestart door SSO
+
+## <a name="adding-qprism-from-the-gallery"></a>QPrism uit de galerie toe te voegen
+
 Voor het configureren van de integratie van QPrism in Azure AD, moet u QPrism uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**QPrism uit de galerie toevoegen:**
+**Als u wilt toevoegen QPrism uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de [Azure-portal](https://portal.azure.com), selecteert u in het linkerdeelvenster **Azure Active Directory**. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De blade Bedrijfstoepassingen][2]
-    
-1. Selecteer om een nieuwe toepassing toe aan de bovenkant van het dialoogvenster **nieuwe toepassing**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![De knop Nieuwe toepassing][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **QPrism**, en selecteer **QPrism** van deelvenster met resultaten. Klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![QPrism in de lijst met resultaten](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
+4. Typ in het zoekvak **QPrism**, selecteer **QPrism** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+     ![QPrism in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met QPrism, op basis van een testgebruiker met de naam "Britta Simon."
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met QPrism op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in QPrism tot stand worden gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD te weten wie de gebruiker equivalent in QPrism is aan een gebruiker in Azure AD. Met andere woorden, moet er een gekoppelde relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in QPrism.
+Om te configureren en testen van Azure AD eenmalige aanmelding met QPrism, moet u de volgende bouwstenen voltooien:
 
-Voor het maken van deze relatie in QPrism, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam**.
-
-Als u wilt configureren en Azure AD eenmalige aanmelding met QPrism testen, voert u de volgende bouwstenen:
-
-1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-1. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. [Maak een testgebruiker QPrism](#create-a-qprism-test-user) hebben een equivalent van Britta Simon in QPrism die gekoppeld is aan de Azure AD-weergave van de gebruiker.
-1. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Configureren van eenmalige aanmelding QPrism](#configure-qprism-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maken van de testgebruiker QPrism](#create-qprism-test-user)**  : als u wilt een equivalent van Britta Simon in QPrism die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie kunt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing QPrism.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **QPrism** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+Voor het configureren van Azure AD eenmalige aanmelding met QPrism, moet u de volgende stappen uitvoeren:
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+1. In de [Azure-portal](https://portal.azure.com/)op de **QPrism** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-1. Op de **eenmalige aanmelding** in het dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. In de **QPrism domein en URL's** sectie, doet u het volgende:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![QPrism domein en URL's, eenmalige aanmelding informatie](./media/qprism-tutorial/tutorial_qprism_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **aanmeldings-URL** tekstvak typt u een URL die gebruikmaakt van het volgende patroon: `https://<customer domain>.qmyzone.com/login`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. In de **id** tekstvak typt u een URL die gebruikmaakt van het volgende patroon: `https://<customer domain>.qmyzone.com/metadata.php`
-         
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id en aanmeldings-URL. Neem contact op met [QPrism Client ondersteuningsteam](mailto:qsupport-ce@quatrro.com) om deze waarden te verkrijgen. 
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-     ![De link om het certificaat te downloaden](./media/qprism-tutorial/tutorial_qprism_certificate.png)
+    ![QPrism domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-1. Selecteer **Opslaan**.
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<customer domain>.qmyzone.com/login`
 
-    ![Configureren van eenmalige aanmelding knop Opslaan](./media/qprism-tutorial/tutorial_general_400.png)
-    
-1. Het configureren van eenmalige aanmelding op **QPrism** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<customer domain>.qmyzone.com/metadata.php`
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [QPrism Client ondersteuningsteam](mailto:qsupport-ce@quatrro.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-   ![Een Azure AD-testgebruiker maken][100]
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-**Een testgebruiker maken in Azure AD:**
+### <a name="configure-qprism-single-sign-on"></a>QPrism voor eenmalige aanmelding configureren
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**.
+Het configureren van eenmalige aanmelding op **QPrism** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-    ![De knop Azure Active Directory](./media/qprism-tutorial/create_aaduser_01.png)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/qprism-tutorial/create_aaduser_02.png)
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. Om te openen de **gebruiker** in het dialoogvenster, aan de bovenkant van de **alle gebruikers** in het dialoogvenster, selecteer **toevoegen**.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![De knop toevoegen](./media/qprism-tutorial/create_aaduser_03.png)
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de **gebruiker** dialoogvenster de volgende handelingen uit:
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![Het dialoogvenster Gebruiker](./media/qprism-tutorial/create_aaduser_04.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
- 
-### <a name="create-a-qprism-test-user"></a>Maak een testgebruiker QPrism
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in QPrism. Werken met de [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com) gebruikers toevoegen in het QPrism-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan QPrism.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **QPrism**.
 
-**Britta Simon toewijzen aan QPrism:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. In de Azure-portal, opent u de weergave van toepassingen en navigeer vervolgens naar de directoryweergave. Ga naar **bedrijfstoepassingen**, en selecteer **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **QPrism**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling QPrism in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **QPrism**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling QPrism in de lijst met toepassingen](./media/qprism-tutorial/tutorial_qprism_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling Gebruikers en groepen][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Selecteer **Toevoegen**. Klik vervolgens onder **toevoegen toewijzing**, selecteer **gebruikers en groepen**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster Toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Op de **gebruikers en groepen** in het dialoogvenster, selecteer **Selecteer**.
+### <a name="create-qprism-test-user"></a>QPrism testgebruiker maken
 
-1. Onder **toevoegen toewijzing**, selecteer **toewijzen**.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in QPrism. Werken met [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com) om toe te voegen de gebruikers in het QPrism-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In het toegangsvenster, wanneer u de tegel QPrism selecteert moet u ophalen automatisch aangemeld voor uw toepassing QPrism.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+
+Wanneer u op de tegel QPrism in het toegangsvenster, moet u worden automatisch aangemeld bij de QPrism waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/qprism-tutorial/tutorial_general_01.png
-[2]: ./media/qprism-tutorial/tutorial_general_02.png
-[3]: ./media/qprism-tutorial/tutorial_general_03.png
-[4]: ./media/qprism-tutorial/tutorial_general_04.png
-
-[100]: ./media/qprism-tutorial/tutorial_general_100.png
-
-[200]: ./media/qprism-tutorial/tutorial_general_200.png
-[201]: ./media/qprism-tutorial/tutorial_general_201.png
-[202]: ./media/qprism-tutorial/tutorial_general_202.png
-[203]: ./media/qprism-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

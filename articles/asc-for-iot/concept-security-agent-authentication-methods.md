@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541810"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577797"
 ---
 # <a name="security-agent-authentication-methods"></a>Security agent verificatiemethoden 
 
@@ -41,10 +41,12 @@ De twee methoden voor de agent AzureIoTSecurity verificatie uitvoeren:
 
  - **Module** -verificatiemodus<br>
    De Module wordt geverifieerd onafhankelijk van het dubbele apparaat.
-   De informatie die nodig zijn voor dit type verificatie is gedefinieerd door het Authentication.config-bestand voor C# en de LocalConfiguration.json voor C.
+   Gebruik dit verificatietype als u de beveiligingsagent op een toegewezen verificatiemethode via security module (alleen symmetrische sleutel) te gebruiken.
         
  - **Apparaat** -verificatiemodus<br>
-    Bij deze methode is de beveiligingsagent eerst worden geverifieerd op basis van het apparaat. Na de initiële verificatie de ASC voor IoT-agent uitgevoerd **Rest** aanroepen naar de IoT-Hub met behulp van de Rest-API met de verificatiegegevens van het apparaat. De ASC voor IoT-agent vervolgens vraagt u de verificatiemethode voor netwerkbeveiliging module en de gegevens van de IoT-Hub. In de laatste stap voert de ASC voor IoT-agent een verificatie op basis van de ASC voor IoT-module.    
+    Bij deze methode is de security-agent eerst worden geverifieerd aan de apparaat-id. Na de initiële verificatie de ASC voor IoT-agent wordt uitgevoerd een **REST** aanroepen naar de IoT-Hub met behulp van de REST-API met de verificatiegegevens van het apparaat. De ASC voor IoT-agent vervolgens vraagt u de verificatiemethode voor netwerkbeveiliging module en de gegevens van de IoT-Hub. In de laatste stap voert de ASC voor IoT-agent een verificatie op basis van de ASC voor IoT-module.
+    
+    Gebruik dit verificatietype als u de beveiligingsagent als u een bestaande verificatiemethode voor het apparaat opnieuw wilt (zelfondertekend certificaat of de symmetrische sleutel). 
 
 Zie [Security agent installatieparameters](#security-agent-installation-parameters) voor meer informatie over het configureren van.
                                 
@@ -55,7 +57,7 @@ Zie [Security agent installatieparameters](#security-agent-installation-paramete
 
 ## <a name="security-agent-installation-parameters"></a>Installatieparameters Security-agent
 
-Wanneer [implementeren van een beveiligingsagent](select-deploy-agent.md), details van de verificatie moeten worden opgegeven als argumenten.
+Wanneer [implementeren van een beveiligingsagent](how-to-deploy-agent.md), details van de verificatie moeten worden opgegeven als argumenten.
 Deze argumenten worden beschreven in de volgende tabel.
 
 
@@ -111,5 +113,5 @@ Bewerken _LocalConfiguration.json_ met de volgende parameters:
 
 ## <a name="see-also"></a>Zie ook
 - [Beveiligingsoverzicht van agents](security-agent-architecture.md)
-- [Security-agent implementeren](select-deploy-agent.md)
+- [Security-agent implementeren](how-to-deploy-agent.md)
 - [Toegang tot onbewerkte security gegevens](how-to-security-data-access.md)

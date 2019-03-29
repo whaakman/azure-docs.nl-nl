@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361792"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577557"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -315,7 +315,9 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
    1. Op de **bibliotheken** tabblad **opnieuw**.
       
    Houd ook rekening met:
-   + Sommige pakketten, zoals `psutil`, kan leiden tot Databricks conflicten tijdens de installatie. Om te voorkomen dat dergelijke fouten,-pakketten installeren door blokkering lib versie, zoals `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + In de configuratie van de Automl, bij het gebruik van Azure Databricks Voeg de volgende parameters:
+    1. ```max_concurrent_iterations``` op basis van het aantal worker-knooppunten in uw cluster. 
+    2. ```spark_context=sc``` #databricks/spark standaard spark-context. 
    + Of als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
 
 Als de installatie is voltooid, worden de geïmporteerde bibliotheek moet eruitzien als een van de volgende:

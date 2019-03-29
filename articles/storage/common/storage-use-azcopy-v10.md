@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486016"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574974"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Gegevens overdragen met AzCopy v10 (Preview)
 
@@ -175,7 +175,7 @@ De synchronisatieopdracht synchroniseert inhoud van een bronmap naar een map in 
 
 > [!NOTE] 
 > Gebruik de `--delete-destination` markering op in de waarschuwing. Schakel de [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) functie voordat u synchroon om te voorkomen dat onbedoelde verwijderingen in uw account verwijderen dergelijk gedrag mogelijk maken. 
-
+>
 > Wanneer `--delete-destination` is ingesteld op true, AzCopy worden bestanden verwijderd die niet zijn opgenomen in de bron van de bestemming zonder een prompt van de gebruiker. Als u worden gevraagd om bevestiging wilt, gebruikt u `--delete-destination=prompt`.
 
 Als u wilt synchroniseren van uw lokale systeem naar een opslagaccount, gebruik de volgende opdracht:

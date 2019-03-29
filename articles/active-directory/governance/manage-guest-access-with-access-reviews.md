@@ -1,6 +1,6 @@
 ---
-title: Gasttoegang beheren met Azure AD-Toegangsbeoordelingen | Microsoft Docs
-description: Gastgebruikers beheren als leden van een groep of toegewezen aan een toepassing met Azure Active Directory-Toegangsbeoordelingen
+title: Toegang voor gasten met toegangsbeoordelingen - Azure Active Directory beheren | Microsoft Docs
+description: Gastgebruikers beheren als leden van een groep of toegewezen aan een toepassing met Azure Active Directory-toegangsbeoordelingen
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881041"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576493"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD-Toegangsbeoordelingen
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
 
 Met Azure Active Directory (Azure AD), kunt u eenvoudig inschakelen samenwerking over de grenzen van de organisatie met behulp van de [Azure AD B2B-functie](../b2b/what-is-b2b.md). Gastgebruikers van andere tenants kunnen worden [uitgenodigd door beheerders](../b2b/add-users-administrator.md) of door [andere gebruikers](../b2b/what-is-b2b.md). Deze mogelijkheid geldt ook voor sociale identiteiten, zoals Microsoft-accounts.

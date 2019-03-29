@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622022"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Peering voor een ExpressRoute-circuit maken en wijzigen
 
@@ -35,7 +35,7 @@ U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Micro
 
 * Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
 * U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld voor u te kunnen zijn voor het uitvoeren van de cmdlets in de volgende secties.
-* Als u van plan bent een gedeelde sleutel/MD5-hash wilt gebruiken, moet u dit aan beide zijden van de tunnel te gebruiken en het aantal tekens bevatten tot een maximum van 25.
+* Als u van plan bent een gedeelde sleutel/MD5-hash wilt gebruiken, moet u dit aan beide zijden van de tunnel te gebruiken en het aantal alfanumerieke tekens bevatten tot een maximum van 25. Speciale tekens worden niet ondersteund. 
 
 Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services met Laag-2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u. 
 

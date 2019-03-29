@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521700"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578880"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
-In dit artikel wordt uitgelegd hoe u back-up en herstellen van een Azure-VM in een [Azure Backup](backup-overview.md) Recovery Services-kluis met behulp van PowerShell-cmdlets. 
+In dit artikel wordt uitgelegd hoe u back-up en herstellen van een Azure-VM in een [Azure Backup](backup-overview.md) Recovery Services-kluis met behulp van PowerShell-cmdlets.
 
 In dit artikel leert u het volgende:
 
@@ -24,10 +24,7 @@ In dit artikel leert u het volgende:
 > * Maak een Recovery Services-kluis en de kluiscontext instellen.
 > * Een back-upbeleid definiëren
 > * Het back-upbeleid toepassen voor de beveiliging van meerdere virtuele machines
-> * Trigger een on-demand back-uptaak voor de beveiligde virtuele machines voordat u kunt een back-up (of Bescherm) een virtuele machine, moet u uitvoeren de [vereisten](backup-azure-arm-vms-prepare.md) om voor te bereiden uw omgeving voor het beveiligen van uw virtuele machines. 
-
-
-
+> * Trigger een on-demand back-uptaak voor de beveiligde virtuele machines voordat u kunt een back-up (of Bescherm) een virtuele machine, moet u uitvoeren de [vereisten](backup-azure-arm-vms-prepare.md) om voor te bereiden uw omgeving voor het beveiligen van uw virtuele machines.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -44,8 +41,6 @@ De objecthiërarchie worden samengevat in het volgende diagram.
 
 Controleer de **Az.RecoveryServices** [cmdlet-verwijzing](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) verwijzing in de Azure-bibliotheek.
 
-
-
 ## <a name="set-up-and-register"></a>Instellen en registreren
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Om te beginnen met:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     De aliassen en cmdlets voor back-up van Azure, Azure Site Recovery en de Recovery Services-kluis worden weergegeven. De volgende afbeelding is een voorbeeld van wat u ziet. Het is niet de volledige lijst met cmdlets.
 
@@ -147,6 +142,18 @@ Voordat u de beveiliging op een virtuele machine inschakelt, gebruikt u [Set AzR
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Storage-replicatie-instellingen wijzigen
+
+Gebruik [Set AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) -opdracht uit om de configuratie van de Storage-replicatie van de kluis naar LRS/GRS
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Opslagredundantie kan alleen worden gewijzigd als er geen back-up items naar de kluis wordt beveiligd zijn.
+
 ### <a name="create-a-protection-policy"></a>Een beveiligingsbeleid maken
 
 Als u een Recovery Services-kluis maakt, gaat deze gepaard met standaardbeleid voor beveiliging en retentie. Volgens het standaardbeveiligingsbeleid wordt elke dag op een bepaald tijdstip een back-uptaak getriggerd. Volgens het standaardbewaarbeleid wordt het dagelijkse herstelpunt gedurende dertig dagen bewaard. Het standaardbeleid kunt u snel uw VM te beveiligen en het beleid later met verschillende gegevens te bewerken.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Als u van de Azure Government-cloud gebruikmaakt, gebruikt u de ff281ffe-705c-4f53-9f37-a40e6f2c68f3 waarde voor de parameter ServicePrincipalName in [Set AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Een beveiligingsbeleid wijzigen
 
 Gebruiken voor het wijzigen van het beveiligingsbeleid, [Set AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) de SchedulePolicy of RetentionPolicy objecten te wijzigen.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Configuratie van de bewaartermijn van Instant restore-momentopname
+
+> [!NOTE]
+> Via Az PS versie 1.6.0 en hoger, kunt een de bewaarperiode voor direct herstel momentopname in met behulp van Powershell-beleid bijwerken
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+De standaardwaarde is 2, gebruiker de waarde met een minimum van 1 en maximaal 5 kan instellen. Voor wekelijkse back-up beleid, wordt de periode is ingesteld op 5 en kan niet worden gewijzigd.
 
 ## <a name="trigger-a-backup"></a>Een back-up activeren
 
@@ -672,7 +691,7 @@ $rp[0]
 
 De uitvoer lijkt op die in het volgende voorbeeld:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u liever PowerShell gebruiken om te communiceren met uw Azure-resources, Zie het artikel PowerShell [implementeren en beheren van back-up voor Windows Server](backup-client-automation.md). Als u DPM back-ups beheren, Zie het artikel [implementeren en beheren van Backup voor DPM](backup-dpm-automation.md). 
+Als u liever PowerShell gebruiken om te communiceren met uw Azure-resources, Zie het artikel PowerShell [implementeren en beheren van back-up voor Windows Server](backup-client-automation.md). Als u DPM back-ups beheren, Zie het artikel [implementeren en beheren van Backup voor DPM](backup-dpm-automation.md).

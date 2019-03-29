@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445752"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576927"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
 
@@ -72,8 +72,8 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
 | `grant_type` | Vereist | Het type token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Vereist | De toepassing (client)-ID die de [portal voor appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) of de nieuwe [portal voor App-registraties (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) is toegewezen aan uw app. |
-| `client_secret` | Vereist | De toepassing het clientgeheim dat u hebt gegenereerd voor uw app in de portal dat u gebruikt om uw app te registreren. |
+| `client_id` | Vereist | De toepassing (client)-ID die [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina is toegewezen aan uw app. |
+| `client_secret` | Vereist | Het clientgeheim die u hebt gegenereerd voor uw app in Azure portal - pagina voor App-registraties. |
 | `assertion` | Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
 | `scope` | Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Zie voor meer informatie, [scopes](v2-permissions-and-consent.md). |
 | `requested_token_use` | Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom OBO de waarde moet worden ingesteld op `on_behalf_of`. |
@@ -104,7 +104,7 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
 | `grant_type` | Vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Vereist | De toepassing (client)-ID die de [Toepassingsregistratie portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) of de nieuwe [portal voor App-registraties (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) is toegewezen aan uw app. |
+| `client_id` | Vereist |  De toepassing (client)-ID die [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina is toegewezen aan uw app. |
 | `client_assertion_type` | Vereist | De waarde moet `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Vereist | Een bewering (een JSON webtoken) die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Zie voor meer informatie over het registreren van uw certificaat en de indeling van de verklaring [referenties van het certificaat](active-directory-certificate-credentials.md). |
 | `assertion` | Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
@@ -205,7 +205,7 @@ Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoo
 
 #### <a name="pre-authorized-applications"></a>Vooraf gemachtigde toepassingen
 
-Een nieuwe functie van de preview-portal voor toepassing is 'vooraf gemachtigde toepassingen'. Op deze manier kan een resource geeft aan dat een bepaalde toepassing altijd gemachtigd is voor het ontvangen van bepaalde bereiken. Dit is vooral handig om verbindingen te maken tussen een front-end-client en een back-end-bron biedt een naadloze ervaring. Een resource kan meerdere vooraf gemachtigde toepassingen declareren - een dergelijke toepassing kan aanvragen deze machtigingen in een OBO flow en ontvangt zonder dat de gebruiker die toestemming verleent.
+Een functie van de portal van de toepassing is 'vooraf gemachtigde toepassingen'. Op deze manier kan een resource geeft aan dat een bepaalde toepassing altijd gemachtigd is voor het ontvangen van bepaalde bereiken. Dit is vooral handig om verbindingen te maken tussen een front-end-client en een back-end-bron biedt een naadloze ervaring. Een resource kan meerdere vooraf gemachtigde toepassingen declareren - een dergelijke toepassing kan aanvragen deze machtigingen in een OBO flow en ontvangt zonder dat de gebruiker die toestemming verleent.
 
 #### <a name="admin-consent"></a>toestemming van de beheerder
 

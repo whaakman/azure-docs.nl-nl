@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232427"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620696"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land-/ regiohiërarchie die wordt gebruikt door Azure Traffic Manager voor de geografische verkeersrouteringsmethode
 
@@ -85,7 +85,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - JE(Jersey)
 
-        - Li(Liechtenstein)
+        - LI(Liechtenstein)
 
         - LT(Lithuania)
 
@@ -128,6 +128,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
         - SM (San Marino)
 
         - UA(Ukraine)
+            - De regio van Krim
 
         - Evaluatie van beveiligingsproblemen (Vaticaanstad)
 
@@ -159,7 +160,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - QA(Qatar)
 
-        - Sy(Syria)
+        - SY(Syria)
 
         - SA (Saoedi-Arabië)
 
@@ -215,11 +216,11 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - CA-YT(Yukon Territory)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
-        - Cu(Cuba)
+        - CU(Cuba)
 
-        - Cw(CuraÃ§ao)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -239,11 +240,11 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - JM(Jamaica)
 
-        - KN (Saint Kitts en Nevis)
+        - KN(Saint Kitts and Nevis)
 
         - KY (Kaaimaneilanden)
 
-        - LC (Saint Lucia)
+        - LC(Saint Lucia)
 
         - MF (Sint-Maarten)
 
@@ -259,7 +260,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - UUR (Saint-Pierre en Miquelon)
 
-        - Pull-aanvraag (Puerto Rico)
+        - PR(Puerto Rico)
 
         - SV (El Salvador)
 
@@ -275,7 +276,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - US-AK(Alaska)
 
-            - US-al(Alabama)
+            - US-AL(Alabama)
 
             - US-ar(Arkansas)
 
@@ -289,11 +290,11 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - VS-DC(District of Columbia)
 
-            - US-de(Delaware)
+            - US-DE(Delaware)
 
             - US-fl(Florida)
 
-            - US-Ga(Georgia)
+            - US-GA(Georgia)
 
             - US-HI(Hawaii)
 
@@ -349,7 +350,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - US-OR(oregon)
 
-            - US-Pa(Pennsylvania)
+            - US-PA(Pennsylvania)
 
             - VS-RI(Rhode Island)
 
@@ -369,7 +370,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - US-WA(Washington)
 
-            - US-Wi(Wisconsin)
+            - US-WI(Wisconsin)
 
             - VS-WV(West Virginia)
 
@@ -403,11 +404,11 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - CN(China)
 
-        - Met CX (Christmaseiland)
+        - CX(Christmas Island)
 
         - GE(Georgia)
 
-        - HK (Hongkong SAR)
+        - HK(Hong Kong SAR)
 
         - ID(Indonesia)
 
@@ -421,7 +422,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - KH(Cambodia)
 
-        - KP (Noord-Korea)
+        - KP(North Korea)
 
         - KR(Korea)
 
@@ -433,7 +434,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - MM(Myanmar)
 
-        - Mn(Mongolia)
+        - MN(Mongolia)
 
         - MA (Macau SAR)
 
@@ -467,7 +468,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - AO(Angola)
 
-        - BF (Burkina Faso)
+        - BF(Burkina Faso)
 
         - BI(Burundi)
 
@@ -491,7 +492,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - DJ(Djibouti)
 
-        - Dz(Algeria)
+        - DZ(Algeria)
 
         - EG(Egypt)
 
@@ -499,7 +500,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - ET(Ethiopia)
 
-        - Ga(Gabon)
+        - GA(Gabon)
 
         - GH(Ghana)
 
@@ -507,7 +508,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - GN(Guinea)
 
-        - GQ (Equatoriaal-Guinea)
+        - GQ(Equatorial Guinea)
 
         - GW(Guinea_Bissau)
 
@@ -551,7 +552,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - SH (Sint-Helena, Ascension en Tristan da Cunha)
 
-        - SL (Sierra Leone)
+        - SL(Sierra Leone)
 
         - SN(Senegal)
 
@@ -603,7 +604,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - FK (Falklandeilanden)
 
-        - GF (Frans-Guyana)
+        - GF(French Guiana)
 
         - GS (Zuid-Georgië en de Zuidelijke Sandwicheilanden)
 
@@ -635,7 +636,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
             - AU-SA(South Australia)
 
-            - AU-tas(Tasmania)
+            - AU-TAS(Tasmania)
 
             - AU-VIC(Victoria)
 
@@ -647,7 +648,7 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - FM(Micronesia)
 
-        - Gu(Guam)
+        - GU(Guam)
 
         - HM (Heard- en McDonaldeilanden)
 

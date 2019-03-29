@@ -1,5 +1,5 @@
 ---
-title: Toegang verlenen aan andere beheerders voor het beheren van PIM - Azure | Microsoft Docs
+title: Toegang verlenen aan andere beheerders voor het beheren van Azure Active Directory voor PIM - | Microsoft Docs
 description: Leer hoe u toegang wilt verlenen aan andere beheerders uitgebreide mogelijkheden voor het beheren van Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d8cb77cda97c3141987fa8b0ea39541ace6db3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191731"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579611"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Toegang verlenen aan andere beheerders voor het beheren van PIM
 
-De hoofdbeheerder die Azure AD Privileged Identity Management (PIM) voor een organisatie automatisch kunnen ophalen roltoewijzingen en toegang tot PIM. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en Beveiligingslezers hebben alleen-lezen toegang tot PIM. Om toegang te verlenen tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
+De hoofdbeheerder die Azure Active Directory (Azure AD) Privileged Identity Management (PIM) voor een organisatie automatisch kunnen ophalen roltoewijzingen en toegang tot PIM. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en Beveiligingslezers hebben alleen-lezen toegang tot PIM. Om toegang te verlenen tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
 
 > [!NOTE]
 > PIM beheren, moet Azure MFA. Omdat Microsoft-accounts niet voor Azure MFA registreren kunnen, geen PIM toegang tot een gebruiker die zich met een Microsoft-account aanmeldt.
@@ -36,11 +36,11 @@ Zorg ervoor dat er altijd ten minste twee gebruikers in een rol beheerder met be
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **rollen**.
 
-    ![Rollen in PIM-Azure AD directory - rollen](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Rollen in PIM-Azure AD - rollen](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Klik op de **beheerder met bevoorrechte rol** rol om de ledenpagina te openen.
 
@@ -74,7 +74,7 @@ Voordat u iemand uit de rol beheerder met bevoorrechte rol verwijdert, zorg er a
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Klik op **Azure AD-maprollen**.
+1. Klik op **Azure AD-rollen**.
 
 1. Klik op **rollen**.
 

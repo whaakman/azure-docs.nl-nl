@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403694"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620084"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Zelfstudie: Voorbereidingen voor het implementeren van Azure Data Box-Gateway
 
@@ -101,8 +101,11 @@ Voor het maken van een resource in het gegevensgateway, moet u de volgende stapp
     |Resourcegroep  |Maak een nieuwe groep of selecteer een bestaande groep.<br>Meer informatie over [Azure-resourcegroepen](../azure-resource-manager/resource-group-overview.md).     |
 
 5. Typ of Selecteer de volgende **exemplaar details**.
-   | Naam | Een beschrijvende naam voor het identificeren van de resource.<br>De naam is tussen 2 en 50 tekens lang en kan letters, cijfers en afbreekstreepjes bevatten.<br> De naam begint en eindigt met een letter of cijfer.        |   
-    | Regio | Voor deze release zijn de VS-Oost, Zuidoost-Azië en West-Europa zijn beschikbaar voor het implementeren van uw resource. Voor de Azure Government, alle government-regio's die worden vermeld in de [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/) beschikbaar zijn. <br> Kies een locatie die het dichtst bij de geografische regio waar u uw apparaat te implementeren. |
+
+    |Instelling  |Waarde  |
+    |---------|---------|
+    |Name   | Een beschrijvende naam om de resource aan te duiden.<br>De naam is tussen 2 en 50 tekens lang en kan letters, cijfers en afbreekstreepjes bevatten.<br> De naam begint en eindigt met een letter of cijfer.        |   
+    |Regio     |Voor deze release zijn de VS-Oost, Zuidoost-Azië en West-Europa zijn beschikbaar voor het implementeren van uw resource. Voor de Azure Government, alle government-regio's die worden vermeld in de [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/) beschikbaar zijn. <br> Kies een locatie die het dichtst bij de geografische regio ligt waar u uw apparaat wilt implementeren.|
     
     ![Data Box Gateway-resource maken](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

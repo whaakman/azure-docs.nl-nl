@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003714"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578642"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -108,9 +108,7 @@ De detectie op basis van een agent is een optie die beschikbaar zijn op de detec
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Zou er prestatie-invloed op de geanalyseerde ESXi-host-omgeving?
 
-In het geval van de [benadering van de detectie één keer](https://docs.microsoft.com/azure/migrate/concepts-collector), de prestatiegegevens worden verzameld het statistiekniveau van de voor de vCenter-server zelf zou moeten zijn ingesteld op 3. Instellen op dit niveau verzamelen over een grote hoeveelheid gegevens die in de vCenter-Server-database zouden worden opgeslagen voor probleemoplossing verzameld. Het kan dus leiden tot prestatieproblemen op de vCenter-Server. Er is minimaal effect heeft op de ESXi-host.
-
-Geïntroduceerd continue profileren van prestatiegegevens (dat zich in preview). Met continue-profilering, is er niet langer een hoeft te wijzigen van de vCenter Server statistiekniveau een analyse op basis van prestaties uit te voeren. Het collector-apparaat wordt nu de on-premises computers om te meten van de prestatiegegevens van de virtuele machines profileren. Dit zou bijna nul prestatie-invloed hebben op de ESXi-hosts, maar ook op de vCenter-Server.
+Met continue profilering van prestatiegegevens, moet u er hoeft niet te wijzigen van de vCenter Server statistiekniveau om uit te voeren van een beoordeling op basis van prestaties is. Het collector-apparaat, wordt de on-premises computers om te meten van de prestatiegegevens van de virtuele machines profileren. Dit zou bijna nul prestatie-invloed hebben op de ESXi-hosts, maar ook op de vCenter-Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Waar worden de verzamelde gegevens opgeslagen en hoe lang?
 

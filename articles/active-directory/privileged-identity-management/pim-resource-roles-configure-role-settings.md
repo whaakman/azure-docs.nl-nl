@@ -1,5 +1,5 @@
 ---
-title: Azure-resource rolinstellingen in PIM configureren | Microsoft Docs
+title: Azure-resource rolinstellingen in PIM - Azure Active Directory configureren | Microsoft Docs
 description: Informatie over het configureren van instellingen voor de sitesysteemrol Azure-resource in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162132"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577149"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Azure-resource rolinstellingen in PIM configureren
 
-Wanneer u Azure-resource serverfunctie-instellingen configureert, definieert u de standaardinstellingen die worden toegepast op Azure-resource-roltoewijzingen in Azure AD Privileged Identity Management (PIM). Gebruik de volgende procedures voor het configureren van de werkstroom voor goedkeuring en opgeven wie kan goedkeuren of weigeren.
+Wanneer u Azure-resource serverfunctie-instellingen configureert, definieert u de standaardinstellingen die worden toegepast op Azure-resource-roltoewijzingen in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Gebruik de volgende procedures voor het configureren van de werkstroom voor goedkeuring en opgeven wie kan goedkeuren of weigeren.
 
 ## <a name="open-role-settings"></a>Rolinstellingen openen
 

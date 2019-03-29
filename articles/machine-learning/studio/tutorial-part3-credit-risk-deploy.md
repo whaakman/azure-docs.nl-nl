@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839014"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620506"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Zelfstudie 3: Een kredietrisicomodel implementeren - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Als de webservice wordt geopend, worden de gegevens van de gebruiker ingevoerd v
 De resultaten worden aan de gebruiker geretourneerd vanuit de webservice, via de module **Webservice-uitvoer**.
 
 > [!TIP]
-> Met de manier waarop het voorspellende experiment is geconfigureerd, worden de volledige resultaten van de module [Beoordelingsmodel][score-model] geretourneerd. Deze omvatten alle invoergegevens, plus de kredietrisicowaarde en de beoordelingswaarschijnlijkheid. U kunt echter ook iets anders retourneren als u wilt; u zou bijvoorbeeld alleen de kredietrisicowaarde kunnen retourneren. Hiervoor voegt u de module [Projectkolommen][project-columns] toe tussen [Beoordelingsmodel][score-model] en **Webservice-uitvoer**. De kolommen die u niet door de webservice wilt laten retourneren, worden dan verwijderd. 
+> Met de manier waarop het voorspellende experiment is geconfigureerd, worden de volledige resultaten van de module [Beoordelingsmodel][score-model] geretourneerd. Deze omvatten alle invoergegevens, plus de kredietrisicowaarde en de beoordelingswaarschijnlijkheid. U kunt echter ook iets anders retourneren als u wilt; u zou bijvoorbeeld alleen de kredietrisicowaarde kunnen retourneren. Om dit te doen, Voeg een [Select Columns] [ select-columns] module tussen [Score Model] [ score-model] en de **Web service uitvoer**te elimineren kolommen u niet wilt dat de webservice om terug te keren. 
 > 
 > 
 
@@ -267,4 +267,4 @@ U kunt ook een aangepaste toepassing ontwikkelen voor toegang tot de webservice.
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

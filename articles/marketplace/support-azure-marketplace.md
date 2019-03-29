@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727431"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620816"
 ---
 # <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
 Hier volgt een lijst met opties voor ondersteuning voor de Marketplace.  
@@ -28,7 +28,7 @@ Bovendien krijgt u veel van uw vragen beantwoord tijdens de [Marketplace-kanaal 
 
 ## <a name="onboarding"></a>Onboarding
 
-Open een ticket voor met Microsoft [marketplace publisher ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor alle problemen met onboarding en aan de slag.
+Open een ticket bij Microsoft [marketplace publisher ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor problemen met onboarding- en aan de slag, of met Microsoft [partner ondersteuning](https://partner.microsoft.com/support) als u vragen over Microsoft Partner Network hebt.
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner-portal  
 

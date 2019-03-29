@@ -1,5 +1,5 @@
 ---
-title: Een toegangscontrole voor Azure resource-rollen in PIM starten | Microsoft Docs
+title: Een toegangscontrole voor Azure resource-rollen in PIM - Azure Active Directory starten | Microsoft Docs
 description: Leer hoe u een toegangscontrole voor Azure-resourcerollen starten in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173433"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579492"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Een toegangscontrole voor Azure resource-rollen in PIM starten
-Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Beheerders met bevoegdheid om het risico dat is gekoppeld aan deze verouderde roltoewijzingen, moeten regelmatig rollen controleren. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Privileged Identity Management (PIM) voor Azure-resources.
+Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Beheerders met bevoegdheid om het risico dat is gekoppeld aan deze verouderde roltoewijzingen, moeten regelmatig rollen controleren. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 Op de toepassing hoofdpagina van PIM, gaat u naar:
 
@@ -76,4 +76,4 @@ Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de geb
 
 - [Een toegangscontrole voor Azure-resource-rollen in PIM voltooien](pim-resource-roles-complete-access-review.md)
 - [Perform an access review of my Azure AD resource roles in PIM](pim-resource-roles-perform-access-review.md) (Een toegangsbeoordeling uitvoeren van mijn Azure AD-resourcerollen in PIM)
-- [Een toegangscontrole voor Azure AD directory-rollen in PIM starten](pim-how-to-start-security-review.md)
+- [Een toegangscontrole voor Azure AD-rollen in PIM starten](pim-how-to-start-security-review.md)

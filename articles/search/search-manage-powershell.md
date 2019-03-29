@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520561"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620594"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520561"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) maken en configureren [Azure Search](https://docs.microsoft.com/azure/search/). De [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) module is een uitbreiding [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) met volledige pariteit de [Azure Search Management REST API's](https://docs.microsoft.com/rest/api/searchmanagement). Met Azure PowerShell en **Az.Search**, kunt u de volgende taken uitvoeren:
+U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) maken en configureren van Azure Search. De **Az.Search** module breidt Azure PowerShell] met volledige pariteit de [Azure Search Management REST API's](https://docs.microsoft.com/rest/api/searchmanagement). Met Azure PowerShell en **Az.Search**, kunt u de volgende taken uitvoeren:
 
 > [!div class="checklist"]
 > * [Overzicht van de search-services in uw abonnement](#list-search-services)
 > * [Informatie ophalen over een specifieke search-service](#get-search-service-information)
 > * [Maken of verwijderen van een service](#create-or-delete-a-service)
-> * Admin API-sleutels opnieuw genereren
+> * [Admin API-sleutels opnieuw genereren](#regenerate-admin-keys)
 > * [Maken of verwijderen van de query api-sleutels](#create-or-delete-query-keys)
 > * [Een service schaalt door vergroten of verkleinen van replica's en partities](#scale-replicas-and-partitions)
 
-PowerShell kan niet worden gebruikt om de naam, regio of laag van uw service te wijzigen. Toegewezen resources worden toegewezen als een service wordt gemaakt. Wijzigen van de onderliggende hardware (type locatie of het knooppunt), moet een nieuwe service. Er zijn geen hulpprogramma's of API's voor het overbrengen van inhoud. Alle inhoudsbeheer is via [REST](https://docs.microsoft.com/rest/api/searchservice/) of [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API's, en als u verplaatsen van indexen wilt, moet u opnieuw maken en deze op een nieuwe service opnieuw te laden. 
+PowerShell kan niet worden gebruikt om de naam, regio of laag van uw service te wijzigen. Toegewezen resources worden toegewezen als een service wordt gemaakt. Wijzigen van de onderliggende hardware (type locatie of het knooppunt), moet een nieuwe service. Er zijn geen hulpprogramma's of API's voor het overbrengen van inhoud van de ene service naar een andere. Alle inhoudsbeheer is via [REST](https://docs.microsoft.com/rest/api/searchservice/) of [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API's, en als u verplaatsen van indexen wilt, moet u opnieuw maken en deze op een nieuwe service opnieuw te laden. 
 
 Er zijn geen speciale PowerShell-opdrachten voor het beheer van inhoud, kunt u PowerShell-script dat aanroepen van REST- of .NET voor het maken en indexen laden kunt schrijven. De **Az.Search** module zelf zorgt niet voor deze bewerkingen.
 
