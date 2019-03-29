@@ -39,10 +39,10 @@ Om Hyperledger Fabric in Azure in te schakelen, zijn er twee primaire implementa
 
 In beide implementaties zijn de bouwstenen die de kern vormen van Hyperledger Fabric hetzelfde.  De verschillen in de implementaties zijn hoe deze componenten worden geschaald.
 
-- **CA-knooppunten**: Een knooppunt met de certificeringsinstantie die wordt gebruikt voor het genereren van certificaten die worden gebruikt voor identiteiten in het netwerk.
-- **Besteller knooppunten**: Een knooppunt waarop de implementatie van een garantie levering, zoals totale volgorde broadcast of atomic-transacties communicatieservice wordt uitgevoerd.
-- **Knooppunten op hetzelfde niveau**: Een knooppunt dat transacties doorgevoerd en onderhoudt de status en een kopie van het gedistribueerde grootboek.
-- **CouchDB knooppunten**: Een knooppunt dat de CouchDB-service die kunt houdt de status-database en bieden uitgebreide query chaincode gegevens, van eenvoudige sleutel/waarde uit te breiden naar JSON type opslag kan worden uitgevoerd.
+- **CA-knooppunten**: Een knooppunt met certificeringsinstantie dat wordt gebruikt om certificaten te genereren die worden gebruikt voor identiteiten in het netwerk.
+- **Bestellerknooppunten**: Een knooppunt waarop de communicatiedienst wordt uitgevoerd die een leveringsgarantie implementeert, zoals een total order broadcast of atomaire transacties.
+- **Peerknooppunten**: Een knooppunt dat transacties uitvoert en de staat en een kopie van het gedistribueerde grootboek onderhoudt.
+- **CouchDB-knooppunten**: Een knooppunt dat de CouchDB-service kan uitvoeren die de statusdatabase kan bevatten en een uitgebreide opzoekmogelijkheden van chaincode-gegevens kan bieden, van eenvoudige sleutel/waarde tot JSON-type opslag.
 
 ### <a name="single-virtual-machine-architecture"></a>Architectuur van één virtuele machine
 
@@ -68,7 +68,7 @@ Zodra u een abonnement hebt, gaat u naar de [Azure-portal](https://portal.azure.
 
 In de **Hyperledger Fabric Consortium** sjabloon, selecteer **maken**.
 
-De sjabloonimplementatie begeleidt u bij het configureren van meerdere knooppunten [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) netwerk. De stroom van de implementatie is onderverdeeld in vier stappen: Basisbeginselen, Consortium netwerkinstellingen, configuratie van de Infrastructuurresources en optionele onderdelen.
+De sjabloonimplementatie begeleidt u bij het configureren van het [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/)-netwerk met meerdere knooppunten. De implementatiestroom is onderverdeeld in vier stappen: Basics, Consortium netwerkinstellingen, Fabric-configuratie en Optionele componenten.
 
 ### <a name="basics"></a>Basisbeginselen
 
@@ -78,7 +78,7 @@ In **basisbeginselen**, waarden opgeven voor standard parameters voor elke imple
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Voorvoegsel van de resource** | Het voorvoegsel voor resources die worden ingericht als onderdeel van de implementatie |6 tekens of minder |
+**Resource prefix** | Naamvoorvoegsel voor resources die zijn ingericht als onderdeel van de implementatie |6 tekens of minder |
 **Gebruikersnaam** | De gebruikersnaam van de beheerder voor elk van de virtuele machines die zijn geïmplementeerd voor dit lid |1 - 64 tekens |
 **Verificatietype** | De methode voor verificatie bij de virtuele machine |Wachtwoord of SSH de openbare sleutel|
 **Wachtwoord (verificatietype = wachtwoord)** |Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet drie van de tekentypen van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken<br /><br />Hoewel alle virtuele machines in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord wijzigen na het inrichten|12 - 72 tekens|
