@@ -16,7 +16,7 @@ ms.lasthandoff: 03/19/2019
 ms.locfileid: "58092205"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Dynamische voorraden in Azure beheren met Ansible
-Ansible kan worden gebruikt om voorraadinformatie uit verschillende bronnen (met inbegrip van cloudbronnen zoals Azure) in een *dynamische voorraad* op te halen. In dit artikel gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) om een dynamische virtuele machine voor Ansible Azure te configureren waarin u twee virtuele machines maakt, één van deze virtuele machines tagt en Nginx op de getagde virtuele machine installeert.
+Ansible kan worden gebruikt om voorraadinformatie uit verschillende bronnen ((waaronder cloudbronnen zoals Azure) in een *dynamische voorraad* op te halen. In dit artikel gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) om een dynamische virtuele machine voor Ansible Azure te configureren waarin u twee virtuele machines maakt, één van deze virtuele machines tagt en Nginx op de getagde virtuele machine installeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,22 +60,22 @@ Ansible kan worden gebruikt om voorraadinformatie uit verschillende bronnen (met
 ## <a name="tag-a-virtual-machine"></a>Een virtuele machine taggen
 U kunt [tags gebruiken om uw Azure-resources te organiseren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) met behulp van door de gebruiker gedefinieerde categorieën. 
 
-Voer de volgende [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag)-opdracht in om de virtuele machine `ansible-inventory-test-vm1` met de sleutel `nginx` te taggen:
+Voer de volgende opdracht [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) in om de virtuele machine `ansible-inventory-test-vm1` met de sleutel `nginx` te taggen:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Een dynamische voorraad genereren
-Zodra u uw virtuele machines hebt gedefinieerd (en getagd), is het tijd om de dynamische voorraad te genereren. Ansible biedt een Python-script met de naam [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) die een dynamische voorraad van uw Azure-resources genereert door API-aanvragen naar de Azure Resource Manager te verzenden. In de volgende stappen wordt het gebruik van het `azure_rm.py`-script om verbinding te maken met de twee virtuele testmachines van Azure behandeld:
+Zodra u uw virtuele machines hebt gedefinieerd (en getagd), is het tijd om de dynamische voorraad te genereren. Ansible bevat een Python-script met de naam [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) dat een dynamische voorraad van uw Azure-resources genereert door API-aanvragen naar de Azure Resource Manager te verzenden. In de volgende stappen wordt uitgelegd hoe u het script `azure_rm.py` gebruikt om verbinding te maken met de twee virtuele testmachines van Azure:
 
-1. Gebruik de GNU `wget`-opdracht om het `azure_rm.py`-script op te halen:
+1. Gebruik de GNU-opdracht `wget` om het script `azure_rm.py` op te halen:
 
     ```azurecli-interactive
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
     ```
 
-1. Gebruik de `chmod`-opdracht om de machtigingen voor toegang tot het `azure_rm.py`-script te wijzigen. De volgende opdracht maakt gebruik van de parameter `+x` om uitvoering van het opgegeven bestand (`azure_rm.py`) toe te staan:
+1. Gebruik de opdracht `chmod` om de machtigingen voor toegang tot het script `azure_rm.py` te wijzigen. De volgende opdracht maakt gebruik van de parameter `+x` om uitvoering van het opgegeven bestand (`azure_rm.py`) toe te staan:
 
     ```azurecli-interactive
     chmod +x azure_rm.py
@@ -126,7 +126,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>Nginx instellen op de getagde virtuele machine
-Het doel van tags is om de mogelijkheid in te schakelen snel en eenvoudig met subgroepen van uw virtuele machines te werken. Stel dat u Nginx bijvoorbeeld wilt installeren op virtuele machines waarop u een tag van `nginx` hebt toegewezen. De volgende stappen laten zien hoe gemakkelijk u dit kunt doen:
+Het doel van tags is om de mogelijkheid in te schakelen snel en eenvoudig met subgroepen van uw virtuele machines te werken. Stel dat u Nginx bijvoorbeeld wilt installeren op virtuele machines waarop u een tag van `nginx` hebt toegewezen. In de volgende stappen ziet u hoe u dit gemakkelijk kunt doen:
 
 1. Maak als volgt een bestand (om uw playbook te bevatten) met de naam `nginx.yml`:
 
@@ -134,7 +134,7 @@ Het doel van tags is om de mogelijkheid in te schakelen snel en eenvoudig met su
    vi nginx.yml
    ```
 
-1. Voeg de volgende code in het zojuist gemaakte `nginx.yml`-bestand in:
+1. Voeg de volgende code in het zojuist gemaakte bestand `nginx.yml` in:
 
     ```yml
     ---
@@ -152,7 +152,7 @@ Het doel van tags is om de mogelijkheid in te schakelen snel en eenvoudig met su
       service: name=nginx state=started
     ```
 
-1. Voer het `nginx.yml`-playbook uit:
+1. Voer het playbook `nginx.yml` uit:
 
     ```azurecli-interactive
     ansible-playbook -i azure_rm.py nginx.yml
@@ -205,7 +205,7 @@ In deze sectie wordt één techniek geïllustreerd om te testen of Nginx op uw v
 
 1. Druk op de toetscombinatie  **&lt;Ctrl > D** om de SSH-sessie te verbreken.
 
-1. Het uitvoeren van de voorgaande stappen voor de virtuele machine `ansible-inventory-test-vm2` geeft u een informatief bericht waarmee wordt aangegeven waar u Nginx kunt ophalen (dit betekent dat u dit nog niet hebt geïnstalleerd op dit moment):
+1. Als u de voorgaande stappen voor de virtuele machine `ansible-inventory-test-vm2` uitvoert, verschijnt er een informatief bericht waarin wordt aangegeven waar u Nginx kunt ophalen (dit betekent dat u Nginx momenteel nog niet hebt geïnstalleerd):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v

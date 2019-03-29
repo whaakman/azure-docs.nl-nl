@@ -79,13 +79,13 @@ In **basisbeginselen**, waarden opgeven voor standard parameters voor elke imple
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
 **Resource prefix** | Naamvoorvoegsel voor resources die zijn ingericht als onderdeel van de implementatie |6 tekens of minder |
-**Gebruikersnaam** | De gebruikersnaam van de beheerder voor elk van de virtuele machines die zijn geïmplementeerd voor dit lid |1 - 64 tekens |
-**Verificatietype** | De methode voor verificatie bij de virtuele machine |Wachtwoord of SSH de openbare sleutel|
-**Wachtwoord (verificatietype = wachtwoord)** |Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd. Het wachtwoord moet drie van de tekentypen van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken<br /><br />Hoewel alle virtuele machines in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord wijzigen na het inrichten|12 - 72 tekens|
-**SSH-sleutel (verificatietype = openbare SSH-sleutel)** |De veilige shell-sleutel die wordt gebruikt voor externe aanmelding ||
+**Gebruikersnaam** | De gebruikersnaam van de beheerder voor elk van de virtuele machines die voor dit lid zijn geïmplementeerd |1 - 64 tekens |
+**Verificatietype** | De verificatiemethode voor de virtuele machine |Wachtwoord of openbare SSH-sleutel|
+**Wachtwoord (verificatietype = wachtwoord)** |Het wachtwoord voor het beheerdersaccount voor elk van de geïmplementeerde virtuele machines. Het wachtwoord moet drie van de volgende tekens bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken<br /><br />Hoewel alle VM's in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord na de inrichting wijzigen|12 - 72 tekens|
+**SSH-sleutel (verificatietype = openbare SSH-sleutel)** |De beveiligde shell-sleutel die wordt gebruikt voor extern aanmelden ||
 **Abonnement** |Het abonnement waarnaar u wilt implementeren ||
-**Resourcegroep** |De resourcegroep waaraan de consortium network implementeren ||
-**Locatie** |De Azure-regio waarnaar u wilt het eerste lid in implementeren ||
+**Resourcegroep** |De resourcegroep waarin het consortiumnetwerk moet worden geïmplementeerd ||
+**Locatie** |De Azure-regio waarin het eerste lid moet worden geïmplementeerd ||
 
 Selecteer **OK**.
 
@@ -97,10 +97,10 @@ Geef in **Netwerkinstellingen** waarden op voor het maken of lid worden van een 
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Netwerkconfiguratie** |U kunt een nieuw netwerk maken of lid van een bestaande resourcegroep. Als u ervoor kiest *deelnemen aan bestaande*, moet u extra waarden op te geven. |Nieuw netwerk <br/> Bestaande koppelen |
-**Wachtwoord HLF CA** |Een wachtwoord gebruikt voor de certificaten die worden gegenereerd door de certificeringsinstanties die worden gemaakt als onderdeel van de implementatie. Het wachtwoord moet drie van de tekentypen van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.<br /><br />Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|1 - 25 tekens |
-**Organisatie-instellingen** |U kunt de naam en het certificaat van uw organisatie aanpassen of standaardwaarden moet worden gebruikt.|Standaard <br/> Geavanceerd |
-**Instellingen voor VPN-netwerken** | Een VPN-tunnel-gateway voor toegang tot de virtuele machines inrichten | Ja <br/> Nee |
+**Netwerkconfiguratie** |U kunt ervoor kiezen om een nieuw netwerk te maken of lid te worden van een bestaand netwerk. Als u kiest voor *deelnemen aan bestaande*, moet u aanvullende waarden op te geven. |Nieuw netwerk <br/> Bestaande koppelen |
+**Wachtwoord HLF CA** |Een wachtwoord dat wordt gebruikt voor de certificaten die worden gegenereerd door de certificaatautoriteiten en die worden gemaakt als onderdeel van de implementatie. Het wachtwoord moet drie van de volgende tekens bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.<br /><br />Hoewel alle virtuele machines in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord na de inrichting wijzigen.|1 - 25 tekens |
+**Organisatie-instellingen** |U kunt de naam en het certificaat van uw organisatie aanpassen of standaardwaarden gebruiken.|Standaard <br/> Geavanceerd |
+**Instellingen voor VPN-netwerken** | Stel een VPN-tunnelgateway beschikbaar voor toegang tot de VM's | Ja <br/> Nee |
 
 Selecteer **OK**.
 
@@ -112,8 +112,8 @@ In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en ge
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Schaaltype** |Het implementatietype van een enkele virtuele machine met meerdere containers of meerdere virtuele machines in een scale-out-model.|Één virtuele machine of meerdere VM 's |
-**VM-schijftype** |Het type opslag back-ups maken van de geïmplementeerde knooppunten. <br/> Voor meer informatie over de typen beschikbare schijfruimte, gaat u naar [Selecteer een schijftype](../../virtual-machines/windows/disks-types.md).|Standard - SSD <br/> Premium SSD |
+**Schaaltype** |Het implementatietype van een enkele virtuele machine met meerdere containers of meerdere virtuele machines in een schaalmodel.|Één virtuele machine of meerdere VM 's |
+**VM-schijftype** |Het type opslag dat elk van de geïmplementeerde knooppunten ondersteunt. <br/> Voor meer informatie over de typen beschikbare schijfruimte, gaat u naar [Selecteer een schijftype](../../virtual-machines/windows/disks-types.md).|Standard - SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Meerdere VM-implementatie (extra instellingen)
 
@@ -121,10 +121,10 @@ In **Fabric-configuratie** configureert u de netwerkgrootte en -prestaties en ge
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
-**Aantal besteller knooppunten** |Het aantal knooppunten dat bestellen (organiseren) transacties in een blok. <br />Voor meer informatie over de volgorde-service, gaat u naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1-4 |
-**De grootte van de virtuele machine knooppunt besteller** |De grootte van de virtuele machine die wordt gebruikt voor besteller knooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
-**Aantal knooppunten van peer** | Knooppunten die eigendom zijn van consortium-leden die transacties uitvoeren en onderhouden van de status en een kopie van het grootboek.<br />Voor meer informatie over de volgorde-service, gaat u naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
-**Knooppunt persistentie ingeschakeld** |De persistentie engine wordt gebruikt door de peer-knooppunten. U kunt deze engine per knooppunt op hetzelfde niveau configureren. Zie de details hieronder voor meerdere peer-knooppunten.|CouchDB <br />LevelDB |
+**Aantal orderknooppunten** |Het aantal knooppunten dat transacties in een blok ordent (organiseert). <br />Raadpleeg de Hyperledger-[documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) voor meer informatie over de bestellerservice. |1-4 |
+**De grootte van de virtuele machine voor het orderknooppunt** |De grootte van de virtuele machine die wordt gebruikt voor orderknooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
+**Aantal peerknoooppunten** | Knooppunten die het eigendom zijn van consortiumleden die transacties uitvoeren en de status en een kopie van het grootboek bijhouden.<br />Raadpleeg de Hyperledger-[documentatie](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) voor meer informatie over de bestellerservice.|1-4 |
+**Persistentie van knooppuntstatus** |De persistentie-engine die wordt gebruikt door de peerknooppunten. U kunt deze engine per peerknooppunt configureren. Bekijk de details hieronder voor meerdere peerknooppunten.|CouchDB <br />LevelDB |
 **De grootte van de virtuele machine knooppunt peer** |De grootte van de virtuele machine die wordt gebruikt voor alle knooppunten in het netwerk|Standard Bs<br />Standard Ds<br />Standard FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Configuratie met meerdere peer-knooppunten
