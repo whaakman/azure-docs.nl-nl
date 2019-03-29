@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500182"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577243"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -300,10 +300,10 @@ Een rol maken met toegang tot enige _SecurityBaseline_ en geen andere tabellen, 
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 

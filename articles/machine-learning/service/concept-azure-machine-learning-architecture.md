@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361095"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577319"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -46,11 +46,13 @@ De werkruimte houdt een lijst met compute-doelen die u gebruiken kunt voor uw mo
 
 U registreren modellen bij de werkruimte. U een geregistreerde model en scoring-scripts gebruiken om een installatiekopie te maken. Vervolgens kunt u de installatiekopie naar Azure Container Instances, Azure Kubernetes Service, of naar een veld-programmable gate array (FPGA) implementeren als een HTTP op basis van REST-eindpunt. U kunt ook de installatiekopie naar een Azure IoT Edge-apparaat implementeren als een module.
 
-U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door meerdere personen. Wanneer u een werkruimte deelt, kunt u toegang tot deze kunt beheren door de volgende rollen toewijzen aan gebruikers:
+U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door meerdere personen. Wanneer u een werkruimte deelt, kunt u toegang tot deze kunt beheren door het toewijzen van gebruikers aan de volgende rollen:
 
 * Eigenaar
 * Inzender
 * Lezer
+
+Zie voor meer informatie over deze rollen, de [toegang tot een Azure Machine Learning-werkruimte beheren](how-to-assign-roles.md) artikel.
 
 Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-resources die worden gebruikt door de werkruimte gemaakt:
 

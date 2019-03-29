@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a6d356bcf65cdb59e84b34cf2a7478de796e61a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473164"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619508"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de REST-API voor Afwijkingsdetectie Detector en Java
 
@@ -91,7 +91,7 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 
 2. Maak een `CloseableHttpClient` -object dat aanvragen naar de API verzenden. Verzenden van de aanvraag voor een `HttpPost` request-object door een combinatie van uw eindpunt en een URL van de detectie van afwijkingen.
 
-3. Gebruik van de aanvraag `setHeader()` functie om in te stellen de `Content-Type` koptekst naar `application/json`, en uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header.
+3. Gebruik van de aanvraag `setHeader()` functie om in te stellen de `Content-Type` koptekst `application/json`, en uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header.
 
 4. Gebruik van de aanvraag `setEntity()` functie waarmee u kunt de gegevens worden verzonden.   
 

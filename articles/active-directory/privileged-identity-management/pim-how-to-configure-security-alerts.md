@@ -1,6 +1,6 @@
 ---
-title: Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren | Microsoft Docs
-description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure AD directory-rollen in Azure AD Privileged Identity Management (PIM).
+title: Beveiligingswaarschuwingen voor Azure AD-rollen in PIM - Azure Active Directory configureren | Microsoft Docs
+description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure AD-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cb78d048559a011756362b58848c5e91ca40dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172379"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577226"
 ---
-# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD-rollen in PIM configureren
 
-Azure AD Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de PIM-dashboard. Selecteer de waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing is geactiveerd.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de PIM-dashboard. Selecteer de waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing is geactiveerd.
 
 ![Beveiligingswaarschuwingen in PIM - schermopname](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
 
-In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor directory-rollen, samen met het oplossen van en hoe u kunt voorkomen. Ernst heeft de volgende betekenis:
+In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD-rollen, samen met het oplossen van en hoe u kunt voorkomen. Ernst heeft de volgende betekenis:
 
 * **Hoge**: Onmiddellijke actie vereist vanwege een schending van het beleid.
 * **Gemiddeld**: Geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
@@ -130,4 +130,4 @@ U kunt enkele van de beveiligingswaarschuwingen in PIM om te werken met uw omgev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Azure AD-rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)

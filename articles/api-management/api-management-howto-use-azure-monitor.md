@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517943"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622192"
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -77,21 +77,28 @@ U kunt instellen dat u waarschuwingen ontvangt op basis van metrische gegevens e
 
 Waarschuwingen configureren:
 
-1. Selecteer **Waarschuwingen (klassiek)** in de menubalk onder aan de pagina.
+1. Selecteer **waarschuwingen** in de menubalk aan de onderkant van de pagina.
 
-    ![waarschuwingen](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![waarschuwingen](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Selecteer **Waarschuwing voor metrische gegevens toevoegen**.
-3. Voer een **Naam** voor deze waarschuwing in.
-4. Selecteer **Niet-gemachtigde gateway-aanvragen** als het te controleren metrische gegeven.
-5. Selecteer **E-maileigenaren, bijdragers en lezers**.
-6. Druk op **OK**.
-7. Probeer de conferentie-API aan te roepen zonder API-sleutel. Als eigenaar van deze API Management-service ontvangt u een e-mailmelding. 
+2. Klik op een **nieuwe waarschuwingsregel** voor deze waarschuwing.
+3. Klik op **voorwaarde toevoegen**.
+4. Selecteer **metrische gegevens** vervolgkeuzelijst in het signaal-type.
+5. Selecteer **niet-gemachtigde Gateway-aanvragen** als het signaal om te controleren.
 
-    > [!TIP]
-    > De waarschuwingsregel kan bij activering tevens een webhook of een logische Azure-app aanroepen.
+    ![waarschuwingen](./media/api-management-azure-monitor/signal-type.png)
 
-    ![waarschuwing-instellingen](./media/api-management-azure-monitor/set-up-alert.png)
+6. In de **signaallogica configureren** weergeven, geeft u een drempelwaarde, waarna de waarschuwing moet worden geactiveerd en op **gedaan**.
+
+    ![waarschuwingen](./media/api-management-azure-monitor/threshold.png)
+
+7. Selecteer een bestaande actiegroep of een nieuwe maken. In het onderstaande voorbeeld wordt een e-mailbericht worden verzonden naar de beheerders. 
+
+    ![waarschuwingen](./media/api-management-azure-monitor/action-details.png)
+
+8. Geef een naam en beschrijving van de waarschuwingsregel en kiest u de ernst op. 
+9. Druk op **waarschuwingsregel maken**.
+10. Probeer nu de Conferentie-API zonder API-sleutel aan te roepen. De waarschuwing wordt geactiveerd een e-mailberichten worden verzonden naar de beheerders. 
 
 ## <a name="activity-logs"></a>Activiteitenlogboeken
 
@@ -184,7 +191,7 @@ API Management biedt momenteel diagnostische logboeken (ingedeeld in batches per
 | correlationId | string | Unieke HTTP-aanvraag-ID die is toegewezen door API Management |
 | location | string | Naam van de Azure-regio waar de gateway die de aanvraag heeft verwerkt zicht bevond |
 | httpStatusCodeCategory | string | Categorie van HTTP-antwoordstatuscode: Geslaagd (301 of minder of 304 of 307), niet geautoriseerd (401, 403, 429), fout (400, tussen 500 en 600), anders |
-| resourceId | string | Id van de API Management-resource /SUBSCRIPTIONS/\<abonnement > /RESOURCEGROUPS/\<resource-group >/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<naam > |
+| resourceId | string | ID van de API Management-resource /SUBSCRIPTIONS/\<abonnement > /RESOURCEGROUPS/\<resource-group >/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<naam > |
 | properties | object | Eigenschappen van de huidige aanvraag |
 | method | string | HTTP-methode van de inkomende aanvraag |
 | url | string | URL van de binnenkomende aanvraag |
