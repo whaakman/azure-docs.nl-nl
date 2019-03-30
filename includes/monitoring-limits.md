@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 4360196a33381d1a9c8316430339b9a80cb0dba3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4700573d3f5319599a6437d092e20d8013d2f7fb
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58016476"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633010"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -33,4 +33,4 @@ ms.locfileid: "58016476"
 | Runbook | 10 runbook-acties in een actiegroep. | Contact opnemen met ondersteuning. |
 | Sms | 10 SMS-acties in een actiegroep. Zie ook de [snelheidsbeperking informatie](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contact opnemen met ondersteuning. |
 | Spraak | 10, gesproken acties in een actiegroep. Zie ook de [snelheidsbeperking informatie](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contact opnemen met ondersteuning. |
-| Webhook | 10 webhookacties in een actiegroep. Andere limieten zijn beschikbaar op [actie-specifieke informatie](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contact opnemen met ondersteuning. |
+| Webhook | 10 webhookacties in een actiegroep.  Maximum aantal webhookaanroepen is 1500 per minuut per abonnement. Andere limieten zijn beschikbaar op [actie-specifieke informatie](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contact opnemen met ondersteuning. |

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445820"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651505"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -38,7 +38,7 @@ De **ClaimsTransformation** element bevat de volgende kenmerken:
 | Kenmerk |Vereist | Description |
 | --------- |-------- | ----------- |
 | Id |Ja | Een id die wordt gebruikt voor het aanduiden van de claimtransformatie. De id wordt naar verwezen vanuit andere XML-elementen in het beleid. |
-| TransformationMethod | Ja | De transformatie te gebruiken in de claimtransformatie-methode. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
+| TransformationMethod | Ja | De transformatie te gebruiken in de claimtransformatie-methode. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -80,7 +80,7 @@ De **InputClaim** element bevat de volgende kenmerken:
 | Kenmerk |Vereist | Description |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Ja | Een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid. |
-| TransformationClaimType |Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
+| TransformationClaimType |Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -95,7 +95,7 @@ De **invoerparameters** element bevat het volgende element:
 | Kenmerk | Vereist |Description |
 | --------- | ----------- |----------- |
 | Id | Ja | Een id die is een verwijzing naar een parameter van de claims transformatie-methode. Elke claims transformatie-methode heeft zijn eigen waarden. Zie de tabel van de transformatie claims voor een volledige lijst van de beschikbare waarden. |
-| Gegevenstype | Ja | Het type gegevens van de parameter, zoals tekenreeks, Boole-waarde, Int of datum/tijd aan de hand van de opsomming gegevenstype in het beleid voor aangepaste XML-schema. Dit type wordt gebruikt om de rekenkundige bewerkingen correct wordt uitgevoerd. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
+| Gegevenstype | Ja | Het type gegevens van de parameter, zoals tekenreeks, Boole-waarde, Int of datum/tijd aan de hand van de opsomming gegevenstype in het beleid voor aangepaste XML-schema. Dit type wordt gebruikt om de rekenkundige bewerkingen correct wordt uitgevoerd. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
 | Value | Ja | Een waarde die verbatim wordt doorgegeven aan de transformatie. Sommige van de waarden zijn willekeurige, sommige u kiezen uit de claims transformatie-methode. |
 
 ### <a name="outputclaims"></a>OutputClaims
@@ -113,7 +113,7 @@ De **OutputClaim** element bevat de volgende kenmerken:
 | Kenmerk |Vereist | Description |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Ja | Een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid.
-| TransformationClaimType | Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
+| TransformationClaimType | Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
  
 Als de invoer claim en de uitvoerclaim zijn van hetzelfde type (tekenreeks of Booleaanse waarde), kunt u de dezelfde invoer claim als de uitvoerclaim. In dit geval verandert de claimtransformatie de invoer claim met de uitvoerwaarde.
 

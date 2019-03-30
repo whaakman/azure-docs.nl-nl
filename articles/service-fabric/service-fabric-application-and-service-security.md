@@ -3,8 +3,8 @@ title: Meer informatie over de beveiliging van Azure Service Fabric-toepassingen
 description: Een overzicht van hoe u veilig microservices-toepassingen uitvoeren op Service Fabric. Informatie over het uitvoeren van services en opstarten script onder verschillende beveiligingsaccounts, verifiëren en autoriseren van gebruikers, toepassingsgeheimen beheren, beveiligde servicecommunicatie, gebruikt u een API-gateway en veilige toepassingsgegevens in rust.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: mfussell
-ms.openlocfilehash: fd90bdba94a985a2a3529f605972217382b23b2a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.author: aljo
+ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498346"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670418"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en service-beveiliging
 Een architectuur met microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Beheren van de beveiliging van microservices, is echter een uitdaging en anders dan de traditionele monolithische toepassingen beveiliging beheren. 

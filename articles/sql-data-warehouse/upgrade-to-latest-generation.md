@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651070"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 
@@ -34,8 +34,8 @@ Deze upgrade is van toepassing op geoptimaliseerd Gen1 Compute-laag voor datawar
 ## <a name="before-you-begin"></a>Voordat u begint
 
 1. Controleer of uw [regio](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) wordt ondersteund voor GEN1 GEN2 migreren. Houd er rekening mee de datums automatische migratie. Als u wilt voorkomen van conflicten met het geautomatiseerde proces, moet u de handmatige migratie vóór de begindatum geautomatiseerd proces plannen.
-2. Als u zich in een regio die nog niet wordt ondersteund, blijven om te controleren voor uw regio om te worden toegevoegd of [bijwerken met behulp van restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) naar een ondersteunde regio.
-3. Als uw regio wordt ondersteund, [bijwerken via de Azure-portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. Als u zich in een regio die nog niet wordt ondersteund, blijven om te controleren voor uw regio om te worden toegevoegd of [bijwerken met behulp van restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) naar een ondersteunde regio.
+3. Als uw regio wordt ondersteund, [bijwerken via de Azure-portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Selecteer het voorgestelde prestatieniveau** voor het datawarehouse op basis van het huidige prestatieniveau op de laag geoptimaliseerd Gen1 Compute met behulp van de onderstaande toewijzing:
 
    | Gen1 met geoptimaliseerde rekenlaag | Gen2 met geoptimaliseerde rekenlaag |

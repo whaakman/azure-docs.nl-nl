@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl rpm-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275300"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664129"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Query's uitvoeren en opdrachten worden verzonden naar de manager-service voor herstel.
@@ -44,7 +44,7 @@ Deze API biedt ondersteuning voor de Service Fabric-platform; het is niet bedoel
 | --taak-id (vereist) | De ID van de hersteltaak. |
 | --versie | Het huidige versienummer van de hersteltaak. Als niet-nul, klikt u vervolgens de aanvraag worden alleen uitgevoerd als deze waarde komt overeen met de huidige versie van de hersteltaak. Als nul is, wordt er geen versiecontrole uitgevoerd. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -66,7 +66,7 @@ Deze API biedt ondersteuning voor de Service Fabric-platform; het is niet bedoel
 | --taak-id (vereist) | De ID van de voltooide hersteltaak moet worden verwijderd. |
 | --versie | Het huidige versienummer van de hersteltaak. Als niet-nul, klikt u vervolgens de aanvraag worden alleen uitgevoerd als deze waarde komt overeen met de huidige versie van de hersteltaak. Als nul is, wordt er geen versiecontrole uitgevoerd. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -89,7 +89,7 @@ Deze API biedt ondersteuning voor de Service Fabric-platform; het is niet bedoel
 | --staat-filter | Bitsgewijze OR van de volgende waarden op te geven welke taak Staten moet worden opgenomen in de lijst met resultaten. <br> 1 - gemaakt <br>2 - geclaimd  <br>4 - voorbereiden  <br>8: goedgekeurd  <br>16 - uitvoering  <br>32 - herstellen  <br>64 - voltooid |
 | --task-id-filter | Het herstel taak-ID-voorvoegsel worden vergeleken. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

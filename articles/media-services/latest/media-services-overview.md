@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351453"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662122"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -44,19 +44,6 @@ Met Media Services kunt u diverse mediawerkstromen bouwen in de cloud. Hier volg
 * Gebruik Azure Media Services in combinatie met [Azure Cognitive Services API's](https://docs.microsoft.com/azure/#pivot=products&panel=ai) om ondertitels en bijschriften toe te voegen aan video's om een breder publiek te bereiken (bijvoorbeeld mensen met een gehoorbeperking of personen die de video in een andere taal willen volgen).
 * Schakel Azure CDN in om grote schaalbaarheid te bieden, zodat piekbelastingen beter kunnen worden verwerkt (bijvoorbeeld bij een productlancering). 
 
-## <a name="v3-capabilities"></a>Mogelijkheden van v3
-
-v3 is gebaseerd op een geïntegreerde API-gebied dat functionaliteit voor zowel beheer als bewerkingen beschikbaar stelt die is gebouwd op Azure Resource Manager. 
-
-Deze versie biedt de volgende mogelijkheden:  
-
-* **Transformaties** waarmee u eenvoudige werkstromen voor mediaverwerking of analytische taken kunt definiëren. Transformeren is een proces voor het verwerken van uw video- en audiobestanden. U kunt het proces vervolgens herhaaldelijk toepassen om alle bestanden in de inhoudsbibliotheek te verwerken door het verzenden van taken naar de transformatie.
-* **Taken** voor het verwerken (coderen of analyseren) van uw video's. De invoerinhoud voor een taak kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
-* **Meldingen** die taakvoortgang of Staten of Live gebeurtenissen starten/stoppen en de fout gebeurtenissen controleren. Meldingen zijn geïntegreerd met het meldingssysteem van Azure Event Grid. U kunt zich eenvoudig abonneren op gebeurtenissen voor verschillende resources in Azure Media Services. 
-* **Azure Resource Management** sjablonen maken en implementeren van transformaties, Streaming-eindpunten en Live gebeurtenissen kunnen worden gebruikt.
-* **Op rollen gebaseerd toegangsbeheer** kan worden ingesteld op het resourceniveau van de, zodat u kunt toegang tot bepaalde resources, zoals transformaties en Live gebeurtenissen vergrendelen.
-* **Client-SDK's** in meerdere talen: .NET, .NET core, Python, Ga, Java en Node.js.
-
 ## <a name="naming-conventions"></a>Naamconventies
 
 Namen van Azure Media Services v3-resources (bijvoorbeeld activa, taken, transformaties) zijn onderhevig aan de naamgevingsbeperkingen van Azure Resource Manager. In overeenstemming met Azure Resource Manager zijn de resourcenamen altijd uniek. U kunt dus alle unieke id-strings (bijvoorbeeld GUID's) gebruiken voor uw resourcenamen. 
@@ -76,6 +63,41 @@ Voorbeelden hiervan zijn onder andere
 * Het URL-onderdeel met de queryreeks van de HTTP invoer-URL's van taken wordt niet geretourneerd (om de handtekening te verwijderen).
 
 Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-key-policy-dotnet-howto.md).
+
+
+## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3? 
+
+Informatie over het coderen en inpakken van inhoud, streamen van video's op aanvraag, live uitzenden, analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
+
+### <a name="quickstarts"></a>Snelstartgidsen  
+
+De snelstartgidsen weergeven fundamentele dag-1-instructies voor nieuwe klanten voor het snel uitproberen van Media Services.
+
+* [Stream videobestanden - .NET](stream-files-dotnet-quickstart.md)
+* [Stream-video's - CLI](stream-files-cli-quickstart.md)
+* [Stream videobestanden - Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>Zelfstudies 
+
+De zelfstudies weergeven procedures op basis van een scenario voor een aantal veelgebruikte Media Services-taken
+
+* [Codeer externe bestands- en stream-video-REST](stream-files-tutorial-with-rest.md)
+* [Codeer het geüploade bestand en stream-video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyseren van uw video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamische versleuteling - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>Handleidingen
+
+Artikelen bevatten voorbeelden van code die laten zien hoe u om een taak te voltooien. In deze sectie vindt u veel voorbeelden, Hier volgen slechts enkele van deze:
+
+* [Een account maken - CLI](create-account-cli-how-to.md)
+* [Toegang tot API's - CLI](access-api-cli-how-to.md)
+* [Begin te ontwikkelen met SDK 's](developers-guide.md)
+* [Coderen met HTTPS als invoer - taak .NET](job-input-from-http-how-to.md)  
+* [Monitor voor gebeurtenissen - Portal](monitor-events-portal-how-to.md)
+* [Dynamisch versleutelen met multi-DRM - .NET](protect-with-drm.md) 
+* [Coderen met een aangepaste transformeren met behulp van CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

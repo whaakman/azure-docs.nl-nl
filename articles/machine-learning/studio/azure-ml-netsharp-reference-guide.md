@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905151"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651487"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
@@ -63,9 +63,9 @@ De architectuur van neural network-modellen die u in Azure Machine Learning Stud
 + Speciaal connectiviteit structuren, zoals convoluties en gewicht delen bundels definiëren.
 + Geef de activering van de verschillende functies.
 
-Zie voor meer informatie over de syntaxis van de specificatie, [structuur specificatie](#Structure-specifications).
+Zie voor meer informatie over de syntaxis van de specificatie, [structuur specificatie](#structure-specifications).
 
-Zie voor meer voorbeelden van het definiëren van neurale netwerken voor sommige reguliere machine learning-taken uit Simplex () aan complexe [voorbeelden](#Examples-of-Net#-usage).
+Zie voor meer voorbeelden van het definiëren van neurale netwerken voor sommige reguliere machine learning-taken uit Simplex () aan complexe [voorbeelden](#examples-of-net-usage).
 
 ## <a name="general-requirements"></a>Algemene vereisten
 

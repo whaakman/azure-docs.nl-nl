@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664265"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Kosten optimaliseren met gereserveerde capaciteit in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB gereserveerde capaciteit kunt die u geld besparen door vooraf be
 
 Azure Cosmos DB gereserveerde capaciteit uw Cosmos DB-kosten aanzienlijk kunt verlagen&mdash;tot 65 procent op reguliere prijzen met een toezegging van één jaar of drie jaar. Gereserveerde capaciteit biedt een korting van facturering en heeft geen invloed op de runtimestatus van uw Azure Cosmos DB-resources.
 
-Azure Cosmos DB gereserveerde capaciteit bevat informatie over de doorvoer die is ingericht voor uw resources. Dekt niet kosten voor de opslag en netwerken. Als u een reservering koopt, gaat u de doorvoer kosten in rekening gebracht die overeenkomen met de reservering kenmerken niet meer in tegen de betalen waarbij u gebracht rekening tarieven. Zie voor meer informatie over reserveringen, de [Azure reserveringen](../billing/billing-save-compute-costs-reservations.md) artikel. 
+Azure Cosmos DB gereserveerde capaciteit bevat informatie over de doorvoer die is ingericht voor uw resources. Dekt niet kosten voor de opslag en netwerken. Als u een reservering koopt, gaat u de doorvoer kosten in rekening gebracht die overeenkomen met de reservering kenmerken niet meer in tegen de betalen waarbij u gebracht rekening tarieven. Zie voor meer informatie over reserveringen, de [Azure reserveringen](../billing/billing-save-compute-costs-reservations.md) artikel.
 
 U kunt Azure Cosmos DB gereserveerde capaciteit uit kopen de [Azure-portal](https://portal.azure.com). Gereserveerde capaciteit kopen:
 
@@ -48,7 +48,7 @@ De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid doo
 
 4. Vul de vereiste velden in zoals beschreven in de volgende tabel:
 
-   ![Vul in het formulier gereserveerde capaciteit](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
+   ![Vul in het formulier gereserveerde capaciteit](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
 
    |Veld  |Description  |
    |---------|---------|
@@ -61,17 +61,17 @@ De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid doo
 
 5. Bekijk de korting en de prijs van de reservering in de **kosten** sectie. Deze reservering prijs is van toepassing op Azure Cosmos DB-resources met doorvoer die is ingericht in alle regio's.  
 
-6. Selecteer **Aankoop**. Wanneer de aankoop voltooid is, ziet de volgende pagina: 
+6. Selecteer **Aankoop**. Wanneer de aankoop voltooid is, ziet de volgende pagina:
 
-   ![Vul in het formulier gereserveerde capaciteit](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
+   ![Vul in het formulier gereserveerde capaciteit](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
 
-Nadat u een reservering koopt, wordt deze onmiddellijk toegepast op bestaande Azure Cosmos DB-resources die overeenkomen met de voorwaarden van de reservering. Als u geen bestaande Azure Cosmos DB-resources, wordt de reservering wordt toegepast wanneer u een nieuwe Cosmos DB-exemplaar dat overeenkomt met de voorwaarden van de reservering implementeert. In beide gevallen wordt de periode van de reservering direct na een succesvolle aankoop gestart. 
+Nadat u een reservering koopt, wordt deze onmiddellijk toegepast op bestaande Azure Cosmos DB-resources die overeenkomen met de voorwaarden van de reservering. Als u geen bestaande Azure Cosmos DB-resources, wordt de reservering wordt toegepast wanneer u een nieuwe Cosmos DB-exemplaar dat overeenkomt met de voorwaarden van de reservering implementeert. In beide gevallen wordt de periode van de reservering direct na een succesvolle aankoop gestart.
 
 Wanneer uw reservering verloopt, wordt uw Azure Cosmos DB-exemplaren worden uitgevoerd en worden gefactureerd tegen de normale betalen per gebruik-tarieven betalen.
 
 ## <a name="cancellation-and-exchanges"></a>Annulering en uitwisselingen
 
-Zie voor hulp bij het identificeren van de juiste gereserveerde capaciteit [te begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In het geval, u wilt annuleren of uitwisselen van een Azure Cosmos DB-reservering, neem contact op met het team van Azure Cosmos DB via `AskCosmosDB@microsoft.com`.
+Zie voor hulp bij het identificeren van de juiste gereserveerde capaciteit [te begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Als u wilt annuleren of uitwisselen van een Azure Cosmos DB-reservering, Zie [reservering worden uitgewisseld en terugbetalingen](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -90,4 +90,3 @@ De reserveringskorting wordt automatisch toegepast op de Azure Cosmos DB-resourc
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

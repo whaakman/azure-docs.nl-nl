@@ -41,7 +41,7 @@ items:
   - name: Artefacten beveiligen
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Veilige implementatiemethoden gebruiken
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
   - name: Problemen met sjabloonimplementatie oplossen
     href: resource-manager-tutorial-troubleshoot.md
@@ -63,6 +63,7 @@ items:
   - name: Resourceproviders en -typen
     href: resource-manager-supported-services.md
   - name: Configuratiebeheer
+    displayName: adm
     href: deployment-manager-overview.md
   - name: Implementatiemodi
     href: deployment-modes.md
@@ -77,6 +78,7 @@ items:
     - name: Sjabloon maken
       href: how-to-create-template.md
     - name: Resourcegroepen en resources in het abonnement maken
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Bronafhankelijkheden definiëren
       href: resource-group-define-dependencies.md
@@ -95,12 +97,16 @@ items:
   - name: Sjablonen implementeren
     items:
     - name: Implementeren - portal
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Implementeren - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Implementeren - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Implementeren - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Sjablonen beveiligen met een SAS-token
       items:
@@ -249,9 +255,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c84e93cbc0a74ca59a2f25e467780378ee3d1e19
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 90218638e4d4a11c0ab6f3a6a1b6513bc1f7b5e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372145"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648619"

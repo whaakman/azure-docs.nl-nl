@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593315"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651665"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
 
@@ -83,17 +83,17 @@ Clientcertificaten zijn vereist om te kunnen verifiëren van aanvragen voor de s
 3. [CA-certificaat in het configuratiebestand bijwerken](#update-ca-certificate-in-service-configuration-file)
 4. [Probleem-clientcertificaten](#issue-client-certificates)
 5. [PFX-bestanden maken voor clientcertificaten](#create-pfx-files-for-client-certificates)
-6. [Client-certificaat importeren](#Import-Client-Certificate)
+6. [Client-certificaat importeren](#import-client-certificate)
 7. [Client-Certificaatvingerafdrukken kopiëren](#copy-client-certificate-thumbprints)
 8. [Toegestane Clients in het configuratiebestand van de Service configureren](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Bestaande-clientcertificaten gebruiken
 1. [Vinden van openbare sleutel van CA](#find-ca-public-key)
-2. [CA-certificaat voor de Cloudservice uploaden](#Upload-CA-certificate-to-cloud-service)
-3. [CA-certificaat in het configuratiebestand bijwerken](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Client-Certificaatvingerafdrukken kopiëren](#Copy-Client-Certificate-Thumbprints)
+2. [CA-certificaat voor de Cloudservice uploaden](#upload-ca-certificate-to-cloud-service)
+3. [CA-certificaat in het configuratiebestand bijwerken](#update-ca-certificate-in-service-configuration-file)
+4. [Client-Certificaatvingerafdrukken kopiëren](#copy-client-certificate-thumbprints)
 5. [Toegestane Clients in het configuratiebestand van de Service configureren](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Controle van certificaatintrekking Client configureren](#Configure-Client-Certificate-Revocation-Check)
+6. [Controle van certificaatintrekking Client configureren](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Toegestane IP-adressen
 Toegang tot de service-eindpunten kan worden beperkt tot specifieke bereiken van IP-adressen.

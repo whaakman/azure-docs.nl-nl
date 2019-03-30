@@ -1,10 +1,10 @@
 ---
-title: Betrouwbare WCF Services communicatiestack | Microsoft Docs
-description: De ingebouwde WCF communicatie-stack in Service Fabric biedt WCF-communicatie van client-service voor Reliable Services.
+title: Reliable Services WCF-communicatiestack | Microsoft Docs
+description: De ingebouwde WCF-communicatiestack in Service Fabric biedt WCF-communicatie van client-service voor Reliable Services.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749926"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670573"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-communicatiestack voor Reliable Services
-Het framework Reliable Services kan auteurs in service kiezen van de communicatiestack die ze willen gebruiken voor hun service. Ze kunnen plug-in de communicatiestack van hun keuze via de **ICommunicationListener** geretourneerd door de [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Het framework biedt een implementatie van de communicatiestack gebaseerd op Windows Communication Foundation (WCF) voor service-auteurs die u wilt gebruiken, WCF-communicatie.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Op basis van WCF communicatiestack voor Reliable Services
+Het framework van Reliable Services kan auteurs van de service om te kiezen van de communicatiestack die ze willen gebruiken voor hun service. Ze kunnen plug-in de communicatiestack van hun keuze via de **ICommunicationListener** geretourneerd door de [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Het framework biedt een implementatie van de communicatiestack op basis van de Windows Communication Foundation (WCF) voor service-auteurs die u wilt gebruiken op basis van een WCF-communicatie.
 
-## <a name="wcf-communication-listener"></a>Listener voor WCF-communicatie
+## <a name="wcf-communication-listener"></a>WCF Communication Listener
 De WCF-specifieke implementatie van **ICommunicationListener** wordt geleverd door de **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** klasse.
 
-Lest spreek we een servicecontract van het type hebben `ICalculator`
+Lest zeggen we een servicecontract van het type hebben `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -38,7 +38,7 @@ public interface ICalculator
 }
 ```
 
-We kunnen de listener voor een WCF-communicatie maken in de service de volgende manier.
+In de service de volgende manier kunnen we een WCF-communicatielistener maken.
 
 ```csharp
 
@@ -64,8 +64,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Schrijven van clients voor de WCF-stack-communicatie
-Voor het schrijven van clients te communiceren met services met behulp van WCF het framework biedt **WcfClientCommunicationFactory**, dit is de WCF-specifieke implementatie van [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Clients voor de WCF-communicatiestack schrijven
+Voor het schrijven van clients kunnen communiceren met services met behulp van WCF, het framework biedt **WcfClientCommunicationFactory**, dit is het WCF-specifieke implementatie van [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -77,7 +77,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-Het communicatiekanaal WCF toegankelijk is vanaf de **WcfCommunicationClient** gemaakt door de **WcfCommunicationClientFactory**.
+Het communicatiekanaal WCF is toegankelijk vanuit de **WcfCommunicationClient** die zijn gemaakt door de **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -91,7 +91,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Clientcode kunt gebruiken de **WcfCommunicationClientFactory** samen met de **WcfCommunicationClient** welke implements **ServicePartitionClient** om te bepalen de service-eindpunt en communiceren met de service.
+Clientcode kunt gebruiken de **WcfCommunicationClientFactory** samen met de **WcfCommunicationClient** welke implementeert **ServicePartitionClient** om te bepalen de service-eindpunt en communiceren met de service.
 
 ```csharp
 // Create binding
@@ -119,12 +119,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> De standaardwaarde ServicePartitionResolver wordt ervan uitgegaan dat de client in hetzelfde cluster als de service wordt uitgevoerd. Als dat niet het geval is, een ServicePartitionResolver-object maken en in de eindpunten van het cluster-verbinding.
+> De standaardwaarde ServicePartitionResolver wordt ervan uitgegaan dat de client wordt uitgevoerd in hetzelfde cluster als de service. Als dat niet het geval is, maakt u een ServicePartitionResolver-object en doorgeven in de eindpunten van het cluster-verbinding.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Externe procedureaanroep met Reliable Services voor externe toegang](service-fabric-reliable-services-communication-remoting.md)
+* [Externe procedureaanroep met externe communicatie Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Web-API met OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Beveiligen van communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
+* [Beveiliging van de communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

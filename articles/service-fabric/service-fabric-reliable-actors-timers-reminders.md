@@ -4,7 +4,7 @@ description: Inleiding tot timers en herinneringen voor Service Fabric Reliable 
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206788"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667426"
 ---
-# <a name="actor-timers-and-reminders"></a>Acteur timers en herinneringen
-Actoren kunnen periodieke werk op zichzelf registreert timers of herinneringen plannen. Dit artikel laat zien hoe u timers en herinneringen en worden de verschillen uitgelegd.
+# <a name="actor-timers-and-reminders"></a>Actor-timers en herinneringen
+Actoren kunnen periodieke werk op zichzelf door het registreren van timers of herinneringen plannen. In dit artikel ziet u hoe u timers en herinneringen en worden de verschillen tussen deze uitgelegd.
 
-## <a name="actor-timers"></a>Acteur timers
-Acteur timers bieden een eenvoudige wrapper rond een timer .NET of Java om ervoor te zorgen dat de callback-methoden de concurrency Schakel gebaseerde naleven zorgt ervoor dat de runtime actoren biedt.
+## <a name="actor-timers"></a>Actor-timers
+Actor-timers bieden een eenvoudige wrapper rond een timer .NET of Java om ervoor te zorgen dat de callback-methoden aansluiten bij de gelijktijdigheid van de beurt zorgt ervoor dat de runtime actoren biedt.
 
-Actoren kunnen gebruiken de `RegisterTimer`(C#) of `registerTimer`(Java) en `UnregisterTimer`(C#) of `unregisterTimer`methoden op hun basisklasse registreren en ongedaan maken van hun timers (Java). Het volgende voorbeeld ziet het gebruik van de timer-API's. De API's zijn vergelijkbaar met de .NET-timer of Java-timer. In dit voorbeeld wanneer de timer vervalt, de runtime actoren roept de `MoveObject`(C#) of `moveObject`(Java)-methode. De methode is gegarandeerd gelijktijdigheid inschakelen op basis van de naleving. Dit betekent dat er geen andere actor-methoden of timer/herinnering retouraanroepen wordt uitgevoerd totdat deze retouraanroep uitvoering is voltooid.
+Actoren kunnen gebruiken de `RegisterTimer`(C#) of `registerTimer`(Java) en `UnregisterTimer`(C#) of `unregisterTimer`methoden op hun basisklasse te registreren en de registratie van hun timers (Java). In het volgende voorbeeld ziet u het gebruik van de timer-API's. De API's zijn vergelijkbaar met de timer voor .NET of Java-timer. In dit voorbeeld, wanneer de timer loopt, de runtime actoren roept de `MoveObject`(C#) of `moveObject`(Java)-methode. De methode kan worden gegarandeerd rekening houden met de gelijktijdigheid van de beurt. Dit betekent dat er geen andere actor methoden of timer/herinnering callbacks uitgevoerd zijn totdat deze aanroep is voltooid.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -127,16 +127,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-De volgende periode van de timer wordt gestart nadat de callback uitvoering is voltooid. Dit betekent dat de timer wordt gestopt terwijl de retouraanroep wordt uitgevoerd en wordt gestart wanneer de callback is voltooid.
+De volgende periode van de timer wordt gestart nadat de callback uitvoering is voltooid. Dit betekent dat de timer wordt gestopt terwijl de callback die wordt uitgevoerd en wordt gestart wanneer de retouraanroep is voltooid.
 
-De runtime actoren Hiermee slaat u wijzigingen in de actor statusbeheer wanneer de callback is voltooid. Als een fout optreedt in de status wordt opgeslagen, dat actor-object wordt gedeactiveerd en een nieuw exemplaar wordt geactiveerd.
+De runtime actoren slaat wijzigingen aangebracht in van de actor status Manager wanneer de retouraanroep is voltooid. Als er een fout optreedt bij het opslaan van de status, dat actorobject wordt gedeactiveerd en een nieuw exemplaar wordt geactiveerd.
 
-Alle timers zijn gestopt wanneer de actor als onderdeel van de garbagecollection wordt gedeactiveerd. Er is geen retouraanroepen timer worden na die aangeroepen. Ook behoudt de runtime actoren geen informatie over de timers die werden uitgevoerd voordat deactiveren. Het is tot de actor registreren van de vernieuwingstimer die nodig is wanneer deze in de toekomst opnieuw wordt geactiveerd. Zie voor meer informatie het gedeelte over [actor garbagecollection](service-fabric-reliable-actors-lifecycle.md).
+Timers worden beëindigd wanneer de actor als onderdeel van de garbagecollection is gedeactiveerd. Geen callbacks timer worden die aangeroepen. Ook behoudt de runtime actoren geen informatie over de timers die werden uitgevoerd voordat de deactiveren. Het is aan de actor voor het registreren van elke timers die nodig is wanneer deze in de toekomst opnieuw wordt geactiveerd. Zie voor meer informatie de sectie over [actor garbagecollection](service-fabric-reliable-actors-lifecycle.md).
 
-## <a name="actor-reminders"></a>Acteur herinneringen
-Herinneringen zijn een mechanisme voor het activeren van permanente retouraanroepen op een actor tijdstippen. De functionaliteit is vergelijkbaar met timers. Maar in tegenstelling tot timers, herinneringen onder alle omstandigheden worden geactiveerd totdat de actor expliciet deregistreren of de actor expliciet worden verwijderd. In het bijzonder worden herinneringen geactiveerd via actor deactivations en failovers, omdat de runtime actoren zich blijft voordoen informatie over de actor herinneringen met acteur state-provider. Houd er rekening mee dat de betrouwbaarheid van herinneringen is gekoppeld aan de status betrouwbaarheid garanties geleverd door de actor state-provider. Dit betekent dat voor actoren waarvan persistentie van de status is ingesteld op None, de herinneringen niet na een failover gestart wordt. 
+## <a name="actor-reminders"></a>Actor-herinneringen
+Herinneringen zijn een mechanisme voor het activeren van permanente callbacks van een actor tijdstippen. De functionaliteit is vergelijkbaar met timers. Maar in tegenstelling tot timers, herinneringen onder alle omstandigheden worden geactiveerd totdat de actor expliciet registratie of de actor is expliciet worden verwijderd. Herinneringen zijn met name in actor deactivations en failovers geactiveerd omdat de runtime actoren zich blijft voordoen informatie over het actor state-provider met behulp van de actor-herinneringen. Houd er rekening mee dat de betrouwbaarheid van herinneringen is gebonden aan de status betrouwbaarheid garanties geboden door de actor state-provider. Dit betekent dat dit soort waarvan persistentie ingeschakeld is ingesteld op None, de herinneringen niet na een failover gestart worden. 
 
-Voor het registreren van een herinnering een actor roept de `RegisterReminderAsync` methode opgegeven op de basisklasse, zoals wordt weergegeven in het volgende voorbeeld:
+Voor het registreren van een herinnering, een actor roept de `RegisterReminderAsync` methode opgegeven op de basisklasse, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-In dit voorbeeld `"Pay cell phone bill"` is de naam herinnering. Dit is een tekenreeks die de actor wordt gebruikt om een herinnering uniek te identificeren. `BitConverter.GetBytes(amountInDollars)`(C#) is de context die is gekoppeld aan de herinnering. Deze wordt doorgegeven naar de actor als een argument voor de callback herinnering dat wil zeggen `IRemindable.ReceiveReminderAsync`(C#) of `Remindable.receiveReminderAsync`(Java).
+In dit voorbeeld `"Pay cell phone bill"` is de naam van de herinnering. Dit is een tekenreeks die de actor wordt gebruikt voor het aanduiden van een herinnering. `BitConverter.GetBytes(amountInDollars)`(C#) is de context die is gekoppeld aan de herinnering. Het zal worden teruggestuurd naar de actor als een argument voor de herinnering callback, dat wil zeggen `IRemindable.ReceiveReminderAsync`(C#) of `Remindable.receiveReminderAsync`(Java).
 
 Actoren die gebruikmaken van herinneringen moeten implementeren de `IRemindable` interface, zoals wordt weergegeven in het onderstaande voorbeeld.
 
@@ -210,11 +210,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Wanneer een herinnering wordt geactiveerd, de runtime Reliable Actors roept de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode op de Actor. Een actor meerdere herinneringen kunt registreren en de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode wordt aangeroepen wanneer een van deze herinneringen is geactiveerd. De actor kunt de naam van de herinnering die is doorgegeven aan de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode om te achterhalen welke herinnering is geactiveerd.
+Wanneer een herinnering wordt geactiveerd, de Reliable Actors-runtime roept de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode op de actor aangeroepen. Een actor meerdere herinneringen kunt registreren en de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode wordt aangeroepen wanneer een van deze herinneringen wordt geactiveerd. De actor kunt de naam van de herinnering die is doorgegeven aan de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-methode om te achterhalen welke herinnering is geactiveerd.
 
-De runtime de actor slaat actoren status wanneer de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-aanroep is voltooid. Als een fout optreedt in de status wordt opgeslagen, dat actor-object wordt gedeactiveerd en een nieuw exemplaar wordt geactiveerd.
+De runtime van de actor slaat actoren status wanneer de `ReceiveReminderAsync`(C#) of `receiveReminderAsync`(Java)-aanroep is voltooid. Als er een fout optreedt bij het opslaan van de status, dat actorobject wordt gedeactiveerd en een nieuw exemplaar wordt geactiveerd.
 
-Als u wilt een herinnering registratie, een actor roept de `UnregisterReminderAsync`(C#) of `unregisterReminderAsync`(Java)-methode, zoals wordt weergegeven in de volgende voorbeelden.
+Als u wilt een herinnering de registratie ongedaan maken, een actor roept de `UnregisterReminderAsync`(C#) of `unregisterReminderAsync`(Java)-methode, zoals wordt weergegeven in de onderstaande voorbeelden.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -225,9 +225,9 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Zoals hierboven, de `UnregisterReminderAsync`(C#) of `unregisterReminderAsync`(Java) methode accepteert een `IActorReminder`(C#) of `ActorReminder`(Java)-interface. De basisklasse actor ondersteunt een `GetReminder`(C#) of `getReminder`(Java)-methode die kan worden gebruikt voor het ophalen van de `IActorReminder`(C#) of `ActorReminder`interface door door te geven in de naam van de herinnering (Java). Dit is handig zijn, omdat de actor niet hoeft in stand houden de `IActorReminder`(C#) of `ActorReminder`(Java)-interface die is geretourneerd van de `RegisterReminder`(C#) of `registerReminder`methodeaanroep (Java).
+Zoals hierboven, de `UnregisterReminderAsync`(C#) of `unregisterReminderAsync`(Java)-methode accepteert een `IActorReminder`(C#) of `ActorReminder`(Java)-interface. De actor basisklasse ondersteunt een `GetReminder`(C#) of `getReminder`(Java)-methode die kan worden gebruikt om op te halen de `IActorReminder`(C#) of `ActorReminder`(Java)-interface door te geven in de naam van de herinnering. Dit is handig omdat de actor niet hoeft om vast te leggen de `IActorReminder`(C#) of `ActorReminder`(Java)-interface die is geretourneerd van de `RegisterReminder`(C#) of `registerReminder`methodeaanroep (Java).
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over betrouwbare Actor gebeurtenissen en herintreding:
+Meer informatie over Reliable Actor-gebeurtenissen en herbetreedbaarheid van:
 * [Actor-gebeurtenissen](service-fabric-reliable-actors-events.md)
-* [Acteur herintreding](service-fabric-reliable-actors-reentrancy.md)
+* [Herbetreedbaarheid actor](service-fabric-reliable-actors-reentrancy.md)

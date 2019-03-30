@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 0f36ab9ab7703dd9677b6c2989eddb91593af79f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105104"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650561"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van de Azure-portal
 
@@ -36,7 +36,7 @@ Als u maken van een virtuele machine met meerdere IP-adressen of een statisch pr
 
 ## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt persoonlijke en openbare IP-adressen toevoegen aan een Azure-netwerk-interface via de stappen die volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat u al een virtuele machine met de drie IP-configuraties die worden beschreven hebt in de [scenario](#Scenario), maar het is niet vereist.
+U kunt persoonlijke en openbare IP-adressen toevoegen aan een Azure-netwerk-interface via de stappen die volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat u al een virtuele machine met de drie IP-configuraties die worden beschreven hebt in de [scenario](#scenario), maar het is niet vereist.
 
 ### <a name="coreadd"></a>Core stappen
 

@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888811"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651237"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met behulp van Azure PowerShell beheren
 
@@ -93,7 +93,7 @@ Hebben gezien in detail 'A'-records maken, de volgende voorbeelden laten zien ho
 
 In elk geval laten we zien hoe u een recordset met één record maken. De eerdere voorbeelden voor 'A'-records kunnen worden aangepast om te maken van recordsets van andere typen met meerdere records, met metagegevens, of lege recordsets maken.
 
-We bieden geen een voorbeeld van een set van de SOA-record maken omdat SOA worden gemaakt en verwijderd met de DNS-zone en kan niet worden gemaakt of afzonderlijk worden verwijderd. Echter, [de SOA kan worden gewijzigd, zoals wordt weergegeven in het voorbeeld van een hoger](#to-modify-an-SOA-record).
+We bieden geen een voorbeeld van een set van de SOA-record maken omdat SOA worden gemaakt en verwijderd met de DNS-zone en kan niet worden gemaakt of afzonderlijk worden verwijderd. Echter, [de SOA kan worden gewijzigd, zoals wordt weergegeven in het voorbeeld van een hoger](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Een AAAA-recordset met één record maken
 

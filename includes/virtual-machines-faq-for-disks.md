@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407772"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671889"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -219,7 +219,7 @@ Ja, u kunt kiezen om failover naar een virtuele machine met Managed Disks.
 
 **Is er gevolgen van de migratie op Azure Virtual machines beveiligd door Azure Site Recovery via replicatie van Azure naar Azure?**
 
-Ja. Azure Site Recovery Azure naar Azure-beveiliging voor virtuele machines met Managed Disks is momenteel alleen beschikbaar als openbare preview-service.
+Ja. Azure Site Recovery Azure naar Azure-bescherming voor virtuele machines met Managed Disks is momenteel beschikbaar als een service voor algemene beschikbaarheid.
 
 **Kan ik virtuele machines migreren met niet-beheerde schijven die zich bevinden op storage-accounts die zijn of die eerder naar managed disks zijn versleuteld?**
 
@@ -339,7 +339,7 @@ Ja.
 
 **Wat zijn de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
 
-De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB.
+De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB. Ondersteuning voor de grotere schijven maximaal 32 TiB wordt binnenkort toegevoegd.
 
 **Wat zijn de aanbevolen VM-grootten voor grotere schijfgrootten (> 4 TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
 

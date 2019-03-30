@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661783"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -39,7 +39,7 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 >
 > Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 12000. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
 > [!NOTE]
-> In dit onderwerp is van toepassing op Azure SQL Database-servers die als host fungeert voor individuele databases en elastische pools en databases van SQL Data Warehouse. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> In dit onderwerp is van toepassing op Azure SQL Database-servers die als host fungeert voor individuele databases en elastische pools, SQL Data Warehouse-databases, Azure Database for MySQL, Azure Database voor MariaDB en Azure Database for PostgreSQL. Voor het gemak worden SQL-Database wordt gebruikt bij het verwijzen naar SQL Database, SQL Data Warehouse, Azure Database voor MySQL, Azure Database voor MariaDB en Azure Database for PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 

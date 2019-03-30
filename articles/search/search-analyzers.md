@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578759"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651818"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -291,7 +291,7 @@ Elke die wordt gebruikt als analyzer-is, zonder configuratie, is opgegeven in de
 
 In dit voorbeeld wijst Microsoft English- en Franstaligen analyzers beschrijving velden toe. Het is een codefragment is afkomstig uit een grotere definitie van de index hotels, maken gebruik van de klasse Hotel in het bestand hotels.cs van de [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) voorbeeld.
 
-Bel [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), waarmee de [AnalyzerName klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) waarmee alle van de analyse van de tekst in Azure Search wordt ondersteund.
+Bel [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), waarmee de [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type bieden een analyse van tekst in Azure Search wordt ondersteund.
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ Bel [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.mode
 
 Als aanpassings- of vereist is, moet u een analyzer-constructie toevoegen aan een index. Zodra u deze hebt gedefinieerd, kunt u dit toevoegen als de definitie van het veld zoals in het vorige voorbeeld wordt gedemonstreerd.
 
-Gebruik [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) om het object te maken. Zie voor meer voorbeelden van [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Maak een [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) object. Zie voor meer voorbeelden van [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

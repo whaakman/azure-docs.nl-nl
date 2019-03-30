@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl mesh geheime opdrachte
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e2dc9f815fc578bbe1f01b6b64327ccf23a1aebb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: acc5862a8794da4fde991025eacfcccf6e16916a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285128"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661204"
 ---
-# <a name="sfctl-mesh-secret"></a>sfctl mesh-geheim
+# <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Ophalen en verwijderen van geheime mesh-resources.
 
 ## <a name="commands"></a>Opdrachten
@@ -30,7 +30,7 @@ Ophalen en verwijderen van geheime mesh-resources.
 | --- | --- |
 | delete | Hiermee verwijdert u de geheime resource. |
 | list | Geeft een lijst van alle geheime resources. |
-| Show | Hiermee haalt u de geheime resource met de opgegeven naam. |
+| weergeven | Hiermee haalt u de geheime resource met de opgegeven naam. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl mesh geheim verwijderen
 Hiermee verwijdert u de geheime resource.
@@ -43,7 +43,7 @@ Hiermee verwijdert u de opgegeven geheime resource en alle bijbehorende naamwaar
 | --- | --- |
 | --naam -n (vereist) | De naam van de geheime sleutel. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -58,7 +58,7 @@ Geeft een lijst van alle geheime resources.
 
 Hiermee haalt de informatie over alle geheime resources in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van de geheime sleutel.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -79,7 +79,7 @@ Hiermee haalt u de informatie over de geheime resource met de opgegeven naam. De
 | --- | --- |
 | --naam -n (vereist) | De naam van de geheime sleutel. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

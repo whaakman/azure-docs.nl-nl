@@ -4,7 +4,7 @@ description: Documentatie met betrekking tot de omgeving voorbereiden en het mak
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317183"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664809"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Plannen en voorbereiden van uw Service Fabric een zelfstandige Clusterimplementatie
 
@@ -42,10 +42,10 @@ De eenvoudigste manier om na te denken over deze concepten is om te overwegen FD
 
 Wanneer u ud's in ClusterConfig.json opgeeft, kunt u de naam op voor elke UD kiezen. De volgende namen zijn bijvoorbeeld geldige:
 
-* 'upgradeDomain': "UD0"
-* 'upgradeDomain': "UD1A"
-* 'upgradeDomain': "DomainRed"
-* 'upgradeDomain': "Blue"
+* "upgradeDomain": "UD0"
+* "upgradeDomain": "UD1A"
+* "upgradeDomain": "DomainRed"
+* "upgradeDomain": "Blue"
 
 Zie voor meer informatie over Foutdomeinen en Upgradedomeinen, [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 

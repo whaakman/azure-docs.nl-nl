@@ -1,10 +1,10 @@
 ---
-title: Veilige communicatie van de service voor externe toegang met behulp van Java in Azure Service Fabric | Microsoft Docs
-description: Informatie over het beveiligen van de service voor externe toegang op basis van communicatie voor betrouwbare Java-services die worden uitgevoerd in een Azure Service Fabric-cluster.
+title: Beveiligde communicatie van de service voor externe toegang met behulp van Java in Azure Service Fabric | Microsoft Docs
+description: Meer informatie over het beveiligen van communicatie met service voor externe toegang op basis van betrouwbare Java-services die worden uitgevoerd in een Azure Service Fabric-cluster.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020810"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666990"
 ---
-# <a name="secure-service-remoting-communications-in-a-java-service"></a>Veilige communicatie van de service voor externe toegang in een Java-service
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Beveiligde communicatie van de service voor externe toegang in een Java-service
 > [!div class="op_single_selector"]
 > * [C# op Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java op Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Beveiliging is een van de belangrijkste aspecten van de communicatie. Het framework Reliable Services biedt enkele vooraf gedefinieerde communicatie stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt beschreven hoe de beveiliging verbeteren wanneer u externe toegang de service in een Java-service. Dit is gebaseerd op een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting-java.md) waarin wordt uitgelegd hoe instellen van externe toegang voor betrouwbare services die zijn geschreven in Java. 
+Security is een van de belangrijkste aspecten van de communicatie. Het framework van de toepassing betrouwbare Services biedt een aantal vooraf gedefinieerde communicatie-stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt beschreven hoe u de beveiliging verbeteren wanneer u service voor externe toegang in een Java-service. Dit is gebaseerd op een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting-java.md) waarin wordt uitgelegd hoe u voor het instellen van externe toegang tot betrouwbare services die zijn geschreven in Java. 
 
-Om te helpen beveiligen van een service wanneer u service voor externe toegang met Java-services, als volgt:
+Als u wilt beveiligen een-service wanneer u externe toegang tot service met Java-services, de volgende stappen uit:
 
-1. Maken van een interface `HelloWorldStateless`, die definieert de methoden die beschikbaar zijn voor een externe procedureaanroep voor uw service. Uw service maakt gebruik van `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pakket. Dit is een `CommunicationListener` -implementatie mogelijkheden voor externe toegang biedt.
+1. Maken van een interface `HelloWorldStateless`, die de methoden die beschikbaar zijn voor een externe procedureaanroep op uw service definieert. Uw service maakt gebruik van `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pakket. Dit is een `CommunicationListener` mogelijkheden voor externe toegang biedt-implementatie.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,15 +53,15 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
         }
     }
     ```
-2. Instellingen voor listener en beveiligingsreferenties toevoegen.
+2. -Listener-instellingen en beveiligingsreferenties toevoegen.
 
-    Zorg ervoor dat het certificaat dat u wilt gebruiken om te helpen beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. Voor services die worden uitgevoerd op Linux, moet het certificaat beschikbaar als een bestand PEM formmatted; ofwel een `.pem` -bestand dat het certificaat en de persoonlijke sleutel bevat of een `.crt` -bestand met het certificaat en een `.key` -bestand dat de persoonlijke sleutel bevat. Zie voor meer informatie, [locatie en indeling van het X.509-certificaten op Linux-knooppunten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    Zorg ervoor dat het certificaat dat u wilt gebruiken voor het beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. Voor services die worden uitgevoerd op Linux, moet het certificaat beschikbaar zijn als een PEM-formmatted-bestand. een van beide een `.pem` -bestand dat het certificaat en de persoonlijke sleutel bevat of een `.crt` -bestand dat het certificaat bevat en een `.key` -bestand dat de persoonlijke sleutel bevat. Zie voor meer informatie, [locatie en de opmaak van X.509-certificaten op Linux-knooppunten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
     
-    Er zijn twee manieren waarop u instellingen voor listener en beveiligingsreferenties kunt opgeven:
+    Er zijn twee manieren u listenerinstellingen en beveiligingsreferenties kunt opgeven:
 
    1. Ze bieden met behulp van een [configuratiepakket](service-fabric-application-and-service-manifests.md):
 
-       Toevoegen van een benoemde `TransportSettings` sectie in het bestand settings.xml.
+       Voeg een benoemd exemplaar `TransportSettings` sectie in het bestand settings.xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -76,7 +76,7 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
 
        ```
 
-       In dit geval de `createServiceInstanceListeners` methode ziet er als volgt:
+       In dit geval de `createServiceInstanceListeners` methode er als volgt:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -96,7 +96,7 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
             ...
         </Section>
         ```
-        In dit geval de `CreateServiceInstanceListeners` methode ziet er als volgt:
+        In dit geval de `CreateServiceInstanceListeners` methode er als volgt:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -107,7 +107,7 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
             return listeners;
         }
        ```
-3. Wanneer u methoden aanroepen voor een beveiligde service met behulp van de stack voor externe toegang, in plaats van de `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasse te maken van een serviceproxy, gebruikt u `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. Wanneer u methoden aanroepen op een beveiligde service met behulp van de stack voor externe toegang, in plaats van de `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasse voor het maken van een serviceproxy, gebruikt u `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
     Als de clientcode wordt uitgevoerd als onderdeel van een service, kunt u laden `FabricTransportSettings` uit het bestand settings.xml. Maak een sectie TransportSettings die vergelijkbaar is met de servicecode, zoals eerder besproken. De volgende wijzigingen aanbrengen in de clientcode:
 

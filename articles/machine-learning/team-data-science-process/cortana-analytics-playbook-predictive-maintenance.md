@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870143"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650475"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -31,10 +31,10 @@ De eerste helft van deze handleiding worden beschreven in de meeste zakelijke pr
 
 | Beginnen met... | Als u... |
 |:---------------|:---------------|
-| [Bedrijfsscenario voor predictief onderhoud](#Business-case-for-predictive-maintenance) |een besluitvormer (Besluitvormer) wilt u minder uitvaltijd en operationele kosten en gebruik van apparatuur te verbeteren |
-| [Wetenschappelijke gegevens voor voorspeld onderhoud](#Data-Science-for-predictive-maintenance) |een technisch beleidsmaker (TDM) PdM technologieën evalueren om te begrijpen van de unieke gegevensverwerking en AI-vereisten voor predictief onderhoud |
-| [Sjablonen voor oplossingen voor Voorspellend onderhoud](#Solution-templates-for-predictive-maintenance)|een softwarearchitect of wilt u snel een demo's of een proof-of-concept een paar AI-ontwikkelaar |
-| [Cursussen voor voorspeld onderhoud](#Training-resources-for-predictive-maintenance) | een of meer van de bovenstaande, en voor meer informatie over de basisconcepten achter de wetenschappelijke gegevens, hulpmiddelen en technieken.
+| [Bedrijfsscenario voor predictief onderhoud](#business-case-for-predictive-maintenance) |een besluitvormer (Besluitvormer) wilt u minder uitvaltijd en operationele kosten en gebruik van apparatuur te verbeteren |
+| [Wetenschappelijke gegevens voor voorspeld onderhoud](#data-science-for-predictive-maintenance) |een technisch beleidsmaker (TDM) PdM technologieën evalueren om te begrijpen van de unieke gegevensverwerking en AI-vereisten voor predictief onderhoud |
+| [Sjablonen voor oplossingen voor Voorspellend onderhoud](#solution-templates-for-predictive-maintenance)|een softwarearchitect of wilt u snel een demo's of een proof-of-concept een paar AI-ontwikkelaar |
+| [Cursussen voor voorspeld onderhoud](#training-resources-for-predictive-maintenance) | een of meer van de bovenstaande, en voor meer informatie over de basisconcepten achter de wetenschappelijke gegevens, hulpmiddelen en technieken.
 
 ### <a name="prerequisite-knowledge"></a>Vereiste voorkennis
 De inhoud Besluitvormer hoofdverwerkingsknooppunt verwacht niet dat de lezer is voorgaande data science kennis hebben. Basiskennis van statistieken en datatechnologie is voor de inhoud TDM handig. Kennis van Azure Data en AI-services, Python, R, XML en JSON wordt aanbevolen. AI-technieken worden geïmplementeerd in Python / R-pakketten. Sjablonen voor oplossingen worden geïmplementeerd met behulp van Azure-services, ontwikkelprogramma's en SDK's.
@@ -78,7 +78,7 @@ Het is belangrijk om te benadrukken dat niet alle use-cases of bedrijfsproblemen
 
 - Het probleem moet worden voorspeld van aard; dat wil zeggen, moet er een doel of een resultaat om te voorspellen. Het probleem hebt ook een duidelijk pad van de actie om te voorkomen dat fouten wanneer ze worden gedetecteerd.
 - Het probleem moet een record van de operationele geschiedenis van de apparatuur die bevat _goed of slecht resultaten_. De set acties die worden uitgevoerd om onjuiste resultaten moeten ook beschikbaar als onderdeel van deze records. Foutenrapporten, logboeken voor onderhoud van prestatievermindering, herstellen en vervangen Logboeken ook belangrijk zijn. Reparaties die wordt uitgevoerd voor het verbeteren en vervangende records zijn ook nuttig.
-- De opgenomen geschiedenis moet worden weergegeven in _relevante_ gegevens _voldoende_ genoeg hoogwaardige ter ondersteuning van de use-case. Zie voor meer informatie over gegevens relevantie en toereikend waren [gegevensvereisten voor predictief onderhoud](#Data-requirements-for-predictive-maintenance).
+- De opgenomen geschiedenis moet worden weergegeven in _relevante_ gegevens _voldoende_ genoeg hoogwaardige ter ondersteuning van de use-case. Zie voor meer informatie over gegevens relevantie en toereikend waren [gegevensvereisten voor predictief onderhoud](#data-requirements-for-predictive-maintenance).
 - Domein-experts die een duidelijk beeld van het probleem krijgt hebt ten slotte van het bedrijf. Ze moeten rekening houden met het interne processen en procedures om u te helpen bij de analist begrijpen en interpreteren van de gegevens. Ze moeten ook worden de benodigde wijzigingen aanbrengen in bestaande bedrijfsprocessen om te verzamelen van de juiste gegevens voor de problemen, indien nodig.
 
 ## <a name="sample-pdm-use-cases"></a>Voorbeeld PdM use-cases
@@ -103,10 +103,10 @@ De volgende sectie haalt de details van hoe u kunt profiteren van de PdM voordel
 
 ## <a name="data-science-for-predictive-maintenance"></a>Wetenschappelijke gegevens voor voorspeld onderhoud
 
-Deze sectie bevat algemene richtlijnen van data science principes en praktijken voor PdM. Het is bedoeld ter ondersteuning van een TDM, oplossingsarchitect, of een ontwikkelaar informatie over de vereisten en proces voor het ontwikkelen van AI-toepassingen end-to-end voor PdM. U vindt in deze sectie, samen met een overzicht van de demo's en proof of concept sjablonen die worden vermeld in [sjablonen voor oplossingen voor Voorspellend onderhoud](#Solution-templates-for-predictive-maintenance). U kunt vervolgens deze beginselen en aanbevolen procedures voor het implementeren van uw oplossing PdM in Azure.
+Deze sectie bevat algemene richtlijnen van data science principes en praktijken voor PdM. Het is bedoeld ter ondersteuning van een TDM, oplossingsarchitect, of een ontwikkelaar informatie over de vereisten en proces voor het ontwikkelen van AI-toepassingen end-to-end voor PdM. U vindt in deze sectie, samen met een overzicht van de demo's en proof of concept sjablonen die worden vermeld in [sjablonen voor oplossingen voor Voorspellend onderhoud](#solution-templates-for-predictive-maintenance). U kunt vervolgens deze beginselen en aanbevolen procedures voor het implementeren van uw oplossing PdM in Azure.
 
 > [!NOTE]
-> Deze handleiding is niet bedoeld om te leren van de Data Science-lezer. Vindt u enkele nuttige bronnen voor meer informatie in de sectie voor [trainingsbronnen voor predictief onderhoud](#Training-resources-for-predictive-maintenance). De [oplossingssjablonen](#Solution-templates-for-predictive-maintenance) die worden vermeld in de handleiding voor enkele van de volgende manieren AI voor specifieke problemen met het PdM laten zien.
+> Deze handleiding is niet bedoeld om te leren van de Data Science-lezer. Vindt u enkele nuttige bronnen voor meer informatie in de sectie voor [trainingsbronnen voor predictief onderhoud](#training-resources-for-predictive-maintenance). De [oplossingssjablonen](#solution-templates-for-predictive-maintenance) die worden vermeld in de handleiding voor enkele van de volgende manieren AI voor specifieke problemen met het PdM laten zien.
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>Gegevensvereisten voor predictief onderhoud
 
@@ -114,10 +114,10 @@ Het succes van elk learning, is afhankelijk van (a) de kwaliteit van wat is word
 
 ### <a name="relevant-data"></a>Relevante gegevens
 
-Eerst moet de gegevens worden _relevant zijn voor het probleem_. Houd rekening met de _fout steeds_ use-case besproken hoger - de trainingsgegevens functies met betrekking tot de wheel-bewerkingen moet bevatten. Als het probleem is om te voorspellen van het mislukken van de _steun die krijgt system_, het trainen van gegevens is uitgebreid met de verschillende onderdelen voor het systeem steun die krijgt. Het eerste geval is bedoeld voor een specifiek onderdeel dat is gericht op het tweede geval het uitvallen van een grotere subsysteem. De algemene aanbeveling is voorspelling om systemen te ontwerpen over specifieke onderdelen in plaats van grotere subsystemen, sinds de laatste hebben meer gegevens verspreide wordt. De domeinexpert (Zie [in aanmerking komende problemen voor predictief onderhoud](#Qualifying-problems-for-predictive-maintenance)) kunnen helpen bij het selecteren van de meest relevante subsets met gegevens voor de analyse. De relevante gegevensbronnen worden besproken in meer detail in [gegevens voor te bereiden voor predictief onderhoud](#Data-preparation-for-predictive-maintenance).
+Eerst moet de gegevens worden _relevant zijn voor het probleem_. Houd rekening met de _fout steeds_ use-case besproken hoger - de trainingsgegevens functies met betrekking tot de wheel-bewerkingen moet bevatten. Als het probleem is om te voorspellen van het mislukken van de _steun die krijgt system_, het trainen van gegevens is uitgebreid met de verschillende onderdelen voor het systeem steun die krijgt. Het eerste geval is bedoeld voor een specifiek onderdeel dat is gericht op het tweede geval het uitvallen van een grotere subsysteem. De algemene aanbeveling is voorspelling om systemen te ontwerpen over specifieke onderdelen in plaats van grotere subsystemen, sinds de laatste hebben meer gegevens verspreide wordt. De domeinexpert (Zie [in aanmerking komende problemen voor predictief onderhoud](#qualifying-problems-for-predictive-maintenance)) kunnen helpen bij het selecteren van de meest relevante subsets met gegevens voor de analyse. De relevante gegevensbronnen worden besproken in meer detail in [gegevens voor te bereiden voor predictief onderhoud](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Onvoldoende gegevens
-Twee vragen worden veelgestelde met betrekking tot de gegevens van geschiedenis van fout: (1) 'hoeveel mislukte gebeurtenissen zijn vereist voor een model te trainen?' (2) 'het aantal records wordt beschouwd als 'voldoende'?' Er zijn geen definitieve antwoorden, maar alleen vuistregels. Meer het aantal gebeurtenissen die betrekking hebben, betere voor (1), het model. Voor (2), en het exacte aantal mislukte gebeurtenissen is afhankelijk van de gegevens en de context van het probleem wordt opgelost. Maar op de andere kant hebben als een virtuele machine te vaak mislukt vervolgens het bedrijf wordt vervangen, waarmee exemplaren van de fout wordt beperkt. Hier nogmaals, is de richtlijnen van het domein deskundige belangrijk. Er zijn echter methoden te kunnen omgaan met de uitgifte van _zeldzaam gebeurtenissen_. Ze worden besproken in de sectie [imbalanced gegevens verwerken](#Handling-imbalanced-data).
+Twee vragen worden veelgestelde met betrekking tot de gegevens van geschiedenis van fout: (1) 'hoeveel mislukte gebeurtenissen zijn vereist voor een model te trainen?' (2) 'het aantal records wordt beschouwd als 'voldoende'?' Er zijn geen definitieve antwoorden, maar alleen vuistregels. Meer het aantal gebeurtenissen die betrekking hebben, betere voor (1), het model. Voor (2), en het exacte aantal mislukte gebeurtenissen is afhankelijk van de gegevens en de context van het probleem wordt opgelost. Maar op de andere kant hebben als een virtuele machine te vaak mislukt vervolgens het bedrijf wordt vervangen, waarmee exemplaren van de fout wordt beperkt. Hier nogmaals, is de richtlijnen van het domein deskundige belangrijk. Er zijn echter methoden te kunnen omgaan met de uitgifte van _zeldzaam gebeurtenissen_. Ze worden besproken in de sectie [imbalanced gegevens verwerken](#handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Kwaliteitsgegevens
 De kwaliteit van de gegevens is van essentieel belang - elk kenmerk voorspelde moet _nauwkeurige_ in combinatie met de waarde van de doelvariabele. Kwaliteit van de gegevens is een goed studied gebied in statistieken en gegevensbeheer, en dus buiten bereik voor deze handleiding.
@@ -151,7 +151,7 @@ Sensor op basis van (of andere) streaming-gegevens van de apparatuur in de bewer
 #### <a name="static-feature-data"></a>Gegevens van de statische functie
 Statische functies zijn metagegevens over de apparatuur. Voorbeelden zijn de fabrikant, model, productiedatum, start de service, de locatie van het systeem en andere technische specificaties.
 
-Voorbeelden van relevante gegevens voor de [voorbeeld PdM use-cases](#Sample-PdM-use-cases) zijn Zie tabel hieronder:
+Voorbeelden van relevante gegevens voor de [voorbeeld PdM use-cases](#sample-pdm-use-cases) zijn Zie tabel hieronder:
 
 | Toepassing | Voorbeelden van relevante gegevens |
 |:---------|---------------------------|
@@ -186,7 +186,7 @@ Voor statische gegevens
 
 Andere gegevens voorverwerkingsstappen bevatten _verwerken van de ontbrekende waarden_ en _normalisering_ van kenmerkwaarden. Een gedetailleerde beschrijving valt buiten het bereik van deze handleiding: Zie de volgende sectie voor sommige nuttig verwijzingen.
 
-Met de bovenstaande voorverwerkte gegevensbronnen aanwezig is, de laatste transformatie voordat feature-engineering, is de bovenstaande tabellen op basis van de activa-id en tijdstempel moeten worden samengevoegd. De resulterende tabel moet null-waarden voor de kolom fout wanneer machine zich in de normale werking. Deze null-waarden kunnen worden toegeschreven door een indicator voor normale werking. Deze fout-kolom gebruiken om te maken _labels voor het voorspellende model_. Zie voor meer informatie de sectie over [technieken voor predictief onderhoud model](#Modeling-techniques-for-predictive-maintenance).
+Met de bovenstaande voorverwerkte gegevensbronnen aanwezig is, de laatste transformatie voordat feature-engineering, is de bovenstaande tabellen op basis van de activa-id en tijdstempel moeten worden samengevoegd. De resulterende tabel moet null-waarden voor de kolom fout wanneer machine zich in de normale werking. Deze null-waarden kunnen worden toegeschreven door een indicator voor normale werking. Deze fout-kolom gebruiken om te maken _labels voor het voorspellende model_. Zie voor meer informatie de sectie over [technieken voor predictief onderhoud model](#modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Functie-engineering
 Feature-engineering is de eerste stap voorafgaand aan het modelleren van de gegevens. De rol in het data science process [wordt hier beschreven](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). Een _functie_ is een voorspellende kenmerk voor de model - zoals temperatuur, druk te verlichten, trillingen, enzovoort. Voor PdM omvat feature-engineering het om een virtuele machine de status van historische gegevens verzameld over de duur van een aanzienlijke te abstraheren. In die zin is het verschilt van de peers zoals externe controle, detectie van afwijkingen en detecteren van storingen. 
@@ -205,7 +205,7 @@ Voor elke record van een asset, een rolling venster van de grootte "letter W" ge
 
 ![Afbeelding 1. Statistische functies rolling](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) afbeelding 1. Rolling statistische functies
 
-Voorbeelden van het huidige statistische functies gedurende een bepaalde periode zijn aantal, gemiddelde, CUMESUM (cumulatieve som) metingen, min/max-waarden. Bovendien worden afwijking, standaarddeviatie en aantal van de uitschieters dan N standaardafwijkingen vaak gebruikt. Voorbeelden van statistische functies die kunnen worden toegepast voor de [gebruiksvoorbeelden](#Sample-PdM-use-cases) in deze handleiding worden hieronder vermeld. 
+Voorbeelden van het huidige statistische functies gedurende een bepaalde periode zijn aantal, gemiddelde, CUMESUM (cumulatieve som) metingen, min/max-waarden. Bovendien worden afwijking, standaarddeviatie en aantal van de uitschieters dan N standaardafwijkingen vaak gebruikt. Voorbeelden van statistische functies die kunnen worden toegepast voor de [gebruiksvoorbeelden](#sample-pdm-use-cases) in deze handleiding worden hieronder vermeld. 
 - _Vertraging Flight_: aantal foutcodes in de afgelopen dag/week.
 - _Vliegtuig engine onderdeel fout_: rolling betekent, standaarddeviatie en som in de afgelopen dag, week enzovoort. Met deze metriek moet samen met het bedrijfsdomein deskundige worden bepaald.
 - _ATM-fouten_: rolling middelen, gemiddelde, bereik, standaardafwijkingen, aantal uitbijters meer dan drie standaardafwijkingen, boven en ondergrenzen CUMESUM.
@@ -325,7 +325,7 @@ Wanneer tijdreeksen zijn stilstaande en gemakkelijk te voorspellen, genereert wi
 ### <a name="time-dependent-split"></a>Tijdafhankelijke splitsen
 Deze sectie wordt beschreven aanbevolen procedures voor het implementeren van afhankelijk zijn van tijd splitsen. Een wederzijdse splitsing tijdsafhankelijke tussen trainings- en testsets wordt hieronder beschreven.
 
-Wordt ervan uitgegaan dat u een stroom gebeurtenissen, zoals de metingen van diverse sensoren voorzien van een tijdstempel. Functies en labels van training en test voorbeelden via meteen met meerdere gebeurtenissen gedefinieerd. Bijvoorbeeld voor binaire classificatie op basis van gebeurtenissen in het verleden functies maken en op basis van toekomstige gebeurtenissen in "eenheden van de tijd in de toekomst X"-labels maken (Zie de secties over [functie-engineering](#Feature-engineering) en technieken modellering). Het labelen tijdsbestek van een voorbeeld komt dus hoger is dan de periode van de functies ervan.
+Wordt ervan uitgegaan dat u een stroom gebeurtenissen, zoals de metingen van diverse sensoren voorzien van een tijdstempel. Functies en labels van training en test voorbeelden via meteen met meerdere gebeurtenissen gedefinieerd. Bijvoorbeeld voor binaire classificatie op basis van gebeurtenissen in het verleden functies maken en op basis van toekomstige gebeurtenissen in "eenheden van de tijd in de toekomst X"-labels maken (Zie de secties over [functie-engineering](#feature-engineering) en technieken modellering). Het labelen tijdsbestek van een voorbeeld komt dus hoger is dan de periode van de functies ervan.
 
 Voor tijdsafhankelijke splitsing, kies een _training breekpunt tijd T<sub>c</sub>_  op waarop u wilt een model te trainen met hyperparameters afgestemd op met behulp van historische gegevens maximaal T<sub>c</sub>. Om te voorkomen dat lekken van toekomstige labels die buiten T<sub>c</sub> in de trainingsgegevens, kiest u de meest recente tijd voor het label training voorbeelden moet X eenheden voordat T<sub>c</sub>. Elke vierkant vertegenwoordigt in het voorbeeld in afbeelding 7 wordt weergegeven, een record in de gegevensset waarop functies en labels worden berekend, zoals hierboven beschreven. De afbeelding ziet u de records die moeten worden geplaatst in trainings- en testsets voor X = 2 en W = 3:
 
@@ -352,7 +352,7 @@ Met de klasse uit balans zijn gegevens, prestaties van de meeste standaard learn
 - F1-scores
 - Kosten aangepast ROC (ontvanger operationele kenmerken)
 
-Zie voor meer informatie over deze metrische gegevens, [model evaluatie](#Model-evaluation).
+Zie voor meer informatie over deze metrische gegevens, [model evaluatie](#model-evaluation).
 
 Er zijn echter enkele methoden die verhelpen klasse imbalance probleem. De twee belangrijkste zijn _technieken steekproeven_ en _kosten gevoelige learning_.
 

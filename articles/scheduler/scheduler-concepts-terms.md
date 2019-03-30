@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887048"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651266"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
 
@@ -143,7 +143,7 @@ In het object **startTime** kunt u de begintijd en een tijdverschuiving aangeven
 
 ## <a name="action"></a>action
 
-De Scheduler-job voert een primaire **action** uit op basis van het opgegeven schema. Scheduler biedt ondersteuning voor HTTP-, opslagwachtrij-, Service Bus-onderwerp- en Service Bus-wachtrijacties. Als de primaire **action** mislukt, kan er een secundaire [**errorAction**](#errorAction) worden uitgevoerd die de fout afhandelt. Het object **action** beschrijft de volgende elementen:
+De Scheduler-job voert een primaire **action** uit op basis van het opgegeven schema. Scheduler biedt ondersteuning voor HTTP-, opslagwachtrij-, Service Bus-onderwerp- en Service Bus-wachtrijacties. Als de primaire **action** mislukt, kan er een secundaire [**errorAction**](#erroraction) worden uitgevoerd die de fout afhandelt. Het object **action** beschrijft de volgende elementen:
 
 * Het servicetype van de actie
 * De details van de actie

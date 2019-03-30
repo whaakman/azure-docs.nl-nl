@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl mesh-gateway-opdrachte
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 7738f838fade47a486b33d808ee2938101406763
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 27cfe380e5988f17ca79c430cde7defc7f7bc440
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284806"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661357"
 ---
-# <a name="sfctl-mesh-gateway"></a>sfctl mesh-gateway
+# <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 Ophalen en verwijderen van mesh-gateway-resources.
 
 ## <a name="commands"></a>Opdrachten
@@ -30,7 +30,7 @@ Ophalen en verwijderen van mesh-gateway-resources.
 | --- | --- |
 | delete | Hiermee verwijdert u de Gateway-resource. |
 | list | Geeft een lijst van alle gateway-resources. |
-| Show | Hiermee haalt u de Gateway-resource met de opgegeven naam. |
+| weergeven | Hiermee haalt u de Gateway-resource met de opgegeven naam. |
 
 ## <a name="sfctl-mesh-gateway-delete"></a>sfctl mesh-gateway delete
 Hiermee verwijdert u de Gateway-resource.
@@ -43,7 +43,7 @@ Hiermee verwijdert u de Gateway-resource aangeduid met de naam.
 | --- | --- |
 | --naam -n (vereist) | De naam van de gateway-resource. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -58,7 +58,7 @@ Geeft een lijst van alle gateway-resources.
 
 Hiermee haalt de informatie over alle gateway-resources in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van de Gateway.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -79,7 +79,7 @@ Hiermee haalt u de informatie over de Gateway-resource met de opgegeven naam. De
 | --- | --- |
 | --naam -n (vereist) | De naam van de gateway-resource. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

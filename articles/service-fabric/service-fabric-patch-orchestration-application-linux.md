@@ -4,7 +4,7 @@ description: De toepassing voor het automatiseren van besturingssysteem toepasse
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285149"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668191"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor de Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -41,13 +41,13 @@ De patch orchestration-app biedt de volgende functies:
 
 De patch orchestration-app bestaat uit de volgende onderdelen:
 
-- **Service Coordinator**: deze stateful service is verantwoordelijk voor:
+- **Service Coordinator**: Deze stateful service is verantwoordelijk voor:
     - De taak van de Update van het besturingssysteem op het hele cluster coördineren.
     - Het opslaan van het resultaat van voltooide bewerkingen van de Update van het besturingssysteem.
-- **Knooppunt-agentservice**: deze stateless service wordt uitgevoerd op alle knooppunten van de Service Fabric-cluster. De service is verantwoordelijk voor:
+- **Knooppunt-agentservice**: Deze stateless service wordt uitgevoerd op alle knooppunten van de Service Fabric-cluster. De service is verantwoordelijk voor:
     - Opstarten van de Knooppuntagent-daemon op Linux.
     - De daemon-service te controleren.
-- **Knooppunt Agent daemon**: deze Linux-daemon-service wordt uitgevoerd op een hoger niveau van bevoegdheden (root). Daarentegen de knooppunt Agent-Service en de Coordinator-Service uitgevoerd op een lager niveau van bevoegdheden. De service is verantwoordelijk voor het uitvoeren van de volgende Update-taken op alle clusterknooppunten:
+- **Knooppunt Agent daemon**: Deze Linux-daemon-service wordt uitgevoerd op een hoger niveau van bevoegdheden (root). Daarentegen de knooppunt Agent-Service en de Coordinator-Service uitgevoerd op een lager niveau van bevoegdheden. De service is verantwoordelijk voor het uitvoeren van de volgende Update-taken op alle clusterknooppunten:
     - Het uitschakelen van automatische Update van het besturingssysteem op het knooppunt.
     - Downloaden en installeren van Update van het besturingssysteem op basis van het beleid wordt de gebruiker is opgegeven.
     - Indien nodig, opnieuw op te starten met de machine na de installatie van de Update van het besturingssysteem.
@@ -130,11 +130,11 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Lang                              | Maximum aantal resultaten van de Update, die moet worden opgeslagen in de cache. <br>Standaardwaarde is 3000 ervan uitgaande dat de: <br> -Het aantal knooppunten is 20. <br> -Het aantal updates dat op een knooppunt per maand gebeurt is vijf. <br> -Het aantal resultaten dat per bewerking is 10. <br> -Resultaten voor de afgelopen drie maanden moeten worden opgeslagen. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service voor het installeren van updates over de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Updates zijn geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Updates zijn geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor update.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service voor het installeren van updates over de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Updates zijn geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Updates zijn geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor update.)
 | UpdateOperationTimeOutInMinutes | Int <br>(Standaard: 180)                   | Hiermee geeft u de time-out voor een updatebewerking (downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
-| RescheduleCount      | Int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor het besturingssysteem bijwerken in het geval een bewerking blijft mislukken.          |
-| RescheduleTimeInMinutes  | Int <br>(Standaard: 30). | Het interval waarmee de service opnieuw gepland het besturingssysteem bijwerken als de fout zich blijft voordoen. |
-| UpdateFrequency           | Door komma's gescheiden tekenreeks op (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van updates van het besturingssysteem op het cluster. De indeling en de mogelijke waarden zijn: <br>-Maand, DD uu: mm:, bijvoorbeeld, maandelijks, 5, 12:22:32. <br> -Wekelijks, dag, uu: mm:, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks, uu: mm:, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan of update al dan niet mogen worden uitgevoerd.  <br><br> Alle tijden worden in UTC.|
+| RescheduleCount      | Int <br> (Standaard: 5)                  | Het maximum aantal keren dat de service opnieuw gepland voor het besturingssysteem bijwerken in het geval een bewerking blijft mislukken.          |
+| RescheduleTimeInMinutes  | Int <br>(Standaard: 30) | Het interval waarmee de service opnieuw gepland het besturingssysteem bijwerken als de fout zich blijft voordoen. |
+| UpdateFrequency           | Door komma's gescheiden tekenreeks op (standaard: "Weekly, Wednesday, 7:00:00")     | De frequentie voor het installeren van updates van het besturingssysteem op het cluster. De indeling en de mogelijke waarden zijn: <br>-Maand, DD uu: mm:, bijvoorbeeld, maandelijks, 5, 12:22:32. <br> -Wekelijks, dag, uu: mm:, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks, uu: mm:, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan of update al dan niet mogen worden uitgevoerd.  <br><br> Alle tijden worden in UTC.|
 | UpdateClassification | Door komma's gescheiden tekenreeks op (standaard: "securityupdates") | Het type updates dat moet worden geïnstalleerd op de clusterknooppunten. Acceptabele waarden zijn securityupdates, alle. <br> -securityupdates - zou alleen beveiligingsupdates installeren <br> -alle - installeert alle beschikbare updates van apt.|
 | ApprovedPatches | Door komma's gescheiden tekenreeks op (standaard: ' ") | Dit is de lijst met goedgekeurde updates die moeten worden geïnstalleerd op de clusterknooppunten. De door komma's gescheiden lijst met bevat goedgekeurde pakketten en eventueel gewenste doelversie.<br> bijvoorbeeld: "apt-utils 1.2.10ubuntu1 python3-jwt, apt-transport-https < 1.2.194, libsystemd0 = > 229 4ubuntu16 =" <br> De bovenstaande wilt installeren <br> -apt-utils met versie 1.2.10ubuntu1 als deze beschikbaar zijn in apt-cache. Als deze specifieke versie beschikbaar is, is er geen. <br> -python3-jwt-upgrades naar de meest recente beschikbare versie. Als het pakket niet aanwezig is, is geen. <br> -upgrades naar hoogste versie die is minder dan 1.2.194 apt-transport-https. Als u deze versie niet aanwezig is, is geen. <br> -upgrades naar hoogste versie die hoger is dan of gelijk aan 229 4ubuntu16 libsystemd0. Als deze een versie niet bestaat, is geen.|
 | RejectedPatches | Door komma's gescheiden tekenreeks op (standaard: ' ") | Dit is de lijst met updates die niet moeten worden geïnstalleerd op de clusterknooppunten <br> bijvoorbeeld: 'bash, sudo' <br> De voorgaande gefilterd bash, sudo ontvangen van updates. |
@@ -221,7 +221,7 @@ Velden van de JSON worden als volgt beschreven:
 
 Veld | Waarden | Details
 -- | -- | --
-Kan operationresult niet | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
+OperationResult | 0 - Succeeded<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
 ResultCode | Kan operationresult niet gelijk | Dit veld wordt resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - zoeken naar en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 UpdateClassification | De standaardwaarde is "securityupdates" | Type updates dat tijdens de updatebewerking is geïnstalleerd
@@ -305,7 +305,7 @@ A. De tijd die nodig zijn voor de patch orchestration-app is voornamelijk afhank
 
 V. **Hoe kiest, wordt er patch orchestration app beslist welke updates zijn beveiligingsupdates.**
 
-A. Patch orchestration-app maakt gebruik van distributie-specifieke logica om te bepalen welke updates tussen de beschikbare updates zijn beveiligingsupdates. Bijvoorbeeld: In de app wordt gezocht naar updates van archieven $RELEASE ubuntu-beveiliging, $RELEASE-updates ($RELEASE = xenial of de linux standard base release-versie). 
+A. Patch orchestration-app maakt gebruik van distributie-specifieke logica om te bepalen welke updates tussen de beschikbare updates zijn beveiligingsupdates. Bijvoorbeeld: In ubuntu de app wordt gezocht naar updates van archieven $RELEASE-beveiliging, $RELEASE-updates ($RELEASE = xenial of de linux standard base release-versie). 
 
  
 V. **Hoe kan ik u aan bij een specifieke versie van pakket vergrendelen?**

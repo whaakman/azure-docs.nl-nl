@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 6f416f1de6baca7fe79ea2a5dddfb8f8eb5f5120
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825092"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651781"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure PowerShell
 
@@ -85,6 +85,10 @@ Zie voor het valideren van implementatie van een resourcegroep, [Test AzResource
 ## <a name="deploy-a-resource-group-and-resources"></a>Een resourcegroep en resources implementeren
 
 U kunt een resourcegroep maken en implementeren van resources aan de groep met behulp van Resource Manager-sjabloon. Zie voor meer informatie, [resourcegroep maken en implementeren van resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+
+## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
+
+Deze functie wordt ook wel bekend als *Rollback bij fout*. Zie voor meer informatie, [opnieuw implementeren wanneer de implementatie mislukt](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Verplaatsen naar een andere resourcegroep of abonnement
 

@@ -4,7 +4,7 @@ description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl-service
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276873"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670877"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Maken, verwijderen en beheren van de service, servicetypen en service-pakketten.
@@ -28,8 +28,8 @@ Maken, verwijderen en beheren van de service, servicetypen en service-pakketten.
 
 |Opdracht|Description|
 | --- | --- |
-| App-naam | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service. |
-| code-pakket-list | Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
+| app-name | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service. |
+| code-package-list | Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
 | maken | Hiermee maakt u de opgegeven Service Fabric-service. |
 | delete | Hiermee verwijdert u een bestaande Service Fabric-service. |
 | geïmplementeerd-type | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing die is geïmplementeerd op een knooppunt in een Service Fabric-cluster. |
@@ -44,10 +44,10 @@ Maken, verwijderen en beheren van de service, servicetypen en service-pakketten.
 | package-health | Hiermee haalt de informatie over de status van een servicepakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing. |
 | package-info | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met precies de opgegeven naam. |
 | pakket-lijst | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| herstellen | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen. |
+| recover | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen. |
 | rapport-en statusbewaking | Verzendt een statusrapport van de Service Fabric-service. |
 | oplossen | Een Service Fabric-partitie worden omgezet. |
-| type-lijst | Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster. |
+| type-list | Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster. |
 | update | De opgegeven service met behulp van de beschrijving van de betreffende update-updates. |
 
 ## <a name="sfctl-service-app-name"></a>sfctl service app-naam
@@ -62,7 +62,7 @@ Hiermee haalt u de naam van de toepassing voor de opgegeven service. Een 404 FAB
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -83,11 +83,11 @@ Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Serv
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --code pakketnaam | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
+| --code-package-name | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --naam van een service manifest | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -111,30 +111,30 @@ Hiermee maakt u de opgegeven Service Fabric-service.
 | --beperkingen | De plaatsingsbeperkingen als een tekenreeks. Plaatsingsbeperkingen zijn Booleaanse expressies in de eigenschappen van het knooppunt en toestaan voor het beperken van een service voor bepaalde knooppunten op basis van de servicevereisten. Bijvoorbeeld, om een service op de knooppunten waar NodeType blauw is het volgende opgeven\:"NodeColor == blue '. |
 | --gecorreleerde-service | De naam van de doelservice correleren met. |
 | --correlatie | De service met een bestaande service met behulp van een affiniteit uitlijning correleren. |
-| --dns-naam | De DNS-naam van de service moet worden gemaakt. De Service Fabric-DNS-service moet zijn ingeschakeld voor deze instelling. |
-| --aantal exemplaren | Het aantal instanties. Dit geldt voor stateless services alleen. |
-| --int-schema | Geeft aan dat de service op uniforme wijze moet worden gepartitioneerd op tal van niet-ondertekende gehele getallen. |
-| --int-schema-count | Het aantal partities binnen het gehele getal sleutel moet worden gemaakt, als u met behulp van een partitieschema uniform geheel getal zijn. |
-| --int-schema-hoog | Het einde van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
-| --int-schema-laag | Het begin van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
+| --dns-name | De DNS-naam van de service moet worden gemaakt. De Service Fabric-DNS-service moet zijn ingeschakeld voor deze instelling. |
+| --instance-count | Het aantal instanties. Dit geldt voor stateless services alleen. |
+| --int-scheme | Geeft aan dat de service op uniforme wijze moet worden gepartitioneerd op tal van niet-ondertekende gehele getallen. |
+| --int-scheme-count | Het aantal partities binnen het gehele getal sleutel moet worden gemaakt, als u met behulp van een partitieschema uniform geheel getal zijn. |
+| --int-scheme-high | Het einde van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
+| --int-scheme-low | Het begin van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
 | --load-metrische gegevens | JSON gecodeerd overzicht van metrische gegevens die gebruikt wordt wanneer load balancing services over knooppunten. |
-| --min-replica-set-grootte | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
-| --verplaatsen-kosten | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
-| --met de naam schema | Geeft aan dat de service moet meerdere benoemde partities hebben. |
-| --met de naam-schema-list | JSON gecodeerd lijst met namen voor het partitioneren van de service in, als de benoemde partitieschema. |
+| --min-replica-set-size | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
+| --move-cost | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
+| --named-scheme | Geeft aan dat de service moet meerdere benoemde partities hebben. |
+| --named-scheme-list | JSON gecodeerd lijst met namen voor het partitioneren van de service in, als de benoemde partitieschema. |
 | --niet-persistent-status | Indien waar, geeft dit aan de service heeft geen permanente status opgeslagen op de lokale schijf, of alleen wordt status opgeslagen in het geheugen. |
 | --plaatsing beleidslijst | JSON gecodeerd lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-verlies-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
-| --replica-opnieuw opstarten-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
+| --quorum-loss-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
+| --replica-restart-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
 | --schalen-beleid | JSON gecodeerd lijst met beleidsregels voor deze service te schalen. |
-| --singleton-schema | Geeft aan dat de service moet beschikken over één partitie of een niet-gepartitioneerde-service. |
-| --zelfstandige door replica behouden | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
+| --singleton-scheme | Geeft aan dat de service moet beschikken over één partitie of een niet-gepartitioneerde-service. |
+| --stand-by-replica-keep | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
 | --stateful | Geeft aan dat de service is een stateful service. |
 | --stateless | Geeft aan dat de service is een staatloze service. |
-| --target-replica-set-grootte | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
+| --target-replica-set-size | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -157,7 +157,7 @@ Een service moet worden gemaakt voordat deze kan worden verwijderd. Standaard pr
 | --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -182,7 +182,7 @@ Hiermee haalt u de lijst met de informatie over een specifieke service-type van 
 | --naam van een service manifest | De naam van het servicemanifest voor het filteren van de lijst met geïmplementeerde service-informatie. Indien opgegeven, is het antwoord bevat alleen de informatie over servicetypen die zijn gedefinieerd in het servicemanifest van deze. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -206,7 +206,7 @@ Hiermee haalt u de lijst met de informatie over de servicetypen van de toepassin
 | --naam van een service manifest | De naam van het servicemanifest voor het filteren van de lijst met geïmplementeerde service-informatie. Indien opgegeven, is het antwoord bevat alleen de informatie over servicetypen die zijn gedefinieerd in het servicemanifest van deze. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -228,7 +228,7 @@ Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. Een se
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -255,7 +255,7 @@ Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd 
 | --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -280,7 +280,7 @@ Hiermee haalt u de statusgegevens van de opgegeven service. EventsHealthStateFil
 | --partities-health-status-filter | Kan het filteren van de partities health state objecten geretourneerd in het resultaat van de zoekopdracht van de health-service op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de partities die overeenkomen met het filter worden geretourneerd. Alle partities worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarde die is verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is wordt vervolgens de status van de partities met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -303,7 +303,7 @@ Retourneert informatie over de opgegeven service die behoren tot de opgegeven Se
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -324,10 +324,10 @@ Retourneert informatie over alle services die behoren tot de toepassing die is o
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --service-type-naam | De naam van de service type is gebruikt voor het filteren van de services aan te vragen voor. |
+| --service-type-name | De naam van de service type is gebruikt voor het filteren van de services aan te vragen voor. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -348,10 +348,10 @@ Hiermee haalt u de beschrijving van het servicetype van een manifest. Het antwoo
 | --- | --- |
 | --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
 | --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
-| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
+| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -375,7 +375,7 @@ Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest voor de 
 | --share-beleid | Lijst met JSON gecodeerd van het delen van beleid. Voor elk beleidselement in delen bestaat uit een 'name' en 'bereik'. De naam overeenkomt met de naam van het pakket met code, configuratie of gegevens die moet worden gedeeld. Het bereik mag 'None', 'All', 'Code', 'Config' of 'Gegevens'. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -400,7 +400,7 @@ Hiermee haalt de informatie over de status van een servicepakket voor een specif
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -424,7 +424,7 @@ Retourneert informatie over de servicepakketten dat is geïmplementeerd op een S
 | --service-pakket-naam (vereist) | De naam van het servicepakket. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -447,7 +447,7 @@ Retourneert informatie over de servicepakketten dat is geïmplementeerd op een S
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -469,7 +469,7 @@ Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van 
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -493,13 +493,13 @@ Status van de opgegeven Service Fabric-service-rapporten. Het rapport moet de in
 | --service-id (vereist) | De identiteit van de service. <br><br> Dit is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1', de service-identiteit is ' Mijntoep\~app1\~svc1' in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
+| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -520,11 +520,11 @@ Een partitie van de Service Fabric-service om op te halen van de eindpunten van 
 | --- | --- |
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --partitie-sleutel-type | Type van de sleutel voor de partitie. Deze parameter is vereist als het partitieschema van de service Int64Range of naam is. De mogelijke waarden zijn te volgen. -Geen (1) - geeft aan dat de parameter PartitionKeyValue niet is opgegeven. Dit is ongeldig voor de partities met het partitieschema als Singleton. Dit is de standaardwaarde. De waarde is 1. -Int64Range (2) - geeft aan dat de parameter PartitionKeyValue de partitiesleutel van een gegevenstype int64. Dit is ongeldig voor de partities met het partitieschema als Int64Range. De waarde is 2. -Met de naam (3) - geeft aan dat de parameter PartitionKeyValue een naam op van de partitie is. Dit is ongeldig voor de partities met het partitieschema als naam. De waarde is 3. |
-| --partitie-sleutel / waarde- | Partitiesleutel. Dit is vereist als het partitieschema van de service Int64Range of naam is. Dit is niet de partitie-ID, maar in plaats daarvan een van beide het gehele getal sleutel-waarde of de naam van de partitie-ID. Bijvoorbeeld, als uw service van variabele partities van 0 tot en met 10 gebruikmaakt, is klikt u vervolgens ze PartitionKeyValue een geheel getal in dat bereik. Beschrijving van de service om te zien van het bereik of de naam van een query uitvoeren. |
+| --partition-key-value | Partitiesleutel. Dit is vereist als het partitieschema van de service Int64Range of naam is. Dit is niet de partitie-ID, maar in plaats daarvan een van beide het gehele getal sleutel-waarde of de naam van de partitie-ID. Bijvoorbeeld, als uw service van variabele partities van 0 tot en met 10 gebruikmaakt, is klikt u vervolgens ze PartitionKeyValue een geheel getal in dat bereik. Beschrijving van de service om te zien van het bereik of de naam van een query uitvoeren. |
 | --vorige rsp-versie | De waarde in het veld versie van het antwoord dat eerder is ontvangen. Dit is vereist als de gebruiker weet dat het resultaat dat is verkregen eerder verouderd is. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -547,7 +547,7 @@ Hiermee haalt u de lijst met de informatie over de servicetypen die worden onder
 | --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -568,21 +568,21 @@ De opgegeven service met behulp van de beschrijving van de betreffende update-up
 | --beperkingen | De plaatsingsbeperkingen als een tekenreeks. Plaatsingsbeperkingen zijn Booleaanse expressies in de eigenschappen van het knooppunt en toestaan voor het beperken van een service voor bepaalde knooppunten op basis van de servicevereisten. Bijvoorbeeld, om een service op de knooppunten waar NodeType blauw is het volgende opgeven\: "NodeColor == blue '. |
 | --gecorreleerde-service | De naam van de doelservice correleren met. |
 | --correlatie | De service met een bestaande service met behulp van een affiniteit uitlijning correleren. |
-| --aantal exemplaren | Het aantal instanties. Dit geldt voor stateless services alleen. |
+| --instance-count | Het aantal instanties. Dit geldt voor stateless services alleen. |
 | --load-metrische gegevens | JSON gecodeerd overzicht van metrische gegevens die worden gebruikt wanneer de taakverdeling over meerdere knooppunten. |
-| --min-replica-set-grootte | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
-| --verplaatsen-kosten | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
+| --min-replica-set-size | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
+| --move-cost | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
 | --plaatsing beleidslijst | JSON gecodeerd lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-verlies-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
-| --replica-opnieuw opstarten-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
+| --quorum-loss-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
+| --replica-restart-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
 | --schalen-beleid | JSON gecodeerd lijst met beleidsregels voor deze service te schalen. |
-| --zelfstandige door replica behouden | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
+| --stand-by-replica-keep | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
 | --stateful | Geeft aan dat de doelservice is een stateful service. |
 | --stateless | Geeft aan dat de doelservice is een staatloze service. |
-| --target-replica-set-grootte | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
+| --target-replica-set-size | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

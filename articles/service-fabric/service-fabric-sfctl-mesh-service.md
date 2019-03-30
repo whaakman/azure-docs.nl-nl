@@ -4,7 +4,7 @@ description: Beschrijving van de opdrachten voor Service Fabric-CLI sfctl mesh-s
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c40cf2340568e704a5c76ad367c07c85826943b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284799"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667579"
 ---
-# <a name="sfctl-mesh-service"></a>sfctl mesh-service
+# <a name="sfctl-mesh-service"></a>sfctl mesh service
 Servicedetails en lijst met services van de bron van een toepassing ophalen.
 
 ## <a name="commands"></a>Opdrachten
@@ -29,7 +29,7 @@ Servicedetails en lijst met services van de bron van een toepassing ophalen.
 |Opdracht|Description|
 | --- | --- |
 | list | Geeft een lijst van alle serviceresources. |
-| Show | Hiermee haalt u de resource met de opgegeven naam voor de Service. |
+| weergeven | Hiermee haalt u de resource met de opgegeven naam voor de Service. |
 
 ## <a name="sfctl-mesh-service-list"></a>lijst van sfctl mesh-service
 Geeft een lijst van alle serviceresources.
@@ -42,7 +42,7 @@ Hiermee haalt u de informatie over alle services van de bron van een toepassing.
 | --- | --- |
 | --app-naam: naam van de toepassing (vereist) | De naam van de toepassing. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -64,7 +64,7 @@ Hiermee haalt u de informatie over de resource met de opgegeven naam voor de Ser
 | --app-naam: naam van de toepassing (vereist) | De naam van de toepassing. |
 | --naam -n (vereist) | De naam van de service. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

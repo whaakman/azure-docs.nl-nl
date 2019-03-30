@@ -4,7 +4,7 @@ description: Hierin wordt beschreven parameters met betrekking tot het upgraden 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099189"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670614"
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
 Dit artikel beschrijft de verschillende parameters die van toepassing tijdens de upgrade van een Azure Service Fabric-toepassing zijn. Parameters toepassingsupgrade bepaalt de time-outs en statuscontroles die worden toegepast tijdens de upgrade en u deze opgeven met de beleidsregels die moeten worden toegepast wanneer een upgrade mislukt. Parameters voor de toepassing van toepassing op upgrades met behulp van:
@@ -44,7 +44,7 @@ Visual Studio Service Fabric application upgrade parameters zijn ingesteld via h
 ### <a name="required-parameters"></a>Vereiste parameters
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Van toepassing op | Beschrijving |
+| Parameter | Van toepassing op | Description |
 | --- | --- | --- |
 ApplicationName |PS| De naam van de toepassing die wordt bijgewerkt. Voorbeelden: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Typt u de versie van de toepassing die de upgrade doelen. |
@@ -62,7 +62,7 @@ Gebruik de horizontale schuifbalk aan de onderkant van de tabel om het veld voll
 
 (PS=PowerShell, VS=Visual Studio)
 
-| Parameter | Van toepassing op | Beschrijving |
+| Parameter | Van toepassing op | Description |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Hiermee geeft u de onderdrukkingen voor de parameters voor de toepassing.<br>PowerShell-parameters van toepassing zijn opgegeven als hashtabel naam/waarde-paren. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Parameters voor Visual Studio de toepassing kunnen worden opgegeven in het dialoogvenster voor Service Fabric-toepassing publiceren in de **Toepassingsparametersbestand** veld.
 | Bevestigen |PS| Toegestane waarden zijn **waar** en **False**. Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert. |
@@ -92,14 +92,15 @@ Upgrades van de service Fabric-toepassingen met behulp van de Service Fabric-CLI
 
 ### <a name="required-parameters"></a>Vereiste parameters
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
-| aanvraag-id  |ID van de toepassing die wordt bijgewerkt. <br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de ' ~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric: / Mijntoep/app1 ', is de toepassings-id ' Mijntoep ~ app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies.|
+| aanvraag-id  |ID van de toepassing die wordt bijgewerkt. <br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric: / Mijntoep/app1 ', is de toepassings-id ' Mijntoep\~app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies.|
 toepassingsversie |Typt u de versie van de toepassing die de upgrade doelen.|
 parameters  |Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het upgraden van de toepassing moet worden toegepast.|
 
 ### <a name="optional-parameters"></a>Optionele parameters
-| Parameter | Beschrijving |
+
+| Parameter | Description |
 | --- | --- |
 standaard-service-health-beleid | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) specificatie van het statusbeleid gebruikt standaard voor het evalueren van de status van een servicetype gecodeerd. De kaart is standaard leeg. |
 actie bij fout | Toegestane waarden zijn **terugdraaien**, **handmatig**, en **ongeldig**. De compenserende actie om uit te voeren wanneer een *bewaakte* tegenkomt bewaking beleidsschendingen beleid of de gezondheid van een upgrade uitvoert. <br>**Terugdraaien** geeft aan dat de upgrade automatisch naar de versie van vóór de upgrade wordt teruggedraaid. <br>**Handmatige** geeft aan dat de upgrade wordt overgeschakeld naar de *UnmonitoredManual* upgrademodus. <br>**Ongeldige** geeft aan dat de actie ongeldig is.|

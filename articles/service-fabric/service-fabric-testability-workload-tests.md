@@ -4,7 +4,7 @@ description: Klik hier voor meer informatie over het beveiligen van uw services 
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667205"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Storingen simuleren tijdens servicewerkbelastingen
 De testbaarheidsscenario's in Azure Service Fabric kunnen ontwikkelaars over het afhandelen van de afzonderlijke fouten u geen zorgen. Er zijn scenario's, maar waarbij een expliciete interleaving van client-werkbelasting en fouten nodig zijn. De interleaving van client-werkbelasting en fouten, zorgt u ervoor dat de service daadwerkelijk een actie wordt uitgevoerd wanneer de fout doet zich voor. Gezien de mate van controle die testbaarheid biedt, kunnen deze worden op exacte momenten van de werkbelasting kan worden uitgevoerd. Dit doen ontstaan van fouten op verschillende statussen in de toepassing kunt vinden fouten en de kwaliteit te verbeteren.
@@ -27,12 +27,12 @@ De testbaarheidsscenario's in Azure Service Fabric kunnen ontwikkelaars over het
 ## <a name="sample-custom-scenario"></a>Aangepaste voorbeeldscenario
 Deze test toont een scenario waarin de workload business met interleaves [fouten in vensters en geforceerde afsluiting](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). De fouten moeten worden verkregen in het midden van servicebewerkingen of de rekenresource voor de beste resultaten.
 
-We nemen een voorbeeld van een service die wordt aangegeven dat vier werkbelastingen: A, B, C en D. elk komt overeen met een set van werkstromen en kan worden compute, opslag of een combinatie. Om het eenvoudig, te zullen we de werkbelastingen uit abstracte in ons voorbeeld. De andere fouten die zijn uitgevoerd in dit voorbeeld zijn:
+We nemen een voorbeeld van een service die wordt aangegeven dat vier workloads: A, B, C en D. Elke komt overeen met een set van werkstromen en kan worden compute, opslag of een combinatie. Om het eenvoudig, te zullen we de werkbelastingen uit abstracte in ons voorbeeld. De andere fouten die zijn uitgevoerd in dit voorbeeld zijn:
 
 * RestartNode: Geforceerde afsluiting fout simuleren een machine opnieuw opstarten.
 * RestartDeployedCodePackage: Geforceerde afsluiting fout simuleren service hostproces vastloopt.
-* RemoveReplica: Fout bij vensters voor het simuleren van replica verwijderen.
-* MovePrimary: Fout bij vensters voor het simuleren van replica verplaatst geactiveerd door de Service Fabric load balancer.
+* RemoveReplica: Correcte fouttolerantie voor het simuleren van replica verwijderen.
+* MovePrimary: Correcte fouttolerantie voor het simuleren van replica verplaatst geactiveerd door de Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

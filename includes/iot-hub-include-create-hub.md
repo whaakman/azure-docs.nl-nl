@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e22acc697e837bab91c8b9c32c1fe35f1a7bce1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824518"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633048"
 ---
 In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure-portal](https://portal.azure.com).
 
@@ -23,7 +23,7 @@ In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure
 
 3. Klik in de lijst rechts op **IoT Hub**. U krijgt het eerste scherm te zien om een IoT-hub te maken.
 
-   ![Schermopname waarin het maken van een hub in de Azure-portal wordt getoond](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   ![Maken van een hub in Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
    Vul de velden in.
 
@@ -39,7 +39,7 @@ In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure
 
 4. Klik op **Next: Grootte en schaal** om verder te gaan met het maken van uw IoT-hub.
 
-   ![Schermafbeelding waarop het instellen van de grootte en schaal voor een nieuwe IoT-hub in de Azure-portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+   ![Stel de grootte en schaalgrootte voor een nieuwe IoT-hub met behulp van de Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
    Op dit scherm kunt u de standaardwaarden gebruiken en onderaan op **Controleren en maken** klikken. 
 
@@ -53,6 +53,6 @@ In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure
 
 5. Klik op **Controleren en maken** om uw keuzes te beoordelen. U krijgt iets te zien wat lijkt op dit scherm.
 
-   ![Schermafbeelding met het beoordelen van informatie voor het maken van de nieuwe IoT-hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+   ![Lees de informatie voor het maken van de nieuwe IoT hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 6. Klik op **Maken** om de nieuwe IoT-hub te maken. De hub wordt binnen enkele minuten gemaakt.

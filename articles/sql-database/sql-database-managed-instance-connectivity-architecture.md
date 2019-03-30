@@ -4,7 +4,7 @@ description: Meer informatie over Azure SQL Database managed instance-communicat
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621546"
+ms.locfileid: "58651309"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database 
 
@@ -110,7 +110,8 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 |beheer  |80, 443, 12000|TCP     |Alle              |AzureCloud  |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET *  |Toestaan |
 
-> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerde exemplaar inrichting met ARM-implementaties kan mislukken als regels voor binnenkomende en uitvoer afzonderlijk voor elke poorten zijn geconfigureerd. 
+> [!IMPORTANT]
+> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerde exemplaar inrichting met ARM-implementaties mislukken als er regels voor binnenkomende en uitvoer afzonderlijk voor elke poort zijn geconfigureerd. Als deze poorten in afzonderlijke regels worden, mislukt de implementatie met foutcode `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. U kunt deze informatie vinden in de Azure-portal in de subneteigenschappen van het.
 

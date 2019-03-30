@@ -3,8 +3,8 @@ title: Toepassingsscenario's en ontwerp | Microsoft Docs
 description: Overzicht van de categorieën van cloud-toepassingen in Service Fabric. Ontwerp van een toepassing die gebruikmaakt van stateful en stateless services besproken.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
-ms.openlocfilehash: a84d8fead42f8314decc144f01d8de1dac30bbdf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.author: atsenthi
+ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199473"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668234"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenario's voor service Fabric-toepassing
 Azure Service Fabric biedt een betrouwbare en flexibele platform waarmee u kunt schrijven en uitvoeren van veel soorten toepassingen en services. Deze toepassingen en microservices kunnen stateless of stateful, en ze zijn resource-met gelijke taakverdeling voor virtuele machines voor een maximale efficiency. De unieke architectuur van Service Fabric kunt u om uit te voeren bijna realtime gegevensanalyse, in-memory-berekeningen, parallelle transacties en in uw toepassingen voor verwerking van gebeurtenissen. U kunt gemakkelijk schalen uw toepassingen omhoog of omlaag (echt inkomend of uitgaand), afhankelijk van uw veranderende resourcevereisten.

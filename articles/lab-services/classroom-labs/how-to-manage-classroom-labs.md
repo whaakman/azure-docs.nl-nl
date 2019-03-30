@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651120"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaallabs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe u maken en verwijderen van een leslokaallab. Deze leest u ook alle leslokaallabs weergeven in een lab-account. 
@@ -32,14 +32,14 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 2. Selecteer **aanmelden**. Selecteer of typ een **gebruikers-ID** dat wil zeggen een lid van de **Labmaker** rol in het lab-account en wachtwoord invoeren. Azure Lab Services ondersteunt organisatieaccounts en Microsoft-accounts. 
 3. Voer in het venster **Nieuw lab** de volgende acties uit: 
     1. Geef een **naam** voor uw lab op. 
-    2. Geef de maximale **aantal virtuele machines** in het lab. U kunt vergroten of verkleinen van het aantal virtuele machines in het lab later opnieuw. 
+    2. Geef het maximale **aantal virtuele machines** in het lab op. U kunt vergroten of verkleinen van het aantal virtuele machines in het lab later opnieuw. 
     6. Selecteer **Opslaan**.
 
         ![Een leslokaallab maken](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
-    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. 
+    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **grote**, en **GPU** grootten zijn toegestaan.
     2. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
-    3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. 
+    3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
     4. Selecteer **Volgende**.
 
         ![VM-specificaties opgeven](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. In deze zelfstudie zijn de volgende stappen optioneel: 
     1. De sjabloon-VM starten door **Starten** te selecteren.
-    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. 
+    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een basis van Linux virtuele machine, kunt u kiezen of u verbinding maken met SSH of RDP wilt (als RDP is ingeschakeld).
     3. Software installeren en configureren op uw sjabloon-VM. 
     4. **Stop** de virtuele machine.  
     5. Een **Beschrijving** voor de sjabloon invoeren
@@ -103,7 +103,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
     ![Het lab selecteren](../media/how-to-manage-classroom-labs/select-three-dots.png)
 2. Selecteer **Verwijderen**. 
 
-    ![Knop verwijderen](../media/how-to-manage-classroom-labs/delete-button.png)
+    ![De knop Verwijderen](../media/how-to-manage-classroom-labs/delete-button.png)
 3. Op de **verwijderen lab** in het dialoogvenster, selecteer **verwijderen**. 
 
     ![In het dialoogvenster verwijderen](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)

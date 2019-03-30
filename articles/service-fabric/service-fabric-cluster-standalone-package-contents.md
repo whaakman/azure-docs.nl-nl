@@ -4,7 +4,7 @@ description: Beschrijving en de inhoud van het Azure Service Fabric zelfstandige
 services: service-fabric
 documentationcenter: .net
 author: maburlik
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141608"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661612"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van Service Fabric zelfstandige pakket voor Windows Server
 In de [gedownload](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric zelfstandige pakket, vindt u de volgende bestanden:
@@ -52,7 +52,7 @@ In de [gedownload](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilig, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Voorbeelden van configuraties van cluster
-Meest recente versies van configuratiesjablonen voor cluster kunnen worden gevonden op de GitHub-pagina: [voorbeelden van configuraties voor zelfstandige Cluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Meest recente versies van configuratiesjablonen voor cluster kunnen worden gevonden op de GitHub-pagina: [Voorbeelden van configuratie van het zelfstandige Cluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Onafhankelijke Runtime-pakket
 De meest recente runtimepakket wordt automatisch gedownload tijdens de implementatie van het cluster uit [koppeling downloaden - Service Fabric-Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).

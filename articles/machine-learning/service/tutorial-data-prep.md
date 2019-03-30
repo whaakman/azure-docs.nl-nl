@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: sihhu
 ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4fc6f2e147c5c891653031b913f4b2a04b571b2b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622175"
+ms.locfileid: "58665012"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -84,7 +84,7 @@ De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-no
 Gebruik het volgende nodig om pakketten te installeren als u deze nog niet hebt.
 
 ```shell
-pip install azureml-dataprep
+pip install azureml-dataprep==1.0.17
 ```
 
 Importeer de SDK.
@@ -92,6 +92,9 @@ Importeer de SDK.
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> Zorg ervoor dat u versie 1.0.17 installeren. In deze zelfstudie werkt niet met de nieuwste versie 1.1.0
 
 ## <a name="load-data"></a>Gegevens laden
 
@@ -1082,8 +1085,10 @@ U beschikt nu over een volledig getransformeerd en voorbereid gegevensstroomobje
 
 ```python
 import os
+
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-final_df.save(file_path)
+package = dprep.Package([final_df])
+package.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen

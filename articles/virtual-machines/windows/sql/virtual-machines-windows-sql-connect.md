@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331381"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650850"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een SQL Server-Machine in Azure
 
@@ -138,7 +138,7 @@ De volgende tabel bevat de vereisten voor het verbinding maken met SQL Server in
 |---|---|
 | [Modus van SQL Server-verificatie inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server-verificatie is vereist voor het verbinding maken met de virtuele machine op afstand, tenzij u Active Directory op een Virtueelnetwerk hebt geconfigureerd. |
 | [Maken van een SQL-aanmelding](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Als u SQL-verificatie gebruikt, moet u een SQL-aanmelding met een gebruikersnaam en wachtwoord die ook beschikt over machtigingen voor de doeldatabase. |
-| [TCP/IP-protocol inschakelen](#manualTCP) | SQL Server moet verbindingen toestaan via TCP. |
+| [TCP/IP-protocol inschakelen](#manualtcp) | SQL Server moet verbindingen toestaan via TCP. |
 | [Firewall-regel voor de SQL Server-poort inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | De firewall op de virtuele machine moet binnenkomend verkeer op de SQL Server-poort (standaard 1433) toestaan. |
 | [Een regel voor netwerkbeveiligingsgroep maken voor TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | U moet de virtuele machine voor het ontvangen van verkeer op de SQL Server-poort (standaard 1433) als u wilt verbinding maken via internet toestaan. Lokale en virtuele-netwerk-only-verbindingen hebben deze niet nodig. Dit is de enige stap in de Azure-portal. |
 

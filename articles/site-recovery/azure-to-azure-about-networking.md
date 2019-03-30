@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001097"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651540"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -48,10 +48,10 @@ Als u van een URL-gebaseerde firewallproxy gebruikmaakt voor het beheren van uit
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Vereist dat gegevens kunnen worden geschreven naar de cache-opslagaccount in de regio van de gegevensbron van de virtuele machine.
+*.blob.core.windows.net | Vereist dat gegevens kunnen worden geschreven naar de cache-opslagaccount in de regio van de gegevensbron van de virtuele machine. Als u weet alle cache storage-accounts voor uw virtuele machines wat, kunt u whitelist de specifc storage-account-URL's (Ex: cache1.blob.core.windows.net en cache2.blob.core.windows.net) in plaats van *. blob.core.windows.net
 login.microsoftonline.com | Vereist voor autorisatie en verificatie van de Site Recovery-service-URL's.
-*.hypervrecoverymanager.windowsazure.com | Vereist zodat de communicatie van Site Recovery-service zich van de virtuele machine voordoen kan.
-*.servicebus.windows.net | Vereist zodat de Site Recovery-gegevens voor controle en diagnostische gegevens van de virtuele machine kunnen worden geschreven.
+*.hypervrecoverymanager.windowsazure.com | Vereist zodat de communicatie van Site Recovery-service zich van de virtuele machine voordoen kan. U kunt de bijbehorende 'Site Recovery IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
+*.servicebus.windows.net | Vereist zodat de Site Recovery-gegevens voor controle en diagnostische gegevens van de virtuele machine kunnen worden geschreven. U kunt de bijbehorende 'Site Recovery bewaking IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Uitgaande connectiviteit voor IP-adresbereiken
 

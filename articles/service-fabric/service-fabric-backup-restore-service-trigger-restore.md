@@ -4,7 +4,7 @@ description: Gebruik de periodieke back-up en herstellen van de functie in Servi
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 66df926eaaf771fdde4d2eb59772b9d38a87edf0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313225"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667171"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Herstellen van back-ups in Azure Service Fabric
 
@@ -229,7 +229,7 @@ De voortgang van de aanvraag voor herstellen in de volgende volgorde:
     ```
     
 3. **Succes**, **fout**, of **time-out**: Een aangevraagde terugzetbewerking kan worden uitgevoerd in een van de volgende statussen. Elke Amerikaanse staat zijn de gegevens van de volgende betekenis en antwoord:
-    - **Succes**: Een _succes_ terugzetten status geeft de status van een partitie heeft gekregen. De partitie-rapporten _RestoredEpoch_ en _RestoredLSN_ Staten samen met de tijd in UTC.
+    - **Geslaagd**: Een _succes_ terugzetten status geeft de status van een partitie heeft gekregen. De partitie-rapporten _RestoredEpoch_ en _RestoredLSN_ Staten samen met de tijd in UTC.
 
         ```
         RestoreState  : Success

@@ -203,6 +203,7 @@ items:
     - name: Voorbeelden (eenvoudige syntaxis)
       href: search-query-simple-examples.md
     - name: Voorbeelden (volledige Lucene)
+      href: search-query-lucene-examples.md
   - name: Gegevens filteren en sorteren
     items:
     - name: Filteroverzicht
@@ -212,7 +213,7 @@ items:
     - name: Facetnavigatie toevoegen
       href: search-faceted-navigation.md
     - name: Syntaxis en voorbeelden voor filteren en sorteren op expressies
-      href: search-query-lucene-examples.md
+      href: query-odata-filter-orderby-syntax.md
   - name: Resultaten verwerken
     items:
     - name: Paginagerelateerde functies
@@ -306,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: d0e692407a89e01806f425bedb302160ec8c672b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec82dc9f36f7fb4be24d3d1e833a951f72b48f5a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576817"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651461"

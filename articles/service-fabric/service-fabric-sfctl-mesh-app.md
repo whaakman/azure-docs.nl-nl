@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl mesh-app-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3c2194f6a001e4fc49dcf1694f8a9cda41550ace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fb812412c7dd07800c1e2231c9472a122ab7d7d4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284834"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661833"
 ---
-# <a name="sfctl-mesh-app"></a>sfctl mesh-app
+# <a name="sfctl-mesh-app"></a>sfctl mesh app
 Ophalen en verwijderen van de toepassingsresources.
 
 ## <a name="commands"></a>Opdrachten
@@ -30,7 +30,7 @@ Ophalen en verwijderen van de toepassingsresources.
 | --- | --- |
 | delete | Hiermee verwijdert u de bron van de toepassing. |
 | list | Geeft een lijst van alle toepassingsresources. |
-| Show | Hiermee haalt u de bron van de toepassing met de opgegeven naam. |
+| weergeven | Hiermee haalt u de bron van de toepassing met de opgegeven naam. |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh-app verwijderen
 Hiermee verwijdert u de bron van de toepassing.
@@ -43,7 +43,7 @@ Hiermee verwijdert u de bron van het geïdentificeerd door de naam van de toepas
 | --- | --- |
 | --naam -n (vereist) | De naam van de toepassing. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -58,7 +58,7 @@ Geeft een lijst van alle toepassingsresources.
 
 Hiermee haalt de informatie over alle toepassingsbronnen in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van de toepassing.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -79,7 +79,7 @@ Hiermee haalt u de informatie over de bron van de toepassing met de opgegeven na
 | --- | --- |
 | --naam -n (vereist) | De naam van de toepassing. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
