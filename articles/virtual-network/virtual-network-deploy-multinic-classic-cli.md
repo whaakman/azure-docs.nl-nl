@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650016"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met de klassieke Azure-CLI
 
@@ -30,7 +30,7 @@ ms.locfileid: "46953357"
 U kunt virtuele machines (VM's) in Azure maken en koppelen van meerdere netwerkinterfaces (NIC's) aan elk van uw virtuele machines. Meerdere NIC's bieden scheiding van verkeerstypen voor de NIC's. Één NIC kan bijvoorbeeld communiceren met Internet, terwijl andere alleen met interne bronnen niet is verbonden met Internet communiceert. De mogelijkheid voor het scheiden van netwerkverkeer tussen meerdere NIC's is vereist voor veel virtuele netwerkapparaten, zoals de levering van toepassingen en oplossingen van WAN-optimalisatie.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over het uitvoeren van deze stappen met behulp van de [Resource Manager-implementatiemodel](../virtual-machines/linux/multiple-nics.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over het uitvoeren van deze stappen met behulp van de [Resource Manager-implementatiemodel](../virtual-machines/linux/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -51,7 +51,7 @@ De back-end-VM's, is afhankelijk van het maken van de volgende bronnen:
 ### <a name="step-1---start-your-script"></a>Stap 1: uw script starten
 U kunt de volledige bash-script gebruikt downloaden [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Voer de volgende stappen uit als u wilt wijzigen van het script te laten werken in uw omgeving:
 
-1. Wijzig de waarden van de variabelen op basis van uw bestaande resourcegroep die hierboven zijn geïmplementeerd [vereisten](#Prerequisites).
+1. Wijzig de waarden van de variabelen op basis van uw bestaande resourcegroep die hierboven zijn geïmplementeerd [vereisten](#prerequisites).
 
     ```azurecli
     location="useast2"

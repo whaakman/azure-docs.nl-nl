@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314872"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650071"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
-
-> [!Note]
-> De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 
 
 Wanneer u aanroepen de **Video-Index ophalen** API en de status van het antwoord is OK, kunt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. De JSON-inhoud bevat details van de opgegeven inzichten in video's. De inzichten dimensies zoals bevatten: transcripties, optisch, gezichten, onderwerpen, blokken, enzovoort. De afmetingen zijn instanties van tijd bereiken die worden weergegeven wanneer elke dimensie wordt weergegeven in de video.  
 
@@ -163,7 +160,7 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |labels|De [labels](#labels) dimensie.|
 |foto 's|De [opnamen](#shots) dimensie.|
 |merken|De [merken](#brands) dimensie.|
-|audioEffects|De [audioEffects](#audioEffects) dimensie.|
+|audioEffects|De [audioEffects](#audioeffects) dimensie.|
 |stemmingen|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
 |textualContentModeration|De [textualContentModeration](#textualcontentmoderation) dimensie.|
@@ -550,7 +547,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 |SpeakerLongestMonolog|Van de spreker langste monolog. Als de spreker silences binnen de monolog is opgenomen. Stilte aan het begin en het einde van de monolog wordt verwijderd.| 
 |SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Name|Description|
 |---|---|

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 8066285e90903870937f28a62ef9fe8b2f6be55c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650254"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -70,6 +70,8 @@ Als u nodig hebt om te annuleren van uw SQL-Database gereserveerde capaciteit, k
 
 Als u de reservering voor SQL Database-reservecapaciteit wilt wijzigen in een andere regio, implementatietype, prestatielaag of termijn, kunt u de reservering uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
 
+Zie voor meer informatie over het exchange- of restitutie reserveringen [reservering worden uitgewisseld en terugbetalingen](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
 ## <a name="vcore-size-flexibility"></a>vCore grootte flexibiliteit
 
 vCore grootte flexibiliteit kunt u omhoog of omlaag schalen binnen een prestatielaag en de regio, zonder verlies van het voordeel voor gereserveerde capaciteit. SQL-Database gereserveerde capaciteit biedt u ook de flexibiliteit om tijdelijk uw hot-databases verplaatsen tussen pools en individuele databases als onderdeel van uw normale bewerkingen (in dezelfde regio en de prestaties laag) zonder verlies van de gereserveerde capaciteit profiteren. Doordat een buffer niet toegepast op uw reservering kunt u de prestaties van pieken effectief beheren zonder uw budget overschrijdt.
@@ -92,4 +94,3 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 ## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

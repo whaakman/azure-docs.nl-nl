@@ -7,18 +7,18 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 0144d68ecfdb1cc3309c462d00fa8f30e66bab34
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441352"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650237"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Zelfstudie: Een fout simuleren bij het openen van redundante opslag met leestoegang
 
 Deze zelfstudie is deel twee van een serie. Er wordt uitgelegd wat de voordelen zijn van [geografisch redundante opslag met leestoegang](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) door een fout te simuleren.
 
-Als u wilt een fout simuleren, kunt u een [statische routering](#simulate-a-failure-with-an-invalid-static-route) of [Fiddler](#simulate-a-failure-with-fiddler). Beide methoden kunt u voor het simuleren van mislukte aanvragen naar het primaire eindpunt van uw [geo-redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount (RA-GRS), waardoor de toepassing in plaats daarvan lezen van het secundaire eindpunt. 
+Voor het simuleren van een fout kunt u [Fiddler](#simulate-a-failure-with-fiddler) of [statische routering](#simulate-a-failure-with-an-invalid-static-route) gebruiken. In beide gevallen kunt u fouten simuleren voor aanvragen naar het primaire eindpunt van uw [geografisch redundante opslagaccount met leestoegang](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) en de toepassing gegevens laten lezen van het secundaire eindpunt.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -26,72 +26,16 @@ In deel twee van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * De toepassing uitvoeren en onderbreken
-> * Een fout simuleren met [een ongeldige statische route](#simulate-a-failure-with-an-invalid-static-route) of [Fiddler](#simulate-a-failure-with-fiddler) 
+> * Een fout simuleren met [Fiddler](#simulate-a-failure-with-fiddler) of [een ongeldige statische route](#simulate-a-failure-with-an-invalid-static-route) 
 > * Herstel van het primaire eindpunt simuleren
 
 ## <a name="prerequisites"></a>Vereisten
 
 Begin pas met deze zelfstudie nadat u de vorige zelfstudie hebt voltooid: [Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag][previous-tutorial].
 
-Als u wilt een fout simuleren met statische routering, gebruikt u een opdrachtprompt met verhoogde bevoegdheid.
+Een fout met Fiddler simuleren: 
 
-Als u wilt een fout met Fiddler simuleren, downloaden en [Fiddler installeren](https://www.telerik.com/download/fiddler)
-
-## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Een fout simuleren met een ongeldige statische route
-
-U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang. In deze zelfstudie wordt de lokale host gebruikt als de gateway voor routeringsaanvragen voor de opslagaccount. Het gebruik van de lokale host als de gateway zorgt ervoor dat alle aanvragen naar het primaire eindpunt van uw opslagaccount in een lusvorm terugkeren naar de host, wat vervolgens tot een fout leidt. Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met een ongeldige statische route te simuleren. 
-
-### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
-
-Volg de instructies in de [vorige zelfstudie] [ previous-tutorial] om te starten van het voorbeeld en downloaden van het testbestand bevestigen dat het afkomstig van de primaire opslag is. Afhankelijk van uw doelplatform, kunt u handmatig het voorbeeld onderbreken of wacht bij de opdrachtprompt. 
-
-### <a name="simulate-failure"></a>Fout simuleren
-
-Terwijl de toepassing wordt onderbroken, open een opdrachtprompt van Windows als een beheerder of voer terminal als root op Linux.
-
-Informatie over de storage-account primaire-eindpuntdomein ophalen met de volgende opdracht op een opdracht vragen of terminal, vervangen `STORAGEACCOUNTNAME` met de naam van uw opslagaccount.
-
-```
-nslookup STORAGEACCOUNTNAME.blob.core.windows.net
-``` 
-
-Kopieer het IP-adres van uw opslagaccount naar een teksteditor voor later gebruik.
-
-Als u het IP-adres van uw lokale host wilt ophalen, typt u `ipconfig` in de Windows-opdrachtprompt of `ifconfig` in de Linux-terminal. 
-
-Als u wilt toevoegen een statische route voor de doelhost, typt u de volgende opdracht uit op een Windows-opdrachtprompt of Linux-terminal, vervangen `<destination_ip>` met het IP-adres van uw storage-account en `<gateway_ip>` met uw lokale host-IP-adres.
-
-#### <a name="linux"></a>Linux
-
-```
-route add <destination_ip> gw <gateway_ip>
-```
-
-#### <a name="windows"></a>Windows
-
-```
-route add <destination_ip> <gateway_ip>
-```
-
-In het venster met het actieve voorbeeld hervat de toepassing of druk op de juiste sleutel te downloaden van het voorbeeldbestand en te bevestigen dat het afkomstig van de secundaire opslag is. U kunt vervolgens het voorbeeld opnieuw onderbreken of wacht bij de prompt. 
-
-### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
-
-Om te simuleren dat het primaire eindpunt weer functioneel is, de ongeldige statische route te verwijderen uit de routeringstabel. Hiermee worden alle aanvragen naar het primaire eindpunt via de standaardgateway gerouteerd. Typ de volgende opdracht op een Windows-opdrachtprompt of Linux-terminal.
-
-#### <a name="linux"></a>Linux
-
-```
-route del <destination_ip> gw <gateway_ip>
-```
-
-#### <a name="windows"></a>Windows
-
-```
-route delete <destination_ip>
-```
-
-U kunt vervolgens de toepassing of druk op de juiste sleutel om het voorbeeld te downloaden bestand opnieuw, dit keer bevestigen dat het nog een keer afkomstig is van primaire opslag hervatten.
+* [Fiddler downloaden](https://www.telerik.com/download/fiddler) en installeren
 
 ## <a name="simulate-a-failure-with-fiddler"></a>Een fout simuleren met Fiddler
 
@@ -107,9 +51,9 @@ Open Fiddler en selecteer **Rules** en **Customize Rules**.
 
 De Fiddler ScriptEditor wordt gestart en u ziet het bestand **SampleRules.js**. Dit bestand wordt gebruikt om Fiddler aan te passen.
 
-Plak het volgende codevoorbeeld in de `OnBeforeResponse` functioneren, vervangen `STORAGEACCOUNTNAME` met de naam van uw opslagaccount. Afhankelijk van het voorbeeld, u moet mogelijk ook vervangen `HelloWorld` met de naam van de testbestand (of een voorvoegsel zoals `sampleFile`) worden gedownload. De nieuwe code is opgenomen als opmerking om ervoor te zorgen dat deze onmiddellijk wordt niet uitgevoerd.
+Plak het volgende codevoorbeeld in de `OnBeforeResponse`-functie. De nieuwe code is als opmerking opgenomen om ervoor te zorgen dat de logica die deze maakt niet onmiddellijk wordt geïmplementeerd.
 
-Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan. Laat het ScriptEditor-venster geopend zodat u in de volgende stappen.
+Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan.
 
 ```javascript
     /*
@@ -120,7 +64,7 @@ Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan. L
         // When you're ready to stop sending back errors, comment these lines of script out again 
         //     and save the changes.
 
-        if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net") 
+        if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
             && (oSession.PathAndQuery.Contains("HelloWorld"))) {
             oSession.responseCode = 503;  
         }
@@ -129,21 +73,183 @@ Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan. L
 
 ![De aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
+### <a name="interrupting-the-application"></a>De toepassing onderbreken
 
-Volg de instructies in de [vorige zelfstudie] [ previous-tutorial] om te starten van het voorbeeld en downloaden van het testbestand bevestigen dat het afkomstig van de primaire opslag is. Afhankelijk van uw doelplatform, kunt u handmatig het voorbeeld onderbreken of wacht bij de opdrachtprompt. 
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
+
+Voer de toepassing uit in uw IDE of shell.
+
+Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een willekeurige toets** in het consolevenster om de toepassing te onderbreken.
+
+![Scenario-app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+Voer de toepassing uit in uw IDE of shell.
+
+Aangezien u het voorbeeld beheert, hoeft u geen onderbreking in te voegen om een fout te simuleren. Zorg ervoor dat het bestand is geüpload naar uw opslagaccount door het voorbeeld uit te voeren en **P** te gebruiken.
+
+![Scenario-app](media/storage-simulate-failure-ragrs-account-app/Java-put-list-output.png)
+
+---
 
 ### <a name="simulate-failure"></a>Fout simuleren
 
-Terwijl de toepassing wordt onderbroken, gaat u terug naar Fiddler en verwijder opmerkingen bij de aangepaste regel die u hebt opgeslagen in de `OnBeforeResponse` functie. Zorg ervoor dat u selecteert **bestand** en **opslaan** uw wijzigingen opslaat, zodat de regel worden pas van kracht. Deze code ziet er uit voor aanvragen voor het RA-GRS-opslagaccount en, als het pad de naam van het voorbeeldbestand bevat retourneert een Antwoordcode van `503 - Service Unavailable`.
+Terwijl de toepassing is onderbroken, verwijdert u de commentaartekens voor de aangepaste regel die we in Fiddler hebben opgeslagen.
 
-In het venster met het actieve voorbeeld hervat de toepassing of druk op de juiste sleutel te downloaden van het voorbeeldbestand en te bevestigen dat het afkomstig van de secundaire opslag is. U kunt vervolgens het voorbeeld opnieuw onderbreken of wacht bij de prompt. 
+Het codevoorbeeld zoekt naar aanvragen voor het geografisch redundante opslagaccount met leestoegang en als het pad de naam van het bestand bevat, `HelloWorld`, wordt de antwoordcode `503 - Service Unavailable` geretourneerd.
+
+Navigeer naar Fiddler en selecteer **Rules** -> **Customize Rules...**.
+
+Verwijder de commentaartekens voor de volgende regels en vervang `STORAGEACCOUNTNAME` door de naam van uw opslagaccount. Selecteer **File** -> **Save** om uw wijzigingen op te slaan. 
+
+> [!NOTE]
+> Als u de voorbeeldtoepassing op Linux uitvoert, moet u Fiddler telkens wanneer u het bestand **CustomRule.js** hebt bewerkt, opnieuw opstarten, zodat Fiddler de aangepaste logica installeert.
+
+```javascript
+         if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
+         && (oSession.PathAndQuery.Contains("HelloWorld"))) {
+         oSession.responseCode = 503;
+         }
+```
+
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
+
+Druk op **een willekeurige toets** om de toepassing te hervatten.
+
+Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert 5 keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Als de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt.
+
+Dit patroon is het [circuitonderbreker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)-patroon dat in de vorige zelfstudie is beschreven.
+
+![De aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+De fout is nu geïntroduceerd en dus voert u **G** uit om te testen op de fout.
+
+Er verschijnt een bericht dat de secundaire pijplijn wordt gebruikt in plaats van de primaire pijplijn.
+
+---
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
 
-In Fiddler, verwijderen of opnieuw opmerkingen bij de aangepaste regel. Selecteer **bestand** en **opslaan** om te controleren of de regel wordt niet meer van kracht worden.
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
-In het venster met het actieve voorbeeld hervat de toepassing of druk op de juiste sleutel te downloaden van het voorbeeldbestand en te bevestigen dat het afkomstig van primaire opslag opnieuw is. Vervolgens kunt u het voorbeeld afsluiten. 
+Met de aangepaste regelset van Fiddler in de vorige stap, mislukken aanvragen naar het primaire eindpunt.
+
+Om te simuleren dat het primaire eindpunt weer werkt, verwijdert u de logica om de fout `503` in te voeren.
+
+Druk op **een willekeurige toets** om de toepassing te onderbreken.
+
+Navigeer naar Fiddler en selecteer **Rules** en **Customize Rules...**. 
+
+Neem de aangepaste logica op als opmerking of verwijder de aangepaste logica in de functie `OnBeforeResponse`, en verlaat de standaardfunctie.
+
+Selecteer **File** en **Save** om de wijzigingen op te slaan.
+
+![Aangepaste regel verwijderen](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+
+Druk als u klaar bent op **een willekeurige toets** om de toepassing te hervatten. De toepassing blijft lezen van het primaire eindpunt totdat de 999 leesbewerkingen zijn bereikt.
+
+![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+Met de aangepaste regelset van Fiddler in de vorige stap, mislukken aanvragen naar het primaire eindpunt.
+
+Om te simuleren dat het primaire eindpunt weer werkt, verwijdert u de logica om de fout `503` in te voeren.
+
+Navigeer naar Fiddler en selecteer **Rules** en **Customize Rules...**.  Neem de aangepaste logica op als opmerking of verwijder de aangepaste logica in de functie `OnBeforeResponse`, en verlaat de standaardfunctie.
+
+Selecteer **File** en **Save** om de wijzigingen op te slaan.
+
+Als u klaar bent, voert u **G** in om de download te testen. De toepassing meldt dat nu weer de primaire pijplijn wordt gebruikt.
+
+---
+
+## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Een fout simuleren met een ongeldige statische route
+
+U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang. In deze zelfstudie wordt de lokale host gebruikt als de gateway voor routeringsaanvragen voor de opslagaccount. Het gebruik van de lokale host als de gateway zorgt ervoor dat alle aanvragen naar het primaire eindpunt van uw opslagaccount in een lusvorm terugkeren naar de host, wat vervolgens tot een fout leidt. Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met een ongeldige statische route te simuleren. 
+
+### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
+
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
+
+Voer de toepassing uit in uw IDE of shell. Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een willekeurige toets** in het consolevenster om de toepassing te onderbreken.
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+Aangezien u het voorbeeld beheert, hoeft u geen onderbreking in te voegen om een fout te testen.
+
+Zorg ervoor dat het bestand is geüpload naar uw opslagaccount door het voorbeeld uit te voeren en **P** te gebruiken.
+
+---
+
+### <a name="simulate-failure"></a>Fout simuleren
+
+Start terwijl de toepassing is onderbroken de opdrachtprompt van Windows als een beheerder of voer terminal als root uit op Linux.
+
+Vraag informatie op over het primaire-eindpuntdomein van het opslagaccount door de volgende opdracht in te voeren bij een opdrachtprompt of in een terminalvenster.
+
+```
+nslookup STORAGEACCOUNTNAME.blob.core.windows.net
+``` 
+ Vervang `STORAGEACCOUNTNAME` door de naam van uw opslagaccount. Kopieer het IP-adres van uw opslagaccount naar een teksteditor voor later gebruik.
+
+Als u het IP-adres van uw lokale host wilt ophalen, typt u `ipconfig` in de Windows-opdrachtprompt of `ifconfig` in de Linux-terminal. 
+
+Als u een statische route voor de doelhost wilt toevoegen, typt u de volgende opdracht in een Windows-opdrachtprompt of Linux-terminal. 
+
+#### <a name="linux"></a>Linux
+
+`route add <destination_ip> gw <gateway_ip>`
+
+#### <a name="windows"></a>Windows
+
+`route add <destination_ip> <gateway_ip>`
+
+Vervang `<destination_ip>` door het IP-adres van uw opslagaccount en `<gateway_ip>` door het IP-adres van uw lokale host.
+
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
+
+Druk op **een willekeurige toets** om de toepassing te hervatten.
+
+Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert vijf keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](/azure/architecture/patterns/circuit-breaker)-patroon dat in de vorige zelfstudie is beschreven.
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+De fout is nu geïntroduceerd en dus voert u **G** uit om te testen op de fout. Er verschijnt een bericht dat de secundaire pijplijn wordt gebruikt in plaats van de primaire pijplijn.
+
+---
+
+### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
+
+Om te simuleren dat het primaire eindpunt weer werkt, verwijdert u de statische route van het primaire eindpunt uit de routeringstabel. Hiermee worden alle aanvragen naar het primaire eindpunt via de standaardgateway gerouteerd.
+
+Als u de statische route van een doelhost wilt verwijderen, typt u de volgende opdracht in een Windows-opdrachtprompt of Linux-terminal.
+
+#### <a name="linux"></a>Linux
+
+`route del <destination_ip> gw <gateway_ip>`
+
+#### <a name="windows"></a>Windows
+
+`route delete <destination_ip>`
+
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
+
+Druk op **een willekeurige toets** als u de toepassing wilt hervatten. De toepassing blijft lezen van het primaire eindpunt totdat de 999 leesbewerkingen zijn bereikt.
+
+![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
+
+Voer **G** in om de download te testen. De toepassing meldt dat nu weer de primaire pijplijn wordt gebruikt.
+
+![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/java-get-pipeline-example-v10.png)
+
+---
 
 ## <a name="next-steps"></a>Volgende stappen
 

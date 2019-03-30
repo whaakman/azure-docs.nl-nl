@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369740"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650118"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -46,7 +46,7 @@ Hier volgen de onderwerpen in dit artikel worden besproken:
 * Met behulp van [Opslaganalyse](#storage-analytics) toegang van Azure Storage controleren
 
   In deze sectie wordt beschreven hoe u informatie vinden in de storage analytics-logboeken voor een aanvraag. We eens echte opslaganalyse logboekgegevens en zien hoe u te onderscheiden zijn of een aanvraag wordt gedaan met de opslagaccountsleutel, met een handtekening voor gedeelde toegang, of anoniem en of deze is geslaagd of mislukt.
-* [Browser-gebaseerde Clients met behulp van CORS inschakelen](#Cross-Origin-Resource-Sharing-CORS)
+* [Browser-gebaseerde Clients met behulp van CORS inschakelen](#cross-origin-resource-sharing-cors)
 
   In deze sectie wordt besproken hoe u kunt cross-origin resource sharing (CORS) toestaan. Praten we over cross-domein toegang te verlenen, en hoe u verwerkt; het met de CORS-mogelijkheden die zijn ingebouwd in Azure Storage.
 
