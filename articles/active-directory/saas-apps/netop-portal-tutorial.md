@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Zelfstudie: Azure Active Directory-integratie met Netop Portal
 
@@ -128,7 +128,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure Active Directory 
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Laat **Naamruimte** leeg.
+    c. In de **Namespace** tekstvak, type https://secure.netop.com.
 
     d. Selecteer Bron bij **Kenmerk**.
 
@@ -154,7 +154,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure Active Directory 
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Eenmalige aanmelding bij Apex Portal configureren
 
-Als u eenmalige aanmelding aan de zijde van **Netop Portal** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure Portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Netop Portal](mailto:casemanager@netop.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Netop Portal** zijde, moet u de gedownloade **federatieve metagegevens-XML** en de aanmeldings-URL vanuit Azure portal. Volg de aanwijzingen in stap 3 van de documentatie [hier](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) NetOp Portal configureren voor Azure AD-verificatie.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

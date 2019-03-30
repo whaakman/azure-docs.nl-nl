@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855866"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652090"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-use-custom-activities.md)
 > * [Huidige versie](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ Zie de volgende artikelen als u niet bekend bent met Azure Batch-service:
 * [Nieuwe AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet voor het maken van een Azure Batch-pool.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch gekoppelde service
+
 De volgende JSON definieert een voorbeeld van een gekoppelde Azure-Batch-service. Zie voor meer informatie, [Compute-omgevingen die worden ondersteund door Azure Data Factory](compute-linked-services.md)
 
 ```json
@@ -114,7 +116,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 &#42;De eigenschappen `resourceLinkedService` en `folderPath` moeten beide worden opgegeven of beide worden weggelaten.
 
 > [!NOTE]
-> Als u gekoppelde services als referenceObjects in aangepaste activiteit doorgeeft, is een goede gewoonte om door te geven van een Azure Key Vault ingeschakeld gekoppelde service (omdat deze geen alle beveiligde tekenreeksen bevat) en ophalen op de referenties met behulp van de geheime naam rechtstreeks uit de sleutel Kluis uit de code. U vindt een voorbeeld [hier](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) dat verwijst naar Azure Sleutelkluis ingeschakeld gekoppelde service, haalt u de referenties van de Key Vault en vervolgens toegang tot het opslagaccount in de code.  
+> Als u gekoppelde services als referenceObjects in aangepaste activiteit doorgeeft, is een goede gewoonte om door te geven van een Azure Key Vault ingeschakeld gekoppelde service (omdat deze geen alle beveiligde tekenreeksen bevat) en ophalen op de referenties met behulp van de geheime naam rechtstreeks uit de sleutel Kluis uit de code. U vindt een voorbeeld [hier](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) dat verwijst naar Azure Sleutelkluis ingeschakeld gekoppelde service, haalt u de referenties van de Key Vault en vervolgens toegang tot het opslagaccount in de code.
 
 ## <a name="custom-activity-permissions"></a>Machtigingen voor aangepaste activiteit
 
@@ -147,7 +149,6 @@ U kunt een opdracht met behulp van aangepaste activiteit rechtstreeks uitvoeren.
 ## <a name="passing-objects-and-properties"></a>Doorgeven van objecten en eigenschappen
 
 Dit voorbeeld laat zien hoe u de referenceObjects en extendedProperties gebruiken kunt om door te geven van Data Factory-objecten en de gebruiker gedefinieerde eigenschappen aan uw aangepaste toepassing.
-
 
 ```json
 {
@@ -191,15 +192,15 @@ Dit voorbeeld laat zien hoe u de referenceObjects en extendedProperties gebruike
 
 Wanneer de activiteit wordt uitgevoerd, worden referenceObjects en extendedProperties opgeslagen in de volgende bestanden die zijn geïmplementeerd naar dezelfde map uitvoering van de SampleApp.exe:
 
-- activity.json
+- `activity.json`
 
   ExtendedProperties en eigenschappen van de aangepaste activiteit worden opgeslagen.
 
-- linkedServices.json
+- `linkedServices.json`
 
   Slaat een matrix met gekoppelde Services gedefinieerd in de eigenschap referenceObjects.
 
-- datasets.json
+- `datasets.json`
 
   Winkels een matrix van gegevenssets die worden gedefinieerd in de eigenschap referenceObjects.
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 U kunt een pijplijnuitvoering te starten met de volgende PowerShell-opdracht op te starten:
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 Als de pijplijn actief is, kunt u controleren dat de uitvoer van de uitvoering van de volgende opdrachten:
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 De **stdout** en **stderr** van uw aangepaste toepassing worden opgeslagen in de **adfjobs** container in de Azure Storage gekoppelde Service u bij het maken van Azure Batch gekoppelde gedefinieerd De service met een GUID van de taak. U kunt de gedetailleerde pad krijgen van uitvoering van activiteit uitvoer zoals wordt weergegeven in het volgende codefragment:
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 Als u wilt om de inhoud van stdout.txt aan downstream-activiteiten te gebruiken, krijgt u het pad naar het bestand stdout.txt in de expressie '\@activity('MyCustomActivity').output.outputs [0] '.
 
-  > [!IMPORTANT]
-  > - De activity.json, linkedServices.json en datasets.json zijn opgeslagen in de map van de runtime van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in 'https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/' pad. Indien nodig, moet u ze afzonderlijk opschonen.
-  > - De gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de zelfgehoste Integration Runtime om ervoor te zorgen referentie blijft klant gedefinieerd voor de gekoppelde Services die gebruikmaken van de zelfgehoste Integration Runtime, particuliere netwerkomgeving. Sommige tijdgevoelige velden kunnen worden ontbrekende wanneer waarnaar wordt verwezen door de code van uw aangepaste toepassing op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig.
+> [!IMPORTANT]
+> - De activity.json, linkedServices.json en datasets.json zijn opgeslagen in de map van de runtime van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in 'https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/' pad. Indien nodig, moet u ze afzonderlijk opschonen.
+> - De gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de zelfgehoste Integration Runtime om ervoor te zorgen referentie blijft klant gedefinieerd voor de gekoppelde Services die gebruikmaken van de zelfgehoste Integration Runtime, particuliere netwerkomgeving. Sommige tijdgevoelige velden kunnen worden ontbrekende wanneer waarnaar wordt verwezen door de code van uw aangepaste toepassing op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig.
 
 ## <a name="pass-outputs-to-another-activity"></a>Pass-uitvoer naar een andere activiteit
 
@@ -311,10 +314,10 @@ Gevoelige eigenschapswaarden die zijn aangewezen als het type *SecureString*, zo
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Met de wijzigingen die zijn geïntroduceerd in de Data Factory V2 aangepaste act
 
 De volgende tabel beschrijft de verschillen tussen de aangepaste Data Factory V2-activiteit en de Data Factory versie 1 (aangepaste) DotNet-activiteit:
 
-
 |Verschillen      | Aangepaste activiteit      | versie 1 (aangepaste) DotNet-activiteit      |
 | ---- | ---- | ---- |
 |Hoe aangepaste logica wordt gedefinieerd      |Door op te geven van een uitvoerbaar bestand      |Door het implementeren van een .NET-DLL-bestand      |
@@ -344,7 +346,6 @@ De volgende tabel beschrijft de verschillen tussen de aangepaste Data Factory V2
 |Informatie van de activiteit doorgeven aan de aangepaste logica      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen)      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |
 |Ophalen van gegevens in aangepaste logica      |Activity.json linkedServices.json en datasets.json die zijn opgeslagen in dezelfde map van het uitvoerbare bestand geparseerd      |Via .NET SDK (.NET Frame 4.5.2)      |
 |Logboekregistratie      |Schrijft rechtstreeks naar de STDOUT      |Logger implementeren in .NET-DLL      |
-
 
 Hebt u een bestaande .NET-code die zijn geschreven voor een versie 1 (aangepaste) DotNet-activiteit, moet u uw code te werken met de huidige versie van de aangepaste activiteit wijzigen. Werk uw code door deze op hoog niveau richtlijnen te volgen:
 
@@ -358,6 +359,7 @@ Hebt u een bestaande .NET-code die zijn geschreven voor een versie 1 (aangepaste
 Voor een compleet voorbeeld van hoe de end-to-end-voorbeeld voor dll-bestand en een pijplijn die worden beschreven in de Data Factory versie 1 artikel [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) worden herschreven als een aangepaste activiteit van Data Factory, raadpleegt u [ Voorbeeld van Data Factory aangepaste activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaalaanpassing van Azure Batch
+
 U kunt ook maken met een Azure Batch-pool met **voor automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen op basis van het aantal in behandeling zijnde taken.
 
 De voorbeeldformule hier bereikt het volgende gedrag: Wanneer de pool in eerste instantie wordt gemaakt, begint deze met 1 virtuele machine. Metrische gegevens $PendingTasks definieert het aantal taken in die wordt uitgevoerd en actieve (in de wachtrij) staat. De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en TargetDedicated dienovereenkomstig ingesteld. Het zorgt ervoor dat TargetDedicated nooit meer dan 25 VM's gaat. Dus als nieuwe taken worden verzonden en toepassingen automatisch meeschaalt en als de taken zijn voltooid, virtuele machines worden gratis één voor één en deze virtuele machines Hiermee verkleint u de automatische schaalaanpassing. startingNumberOfVMs en maxNumberofVMs kan worden aangepast aan uw behoeften.

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0880ad2ab02fad574f5204741b0fa03e4ef0338
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109777"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648060"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina voor gepubliceerde apps instellen met behulp van Azure AD-toepassingsproxy
 
@@ -69,9 +69,10 @@ Volg deze stappen voor het installeren van het pakket:
 
 1. Open een standaard PowerShell-venster en voer de volgende opdracht:
 
-    ```
+    ```powershell
      Install-Module -Name AzureAD
     ```
+
     Als u de opdracht als een niet-beheerder uitvoert, gebruikt u de `-scope currentuser` optie.
 2. Tijdens de installatie, selecteert u **Y** twee pakketten installeren via Nuget.org. Beide pakketten zijn vereist. 
 
@@ -81,20 +82,22 @@ De object-id van de app verkrijgen en zoek vervolgens de app door de startpagina
 
 1. In de dezelfde PowerShell-venster, de Azure AD-module te importeren.
 
-    ```
+    ```powershell
     Import-Module AzureAD
     ```
 
 2. Meld u aan de module Azure AD als de tenantbeheerder.
 
-    ```
+    ```powershell
     Connect-AzureAD
     ```
+
 3. De app op basis van de URL van de startpagina te zoeken. U vindt de URL in de beheerportal door te gaan naar **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen**. In dit voorbeeld wordt *sharepoint-iddemo*.
 
+    ```powershell
+    Get-AzureADApplication | Where-Object { $_.Homepage -like "sharepoint-iddemo" } | Format-List DisplayName, Homepage, ObjectID
     ```
-    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
-    ```
+
 4. U moet een resultaat die vergelijkbaar is met hieronder. Kopieer de ObjectID GUID die u wilt gebruiken in de volgende sectie.
 
     ```
@@ -109,7 +112,7 @@ De URL van startpagina maken en bijwerken van uw toepassing met de waarde. Ga do
 
 1. Bevestig dat u de juiste App en vervang *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* met de object-id die u in de voorgaande sectie hebt gekopieerd.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
@@ -117,23 +120,25 @@ De URL van startpagina maken en bijwerken van uw toepassing met de waarde. Ga do
 
 2. Maak een lege toepassingsobject voor het opslaan van de wijzigingen die u wilt maken. Deze variabele bevat de waarden die u wilt bijwerken. Niets is in deze stap gemaakt.
 
-    ```
+    ```powershell
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
 3. De URL van startpagina ingesteld op de waarde die u wilt. De waarde moet een pad van het subdomein van de gepubliceerde app. Bijvoorbeeld, als u de URL van de startpagina van `https://sharepoint-iddemo.msappproxy.net/` naar `https://sharepoint-iddemo.msappproxy.net/hybrid/`, gaat u rechtstreeks naar de startpagina van aangepaste app-gebruikers.
 
-    ```
+    ```powershell
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
+
 4. Moet u de update met behulp van de GUID (object-id) die u hebt genoteerd in ' stap 1: De object-id van de app vinden."
 
-    ```
+    ```powershell
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
+
 5. Als u wilt controleren of de wijziging voltooid is, start u de app opnieuw.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
