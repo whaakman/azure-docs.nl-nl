@@ -6,18 +6,21 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7bfd94cb4940c33cb72a39827f67d04a5540ccdb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663431"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource health waarschuwingen configureren met Resource Manager-sjablonen
 
 Dit artikel wordt beschreven hoe u Resource Health waarschuwingen voor activiteitenlogboeken programmatisch met behulp van Azure Resource Manager-sjablonen en Azure PowerShell maakt.
 
 Azure Resource Health houdt die u geïnformeerd over de huidige en historische status van uw Azure-resources. Waarschuwingen van Azure Resource Health u kunnen een melding in bijna realtime wanneer deze resources een wijziging in hun status hebben. Het maken van Resource Health kunnen waarschuwingen via een programma gebruikers maken en aanpassen van meldingen in één bulkbewerking.
+
+> [!NOTE]
+> Resource Health waarschuwingen zijn momenteel in preview.
 
 ## <a name="prerequisites"></a>Vereisten
 

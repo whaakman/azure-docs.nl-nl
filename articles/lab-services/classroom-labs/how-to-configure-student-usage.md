@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181619"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650076"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Instellingen voor het gebruik en het beleid configureren
 In dit artikel wordt beschreven hoe u gebruikers toevoegen aan het lab, ze geregistreerd bij de testomgeving, bepalen het aantal uren dat de virtuele machine, en meer kan worden gebruikt. 
@@ -44,14 +44,20 @@ Voor het verzenden van de registratiekoppeling voor studenten, een van de volgen
 Als de **toegang beperken** is ingeschakeld voor de testomgeving, alleen gebruikers in de lijst met gebruikers de registratiekoppeling gebruiken kunnen om u te registreren met het lab. Deze optie is standaard ingeschakeld. 
 
 ### <a name="send-email-to-users"></a>E-mailbericht verzenden naar gebruikers
+Azure Lab-Services kunt docenten e-lab uitnodigingen voor alle of geselecteerde studenten zonder gebruik te maken van een ander e-client. Docenten kunnen Beweeg de muisaanwijzer op afzonderlijke studenten in de lijst wilt weergeven van het e-mailpictogram voor elke student of Selecteer een of meer studenten en gebruik **uitnodiging verzenden** op de werkbalk. Deze functie verzendt een e-mailbericht met een registratiekoppeling en een bericht (indien aanwezig) die zijn toegevoegd door de docent. Als de uitnodiging is verzonden, wordt de status van de uitnodiging verandert in **uitnodiging verzonden** zodat docenten kunnen bijhouden van welke studenten al hebt ontvangen de registratiekoppeling en de datum waarop het is verzonden.
+
 1. Schakel over naar de weergave **Gebruikers** als u nog niet op die pagina bent. 
-2. Selecteer specifieke of alle gebruikers in de lijst. Selecteer specifieke gebruikers, schakel selectievakjes in de eerste kolom van de lijst. Selecteer alle gebruikers, schakel het selectievakje voor de titel van de eerste kolom (**naam**) of selecteert u alle selectievakjes uit voor alle gebruikers in de lijst.
-3. Selecteer **uitnodiging verzenden** op de werkbalk. U kunt ook Beweeg de muisaanwijzer over een Studentnaam in de lijst en het e-mailpictogram te verzenden. 
+2. Selecteer specifieke of alle gebruikers in de lijst. Selecteer specifieke gebruikers, schakel selectievakjes in de eerste kolom van de lijst. Selecteer alle gebruikers, schakel het selectievakje voor de titel van de eerste kolom (**naam**) of selecteert u alle selectievakjes uit voor alle gebruikers in de lijst. U ziet de status van de **uitnodiging status** in deze lijst.  In de volgende afbeelding, de status van de uitnodiging voor alle studenten is ingesteld op **uitnodiging niet verzonden**. 
+
+    ![Studenten selecteren](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecteer de **e-mailpictogram (envelop)** in een van de rijen (of) select **uitnodiging verzenden** op de werkbalk. U kunt ook de muisaanwijzer boven de Studentnaam van een in de lijst om te zien van het e-mailpictogram houdt. 
 
     ![Registratiekoppeling per e-mail verzenden](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Op de **registratiekoppeling verzenden via e-mail** pagina, als volgt te werk: 
     1. Typ een **optioneel bericht** die u wilt verzenden naar de studenten. Het e-mailbericht omvat automatisch de registratiekoppeling. 
-    2. Op de **registratiekoppeling verzenden via e-mail** weergeeft, schakelt **verzenden**. 
+    2. Op de **registratiekoppeling verzenden via e-mail** weergeeft, schakelt **verzenden**. U ziet de status van de uitnodiging te wijzigen in **uitnodiging verzenden** en van daaruit naar **uitnodiging verzonden**. 
+        
+        ![Uitnodiging verzonden](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Registratiekoppeling ophalen
 1. Schakel over naar de **gebruikers** weergeven door te selecteren **gebruikers** in het menu links. 

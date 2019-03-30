@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f2837121c84081c77176b18758dfe1a83d6a070
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876905"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650662"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -51,8 +51,9 @@ De typen worden uitgedrukt met de volgende syntaxis:
 De functies met de typen **mvbin**, **mvstr**, en **mvref** kan alleen worden gebruikt voor kenmerken met meerdere waarden. Functies met **bin**, **str**, en **ref** werk op zowel één waarde als meerwaardige kenmerken.
 
 ## <a name="functions-reference"></a>Functieverwijzing
+
 | Lijst met functies |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificaat** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
@@ -63,7 +64,7 @@ De functies met de typen **mvbin**, **mvstr**, en **mvref** kan alleen worden ge
 | **Conversie** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Datum / tijd** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[nu](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -1245,7 +1246,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 Retourneert de gesproken taal in sommige steden, anders wordt een fout geretourneerd.
 
 - - -
-### <a name="trim"></a>Knippen
+### <a name="trim"></a>Omloopspaties wissen
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
 

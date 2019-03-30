@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620131"
+ms.locfileid: "58650152"
 ---
 # <a name="send-security-messages-sdk"></a>Verzenden van beveiligingsberichten SDK
 
@@ -92,7 +92,7 @@ Beveiligingsberichten verzenden zonder de ASC voor IoT-agent, met behulp van de 
 
 Voor het verzenden van het apparaatgegevens van uw apparaten voor verwerking door ASC voor IoT, door een van de volgende API's te gebruiken om berichten voor een correcte routering naar ASC voor IoT verwerkings-pipeline markeren. Berichten die worden verzonden op deze manier wordt verwerkt en weergegeven als beveiligingsinzichten binnen ASC voor IoT binnen zowel IoT-Hub of Azure Security Center. 
 
-Alle gegevens die worden verzonden, zelfs als die zijn gemarkeerd met de juiste header moet ook voldoen aan de [ASC voor IoT-berichtschema](https://github.com/Azure/ASC-for-IoT-Schemas). 
+Alle gegevens die worden verzonden, zelfs als die zijn gemarkeerd met de juiste header moet ook voldoen aan de [ASC voor IoT-berichtschema](https://aka.ms/iot-security-schemas). 
 
 ### <a name="send-security-message-api"></a>API voor security-bericht verzenden
 

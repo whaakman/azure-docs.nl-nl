@@ -4,7 +4,7 @@ description: Meer informatie over de toepassing en service level gebeurtenissen 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e26dbc037c206635cfb92ea49f28d0f891e53ef8
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291263"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661051"
 ---
 # <a name="application-logging"></a>Toepassingslogboeken
 
@@ -29,11 +29,11 @@ Sommige producten instrumenteer automatisch uw code. Hoewel deze oplossingen ook
 
 Zie voor meer voorbeelden over het gebruik van deze suggesties [logboekregistratie toevoegen aan uw Service Fabric-toepassing](service-fabric-how-to-diagnostics-log.md).
 
-## <a name="application-insights-sdk"></a>Application Insights-SDK
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
 Application Insights is een krachtige integratie met Service Fabric buiten het vak. Gebruikers kunnen de AI-Service Fabric-nuget-pakketten toevoegen en ontvangen van gegevens en logboeken die zijn gemaakt en die worden verzameld in de Azure-portal kan worden weergegeven. Gebruikers wordt bovendien aangeraden om toe te voegen met hun eigen telemetrie om te kunnen vaststellen en oplossen van hun toepassingen en bijhouden welke services en delen van hun toepassing zijn het meest gebruikt. De [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) klasse in de SDK biedt allerlei manieren om bij te houden van telemetrie in uw toepassingen. Bekijk een voorbeeld van het instrumenteren en application insights toevoegen aan uw toepassing in onze zelfstudie voor [bewaking en diagnose van een .NET-toepassing](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="eventsource"></a>Gebeurtenisbron
+## <a name="eventsource"></a>EventSource
 
 Wanneer u een Service Fabric-oplossing met een sjabloon in Visual Studio maakt een **EventSource**-afgeleide klasse (**ServiceEventSource** of **ActorEventSource**) is gegenereerd . Een sjabloon is gemaakt, waarin u gebeurtenissen voor uw toepassing of service kunt toevoegen. De **EventSource** naam **moet** uniek zijn en moet worden gewijzigd van de sjabloon standaardtekenreeks mijnbedrijf -&lt;oplossing&gt;-&lt;project &gt;. Met meerdere **EventSource** definities die gebruikmaken van dezelfde naam zorgt ervoor dat een probleem tijdens de uitvoering. Elke gedefinieerde gebeurtenis moet een unieke id hebben. Als een id is niet uniek is, wordt er een runtime-fout optreedt. Sommige organisaties preassign bereiken van de waarden voor id's voor het voorkomen van conflicten tussen afzonderlijke ontwikkelteams. Zie voor meer informatie, [van Vance blog](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) of de [MSDN-documentatie](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2b9b3cdcb712fcf6c415f574dc687e80ae9ee3b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078071"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660507"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files instellen en een volume maken 
 
@@ -105,9 +105,9 @@ Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegan
    4. Gebruik de standaardwaarde voor quotum. 
    5. Onder het virtuele netwerk, klikt u op **nieuw** te maken van een nieuwe Azure-netwerk (Vnet).  Vul vervolgens de volgende informatie:
        * Voer **myvnet1** als de Vnet-naam.
-       * Geef een adresruimte, bijvoorbeeld 10.7.0.0/16.
+       * Een adresruimte voor uw instelling, bijvoorbeeld 10.7.0.0/16 opgeven
        * Voer **myANFsubnet** als naam van het subnet.
-       * Geef het adresbereik van subnet, bijvoorbeeld 10.7.0.0/24.
+       * Geef het adresbereik van subnet, bijvoorbeeld 10.7.0.0/24. Houd er rekening mee dat u het toegewezen subnet niet met andere resources delen.
        * Selecteer **Microsoft.NetApp/volumes** voor subnet overdracht.
        * Klik op **OK** om het Vnet te maken.
    6. In het subnet, selecteert u het zojuist gemaakte Vnet (**myvnet1**) als het subnet gemachtigde.

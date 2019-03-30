@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245683ec6c3c2d25f362e035020e162af75e1627
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169918"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650390"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Woordenlijst voor Azure Active Directory-ontwikkelaars
 
@@ -204,7 +204,7 @@ Azure AD-tenants zijn gemaakt/die is gekoppeld aan Azure en Office 365-abonnemen
 
 ## <a name="token-endpoint"></a>token-eindpunt
 
-Een van de eindpunten die zijn geïmplementeerd door de [autorisatieserver](#authorization-server) aan ondersteuning voor OAuth2 [autorisatietoekenningen](#authorization-grant). Afhankelijk van de toekenning kan worden gebruikt om te verkrijgen een [toegangstoken](#access-token) (en gerelateerde token 'vernieuwen') naar een [client](#client-application), of [ID-token](#ID-token) gebruikt in combinatie met de [OpenID Verbinding maken met] [ OpenIDConnect] protocol.
+Een van de eindpunten die zijn geïmplementeerd door de [autorisatieserver](#authorization-server) aan ondersteuning voor OAuth2 [autorisatietoekenningen](#authorization-grant). Afhankelijk van de toekenning kan worden gebruikt om te verkrijgen een [toegangstoken](#access-token) (en gerelateerde token 'vernieuwen') naar een [client](#client-application), of [ID-token](#id-token) gebruikt in combinatie met de [OpenID Verbinding maken met] [ OpenIDConnect] protocol.
 
 ## <a name="user-agent-based-client"></a>Client agent-op basis van gebruikers
 
