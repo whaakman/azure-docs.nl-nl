@@ -1,6 +1,6 @@
 ---
-title: Diagnostische logboeken naar Log Analytics in Azure Stream
-description: Meer informatie over het streamen van diagnostische logboeken naar Log Analytics-werkruimte in Azure.
+title: Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor
+description: Meer informatie over het streamen van diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor in Azure.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351544"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630791"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor
 
-**[Diagnostische logboeken in Azure](diagnostic-logs-overview.md)**  kan worden gestreamd in bijna realtime met Azure Log Analytics met behulp van de portal, PowerShell-cmdlets of Azure CLI.
+**[Diagnostische logboeken in Azure](diagnostic-logs-overview.md)**  kan worden gestreamd in bijna realtime bij een Log Analytics-werkruimte in Azure Monitor via de portal, PowerShell-cmdlets of Azure CLI.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Wat u kunt doen met diagnostische logboeken in Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Wat u kunt doen met diagnostische logboeken in Log Analytics-werkruimte
 
-Azure Log Analytics is een flexibele log search en analyse hulpprogramma waarmee u meer inzicht krijgen in de onbewerkte logboekgegevens gegenereerd op basis van Azure-resources. Sommige mogelijkheden zijn onder andere:
+Azure Monitor biedt een flexibel log query- en analysemogelijkheden hulpprogramma waarmee u meer inzicht krijgen in de onbewerkte logboekgegevens gegenereerd op basis van Azure-resources. Sommige mogelijkheden zijn onder andere:
 
-* **Zoeken in logboeken** -schrijven geavanceerde query's via uw logboekgegevens, correleren Logboeken uit diverse bronnen, en zelfs genereren grafieken die kunnen worden vastgemaakt aan uw Azure-dashboard.
-* **Waarschuwingen** -detecteren wanneer een of meer gebeurtenissen komen overeen met een bepaalde query en een melding te met een e-mailadres of webhook-aanroep ontvangen.
-* **Oplossingen** -gebruik van vooraf gemaakte weergaven en dashboards die u onmiddellijk inzicht in uw logboekgegevens geven.
+* **Query voor** -schrijven geavanceerde query's via uw logboekgegevens, correleren Logboeken uit verschillende bronnen en genereren grafieken die kunnen worden vastgemaakt aan uw Azure-dashboard.
+* **Waarschuwingen** -detecteren wanneer een of meer gebeurtenissen komen overeen met een bepaalde query en een melding te ontvangen met een e-mailadres of webhook-aanroep met behulp van Azure Monitor-waarschuwingen.
 * **Geavanceerde analyse** : machine learning toepassen en dezelfde algoritmen voor het identificeren van mogelijke problemen aan het licht komt door uw logboeken patroon.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Streaming van diagnostische logboeken naar Log Analytics inschakelen
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Streaming van diagnostische logboeken naar Log Analytics-werkruimte inschakelen
 
 U kunt inschakelen via een programma, via de portal van diagnostische logboeken streamen of met behulp van de [Azure Monitor REST API's](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). In beide gevallen maakt u een diagnostische instelling in die u geeft een Log Analytics-werkruimte en de logboekcategorieën en metrische gegevens die u verzenden wilt in voor de desbetreffende werkruimte. Een diagnose **logboekcategorie** is een type logboek dat een resource kan bieden.
 
@@ -42,9 +41,8 @@ De Log Analytics-werkruimte heeft geen zich in hetzelfde abonnement als de resou
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Stream diagnostische logboeken met behulp van de portal
-1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
+1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen** in de **instellingen** menu.
 
-    ![Sectie van Azure Monitor bewaking](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. (Optioneel) de lijst met door de resourcegroep of resourcetype filteren en klik vervolgens op de resource waarvoor u wilt een diagnostische instelling instellen.
 
@@ -97,9 +95,9 @@ U kunt extra categorieën toevoegen aan de diagnostische logboeken van woordenli
 
 De `--resource-group` argument is alleen vereist als `--workspace` is niet een object-ID.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hoe ik de gegevens in Log Analytics op te vragen?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Hoe ik de gegevens vanuit een Log Analytics-werkruimte op te vragen?
 
-U kunt de logboeken met diagnostische gegevens als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics opvragen in de blade zoeken in Logboeken in de portal of Advanced Analytics-ervaring als onderdeel van Log Analytics. Er zijn ook [verschillende oplossingen voor Azure-resources](../../azure-monitor/insights/solutions.md) u kunt installeren als u onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Log Analytics.
+U kunt Logboeken met diagnostische gegevens in de blade Logboeken in de portal voor Azure Monitor opvragen als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics. Er zijn ook [verschillende bewakingsoplossingen voor Azure-resources](../../azure-monitor/insights/solutions.md) u om op te halen onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Azure Monitor kunt installeren.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Bekende beperking: kolomlimiet in AzureDiagnostics
 Omdat veel resources verzenden gegevenstypen worden verzonden naar dezelfde tabel (_AzureDiagnostics_), het schema van deze tabel is de Super set de schema's van alle verschillende gegevenstypen die worden verzameld. Bijvoorbeeld, als u diagnostische instellingen voor het verzamelen van de volgende gegevenstypen hebt gemaakt, alle verstuurd naar dezelfde werkruimte:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580701"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649370"
 ---
 # <a name="tutorial-configure-security-agents"></a>Zelfstudie: Beveiligingsagents configureren
 
@@ -42,7 +42,7 @@ ASC voor dubbele configuratieobject voor de IoT security agent is een JSON-indel
 
 Deze configuraties kunnen u de agent voor elk scenario vereist aanpassen. Automatisch zijn met uitzondering van bepaalde gebeurtenissen of het energieverbruik voor een minimumniveau behouden bijvoorbeeld mogelijk door het configureren van deze eigenschappen.  
 
-De ASC gebruiken voor de configuratie van IoT security agent [schema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) wijzigingen aanbrengen.  
+De ASC gebruiken voor de configuratie van IoT security agent [schema](https://aka.ms/iot-security-github-module-schema) wijzigingen aanbrengen.  
 
 ## <a name="configuration-objects"></a>Configuratie-objecten 
 
@@ -64,7 +64,7 @@ De agent wordt niet gestart als het configuratieobject komt niet overeen met het
 
 ## <a name="configuration-schema-and-validation"></a>Het schema en validatie 
 
-Zorg ervoor dat u de configuratie van de agent op basis van dit [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Een agent wordt niet gestart als het configuratieobject komt niet overeen met het schema.
+Zorg ervoor dat u de configuratie van de agent op basis van dit [schema](https://aka.ms/iot-security-github-module-schema). Een agent wordt niet gestart als het configuratieobject komt niet overeen met het schema.
 
  
 Als, terwijl de agent wordt uitgevoerd, wordt het configuratieobject gewijzigd naar een ongeldige configuratie (de configuratie komt niet overeen met het schema), wordt de agent de ongeldige configuratie worden genegeerd en wordt voortgezet met behulp van de huidige configuratie. 

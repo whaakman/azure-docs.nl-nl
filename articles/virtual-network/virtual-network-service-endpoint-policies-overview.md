@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652583"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Beleid voor service-eindpunten voor virtuele netwerken (preview)
 
@@ -145,7 +145,7 @@ Het beleid voor service-eindpunten voor virtuele netwerken biedt de volgende voo
 - **Virtuele netwerken met peers, verbonden of meerdere virtuele netwerken**: Als u het verkeer in gekoppelde virtuele netwerken wilt filteren, moeten de beleidsregels voor eindpunten afzonderlijk op deze virtuele netwerken worden toegepast.
 - **Internetverkeer filteren met netwerkapparaten of Azure Firewall**: Filter het verkeer van Azure-services met behulp van beleid, via eindpunten, en filter de rest van het internet- of Azure-verkeer via apparaten of Azure Firewall. 
 - **Verkeer filteren van Azure-services die zijn geïmplementeerd in virtuele netwerken**: In de preview-fase wordt het beleid voor service-eindpunten niet ondersteund voor eventuele beheerde Azure-services die in uw virtuele netwerk zijn geïmplementeerd. 
- Zie [beperkingen](#Limitations) voor de betreffende services.
+ Zie [beperkingen](#limitations) voor de betreffende services.
 - **Verkeer vanaf on-premises naar Azure-services filteren**: Het beleid voor service-eindpunten is alleen van toepassing op het verkeer van de subnetten die aan het beleid zijn gekoppeld. Als u toegang vanaf on-premises tot bepaalde Azure-serviceresources wilt toestaan, moet het verkeer worden gefilterd met behulp van virtuele netwerkapparaten of firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Logboekregistratie en problemen oplossen

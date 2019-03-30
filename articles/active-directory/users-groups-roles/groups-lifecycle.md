@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e4585e8e1a809824e63f917fed1cc8a9cfa646a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202925"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660253"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -81,7 +81,7 @@ Wanneer een groep is verlopen, kan de groep één dag na de vervaldatum is verwi
 
 ![E-mailmeldingen in verwijderen](./media/groups-lifecycle/deletion-notification.png)
 
-De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecteren van **groep herstellen** of met behulp van PowerShell-cmdlets, zoals beschreven in [een verwijderde Office 365-groep in Azure Active Directory terugzetten](groups-restore-deleted.md).
+De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecteren van **groep herstellen** of met behulp van PowerShell-cmdlets, zoals beschreven in [een verwijderde Office 365-groep in Azure Active Directory terugzetten](groups-restore-deleted.md). Houd er rekening mee dat de periode van 30-daagse groep herstel kan niet worden aangepast.
     
 Als de groep die u herstellen van wilt documenten, SharePoint-sites of andere permanente objecten bevat, is het duurt maximaal 24 uur aan de groep en de inhoud ervan volledig te herstellen.
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650458"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Suggesties toevoegen aan een index voor typeahead in Azure Search
 
@@ -77,7 +77,7 @@ Nadat een suggestie is gemaakt, voegt u toe de [suggesties API](https://docs.mic
 
 ### <a name="use-the-net-sdk"></a>De .NET SDK gebruiken
 
-In C#, definieert een [suggestie klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Een suggestie is een verzameling die kan slechts één item uitvoeren. Zorg ervoor dat om toe te voegen `using System.Collections.Generic;` zodat u een lijst met objecten kunt maken. 
+In C#, definieert een [suggestie object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is een verzameling, maar duurt slechts één item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

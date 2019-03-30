@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240164"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648816"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detecteren en oplossen van de verbinding verbreekt met Azure IoT Hub
 
@@ -32,7 +32,7 @@ Als u wilt aanmelden apparaat connection-gebeurtenissen en fouten, diagnostische
 1. Selecteer **diagnostische instellingen**.
 1. Selecteer **diagnostische gegevens inschakelen**.
 1. Schakel **verbindingen** logboeken te verzamelen.
-1. Inschakelen voor eenvoudigere analyse **verzenden naar Log Analytics** ([Zie prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)). Zie het voorbeeld onder [oplossen van fouten in de basisnetwerkverbinding](#Resolve-connectivity-errors).
+1. Inschakelen voor eenvoudigere analyse **verzenden naar Log Analytics** ([Zie prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)). Zie het voorbeeld onder [oplossen van fouten in de basisnetwerkverbinding](#resolve-connectivity-errors).
 
    ![Aanbevolen instellingen][2]
 
@@ -40,15 +40,14 @@ Zie voor meer informatie, [de status van Azure IoT Hub bewaken en problemen vast
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Waarschuwingen instellen voor de _verbonden apparaten_ aantal metrische gegevens
 
-Voor waarschuwingen bij het verbreken van de apparaten, kunt u waarschuwingen configureren op de **verbonden apparaten** metrische gegevens.
+Voor waarschuwingen bij het verbreken van de apparaten, kunt u waarschuwingen configureren op de **verbonden apparaten (preview)** metrische gegevens.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Blader naar uw IoT-hub.
-1. Selecteer **waarschuwingen (klassiek)**.
-1. Selecteer **metrische waarschuwing toevoegen (klassiek)**.
-1. Vul het formulier en selecteer **OK**.
-
-   ![Aanbevolen waarschuwing voor metrische gegevens][3]
+1. Selecteer **waarschuwingen**.
+1. Selecteer **nieuwe waarschuwingsregel**.
+1. Selecteer **voorwaarde toevoegen**, selecteer vervolgens "Verbonden apparaten (preview)".
+1. Instellen van de gewenste drempelwaarden en opties voor waarschuwingen door de volgende stappen voltooien.
 
 Zie voor meer informatie, [wat zijn klassieke waarschuwingen in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 

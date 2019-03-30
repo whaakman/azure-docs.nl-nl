@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339581"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669773"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Fout ' interne controle is mislukt: Bekijk ENOSPC "bij het opsporen van fouten op een Node.js-toepassing toevoegen
+
+### <a name="reason"></a>Reden
+
+Het knooppunt de schil uitgevoerd met de Node.js-toepassing die u probeert te koppelen aan met een foutopsporingsprogramma is langer dan de *fs.inotify.max_user_watches* waarde. In sommige gevallen [de standaardwaarde van *fs.inotify.max_user_watches* mogelijk te klein voor het afhandelen van een foutopsporingsprogramma koppelen rechtstreeks naar een schil](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Proberen
+Tijdelijke oplossing voor dit probleem is het verhogen van de waarde van *fs.inotify.max_user_watches* op elk knooppunt in het cluster en start opnieuw op dat knooppunt voor de wijzigingen worden doorgevoerd.

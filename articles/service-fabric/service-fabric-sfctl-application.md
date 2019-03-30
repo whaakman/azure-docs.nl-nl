@@ -4,7 +4,7 @@ description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl toepass
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278539"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665539"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Maken, verwijderen en beheren van toepassingen en de soorten toepassingen.
@@ -41,11 +41,11 @@ Maken, verwijderen en beheren van toepassingen en de soorten toepassingen.
 | inrichten | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie. |
 | rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-toepassing. |
 | type | Hiermee haalt u de lijst met typen in het Service Fabric-cluster die overeenkomt met precies de opgegeven naam. |
-| type-lijst | Hiermee haalt de lijst met typen in het Service Fabric-cluster. |
+| type-list | Hiermee haalt de lijst met typen in het Service Fabric-cluster. |
 | inrichting verwijderen | Hiermee verwijdert u of de registratie van een type Service Fabric-toepassing uit het cluster. |
 | upgrade | Hiermee start u een upgrade van een toepassing in de Service Fabric-cluster. |
-| upgrade-hervatten | Hervat een upgrade van een toepassing in de Service Fabric-cluster. |
-| upgrade terugdraaien | Start het terugdraaien van de momenteel continue upgrade van een toepassing in de Service Fabric-cluster. |
+| upgrade-resume | Hervat een upgrade van een toepassing in de Service Fabric-cluster. |
+| upgrade-rollback | Start het terugdraaien van de momenteel continue upgrade van een toepassing in de Service Fabric-cluster. |
 | upgrade-status | Hiermee haalt details voor de meest recente upgrade uitgevoerd voor deze toepassing. |
 | uploaden | Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag. |
 
@@ -61,11 +61,11 @@ Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschr
 | --app-versie (vereist) | De versie van het toepassingstype zoals gedefinieerd in het toepassingsmanifest. |
 | --max-node-count | Het maximale aantal knooppunten dat is waar Service Fabric-capaciteit voor deze toepassing wordt gereserveerd. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op alle knooppunten wordt geplaatst. |
 | --metrische gegevens | Een JSON gecodeerd lijst van de toepassing capaciteit metrische beschrijvingen. Een metrische waarde wordt gedefinieerd als een naam, die zijn gekoppeld aan een set met capaciteiten voor elk knooppunt dat de toepassing bestaat op. |
-| --min in het aantal knooppunten | Het minimum aantal knooppunten dat is waar Service Fabric-capaciteit voor deze toepassing wordt gereserveerd. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op alle knooppunten wordt geplaatst. |
+| --min-node-count | Het minimum aantal knooppunten dat is waar Service Fabric-capaciteit voor deze toepassing wordt gereserveerd. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op alle knooppunten wordt geplaatst. |
 | --parameters | Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het maken van de toepassing moet worden toegepast. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -88,7 +88,7 @@ Een toepassing moet worden gemaakt voordat deze kan worden verwijderd. Een toepa
 | --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -112,7 +112,7 @@ Deze query retourneert systeemgegevens van de toepassing als de toepassings-ID o
 | --opnemen-health-status | De status van een entiteit bevatten. Als deze parameter of niet opgegeven is, wordt de status van de geretourneerde 'Onbekend'. Wanneer is ingesteld op true, wordt de query parallel om in het knooppunt en de system health service gaat voordat de resultaten worden samengevoegd. Als gevolg hiervan de query is duurder en een langere tijd kan duren. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -138,7 +138,7 @@ Hiermee haalt u de informatie over de status van een toepassing is geïmplemente
 | --uitsluiten-health-statistieken | Geeft aan of de health-statistieken moet worden geretourneerd als onderdeel van het queryresultaat. Als de waarde False is, wordt standaard. De statistieken Toon het aantal onderliggende entiteiten in de status Ok, waarschuwing en fout. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -160,10 +160,10 @@ Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Servi
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
 | --opnemen-health-status | De status van een entiteit bevatten. Als deze parameter of niet opgegeven is, wordt de status van de geretourneerde 'Onbekend'. Wanneer is ingesteld op true, wordt de query parallel om in het knooppunt en de system health service gaat voordat de resultaten worden samengevoegd. Als gevolg hiervan de query is duurder en een langere tijd kan duren. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -189,7 +189,7 @@ Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapp
 | --services-health-status-filter | Kan het filteren van de services health state objecten geretourneerd in het resultaat van de query voor health services op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen services die overeenkomen met het filter worden geretourneerd. Alle services worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is wordt vervolgens de status van services met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -209,10 +209,10 @@ Retourneert de gegevens over de toepassing die is gemaakt of momenteel wordt gem
 |Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --uitsluiten toepassingsparameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
+| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -232,13 +232,13 @@ Hiermee haalt u de informatie over de toepassingen die zijn gemaakt of momenteel
 |Argument|Description|
 | --- | --- |
 | --toepassing-definition-type-filter | Gebruikt om te filteren op ApplicationDefinitionKind, dit is het mechanisme dat wordt gebruikt voor het definiëren van een Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationDescription - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde ServiceFabricApplicationDescription. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde opstellen. De waarde is 2. |
-| ----naam van het toepassingstype | De naam van de toepassing type is gebruikt voor het filteren van de toepassingen op te vragen voor. Deze waarde moet een versie van het toepassingstype niet bevatten. |
+| --application-type-name | De naam van de toepassing type is gebruikt voor het filteren van de toepassingen op te vragen voor. Deze waarde moet een versie van het toepassingstype niet bevatten. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --uitsluiten toepassingsparameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -260,7 +260,7 @@ Retourneert de load-informatie over de toepassing die is gemaakt of momenteel wo
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -283,7 +283,7 @@ Het antwoord bevat de XML-manifest van de toepassing als een tekenreeks.
 | --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -302,15 +302,15 @@ Richt een type Service Fabric-toepassing met het cluster. Dit is vereist voordat
 
 |Argument|Description|
 | --- | --- |
-| --application-pakket-download-uri | Het pad naar het toepassingspakket '.sfpkg' waaruit het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocol. <br><br> Voor inrichten van het type externe opslaan alleen. Het toepassingspakket kan worden opgeslagen in een externe opslag waarmee GET-bewerking om het bestand te downloaden. Ondersteunde protocollen zijn HTTP en HTTPS en het pad moet leestoegang toestaan. |
+| --application-package-download-uri | Het pad naar het toepassingspakket '.sfpkg' waaruit het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocol. <br><br> Voor inrichten van het type externe opslaan alleen. Het toepassingspakket kan worden opgeslagen in een externe opslag waarmee GET-bewerking om het bestand te downloaden. Ondersteunde protocollen zijn HTTP en HTTPS en het pad moet leestoegang toestaan. |
 | ---type-build-pad naar toepassing | Voor alleen richten installatiekopie van het soort archief. Het relatieve pad voor het toepassingspakket in het archief van de installatiekopie opgegeven tijdens het uploaden van eerdere. |
-| ----naam van het toepassingstype | Voor inrichten van het type externe opslaan alleen. De naam van de toepassing type vertegenwoordigt de naam van het toepassingstype gevonden in het toepassingsmanifest. |
+| --application-type-name | Voor inrichten van het type externe opslaan alleen. De naam van de toepassing type vertegenwoordigt de naam van het toepassingstype gevonden in het toepassingsmanifest. |
 | --versie-type-toepassing | Voor inrichten van het type externe opslaan alleen. De versie van het type toepassing geeft de versie van het toepassingstype gevonden in het toepassingsmanifest. |
 | --externe inrichten | De locatie waar toepassingspakket kan worden geregistreerd of ingericht. Geeft aan dat de levering van een toepassingspakket dat eerder is geüpload naar een externe opslag. Het toepassingspakket eindigt met de extensie *.sfpkg. |
 | --niet-wait | Geeft aan of inrichting asynchroon moet plaatsvinden. <br><br> Wanneer is ingesteld op true, de bewerking voor het inrichten wordt geretourneerd blijft wanneer de aanvraag is geaccepteerd door het systeem en de bewerking voor het inrichten zonder een time-outlimiet. De standaardwaarde is false. Voor grote toepassingpakketten raden wij de waarde wordt ingesteld op true. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -334,13 +334,13 @@ Rapporteert de status van de opgegeven Service Fabric-toepassing. Het rapport mo
 | --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
 | --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
+| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -362,11 +362,11 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 | --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
 | --versie-type-toepassing | De versie van het toepassingstype. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --uitsluiten toepassingsparameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -387,11 +387,11 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 | --- | --- |
 | --toepassing-type-definition-type-filter | Gebruikt om te filteren op ApplicationTypeDefinitionKind dit is het mechanisme dat wordt gebruikt voor het definiëren van een type Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationTypeDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationPackage - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde ServiceFabricApplicationPackage. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde opstellen. De waarde is 2. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --uitsluiten toepassingsparameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -415,7 +415,7 @@ Deze bewerking kan alleen worden uitgevoerd als alle toepassingsexemplaren van h
 | --async-parameter | De vlag die aangeeft of unprovision asynchroon moet worden uitgevoerd. Wanneer is ingesteld op true, de bewerking unprovision wordt geretourneerd blijft wanneer de aanvraag is geaccepteerd op het systeem en de bewerking unprovision zonder een time-outlimiet. De standaardwaarde is false. We raden echter aan instellen op true voor grote toepassingspakketten die zijn ingericht. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -439,20 +439,20 @@ Evalueert de opgegeven parameters toepassingsupgrade en begint met bijwerken van
 | --parameters (vereist) | Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het upgraden van de toepassing moet worden toegepast. |
 | ---service-health-standaardbeleid | JSON gecodeerd specificatie van het statusbeleid gebruikt standaard voor het evalueren van de status van een servicetype. |
 | --actie bij fout | De actie om uit te voeren wanneer de upgrade van een gecontroleerde controle beleidsschendingen voor beleid of de status. |
-| --geforceerd opnieuw opstarten | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. |
+| --force-restart | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. |
 | --health-controle-nieuwe poging-timeout | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is.  Standaard\: PT0H10M0S. |
 | --health check-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein.  Standaard\: PT0H2M0S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --health-controle-wait-duur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces.  Standaard\: 0. |
+| --health-check-wait-duration | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces.  Standaard\: 0. |
 | --max-niet in orde-apps | De maximaal toegestane percentage van de beschadigde geïmplementeerde toepassingen. Weergegeven als een getal tussen 0 en 100 liggen. |
-| --modus | De modus status gecontroleerd tijdens een rolling upgrade.  Standaard\: UnmonitoredAuto. |
+| --mode | De modus status gecontroleerd tijdens een rolling upgrade.  Standaard\: UnmonitoredAuto. |
 | --replica-set-check-timeout | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. Gemeten in seconden. |
 | --health-service-beleid | JSON gecodeerd kaart met het service type statusbeleid per service-typenaam. De kaart is leeg worden standaard. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --waarschuwing als fout | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -475,7 +475,7 @@ Hervat een niet-bewaakte handmatige Service Fabric-toepassing upgraden. Service 
 | --upgrade-domain-name (vereist) | De naam van het upgradedomein waarin u kunt doorgaan met de upgrade. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -497,7 +497,7 @@ Terugdraaien van de huidige toepassing wordt gestart upgraden naar de vorige ver
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -519,7 +519,7 @@ Retourneert informatie over de status van de upgrade van de meest recente toepas
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -540,9 +540,9 @@ Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag.
 | --- | --- |
 | --pad (vereist) | Pad naar lokale toepassingspakket. |
 | --imagestore-tekenreeks | De installatiekopie van doel opslaan om het toepassingspakket te te uploaden.  Standaard\: fabric\:ImageStore. |
-| --show-voortgang | Bestand uploadvoortgang voor grote pakketten weergeven. |
+| --show-progress | Bestand uploadvoortgang voor grote pakketten weergeven. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

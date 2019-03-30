@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305135"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631148"
 ---
 ## <a name="set-up-your-device"></a>Uw apparaat instellen
+
+Open in Unity, het project in de `Unity` map.
+
+![Unity-venster](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Een Android-apparaat instellen
 
@@ -31,7 +35,9 @@ In de **Inspector** deelvenster, voer de `Sharing Anchors Service url` (van uw A
 
 Sla de scène op door **Bestand** > **Opslaan** te selecteren.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>De app implementeren op een Android-apparaat
+## <a name="deploy-to-your-device"></a>Uw apparaat implementeren
+
+### <a name="deploy-to-android-device"></a>Implementeren op Android-apparaat
 
 Meld u aan op uw Android-apparaat en deze op uw computer verbinding maken met behulp van een USB-kabel.
 
@@ -41,9 +47,9 @@ Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnc
 
 Zorg ervoor dat **Project exporteren** geen een vinkje. Selecteer **bouwen en uitvoeren**. U wordt gevraagd om op te slaan uw `.apk` bestand. U kunt een willekeurige naam voor het kiezen.
 
-Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. De eerste optie kunt u een anker die later op hetzelfde apparaat of op een ander account worden kan maken. De tweede optie, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers vinden.
+Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan. Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. Later op, zult u plaatst u een anker in de hele wereld, wordt geduld terwijl deze wordt geüpload, enzovoort.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>De app implementeert in een iOS-apparaat
+### <a name="deploy-to-an-ios-device"></a>Implementeren op een iOS-apparaat
 
 Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
@@ -51,6 +57,6 @@ Onder **schermen In bouwt**, schakel het selectievakje naast de `AzureSpatialAnc
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. De eerste optie kunt u een anker die later op hetzelfde apparaat of op een ander account worden kan maken. De tweede optie, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers vinden.
+Volg de instructies in de app. U kunt selecteren **maken en delen anker** of **gedeeld anker Zoek**. Het eerste scenario maakt u een anker die later op hetzelfde apparaat of op een ander account worden kan. Het tweede scenario, kunt als u de app al hebt uitgevoerd op hetzelfde apparaat of op een ander account, u eerder hebt gedeeld ankers. Nadat u uw scenario kiest, leidt de app u verdere instructies om wat te doen. Bijvoorbeeld: u wordt gevraagd uw apparaat voor het verzamelen van omgevingsgegevens herinrichten. Later op, zult u plaatst u een anker in de hele wereld, wordt geduld terwijl deze wordt geüpload, enzovoort.
 
 In Xcode, stopt u de app door te selecteren **stoppen**.

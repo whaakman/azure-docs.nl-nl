@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894577"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652481"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
 
-Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren. U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor JSON-syntaxis en eigenschappen [Microsoft.Logic resourcetypen](/azure/templates/microsoft.logic/allversions).
+Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren.
+U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor JSON-syntaxis en eigenschappen [Microsoft.Logic resourcetypen](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>De logische app definiëren
-
 De definitie van dit voorbeeld van de logische app eenmaal per uur wordt uitgevoerd en pingt de locatie die is opgegeven de `testUri` parameter.
-De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app (```logicAppName```) en de locatie op voor het testen van de opdracht ping (```testUri```). Meer informatie over [definiëren van deze parameters in uw sjabloon](#define-parameters). De sjabloon wordt de locatie voor de logische app ook ingesteld op dezelfde locatie als de Azure-resourcegroep. 
+De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app (```logicAppName```) en de locatie op voor het testen van de opdracht ping (```testUri```). Meer informatie over [definiëren van deze parameters in uw sjabloon](#define-parameters).
+De sjabloon wordt de locatie voor de logische app ook ingesteld op dezelfde locatie als de Azure-resourcegroep.
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app 
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app 
 
 Hier volgen beschrijvingen voor de parameters in de sjabloon:
 
-| Parameter | Description | Voorbeeld van JSON-definitie | 
-| --------- | ----------- | ----------------------- | 
+| Parameter | Description | Voorbeeld van JSON-definitie |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
-| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 Meer informatie over [REST-API voor Logic Apps-werkstroom-definitie en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op definities voor logische Apps met JSON](logic-apps-author-definitions.md).
@@ -93,7 +94,8 @@ Als u wilt maken en een logische app automatisch geïmplementeerd op Azure, kies
 
 [![Implementeren in Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden en wijzigingen aanbrengen in de sjabloon of de parameters. Bijvoorbeeld, de Azure-portal wordt u gevraagd deze details:
+Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden en wijzigingen aanbrengen in de sjabloon of de parameters.
+Bijvoorbeeld, de Azure-portal wordt u gevraagd deze details:
 
 * De naam van de Azure-abonnement
 * Resourcegroep die u wilt gebruiken
@@ -110,13 +112,13 @@ Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
+```
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-```
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 818b3e3b464ecbe8d55367ab5318436a14567263
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108760"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666491"
 ---
 # <a name="security-center-settings"></a>Instellingen van Security Center
 Dit artikel bevat een overzicht van instellingen in Security Center.
@@ -29,15 +29,15 @@ De volgende instellingen kunnen worden bereikt onder beveiligingsbeleid:
 - **Het verzamelen van gegevens**: Hiermee bepaalt u de configuratie van agent en [gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) instellingen.
 - **Beveiligingsbeleid**: Bepaalt welke besturingselementen Security Center bewaakt en wordt aanbevolen. U kunt bewerken de [beveiligingsbeleid](tutorial-security-policy.md) in Security Center. U kunt ook [Azure Policy](tutorial-security-policy.md) voor het maken van nieuwe definities, definiëren van extra beleidsregels en toewijzen van beleidsregels binnen beheergroepen. 
 - **E-mailmeldingen**: Hiermee bepaalt u contactpersonen voor beveiliging, en [e-mailmelding](security-center-provide-security-contact-details.md) instellingen.
-- **Prijscategorie**: Hiermee definieert u gratis of standard [prijsselectie](security-center-pricing.md). De laag die u kiest, bepaalt welke Security Center-functies beschikbaar zijn voor resources binnen het bereik. U kunt een laag voor abonnementen, resourcegroepen en werkruimten.
+- **Prijscategorie**: Hiermee definieert u gratis of standard [prijsselectie](security-center-pricing.md). De laag die u kiest, bepaalt welke Security Center-functies beschikbaar zijn voor resources binnen het bereik. U kunt een laag voor abonnementen en werkruimten.
 
 > [!NOTE]
-> U kunt al deze waarden per abonnement instellen. Voor werkruimten, kunt u alleen de gegevensverzameling en -prijscategorie instellen. U kunt alleen prijscategorie instellen voor resourcegroepen.
+> U kunt al deze waarden per abonnement instellen. Voor werkruimten, kunt u alleen de gegevensverzameling en -prijscategorie instellen.
 >
 
 
 ## <a name="who-can-edit-security-policies"></a>Wie kan beveiligingsbeleid bewerken?
-Security Center maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC), waarmee u ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services in Azure. Wanneer gebruikers Security Center openen, zien ze alleen informatie met betrekking tot ze toegang tot hebben resources. Wat betekent dat gebruikers de rol van toegewezen *eigenaar*, *Inzender*, of *lezer* aan de groep abonnement of resourcegroep waartoe een resource behoort. Naast deze rollen zijn er twee specifieke Security Center-rollen:
+Security Center maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC), waarmee u ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services in Azure. Wanneer gebruikers Security Center openen, zien ze alleen informatie met betrekking tot ze toegang tot hebben resources. Wat betekent dat gebruikers de rol van toegewezen *eigenaar*, *Inzender*, of *lezer* aan het abonnement de resource behoort. Naast deze rollen zijn er twee specifieke Security Center-rollen:
 
 - **Beveiligingslezer**: Heeft weergaverechten voor Security Center, waaronder aanbevelingen, waarschuwingen, beleid en de gezondheid van, maar ze kunnen geen wijzigingen aanbrengen.
 - **Beveiligingsbeheerder**: Hebben de dezelfde rechten weergeven als *beveiligingslezer*, en ze kunnen ook het beveiligingsbeleid bijwerken en verwijderen van aanbevelingen en waarschuwingen.
@@ -46,7 +46,7 @@ Security Center maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC), waarme
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd over het beveiligingsbeleid in Azure Security Center. Zie de volgende artikelen voor meer informatie over Azure Security Center:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen van Security Center helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): Informatie over het beheren van en reageren op beveiligingswaarschuwingen.

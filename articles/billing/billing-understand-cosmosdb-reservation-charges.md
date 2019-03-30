@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899516"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648534"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Nadat u een Azure Cosmos DB gereserveerde capaciteit koopt, wordt de reservering
 
 Een reserveringskorting wordt toegepast op [ingerichte doorvoer](../cosmos-db/request-units.md) in termen van aanvraageenheden per seconde (RU/s) op basis van per uur. Voor Azure Cosmos DB-resources die niet volledig uur worden uitgevoerd, worden de reserveringskorting wordt automatisch toegepast op andere Cosmos DB-resources die overeenkomen met de kenmerken van de reservering. De korting kunt toepassen op Azure Cosmos DB-resources die gelijktijdig worden uitgevoerd. Als u geen Cosmos DB-resources die voor een volledig uur worden uitgevoerd en die voldoen aan de kenmerken van de reservering hebt, krijgt u niet het volledige voordeel van de reserveringskorting voor dat uur.
 
-De kortingen worden geschakeld. Reserveringen met hogere aanvraageenheden bieden hogere kortingen. 
+De kortingen worden geschakeld. Reserveringen met hogere aanvraageenheden bieden hogere kortingen.
 
 De reserveringsaankoop wordt kortingen van toepassing op alle regio's in de verhouding gelijk is aan de regionale prijzen op aanvraag. Zie voor reservering korting ratio's in elke regio, de [reserveringskorting per regio](#reservation-discount-per-region) sectie van dit artikel.
 
@@ -71,15 +71,15 @@ De reserveringskorting wordt toegepast op Azure Cosmos DB doorvoer kosten op bas
 Houd rekening met de volgende vereisten voor een reservering:
 
 * Vereiste doorvoer: 50.000 RU/s  
-* Regio's gebruikt: 2 
+* Regio's gebruikt: 2
 
-In dit geval zijn uw totale kosten voor on-demand voor 500 hoeveelheid van 100 RU/s-meter in deze twee regio's. Het totaal aantal RU/s-verbruik is 100.000 per uur. 
+In dit geval zijn uw totale kosten voor on-demand voor 500 hoeveelheid van 100 RU/s-meter in deze twee regio's. Het totaal aantal RU/s-verbruik is 100.000 per uur.
 
 **Scenario 1**
 
 Bijvoorbeeld, wordt ervan uitgegaan dat u Azure Cosmos DB-implementaties in de regio's VS Noord-centraal en VS-West moet. Elke regio heeft een verbruik van de doorvoer van 50.000 RU/s. De kosten voor uw on-demand zou volledig het saldo van een aankoop van de reservering van 100.000 RU/s.
 
-De korting die betrekking heeft op een reservering wordt berekend als: doorvoer verbruik * reservation_discount_ratio_for_that_region. Voor de regio's VS Noord-centraal en VS-West is de verhouding van de korting reservering 1. De totale korting RU/s zijn dus 100.000. Deze waarde is als volgt berekend: 50.000 * 1 + 50.000 * 1 = 100.000 RU/s. U hebt geen eventuele extra kosten aan de normale tarieven voor betalen per gebruik betalen. 
+De korting die betrekking heeft op een reservering wordt berekend als: doorvoer verbruik * reservation_discount_ratio_for_that_region. Voor de regio's VS Noord-centraal en VS-West is de verhouding van de korting reservering 1. De totale korting RU/s zijn dus 100.000. Deze waarde is als volgt berekend: 50.000 * 1 + 50.000 * 1 = 100.000 RU/s. U hebt geen eventuele extra kosten aan de normale tarieven voor betalen per gebruik betalen.
 
 |Beschrijving van de meter | Regio |Verbruik van doorvoer (RU/s) |De reserveringskorting wordt toegepast op RU/s |
 |---------|---------|---------|---------|
@@ -97,25 +97,24 @@ Bijvoorbeeld, wordt ervan uitgegaan dat u Azure Cosmos DB-implementaties in de r
 
 Een gebruik van 50.000 eenheden in de regio Australië centraal 2 komt overeen met 75.000 RU/s van factureerbare gebruik (of genormaliseerde gebruik). Deze waarde wordt berekend als: doorvoer verbruik * reservation_discount_ratio_for_that_region. De berekening is gelijk aan 75.000 RU/s van het gebruik van factureerbare of genormaliseerde van. Deze waarde is als volgt berekend: 50.000 * 1.5 = 75.000 RU/s.
 
-De 100.000 RU/s van het kopen van reserveringen zou de 75.000 RU/s in Australië centraal 2 verschuiving. Laat u 25.000 RU/s naar de regio FR-Zuid. Een reserveringskorting van 15,384 RU/s is van de resterende 25.000 RU/s toegepast op de regio FR-Zuid. De kortingswaarde wordt berekend als: 25.000 / 1.625 = 15,384 RU/s. De resterende 34,616 RU/s in de regio FR-Zuid, worden in rekening gebracht tegen de normale betalen per gebruik-tarieven. 
+De 100.000 RU/s van het kopen van reserveringen zou de 75.000 RU/s in Australië centraal 2 verschuiving. Laat u 25.000 RU/s naar de regio FR-Zuid. Een reserveringskorting van 15,384 RU/s is van de resterende 25.000 RU/s toegepast op de regio FR-Zuid. De kortingswaarde wordt berekend als: 25.000 / 1.625 = 15,384 RU/s. De resterende 34,616 RU/s in de regio FR-Zuid, worden in rekening gebracht tegen de normale betalen per gebruik-tarieven.
 
 De Azure-facturering systeem, de reservering facturering van het belangrijkste voordeel voor de eerste instantie die wordt verwerkt en dat overeenkomt met de configuratie van de reservering wordt toegewezen. Het is bijvoorbeeld Australië centraal 2 in dit geval.
 
 Om te begrijpen en te bekijken van de toepassing van uw Azure-reserveringen in gebruiksrapporten facturering, Zie [over Azure-reservering gebruik](../billing/billing-understand-reserved-instance-usage-ea.md).
 
-## <a name="next-steps"></a>Volgende stappen
-
-Zie voor meer informatie over Azure reserveringen, de volgende artikelen:
-
-* [Wat zijn Azure reserveringen?](../billing/billing-save-compute-costs-reservations.md)  
-* [Betaal vooruit voor Azure Cosmos DB-resources met Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
-* [Azure-reserveringen beheren](../billing/billing-manage-reserved-vm-instance.md)  
-* [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](../billing/billing-understand-reserved-instance-usage.md)  
-* [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md)  
-* [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor meer informatie over Azure reserveringen, de volgende artikelen:
+
+* [Wat zijn de reserveringen voor Azure](../billing/billing-save-compute-costs-reservations.md)  
+* [Betaal vooruit voor Azure Cosmos DB-resources met Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md)  
+* [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
+* [Reserveringen voor Azure beheren](../billing/billing-manage-reserved-vm-instance.md)  
+* [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](../billing/billing-understand-reserved-instance-usage.md)  
+* [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)

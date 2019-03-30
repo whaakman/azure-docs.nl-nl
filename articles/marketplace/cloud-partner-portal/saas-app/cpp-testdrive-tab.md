@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993094"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649030"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-toepassing Test Drive-tabblad
 
@@ -53,7 +53,7 @@ Er zijn vier verschillende typen Test Drives beschikbaar, elk op basis van het t
 |     Azure Resource Manager               |    Een Azure Resource Manager Test Drive is een sjabloon voor de implementatie met alle Azure-resources die deel uitmaken van een oplossing wordt gemaakt door de uitgever. Producten die geschikt zijn voor dit type Test Drive zijn die alleen Azure-bronnen.               |       [Test Drive voor Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Gehost             |       Een gehost Test Drive wordt de complexiteit van de installatie door Microsoft hosting en onderhouden van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.             |         [Gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Logische apps              |       Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.            |      [Logische App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Een Power BI Test Drive bestaat uit een ingesloten koppeling naar een op maat gemaakte dashboard. Alle producten die wil ter illustratie van dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet uploaden, is de URL van uw ingesloten Power BI.          |        [Power BI-Test Drive](#Power-BI-test-drive)           |
+|       Power BI             |         Een Power BI Test Drive bestaat uit een ingesloten koppeling naar een op maat gemaakte dashboard. Alle producten die wil ter illustratie van dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet uploaden, is de URL van uw ingesloten Power BI.          |        [Power BI-Test Drive](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI uitproberen
 

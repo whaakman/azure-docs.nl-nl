@@ -4,7 +4,7 @@ description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl knooppu
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 5ceda83863d892b84ee4dc272345f760116e5e69
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278602"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662887"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Beheren van de knooppunten die een cluster wordt gevormd.
@@ -50,10 +50,10 @@ Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegev
 |Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --deactivering-doel | Beschrijving van het doel of de reden voor het deactiveren van het knooppunt. De mogelijke waarden zijn te volgen. |
+| --deactivation-intent | Beschrijving van het doel of de reden voor het deactiveren van het knooppunt. De mogelijke waarden zijn te volgen. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -75,7 +75,7 @@ Hiermee activeert u een Service Fabric-cluster-knooppunt dat is gedeactiveerd. Z
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -98,7 +98,7 @@ Hiermee haalt u de status van een Service Fabric-knooppunt. EventsHealthStateFil
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -120,7 +120,7 @@ Het antwoord bevat de naam, status, -ID, status, actieve tijdsduur en andere det
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -140,11 +140,11 @@ Het antwoord bevat de naam, status, -ID, status, actieve tijdsduur en andere det
 |Argument|Description|
 | --- | --- |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
 | --knooppunt in het filter status | Hiermee kunt u op de knooppunten op basis van de NodeStatus filteren. Alleen de knooppunten die zijn die overeenkomen met de opgegeven filterwaarde geretourneerd. De filterwaarde kan zijn dat een van de volgende.  Standaard\: standaard. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -166,7 +166,7 @@ Haalt informatie op het laden van een Service Fabric-knooppunt voor de metrische
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -188,7 +188,7 @@ Dit betekent dat het is niet mogelijk om te herstellen van de permanente status 
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -212,13 +212,13 @@ Rapporteert de status van de opgegeven Service Fabric-knooppunt. Het rapport moe
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
+| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -238,11 +238,11 @@ Start opnieuw op een Service Fabric-clusterknooppunt die al is gestart.
 |Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --maken-fabric-dump | Geef op waar voor het maken van een dump van het proces van fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard\: False. |
+| --maken-fabric-dump | Geef op waar voor het maken van een dump van het proces van fabric-knooppunt. Deze is hoofdlettergevoelig.  Standaard\: False. |
 | --knooppunt-exemplaar-id | De exemplaar-ID van het doelknooppunt. Als exemplaar-ID van het knooppunt opnieuw wordt gestart alleen als deze met het huidige exemplaar van het knooppunt overeenkomt is opgegeven. Een standaardwaarde van '0' wordt er gezocht naar een exemplaar-ID. De exemplaar-ID kan worden verkregen met behulp van get-knooppunt query.  Standaard\: 0. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -265,10 +265,10 @@ Wordt gestart of gestopt een clusterknooppunt.  Een clusterknooppunt is een proc
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --knooppunt-overgang-type (vereist) | Geeft het type overgang uit te voeren.  NodeTransitionType.Start, een gestopte knooppunt wordt gestart. NodeTransitionType.Stop stopt een knooppunt of actief is. |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
-| --stop-duur-in-seconden (vereist) | De duur, in seconden, zodat het knooppunt is gestopt.  De minimumwaarde is 600, het maximum aantal 14400 is.  Nadat deze tijd is verlopen, wordt het knooppunt automatisch geactiveerd terug. |
+| --stop-duration-in-seconds [Required] | De duur, in seconden, zodat het knooppunt is gestopt.  De minimumwaarde is 600, het maximum aantal 14400 is.  Nadat deze tijd is verlopen, wordt het knooppunt automatisch geactiveerd terug. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -291,7 +291,7 @@ Hiermee haalt u de voortgang van een bewerking aan de slag met StartNodeTransiti
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

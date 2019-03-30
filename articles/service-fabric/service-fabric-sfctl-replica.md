@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl replica-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277366"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666814"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 De replica's die deel uitmaken van servicepartities beheren.
@@ -51,7 +51,7 @@ Hiermee haalt u de details van de replica die is geïmplementeerd op een Service
 | --replica-id (vereist) | De id van de replica. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -76,7 +76,7 @@ Hiermee haalt u de lijst met de informatie over de replica's die zijn geïmpleme
 | --naam van een service manifest | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -100,7 +100,7 @@ Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilte
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -123,7 +123,7 @@ Het antwoord bevat de ID, rol, status, status, de naam van knooppunt, uptime en 
 | --replica-id (vereist) | De id van de replica. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -146,7 +146,7 @@ Het eindpunt GetReplicas retourneert informatie over de replica's van de opgegev
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -171,7 +171,7 @@ Deze API simuleert een Service Fabric-replica-fout door het verwijderen van een 
 | --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -196,14 +196,14 @@ Rapporteert de status van de opgegeven Service Fabric-replica. Het rapport moet 
 | --replica-id (vereist) | De identiteit van de partitie. |
 | --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
+| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --service-type | Het type van de service-replica (stateless of stateful) waarvoor de status wordt gerapporteerd. Hieronder vindt u de mogelijke waarden\: 'Stateless', 'Stateful'.  Standaard\: Stateful. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -227,7 +227,7 @@ Een service-replica van een persistente service wordt uitgevoerd op een knooppun
 | --replica-id (vereist) | De id van de replica. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

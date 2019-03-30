@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648570"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 
 Microsoft helpt oppervlaktegebied de op instapniveau kosten van het uitvoeren van een datawarehouse.  Compute lagere lagen kan verwerken veeleisende query's zijn nu beschikbaar voor Azure SQL Data Warehouse. Lees de volledige aankondiging [kleine compute laag ondersteuning voor Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). De nieuwe aanbieding is beschikbaar in de regio's die u hebt genoteerd in de onderstaande tabel. Voor ondersteunde regio's, kunnen bestaande Gen1 datawarehouses worden bijgewerkt naar Gen2 via een:
 
 - **Automatische tijdens de upgrade:** Automatische upgrades start niet zodra de service beschikbaar in een regio is.  Wanneer automatische upgrades in een bepaalde regio start, hebben afzonderlijke upgrades van DW plaatsvinden tijdens de geselecteerde onderhoudsplanning.
-- [**Zelf een upgrade naar Gen2:**](#Self-upgrade-to-Gen2) U kunt bepalen wanneer bijwerken met een zelf-upgrade uitvoeren naar Gen2. Als uw regio wordt nog niet ondersteund, kunt u herstellen vanaf een herstelpunt rechtstreeks naar een exemplaar Gen2 in een ondersteunde regio.
+- [**Zelf een upgrade naar Gen2:**](#self-upgrade-to-gen2) U kunt bepalen wanneer bijwerken met een zelf-upgrade uitvoeren naar Gen2. Als uw regio wordt nog niet ondersteund, kunt u herstellen vanaf een herstelpunt rechtstreeks naar een exemplaar Gen2 in een ondersteunde regio.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Geautomatiseerde schema en tabel van de beschikbaarheid van regio
 

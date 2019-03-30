@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307901"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652413"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Het oplossen van veelvoorkomende problemen met indexeerfunctie in Azure Search
 
 Indexeerfuncties kunnen een aantal problemen ondervindt bij het indexeren van gegevens in Azure Search. De belangrijkste categorieën van de fout zijn onder andere:
 
-* [Verbinding maken met een gegevensbron](#Data-Source-Connection-Errors)
-* [Verwerking van documenten](#Document-Processing-Errors)
-* [Opname van document naar een index](#Index-Errors)
+* [Verbinding maken met een gegevensbron](#data-source-connection-errors)
+* [Verwerking van documenten](#document-processing-errors)
+* [Opname van document naar een index](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>Data Source-verbindingsfouten
 

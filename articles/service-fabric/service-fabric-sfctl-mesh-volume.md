@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI-opdrachten voor volume sfctl
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cbd16ca66002446b3907c1ecaa6c0b334b35dc57
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285219"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668735"
 ---
-# <a name="sfctl-mesh-volume"></a>sfctl mesh-volume
+# <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Ophalen en verwijderen van volume-resources.
 
 ## <a name="commands"></a>Opdrachten
@@ -30,7 +30,7 @@ Ophalen en verwijderen van volume-resources.
 | --- | --- |
 | delete | Hiermee verwijdert u de volumeresource. |
 | list | Geeft een lijst van alle resources van het volume. |
-| Show | Hiermee haalt u de Volume-resource met de opgegeven naam. |
+| weergeven | Hiermee haalt u de Volume-resource met de opgegeven naam. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh-volume verwijderen
 Hiermee verwijdert u de volumeresource.
@@ -43,7 +43,7 @@ Hiermee verwijdert u de volumeresource die wordt geïdentificeerd door de naam.
 | --- | --- |
 | --naam -n (vereist) | De naam van het volume. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -58,7 +58,7 @@ Geeft een lijst van alle resources van het volume.
 
 Hiermee haalt de informatie over alle resources van het volume in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van het Volume.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -79,7 +79,7 @@ Hiermee haalt u de informatie over de Volume-resource met de opgegeven naam. De 
 | --- | --- |
 | --naam -n (vereist) | De naam van het volume. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

@@ -3,23 +3,23 @@ title: Beheren van Azure Service Fabric-toepassingen met behulp van Azure Servic
 description: Meer informatie over het implementeren en verwijderen van toepassingen van een Azure Service Fabric-cluster met behulp van Azure Service Fabric-CLI
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492746"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662989"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Een Azure Service Fabric-toepassing te beheren met behulp van Azure Service Fabric-CLI (sfctl)
 
 Informatie over het maken en verwijderen van toepassingen die worden uitgevoerd in een Azure Service Fabric-cluster.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 * Service Fabric-CLI installeren. Selecteer vervolgens uw Service Fabric-cluster. Zie voor meer informatie, [aan de slag met Service Fabric-CLI](service-fabric-cli.md).
 

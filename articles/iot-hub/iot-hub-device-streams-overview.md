@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076272"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649631"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub apparaat-Streams (preview)
 
@@ -101,7 +101,7 @@ De uitvoer is een JSON-object van alle eindpunten die wellicht verbinden om te k
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Lijst met toegestane adressen apparaat Streaming-eindpunten
 
-Zoals vermeld [eerdere](#Overview), het apparaat maakt een uitgaande verbinding naar IoT Hub-streaming-eindpunt tijdens apparaat stromen in gang zetten. Uw firewalls op het apparaat of het netwerk moeten uitgaande connectiviteit voor de streaming-gateway via poort 443 (Houd er rekening mee dat de communicatie plaatsvindt via een WebSocket-verbinding die is versleuteld met behulp van TLS) toestaan.
+Zoals vermeld [eerdere](#overview), het apparaat maakt een uitgaande verbinding naar IoT Hub-streaming-eindpunt tijdens apparaat stromen in gang zetten. Uw firewalls op het apparaat of het netwerk moeten uitgaande connectiviteit voor de streaming-gateway via poort 443 (Houd er rekening mee dat de communicatie plaatsvindt via een WebSocket-verbinding die is versleuteld met behulp van TLS) toestaan.
 
 De hostnaam van apparaat-streaming-eindpunt kan worden gevonden op de Azure IoT Hub-portal onder het tabblad Overzicht. ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "apparaat stream eindpunten")
 

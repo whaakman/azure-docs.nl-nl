@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403711"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628986"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
 De service Windows Virtual Desktop Preview biedt FSLogix profiel containers als de gebruiker aanbevolen profiel-oplossing. We raden het gebruik van de gebruiker profiel schijf (UDP)-oplossing en deze in toekomstige versies van virtuele Windows-bureaublad wordt afgeschaft.
 
-In deze sectie wordt uitgelegd hoe u voor het instellen van een share FSLogix profiel container voor een groep host.
+In deze sectie wordt uitgelegd hoe u voor het instellen van een share FSLogix profiel container voor een groep host. Raadpleeg voor algemene documentatie met betrekking tot FSLogix de [FSLogix site](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Een nieuwe virtuele machine die als een bestandsshare fungeren zal maken
 
@@ -48,14 +48,14 @@ Hier volgen de algemene instructies over het voorbereiden van een virtuele machi
 6. Zoeken naar de beveiligingsgroep waaraan u de sessie hosten van virtuele machines toegevoegd, moet u ervoor zorgen dat de groep heeft **volledig beheer**.
 7. Na het toevoegen van de beveiligingsgroep, met de rechtermuisknop op de map, selecteert u **eigenschappen**, selecteer **delen**, kopieert u de **netwerkpad** voor later gebruik.
 
-Zie de volgende aanbevolen procedures van machtigingen voor [FSLogix documentatie](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Zie voor meer informatie over machtigingen voor de [FSLogix documentatie](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>De container FSLogix-profiel configureren
 
 Voor het configureren van de virtuele machines met de software FSLogix, doe het volgende op elke machine die is geregistreerd bij de host van toepassingen:
 
 1. [Verbinding maken met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt opgegeven bij het maken van de virtuele machine.
-2. Start een internetbrowser en navigeer naar de volgende [koppeling](https://go.microsoft.com/fwlink/?linkid=2084562) voor het downloaden van de agent FSLogix. Als onderdeel van de openbare preview van virtuele Windows-bureaublad krijgt u een licentiesleutel om de software FSLogix te activeren. De sleutel is het LicenseKey.txt-bestand dat is opgenomen in het FSLogix agent ZIP-bestand.
+2. Start een internetbrowser en navigeer naar [deze koppeling](https://go.microsoft.com/fwlink/?linkid=2084562) voor het downloaden van de agent FSLogix. Als onderdeel van de openbare preview van virtuele Windows-bureaublad krijgt u een licentiesleutel om de software FSLogix te activeren. De sleutel is het LicenseKey.txt-bestand dat is opgenomen in het FSLogix agent ZIP-bestand.
 3. Installeer de agent FSLogix.
 4. Navigeer naar **Program Files** > **FSLogix** > **Apps** om te bevestigen van de agent is geïnstalleerd.
 5. Voer vanuit het startmenu **RegEdit** als beheerder. Navigeer naar **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\profielen**

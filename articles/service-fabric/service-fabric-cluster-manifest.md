@@ -4,7 +4,7 @@ description: Informatie over het configureren van uw on-premises of zelfstandig 
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: c71473e975333d33406d78130ad28f417b9b967e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853333"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662326"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
 Dit artikel wordt beschreven configuratie-instellingen van een zelfstandig Azure Service Fabric-cluster die kan worden ingesteld in de *ClusterConfig.json* bestand. U gebruikt dit bestand om op te geven informatie over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fout- en upgradedomeinen.  Na het wijzigen of configuratie-instellingen toe te voegen, kunt u een [maken van een zelfstandige cluster](service-fabric-cluster-creation-for-windows-server.md) of [upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -73,8 +73,8 @@ Een Service Fabric-cluster moet ten minste drie knooppunten bevatten. U kunt mee
 
 | **Knooppuntconfiguratie** | **Beschrijving** |
 | --- | --- |
-| Knooppuntnaam |U kunt een willekeurige beschrijvende naam geven aan het knooppunt. |
-| IP-adres |Ontdek het IP-adres van het knooppunt door een opdrachtvenster openen en te typen `ipconfig`. Noteer het IPV4-adres en deze toewijzen aan de variabele IP-adres. |
+| nodeName |U kunt een willekeurige beschrijvende naam geven aan het knooppunt. |
+| iPAddress |Ontdek het IP-adres van het knooppunt door een opdrachtvenster openen en te typen `ipconfig`. Noteer het IPV4-adres en deze toewijzen aan de variabele IP-adres. |
 | nodeTypeRef |Elk knooppunt kan worden toegewezen als het type van een ander knooppunt. De [knooppunttypen](#node-types) zijn gedefinieerd in de volgende sectie. |
 | faultDomain |Domeinen met fouten kunnen clusterbeheerders voor het definiëren van de fysieke knooppunten die op hetzelfde moment vanwege een gedeelde fysieke afhankelijkheden kunnen mislukken. |
 | upgradeDomain |Upgradedomeinen beschrijven sets knooppunten die voor Service Fabric-upgrades op rond dezelfde tijd worden afgesloten. U kunt knooppunten om toe te wijzen aan welke upgradedomeinen, omdat ze zijn niet door fysieke vereisten beperkt. |

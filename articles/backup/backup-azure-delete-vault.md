@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620114"
+ms.locfileid: "58652211"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -108,7 +108,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 
 
 3. In **back-up stoppen** > **Kies een optie**, selecteer **back-upgegevens verwijderen**.
-4. Typ de naam van het item en klikt u op **back-up stoppen**. 
+4. Typ de naam van het item en klikt u op **back-up stoppen**.
    - Hiermee wordt gecontroleerd dat u wilt verwijderen van het item.
    - De **back-up stoppen** knop wordt geactiveerd nadat u hebt gecontroleerd.
    - Als u behouden en de gegevens niet verwijderen, kunt u zich niet aan de kluis verwijderen.
@@ -126,7 +126,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
 ### <a name="remove-backup-infrastructure-servers"></a>Een back-upinfrastructuur servers verwijderen
 
 1. Klik in het menu kluis dashboard **back-upinfrastructuur**.
-2. Klik op **back-up-beheerservers** om servers weer te geven. 
+2. Klik op **back-up-beheerservers** om servers weer te geven.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Hier vindt u een voorbeeld waarin wordt uitgelegd hoe u back-upgegevens verwijde
     ![Selecteer de back-uptype](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . In **back-up stoppen** > **Kies een optie**, selecteer **back-upgegevens verwijderen**.
-4. Typ de naam van het item en klikt u op **back-up stoppen**. 
+4. Typ de naam van het item en klikt u op **back-up stoppen**.
    - Hiermee wordt gecontroleerd dat u wilt verwijderen van het item.
    - De **back-up stoppen** knop wordt geactiveerd nadat u hebt gecontroleerd.
    - Als u behouden en de gegevens niet verwijderen, kunt u zich niet aan de kluis verwijderen.

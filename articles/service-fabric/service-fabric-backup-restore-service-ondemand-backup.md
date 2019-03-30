@@ -4,7 +4,7 @@ description: Gebruik van de back-up en herstellen van de functie in Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 8a276f26367e66f55b8fc10dbcba2429dc2e5450
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666573"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>On-demand back-ups in Azure Service Fabric
 
@@ -101,7 +101,7 @@ On-demand back-aanvragen kunnen zich in de volgende statussen:
   FailureError            :
   ```
 - **Succes**, **fout**, of **time-out**: Een aangevraagde back-up op aanvraag kan worden uitgevoerd in een van de volgende statussen:
-  - **Succes**: Een _succes_ back-up heeft, betekent dit dat de status van de partitie heeft back-ups van is. Het antwoord bevat _BackupEpoch_ en _BackupLSN_ voor de partitie, samen met de tijd in UTC.
+  - **Geslaagd**: Een _succes_ back-up heeft, betekent dit dat de status van de partitie heeft back-ups van is. Het antwoord bevat _BackupEpoch_ en _BackupLSN_ voor de partitie, samen met de tijd in UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z

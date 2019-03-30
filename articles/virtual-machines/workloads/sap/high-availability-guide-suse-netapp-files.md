@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540989"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662367"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -58,7 +58,7 @@ ms.locfileid: "58540989"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp-bestanden (in openbare preview-versie)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In de voorbeeldconfiguraties, enzovoort-opdrachten voor installatie, de ASCS-instantie is getal 00, het exemplaarnummer INGEN 01, het exemplaar van de primaire toepassing (Pa's) is 02 en het exemplaar van de toepassing (AAS) is 03. SAP-systeem-ID QAS wordt gebruikt. 
 
 In dit artikel wordt uitgelegd hoe voor hoge beschikbaarheid voor SAP NetWeaver-toepassing met Azure NetApp-bestanden. De databaselaag wordt niet gedekt in dit artikel.

@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097903"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629858"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -101,7 +101,7 @@ Azure CLI gebruiken voor lokale ontwikkeling:
 
 Gebruik `az account get-access-token` om te controleren of de toegang.  Als u een foutbericht ontvangt, controleert u stap 1 is voltooid. 
 
-Als Azure-CLI is niet geïnstalleerd in de standaardmap, ontvangt u mogelijk een die fouten rapporteren die `AzureServiceTokenProvider` het pad niet vinden voor de Azure CLI.  Gebruik de **AzureCLIPath**omgevingsvariabele voor het definiëren van de Azure CLI-installatiemap. `AzureServiceTokenProvider` voegt de map die is opgegeven de **AzureCLIPath** omgevingsvariabele de **pad** omgevingsvariabele indien nodig.
+Als Azure-CLI is niet geïnstalleerd in de standaardmap, ontvangt u mogelijk een die fouten rapporteren die `AzureServiceTokenProvider` het pad niet vinden voor de Azure CLI.  Gebruik de **AzureCLIPath** omgevingsvariabele voor het definiëren van de Azure CLI-installatiemap. `AzureServiceTokenProvider` voegt de map die is opgegeven de **AzureCLIPath** omgevingsvariabele de **pad** omgevingsvariabele indien nodig.
 
 Als u bent aangemeld bij Azure CLI met behulp van meerdere accounts of uw account toegang tot meerdere abonnementen heeft, moet u om op te geven van het specifieke abonnement moet worden gebruikt.  Gebruik het volgende om dit te doen:
 

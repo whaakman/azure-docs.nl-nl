@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 44a9784e47772c5a2ae1335aa048a4d3b86073eb
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577100"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Zelfstudie: Azure Active Directory-integratie met Pega systemen
 
@@ -207,7 +207,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Pega systemen, moet 
 
     a. Kopiëren de **entiteits-id** waarde en plak deze in op **id** -tekstvak in de **SAML-basisconfiguratie** in Azure portal.
 
-    b.  Kopiëren de **Assertion Consumer Service (ACS) locatie** waarde en plak deze in op **antwoord-URL** textbox-tekstvak in de **SAML-basisconfiguratie** in Azure portal.
+    b. Kopiëren de **Assertion Consumer Service (ACS) locatie** waarde en plak deze in op **antwoord-URL** -tekstvak in de **SAML-basisconfiguratie** in Azure portal.
 
     c. Selecteer **aanvraag ondertekening uitschakelen**.
 

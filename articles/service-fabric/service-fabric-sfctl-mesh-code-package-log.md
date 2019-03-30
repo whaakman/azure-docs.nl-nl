@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI-opdrachten voor code-pakket-
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 81ddcc8c5685a839afabc1e82ecf4246cb813c21
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285093"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661068"
 ---
-# <a name="sfctl-mesh-code-package-log"></a>sfctl mesh-code-pakket-logboek
+# <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 De logboeken ophalen voor de container van de opgegeven code-pakket voor de opgegeven service-replica.
 
 ## <a name="commands"></a>Opdrachten
@@ -41,11 +41,11 @@ Hiermee haalt de logboeken voor de container van de opgegeven code-pakket van de
 | --- | --- |
 | --app-naam: naam van de toepassing (vereist) | De naam van de toepassing. |
 | --code-pakket-naam (vereist) | De naam van het codepakket van de service. |
-| --replica-naam (vereist) | Naam van service Fabric-replica. |
-| --service-naam (vereist) | De naam van de service. |
+| --replica-name                [Required] | Naam van service Fabric-replica. |
+| --service-name                [Required] | De naam van de service. |
 | --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

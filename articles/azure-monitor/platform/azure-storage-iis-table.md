@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540598"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652549"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Azure Monitor
 
@@ -54,9 +54,11 @@ Voor Azure Monitor om deze Azure Diagnostics-logboeken te verzamelen, moet de lo
 Voor virtuele machines, die u hebt de mogelijkheid van het installeren van de [Log Analytics-agent](../../azure-monitor/learn/quick-collect-azurevm.md) met uw virtuele machine om in te schakelen als u meer inzicht te krijgen. Naast het IIS-logboeken en gebeurtenislogboeken analyseren, kunt u aanvullende analyse, waaronder configuratie bijhouden, SQL-evaluatie en update-evaluatie uitvoeren.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Azure diagnostics in een virtuele machine inschakelen voor het logboek voor systeemgebeurtenissen en IIS het foutenlogboek van verzameling
+
 Gebruik de volgende procedure om in te schakelen van Azure diagnostics in een virtuele machine voor de gebeurtenis- en IIS logboekverzameling met behulp van de Microsoft Azure-portal.
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Om in te schakelen van Azure diagnostics in een virtuele machine met de Azure-portal
+
 1. Installeer de VM-Agent bij het maken van een virtuele machine. Als de virtuele machine al bestaat, moet u controleren of de VM-Agent al is geïnstalleerd.
 
    * In Azure portal, gaat u naar de virtuele machine, selecteer **optionele configuratie**, klikt u vervolgens **Diagnostics** en stel **Status** naar **op** .
@@ -72,6 +74,7 @@ Gebruik de volgende procedure om in te schakelen van Azure diagnostics in een vi
    6. Klik op **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Azure diagnostics in een Webrol voor IIS-logboek- en gebeurtenisgegevens verzameling inschakelen
+
 Raadpleeg [hoe om te schakelen diagnostische gegevens in een Cloudservice](../../cloud-services/cloud-services-dotnet-diagnostics.md) voor algemene stappen voor het inschakelen van Azure diagnostics. De onderstaande instructies deze informatie gebruiken en aanpassen voor gebruik met Log Analytics.
 
 Met Azure diagnostics is ingeschakeld:
@@ -80,11 +83,12 @@ Met Azure diagnostics is ingeschakeld:
 * Windows-gebeurtenislogboeken worden standaard niet overgedragen.
 
 ### <a name="to-enable-diagnostics"></a>Diagnostische gegevens inschakelen
+
 Om in te schakelen van Windows-gebeurtenislogboeken, of te wijzigen van de scheduledTransferPeriod, Azure Diagnostics configureren met de XML-configuratiebestand (diagnostics.wadcfg), zoals wordt weergegeven in [stap 4: Maken van het configuratiebestand van de diagnostische gegevens en de extensie installeren](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Het volgende voorbeeld-configuratiebestand worden IIS-logboeken en alle gebeurtenissen van de toepassings- en systeemlogboeken verzameld:
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +112,7 @@ Het volgende voorbeeld-configuratiebestand worden IIS-logboeken en alle gebeurte
 
 Zorg ervoor dat uw ConfigurationSettings Hiermee geeft u een opslagaccount, zoals in het volgende voorbeeld:
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -119,6 +123,7 @@ De **AccountName** en **AccountKey** waarden worden gevonden in de Azure portal 
 Als de bijgewerkte diagnostische configuratie is toegepast in uw cloud-service en diagnostische gegevens naar Azure Storage schrijven, klikt u vervolgens bent u klaar om te configureren van de Log Analytics-werkruimte.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>De Azure portal gebruiken voor het verzamelen van Logboeken van Azure Storage
+
 De Azure-portal kunt u een Log Analytics-werkruimte configureren in Azure Monitor om de logboeken voor de volgende Azure-services te verzamelen:
 
 * Service Fabric-clusters
@@ -161,7 +166,7 @@ Het script maakt gebruik van cmdlets voor klassieke virtuele machines.
 
 Controleer het volgende voorbeeldscript, kopieert u het zo nodig wijzigen, het voorbeeld opslaan als een PowerShell-scriptbestand en voer het script.
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -194,6 +199,7 @@ Controleer het volgende voorbeeldscript, kopieert u het zo nodig wijzigen, het v
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Verzamelen van Logboeken en metrische gegevens voor Azure-services](collect-azure-metrics-logs.md) voor ondersteunde Azure-services.
 * [Oplossingen inschakelen](../../azure-monitor/insights/solutions.md) om inzicht in de gegevens te bieden.
 * [Gebruik van zoekquery's](../../azure-monitor/log-query/log-query-overview.md) om de gegevens te analyseren.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100067"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665488"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt de standaard gratis proberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -33,7 +33,7 @@ Standard van Security Center bevat:
 ## <a name="detecting-unprotected-resources"></a>Niet-beveiligde resources detecteren     
 Security Center detecteert automatisch alle Azure-abonnementen of werkruimten die niet zijn ingeschakeld voor Security Center Standard. Hiertoe behoren Azure-abonnementen die Security Center Free gebruiken en werkruimten waarvoor de Security-oplossing niet is ingeschakeld.
 
-U kunt een hele Azure-abonnement upgraden naar de Standard-laag, die is overgenomen door alle resources binnen het abonnement, of u kunt een uniek beleid om bij te werken alleen een specifieke resourcegroep definiëren. Als de beleidsinstellingen van de resourcegroep unieke zijn, overschrijft Security Center niet de prijsbeleid wanneer u het abonnement naar de Standard-laag upgraden. Toepassen van de standaard-laag een abonnement is van toepassing op alle ondersteunde resources in het abonnement. Toepassen van de standaard-laag een werkruimte is van toepassing op alle resources die rapporteren aan de werkruimte.
+U kunt een hele Azure-abonnement upgraden naar de laag standaard, die wordt overgenomen door alle ondersteunde bronnen binnen het abonnement. Toepassen van de standaard-laag een werkruimte is van toepassing op alle resources die rapporteren aan de werkruimte.
 
 > [!NOTE]
 > Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents. [Oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik toepassen op de oplossing en gericht op een subset van computers in de werkruimte.  Als u gebruikmaakt van oplossing die gericht is op, geeft de werkruimte niet dat een oplossing voor een lijst van Security Center.

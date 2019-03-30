@@ -1,6 +1,6 @@
 ---
-title: Korting op Azure reserveringen begrijpen | Microsoft Docs
-description: Meer informatie over hoe een reserveringskorting wordt toegepast op het uitvoeren van SQL-Databases.
+title: Informatie over reserveringen korting voor Azure SQL-Databases | Microsoft Docs
+description: Meer informatie over hoe een reserveringskorting wordt toegepast op het uitvoeren van Azure SQL-Databases.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649438"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Begrijpen hoe een Azure reserveringskorting wordt toegepast op de SQL-Databases
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Begrijpen hoe een reserveringskorting wordt toegepast op Azure SQL-Databases
 
 Nadat u een Azure SQL Database gereserveerde capaciteit koopt, wordt de reserveringskorting wordt automatisch toegepast op SQL-Databases die overeenkomen met de kenmerken en de hoeveelheid van de reservering. Een reservering bevat informatie over de compute-kosten van uw SQL-Database. U betaalt voor de software, opslag en netwerken op basis van de normale tarieven. U kunt de licentiekosten voor SQL-Databases met dekt [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 - [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650271"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
    4. Selecteer **lokale Computer** beheren en klik vervolgens op **voltooien**.
    5. Klik op **Ok** en vouw vervolgens de **certificaten - persoonlijke** knooppunten en klik vervolgens op **certificaten**. Het certificaat is de naam van de DNS-naam van de virtuele machine en eindigt met **cloudapp.net**. Met de rechtermuisknop op de naam van het certificaat en klik op **kopie**.
    6. Vouw de **Trusted Root Certification Authorities** knooppunt en klik met de rechtermuisknop **certificaten** en klik vervolgens op **plakken**.
-   7. Als u wilt valideren, dubbelklikt u op de naam van het certificaat onder **Trusted Root Certification Authorities** en controleer of dat er geen fouten zijn en u uw certificaat ziet. Als u wilt dat het HTTPS-script dat is opgenomen in dit onderwerp gebruiken om te configureren van de rapportserver, de waarde van de certificaten **vingerafdruk** is vereist als een parameter van het script. **Om de vingerafdrukwaarde**, voltooi de volgende stappen. Er is ook een PowerShell-voorbeeld om op te halen van de vingerafdruk in sectie [script gebruiken voor het configureren van de report server- en HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. Als u wilt valideren, dubbelklikt u op de naam van het certificaat onder **Trusted Root Certification Authorities** en controleer of dat er geen fouten zijn en u uw certificaat ziet. Als u wilt dat het HTTPS-script dat is opgenomen in dit onderwerp gebruiken om te configureren van de rapportserver, de waarde van de certificaten **vingerafdruk** is vereist als een parameter van het script. **Om de vingerafdrukwaarde**, voltooi de volgende stappen. Er is ook een PowerShell-voorbeeld om op te halen van de vingerafdruk in sectie [script gebruiken voor het configureren van de report server- en HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Dubbelklik op de naam van het certificaat, bijvoorbeeld ssrsnativecloud.cloudapp.net.
       2. Klik op het tabblad **Details** .

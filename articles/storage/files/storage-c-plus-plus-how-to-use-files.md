@@ -8,19 +8,21 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893557"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649694"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Ontwikkelen voor Azure Files met C++
+
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
+
 In deze zelfstudie leert u hoe u eenvoudige bewerkingen op Azure-bestanden uit te voeren. Via de voorbeelden die zijn geschreven in C++, leert u hoe u Maak shares en mappen, uploaden, vermelden en verwijderen van bestanden. Als u niet bekend bent met Azure Files, is via de concepten in de volgende secties is handig bij het begrijpen van de voorbeelden.
 
 * Maken en verwijderen van Azure-bestandsshares
@@ -34,6 +36,7 @@ In deze zelfstudie leert u hoe u eenvoudige bewerkingen op Azure-bestanden uit t
 > Omdat Azure Files toegankelijk is via SMB, is het mogelijk om eenvoudige toepassingen die toegang hebben tot de Azure-bestandsshare met behulp van de standaard C++ i/o-klassen en -functies te schrijven. In dit artikel wordt beschreven hoe u toepassingen schrijft die gebruikmaken van de Azure Storage C++ SDK, die gebruikmaakt van de [File REST-API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) om te communiceren met Azure Files.
 
 ## <a name="create-a-c-application"></a>Een C++-toepassing maken
+
 Voor het bouwen van de voorbeelden, moet u de 2.4.0 Azure Storage-clientbibliotheek voor C++ installeren. U moet hebt een Azure storage-account ook gemaakt.
 
 Voor het installeren van de Azure Storage Client 2.4.0 voor C++, kunt u een van de volgende methoden gebruiken:
@@ -41,11 +44,13 @@ Voor het installeren van de Azure Storage Client 2.4.0 voor C++, kunt u een van 
 * **Linux:** Volg de instructies de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.
 * **Windows:** Klik in Visual Studio **extra &gt; NuGet Package Manager &gt; Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.
   
-```
+
+```powershell
 Install-Package wastorage
 ```
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Instellen van uw toepassing in Azure Files gebruiken
+
 Voeg dat hieronder vindt u instructies toe aan het begin van de C++-bronbestand waar u wilt bewerken, Azure Files:
 
 ```cpp
@@ -54,6 +59,7 @@ Voeg dat hieronder vindt u instructies toe aan het begin van de C++-bronbestand 
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Instellen van een Azure storage-verbindingsreeks
+
 Voor het gebruik van File storage, moet u verbinding maken met uw Azure storage-account. De eerste stap is het configureren van een verbindingsreeks, die we gebruiken om verbinding maken met uw opslagaccount. We definiëren een statische variabele om dit te doen.
 
 ```cpp
@@ -63,6 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 ```
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Verbinding maken met een Azure storage-account
+
 U kunt de **cloud_storage_account** klasse om weer te geven van de gegevens van uw Opslagaccount. Voor het ophalen van uw opslagaccountgegevens uit de opslagverbindingstekenreeks kunt u de methode **parse** gebruiken.
 
 ```cpp
@@ -72,6 +79,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
+
 Alle bestanden en mappen in een Azure-bestandsshare bevinden zich in een container met de naam een **delen**. Uw storage-account kunt zoveel shares als de accountcapaciteit van uw hebben. Als u wilt verkrijgen van toegang tot een share en de inhoud ervan, moet u een Azure Files-client gebruiken.
 
 ```cpp
@@ -99,6 +107,7 @@ if (share.create_if_not_exists()) {
 Op dit moment **delen** bevat een verwijzing naar een share met de naam **my-sample-share**.
 
 ## <a name="delete-an-azure-file-share"></a>Een Azure-bestandsshare verwijderen
+
 Verwijderen van een share wordt gedaan door het aanroepen van de **delete_if_exists** methode voor het object cloud_file_share. Hier volgt een voorbeeldcode dat dit doet.
 
 ```cpp
@@ -111,6 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Een map maken
+
 U kunt opslag organiseren door het opslaan van bestanden in submappen in plaats van dat ze allemaal in de hoofdmap. Azure Files kunt u zo veel mappen als uw account kunt maken. De code hieronder maakt u een map met de naam **my-sample-directory** onder de hoofdmap, evenals een submap met de naam **my-sample-submap**.
 
 ```cpp
@@ -127,6 +137,7 @@ subdirectory.create_if_not_exists();
 ```
 
 ## <a name="delete-a-directory"></a>Een map verwijderen
+
 Verwijderen van een directory is een eenvoudige taak, maar moet worden opgemerkt dat u een map waarin zich nog steeds bestanden of andere directory's niet verwijderen.
 
 ```cpp
@@ -149,6 +160,7 @@ directory.delete_directory_if_exists();
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Het inventariseren van bestanden en mappen in een Azure-bestandsshare
+
 Het ophalen van een lijst met bestanden en mappen in een share is eenvoudig uitgevoerd door het aanroepen van **list_files_and_directories** op een **cloud_file_directory** verwijzing. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **list_file_and_directory_item**, moet u aanroepen de **list_file_and_directory_item.as_file** methode om een **cloud_file**  -object, of de **list_file_and_directory_item.as_directory** methode om een **cloud_file_directory** object.
 
 De volgende code toont hoe u kunt ophalen en de uitvoer van de URI van elk item in de hoofdmap van de share.
@@ -175,6 +187,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Bestand uploaden
+
 Een Azure-bestandsshare bevat op zijn minst een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe u een bestand uit de lokale opslag naar de hoofdmap van een share te uploaden.
 
 De eerste stap bij het uploaden van een bestand is op te halen van een verwijzing naar de map waarin dit zich moet bevinden. U dit doen door het aanroepen van de **get_root_directory_reference** methode van de shareobject.
@@ -207,6 +220,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Bestand downloaden
+
 Om bestanden te downloaden, eerst een verwijzing naar een bestand opgehaald en vervolgens roept de **download_to_stream** methode om over te dragen van inhoud van het bestand naar een stroomobject, dat u vervolgens persistent naar een lokaal bestand maken kunt. U kunt ook kunt u de **download_to_file** methode voor het downloaden van de inhoud van een bestand naar een lokaal bestand. U kunt de **download_text** methode voor het downloaden van de inhoud van een bestand op als een tekenreeks met tekst.
 
 Het volgende voorbeeld wordt de **download_to_stream** en **download_text** methoden om te demonstreren downloaden van de bestanden die zijn gemaakt in de vorige secties.
@@ -232,6 +246,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Een bestand verwijderen
+
 Een andere algemene Azure Files-bewerking wordt de bestanden hebt verwijderd. De volgende code verwijdert een bestand met de naam my-sample-bestand-3 opgeslagen onder de hoofddirectory.
 
 ```cpp
@@ -249,6 +264,7 @@ file.delete_file_if_exists();
 ```
 
 ## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Het quotum (maximumgrootte) voor een Azure-bestandsshare instellen
+
 U kunt het quotum (of de maximale grootte) instellen voor een bestandsshare, in gigabytes. U kunt ook controleren hoeveel gegevens er momenteel zijn opgeslagen in de share.
 
 Door het quotum voor een share in te stellen, kunt u de totale grootte instellen van de bestanden die zijn opgeslagen in de share. Als de totale grootte van de bestanden in de share het quotum voor de share overschrijdt, kunnen clients bestaande bestanden niet meer vergroten en geen nieuwe bestanden meer maken, tenzij deze bestanden leeg zijn.
@@ -280,6 +296,7 @@ if (share.exists())
 ```
 
 ## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Een Shared Access Signature genereren voor een bestand of bestandsshare
+
 U kunt een shared access signature (SAS) voor een bestandsshare of voor een afzonderlijk bestand genereren. U kunt op een bestandsshare ook een beleid voor gedeelde toegang maken om handtekeningen voor gedeelde toegang te beheren. Het maken van een beleid voor gedeelde toegang wordt aanbevolen omdat dit een manier biedt om de SAS in te trekken als deze verdacht is.
 
 In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een share en wordt dat beleid vervolgens gebruikt om de beperkingen te verstrekken voor een SAS voor een bestand in de share.
@@ -346,7 +363,9 @@ if (share.exists())
 
 }
 ```
+
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)

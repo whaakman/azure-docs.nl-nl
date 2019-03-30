@@ -4,7 +4,7 @@ description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl contain
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274901"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663703"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Voer container gerelateerde opdrachten op een clusterknooppunt.
@@ -28,7 +28,7 @@ Voer container gerelateerde opdrachten op een clusterknooppunt.
 
 |Opdracht|Description|
 | --- | --- |
-| api's aanroepen | Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen. |
+| invoke-api | Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen. |
 | logboeken | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl aanroepen container-api
@@ -43,13 +43,13 @@ Container-API voor een container geïmplementeerd op een Service Fabric-knooppun
 | --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --container-api-uri-pad (vereist) | Container REST API-URI-pad, gebruik {id} in plaats van de naam /-id van de container. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
+| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --container-api-instantie | Hoofdtekst van de HTTP-aanvraag voor de container met REST-API. |
 | --container-api-content-type | Inhoudstype voor de container met REST-API standaard ingesteld op 'application/json'. |
-| --container-api-http-term | HTTP-term voor de container met REST-API standaard GET. |
+| --container-api-http-verb | HTTP-term voor de container met REST-API standaard GET. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -70,11 +70,11 @@ Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd 
 | --code-pakket-exemplaar-id (vereist) | Pakket exemplaar-ID, die kan worden opgehaald door 'code-pakket-lijst van de service'-code. |
 | --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
+| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

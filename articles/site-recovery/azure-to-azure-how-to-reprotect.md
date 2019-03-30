@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110491"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648899"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure-VM's opnieuw beveiligen een failover naar de primaire regio
 
@@ -22,10 +22,6 @@ Wanneer u [failover](site-recovery-failover.md) Azure VM's van de ene regio voor
 
 - De VM's in de secundaire regio opnieuw beveiligen zodat ze gaan repliceren naar de primaire regio.
 - Nadat het opnieuw beveiligen is voltooid en de virtuele machines worden gerepliceerd, kunt u een failover van de secundaire naar primaire regio.
-
-> [!WARNING]
-> Als u hebt [gemigreerd](migrate-overview.md#what-do-we-mean-by-migration) machines van de primaire naar de secundaire regio, verplaatst van de virtuele machine naar een andere resourcegroep of is verwijderd van de Azure-VM, u kunt de virtuele machine opnieuw beveiligen of er een failback.
-
 
 ## <a name="prerequisites"></a>Vereisten
 1. De VM-failover van de primaire naar secundaire regio moet worden doorgevoerd.

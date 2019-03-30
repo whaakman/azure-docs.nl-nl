@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869408"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652073"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Instellen van herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 De fabric-object in de kluis vertegenwoordigt een Azure-regio. Het primaire fabric-object is gemaakt om weer te geven van de Azure-regio die deel uitmaken van virtuele machines die wordt beveiligd op de kluis op. In het voorbeeld in dit artikel is de virtuele machine die wordt beveiligd in de regio VS-Oost.
 
-- Slechts één fabric object kan per regio worden gemaakt. 
+- Slechts één fabric object kan per regio worden gemaakt.
 - Als u Site Recovery-replicatie voor een virtuele machine in Azure portal eerder hebt ingeschakeld, maakt Site Recovery automatisch een fabric-object. Als een object fabric voor een regio bestaat, kunt u een nieuw wachtwoord kan niet maken.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>Opnieuw beveiligen en failback naar de bronregio
+
 Wanneer u bent klaar om terug te gaan naar de oorspronkelijke regio beveiligd omgekeerde replicatie starten voor de replicatie na een failover item met de cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+Zodra opnieuw beveiligen voltooid is, kunt u failover in omgekeerde richting (VS West op VS-Oost) en failback naar de regio van de gegevensbron kunt starten.
 
 ## <a name="next-steps"></a>Volgende stappen
 Weergave de [Azure Site Recovery PowerShell-referentie](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) voor meer informatie over hoe u kunt andere taken uitvoert zoals herstelplannen maken en testen van failover van plannen voor herstel via PowerShell.

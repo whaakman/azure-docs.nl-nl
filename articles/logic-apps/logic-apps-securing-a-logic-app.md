@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620611"
+ms.locfileid: "58649285"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
 
@@ -156,8 +156,9 @@ Overweeg het gebruik van meer autorisatieprotocollen toevoegen aan uw logische a
 
 U kunt toegang op taken zoals het beheren, bewerken en weergeven van beperken zodat alleen bepaalde gebruikers of groepen die bewerkingen op uw logische app uitvoeren. Biedt ondersteuning voor Logic Apps [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), die u kunt aanpassen of ingebouwde rollen toewijzen aan leden in uw abonnement, bijvoorbeeld:
 
-* **Logische App-bijdrager**: Gebruikers kunnen weergeven, bewerken en bijwerken van uw logische app. Deze rol kan de logische app verwijderen of beheerder bewerkingen uitvoeren.
-* **Logische App-Operator**: Gebruikers kunnen uw logische app en de uitvoeringsgeschiedenis bekijken en inschakelen of uw logische app uitschakelen. Deze rol kan bewerken of bijwerken van uw logische app.
+* [Logische App-bijdrager](../role-based-access-control/built-in-roles.md#logic-app-contributor): Gebruikers kunnen weergeven, bewerken en bijwerken van uw logische app. 
+
+* [Logische App-Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Gebruikers kunnen uw logische app en de uitvoeringsgeschiedenis bekijken en inschakelen of uw logische app uitschakelen. Deze rol kan bewerken of bijwerken van uw logische app.
 
 Om te voorkomen dat anderen wijzigen of verwijderen van uw logische app, kunt u [Azure Resourcevergrendeling](../azure-resource-manager/resource-group-lock-resources.md). Deze mogelijkheid kunt u voorkomen dat anderen wijzigen of verwijderen van productieresources.
 

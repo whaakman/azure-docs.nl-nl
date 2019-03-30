@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399979"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648636"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
-Nadat u een Azure-reservering kopen, moet u de reservering van toepassing op een ander abonnement, wie kan de reservering beheren of wijzigen van het bereik van de reservering wijzigen. U kunt ook een reservering in twee reserveringen op sommige van de exemplaren die u hebt aangeschaft van toepassing op een ander abonnement splitsen.
+Nadat u een reservering voor Azure koopt, moet u de reservering van toepassing op een ander abonnement, wie kan de reservering beheren of wijzigen van het bereik van de reservering wijzigen. U kunt ook een reservering in twee reserveringen op sommige van de exemplaren die u hebt aangeschaft van toepassing op een ander abonnement splitsen.
 
 Als u Azure Reserved Virtual Machine Instances hebt gekocht, kunt u de instelling optimaliseren voor de reservering. De reserveringskorting kunt toepassen op virtuele machines in dezelfde reeks of kunt u Datacenter-capaciteit voor een specifieke VM-grootte reserveren.
 
@@ -123,12 +123,20 @@ Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://
 
 Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
+- [Wat zijn de reserveringen voor Azure?](billing-save-compute-costs-reservations.md)
+
+Een service-abonnement kopen:
 - [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Betaal vooruit voor Azure Cosmos DB-resources met Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Koop een softwareabonnement:
+- [Betaal vooruit voor Red Hat software plannen uit de Azure-reserveringen](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Vooruitbetalen voor SUSE-software-abonnementen vanuit Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Korting en het gebruik van begrijpen:
 - [Begrijpen hoe de VM-reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Begrijpen hoe de korting voor Red Hat Enterprise Linux-software-plan wordt toegepast](../billing/billing-understand-rhel-reservation-charges.md)
 - [Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast](../billing/billing-understand-suse-reservation-charges.md)
 - [Begrijpen hoe andere reservering kortingen zijn toegepast](billing-understand-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)

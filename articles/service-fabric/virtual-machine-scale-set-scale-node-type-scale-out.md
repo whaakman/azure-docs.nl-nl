@@ -4,7 +4,7 @@ description: Leer hoe u een Service Fabric-cluster uitbreiden door het toevoegen
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: d732c26fd503f65bbd82bff076873ea5de4edb39
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ed5bf829e2fbff6c286acdb21a8d0158148483d9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455595"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662836"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Schalen van een Service Fabric-cluster af door het toevoegen van een virtuele-machineschaalset
 In dit artikel wordt beschreven hoe u een Azure Service Fabric-cluster schalen door een nieuw knooppunttype toe te voegen aan een bestaand cluster. Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruikt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. Na het maken van een Service Fabric-cluster, kunt u een cluster horizontaal schalen door een nieuwe knooppunttype (virtuele-machineschaalset) toe te voegen aan een bestaand cluster.  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.

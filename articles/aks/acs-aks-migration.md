@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385038"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649965"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migreren van Azure Containerservice (ACS) naar Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Terwijl AKS de controlelaag van Kubernetes beheert, definieert u nog steeds de g
 
 Voorbeeld:
 
-| Naam | Count | VM-grootte | Besturingssysteem |
+| Name | Count | VM-grootte | Besturingssysteem |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
@@ -91,7 +91,7 @@ Er zijn diverse factoren om te overwegen als u bestaande permanente Volumes AKS 
 7. Valideren
 8. Bepaald verkeer naar het AKS-cluster
 
-> **Belangrijke**: als u ervoor niet stilleggen schrijfbewerkingen kiest, moet u voor het repliceren van gegevens naar de nieuwe implementatie als u gegevens die sinds de schijfmomentopname van de is geschreven ontbreken
+> **Belangrijke**: Als u ervoor niet stilleggen schrijfbewerkingen kiest, moet u voor het repliceren van gegevens naar de nieuwe implementatie als u gegevens die sinds de schijfmomentopname van de is geschreven ontbreken
 
 Open-source hulpprogramma's bestaan die kunnen helpen u bij het maken van beheerde schijven en volumes tussen Kubernetes-clusters migreren.
 
@@ -144,7 +144,7 @@ Brengt de benodigde wijzigingen aan uw YAML-definities. Bijvoorbeeld: vervangen 
 
 ### <a name="3-optional-migrate-volumes"></a>3. (Optioneel) -Volumes migreren
 
-Volumes uit uw ACS-cluster migreren naar uw AKS-cluster. Meer informatie vindt u de [permanente Volumes migreren](#Migrating-Persistent-Volumes) sectie.
+Volumes uit uw ACS-cluster migreren naar uw AKS-cluster. Meer informatie vindt u de [permanente Volumes migreren](#migrating-persistent-volumes) sectie.
 
 ### <a name="4-deploy-applications"></a>4. Toepassingen implementeren
 

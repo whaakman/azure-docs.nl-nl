@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: ee7c471cdd76829abc03fa4578d09b8a7303cb38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891430"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648517"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Kosten van de software niet zijn opgenomen in Azure Reserved VM Instances
 
@@ -69,15 +69,15 @@ Als u geen een Azure Hybrid Use Benefit op uw gereserveerde VM-instanties, zijn 
 U kunt de kosten van elk van deze meter ophalen via Azure RateCard API. Zie voor meer informatie over het ophalen van de tarieven voor een azure-meterkenmerken [prijs en de metagegevens ophalen voor resources die worden gebruikt in een Azure-abonnement](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
+Zie voor meer informatie over reserveringen voor Azure, de volgende artikelen:
 
-- [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
+- [Wat zijn de reserveringen voor Azure?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
+- [Reserveringen voor Azure beheren](billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

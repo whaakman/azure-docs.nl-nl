@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 92476f9ac48c168c3bbe85d4da49b6afe034c117
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400393"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648653"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Resources implementeren met Resource Manager-sjablonen en Azure CLI
 
@@ -77,7 +77,7 @@ De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een beri
 In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u beter om op te slaan in een externe locatie. U kunt sjablonen opslaan in een opslagplaats voor bronbeheer (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
 
 Voor het implementeren van een externe-sjabloon, gebruiken de **sjabloon-uri** parameter. Gebruik de URI in het voorbeeld om de voorbeeldsjabloon uit GitHub te implementeren.
-   
+
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 az group deployment create \
@@ -102,7 +102,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
-Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Opnieuw implementeren, gebruikt u de `--rollback-on-error` parameter in de implementatieopdracht.
+Deze functie wordt ook wel bekend als *Rollback bij fout*. Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Opnieuw implementeren, gebruikt u de `--rollback-on-error` parameter in de implementatieopdracht. Deze functionaliteit is handig als u een bekende goede status voor de Infrastructuurimplementatie van uw gekomen en wilt deze optie om te worden teruggezet naar een. Er zijn een aantal aanvullende opmerkingen en beperkingen:
+
+- Het opnieuw distribueren wordt uitgevoerd, precies zoals deze eerder is uitgevoerd met dezelfde parameters. U kunt de parameters niet wijzigen.
+- De vorige implementatie wordt uitgevoerd met behulp van de [volledige modus](./deployment-modes.md#complete-mode). Alle resources die niet zijn opgenomen in de vorige implementatie worden verwijderd en de resourceconfiguraties zijn ingesteld op de vorige status. Zorg ervoor dat u volledig inzicht in de [implementatiemodi](./deployment-modes.md).
+- Het opnieuw implementeren zijn alleen van invloed op de resources en eventuele wijzigingen in gegevens worden niet beïnvloed.
+- Deze functie wordt alleen ondersteund voor implementaties van de resourcegroep, geen abonnement op implementaties. Zie voor meer informatie over de implementatie voor het niveau van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](./deploy-to-subscription.md).
 
 Als u wilt deze optie gebruikt, moeten uw implementaties unieke namen hebben, zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau root-implementaties. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
 
@@ -261,9 +266,10 @@ Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een foutbericht 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* De voorbeelden in dit artikel worden resources implementeren op een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
-* Zie voor meer informatie over het definiëren van parameters in uw sjabloon, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
-* Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
-* Zie voor veilig implementatie uw service in meer dan één regio, [Azure Deployment Manager](deployment-manager-overview.md).
+
+- De voorbeelden in dit artikel worden resources implementeren op een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
+- Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
+- Zie voor meer informatie over het definiëren van parameters in uw sjabloon, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
+- Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
+- Zie voor veilig implementatie uw service in meer dan één regio, [Azure Deployment Manager](deployment-manager-overview.md).

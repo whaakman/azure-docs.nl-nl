@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226654"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652498"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux
 
@@ -231,9 +231,9 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    </code></pre>
 
 1. **[A]**  Maken van de gedeelde mappen
@@ -330,7 +330,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -355,7 +355,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 1. **[1]**  SAP NetWeaver ASCS installeren  
 
-   SAP NetWeaver ASCS installeren als hoofd op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer-frontend-configuratie voor de ASCS, bijvoorbeeld <b>nw1 ascs</b>, <b>10.0.0.11</b> en de exemplaar van het nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>00</b>.
+   SAP NetWeaver ASCS installeren als hoofd op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer-frontend-configuratie voor de ASCS, bijvoorbeeld <b>nw1 ascs</b>, <b>10.0.0.7</b> en de exemplaar van het nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>00</b>.
 
    U kunt de parameter sapinst SAPINST_REMOTE_ACCESS_USER gebruiken om toe te staan een niet-hoofdgebruiker sapinst verbinden.
 
@@ -382,7 +382,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
@@ -411,7 +411,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 1. **[2]**  SAP NetWeaver INGEN installeren  
 
-   SAP NetWeaver INGEN installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer-frontend-configuratie voor de gebruikers, bijvoorbeeld <b>nw1 aers</b>, <b>10.0.0.12</b> en de exemplaar van het nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>02</b>.
+   SAP NetWeaver INGEN installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer-frontend-configuratie voor de gebruikers, bijvoorbeeld <b>nw1 aers</b>, <b>10.0.0.8</b> en de exemplaar van het nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>02</b>.
 
    U kunt de parameter sapinst SAPINST_REMOTE_ACCESS_USER gebruiken om toe te staan een niet-hoofdgebruiker sapinst verbinden.
 
@@ -576,14 +576,11 @@ De onderstaande stappen wordt ervan uitgegaan dat u de toepassingsserver install
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
-   # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Maken van de map sapmnt

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630558"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -30,7 +30,7 @@ Dit onderwerp biedt een kort overzicht van Azure Media Services-concepten en bev
 
 Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud in Azure starten, moet u een Media Services-account maken en uploaden van uw digitale bestanden naar **activa**.
 
-- [Uploaden van de cloud en opslag](storage-account-concept.md)
+- [Uploaden naar en opslaan in de cloud](storage-account-concept.md)
 - [Activa-concept](assets-concept.md)
 
 ## <a name="encoding"></a>Encoding
@@ -76,23 +76,23 @@ U kunt Media Services gebruiken **dynamische manifesten** alleen een specifieke 
 
 - [Dynamische pakketten](dynamic-packaging-overview.md)
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
-- [Streaming-Locators](streaming-locators-concept.md)
+- [Streaming-locators](streaming-locators-concept.md)
 - [Beleid voor streaming](streaming-policy-concept.md)
-- [Beleid voor inhoud sleutels](content-key-policy-concept.md)
+- [Beleid voor inhoudssleutels](content-key-policy-concept.md)
 - [Beveiliging van inhoud](content-protection-overview.md)
 - [Dynamische manifesten](filters-dynamic-manifest-overview.md)
 - [Filters](filters-concept.md)
 
 ## <a name="live-streaming"></a>Live streamen
 
-Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. **Live gebeurtenissen** zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Bij het maken van een **Live gebeurtenis**, een invoereindpunt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma wordt gemaakt. Zodra u de stroom doorgestuurd hebt naar de **Live gebeurtenis**, kunt u de streaminggebeurtenis starten door het maken van een **Asset**, **uitvoer Live**, en **Streaming-Locator gemaakt** . **Live uitvoer** worden gearchiveerd de stroom in de **Asset** en het beschikbaar maken voor gebruikers via de **Streaming-eindpunt**. Een **Live gebeurtenis** kan bestaan uit een van de twee typen: **pass-through** en **van realtime codering**.
+Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. **Livegebeurtenissen** zijn verantwoordelijk voor het opnemen en verwerken van de live videofeeds. Bij het maken van een **Live gebeurtenis**, een invoereindpunt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma wordt gemaakt. Zodra u de stroom doorgestuurd hebt naar de **Live gebeurtenis**, kunt u de streaminggebeurtenis starten door het maken van een **Asset**, **uitvoer Live**, en **Streaming-Locator gemaakt** . **Live uitvoer** worden gearchiveerd de stroom in de **Asset** en het beschikbaar maken voor gebruikers via de **Streaming-eindpunt**. Een **Live gebeurtenis** kan bestaan uit een van de twee typen: **pass-through** en **van realtime codering**.
 
 De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 
 ![Pass Through-query](./media/live-streaming/pass-through.svg)
 
 - [Overzicht van live streaming](live-streaming-overview.md)
-- [Live-evenementen en Live-uitvoer](live-events-outputs-concept.md)
+- [Livegebeurtenissen en live-uitvoer](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>Bewaking
 
@@ -102,6 +102,11 @@ Als u wilt zien van de voortgang van de taak, moet u **Event Grid**. Media Servi
 
 - [Event Grid-gebeurtenissen verwerken](reacting-to-media-services-events.md)
 - [Schema 's](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+Monitor voor metrische gegevens en logboeken met diagnostische gegevens die u helpen begrijpen hoe uw toepassingen worden uitgevoerd met Azure Monitor.
+
 - [Diagnostische logboeken en metrische gegevens](media-services-metrics-diagnostic-logs.md)
 - [Schema's voor diagnostische logboeken](media-services-diagnostic-logs-schema.md)
 
@@ -113,4 +118,9 @@ U kunt Azure Media Player gebruiken voor het afspelen van media-inhoud gestreamd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Uploaden, coderen en streamen met Media Services](stream-files-tutorial-with-api.md)
+* [Codeer externe bestands- en stream-video-REST](stream-files-tutorial-with-rest.md)
+* [Codeer het geüploade bestand en stream-video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyseren van uw video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamische versleuteling - .NET](protect-with-aes128.md)
+* [Dynamisch versleutelen met multi-DRM - .NET](protect-with-drm.md) 

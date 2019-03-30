@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994183"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630469"
 ---
-# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Oplossen van problemen: Problemen met Azure punt-naar-site-verbinding
+# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Probleemoplossing: Problemen met Azure point-to-site-verbinding
 
 Dit artikel worden veelvoorkomende problemen met punt-naar-site-verbinding die u kunt tegenkomen. Hierin worden ook mogelijke oorzaken en oplossingen voor deze problemen.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Fout bij de VPN-client: een certificaat kan niet worden gevonden.
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Fout bij de VPN-client: Een certificaat kan niet worden gevonden.
 
 ### <a name="symptom"></a>Symptoom
 
@@ -41,7 +41,7 @@ Dit probleem treedt op als het clientcertificaat ontbreekt in **Certificaten - H
 
 U lost dit probleem, de volgende stappen uit:
 
-1. Open Certificate Manager: klik op **Start**, type **computercertificaten beheren**, en klik vervolgens op **computercertificaten beheren** in de zoekresultaten.
+1. Open Certificate Manager: Klik op **Start**, type **computercertificaten beheren**, en klik vervolgens op **computercertificaten beheren** in de zoekresultaten.
 
 2. Zorg ervoor dat de volgende certificaten op de juiste locatie zijn:
 
@@ -49,7 +49,7 @@ U lost dit probleem, de volgende stappen uit:
     | ------------- | ------------- |
     | AzureClient.pfx  | Huidige gebruiker\Persoonlijk\Certificaten |
     | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted Root Certification Authorities|
-    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
 3. Ga naar C:\Users\<gebruikersnaam > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
 
@@ -58,13 +58,13 @@ Zie voor meer informatie over het installeren van het clientcertificaat [generer
 > [!NOTE]
 > Wanneer u het certificaat importeert, schakel niet het **sterke beveiliging met persoonlijke sleutel inschakelen** optie.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Fout bij de VPN-client: het ontvangen bericht is onverwacht of onjuist ingedeeld
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Fout bij de VPN-client: Het ontvangen bericht is onverwacht of onjuist ingedeeld
 
 ### <a name="symptom"></a>Symptoom
 
 Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-client, ontvangt u de volgende strekking weergegeven:
 
-**Het ontvangen bericht is onverwacht of onjuist ingedeeld. (Fout 0x80090326)**
+**Het ontvangen bericht is onverwacht of onjuist ingedeeld. (Error 0x80090326)**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -81,7 +81,7 @@ U lost dit probleem, de volgende stappen uit:
 1. Verwijder de UDR in het Gatewaysubnet. Zorg ervoor dat de dat UDR stuurt al het verkeer correct.
 2. Controleer de status van het basiscertificaat in de Azure-portal om te zien of deze is ingetrokken. Als niet is ingetrokken, probeert u het basiscertificaat en reupload te verwijderen. Zie voor meer informatie, [certificaten maken](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Fout bij de VPN-client: een certificaatketen verwerkt maar dat is beëindigd 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Fout bij de VPN-client: Een certificaatketen verwerkt maar dat is beëindigd 
 
 ### <a name="symptom"></a>Symptoom 
 
@@ -97,11 +97,11 @@ Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-
     | ------------- | ------------- |
     | AzureClient.pfx  | Huidige gebruiker\Persoonlijk\Certificaten |
     | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted Root Certification Authorities|
-    | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
 2. Als de certificaten al op de locatie zijn, kunt u de certificaten verwijderen en ze opnieuw installeren. De **azuregateway -*GUID*. cloudapp.net** certificaat bevindt zich in de VPN-clientconfiguratiepakket dat u hebt gedownload van de Azure-portal. U kunt bestand archivers gebruiken om op te halen van de bestanden van het pakket.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Fout bij het downloaden bestand: doel-URI is niet opgegeven.
+## <a name="file-download-error-target-uri-is-not-specified"></a>Fout bij het downloaden van het bestand: Doel-URI is niet opgegeven.
 
 ### <a name="symptom"></a>Symptoom
 
@@ -117,7 +117,7 @@ Dit probleem treedt op vanwege een onjuiste Gatewaytype.
 
 Het type van de VPN-gateway moet **VPN**, en de VPN-type moet **RouteBased**.
 
-## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Fout bij de VPN-client: aangepaste Azure VPN-script is mislukt 
+## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Fout bij de VPN-client: Azure VPN-aangepaste script is mislukt 
 
 ### <a name="symptom"></a>Symptoom
 
@@ -150,7 +150,7 @@ Pak het configuratiepakket voor de VPN-client en het cer-bestand niet vinden. Vo
 5. De computer opnieuw opstarten. 
 6. Probeer de VPN-client installeren.
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Fout bij de Azure portal: opslaan van de VPN-gateway is mislukt en de gegevens zijn ongeldig
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure portal-fout: Opslaan van de VPN-gateway is mislukt en de gegevens zijn ongeldig
 
 ### <a name="symptom"></a>Symptoom
 
@@ -185,7 +185,7 @@ Zorg ervoor dat de gegevens in het certificaat bevat geen ongeldige tekens, zoal
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Fout bij de Azure portal: opslaan van de VPN-gateway is mislukt en de resourcenaam is ongeldig
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Azure portal-fout: Opslaan van de VPN-gateway is mislukt en de resourcenaam is ongeldig
 
 ### <a name="symptom"></a>Symptoom
 
@@ -197,7 +197,7 @@ Wanneer u probeert de wijzigingen wilt opslaan voor de VPN-gateway in Azure port
 
 Dit probleem treedt op omdat de naam van het certificaat een ongeldig teken, zoals een spatie bevat. 
 
-## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Fout bij de Azure portal: Downloadfout 503 voor de VPN-pakket-bestand
+## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal-fout: VPN-pakket downloaden bestandsfout 503
 
 ### <a name="symptom"></a>Symptoom
 
@@ -209,7 +209,7 @@ Wanneer u probeert te downloaden van het VPN-clientconfiguratiepakket, ontvangt 
 
 Deze fout kan worden veroorzaakt door een tijdelijk probleem met het netwerk. Probeer de VPN-clientpakket downloaden na een paar minuten opnieuw.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Upgrade van de Azure VPN-Gateway: alle Site-clients zijn kan geen verbinding maken
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN-Gateway-upgrade: Er zijn allemaal verwijzen naar de Site clients kan geen verbinding maken
 
 ### <a name="cause"></a>Oorzaak
 
@@ -217,7 +217,7 @@ Als het certificaat meer dan 50 procent is tot en met hun levensduur, het certif
 
 ### <a name="solution"></a>Oplossing
 
-U lost dit probleem, opnieuw de punt aan Site-pakket op alle clients.
+U lost dit probleem, opnieuw downloaden en implementeren van de punt aan Site-pakket op alle clients.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Te veel VPN-clients tegelijk verbonden
 
@@ -302,16 +302,16 @@ Dit probleem kan optreden als de VPN-client heeft de routes niet verkrijgen van 
 
 Dit probleem op te lossen [Azure VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md). Om ervoor te zorgen dat de nieuwe routes worden gebruikt, moeten de punt-naar-Site VPN-clients opnieuw worden gedownload nadat peering op virtueel netwerk is geconfigureerd.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fout: 'de functie intrekken kon niet intrekkingscontrole omdat de certificaatintrekkingsserver offline is. (Fout 0x80092013)"
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fout: 'De functie intrekken kon niet intrekkingscontrole omdat de certificaatintrekkingsserver offline is. (Fout 0x80092013)"
 
-### <a name="causes"></a>Zorgt ervoor dat
+### <a name="causes"></a>Oorzaken
 Deze fout treedt op als de client geen toegang tot http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.crl.  De controle van certificaatintrekking vereist toegang tot deze twee sites.  Dit probleem treedt meestal op de client met de proxyserver is geconfigureerd. In sommige omgevingen, als de aanvragen niet meer via de proxyserver, wordt deze geweigerd op de randfirewall.
 
 ### <a name="solution"></a>Oplossing
 
 Controleer de instellingen van de proxyserver, zorg ervoor dat de client toegang heeft tot http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.crl.
 
-## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN-Client-fout: De verbinding is voorkomen vanwege een dat is geconfigureerd op de RAS-/ VPN-server. (Fout 812)
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Fout bij de VPN-Client: De verbinding is voorkomen vanwege een dat is geconfigureerd op de RAS-/ VPN-server. (Error 812)
 
 ### <a name="cause"></a>Oorzaak
 
@@ -327,7 +327,7 @@ Zorg ervoor dat de RADIUS-server correct is geconfigureerd. Zie voor meer inform
 
 Basiscertificaat is niet geïnstalleerd. Het basiscertificaat is geïnstalleerd in van de client **certificaten van vertrouwde** opslaan.
 
-## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>VPN-Client-fout: De externe verbinding is niet gemaakt omdat de poging tot VPN-tunnels is mislukt. (Fout 800) 
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Fout bij de VPN-Client: De externe verbinding is niet gemaakt omdat de poging tot VPN-tunnels is mislukt. (Fout 800) 
 
 ### <a name="cause"></a>Oorzaak
 
@@ -343,7 +343,7 @@ Het NIC-stuurprogramma-update:
 4. Als Windows geen nieuw stuurprogramma wordt gevonden, kunt u kijkt u voor één op de website van de apparaatfabrikant en volg de instructies.
 5. Start de computer opnieuw op en probeer het vervolgens opnieuw.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fout: 'Fout bij het downloaden die doel-URI is niet opgegeven bestand'
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fout: 'Fout bij het downloaden die doel-URI is niet opgegeven het bestand'
 
 ### <a name="cause"></a>Oorzaak
 

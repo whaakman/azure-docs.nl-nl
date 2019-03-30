@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403465"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629142"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Zelfstudie: Verbinding maken en activeren van Azure Data Box Edge instellen 
 
@@ -75,7 +75,7 @@ Uw dashboard vindt u de verschillende instellingen die nodig zijn om te configur
     ![Lokale web-UI 'Apparaatnaam' pagina](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Optioneel) Selecteer in het linkerdeelvenster **netwerkinstellingen** en configureer vervolgens de instellingen.  
-    Zijn zes netwerkinterfaces op uw fysieke apparaat. POORT 1 en 2 van de poort zijn 1 Gbps-netwerkinterfaces. POORT 3, 4-poort, poort 5 en 6 poort zijn alle 25 Gbps netwerkinterfaces die kunnen ook dienen als 10 Gbps-netwerkinterfaces. POORT 1 wordt automatisch geconfigureerd als alleen-management-poort en poort 2 tot en met 6 poort zijn alle gegevenspoorten. De **netwerkinstellingen** pagina is, zoals hieronder weergegeven.
+    Er zijn zes netwerkinterfaces op uw fysieke apparaat. POORT 1 en 2 van de poort zijn 1 Gbps-netwerkinterfaces. POORT 3, 4-poort, poort 5 en 6 poort zijn alle 25 Gbps netwerkinterfaces die kunnen ook dienen als 10 Gbps-netwerkinterfaces. POORT 1 wordt automatisch geconfigureerd als alleen-management-poort en poort 2 tot en met 6 poort zijn alle gegevenspoorten. De **netwerkinstellingen** pagina is, zoals hieronder weergegeven.
     
     ![Lokale web-UI "Netwerkinstellingen" pagina](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ Uw dashboard vindt u de verschillende instellingen die nodig zijn om te configur
 
         ![Lokale web-UI "Tijdinstellingen" pagina](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. Selecteer in het linkerdeelvenster **Cloudinstellingen**, en vervolgens uw apparaat en de gegevens in het Edge-service in Azure portal te activeren.
+5. (Optioneel) Selecteer in het linkerdeelvenster **Opslaginstellingen** de opslag om tolerantie te configureren op uw apparaat. Deze functie is momenteel beschikbaar als preview-product. Standaard de opslag op het apparaat is niet flexibel en er gegevens verloren gaan als een gegevensschijf die is mislukt op het apparaat. Wanneer u de robuuste optie inschakelt, wordt de opslag op het apparaat opnieuw wordt geconfigureerd en wordt het apparaat bestand zijn tegen het uitvallen van een gegevensschijf met zonder verlies van gegevens. Configureren van de opslag als is robuuste beperkt u de aan bruikbare capaciteit van uw apparaat.
+
+    > [!IMPORTANT] 
+    > De tolerantie kan alleen worden geconfigureerd voordat u het apparaat activeren. 
+
+    ![Lokale web-UI "Opslaginstellingen" pagina](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. Selecteer in het linkerdeelvenster **Cloudinstellingen**, en vervolgens uw apparaat en de gegevens in het Edge-service in Azure portal te activeren.
     
     1. In de **activeringscode** voert de activeringscode die u hebt verkregen in [ophalen van de activeringscode](data-box-edge-deploy-prep.md#get-the-activation-key) voor gegevens in Edge.
     2. Selecteer **Toepassen**.
@@ -132,7 +139,7 @@ Uw dashboard vindt u de verschillende instellingen die nodig zijn om te configur
 
         ![Lokale web-UI ' Cloud ' instellingenpagina bijgewerkt](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. U moet mogelijk Wacht enkele minuten nadat de update is voltooid. De pagina bijgewerkt om aan te geven dat het apparaat wordt geactiveerd.
+    4. U moet mogelijk Wacht een paar minuten nadat de update is voltooid. De pagina bijgewerkt om aan te geven dat het apparaat wordt geactiveerd.
 
         ![Lokale web-UI ' Cloud ' instellingenpagina bijgewerkt](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 

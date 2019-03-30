@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl chaos-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215334"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666746"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starten, stoppen en rapporteren over de chaos-test-service.
@@ -47,12 +47,12 @@ Als u het volgende segment van de Chaos-gebeurtenissen, kunt u de ContinuationTo
 |Argument|Description|
 | --- | --- |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --utc-time-end | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
-| --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --utc-time-start | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --end-time-utc | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
+| --start-time-utc | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -73,7 +73,7 @@ De status van Chaos waarmee wordt aangegeven of Chaos wordt uitgevoerd, wordt de
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -97,16 +97,16 @@ Als Chaos niet al wordt uitgevoerd in het cluster, het Chaos begint met het door
 | --context | JSON gecodeerd toewijzing van het (string, string) typt u sleutel-waardeparen. De kaart kan worden gebruikt om vast te leggen van de informatie over het uitvoeren van Chaos. Er mag niet meer dan 100 dergelijke paren en elke tekenreeks (sleutel of waarde) mag maximaal 4095 tekens lang zijn. Deze kaart is ingesteld door de starter van de Chaos uitgevoerd voor het opslaan van de context over de specifieke uitvoering (optioneel). |
 | --disable-verplaatsen-replica-fouten | Schakelt de verplaatsen primaire en secundaire fouten verplaatsen. |
 | --max-cluster-stabilization | De maximale hoeveelheid tijd te wachten totdat alle entiteiten stabiel en in orde cluster.  Standaard\: 60. <br><br> Chaos uitgevoerd in iteraties en aan het begin van elke herhaling valideert de status van de cluster-entiteiten. Als een cluster-entiteit niet stabiel en binnen MaxClusterStabilizationTimeoutInSeconds, gezonde Chaos tijdens de validatie genereert een mislukte validatie-gebeurtenis. |
-| --max-gelijktijdige-fouten | Het maximum aantal gelijktijdige fouten veroorzaakte per herhaling. Chaos uitgevoerd in iteraties en twee opeenvolgende pogingen worden gescheiden door een validatiefase. Hoe hoger de waarde voor concurrency, de agressiever het injecteren van fouten--meer complexe reeks statussen om fouten veroorzaken. De aanbeveling is om te beginnen met een waarde 2 of 3 en wees voorzichtig met het tijdens het verplaatsen van.  Standaard\: 1. |
-| --max-procent-niet in orde-apps | Bij het evalueren van clusterstatus tijdens Chaos, het maximale percentage van de beschadigde toepassingen toegestaan voordat u een foutmelding. <br><br> De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening rondt af naar één tolereren op kleine aantallen toepassingen. Percentage van de standaardwaarde is nul. |
+| --max-concurrent-faults | Het maximum aantal gelijktijdige fouten veroorzaakte per herhaling. Chaos uitgevoerd in iteraties en twee opeenvolgende pogingen worden gescheiden door een validatiefase. Hoe hoger de waarde voor concurrency, de agressiever het injecteren van fouten--meer complexe reeks statussen om fouten veroorzaken. De aanbeveling is om te beginnen met een waarde 2 of 3 en wees voorzichtig met het tijdens het verplaatsen van.  Standaard\: 1. |
+| --max-percent-unhealthy-apps | Bij het evalueren van clusterstatus tijdens Chaos, het maximale percentage van de beschadigde toepassingen toegestaan voordat u een foutmelding. <br><br> De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening rondt af naar één tolereren op kleine aantallen toepassingen. Percentage van de standaardwaarde is nul. |
 | --max-procent--knooppunten met slechte | Bij het evalueren van clusterstatus tijdens Chaos, mag de maximale percentage van knooppunten met slechte voordat u een foutmelding. <br><br> De maximaal toegestane percentage van knooppunten met slechte voordat u een foutmelding. Bijvoorbeeld, om toe te staan 10% van de knooppunten niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigd knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal knooppunten met slechte delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar één tolereren op kleine aantallen knooppunten. Percentage van de standaardwaarde is nul. In grote clusters sommige knooppunten altijd worden omlaag of uit voor herstellingen, zodat dit percentage moet worden geconfigureerd om te tolereren die. |
 | --tijd-en-klaar | Totale tijd (in seconden) waarvoor Chaos voordat automatisch gestopt wordt uitgevoerd. De maximaal toegestane waarde is 4.294.967.295 (System.UInt32.MaxValue).  Standaard\: 4294967295. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --Wacht tijd tussen fouten | Wachttijd (in seconden) tussen opeenvolgende fouten binnen een enkel iteratie.  Standaard\: 20. <br><br> Hoe hoger de waarde, des te lager de overlappende tussen fouten en het eenvoudiger de volgorde van de status verandert dat het cluster wordt verstuurd via. De aanbeveling is om te beginnen met een waarde tussen 1 en 5 en oefening waarschuwing tijdens het verplaatsen van. |
-| --Wacht tijd tussen pogingen | Time-scheiding (in seconden) tussen twee opeenvolgende herhalingen van Chaos. Hoe hoger de waarde, des te lager tarief voor fout met betrekking tot injectie.  Standaard\: 30. |
-| --waarschuwing als fout | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --wait-time-between-iterations | Time-scheiding (in seconden) tussen twee opeenvolgende herhalingen van Chaos. Hoe hoger de waarde, des te lager tarief voor fout met betrekking tot injectie.  Standaard\: 30. |
+| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -127,7 +127,7 @@ Hiermee stopt u Chaos van nieuwe fouten wordt uitgevoerd. Actieve fouten blijft 
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

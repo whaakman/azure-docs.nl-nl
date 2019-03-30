@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213447"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652277"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Niet van RDP-verbinding naar Azure Virtual Machines, omdat de DHCP Client-service is uitgeschakeld
 
@@ -27,7 +27,6 @@ In dit artikel beschrijft een probleem waarbij u kunt geen extern bureaublad naa
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Symptomen
-
 U maken niet een RDP-verbinding een virtuele machine in Azure omdat de DHCP Client-service is uitgeschakeld in de virtuele machine. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u de virtuele machine normaal worden opgestart en wacht tot de referenties in het aanmeldingsscherm. U weergeven op afstand de gebeurtenislogboeken op de virtuele machine met behulp van Logboeken. U ziet dat de DHCP Client-Service is niet gestart of niet kan worden gestart. De volgende logboek voor een voorbeeld:
 
 **Meld u de naam**: Systeem </br>
@@ -98,7 +97,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 1. Verbinding maken met [seriële Console](serial-console-windows.md) en open een PowerShell-exemplaar.
 2. Download het hulpprogramma procesmonitor het volgende script uit te voeren:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 3. Probeer verbinding maken met de virtuele machine met behulp van extern bureaublad.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP-Client-service vastloopt of loopt vast
+
 1. Als de status van de service is mislukt de **vanaf** of **stoppen** heeft, probeert de service te stoppen:
 
         sc stop DHCP
@@ -205,5 +205,3 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen.
-
-

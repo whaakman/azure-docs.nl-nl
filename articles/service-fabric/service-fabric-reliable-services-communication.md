@@ -4,7 +4,7 @@ description: Overzicht van Reliable Services communicatiemodel, met inbegrip van
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: BharatNarasimman
 ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 49f5a74c2fcd45d03119bffbffad6fcf30e72440
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 15b45cadc69830827952d87ffc2315b06b07b02c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570552"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663397"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Het gebruik van de communicatie Reliable Services API 's
 Azure Service Fabric als platform is volledig agnostische over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP naar HTTP. Het is aan de ontwikkelaar van de service om te kiezen hoe services moeten communiceren. Het framework van de toepassing betrouwbare Services bevat ingebouwde communicatie-stacks en API's die u gebruiken kunt om te maken van de Communicatieonderdelen van uw aangepaste.

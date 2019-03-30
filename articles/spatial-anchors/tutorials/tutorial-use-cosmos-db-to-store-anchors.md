@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: delen tussen verschillende sessies en apparaten met ruimtelijke ankers van Azure en een back-end van Azure Cosmos DB | Microsoft Docs'
+title: Zelfstudie - Share Azure ruimtelijke ankers sessies en apparaten met een Azure Cosmos DB back-end | Microsoft Docs
 description: In deze zelfstudie leert u hoe u Azure ruimtelijke ankers-id's delen op Android/iOS-apparaten in Unity met een back-end-service en Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286394"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628942"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Zelfstudie: Delen van sessies en apparaten met ruimtelijke ankers van Azure en een back-end van Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Zelfstudie: Back-end van share Azure ruimtelijke ankers sessies en apparaten met een Azure Cosmos DB
 
-In deze zelfstudie leert u hoe u [Azure ruimtelijke ankers](../overview.md) aan:
-
-- Ankers maken tijdens één sessie en zoek deze tijdens een andere sessie op hetzelfde apparaat of een ander account. Bijvoorbeeld, de tweede sessie op een andere dag mogelijk.
-- Maak ankers die kunnen worden gevonden door meerdere apparaten op dezelfde plaats en op hetzelfde moment.
+In deze zelfstudie leert u hoe u [Azure ruimtelijke ankers](../overview.md) ankers maken tijdens één sessie en zoek tijdens een andere sessie op hetzelfde apparaat of een ander account. Bijvoorbeeld, de tweede sessie op een andere dag mogelijk. Deze dezelfde ankers kunnen ook worden gevonden door meerdere apparaten op dezelfde plaats en op hetzelfde moment.
 
 ![GIF-bestand ter illustratie object persistentie](./media/persistence.gif)
 

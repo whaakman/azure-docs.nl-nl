@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 40145ee0e284f90dc1cf231db01d02219a58eeda
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 340638377dadfd662beb3ca6ed977aeb9050b645
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313140"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630006"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>Quickstart: Een lokale afbeelding analyseren met behulp van de REST API en C# in Computer Vision
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Voer de volgende stappen uit om het voorbeeld in Visual Studio te maken:
 
-1. Maak een nieuwe Visual Studio-oplossing in Visual Studio met behulp van het Visual C# Console App-sjabloon.
+1. Maak een nieuwe Visual Studio-oplossing in Visual Studio, met behulp van het visuele element C# Console App (.NET Framework)-sjabloon.
 1. Installeer het pakket Newtonsoft.Json NuGet.
     1. Klik in het menu op **Extra**, selecteer **NuGet Package Manager** en vervolgens **NuGet-pakketten voor oplossing beheren**.
     1. Klik op het tabblad **Bladeren** en typ 'Newtonsoft.Json' in het vak **Zoeken**.

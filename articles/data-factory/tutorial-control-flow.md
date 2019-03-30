@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649217"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
+
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
 
 Een overzicht van het scenario: ![Overzicht](media/tutorial-control-flow/overview.png)
@@ -56,6 +57,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     John|Doe
     Jane|Doe
     ```
+
 2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](https://storageexplorer.com/) om de container **adfv2branch** te maken en om het bestand **input.txt** te uploaden naar de container.
 
 ## <a name="create-visual-studio-project"></a>Een Visual Studio-project maken
@@ -73,7 +75,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
 1. Klik op **Hulpprogramma's** -> **NuGet Package Manager** -> **Package Manager-console**.
 2. Voer in **Package Manager Console** de volgende opdrachten uit om pakketten te installeren. Raadpleeg voor meer informatie het [NuGet-pakket Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -139,6 +141,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
     ```
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+
 Maak een 'CreateOrUpdateDataFactory'-functie in het bestand Program.cs:
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
+
 Maak een 'StorageLinkedServiceDefinition'-functie in het bestand Program.cs:
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 Voeg de volgende code toe aan de methode **Main** om een **gekoppelde Azure Storage-service** te maken. Zie het onderwerp over [gekoppelde service-eigenschappen van Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) voor meer informatie over ondersteunde eigenschappen en details.
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 In deze sectie maakt u twee gegevenssets: één voor de bron en de andere voor de sink. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Een gegevensset maken voor de brongegevens in Azure Blob
+
 Voeg de volgende code toe aan de methode **Main** om een **Azure Blob Storage-gegevensset** te maken. Zie het onderwerp over [eigenschappen van Azure Blob Storage-gegevenssets](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over ondersteunde eigenschappen en details.
 
 U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt. Deze Blob-gegevensset verwijst naar de gekoppelde Azure Storage-service die u in de vorige stap hebt gemaakt en beschrijft het volgende:
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>Een C#-klasse maken: EmailRequest
+
 Maak in uw C#-project een klasse met de naam **EmailRequest**. Hiermee definieert u welke eigenschappen de pijplijn in de hoofdtekstaanvraag verzendt bij het verzenden van een e-mailbericht. In deze zelfstudie verzendt de pijplijn vier eigenschappen van de pijplijn naar het e-mailbericht:
 
 - **Bericht**: hoofdtekst van het e-mailbericht. Bij een geslaagde kopieerbewerking bevat deze eigenschap gegevens over de uitvoering (aantal geschreven gegevens). In het geval van een mislukte kopieerbewerking bevat deze eigenschap details over de fout.
@@ -289,10 +296,13 @@ Maak in uw C#-project een klasse met de naam **EmailRequest**. Hiermee definieer
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>Eindpunten voor de e-mailwerkstroom maken
+
 Voor het activeren van het verzenden van een e-mail gebruikt u [Logic Apps](../logic-apps/logic-apps-overview.md) om de werkstroom te definiëren. Zie voor meer informatie over het maken van een Logic App-werkstroom [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) (Het maken van een logische app). 
 
 ### <a name="success-email-workflow"></a>Werkstroom voor e-mail met succesbericht 
+
 Maak een Logic App-werkstroom met de naam `CopySuccessEmail`. Definieer de werkstroomtrigger als `When an HTTP request is received`, en voeg de actie `Office 365 Outlook – Send an email` toe.
 
 ![Werkstroom voor e-mail met succesbericht](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ Als aanvraagtrigger vult u het `Request Body JSON Schema` met de volgende JSON:
     "type": "object"
 }
 ```
+
 Deze correspondeert met de **EmailRequest**-klasse die u in de vorige sectie hebt gemaakt. 
 
 Uw aanvraag moet er in Logic App Designer zo uitzien:
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Werkstroom voor e-mail met foutbericht 
+
 Kloon **CopySuccessEmail** en maak een andere Logic Apps-werkstroom, **CopyFailEmail**. In de aanvraagtrigger is het `Request Body JSON schema` hetzelfde. Wijzig de indeling van uw e-mailbericht net als het `Subject` om er een e-mailbericht met een foutmelding van te maken. Hier volgt een voorbeeld:
 
 ![Logic App designer - werkstroom voor e-mailbericht met foutmelding](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
+
 Voeg de volgende code toe aan de methode Main om een pijplijn met een kopieeractiviteit en de eigenschap dependsOn te maken. In deze zelfstudie bevat deze pijplijn maar één activiteit: een kopieeractiviteit waarbij de Blob-gegevensset als bron wordt gebruikt en een andere Blob-gegevensset als sink. Wanneer de kopieeractiviteit slaagt of mislukt, worden verschillende e-mailtaken aangeroepen.
 
 In deze pijpelijn gebruikt u de volgende functies:
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 Voeg de volgende code toe aan de methode **Main** om de pijplijn te maken:
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>Parameters
+
 In de eerste sectie van onze pijplijn worden parameters gedefinieerd. 
 
 - sourceBlobContainer - parameter in the pijplijn die door de bronblobgegevensset wordt verbruikt
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>Web Activity
+
 De Web Activity (webactiviteit) staat een aanroep toe naar elk REST-eindpunt. Zie voor meer informatie over de activiteit [Webactiviteit](control-flow-web-activity.md). Deze pijplijn gebruikt een webactiviteit voor het aanroepen van de Logic Apps-e-mailwerkstroom. U maakt twee webactiviteiten: een die de werkstroom **CopySuccessEmail** aanroept, en één die **CopyFailWorkFlow** aanroept.
 
 ```csharp
@@ -481,6 +500,7 @@ De Web Activity (webactiviteit) staat een aanroep toe naar elk REST-eindpunt. Zi
             }
         }
 ```
+
 Plak de eindpunten van de aanvraag-URL uit uw Logic Apps-werkstroom in de overeenkomstige eigenschap 'Url'. Geef in de eigenschap 'Body' een instantie van de klasse 'EmailRequest' door. De e-mailaanvraag bevat de volgende eigenschappen:
 
 - Bericht: geeft de waarde van `@{activity('CopyBlobtoBlob').output.dataWritten` door. Leest een eigenschap van de vorige kopieeractiviteit en geeft de waarde van dataWritten door. In het geval waarin het kopiëren mislukt, wordt de uitvoer van de fout doorgegeven in plaats van `@{activity('CopyBlobtoBlob').error.message`.
@@ -491,6 +511,7 @@ Plak de eindpunten van de aanvraag-URL uit uw Logic Apps-werkstroom in de overee
 Deze code maakt een nieuwe activiteitafhankelijkheid, die afhankelijk is van de vorige kopieeractiviteit waarop hij volgt.
 
 ## <a name="create-a-pipeline-run"></a>Een pijplijnuitvoering maken
+
 Voeg de volgende code toe aan de methode **Main** om een **pijplijnuitvoering te activeren**.
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Main-klasse 
+
 Uw laatste Main-methode moet er zo uitzien. Bouw het programma en voer het uit om een pijplijnuitvoering te activeren.
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Een pijplijnuitvoering controleren
+
 1. Voeg de volgende code toe aan de methode **Main** om continu de status van de pijplijnuitvoering te controleren totdat deze klaar is met het kopiëren van de gegevens.
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>De code uitvoeren
+
 Bouw en start de toepassing en controleer vervolgens de uitvoering van de pijplijn.
 In de console wordt de voortgang weergegeven van het maken van een data factory, een gekoppelde service, gegevenssets, pijplijn en pijplijnuitvoering. Vervolgens wordt de uitvoeringsstatus van de pijplijn gecontroleerd. Wacht totdat u details ziet van de uitvoering van de kopieeractiviteit, waaronder de omvang van de gelezen/weggeschreven gegevens. Gebruik vervolgens hulpprogramma's als Azure Storage Explorer om te controleren of de blob(s) is/zijn gekopieerd van het 'inputBlobPath' naar het 'outputBlobPath' zoals u hebt opgegeven in de variabelen.
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie hebt u de volgende stappen uitgevoerd: 
 
 > [!div class="checklist"]

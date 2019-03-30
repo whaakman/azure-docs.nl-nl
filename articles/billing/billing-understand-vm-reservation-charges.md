@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: e2ad086e767afc47fe72b52f934cb3bfc7cc146e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c8994041d525186dd55bb4f4475f7e68036454f6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849802"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649826"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Begrijpen hoe de Azure reserveringskorting wordt toegepast op virtuele machines
 
@@ -61,15 +61,15 @@ Wanneer u een gereserveerde VM-instantie, kopen als u selecteert **geoptimalisee
 
 Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
+- [Wat zijn de reserveringen voor Azure?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
+- [Reserveringen voor Azure beheren](billing-manage-reserved-vm-instance.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 - [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

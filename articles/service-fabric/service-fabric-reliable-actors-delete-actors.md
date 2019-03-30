@@ -4,7 +4,7 @@ description: Leer hoe u Service Fabric Reliable Actors en hun status handmatig v
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887388"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666967"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Betrouwbare actoren en hun status verwijderen
 Garbagecollection van gedeactiveerde actoren alleen opschonen van de actorobject, maar deze gegevens die zijn opgeslagen in van een actor status Manager worden niet verwijderd. Wanneer een actor opnieuw wordt geactiveerd, wordt de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waar actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit geactiveerd, is het mogelijk dat het nodig zijn om hun gegevens op te schonen.

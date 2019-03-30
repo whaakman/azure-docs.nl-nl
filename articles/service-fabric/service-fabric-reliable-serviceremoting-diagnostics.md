@@ -4,7 +4,7 @@ description: Dit artikel beschrijft de controlefuncties voor toepassingsprestati
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e1dec182f09eccebfe03ab9727018dbf34128acd
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275245"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666151"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostische gegevens en prestatiecontrole voor betrouwbare Service voor externe toegang
 De runtime betrouwbare ServiceRemoting verzendt [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze bieden inzicht in hoe de ServiceRemoting wordt uitgevoerd en u helpen bij het oplossen en bewaking van toepassingsprestaties.
@@ -28,7 +28,7 @@ De runtime betrouwbare ServiceRemoting verzendt [prestatiemeteritems](https://ms
 ## <a name="performance-counters"></a>Prestatiemeteritems
 De runtime betrouwbare ServiceRemoting definieert de volgende categorieën voor prestatiemeteritems:
 
-| Categorie | Beschrijving |
+| Categorie | Description |
 | --- | --- |
 | Service Fabric Service |Items die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
 | Service Fabric Service-methode |Items die specifiek zijn voor methoden geïmplementeerd door de Service Fabric Remoting Service, bijvoorbeeld hoe vaak een service-methode wordt aangeroepen |
@@ -83,7 +83,7 @@ In het voorgaande voorbeeld `ivoicemailboxservice.leavemessageasync` is de naam 
 
 De betrouwbare Service runtime publiceert de volgende prestatiemeteritems met betrekking tot de uitvoering van de service-methoden.
 
-| Categorienaam | Naam van het prestatiemeteritem | Beschrijving |
+| Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
 | Service Fabric Service-methode |Aanroepen/sec |Aantal keren dat de servicemethode wordt aangeroepen per seconde |
 | Service Fabric Service-methode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd voor het uitvoeren van de servicemethode in milliseconden |
@@ -92,7 +92,7 @@ De betrouwbare Service runtime publiceert de volgende prestatiemeteritems met be
 ### <a name="service-request-processing-performance-counters"></a>Prestatiemeteritems voor service-aanvraag verwerken
 Wanneer een client een methode via een proxy-serviceobject roept, resulteert dit in een bericht naar de service voor externe toegang via het netwerk worden verzonden. De service het aanvraagbericht verwerkt en stuurt een antwoord terug naar de client. De runtime betrouwbare ServiceRemoting publiceert de volgende prestatiemeteritems met betrekking tot de verwerking van de service-aanvraag.
 
-| Categorienaam | Naam van het prestatiemeteritem | Beschrijving |
+| Categorienaam | Naam van het prestatiemeteritem | Description |
 | --- | --- | --- |
 | Service Fabric Service |Aantal openstaande aanvragen |Aantal aanvragen in de service wordt verwerkt |
 | Service Fabric Service |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service om een aanvraag te verwerken |

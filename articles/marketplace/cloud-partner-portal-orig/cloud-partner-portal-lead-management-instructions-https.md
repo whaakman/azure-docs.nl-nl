@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894118"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648347"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Beheer van leads met behulp van een HTTPS-eindpunt configureren
 
@@ -48,8 +48,8 @@ U kunt een HTTPS-eindpunt gebruiken voor het afhandelen van Azure Marketplace en
 
 7. Gebruik een van de volgende stappen uit om te configureren de **hoofdtekst van de JSON-Schema aanvragen**:
 
-   - Kopieer de [JSON-schema](#JSON-schema) aan het einde van dit artikel in de **hoofdtekst van de JSON-Schema aanvragen** in het tekstvak.
-   - Selecteer **Voorbeeldnettolading om een schema te genereren**. In de **typt of plakt u een voorbeeld-JSON-nettolading** tekstvak plakken in de [voorbeeld van JSON](#JSON-example). Selecteer **gedaan** om het schema te maken.
+   - Kopieer de [JSON-schema](#json-schema) aan het einde van dit artikel in de **hoofdtekst van de JSON-Schema aanvragen** in het tekstvak.
+   - Selecteer **Voorbeeldnettolading om een schema te genereren**. In de **typt of plakt u een voorbeeld-JSON-nettolading** tekstvak plakken in de [voorbeeld van JSON](#json-example). Selecteer **gedaan** om het schema te maken.
 
    >[!Note]
    >Op dit moment in de stroom kunt u verbinding maken met een CRM-systeem of een e-mailmeldingen configureren.

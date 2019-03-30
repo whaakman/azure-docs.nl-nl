@@ -4,7 +4,7 @@ description: Informatie over het bijwerken van de configuratie die wordt uitgevo
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855180"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665599"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>De configuratie van een zelfstandige cluster upgraden 
 
@@ -73,13 +73,13 @@ Een clustercertificaat wordt gebruikt voor verificatie tussen de clusterknooppun
 
 Vier opties worden ondersteund:  
 
-* Upgrade van één certificaat: het upgradepad is een (primair) -> certificaat B (primair)-certificaat -> certificaat C (primair) ->...
+* Upgrade van één certificaat: De upgrade-pad is een (primair) -> certificaat B (primair)-certificaat -> certificaat C (primair) ->...
 
-* Dubbele certificaat upgrade: de upgrade-pad is een (primair) -> certificaat het certificaat een (primair) en B (secundair) -> certificaat B (primair) > certificaat B (primair) en C (secundair) -> certificaat C (primair) ->...
+* Dubbele certificaat bijwerken: De upgrade-pad is een (primair) -> certificaat het certificaat een (primair) en B (secundair) -> certificaat B (primair) > certificaat B (primair) en C (secundair) -> certificaat C (primair) ->...
 
-* Type upgrade van het certificaat: op basis van de vingerafdruk van certificaat configuratie <>--CommonName op basis van certificaat-configuratie. Bijvoorbeeld, de vingerafdruk van het certificaat een (primair) en de vingerafdruk van-B (secundair) -> certificaat CommonName C.
+* Certificaat type upgrade: Op basis van de vingerafdruk van certificaat configuratie <>--CommonName op basis van certificaat-configuratie. Bijvoorbeeld, de vingerafdruk van het certificaat een (primair) en de vingerafdruk van-B (secundair) -> certificaat CommonName C.
 
-* Upgrade van de verlener vingerafdruk van certificaat: het upgradepad wordt certificaat-CN = A, IssuerThumbprint IT1 = (primaire) certificaat-CN -> = A, IssuerThumbprint IT1, IT2 = (primaire) certificaat-CN -> = A, IssuerThumbprint IT2 = (primaire).
+* Upgrade van de verlener vingerafdruk van certificaat: Het upgradepad wordt certificaat-CN = A, IssuerThumbprint IT1 = (primaire) -> certificaat-CN = A, IssuerThumbprint IT1, IT2 = (primaire) certificaat-CN -> = A, IssuerThumbprint IT2 = (primaire).
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309534"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652345"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
 
@@ -58,7 +58,7 @@ U de volgende eigenschappen voor het beschrijven van de filters gebruiken.
 |Name|Description|
 |---|---|
 |firstQuality|De eerste kwaliteit bitrate van het filter.|
-|presentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#presentationtimerange).|
 |sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange

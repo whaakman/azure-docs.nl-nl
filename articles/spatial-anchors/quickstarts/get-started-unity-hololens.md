@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2c29d9860f1c8fc4f0f6d9f4d84c06e8ade8dee5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286972"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629482"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een HoloLens Unity-app die gebruikmaakt van Azure ruimtelijke ankers
 
@@ -35,7 +35,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 
 - U moet een Windows-computer waarop <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> of hoger en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> of later zijn geïnstalleerd. Uw Visual Studio-installatie omvat de **universele Windows-platformontwikkeling** werkbelasting. U moet ook installeren <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
-- U moet een HoloLens-apparaat waarop [modus voor ontwikkelaars](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ingeschakeld. [Update voor Windows 10 oktober 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5) moet worden geïnstalleerd op het apparaat. Als u wilt bijwerken naar de nieuwste release op HoloLens, opent u de **instellingen** app, gaat u naar **bijwerken en beveiliging**, en selecteer vervolgens **controleren op updates**.
+- U moet een HoloLens-apparaat waarop [modus voor ontwikkelaars](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ingeschakeld. [Update voor Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5) moet worden geïnstalleerd op het apparaat. Als u wilt bijwerken naar de nieuwste release op HoloLens, opent u de **instellingen** app, gaat u naar **bijwerken en beveiliging**, en selecteer vervolgens **controleren op updates**.
 - Op uw app, moet u inschakelen de **SpatialPerception** mogelijkheid. Deze instelling is in **Build Settings** > **Player Settings** > **publicatie-instellingen**  >   **Mogelijkheden**.
 - Op uw app, moet u inschakelen **Virtual Reality ondersteund** met **Windows Mixed Reality SDK**. Deze instelling is in **Build Settings** > **Player Settings** > **XR instellingen**.
 

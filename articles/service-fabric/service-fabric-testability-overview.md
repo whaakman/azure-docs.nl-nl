@@ -4,7 +4,7 @@ description: Dit artikel beschrijft de Fault Analysis Service in Service Fabric 
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425235"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662350"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Inleiding tot de Fault Analyseservice
 De Fault Analysis Service is ontworpen voor het testen van services die zijn gebouwd op Microsoft Azure Service Fabric. U kunt met de Fault Analysis Service zinvolle fouten veroorzaken en volledige Testscenario's uitvoeren op basis van uw toepassingen. Deze fouten en scenario's maken en valideren van de talloze Staten en overgangen die een service tijdens de levensduur, allemaal in een gecontroleerde, veilige en consistente manier optreden zal.
@@ -46,9 +46,9 @@ Wanneer een fout met betrekking tot actie of een test-scenario wordt gestart, wo
 ## <a name="testing-distributed-systems"></a>Testen van gedistribueerde systemen
 Service Fabric zorgt de taak van het schrijven en beheren van gedistribueerde schaalbare toepassingen aanzienlijk eenvoudiger. De Fault Analysis Service vereenvoudigt het testen van een gedistribueerde toepassing die op dezelfde manier gemakkelijker. Er zijn drie belangrijke problemen die worden opgelost moeten bij het testen van:
 
-1. Simuleren/genereren van fouten die in de praktijk beproefd scenario optreden: een van de belangrijke aspecten van Service Fabric is dat het gedistribueerde toepassingen voor het herstellen van diverse fouten kunt. Als u wilt testen dat de toepassing kan om deze fouten te herstellen, moet er echter een mechanisme voor het simuleren/genereren van deze echte storingen in een testomgeving.
-1. De mogelijkheid voor het genereren van gecorreleerde fouten: Basic fouten in het systeem, zoals netwerkstoringen en fouten van de machine, zijn gemakkelijk te produceren afzonderlijk. Genereren van een groot aantal scenario's die in de praktijk als gevolg van de interacties van deze afzonderlijke fouten kunnen ontstaan is essentieel.
-1. Uniforme wijze van werken over verschillende niveaus van de ontwikkeling en implementatie: Er zijn veel systemen van de fout met betrekking tot injectie die verschillende typen fouten kunnen uitvoeren. De ervaring in al deze waarden is slecht bij het verplaatsen van scenario's van de in-één ontwikkelaars, dezelfde tests uitgevoerd op grote testomgevingen, deze alleen gebruiken voor de tests in de productieomgeving.
+1. Simuleren/genereren van fouten die in real-world scenario's optreden: Een van de belangrijke aspecten van Service Fabric is dat deze wijze gedistribueerde toepassingen voor het herstellen van diverse fouten. Als u wilt testen dat de toepassing kan om deze fouten te herstellen, moet er echter een mechanisme voor het simuleren/genereren van deze echte storingen in een testomgeving.
+1. De mogelijkheid voor het genereren van gecorreleerde fouten: Algemene fouten in het systeem, zoals netwerkstoringen en machine-fouten, kunnen eenvoudig worden afzonderlijk produceren. Genereren van een groot aantal scenario's die in de praktijk als gevolg van de interacties van deze afzonderlijke fouten kunnen ontstaan is essentieel.
+1. Uniforme ervaring op verschillende niveaus van de ontwikkeling en implementatie: Er zijn veel systemen van de fout met betrekking tot injectie die verschillende typen fouten kunnen uitvoeren. De ervaring in al deze waarden is slecht bij het verplaatsen van scenario's van de in-één ontwikkelaars, dezelfde tests uitgevoerd op grote testomgevingen, deze alleen gebruiken voor de tests in de productieomgeving.
 
 Er zijn veel mechanismen voor het oplossen van deze problemen, een systeem dat hetzelfde met vereiste garanties--helemaal uit een in-één ontwikkelomgeving gebeurt, om te testen in productieclusters--ontbreekt. De Fault Analysis Service helpt de toepassingsontwikkelaars zich concentreren op het testen van hun zakelijke logica. De Fault Analysis Service biedt alle mogelijkheden die nodig zijn voor het testen van de interactie van de service met de onderliggende gedistribueerd systeem.
 

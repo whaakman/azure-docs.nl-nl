@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: b82f230c790f0615077cc96e83ece823713b0a73
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c0c1b9c1e9afc84e9702f6c1897d372a017be868
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308975"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629883"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en Java
 
@@ -30,11 +30,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-the-java-project"></a>Het Java-project maken
 
-Maak een nieuwe Java-app met opdrachtregels in uw IDE en voeg een klasse **Main** toe met een methode **main**. Download vervolgens de volgende globale bibliotheken vanuit de Maven-opslagplaats naar de map `lib` van uw project:
-* `org.apache.httpcomponents:httpclient:4.5.6`
-* `org.apache.httpcomponents:httpcore:4.4.10`
-* `org.json:json:20170516`
-* `commons-logging:commons-logging:1.1.2`
+1. Maak een nieuwe Java-app met opdrachtregels in uw IDE en voeg een klasse **Main** toe met een methode **main**.
+1. Importeer de volgende bibliotheken in uw Java-project. Als u Maven gebruikt, worden de Maven-coördinaten opgegeven voor elke bibliotheek.
+   - [Apache HTTP-client](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
+   - [Apache HTTP-core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
+   - [JSON-bibliotheek](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+   - [Apache Commons logboekregistratie](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (commons-logboekregistratie: commons-logboekregistratie: 1.1.2)
 
 ## <a name="add-face-detection-code"></a>Gezichtsdetectiecode toevoegen
 
@@ -64,91 +65,95 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Essentiële velden toevoegen
 
-Voeg aan de klasse **Main** de volgende velden toe. Met deze gegevens wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). U kunt ook de waarde `imageWithFaces` instellen voor een pad dat naar een ander afbeeldingsbestand verwijst.
+Vervang de **Main** klasse met de volgende code. Met deze gegevens wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). U kunt ook de waarde `imageWithFaces` instellen voor een pad dat naar een ander afbeeldingsbestand verwijst.
 
 Het veld `faceAttributes` is gewoon een lijst met bepaalde kenmerktypen. Dit veld geeft aan welke informatie over de gedetecteerde gezichten moet worden opgehaald.
 
 ```Java
-// Replace <Subscription Key> with your valid subscription key.
-private static final String subscriptionKey = "<Subscription Key>";
+public class Main {
+    // Replace <Subscription Key> with your valid subscription key.
+    private static final String subscriptionKey = "<Subscription Key>";
 
-// NOTE: You must use the same region in your REST call as you used to
-// obtain your subscription keys. For example, if you obtained your
-// subscription keys from westus, replace "westcentralus" in the URL
-// below with "westus".
-//
-// Free trial subscription keys are generated in the "westus" region. If you
-// use a free trial subscription key, you shouldn't need to change this region.
-private static final String uriBase =
-    "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+    // NOTE: You must use the same region in your REST call as you used to
+    // obtain your subscription keys. For example, if you obtained your
+    // subscription keys from westus, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the "westus" region. If you
+    // use a free trial subscription key, you shouldn't need to change this region.
+    private static final String uriBase =
+        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
-private static final String imageWithFaces =
-    "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+    private static final String imageWithFaces =
+        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
 
-private static final String faceAttributes =
-    "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+    private static final String faceAttributes =
+        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 ```
 
 ### <a name="call-the-face-detection-rest-api"></a>De REST API voor de gezichtsdetectie aanroepen
 
-Voeg de volgende methode toe aan de methode **main**. Hiermee wordt een REST-aanroep naar de Face-API gemaakt om informatie over het gezicht te detecteren in de externe afbeelding (de tekenreeks `faceAttributes` geeft aan welke gezichtskenmerken moeten worden opgehaald). Vervolgens worden de uitvoergegevens naar een JSON-tekenreeks geschreven.
+Voeg de **belangrijkste** methode met de volgende code. Hiermee wordt een REST-aanroep naar de Face-API gemaakt om informatie over het gezicht te detecteren in de externe afbeelding (de tekenreeks `faceAttributes` geeft aan welke gezichtskenmerken moeten worden opgehaald). Vervolgens worden de uitvoergegevens naar een JSON-tekenreeks geschreven.
 
 ```Java
-HttpClient httpclient = HttpClientBuilder.create().build();
+    public static void main(String[] args) {
+        HttpClient httpclient = HttpClientBuilder.create().build();
 
-try
-{
-    URIBuilder builder = new URIBuilder(uriBase);
+        try
+        {
+            URIBuilder builder = new URIBuilder(uriBase);
 
-    // Request parameters. All of them are optional.
-    builder.setParameter("returnFaceId", "true");
-    builder.setParameter("returnFaceLandmarks", "false");
-    builder.setParameter("returnFaceAttributes", faceAttributes);
+            // Request parameters. All of them are optional.
+            builder.setParameter("returnFaceId", "true");
+            builder.setParameter("returnFaceLandmarks", "false");
+            builder.setParameter("returnFaceAttributes", faceAttributes);
 
-    // Prepare the URI for the REST API call.
-    URI uri = builder.build();
-    HttpPost request = new HttpPost(uri);
+            // Prepare the URI for the REST API call.
+            URI uri = builder.build();
+            HttpPost request = new HttpPost(uri);
 
-    // Request headers.
-    request.setHeader("Content-Type", "application/json");
-    request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Request headers.
+            request.setHeader("Content-Type", "application/json");
+            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-    // Request body.
-    StringEntity reqEntity = new StringEntity(imageWithFaces);
-    request.setEntity(reqEntity);
+            // Request body.
+            StringEntity reqEntity = new StringEntity(imageWithFaces);
+            request.setEntity(reqEntity);
 
-    // Execute the REST API call and get the response entity.
-    HttpResponse response = httpclient.execute(request);
-    HttpEntity entity = response.getEntity();
+            // Execute the REST API call and get the response entity.
+            HttpResponse response = httpclient.execute(request);
+            HttpEntity entity = response.getEntity();
 ```
 
 ### <a name="parse-the-json-response"></a>Het JSON-antwoord parseren
 
-Direct onder de vorige code voegt u het volgende blok toe. Hiermee worden de geretourneerde JSON-gegevens omgezet in een meer leesbare indeling voordat ze in de console worden weergegeven. Sluit ten slotte het TryCatch-blok.
+Direct onder de vorige code voegt u het volgende blok toe. Hiermee worden de geretourneerde JSON-gegevens omgezet in een meer leesbare indeling voordat ze in de console worden weergegeven. Ten slotte de trycatch-blokken, sluiten de **belangrijkste** methode, en de **Main** klasse.
 
 ```Java
-    if (entity != null)
-    {
-        // Format and display the JSON response.
-        System.out.println("REST Response:\n");
+            if (entity != null)
+            {
+                // Format and display the JSON response.
+                System.out.println("REST Response:\n");
 
-        String jsonString = EntityUtils.toString(entity).trim();
-        if (jsonString.charAt(0) == '[') {
-            JSONArray jsonArray = new JSONArray(jsonString);
-            System.out.println(jsonArray.toString(2));
+                String jsonString = EntityUtils.toString(entity).trim();
+                if (jsonString.charAt(0) == '[') {
+                    JSONArray jsonArray = new JSONArray(jsonString);
+                    System.out.println(jsonArray.toString(2));
+                }
+                else if (jsonString.charAt(0) == '{') {
+                    JSONObject jsonObject = new JSONObject(jsonString);
+                    System.out.println(jsonObject.toString(2));
+                } else {
+                    System.out.println(jsonString);
+                }
+            }
         }
-        else if (jsonString.charAt(0) == '{') {
-            JSONObject jsonObject = new JSONObject(jsonString);
-            System.out.println(jsonObject.toString(2));
-        } else {
-            System.out.println(jsonString);
+        catch (Exception e)
+        {
+            // Display error message.
+            System.out.println(e.getMessage());
         }
     }
-}
-catch (Exception e)
-{
-    // Display error message.
-    System.out.println(e.getMessage());
 }
 ```
 

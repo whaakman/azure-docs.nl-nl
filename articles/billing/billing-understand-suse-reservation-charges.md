@@ -1,5 +1,5 @@
 ---
-title: 'Inzicht in SUSE plan korting en -gebruik: Azure reserveringen | Microsoft Docs'
+title: 'De reserveringskorting plan SUSE-en-gebruik: Azure | Microsoft Docs'
 description: Meer informatie over hoe SUSE plan kortingen zijn toegepast op SUSE-software op virtuele machines.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863471"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649253"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Begrijpen hoe de SUSE Linux Enterprise-hulpprogramma voor het abonnement van de software-reserveringskorting wordt toegepast voor Azure
 
 Nadat u een SUSE Linux-abonnement koopt, wordt de korting wordt automatisch toegepast op geïmplementeerde SUSE virtuele machines (VM's) die overeenkomen met de reservering. Een plan voor SUSE Linux dekt de kosten van het uitvoeren van de SUSE-software op een Azure-VM.
 
 Als u wilt het juiste SUSE Linux-abonnement kopen, moet u begrijpen welke SUSE virtuele machines die u uitvoert en het aantal vcpu's op deze virtuele machines. Gebruik de volgende secties voor het identificeren van uw CSV-bestand van het gebruik van wat van plan bent om te kopen.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>Korting geldt voor verschillende VM-grootten met een grootte-instantieflexibiliteit
+## <a name="discount-applies-to-different-vm-sizes"></a>Korting is van toepassing op andere VM-grootten
 
 Net als de gereserveerde VM-instanties, SUSE plannen bieden aankopen instantieflexibiliteit grootte. Dit betekent dat uw korting geldt zelfs wanneer u een virtuele machine met een aantal verschillende vCPU's implementeren. De korting is van toepassing op andere VM-grootten in de software-plan.
 
@@ -40,7 +40,7 @@ Bijvoorbeeld, als u een plan voor SUSE Linux Enterprise Server voor HPC Priority
 
 De verhouding voor 5 of meer vcpu's is 2.6. Dus een reservering voor SUSE met een virtuele machine met 5 of meer vcpu's bevat informatie over een alleen-gedeelte van de softwarekosten voor, die ongeveer 77% is.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>Begrijp uw SUSE VM-Gebruik voordat u een SUSE Linux-abonnement kopen
+## <a name="understand-suse-vm-usage-before-you-buy"></a>SUSE VM-gebruik begrijpen voordat u kopen
 
 De volgende tabellen worden de software-abonnement die kunt u een reservering voor kopen, hun bijbehorende gebruik meters en de verhouding voor elk weergegeven.
 
@@ -133,6 +133,6 @@ Zie voor meer informatie over reserveringen, de volgende artikelen:
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

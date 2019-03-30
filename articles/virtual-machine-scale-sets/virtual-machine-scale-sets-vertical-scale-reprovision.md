@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579747"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648262"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticaal automatisch schalen met virtuele-machineschaalset
 
@@ -98,6 +98,7 @@ Het eerste wat dat u moet doen is een Azure Automation-account dat als host fung
 * [Runbooks verifiëren met een Azure Uitvoeren als-account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Verticaal schalen van Azure Automation-runbooks in uw abonnement importeren
+
 De runbooks die nodig zijn voor uw schaalsets voor virtuele machines verticaal schalen zijn al gepubliceerd in de Azure Automation Runbook Gallery. Als u wilt importeren Volg in uw abonnement de stappen in dit artikel:
 
 * [Runbook- en modulegalerieën voor Azure Automation](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ De runbooks die moeten worden geïmporteerd, worden weergegeven. Selecteer het r
 ![Runbookgalerie][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Een webhook toevoegen aan uw runbook
+
 Nadat u de runbooks hebt geïmporteerd, moet u een webhook toevoegen aan het runbook, zodat deze kan worden geactiveerd door een waarschuwing van een virtuele-machineschaalset. De details van het maken van een webhook voor het Runbook worden beschreven in dit artikel:
 
 * [Azure Automation-webhooks](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Nadat u de runbooks hebt geïmporteerd, moet u een webhook toevoegen aan het run
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Een waarschuwing toevoegen aan uw virtuele-machineschaalset
+
 Hieronder wordt een PowerShell-script dat laat zien hoe u een waarschuwing toevoegen aan een virtuele-machineschaalset ingesteld. Raadpleeg het volgende artikel om op te halen van de naam van de metrische waarde voor het starten van de waarschuwing in: [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Zie de volgende artikelen voor meer informatie over het maken van waarschuwingen
 * [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Samenvatting
+
 In dit artikel hebt u geleerd eenvoudige voorbeelden van verticaal schalen. Met deze bouwstenen - Automation-account, runbooks, webhooks, waarschuwingen - kunt u verbinding maken met een uitgebreid scala aan gebeurtenissen met een aangepaste set acties.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

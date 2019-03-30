@@ -4,17 +4,21 @@ description: Bevat informatie over upgrades voor het Azure Migrate Collector-app
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484505"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648670"
 ---
 # <a name="collector-appliance-updates"></a>Updates van collector-apparaat
+
+In dit artikel bevat een overzicht van de upgrade-informatie voor de Collector-apparaat in [Azure Migrate](migrate-overview.md).
+
+De Azure Migrate Collector is een lichtgewicht apparaat dat wordt gebruikt voor het detecteren van een on-premises vCenter-omgeving voor evaluatiedoeleinden vóór de migratie naar Azure. [Meer informatie](concepts-collector.md).
 
 ## <a name="how-to-upgrade-the-appliance"></a>Upgrade uitvoeren van het apparaat
 
@@ -33,11 +37,19 @@ U kunt de Collector upgraden naar de meest recente versie zonder het ova-bestand
 
 ## <a name="collector-update-release-history"></a>Releasegeschiedenis van collector bijwerken
 
-In dit artikel bevat een overzicht van de upgrade-informatie voor de Collector-apparaat in [Azure Migrate](migrate-overview.md).
-
-De Azure Migrate Collector is een lichtgewicht apparaat dat wordt gebruikt voor het detecteren van een on-premises vCenter-omgeving voor evaluatiedoeleinden vóór de migratie naar Azure. [Meer informatie](concepts-collector.md).
-
 ### <a name="continuous-discovery-upgrade-versions"></a>Continue detectie: Upgrade-versies
+
+#### <a name="version-101014-released-on-03292019"></a>Versie 1.0.10.14 (uitgebracht op 29-03/2019)
+
+Er zijn enkele verbeteringen van de gebruikersinterface bevat.
+
+Hash-waarden voor de upgrade [1.0.10.14 pakket](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>Versie 1.0.10.12 (uitgebracht op 03/13/2019)
 

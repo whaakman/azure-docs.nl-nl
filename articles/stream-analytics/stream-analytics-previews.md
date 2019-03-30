@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902872"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630391"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -54,10 +54,6 @@ De volgende functies zijn in de beperkte Preview-versie.
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>C# aangepaste deserializer voor Azure Stream Analytics op IoT Edge
 
 Ontwikkelaars kunnen nu aangepaste deserializers in C# voor het deserialiseren van gebeurtenissen die worden ontvangen door Azure Stream Analytics implementeren. Voorbeelden van indelingen die kunnen worden gedeserialiseerd zijn Parquet, Protobuf, XML of een binaire indeling.
-
-### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Beheerde identiteiten voor Azure-resource-verificatie met Azure Data Lake Storage
-
-U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources op basis van verificatie tijdens het schrijven naar Azure Data Lake Storage Gen1 uitvoeren zodat u kunt taken via een programma te maken. Ga voor meer informatie naar [identiteiten beheerde gebruiken voor Azure-resources te verifiëren Azure Stream Analytics-taken naar Azure Data Lake Storage-Gen1 uitvoer](stream-analytics-managed-identities-adls.md).
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code for Azure Stream Analytics
 

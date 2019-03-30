@@ -4,7 +4,7 @@ description: Inleiding tot de Service Fabric Reliable Actors-programmeermodel.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258058"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668667"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Inleiding tot Service Fabric Reliable Actors
 Reliable Actors is een Service Fabric-toepassingsframework op basis van de [virtuele Actor](https://research.microsoft.com/en-us/projects/orleans/) patroon. De betrouwbare actoren-API biedt een single-threaded programming model gebouwd op de schaalbaarheid en betrouwbaarheid garanties geboden door de Service Fabric.
@@ -37,7 +37,7 @@ Hoewel de actor ontwerpen patroon kan worden een goede aanpassen aan een aantal 
 * Uw actorexemplaren niet aanroepfuncties met onvoorspelbare vertragingen worden geblokkeerd door uitgifte van i/o-bewerkingen.
 
 ## <a name="actors-in-service-fabric"></a>Actoren in Service Fabric
-In Service Fabric, actors zijn geïmplementeerd in het kader van Reliable Actors: een actor-patroon gebaseerde toepassingsframework gebouwd boven [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Elke Reliable Actor-service die u schrijft is eigenlijk een gepartitioneerde, stateful betrouwbare Service.
+Actoren worden in Service Fabric geïmplementeerd in Reliable Actors framework: Een actor-patroon gebaseerde toepassingsframework gebouwd boven [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Elke Reliable Actor-service die u schrijft is eigenlijk een gepartitioneerde, stateful betrouwbare Service.
 
 Elke actor wordt gedefinieerd als een exemplaar van een actortype, identiek zijn aan de manier waarop die een .NET-object een exemplaar van een .NET-type is. Bijvoorbeeld, kan er een actortype waarmee de functionaliteit van een Rekenmachine en kunnen er veel actoren van dat type die op verschillende knooppunten in een cluster worden gedistribueerd. Elke dergelijke actor wordt uniek geïdentificeerd door een actor-ID.
 

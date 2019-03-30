@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106641"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652147"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: Uitpakken, verbinden en ontgrendelen van Azure Data Box-schijf
 
@@ -90,7 +90,7 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. Voer `DataBoxDiskUnlock.exe` uit en geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#Connect-to-disks-and-get-the-passkey). De stationsletter die is toegewezen aan de schijf wordt weergegeven. Hieronder ziet u een voorbeeld van de uitvoer.
+6. Voer `DataBoxDiskUnlock.exe` uit en geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#connect-to-disks-and-get-the-passkey). De stationsletter die is toegewezen aan de schijf wordt weergegeven. Hieronder ziet u een voorbeeld van de uitvoer.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
      OpenSSL is already installed.
      ```
 
-6. Voer het ontgrendelingsprogramma van Data Box Disk uit. Geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#Connect-to-disks-and-get-the-passkey). Geef eventueel een lijst van met BitLocker versleutelde volumes op die u wilt ontgrendelen. De wachtwoordcode en de lijst moeten tussen enkele aanhalingstekens staan. 
+6. Voer het ontgrendelingsprogramma van Data Box Disk uit. Geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#connect-to-disks-and-get-the-passkey). Geef eventueel een lijst van met BitLocker versleutelde volumes op die u wilt ontgrendelen. De wachtwoordcode en de lijst moeten tussen enkele aanhalingstekens staan. 
 
     Typ de volgende opdracht.
  

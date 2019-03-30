@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 3/25/2019
+ms.date: 3/29/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: be490299d09e396e4bc589ebf777f64ce084d320
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418717"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629957"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -81,7 +81,7 @@ Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken nie
 |Het verplaatsen van een firewall naar een andere resourcegroep of een ander abonnement wordt niet ondersteund|Het verplaatsen van een firewall naar een andere resourcegroep of een ander abonnement wordt niet ondersteund.|Ondersteuning van deze functionaliteit staat op de planning. Om een firewall naar een andere resourcegroep of ander abonnement verplaatsen, moet u het huidige exemplaar verwijderen en deze vervolgens opnieuw maken in de nieuwe resourcegroep of het nieuwe abonnement.|
 |Poortbereik in netwerk- en toepassingsregels|Het aantal poorten is beperkt tot 64.000 omdat hoge poorten zijn gereserveerd voor beheer en statustests. |We zijn bezig om deze beperking te versoepelen.|
 |Waarschuwingen van Threat intelligence mogelijk ophalen gemaskeerd.|Netwerkregels met doel 80/443 voor uitgaande filteren maskers threat intelligence waarschuwingen wanneer geconfigureerd voor de waarschuwing alleen-modus.|Maak met behulp van regels voor het toepassen van 80/443 uitgaande filteren. Of wijzig de modus threat intelligence voor **waarschuwen en weigeren**.|
-
+|Firewall van Azure maakt gebruik van Azure DNS alleen voor het omzetten van|Firewall van Azure wordt omgezet FQDN-namen alleen met behulp van Azure DNS. Een aangepaste DNS-server wordt niet ondersteund. Er is geen invloed op DNS-omzetting in andere subnetten.|We zijn bezig om deze beperking te versoepelen.
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zelfstudie: Azure Firewall implementeren en configureren met Azure Portal](tutorial-firewall-deploy-portal.md)

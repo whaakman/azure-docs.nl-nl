@@ -4,15 +4,15 @@ description: In dit artikel bevat een overzicht van veelgestelde vragen bij het 
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312050"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649880"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -34,6 +34,9 @@ Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een be
 3. [Herstel na noodgevallen instellen voor virtuele Azure-machines](azure-to-azure-how-to-enable-replication.md)
 4. [Een testfailover uitvoeren](azure-to-azure-tutorial-dr-drill.md)
 5. [Failover en failback uitvoeren naar de primaire regio](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hoe kan capaciteit gegarandeerd in de doelregio voor Azure VM's?
+Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
 
 ## <a name="replication"></a>Replicatie
 
@@ -79,7 +82,7 @@ Hiermee worden de instellingen voor de bewaargeschiedenis van herstelpunten en d
 [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Wat is een crash-consistente herstelpunt?
-Een crash-consistente herstelpunt vertegenwoordigt de gegevens op de schijf als de virtuele machine is vastgelopen of het netsnoer is opgehaald uit de server gelijktijdig met de momentopname werd gemaakt. Deze bevat geen iets dat in het geheugen was toen de momentopname werd gemaakt. 
+Een crash-consistente herstelpunt vertegenwoordigt de gegevens op de schijf als de virtuele machine is vastgelopen of het netsnoer is opgehaald uit de server gelijktijdig met de momentopname werd gemaakt. Deze bevat geen iets dat in het geheugen was toen de momentopname werd gemaakt.
 
 Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente momentopnamen. Een crash-consistente herstelpunt is meestal genoeg voor niet-database-besturingssystemen en toepassingen, zoals bestandsservers, DHCP-servers en afdrukservers.
 
@@ -87,9 +90,7 @@ Vandaag de dag kunnen de meeste toepassingen herstellen van crash-consistente mo
 Site Recovery maakt een crash-consistente herstelpunt om de 5 minuten.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Wat is een toepassingsconsistente herstelpunt? 
-Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente herstelpunten vastleggen dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties. 
-
-Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
+Toepassingsconsistente herstelpunten zijn gemaakt op basis van toepassingsconsistente momentopnamen. Toepassingsconsistente herstelpunten vastleggen dezelfde gegevens als crash-consistente momentopnamen, met de toevoeging van alle gegevens in het geheugen en alle lopende transacties. Vanwege de extra inhoud toepassingsconsistente momentopnamen zijn het meest betrokken en nemen de langste om uit te voeren. Het wordt aangeraden de toepassingsconsistente herstelpunten voor database-besturingssystemen en toepassingen, zoals SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Wat zijn de gevolgen van toepassingsconsistente herstelpunten op de prestaties van toepassingen?
 Overweegt toepassingsconsistente herstelpunten bevat alle gegevens in het geheugen en in proces hiervoor het framework zoals VSS in windows stilleggen de toepassing. Dit, kan als heel vaak gedaan hebben invloed op de prestaties als de werkbelasting al bezet is. Is doorgaans het nodig om niet te gebruiken met lage frequentie voor app-consistente herstelpunten voor niet-workloads van databases en zelfs voor database-workload 1 uur is dit voldoende. 
@@ -116,8 +117,8 @@ Het oudste herstelpunt dat u kunt gebruiken is dit 72 uur.
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Wat gebeurt er als ik een beleid voor replicatie van 24 uur en een probleem wordt voorkomen dat Site Recovery genereren herstelpunten gedurende meer dan 24 uur? Mijn vorige herstelpunten verloren?
 Nee, Site Recovery houdt uw vorige herstelpunten. Afhankelijk van de bewaarperiode voor herstelpunten van herstel, vervangt 24 uur in dit geval, Site Recovery oudste herstelpunt alleen als er een generatie van nieuwe punten. In dit geval, omdat er geen nieuw herstelpunt gegenereerd vanwege een probleem opgetreden tijdens, blijven de oude punten intact wanneer we het venster retentie bereiken.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Nadat de replicatie is ingeschakeld op een virtuele machine, hoe kan ik wijzigen het replicatiebeleid? 
-Ga naar **Site Recovery-kluis** > **Site Recovery-infrastructuur** > **replicatiebeleid**. Selecteer het beleid dat u wilt bewerken en de wijzigingen niet opslaan. Een wijziging wordt toegepast op alle bestaande replicaties te. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Nadat de replicatie is ingeschakeld op een virtuele machine, hoe kan ik wijzigen het replicatiebeleid?
+Ga naar **Site Recovery-kluis** > **Site Recovery-infrastructuur** > **replicatiebeleid**. Selecteer het beleid dat u wilt bewerken en de wijzigingen niet opslaan. Een wijziging wordt toegepast op alle bestaande replicaties te.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Zijn alle herstelpunten voor een volledige kopie van de virtuele machine of een differentiële?
 Het eerste herstelpunt dat gegenereerd, is de volledige kopie. Opeenvolgende herstelpunten hebben deltawijzigingen.
@@ -125,7 +126,7 @@ Het eerste herstelpunt dat gegenereerd, is de volledige kopie. Opeenvolgende her
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Is de bewaarperiode van herstelpunten vergroot de opslagkosten?
 Ja. Als u de bewaarperiode van 24 uur tot 72 uur verhoogt, kan Site Recovery wordt de herstelpunten opslaan voor een aanvullende 48 uur. Storage-kosten in rekening worden gebracht door de tijd toegevoegd. Bijvoorbeeld, als een enkel herstelpunt deltawijzigingen van 10 GB heeft en de kosten per GB per maand $0.16 is, zou de extra kosten $1.6 * 48 per maand.
 
-## <a name="multi-vm-consistency"></a>Multi-VM-consistentie 
+## <a name="multi-vm-consistency"></a>Multi-VM-consistentie
 
 ### <a name="what-is-multi-vm-consistency"></a>Wat is een Multi-VM-consistentie?
 Dit betekent dat ervoor te zorgen dat het herstelpunt dat consistent voor alle gerepliceerde virtuele machines is.
@@ -134,7 +135,7 @@ Alle virtuele machines hebben gedeelde crash-consistente en toepassingsconsisten
 Lees de zelfstudie voor [Multi-VM-consistentie inschakelen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan ik één virtuele machine in de replicatiegroep van een Multi-VM-consistentie failover?
-Als u de optie "Multi-VM-consistentie" selecteert, worden u aangeeft dat de toepassing is afhankelijk van de virtuele machines binnen een groep. Daarom kan de failover van één virtuele machine is niet toegestaan. 
+Als u de optie "Multi-VM-consistentie" selecteert, worden u aangeeft dat de toepassing is afhankelijk van de virtuele machines binnen een groep. Daarom kan de failover van één virtuele machine is niet toegestaan.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Het aantal virtuele machines kan ik repliceren als onderdeel van de replicatiegroep van een Multi-VM-consistentie
 U kunt 16 virtuele machines repliceren samen in een replicatiegroep.
@@ -145,9 +146,12 @@ Omdat het CPU-intensieve, kan Multi-VM-consistentie inschakelen werkbelasting pr
 
 ## <a name="failover"></a>Failover
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hoe kan capaciteit gegarandeerd in de doelregio voor Azure VM's?
+Het team van Azure Site Recovery (ASR) werkt met Azure capaciteit management-team om te plannen voor voldoende infrastructuurcapaciteit, in een poging om ervoor te zorgen dat virtuele machines die zijn beveiligd met ASR voor disaster recovery met succes worden geïmplementeerd in de regio van het herstel na noodgevallen Wanneer de ASR-failoverbewerkingen worden geïnitieerd.
+
 ### <a name="is-failover-automatic"></a>Vindt failover automatisch plaats?
 
-Failover wordt niet automatisch uitgevoerd. U start failover met één klik in de portal of kunt u [PowerShell](azure-to-azure-powershell.md) dat een failover wordt geactiveerd. 
+Failover wordt niet automatisch uitgevoerd. U start failover met één klik in de portal of kunt u [PowerShell](azure-to-azure-powershell.md) dat een failover wordt geactiveerd.
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Kan ik een openbaar IP-adres behouden na een failover?
 
@@ -158,7 +162,8 @@ Ja, kunt u een privé IP-adres behouden. Bij het inschakelen van herstel na Nood
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Na een failover hebben niet de server hetzelfde IP-adres als de bron-VM. Waarom wordt er een nieuw IP-adres toegewezen?
 
-Site Recovery probeert te bieden van het IP-adres op het moment van failover. Als een andere virtuele machine dit adres duurt, wordt de eerstvolgende beschikbare IP-adres in Site Recovery ingesteld als het doel. Zie voor een volledige uitleg over hoe Site Recovery omgaat met adressering [instellen van netwerktoewijzing en IP-adressen voor virtuele netwerken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Site Recovery probeert te bieden van het IP-adres op het moment van failover. Als een andere virtuele machine dit adres duurt, wordt de eerstvolgende beschikbare IP-adres in Site Recovery ingesteld als het doel.
+Zie voor een volledige uitleg over hoe Site Recovery omgaat met adressering [instellen van netwerktoewijzing en IP-adressen voor virtuele netwerken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Wat zijn **nieuwste (laagste RPO)** herstelpunten?
 De **nieuwste (laagste RPO)** optie verwerkt eerst alle gegevens die is verzonden naar de Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar deze. Deze optie biedt het laagste beoogde herstelpunt (RPO), omdat de virtuele machine gemaakt nadat failover de gegevens die zijn gerepliceerd naar de Site Recovery is wanneer de failover werd geactiveerd.
@@ -173,7 +178,7 @@ De **laatst verwerkt** optie mislukt op alle virtuele machines in het plan naar 
 U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft niet de connectiviteit van de primaire regio om uit te voeren van de failover.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Wat is een RTO van een virtuele machine failover?
-Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie. 
+Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie.
 
 ## <a name="recovery-plans"></a>Herstelplannen
 
@@ -188,7 +193,7 @@ Een plan voor herstel in Site Recovery coördineert het failoverherstel van virt
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Hoe wordt de sequentiëren van een herstelplan te gaan bereikt?
 
-U kunt meerdere groepen voor het bereiken van sequentiëren maken in een plan voor herstel. Elke groep failover in één keer wordt uitgevoerd. Virtuele machines die deel van de dezelfde groep mislukt uitmaken via samen, gevolgd door een andere groep. Zie voor informatie over het model van een toepassing met behulp van een herstelplan, [over plannen voor herstel](recovery-plan-overview.md#model-apps). 
+U kunt meerdere groepen voor het bereiken van sequentiëren maken in een plan voor herstel. Elke groep failover in één keer wordt uitgevoerd. Virtuele machines die deel van de dezelfde groep mislukt uitmaken via samen, gevolgd door een andere groep. Zie voor informatie over het model van een toepassing met behulp van een herstelplan, [over plannen voor herstel](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Hoe vind ik de RTO bepaalt van een herstelplan?
 Om te controleren of de RTO bepaalt van een herstelplan, voer een failovertest uit voor het herstelplan te gaan en gaat u naar **Site Recovery-taken**.
@@ -199,7 +204,7 @@ In het volgende voorbeeld heeft de taak met de naam SAPTestRecoveryPlan 8 minute
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>Kan ik automation-runbooks toevoegen aan het herstelplan te gaan?
 Ja, kunt u Azure Automation-runbooks integreren in uw plan voor herstel. [Meer informatie](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>Opnieuw beveiligen en failback 
+## <a name="reprotection-and-failback"></a>Opnieuw beveiligen en failback
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Na een failover van de primaire regio naar een Dr-regio, zijn virtuele machines in een DR-regio automatisch beveiligd?
 Nee. Wanneer u [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure-VM's van de ene regio naar een andere, de virtuele machines starten in de DR-regio's in een niet-beveiligde status. Als u wilt uitvoeren van een failback de VM's naar de primaire regio, moet u [opnieuw beveiligen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) de virtuele machines in de secundaire regio.
@@ -208,7 +213,7 @@ Nee. Wanneer u [failover](https://docs.microsoft.com/azure/site-recovery/azure-t
 Dat hangt ervan af op de situatie. Bijvoorbeeld, als de bronregio VM bestaat, zijn alleen de wijzigingen tussen de bronschijf en de doelschijf gesynchroniseerd. Site Recovery de verschillen worden berekend door het vergelijken van de schijven en vervolgens worden de gegevens worden overgebracht. Dit proces duurt normaal gesproken een paar uur. Zie voor meer informatie over wat er tijdens het opnieuw beveiligen gebeurt [Azure-VM's opnieuw beveiligen een failover naar de primaire regio]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hoeveel tijd doet het allemaal voor failback van toets maken?
-Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio. 
+Na het opnieuw beveiligen is de hoeveelheid tijd voor failback meestal vergelijkbaar met de tijd voor de failover van de primaire regio naar een secundaire regio.
 
 ## <a name="capacity"></a>Capaciteit
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Werkt Site Recovery met gereserveerde instantie?

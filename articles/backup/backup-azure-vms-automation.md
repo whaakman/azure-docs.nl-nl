@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578880"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629598"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
@@ -184,10 +184,18 @@ Een back-protection-beleid is gekoppeld aan ten minste één beleid voor Gegeven
 - De [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) met de cmdlet maakt een PowerShell-object dat back-upbeleid informatie bevat.
 - De beleidsobjecten schema en de retentie worden gebruikt als invoer voor de cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-Het volgende voorbeeld wordt het beleid voor planning en het bewaarbeleid in variabelen. Het voorbeeld deze variabelen worden gebruikt voor het definiëren van de parameters bij het maken van een beveiligingsbeleid *NewPolicy*.
+Standaard is een begintijd gedefinieerd in het groepsbeleidsobject van de planning. Gebruik het volgende voorbeeld om te wijzigen van de begintijd in de gewenste starttijd. De gewenste starttijd moet ook zijn in UTC. Het onderstaande voorbeeld wordt ervan uitgegaan dat de gewenste starttijd 01:00 uur UTC voor dagelijkse back-ups.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+Het volgende voorbeeld wordt het beleid voor planning en het bewaarbeleid in variabelen. Het voorbeeld deze variabelen worden gebruikt voor het definiëren van de parameters bij het maken van een beveiligingsbeleid *NewPolicy*.
+
+```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```

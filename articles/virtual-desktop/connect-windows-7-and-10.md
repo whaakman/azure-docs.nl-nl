@@ -1,24 +1,27 @@
 ---
 title: Verbinding maken met virtuele Windows Desktop Preview met Windows 7 en Windows 10 - Azure
-description: Klik hier voor meer informatie over het verbinding maken met de Windows virtuele bureaublad Preview-client met Windows 7 of Windows 10.
+description: Klik hier voor meer informatie over het verbinding maken met de service Windows Virtual Desktop Preview met Windows 7 of Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399729"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630382"
 ---
 # <a name="connect-with-windows-7-and-windows-10"></a>Verbinding maken met Windows 7 en Windows 10
 
 > Van toepassing op Windows 7 en Windows 10.
 
 Een downloadbare client beschikbaar is dat toegang biedt tot Windows Virtual Desktop Preview resources op apparaten met Windows 7 en Windows 10.
+
+> [!IMPORTANT]
+> Gebruik geen **RemoteApp- en bureaublad-verbindingen (RADC)** of **Remote Desktop Connection (MSTSC)** voor toegang tot resources van de virtuele Windows-bureaublad omdat de client biedt geen ondersteuning voor virtuele Windows-bureaublad.
 
 ## <a name="install-the-client"></a>De client installeren
 
@@ -30,21 +33,17 @@ De lijst van beschikbare resources voor u ophalen vanaf uw lokale PC Abonneer u 
 
 Om u te abonneren op een feed:
 
-1. Start de client uit de lijst met alle Apps, gaat u naar de extern bureaublad.
-2. Selecteer een werk- of schoolaccount account op de hoofdpagina. Dit zal zich abonneren op de standaard URL-feed.
-   - U kunt ook een andere URL opgeven indien nodig met de **in plaats daarvan gebruikt u een URL** optie.
-3. Meld u aan met uw gebruikersaccount.
-
-> [!NOTE]
-> Als uw beheerder heeft ingesteld e-discovery, de client wordt automatisch zoeken uw feed-URL wanneer u uw e-mailadres invoeren.
+1. Start de client uit de lijst met alle Apps, zoekt u naar voor **extern bureaublad**.
+1. Selecteer **abonneren** op de hoofdpagina verbinding maken met de service en uw resources ophalen.
+1. **Meld u aan** met uw gebruikersaccount wanneer u hierom wordt gevraagd.
 
 Verificatie is gelukt, ziet u nu een lijst van beschikbare resources voor u.
 
 U kunt resources starten door een van twee methoden.
 
-- Ga naar de hoofdpagina van de client en selecteert u een resource.
+- Dubbelklik op een bron uit voor het starten van de hoofdpagina van de client.
 - Start een resource, zoals u gewend andere apps vanuit het Menu Start.
-  -  U kunt ook zoeken naar de apps in de zoekbalk.
+  - U kunt ook zoeken naar de apps in de zoekbalk.
 
 ## <a name="update-the-client"></a>De client bijwerken
 

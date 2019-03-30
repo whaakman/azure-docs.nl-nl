@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649808"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -129,7 +129,7 @@ Herstellen in de regio-abonnement-zone. | Wordt niet ondersteund.
 Herstellen naar een bestaande virtuele machine | Gebruik de optie schijf vervangen.
 Schijf herstellen met de storage-account voor Azure Storage Service Encryption (SSE) ingeschakeld | Wordt niet ondersteund.<br/><br/> Herstellen naar een account dat beschikt niet over SSE ingeschakeld.
 Herstellen naar gemengde storage-accounts | Wordt niet ondersteund.<br/><br/> Op basis van het opslagaccounttype, wordt alle herstelde schijven worden premium of standard en geen gemengde.
-Herstellen naar storage-account met behulp van de zone-redundante opslag (ZRS) | Wordt niet ondersteund.
+Herstellen naar storage-account met behulp van de zone-redundante opslag (ZRS) | Ondersteund (voor virtuele machine die wordt een back-up na januari 2019 en waar [binnen een beschikbaarheidszone](https://azure.microsoft.com/global-infrastructure/availability-zones/) beschikbaar zijn)
 VM herstellen rechtstreeks aan een beschikbaarheidsset | Voor beheerde schijven, kunt u de schijf herstellen en de beschikbaarheid van set-optie gebruiken in de sjabloon.<br/><br/> Niet ondersteund voor niet-beheerde schijven. Voor niet-beheerde schijven, de schijf herstellen en vervolgens een virtuele machine maken in de beschikbaarheidsset.
 Back-up van niet-beheerde virtuele machines herstellen na een upgrade naar VM beheerd| Ondersteund.<br/><br/> U kunt schijven herstellen en vervolgens een beheerde virtuele machine te maken.
 Virtuele machine voor het herstellen van punt voordat de virtuele machine is gemigreerd naar beheerde schijven terugzetten | Ondersteund.<br/><br/> U herstellen naar niet-beheerde schijven (standaard), de herstelde schijven converteren naar beheerde schijf en een virtuele machine maken met de beheerde schijven.
@@ -149,6 +149,7 @@ Maak een back-up van virtuele machines die zijn geïmplementeerd in een [schaals
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Gepubliceerd door Microsoft, van derden) |  Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit een aangepaste installatiekopie (derde) |   Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die worden gemigreerd naar Azure  | Ondersteund.<br/><br/> Als u wilt back-up van de virtuele machine, moet de VM-agent worden geïnstalleerd op de gemigreerde machine.
+Back-up van virtuele machines consistentie | niet ondersteund. <br/><br/>Azure Backup biedt geen ondersteuning voor meerdere VM's.
 
 
 
@@ -165,6 +166,7 @@ Schijven met Write Accelerator is ingeschakeld | Wordt niet ondersteund.<br/><br
 Back-up van ontdubbelde schijven | Wordt niet ondersteund.
 Schijf toevoegen aan beveiligde virtuele machine | Ondersteund.
 Grootte van de schijf op beveiligde virtuele machine wijzigen | Ondersteund.
+Gedeelde opslag| Back-ups van virtuele machines met CSV- of Scale-Out bestandsserver wordt niet aanbevolen. CSV-schrijvers zijn waarschijnlijk zal mislukken.
 
 ## <a name="vm-network-support"></a>Ondersteuning voor VM-netwerken
 

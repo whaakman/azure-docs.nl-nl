@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286581"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652515"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -82,7 +82,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. Nadat uw toepassing wordt weergegeven in de lijst van zakelijke toepassingen, selecteert u deze en klikt u op **eenmalige aanmelding**.
 3. De modus voor één aanmelding instellen op **geïntegreerde Windows-verificatie**.  
 4. Voer de **SPN voor interne toepassing** van de toepassingsserver. In dit voorbeeld is de SPN voor de gepubliceerde toepassing http/www.contoso.com. Deze SPN moet zich in de lijst met services die de connector gedelegeerde referenties kan presenteren. 
-5. Kies de **gedelegeerde Aanmeldingsidentiteit** voor de connector te gebruiken namens uw gebruikers. Zie voor meer informatie, [werken met verschillende on-premises en cloud-identiteiten](#Working-with-different-on-premises-and-cloud-identities)
+5. Kies de **gedelegeerde Aanmeldingsidentiteit** voor de connector te gebruiken namens uw gebruikers. Zie voor meer informatie, [werken met verschillende on-premises en cloud-identiteiten](#working-with-different-on-premises-and-cloud-identities)
 
    ![Geavanceerde configuratie](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

@@ -1,10 +1,10 @@
 ---
-title: 'Testbaarheid: Service communicatie | Microsoft Docs'
-description: Service to service-communicatie is een kritieke integratie van een Service Fabric-toepassing. Dit artikel worden de overwegingen bij het ontwerpen en testen technieken.
+title: 'Testbaarheid: Communicatie-service | Microsoft Docs'
+description: Service-naar-servicecommunicatie is een kritieke integratie van een Service Fabric-toepassing. In dit artikel wordt beschreven overwegingen bij het ontwerpen en testen technieken.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211222"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665743"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric-testbaarheid scenario's: Service-communicatie
-Microservices en architectuur stijlen service oriented vlak natuurlijk in Azure Service Fabric. In deze soorten architecturen voor gedistribueerde, samengestelde microservice toepassingen doorgaans bestaan uit meerdere services die nodig zijn om met elkaar te communiceren. In zelfs de meest eenvoudige gevallen over het algemeen hebt u ten minste een stateless webservice en een opslagservice stateful gegevens die nodig zijn om te communiceren.
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testbaarheidsscenario's: Servicecommunicatie
+Microservices en servicegerichte architectuurstijlen voor aanvallen op een natuurlijke manier in Azure Service Fabric. In deze typen van de gedistribueerde architectuur van samengestelde microservicetoepassingen doorgaans bestaan uit meerdere services die nodig zijn om te communiceren met elkaar. In zelfs de eenvoudigste gevallen hebt u in het algemeen ten minste een stateless webservice en een stateful data storage-service die nodig hebt om te communiceren.
 
-Service to service-communicatie is een kritieke integratie van een toepassing, omdat elke service een externe API met andere services geeft. Werken met een reeks API grenzen waarbij i/o over het algemeen moet zorgvuldig te werk gaan, met een goede hoeveelheid testen en valideren.
+Service-naar-servicecommunicatie is een kritieke integratiepunt van een toepassing, omdat elke service een externe API met andere services beschikbaar stelt. Werken met een set API grenzen die in het algemeen i/o omvat vereist zorgvuldig te werk gaan, met een goede hoeveelheid testen en valideren.
 
-Er zijn talrijke aandachtspunten wanneer deze servicegrenzen samen in een gedistribueerde systeem zijn bekabelde:
+Er zijn talrijke overwegingen bij de servicegrenzen van deze samen in een gedistribueerd systeem zijn bekabelde:
 
-* *Transportprotocol*. Wilt u HTTP voor verbeterde interoperabiliteit of een aangepaste binaire protocol gebruiken voor maximale doorvoer?
+* *Transportprotocol*. U gebruikt HTTP voor verbeterde interoperabiliteit, of een aangepaste binaire protocol voor een maximale doorvoer?
 * *Foutafhandeling*. Hoe wordt permanent en tijdelijke fouten worden verwerkt? Wat gebeurt er wanneer een service wordt verplaatst naar een ander knooppunt?
-* *Time-outs en latentie*. In een toepassingen, hoe elke servicelaag omgaan latentie via de netwerkstack en aan de gebruiker?
+* *Time-outs en latentie*. In een toepassingen, hoe elke servicelaag zorgt latentie via de stack en aan de gebruiker?
 
-Of u een van de onderdelen van de ingebouwde service-communicatie geleverd door de Service Fabric gebruiken of u uw eigen tests de interacties tussen uw services bouwen is van cruciaal belang om ervoor te zorgen tolerantie in uw toepassing.
+Of u een van de onderdelen van de ingebouwde service-communicatie geleverd door de Service Fabric gebruiken of u uw eigen, het testen van de interacties tussen uw services bouwen is van essentieel belang aan het waarborgen van tolerantie in uw toepassing.
 
-## <a name="prepare-for-services-to-move"></a>Voorbereiden op services verplaatsen
-Service-exemplaren kunnen navigeren gedurende een bepaalde periode. Dit geldt met name wanneer ze zijn geconfigureerd met metrische gegevens load balancing optimale resource aangepaste afgestemd. Service Fabric worden verplaatst van uw service-exemplaren de beschikbaarheid ervan maximaliseren zelfs tijdens upgrades, failovers, scale-out en andere situaties die tijdens de levensduur van een gedistribueerde systeem optreden.
+## <a name="prepare-for-services-to-move"></a>Voorbereiden op services te verplaatsen
+Service-exemplaren kunnen na verloop van tijd navigeren. Dit is vooral van toepassing wanneer ze zijn geconfigureerd met metrische gegevens laden voor optimale resource maat taakverdeling. Service Fabric wordt uw service-instanties voor een maximale hun beschikbaarheid, zelfs tijdens upgrades, failover, uitbreidbare en andere situaties die tijdens de levensduur van een gedistribueerd systeem optreden verplaatst.
 
-Als u services zich in het cluster verplaatsen, moeten uw clients en andere services worden voorbereid voor het afhandelen van twee scenario's wanneer ze met een service communiceren:
+Als de services worden verplaatst in het cluster, moeten uw clients en andere services worden voorbereid voor het afhandelen van twee scenario's wanneer ze met een service communiceren:
 
-* De service-exemplaar of partitie replica is verplaatst sinds de laatste keer dat er aan is besproken. Dit is een normaal onderdeel van de levensduur van een service en er gebeurt tijdens de levensduur van uw toepassing moet worden verwacht.
-* De service-exemplaar of partitie replica is bezig te verplaatsen. Hoewel failover van een service van het ene knooppunt naar een andere zeer snel in Service Fabric wordt er mogelijk een vertraging in beschikbaarheid als onderdeel van de communicatie van uw service traag starten.
+* De service-exemplaar of de partitie-replica is verplaatst sinds de laatste keer dat je het toe. Dit is een normaal onderdeel van de levenscyclus van een service en deze worden uitgevoerd tijdens de levensduur van uw toepassing moet worden verwacht.
+* De service-exemplaar of de partitie-replica is verplaatst. Hoewel de failover van een service van het ene knooppunt naar een andere zeer snel in Service Fabric optreedt, kunnen er een vertraging in de beschikbaarheid als onderdeel van de communicatie van uw service langzaam om te starten.
 
-Afhandeling van deze scenario's zonder problemen is belangrijk voor een systeem vloeiend worden uitgevoerd. Om dit te doen, houd rekening met:
+Verwerken van deze scenario's zonder problemen is belangrijk voor een systeem vloeiend worden uitgevoerd. Om dit te doen, houd rekening met het volgende:
 
-* Elke service waarnaar kan worden verbonden met een *adres* die deze luistert op (bijvoorbeeld HTTP of WebSockets). Als u een service-exemplaar of de partitie worden verplaatst, verandert de adres-eindpunt. (Deze wordt verplaatst naar een ander knooppunt met een ander IP-adres.) Als u de ingebouwde communicatie-onderdelen, worden ze opnieuw het omzetten van adressen van de service voor u verwerken.
-* Er is mogelijk een tijdelijke toename in latentie van de service als de service wordt gestart van de listener opnieuw. Dit is afhankelijk van hoe snel de listener door de service wordt geopend nadat het service-exemplaar is verplaatst.
-* De bestaande verbindingen moeten worden gesloten en heropend nadat de service is geopend op een nieuw knooppunt. Opnieuw opstarten of afsluiten van de correcte knooppunt kunt de tijd voor bestaande verbindingen met de juiste manier worden afgesloten.
+* Heeft elke service die kan worden verbonden met een *adres* waarop deze luistert (bijvoorbeeld http- of WebSockets). Als een service-exemplaar of de partitie worden verplaatst, wordt het eindpunt adres verandert. (Wordt verplaatst naar een ander knooppunt met een ander IP-adres.) Als u de ingebouwde communicatie-onderdelen, zorgt ze opnieuw omzetten-mailadressen voor u.
+* Er is mogelijk een tijdelijke toename in latentie-service als de service wordt gestart van de listener opnieuw. Dit is afhankelijk van hoe snel de listener door de service wordt geopend nadat het service-exemplaar is verplaatst.
+* Bestaande verbindingen moeten worden gesloten en heropend nadat de service op een nieuw knooppunt wordt geopend. Opnieuw opstarten of afsluiten van de correcte knooppunt kunt tijd voor bestaande verbindingen zonder problemen worden afgesloten.
 
-### <a name="test-it-move-service-instances"></a>Het testen: service-exemplaren verplaatsen
-Met behulp van Service Fabric-testbaarheid hulpprogramma's, kunt u een Testscenario waarin u deze situaties testen op verschillende manieren maken:
+### <a name="test-it-move-service-instances"></a>Testen: Verplaatsen van service-exemplaren
+Met behulp van Service Fabric testbaarheid hulpprogramma's, kunt u een test-scenario waarin u deze situaties testen op verschillende manieren maken:
 
-1. Verplaats de primaire replica van een stateful service.
+1. De primaire replica van een stateful service verplaatsen.
    
-    De primaire replica van een partitie stateful service kan worden verplaatst voor een aantal redenen. Gebruik deze optie om de primaire replica van een specifieke partitie om te zien hoe uw services op de verplaatsing reageren op een zeer gecontroleerde manier.
+    De primaire replica van de servicepartitie van een stateful kan worden verplaatst om verschillende redenen. Gebruik deze optie om de primaire replica van een specifieke partitie om te zien hoe uw services op de verplaatsing reageren op een zeer gecontroleerde manier.
    
     ```powershell
    
@@ -62,9 +62,9 @@ Met behulp van Service Fabric-testbaarheid hulpprogramma's, kunt u een Testscena
     ```
 2. Een knooppunt stoppen.
    
-    Wanneer een knooppunt is gestopt, worden alle service-exemplaren of partities die zich op dat knooppunt naar een van de andere beschikbare knooppunten in het cluster Service Fabric verplaatst. Gebruik dit voor het testen van een situatie waarbij een knooppunt van het cluster en alle van de service-exemplaren verloren gaan en replica's op dat knooppunt moeten verplaatsen.
+    Wanneer een knooppunt wordt gestopt, worden Service Fabric verplaatst van de service-exemplaren of partities die op dat knooppunt aan een van de andere beschikbare knooppunten in het cluster zijn. Gebruik deze optie voor het testen van een situatie waarbij een knooppunt verloren is gegaan van uw cluster en alle van de service-exemplaren en replica's op dat knooppunt moeten verplaatsen.
    
-    U kunt een knooppunt met behulp van de PowerShell stoppen **Stop ServiceFabricNode** cmdlet:
+    U kunt een knooppunt stoppen met behulp van de PowerShell **Stop-ServiceFabricNode** cmdlet:
    
     ```powershell
    
@@ -72,13 +72,13 @@ Met behulp van Service Fabric-testbaarheid hulpprogramma's, kunt u een Testscena
    
     ```
 
-## <a name="maintain-service-availability"></a>Beschikbaarheid van Services onderhouden
-Service Fabric is ontworpen als een platform voor maximale beschikbaarheid van uw services. Maar in uitzonderlijke gevallen onderliggende infrastructuurproblemen kunnen nog steeds niet beschikbaar zijn. Het is belangrijk te testen voor deze scenario's.
+## <a name="maintain-service-availability"></a>Service-beschikbaarheid
+Als een platform, worden Service Fabric is ontworpen voor maximale beschikbaarheid van uw services. Maar in uitzonderlijke gevallen, problemen met de onderliggende netwerkinfrastructuur kunnen nog steeds niet beschikbaar zijn. Het is belangrijk om te testen voor deze scenario's te.
 
-Stateful services gebruiken een quorum-systeem voor replicatie van de status voor hoge beschikbaarheid. Dit betekent dat een quorum van replica's beschikbaar zijn moet voor het uitvoeren van schrijfbewerkingen. In zeldzame gevallen, zoals een wijdverbreid hardwarefout een quorum van replica's mogelijk niet beschikbaar. In dergelijke gevallen worden geen schrijfbewerkingen uitvoeren, maar worden nog steeds leesbewerkingen uitvoeren.
+Een systeem op basis van een quorum stateful services gebruiken voor het repliceren van de status voor hoge beschikbaarheid. Dit betekent dat een quorum van replica's beschikbaar zijn moet voor het uitvoeren van bewerkingen voor schrijven. In zeldzame gevallen, zoals een wijdverbreide hardware-uitval, een quorum van replica's mogelijk niet beschikbaar. In dergelijke gevallen kunt u zich geen schrijfbewerkingen uitvoeren, maar kunt u zich nog steeds meer bewerkingen uitvoeren.
 
-### <a name="test-it-write-operation-unavailability"></a>Het testen: bewerking onbeschikbaarheid schrijven
-Met de testbaarheid hulpprogramma's in Service Fabric, kunt u een fout die quorumverlies als test induceert invoeren. Hoewel dit scenario zeldzame, is het belangrijk dat clients en -services die afhankelijk van een stateful service zijn zijn voorbereid voor het afhandelen van situaties waar zij aanvragen schrijven kunnen niet maken. Het is ook belangrijk dat de stateful service zelf op de hoogte van deze mogelijkheid is en kan probleemloos voor aanroepers communiceren.
+### <a name="test-it-write-operation-unavailability"></a>Testen: Schrijven van de bewerking niet beschikbaar zijn
+Met behulp van de hulpprogramma's voor testbaarheid in Service Fabric, voert u een fout die quorumverlies als een test induceert. Hoewel dit scenario zeldzaam is, is het belangrijk dat clients en services die afhankelijk van een stateful service zijn bent voorbereid op het verwerken van situaties waarin ze schrijfaanvragen naar deze kunnen niet maken. Het is ook belangrijk dat de stateful service zelf op de hoogte van deze mogelijkheid is en kan zonder problemen voor bellers communiceren.
 
 U kunt quorumverlies veroorzaken met behulp van de PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
@@ -88,10 +88,10 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-In dit voorbeeld wordt ingesteld `QuorumLossMode` naar `QuorumReplicas` om aan te geven dat we quorumverlies willen zonder omlaag alle replica's veroorzaken. Op deze manier leesbewerkingen zijn nog steeds mogelijk. Als u wilt testen in een scenario waarbij een volledige partitie niet beschikbaar is, kunt u deze switch instellen op `AllReplicas`.
+In dit voorbeeld stellen we `QuorumLossMode` naar `QuorumReplicas` om aan te geven dat we quorumverlies willen zonder uitschakelt alle replica's veroorzaken. Op deze manier leesbewerkingen zijn nog steeds mogelijk. Als u wilt testen in een scenario waarbij een hele partitie niet beschikbaar is, kunt u deze switch instellen op `AllReplicas`.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over testbaarheid acties](service-fabric-testability-actions.md)
+[Meer informatie over testbaarheidsacties](service-fabric-testability-actions.md)
 
-[Meer informatie over testbaarheid scenario 's](service-fabric-testability-scenarios.md)
+[Meer informatie over testbaarheidsscenario 's](service-fabric-testability-scenarios.md)
 

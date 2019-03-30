@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116096"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650407"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs in Microsoft Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen
+
 ## <a name="introduction"></a>Inleiding
 Deze zelfstudie wordt uitgelegd hoe u het gebruik van versleuteling van de client-side-opslag met Azure Key Vault. Dit helpt u bij het versleutelen en ontsleutelen van een blob in een consoletoepassing met behulp van deze technologieën.
 
@@ -26,6 +27,7 @@ Zie voor informatie over Azure Key Vault, [wat is Azure Key Vault?](../../key-va
 Zie voor informatie over client-side encryption voor Azure Storage, [Client-Side-versleuteling en Microsoft Azure Storage in Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="prerequisites"></a>Vereisten
+
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * Een Azure Storage-account
@@ -33,6 +35,7 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>Overzicht van de client-side-versleuteling
+
 Zie voor een overzicht van de client-side encryption voor Azure Storage, [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Hier volgt een korte beschrijving van de werking van versleuteling aan de clientzijde:
@@ -43,6 +46,7 @@ Hier volgt een korte beschrijving van de werking van versleuteling aan de client
 4. De versleutelde gegevens wordt vervolgens naar de Azure Storage-service geüpload.
 
 ## <a name="set-up-your-azure-key-vault"></a>Uw Azure Key Vault instellen
+
 Om door te gaan met deze zelfstudie, moet u de volgende stappen uitvoert, worden beschreven in de zelfstudie [wat is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Een sleutelkluis maken.
@@ -55,11 +59,12 @@ Noteer de ClientID en ClientSecret die zijn gegenereerd tijdens het registreren 
 Beide sleutels maken in de key vault. We ervan uitgaan dat voor de rest van de zelfstudie die u hebt de volgende namen hebben gebruikt: ContosoKeyVault en TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Maak een consoletoepassing met pakketten en AppSettings
+
 Maak een nieuwe consoletoepassing in Visual Studio.
 
 Vereiste nuget-pakketten in de Package Manager-Console toevoegen.
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -93,6 +98,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Voeg een methode om een token aan uw consoletoepassing toe
+
 De volgende methode wordt gebruikt door Key Vault-klassen die u nodig hebt om te verifiëren voor toegang tot uw key vault.
 
 ```csharp
@@ -112,6 +118,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Toegang tot opslag en Key Vault in uw programma
+
 Voeg de volgende code in de Main-functie.
 
 ```csharp
@@ -141,6 +148,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>Blob Versleutel en upload
+
 Voeg de volgende code voor het versleutelen van een blob en upload het naar uw Azure storage-account. De **ResolveKeyAsync** methode die wordt gebruikt als resultaat een IKey.
 
 ```csharp
@@ -167,6 +175,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## <a name="decrypt-blob-and-download"></a>Blob ontsleutelen en te downloaden
+
 Ontsleuteling is in feite wanneer met behulp van de klassen conflictoplosser zinvol zijn. De ID van de sleutel die wordt gebruikt voor versleuteling is gekoppeld aan de blob in de metagegevens, dus er is geen reden voor u kunt de sleutel ophalen en vergeet niet dat de koppeling tussen het sleutel- en blob. U hoeft alleen om ervoor te zorgen dat de sleutel in Key Vault blijft.   
 
 De persoonlijke sleutel van een RSA-sleutel blijft in Key Vault, dus voor ontsleuteling optreden, de versleutelde sleutel van de metagegevens van de blob met de CEK worden verzonden naar de Key Vault voor ontsleuteling.
@@ -189,6 +198,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## <a name="use-key-vault-secrets"></a>Gebruik Key Vault-geheimen
+
 De manier waarop het gebruik van een geheim met client-side encryption is via de klasse SymmetricKey omdat een geheim in feite een symmetrische sleutel is. Maar zoals eerder vermeld, een geheim in Key Vault niet kan worden toegewezen aan een SymmetricKey precies. Er zijn een paar dingen om te begrijpen:
 
 * De sleutel in een SymmetricKey heeft een vaste lengte zijn: 128, 192, 256, 384 of 512 bits.
@@ -221,6 +231,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 Dat is alles. Veel plezier!
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor meer informatie over het gebruik van Microsoft Azure Storage met C# [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Zie voor meer informatie over de REST-API voor Blob [REST API voor Blob Service](https://msdn.microsoft.com/library/azure/dd135733.aspx).

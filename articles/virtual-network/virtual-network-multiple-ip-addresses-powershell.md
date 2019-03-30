@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: de2d8bcbf4ca75ad7278ec9fe47a3f55160b7910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082650"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649630"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell
 
@@ -196,7 +196,7 @@ De volgende stappen wordt uitgelegd hoe u een voorbeeld van de virtuele machine 
 
 ## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt persoonlijke en openbare IP-adressen toevoegen aan de interface van de Azure-netwerk via de stappen die volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat u al een virtuele machine met de drie IP-configuraties die worden beschreven hebt in de [scenario](#Scenario) in dit artikel, maar het is niet vereist dat u doen.
+U kunt persoonlijke en openbare IP-adressen toevoegen aan de interface van de Azure-netwerk via de stappen die volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat u al een virtuele machine met de drie IP-configuraties die worden beschreven hebt in de [scenario](#scenario) in dit artikel, maar het is niet vereist dat u doen.
 
 1. Open een PowerShell-opdrachtprompt en voer de overige stappen in deze sectie binnen één PowerShell-sessie. Als u niet al PowerShell is geïnstalleerd en geconfigureerd hebt, voltooit u de stappen in de [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) artikel.
 2. De 'values' van de volgende $Variables wijzigen op de naam van de NIC die u wilt toevoegen van IP-adres en de resourcegroep en locatie de NIC die is opgeslagen in:

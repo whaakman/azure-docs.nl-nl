@@ -1,6 +1,6 @@
 ---
-title: Optimalisatie van uw SQL Server-omgeving met Azure Log Analytics | Microsoft Docs
-description: U kunt met Azure Log Analytics, de oplossing statuscontrole van SQL gebruiken om het risico en de status van uw omgeving op een vast interval vast te stellen.
+title: Optimalisatie van uw SQL Server-omgeving met Azure Monitor | Microsoft Docs
+description: Met Azure Monitor kunt u de oplossing statuscontrole van SQL kunt gebruiken om het risico en de status van uw omgeving op een vast interval vast te stellen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372468"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629127"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing statuscontrole van SQL Server in Log Analytics
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimalisatie van uw SQL-omgeving met de oplossing statuscontrole van SQL Server in Azure Monitor
 
 ![SQL-statuscontrole symbool](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -40,24 +40,24 @@ Nadat u de oplossing hebt toegevoegd en een beoordeling voltooid, samenvatting i
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De oplossing statuscontrole van SQL vereist een ondersteunde versie van .NET Framework 4 zijn geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De MMA-agent wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en de Log Analytics-service.  
+* De oplossing statuscontrole van SQL vereist een ondersteunde versie van .NET Framework 4 zijn geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De MMA-agent wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en Azure Monitor.  
 * De oplossing biedt ondersteuning voor SQL Server-versie 2012, 2014 en 2016.
 * Een Log Analytics-werkruimte om toe te voegen van de oplossing SQL-statuscontrole van de Azure marketplace in Azure portal.  Als u wilt installeren van de oplossing, moet u een beheerder of Inzender in het Azure-abonnement.
 
   > [!NOTE]
-  > Nadat u de oplossing hebt toegevoegd, wordt het bestand AdvisorAssessment.exe toegevoegd aan servers met agents. Configuratiegegevens is gelezen en vervolgens verzonden naar de Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens.
+  > Nadat u de oplossing hebt toegevoegd, wordt het bestand AdvisorAssessment.exe toegevoegd aan servers met agents. Configuratiegegevens is gelezen en vervolgens naar Azure Monitor in de cloud verzonden voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens.
   >
   >
 
-Als u de statuscontrole voor uw SQL Server-servers, hiervoor een agent en de verbinding met Log Analytics met behulp van een van de volgende ondersteunde methodes:
+Als u de statuscontrole voor uw SQL Server-servers, hiervoor een agent en de verbinding met Azure Monitor met een van de volgende ondersteunde methodes:
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) als de server niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
-2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de service Log Analytics, op de server een multihomed met Log Analytics voor het verzamelen van gegevens en door te sturen naar de service en nog steeds kan worden toegepast worden bewaakt door Operations Manager.  
+2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met Azure Monitor, kan de server worden met Log Analytics gegevens verzamelen en doorsturen naar de service en nog steeds multihomed bewaakt door Operations Manager.  
 3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
-De agent op uw SQL-Server die rapporten in een Operations Manager-beheergroep, verzamelt gegevens, worden doorgestuurd naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar de Log Analytics-service.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
+De agent op uw SQL-Server die rapporten in een Operations Manager-beheergroep, verzamelt gegevens verzendt naar de toegewezen beheerserver, en vervolgens rechtstreeks vanaf een beheerserver verzonden naar Azure Monitor.  De gegevens worden niet naar de Operations Manager-databases geschreven.  
 
-Als de SQL-Server wordt bewaakt door Operations Manager, moet u een Operations Manager runas-account configureren. Zie [Operations Manager run as-accounts voor Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) hieronder voor meer informatie.
+Als de SQL-Server wordt bewaakt door Operations Manager, moet u een Operations Manager runas-account configureren. Zie [Operations Manager run as-accounts voor Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) hieronder voor meer informatie.
 
 ## <a name="sql-health-check-data-collection-details"></a>Details van gegevens verzameling SQL-statuscontrole
 SQL-statuscontrole verzamelt gegevens uit de volgende bronnen met behulp van de agent die u hebt ingeschakeld:
@@ -157,43 +157,37 @@ Dat hoeft niet. De aanbevelingen zijn gebaseerd op de kennis en ervaringen die z
 Elke aanbeveling bevat richtlijnen over waarom het belangrijk is. U moet deze handleiding gebruiken om te beoordelen of het implementeren van de aanbeveling geschikt voor u is, gezien de aard van uw IT-services en de zakelijke eisen van uw organisatie.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Gebruik Health Check focus gebied aanbevelingen
-Voordat u een oplossing voor evaluatie in Log Analytics gebruiken kunt, moet u de oplossing die is geïnstalleerd hebben.  Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de SQL-statuscontrole tegel op de pagina van de oplossing in Azure portal.
+Voordat u een oplossing voor evaluatie in Azure Monitor gebruiken kunt, moet u de oplossing die is geïnstalleerd hebben.  Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de SQL-statuscontrole tegel op de **overzicht** pagina voor Azure Monitor in Azure portal.
 
 De beoordelingen samengevatte naleving voor uw infrastructuur en aanbevelingen voor inzoomen in weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een aandachtsgebied weergeven en neemt u corrigerende maatregelen
-1. Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).
-2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-3. In het deelvenster voor abonnementen van Log Analytics een werkruimte selecteren en klik vervolgens op de **overzicht** tegel.  
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ **Monitor** in de lijst met resources. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Monitor**.
+3. In de **Insights** sectie van de in het menu **meer**.  
 4. Op de **overzicht** pagina, klikt u op de **SQL-statuscontrole** tegel.
 5. Op de **statuscontrole** pagina, Controleer de samenvattingsinformatie in een van de focus gebied blades en klik vervolgens op een om aanbevelingen voor die aandachtsgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de aanbevelingen met prioriteit gemaakt voor uw omgeving bekijken. Klik op een aanbeveling onder **betrokken objecten** voor meer informatie over waarom de aanbeveling is gedaan.<br><br> ![afbeelding van aanbevelingen voor de SQL-statuscontrole](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, record hoger beoordelingen die aanbevolen acties zijn uitgevoerd en worden uw nalevingsscore verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
 
 ## <a name="ignore-recommendations"></a>Aanbevelingen negeren
-Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Log Analytics wordt gebruikt om te voorkomen dat de aanbevelingen wordt weergegeven in de resultaten van de evaluatie maken.
+Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Azure Monitor wordt gebruikt om te voorkomen dat de aanbevelingen wordt weergegeven in de resultaten van de evaluatie maken.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Voor het identificeren van de aanbevelingen die u worden genegeerd
-1. In de Azure-portal op de pagina van de Log Analytics-werkruimte voor de geselecteerde werkruimte, klikt u op de **zoeken in logboeken** tegel.
+1. Klik in het menu Azure Monitor op **logboeken**.
 2. Gebruik de volgende query uit om de lijst met aanbevelingen die zijn mislukt voor computers in uw omgeving.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../azure-monitor/log-query/log-query-overview.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
-    Hier volgt een schermafbeelding van de zoeken in Logboeken-query:<br><br> ![mislukte aanbevelingen](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Hier volgt een schermafbeelding van het logboekquery:<br><br> ![mislukte aanbevelingen](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Kies de aanbevelingen die u wilt negeren. U gebruikt de waarden voor RecommendationId in de volgende procedure.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Het maken en gebruiken van een tekstbestand IgnoreRecommendations.txt
 1. Maak een bestand met de naam IgnoreRecommendations.txt.
-2. Plak of typ elke RecommendationId voor elke aanbeveling dat u wilt dat in Log Analytics op een afzonderlijke regel negeren en vervolgens opslaan en sluiten van het bestand.
-3. Plaats het bestand in de volgende map op elke computer waarop u Log Analytics voor het negeren van aanbevelingen.
+2. Plak of typ elke RecommendationId voor elke aanbeveling dat u wilt dat Azure Monitor op een afzonderlijke regel negeren en vervolgens opslaan en sluiten van het bestand.
+3. Plaats het bestand in de volgende map op elke computer waar u Azure-Monitor voor het negeren van aanbevelingen.
    * Op computers met de Microsoft Monitoring Agent (verbonden rechtstreeks of via de Operations Manager) - *SystemDrive*: \Program Files\Microsoft Monitoring Agent\Agent
    * Op de beheerserver van Operations Manager - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Op de beheerserver van Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -203,14 +197,8 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
 2. U kunt de volgende zoeken in Logboeken-query's gebruiken om de genegeerde aanbevelingen weer te geven.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../azure-monitor/log-query/log-query-overview.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
 3. Als u later besluit dat u wilt zien genegeerde aanbevelingen, IgnoreRecommendations.txt bestanden verwijderen of kunt u RecommendationIDs verwijderen uit deze.
 
 ## <a name="sql-health-check-solution-faq"></a>SQL-statuscontrole oplossing Veelgestelde vragen
@@ -263,4 +251,4 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.
+* [Query's bijgehouden](../log-query/log-query-overview.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.

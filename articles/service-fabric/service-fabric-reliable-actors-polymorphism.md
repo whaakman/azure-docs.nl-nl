@@ -1,10 +1,10 @@
 ---
-title: Polymorfisme in het kader Reliable Actors | Microsoft Docs
-description: Maak hiërarchieën van .NET-interfaces en de typen in het kader Reliable Actors functionaliteit en API-definities.
+title: Polymorfisme in Reliable Actors framework | Microsoft Docs
+description: Bouw hiërarchieën van .NET-interfaces en typen in het kader van Reliable Actors-functionaliteit en API-definities opnieuw kunt gebruiken.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209335"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662955"
 ---
-# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfisme in het kader Reliable Actors
-Het framework Reliable Actors kunt u met behulp van veel van dezelfde technieken die u in objectgeoriënteerde ontwerp gebruiken wilt actoren bouwen. Een van deze methoden polymorfisme die kunt typen en interfaces voor het overnemen van meer is gegeneraliseerd ouders. Overname in het kader Reliable Actors volgt doorgaans het .NET-model met een paar extra beperkingen. In geval van een Java-/ Linux volgt het Java-model.
+# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfisme in Reliable Actors-framework
+Het framework Reliable Actors kunt u bouwen met veel van dezelfde technieken die u in objectgeoriënteerde ontwerp gebruiken wilt actoren. Een van deze methoden is polymorfisme zodat typen en -interfaces voor het overnemen van meer ouders gegeneraliseerd. Overname in Reliable Actors framework wordt algemeen volgt het .NET-model met een paar extra beperkingen. In het geval van Java/Linux betekent dit het Java-model.
 
 ## <a name="interfaces"></a>Interfaces
-Het framework Reliable Actors moet u ten minste één interface worden geïmplementeerd door uw actortype definiëren. Deze interface wordt gebruikt voor het genereren van een proxyklasse die door clients kan worden gebruikt om te communiceren met uw actoren. Interfaces kunnen overnemen van andere interfaces, zolang elke interface die wordt geïmplementeerd met een actortype en alle bijbehorende bovenliggende klassen uiteindelijk worden afgeleid van IActor(C#) of Actor(Java). IActor(C#) en Actor(Java) zijn respectievelijk de platform gedefinieerde basisinterfaces voor actoren in de frameworks .NET en Java. Dus in het klassieke polymorfisme voorbeeld met behulp van vormen mogelijk als volgt uitzien:
+Het Reliable Actors-framework, moet u ten minste één interface om te worden geïmplementeerd door uw actortype definiëren. Deze interface wordt gebruikt voor het genereren van een proxyklasse die door clients kan worden gebruikt om te communiceren met uw actoren. Interfaces kunnen overnemen van andere interfaces, zolang elke interface die door een actortype is geïmplementeerd en alle bijbehorende bovenliggende klassen uiteindelijk zijn afgeleid van IActor (C#) of Actor(Java). IActor (C#) en Actor(Java) zijn respectievelijk het platform gedefinieerde basis interfaces voor actoren in de frameworks .NET en Java. Het klassieke polymorfisme-voorbeeld met behulp van shapes ziet dus er ongeveer als volgt uit:
 
-![Hiërarchie van de interface voor vorm actors][shapes-interface-hierarchy]
+![Hiërarchie van de interface voor vorm actoren][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Typen
-U kunt ook een hiërarchie van actor-typen die zijn afgeleid van de basisklasse van Actor die wordt geleverd door het platform maken. In het geval van vormen, moet u wellicht een base `Shape`(C#) of `ShapeImpl`(Java)-type:
+U kunt ook een hiërarchie van de actor-typen die zijn afgeleid van de basisklasse van Actor die wordt geleverd door het platform maken. In het geval van vormen, mogelijk hebt u een base `Shape`(C#) of `ShapeImpl`(Java)-type:
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -49,7 +49,7 @@ public abstract class ShapeImpl extends FabricActor implements Shape
 }
 ```
 
-Subtypes van `Shape`(C#) of `ShapeImpl`(Java) kunt u methoden van de base overschrijven.
+Subtypes van `Shape`(C#) of `ShapeImpl`(Java) methoden van de basis kunt overschrijven.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -92,10 +92,10 @@ public class Circle extends ShapeImpl implements Circle
 }
 ```
 
-Opmerking de `ActorService` kenmerk van het actortype. Dit kenmerk instrueert het betrouwbare Actor-framework dat een service voor het hosten van actoren van dit type automatisch moeten worden gemaakt. In sommige gevallen wilt u mogelijk maken van een basistype dat is uitsluitend bedoeld voor delen functionaliteit met subtypen en nooit instantiëren concrete actoren worden gebruikt. In deze gevallen moet u de `abstract` trefwoord om aan te geven dat u nooit een actor op basis van dat type maakt.
+Houd er rekening mee de `ActorService` -kenmerk op de actortype. Dit kenmerk wordt de Reliable Actor-framework dat een service voor het hosten van actoren van dit type automatisch moeten worden gemaakt. In sommige gevallen wilt u mogelijk maken van een basistype dat is uitsluitend bedoeld voor het delen van functies met subtypen en nooit worden gebruikt voor het starten van concrete actoren. In deze gevallen moet u de `abstract` trefwoord om aan te geven dat u nooit een actor op basis van dat type maakt.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [hoe het framework Reliable Actors maakt gebruik van de Service Fabric-platform](service-fabric-reliable-actors-platform.md) voor betrouwbaarheid, schaalbaarheid en consistente status.
+* Zie [hoe het framework Reliable Actors maakt gebruik van de Service Fabric-platform](service-fabric-reliable-actors-platform.md) voor betrouwbaarheid, schaalbaarheid en een consistente status.
 * Meer informatie over de [actor lifecycle](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->

@@ -4,16 +4,16 @@ description: Leer hoe u met de blauwdrukken voor Azure-resourcevergrendelingen a
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629218"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen
 
@@ -40,7 +40,7 @@ Maak eerst de nieuwe blauwdrukdefinitie.
 
 1. Uit de **aan de slag** pagina aan de linkerkant, selecteer de **maken** knop onder _een blauwdruk maken_.
 
-1. Zoek de **leeg voorbeeld** blauwdruk voorbeeld aan de bovenkant van de pagina en selecteer **dit voorbeeld gebruiken**.
+1. Zoek de **lege blauwdruk** blauwdruk voorbeeld aan de bovenkant van de pagina en selecteer **beginnen met een lege blauwdruk**.
 
 1. Voer de _basisbeginselen_ van de blauwdruk-voorbeeld:
 
@@ -81,7 +81,7 @@ Maak eerst de nieuwe blauwdrukdefinitie.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -182,6 +182,8 @@ De toewijzing van de resourcegroep gemaakt _TestingBPLocks_ en het opslagaccount
 
    De blauwdruktoewijzing gemaakt een [toewijzing weigeren](../../../role-based-access-control/deny-assignments.md) voor de geïmplementeerde resourcegroep om af te dwingen de _alleen-lezen_ blauwdruk lock-modus. De toewijzing weigeren voorkomt dat iemand met de juiste rechten heeft op de _roltoewijzingen_ tabblad uitvoeren van specifieke acties. Is van invloed op de toewijzing weigeren _alle principals_.
 
+   Zie voor meer informatie over het uitsluiten van een principal van een toewijzing weigeren [blauwdrukken resource vergrendelen](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Selecteer de toewijzing weigeren en selecteer vervolgens de **geweigerd machtigingen** pagina aan de linkerkant.
 
    De toewijzing weigeren wordt voorkomen dat alle bewerkingen met de **\*** en **actie** configuratie, maar geeft leestoegang door uit te sluiten  **\* /lezen**via **NotActions**.
@@ -221,9 +223,9 @@ Wanneer u klaar bent met deze zelfstudie, verwijdert u de volgende resources:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md)
-- Informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md)
-- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md).
+- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

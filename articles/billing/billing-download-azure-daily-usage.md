@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872636"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648843"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Weergeven en downloaden van uw Azure-gebruik en kosten
 
@@ -28,7 +28,7 @@ Als u een EA-klant bent of een [Microsoft KLANTOVEREENKOMST](#check-your-access-
 
 Alleen bepaalde functies gemachtigd voor gebruik van Azure-informatie, zoals de accountbeheerder of Enterprise-beheerder. Zie [Toegang tot factureringsgegevens voor Azure beheren](billing-manage-access.md) voor meer informatie over het verkrijgen van toegang tot factureringsgegevens.
 
-Als u hebt een [Microsoft KLANTOVEREENKOMST](#Check-your-access-to-a-Microsoft-Customer-Agreement), u moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager om uw Azure-gebruik en kosten weer te geven. Zie voor meer informatie over facturering rollen voor Microsoft-klant-overeenkomsten, [facturering profiel rollen en taken](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Als u hebt een [Microsoft KLANTOVEREENKOMST](#check-your-access-to-a-microsoft-customer-agreement), u moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager om uw Azure-gebruik en kosten weer te geven. Zie voor meer informatie over facturering rollen voor Microsoft-klant-overeenkomsten, [facturering profiel rollen en taken](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Gebruiksgegevens downloaden via het Accountcentrum (.csv)
 

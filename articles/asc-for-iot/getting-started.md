@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575212"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648313"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Aan de slag met Azure Security Center (ASC) voor IoT 
 
@@ -53,7 +53,7 @@ Voor bewaking van uw apparaat gebruik identiteitsbeheer, het apparaat naar cloud
 
 1. [ASC inschakelen voor IoT-service op uw IoT-Hub](quickstart-onboard-iot-hub.md)
 1. Als uw IoT-Hub geen geregistreerde apparaten heeft [registreren van een nieuw apparaat](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Maken van een module van de beveiliging ascforiot](quickstart-create-security-twin.md) voor uw apparaten. 
+1. [Maken van een module azureiotsecurity beveiliging voor uw apparaten](quickstart-create-security-twin.md) voor uw apparaten. 
 1. Normale gedrag van apparaat- en system via definiëren [aangepaste waarschuwingen](quickstart-create-custom-alerts.md). 
 1. Systeem testen om te controleren of de service en status van apparaten uitvoeren. 
 1. Verken [waarschuwingen](concept-security-alerts.md), [aanbevelingen](concept-recommendations.md), en [gedetailleerde informatie over het gebruik van Log Analytics](how-to-security-data-access.md) met behulp van IoT-Hub. 
@@ -69,8 +69,7 @@ Maakt gebruik van ASC voor IoT enhanced security mogelijkheden, zoals het contro
 1. De agent installeren op een Azure-gesimuleerd apparaat in plaats van installatie op een daadwerkelijk apparaat [draaien van een nieuwe Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in een zone beschikbaar. 
 1. [Een ASC voor IoT security-agent implementeren](how-to-deploy-linux-cs.md) op uw IoT-apparaat of een nieuwe virtuele machine.
 1. Volg de instructies voor [trigger_events](https://aka.ms/iot-security-github-trigger-events) om uit te voeren een simulatie van een aanval onschadelijk.
-1. Controleer of u ASC voor IoT-waarschuwingen in reactie op de gesimuleerde aanval in de vorige stap. 
-    - Beginnen met verificatie van vijf minuten nadat het script is uitgevoerd.
+1. Controleer of u ASC voor IoT-waarschuwingen in reactie op de gesimuleerde aanval in de vorige stap. Beginnen met verificatie van vijf minuten nadat het script is uitgevoerd.
 1. Verken [waarschuwingen](concept-security-alerts.md), [aanbevelingen](concept-recommendations.md), en [gedetailleerde informatie over het gebruik van Log Analytics](how-to-security-data-access.md) met behulp van IoT-Hub. 
 
 ## <a name="next-steps"></a>Volgende stappen

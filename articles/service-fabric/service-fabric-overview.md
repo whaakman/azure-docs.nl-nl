@@ -3,8 +3,8 @@ title: Overzicht van Service Fabric op Azure | Microsoft Docs
 description: Een overzicht van Service Fabric, waar de toepassingen zijn samengesteld uit talloze microservices die schaalbaarheid en flexibiliteit mogelijk maken. Service Fabric is een platform bestaande uit gedistribueerde systemen, dat wordt gebruikt voor het bouwen van schaalbare, betrouwbare en eenvoudig te beheren toepassingen voor de cloud.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: masnider
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
 ms.service: service-fabric
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
-ms.author: msfussell
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4e686d314c1b6550c2c782e9a1e1dc681ff154e1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539680"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666389"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Overzicht van Azure Service Fabric
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Service Fabric biedt ook een oplossing voor de grote uitdaging van het ontwikkelen en beheren van systeemeigen cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Service Fabric is het platform van de nieuwe generatie voor het ontwikkelen en beheren van deze hoogwaardige zakelijke tier-1-toepassingen op cloudschaal die in containers worden uitgevoerd.

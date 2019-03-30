@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI-opdrachten voor telemetrie s
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e0e229f0edb078fe9ce289d0089f34d7cbf9dbf8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 42a82ab0be37f260a48a1da6cecab5120c24d293
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285394"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669262"
 ---
-# <a name="sfctl-settings-telemetry"></a>sfctl instellingen telemetrie
+# <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Telemetrie-instellingen die lokaal zijn voor dit exemplaar van sfctl configureren.
 
 Sfctl telemetrie verzamelt de naam van de opdracht zonder parameters opgegeven of de waarden, sfctl versie, een type besturingssysteem, python-versie, het slagen of mislukken van de opdracht het foutbericht geretourneerd.
@@ -39,10 +39,10 @@ Schakel in- of uitschakelen telemetrie.
 
 |Argument|Description|
 | --- | --- |
-| --uitschakelen | Telemetrie uitschakelen. |
+| --off | Telemetrie uitschakelen. |
 | --op | Schakel telemetrie. Dit is de standaardwaarde. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

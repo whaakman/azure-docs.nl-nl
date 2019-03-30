@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648432"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines met een Azure Resource Manager-sjabloon maken 
 
@@ -30,7 +30,7 @@ In dit artikel wordt beschreven Multi-VM versus één VM-resourcemanager-sjablon
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Multi-VM versus één VM-resourcemanager-sjablonen
-Er zijn twee manieren om te maken van virtuele machines in DevTest Labs met behulp van Resource Manager-sjabloon: inrichten van de resource Microsoft.DevTestLab/labs/virtualmachines of de resource Microsoft.Commpute/virtualmachines inrichten. Elke wordt gebruikt in verschillende scenario's en andere machtigingen vereist.
+Er zijn twee manieren om te maken van virtuele machines in DevTest Labs met behulp van Resource Manager-sjabloon: inrichten van de resource Microsoft.DevTestLab/labs/virtualmachines of de resource Microsoft.Compute/virtualmachines inrichten. Elke wordt gebruikt in verschillende scenario's en andere machtigingen vereist.
 
 - Resource Manager-sjablonen die gebruikmaken van een resourcetype Microsoft.DevTestLab/labs/virtualmachines (zoals opgegeven in de eigenschap 'resource' in de sjabloon) kunnen afzonderlijke lab-virtuele machines inrichten. Elke virtuele machine wordt vervolgens weergegeven als één item in de lijst met DevTest Labs-virtuele machines:
 

@@ -4,7 +4,7 @@ description: Aan de slag met de Service Fabric- invoegtoepassing voor Eclipse.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 82cc8b03bb8f6476602307958174f6724076553b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666933"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 

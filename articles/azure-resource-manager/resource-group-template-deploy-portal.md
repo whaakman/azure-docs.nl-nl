@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816896"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652447"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
 
@@ -134,7 +134,8 @@ De portal kunt u een sjabloon opslaan in uw Azure-account en later opnieuw te im
    ![Opgeslagen sjabloon implementeren](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie bekijken van auditlogboeken [bewerkingen controleren met Resource Manager](./resource-group-audit.md).
-* Zie voor het oplossen van fouten bij de implementatie, [implementatiebewerkingen bekijken](./resource-manager-deployment-operations.md).
-* Als u wilt een sjabloon exporteren uit een implementatie of de resourcegroep, Zie [exporteren van Azure Resource Manager-sjablonen](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Veilig rollout uw service in meerdere regio's Zie [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- Zie bekijken van auditlogboeken [bewerkingen controleren met Resource Manager](./resource-group-audit.md).
+- Zie voor het oplossen van fouten bij de implementatie, [implementatiebewerkingen bekijken](./resource-manager-deployment-operations.md).
+- Als u wilt een sjabloon exporteren uit een implementatie of de resourcegroep, Zie [exporteren van Azure Resource Manager-sjablonen](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Veilig rollout uw service in meerdere regio's Zie [Azure Deployment Manager](./deployment-manager-overview.md).

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268784"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630601"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
 
@@ -84,7 +84,12 @@ Zie [Schema voorbeelden](#event-schema-examples) onderstaande.
 
 ### <a name="track-level-events"></a>Gebeurtenissen bijhouden op toepassingsniveau
 
-Gebeurtenissen bijhouden op toepassingsniveau worden gegenereerd per spoor. De track event-typen zijn:
+Gebeurtenissen bijhouden op toepassingsniveau worden gegenereerd per spoor. 
+
+> [!NOTE]
+> Alle bijhouden op serverniveau gebeurtenissen worden gegenereerd nadat een live encoder is verbonden.
+
+De typen gebeurtenissen bijhouden op serverniveau zijn:
 
 | Gebeurtenistype | Description |
 | ---------- | ----------- |
@@ -92,7 +97,7 @@ Gebeurtenissen bijhouden op toepassingsniveau worden gegenereerd per spoor. De t
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media-server ontvangt de eerste gegevenssegment voor elk nummer in de stroom of de verbinding. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server detecteert audio en video-streams, is niet gesynchroniseerd. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media-server detecteert dat een van de twee video stromen die afkomstig zijn van externe encoders zijn niet synchroon. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Elke 20 seconden voor elk nummer gepubliceerd bij het uitvoeren van live-gebeurtenis. Biedt statussamenvatting opnemen. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Elke 20 seconden voor elk nummer gepubliceerd bij het uitvoeren van live-gebeurtenis. Biedt statussamenvatting opnemen.<br/><br/>Nadat het coderingsprogramma is in eerste instantie verbinding hebt gemaakt, blijft de heartbeat-gebeurtenis verzenden elke 20 per seconde of het coderingsprogramma nog steeds is verbonden of niet. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server detecteert onderbreking in de binnenkomende bijhouden. |
 
 Zie [Schema voorbeelden](#event-schema-examples) onderstaande.

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 2ef5cc702bd5035c958a8feb9b6f5051781cd3cc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518555"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649791"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -103,7 +103,12 @@ Als u wilt de code in de shell plakt, de shell met de rechtermuisknop en selecte
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
-Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Als u opnieuw implementeren, gebruiken de `-RollbackToLastDeployment` of `-RollBackDeploymentName` parameter in de implementatieopdracht.
+Deze functie wordt ook wel bekend als *Rollback bij fout*. Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Als u opnieuw implementeren, gebruiken de `-RollbackToLastDeployment` of `-RollBackDeploymentName` parameter in de implementatieopdracht. Deze functionaliteit is handig als u een bekende goede status voor de Infrastructuurimplementatie van uw gekomen en wilt deze optie om te worden teruggezet naar een. Er zijn een aantal aanvullende opmerkingen en beperkingen:
+
+- Het opnieuw distribueren wordt uitgevoerd, precies zoals deze eerder is uitgevoerd met dezelfde parameters. U kunt de parameters niet wijzigen.
+- De vorige implementatie wordt uitgevoerd met behulp van de [volledige modus](./deployment-modes.md#complete-mode). Alle resources die niet zijn opgenomen in de vorige implementatie worden verwijderd en de resourceconfiguraties zijn ingesteld op de vorige status. Zorg ervoor dat u volledig inzicht in de [implementatiemodi](./deployment-modes.md).
+- Het opnieuw implementeren zijn alleen van invloed op de resources en eventuele wijzigingen in gegevens worden niet beïnvloed.
+- Deze functie wordt alleen ondersteund voor implementaties van de resourcegroep, geen abonnement op implementaties. Zie voor meer informatie over de implementatie voor het niveau van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](./deploy-to-subscription.md).
 
 Als u wilt deze optie gebruikt, moeten uw implementaties unieke namen hebben, zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau root-implementaties. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
 

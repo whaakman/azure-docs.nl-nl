@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313337"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629361"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
@@ -33,7 +33,7 @@ Voordat u begint, moet u [een opslagaccount maken](../../storage/common/storage-
 
 ## <a name="diagnostic-settings"></a>Diagnostische instellingen
 
-Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van een van de onderstaande methoden, stelt u een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics). Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen van elke logboekcategorie en metrische gegevens die zijn opgeslagen in een storage-account. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. 
+Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van een van de onderstaande methoden, stelt u een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics-werkruimte). Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen van elke logboekcategorie en metrische gegevens die zijn opgeslagen in een storage-account. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. 
 
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.

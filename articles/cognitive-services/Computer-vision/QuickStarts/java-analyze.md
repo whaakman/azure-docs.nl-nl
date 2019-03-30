@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311452"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630510"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Een externe afbeelding analyseren met behulp van de Computer Vision REST API en Java
 
@@ -57,8 +57,6 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
    1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
    1. Vervang de waarde van `uriBase` door de eindpunt-URL van de methode [Afbeelding analyseren](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
    1. Vervang eventueel de waarde van `imageToAnalyze` door de URL van een andere afbeelding die u wilt analyseren.
-1. Sla vervolgens het Java-project op en bouw het.
-1. Als u een IDE gebruikt, voert u `Main` uit. Open anders een opdrachtpromptvenster en gebruik de opdracht `java` om de compilatieklasse uit te voeren. Bijvoorbeeld `java Main`.
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>Het programma compileren en uitvoeren
+
+1. Sla vervolgens het Java-project op en bouw het.
+1. Als u een IDE gebruikt, voert u `Main` uit.
+
+Als u het programma in een opdrachtregelvenster uitvoert, u kunt ook de volgende opdrachten uitvoeren. Deze opdrachten wordt ervan uitgegaan dat uw bibliotheken zijn in een map met de naam `libs` die zich in dezelfde map als `Main.java`; als dat niet het geval is, moet u vervangen `libs` met het pad naar uw bibliotheken.
+
+1. Het bestand compileren `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Voer het programma uit. Hiermee wordt de aanvraag verzonden naar de QnA Maker-API om de KB te maken en vervolgens worden elke 30 seconden de resultaten gecontroleerd. Elke reactie wordt afgedrukt op de opdrachtregel-venster.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>Het antwoord bekijken
 

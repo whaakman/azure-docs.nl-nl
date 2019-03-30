@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482909"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652634"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -102,7 +102,7 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
    - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
 4. Als de implementatie nog steeds mislukt, moet u contact op met ondersteuning voor Azure Migrate.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Selecteer het Azure kan niet in de cloud in het toestel
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Selecteer het Azure kan niet in de cloud in het toestel, mislukt met fout 'Azure cloud-selectie is mislukt'
 
 Dit is een bekend probleem en een oplossing is beschikbaar voor het probleem. Download de [nieuwste upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) voor het apparaat en de update het toestel om toe te passen van de oplossing.
 

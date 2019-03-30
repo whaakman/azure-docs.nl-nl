@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 100d2e4cb57f2b2d0278540a0382fb845dbba53c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090471"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649013"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
@@ -97,7 +97,7 @@ Maak vervolgens de cache voor de app.
 
 In deze sectie werkt u de toepassing bij voor de ondersteuning van een nieuwe weergave waarin een eenvoudige test wordt weergegeven op basis van Azure Cache voor Redis.
 
-* [Het web.config-bestand bijwerken met een app-instelling voor de cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Het web.config-bestand bijwerken met een app-instelling voor de cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * De toepassing configureren voor gebruik van de StackExchange.Redis-client
 * De HomeController en lay-out bijwerken
 * Een nieuwe RedisCache-weergave toevoegen

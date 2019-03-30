@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309415"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649083"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
 
 Gebruik dit artikel als richtlijn voor het maken van een client-service die de API testen verbruikt. De API testen kunt u een virtuele machine (VM) om te controleren of deze voldoet aan de meest recente Azure Marketplace publishing vereisten vooraf valideren. Deze client-service kunt u een virtuele machine testen voordat u uw aanbieding voor Microsoft-certificering indienen.
-
 
 ## <a name="development-and-testing-overview"></a>Ontwikkeling en testen-overzicht
 
@@ -41,13 +40,11 @@ De stappen op hoog niveau voor het maken van een client testen zijn:
 
 Nadat u de client hebt gemaakt, kunt u deze testen op basis van uw virtuele machine.
 
-
 ### <a name="self-test-client-authorization"></a>Clientautorisatie testen
 
 Het volgende diagram toont de werking van autorisatie voor service-to-service aanroepen met behulp van clientreferenties (gedeeld geheim of certificaat).
 
 ![Het autorisatieproces client](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>De client testen-API
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 De volgende tabel beschrijft de API-velden.
@@ -83,11 +79,9 @@ De volgende tabel beschrijft de API-velden.
 |  PortNo            |  Open poortnummer om verbinding te maken met de virtuele machine. Het poortnummer is doorgaans `22` voor Linux en `5986` voor Windows.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>De API gebruiken
 
 U kunt de API testen met PowerShell of cURL verbruiken.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>PowerShell gebruiken om te gebruiken de API voor de Linux-besturingssysteem
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 De volgende Schermafbeelding toont een voorbeeld voor het aanroepen van de API in PowerShell.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ Volg deze stappen voor het aanroepen van de API met cURL:
 2. De methode Post is en het inhoudstype is JSON, zoals wordt weergegeven in het volgende codefragment.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 Het volgende scherm toont een voorbeeld van het gebruik van curl de API aan te roepen.
 
 ![API oproepen met curl-opdracht](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Gebruik de volgende stappen uit om te kiezen van de Azure AD-tenant waar u om uw
    In de volgende stappen, moet u mogelijk de tenantnaam (of de mapnaam) of de tenant-ID (of map-ID).
 
    **Tenantgegevens ophalen:**
-  
+
    In **overzicht van Azure Active Directory**, zoek naar 'Eigenschappen' en selecteer vervolgens **eigenschappen**. Met behulp van de volgende schermopname als een voorbeeld:
 
    - **Naam** -de tenantnaam of directory
@@ -284,7 +278,7 @@ Gebruik de volgende stappen uit om de clientapp te registreren.
 14. Klik op **Selecteren**.
 15. Selecteer **Done**.
 16. Onder **instellingen**, selecteer **eigenschappen**.
-17. Onder **eigenschappen**, schuif omlaag naar **multitenant**. Selecteer **Ja**.  
+17. Onder **eigenschappen**, schuif omlaag naar **multitenant**. Selecteer **Ja**.
 
     ![Configureren van meerdere tenants voor app](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ U kunt een van de volgende programma's gebruiken om te maken en een met de REST-
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 De volgende parameters doorgeven in de hoofdtekst van de aanvraag:
 
 ```
@@ -364,7 +359,7 @@ De volgende Schermafbeelding toont een voorbeeld van een token krijgen met de cu
 
 Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking op de [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) eindpunt met een nettolading van de volgende indeling hebben:
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking op de [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) eindpunt met een nettolading van de volgende indeling hebben:
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>App-token van de client doorgeeft aan de API
 
 Het token doorgeven aan de API testen met behulp van de volgende code in de autorisatie-header:
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Testen van uw client testen
@@ -445,7 +438,7 @@ De volgende fragmenten ziet de resultaten in JSON-indeling.
 
 **Testresultaten voor een Windows-VM:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ De volgende fragmenten ziet de resultaten in JSON-indeling.
 
 **Testresultaten voor een Linux-VM:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

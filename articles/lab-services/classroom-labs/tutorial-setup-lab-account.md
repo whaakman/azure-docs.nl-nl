@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336351"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652617"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Zelfstudie: Een lab-account instellen met Azure Lab Services
 In Azure Lab Services fungeert een lab-account als het centrale account waarin alle labs in uw organisatie worden beheerd. In uw lab-account machtigt u anderen om labs te maken en stelt u beleidsregels in die van toepassing zijn op alle labs in het lab-account. In deze zelfstudie leert u hoe u een lab-account maakt als lab-beheerder. 

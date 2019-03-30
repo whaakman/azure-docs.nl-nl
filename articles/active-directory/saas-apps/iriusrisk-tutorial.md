@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170697"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Zelfstudie: Azure Active Directory-integratie met IriusRisk
 
@@ -89,7 +89,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met IriusRisk, mo
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker IriusRisk](#create-a-iriusrisk-test-user)**  : als u wilt een equivalent van Britta Simon in IriusRisk die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Maak een testgebruiker IriusRisk](#create-an-iriusrisk-test-user)**  : als u wilt een equivalent van Britta Simon in IriusRisk die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 

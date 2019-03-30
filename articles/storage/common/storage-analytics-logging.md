@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351318"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652056"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-Logboeken
 
@@ -27,7 +27,6 @@ Storage Analytics wordt gedetailleerde informatie over geslaagde en mislukte aan
 >  Logboekregistratie van opslag Analytics is momenteel alleen beschikbaar voor de services Blob, wachtrijen en tabellen. Premium storage-account wordt echter niet ondersteund.
 
 ## <a name="requests-logged-in-logging"></a>Aanvragen die worden geregistreerd de logboekregistratie
-
 ### <a name="logging-authenticated-requests"></a>Geverifieerde logboekregistratieaanvragen
 
  De volgende typen geverifieerde aanvragen worden geregistreerd:
@@ -63,13 +62,13 @@ Als u een groot aantal logboekgegevens met meerdere bestanden voor elk uur hebt,
 
 De meeste opslag bladeren's kunt u de metagegevens van de blobs; weergeven u kunt ook deze informatie met behulp van PowerShell lezen of via een programma. De volgende PowerShell-codefragment wordt een voorbeeld van de lijst met blobs logboek filteren door de naam opgeven van een tijd en metagegevens voor het identificeren van alleen de logboeken die bevatten **schrijven** bewerkingen.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ U kunt de storage-services die u wilt vastleggen, evenals de bewaarperiode (in d
 
  De volgende opdracht schakelt logboekregistratie voor lezen, schrijven en verwijderen van aanvragen in de Queue-service in uw storage-standaardaccount met een bewaarperiode van ingesteld op vijf dagen:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  De volgende opdracht schakelt uit logboekregistratie voor de table-service in uw storage-standaardaccount:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Zie voor informatie over het configureren van de Azure PowerShell-cmdlets om te werken met uw Azure-abonnement en het selecteren van het standaardopslagaccount te gebruiken: [Hoe u Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Opslag programmatisch logboekregistratie inschakelen  
+
  Naast het gebruik van Azure portal of de Azure PowerShell-cmdlets voor het besturingselement logboekregistratie van opslag, kunt u ook een van de Azure Storage-API's gebruiken. Als u een .NET-taal kunt u bijvoorbeeld de Storage-clientbibliotheek gebruiken.  
 
  De klassen **CloudBlobClient**, **CloudQueueClient**, en **CloudTableClient** hebben alle methoden, zoals **SetServiceProperties** en **SetServicePropertiesAsync** die nemen een **ServiceProperties** object als parameter. U kunt de **ServiceProperties** object logboekregistratie van opslag wilt configureren. Bijvoorbeeld, de volgende C# fragment toont hoe u wat wordt geregistreerd en de bewaarperiode voor logboekregistratie van de wachtrij te wijzigen:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  Het volgende voorbeeld ziet hoe u de logboekgegevens van de queue-service voor de uren vanaf 09 AM, 10 uur en 11 uur op 20 mei 2014 kunt downloaden. De **/S** parameter zorgt ervoor dat AzCopy om te maken van de structuur van een lokale map op basis van de datums en tijden in de namen van logboekbestanden; de **/V** parameter zorgt ervoor dat AzCopy voor het produceren van uitgebreide uitvoer; de **/Y** parameter zorgt ervoor dat AzCopy alle lokale bestanden overschreven. Vervang **< yourstorageaccount\>**  met de naam van uw opslagaccount en vervang **< yourstoragekey\>**  met sleutel van uw opslagaccount.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  Wanneer u uw logboekgegevens hebt gedownload, kunt u de logboekvermeldingen weergeven in de bestanden. Deze logboekbestanden gebruiken een gescheiden tekstopmaak dat veel log lezen van de hulpprogramma's zijn kan worden geparseerd, met inbegrip van Microsoft Message Analyzer (Zie voor meer informatie de handleiding [bewaking, diagnose en het oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Verschillende hulpprogramma's beschikken over andere voorzieningen voor opmaak, filteren, sorteren, te zoeken naar de inhoud van uw logboekbestanden ad. Zie voor meer informatie over de logboekregistratie van opslag-indeling en inhoud [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format) en [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format)
 * [Storage Analytics vastgelegd Operations en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Storage Analytics Metrics (klassiek)](storage-analytics-metrics.md)

@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl mesh-netwerkopdrachten
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 8828605241d55ac6f9ce789ccc55c30f2cd36434
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: feec5c4796c025c1707b4eb93bfe34b8d384ef3a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285205"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669177"
 ---
-# <a name="sfctl-mesh-network"></a>sfctl mesh-netwerk
+# <a name="sfctl-mesh-network"></a>sfctl mesh network
 Ophalen en verwijderen van mesh-netwerkbronnen.
 
 ## <a name="commands"></a>Opdrachten
@@ -30,7 +30,7 @@ Ophalen en verwijderen van mesh-netwerkbronnen.
 | --- | --- |
 | delete | Hiermee verwijdert u de netwerk-resource. |
 | list | Geeft een lijst van alle netwerkbronnen. |
-| Show | Hiermee haalt u de netwerk-resource met de opgegeven naam. |
+| weergeven | Hiermee haalt u de netwerk-resource met de opgegeven naam. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh netwerk verwijderen
 Hiermee verwijdert u de netwerk-resource.
@@ -43,7 +43,7 @@ Hiermee verwijdert u de netwerkbron aangeduid met de naam.
 | --- | --- |
 | --naam -n (vereist) | De naam van het netwerk. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -58,7 +58,7 @@ Geeft een lijst van alle netwerkbronnen.
 
 Hiermee haalt de informatie over alle netwerkbronnen in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van het netwerk.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -79,7 +79,7 @@ Hiermee haalt u de informatie over de netwerk-resource met de opgegeven naam. De
 | --- | --- |
 | --naam -n (vereist) | De naam van het netwerk. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497666"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660963"
 ---
 # <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
 
@@ -44,14 +44,25 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 
 | Regio | Eindpunt |
 |--------|----------|
-| US - west | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
-| US - west 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australië - oost | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Brazilië - zuid | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Canada - midden | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| US - centraal | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Azië - oost | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | US - oost | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | US - oost 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Azië - oost | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Azië - zuidoost | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Frankrijk - centraal | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| India - centraal | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Japan - oost | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Korea - centraal | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| US - noord-centraal | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Europa - noord | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| US - zuid-centraal | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Azië - zuidoost | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Verenigd Koninkrijk Zuid | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Europa -west | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| US - west | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| US - west 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

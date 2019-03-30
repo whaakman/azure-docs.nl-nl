@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648296"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
 
@@ -53,7 +53,7 @@ U kunt het zakelijke gebruik van CSV-bestand downloaden van de Enterprise portal
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Gebruik voor SQL-Database en Cosmos DB gereserveerde capaciteitsreserveringen
 
-De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken. 
+De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken.
 
 Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
@@ -64,7 +64,7 @@ Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio
 |Product| SQL Database Gen 4 (2 Kerngeheugens)|
 |Regio | eastus |
 
-### <a name="usage-in-csv-file"></a>Gebruik in CSV-bestand 
+### <a name="usage-in-csv-file"></a>Gebruik in CSV-bestand
 
 Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**, en kies de vereiste **Metercategorie** -Azure SQL database of Azure Cosmos DB. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering.
 
@@ -81,19 +81,20 @@ Het gebruik van uw Azure-reservering wordt ook weergegeven in de samenvatting va
 1. Niet in rekening gebracht voor de hardware-onderdeel van de virtuele machine als deze wordt omspannen door reservering. Voor de reservering van een SQL-Database, ziet u een regel met **servicenaam** gereserveerde capaciteitsgebruik als Azure SQL-Database.
 2. In dit voorbeeld hebt u geen Azure Hybrid Benefit, zodat u kosten in voor de Windows-software die is gebruikt in combinatie met de virtuele machine gebracht rekening.
 
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
 - [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) 
+- [Vooruitbetalen voor compute-resources van SQL Database met gereserveerde capaciteit voor Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
-
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 

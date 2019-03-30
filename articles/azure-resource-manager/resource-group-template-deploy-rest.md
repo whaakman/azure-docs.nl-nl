@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402827"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649750"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API
 
@@ -36,6 +36,7 @@ Om te implementeren op een **abonnement**, gebruikt u [implementaties - Scope ma
 De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Implementeren met de REST-API
+
 1. Stel [algemene parameters en headers](/rest/api/azure/), met inbegrip van verificatietokens.
 
 1. Als u een bestaande resourcegroep hebt, maakt u een resourcegroep. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie, [een resourcegroep maken](/rest/api/resources/resourcegroups/createorupdate).
@@ -45,6 +46,7 @@ De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer in
    ```
 
    Met een aanvraagtekst, zoals:
+
    ```json
    {
     "location": "West US",
@@ -166,7 +168,7 @@ De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer in
    }
    ```
 
-5. Haal de status van de sjabloonimplementatie. Zie voor meer informatie, [informatie over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
+1. Haal de status van de sjabloonimplementatie. Zie voor meer informatie, [informatie over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -174,7 +176,12 @@ De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer in
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
-Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Opnieuw implementeren, gebruikt u de `onErrorDeployment` eigenschap in de aanvraagtekst.
+Deze functie wordt ook wel bekend als *Rollback bij fout*. Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Opnieuw implementeren, gebruikt u de `onErrorDeployment` eigenschap in de aanvraagtekst. Deze functionaliteit is handig als u een bekende goede status voor de Infrastructuurimplementatie van uw gekomen en wilt deze optie om te worden teruggezet naar een. Er zijn een aantal aanvullende opmerkingen en beperkingen:
+
+- Het opnieuw distribueren wordt uitgevoerd, precies zoals deze eerder is uitgevoerd met dezelfde parameters. U kunt de parameters niet wijzigen.
+- De vorige implementatie wordt uitgevoerd met behulp van de [volledige modus](./deployment-modes.md#complete-mode). Alle resources die niet zijn opgenomen in de vorige implementatie worden verwijderd en de resourceconfiguraties zijn ingesteld op de vorige status. Zorg ervoor dat u volledig inzicht in de [implementatiemodi](./deployment-modes.md).
+- Het opnieuw implementeren zijn alleen van invloed op de resources en eventuele wijzigingen in gegevens worden niet beïnvloed.
+- Deze functie wordt alleen ondersteund voor implementaties van de resourcegroep, geen abonnement op implementaties. Zie voor meer informatie over de implementatie voor het niveau van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](./deploy-to-subscription.md).
 
 Als u wilt deze optie gebruikt, moeten uw implementaties unieke namen hebben, zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau root-implementaties. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
 
@@ -245,9 +252,9 @@ Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie h
             "reference": {
                "keyVault": {
                   "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-               }, 
-               "secretName": "sqlAdminPassword" 
-            }   
+               },
+               "secretName": "sqlAdminPassword"
+            }
         }
    }
 }
@@ -258,9 +265,9 @@ De grootte van de parameterbestand mag niet meer dan 64 KB.
 Als u wilt een gevoelige waarde opgeven voor een parameter (zoals een wachtwoord), moet u die waarde toevoegen aan een key vault. De key vault ophalen tijdens de implementatie, zoals wordt weergegeven in het vorige voorbeeld. Zie voor meer informatie, [beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
-* Zie voor meer informatie over het verwerken van asynchrone REST-bewerkingen, [asynchrone bewerkingen van Azure bijhouden](resource-manager-async-operations.md).
-* Zie voor een voorbeeld van de implementatie van resources via de .NET-clientbibliotheek [resources implementeren met behulp van .NET-bibliotheken en een sjabloon](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Zie voor het definiëren van parameters in sjabloon, [-sjablonen maken](resource-group-authoring-templates.md#parameters).
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 
+- Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
+- Zie voor meer informatie over het verwerken van asynchrone REST-bewerkingen, [asynchrone bewerkingen van Azure bijhouden](resource-manager-async-operations.md).
+- Zie voor een voorbeeld van de implementatie van resources via de .NET-clientbibliotheek [resources implementeren met behulp van .NET-bibliotheken en een sjabloon](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Zie voor het definiëren van parameters in sjabloon, [-sjablonen maken](resource-group-authoring-templates.md#parameters).
+- Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).

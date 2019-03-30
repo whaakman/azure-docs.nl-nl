@@ -4,7 +4,7 @@ description: Overzicht van de kosten voor gegevensverplaatsing voor Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101513"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669976"
 ---
 # <a name="service-movement-cost"></a>Verplaatsingskosten van services
 Een van meerdere factoren die de Service Fabric Cluster Resource Manager acht bij een poging om te bepalen welke wijzigingen aanbrengen in een cluster zijn de kosten van deze wijzigingen. Het concept van "kosten" wordt verhandeld uitschakelen op basis van hoeveel van het cluster kan worden verbeterd. Kosten zijn meeberekend bij het verplaatsen van services voor taakverdeling, defragmentatie en andere vereisten. Het doel is om te voldoen aan de vereisten in de minste verstorende of dure manier. 

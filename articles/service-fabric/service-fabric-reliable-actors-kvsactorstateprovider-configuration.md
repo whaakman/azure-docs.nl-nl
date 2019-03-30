@@ -4,7 +4,7 @@ description: Meer informatie over het configureren van stateful Azure Service Fa
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: a512bb4adc4e410ef2300811ffa4142348d5ee33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871815"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669195"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--KVSActorStateProvider configureren
 U kunt de standaardconfiguratie van KVSActorStateProvider wijzigen door het veranderen van de settings.xml-bestand dat wordt gegenereerd in de hoofdmap van het Microsoft Visual Studio-pakket in de Config-map voor de opgegeven actor.

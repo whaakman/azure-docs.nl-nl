@@ -4,7 +4,7 @@ description: Informatie over het configureren van beveiliging van knooppunt-naar
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541006"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666671"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Een zelfstandige cluster beveiligen op Windows met behulp van Windows-beveiliging
 Om te voorkomen dat onbevoegde toegang tot een Service Fabric-cluster, moet u het cluster beveiligen. Beveiliging is vooral belangrijk wanneer het cluster wordt uitgevoerd voor werkbelastingen voor productie. In dit artikel wordt beschreven hoe u knooppunt-naar-knooppunt en client-naar-knooppunt om beveiligingsbeleid te configureren met behulp van Windows-beveiliging in de *ClusterConfig.JSON* bestand.  Het proces komt overeen met de stap van de beveiliging configureren van [maken van een zelfstandige cluster die worden uitgevoerd op Windows](service-fabric-cluster-creation-for-windows-server.md). Zie voor meer informatie over hoe Service Fabric Windows-beveiliging gebruikt [clusterbeveiligingsscenario's](service-fabric-cluster-security.md).

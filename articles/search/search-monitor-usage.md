@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959456"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652294"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -61,7 +61,7 @@ De volgende tabel vergelijkt de opties voor het opslaan van Logboeken en uitgebr
 | Resource | Gebruikt voor |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande, schema's verband houden met de gebruikersgebeurtenissen in uw app. Dit is de enige oplossing die gehouden gebruikersacties of signalen, toewijzing van gebeurtenissen van de gebruiker geïnitieerde zoeken, in plaats van filter aanvragen ingediend door de toepassingscode. Voor het gebruik van deze benadering, kopiëren en plakken instrumentation code in de bronbestanden op aanvraag voor informatie over de route naar Application Insights. Zie voor meer informatie, [Zoekverkeer](search-traffic-analytics.md). |
-| [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een Log Analytics-werkruimte. U kunt query's uitvoeren op een werkruimte voor gedetailleerde informatie retourneren op het logboek. Zie voor meer informatie, [aan de slag met Azure Monitor-Logboeken](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Azure Monitor-logboeken](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een Log Analytics-werkruimte. U kunt query's uitvoeren op een werkruimte voor gedetailleerde informatie retourneren op het logboek. Zie voor meer informatie, [aan de slag met Azure Monitor-Logboeken](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden vastgelegd in een Blob-container en opgeslagen in de JSON-bestanden. Een JSON-editor gebruiken om de inhoud van bestand weer te geven.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de schema's beschreven in dit artikel. Kies deze optie als een alternatieve data collection-Services voor zeer grote logboeken. |
 
@@ -98,7 +98,7 @@ Logboekregistratie is ingeschakeld wanneer u het profiel opslaan. Containers wor
 
 Het duurt een uur voordat de containers wordt weergegeven in de Blob-opslag. Er is een blob, per uur, per container. 
 
-U kunt [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) of een andere JSON-editor om de bestanden weer te geven. 
+U kunt [Visual Studio Code](#download-and-open-in-visual-studio-code) of een andere JSON-editor om de bestanden weer te geven. 
 
 ### <a name="example-path"></a>Van voorbeeldpad
 

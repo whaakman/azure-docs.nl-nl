@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl mesh-service-replica-o
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: bcf4b8d013783a9fbdb62bcdb8737680bfce7640
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285086"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662428"
 ---
-# <a name="sfctl-mesh-service-replica"></a>sfctl mesh-service-replica
+# <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Details van de replica en de lijst met replica's van een bepaalde service in de bron van een toepassing ophalen.
 
 ## <a name="commands"></a>Opdrachten
@@ -29,7 +29,7 @@ Details van de replica en de lijst met replica's van een bepaalde service in de 
 |Opdracht|Description|
 | --- | --- |
 | list | Geeft een lijst van alle replica's van een service. |
-| Show | Hiermee haalt u de opgegeven replica van de service van een toepassing. |
+| weergeven | Hiermee haalt u de opgegeven replica van de service van een toepassing. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>lijst met sfctl mesh-service-replica 's
 Geeft een lijst van alle replica's van een service.
@@ -41,9 +41,9 @@ Hiermee haalt u de informatie over alle replica's van een service. De informatie
 |Argument|Description|
 | --- | --- |
 | --app-naam: naam van de toepassing (vereist) | De naam van de toepassing. |
-| --service-naam (vereist) | De naam van de service. |
+| --service-name                [Required] | De naam van de service. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -64,9 +64,9 @@ Hiermee haalt u de informatie over de service-replica met de opgegeven naam. De 
 | --- | --- |
 | --app-naam: naam van de toepassing (vereist) | De naam van de toepassing. |
 | --naam -n (vereist) | De naam van de service-replica. |
-| --service-naam (vereist) | De naam van de service. |
+| --service-name                [Required] | De naam van de service. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

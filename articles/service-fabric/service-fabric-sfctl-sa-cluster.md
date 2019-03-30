@@ -4,7 +4,7 @@ description: Beschrijving van de Service Fabric-CLI sfctl zelfstandige clusterop
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275479"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668514"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Zelfstandige Service Fabric-clusters beheren.
@@ -28,7 +28,7 @@ Zelfstandige Service Fabric-clusters beheren.
 
 |Opdracht|Description|
 | --- | --- |
-| configuratie | De configuratie van Service Fabric zelfstandige cluster ophalen. |
+| config | De configuratie van Service Fabric zelfstandige cluster ophalen. |
 | configuratie-upgrade | Start de upgrade van de configuratie van een zelfstandige Service Fabric-cluster. |
 | upgrade-status | Ophalen van de upgrade clusterstatus voor configuratie van een zelfstandige Service Fabric-cluster. |
 
@@ -44,7 +44,7 @@ De clusterconfiguratie bevat eigenschappen van het cluster met verschillende typ
 | --configuratie-api-versie (vereist) | De API-versie van het json-configuratie van het zelfstandige-cluster. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -76,7 +76,7 @@ De parameters voor het bijwerken van de configuratie van de opgegeven te valider
 | --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: PT0H0M0S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: PT0H0M0S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -106,7 +106,7 @@ De clusterconfiguratie details van de status van de upgrade van een zelfstandige
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

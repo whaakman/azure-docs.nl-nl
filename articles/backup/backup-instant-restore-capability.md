@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578897"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652668"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
 > [!NOTE]
-> Op basis van feedback van gebruikers naam **VM-back-upstack V2** naar **direct herstellen** aan de voorkoming van verwarring met Azure Stack-functionaliteit.
+> Op basis van feedback van gebruikers naam **VM-back-upstack V2** naar **direct herstellen** aan de voorkoming van verwarring met Azure Stack-functionaliteit.<br/><br/> De Azure back-gebruikers hebben nu bijgewerkt naar **direct herstellen**.
 
 Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 
@@ -60,15 +60,25 @@ De incrementele momentopnamen worden opgeslagen in de storage-account van de vir
 >[!NOTE]
 > Bewaarperiode van de momentopname is vast ingesteld op 5 dagen per week beleid.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Momentopname bewaren met behulp van de Azure-portal configureren
+## <a name="configure-snapshot-retention"></a>Momentopname bewaren configureren
 
-**De Azure back-gebruikers hebben nu bijgewerkt naar Instant restore**.
+### <a name="using-azure-portal"></a>Azure Portal gebruiken
 
 In de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
 
 ![Instant Restore-mogelijkheid](./media/backup-azure-vms/instant-restore-capability.png)
 
-Als u wilt configureren momentopname upretentie met Powershell, raadpleegt u [dit document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### <a name="using-powershell"></a>PowerShell gebruiken
+
+>[!NOTE]
+> Via Az PowerShell versie 1.6.0 en hoger, kunt u de bewaarperiode voor direct herstel momentopname in met behulp van PowerShell-beleid bijwerken
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+De standaard momentopname bewaarperiode voor elk beleid is ingesteld op 2 dagen. Gebruiker kan de waarde minimaal 1 en maximaal 5 dagen wijzigen. Wekelijkse beleid voor is de bewaarperiode voor momentopname van 5 dagen opgelost.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

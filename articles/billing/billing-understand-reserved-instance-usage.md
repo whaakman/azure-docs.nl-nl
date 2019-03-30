@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883777"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652532"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
 
@@ -64,7 +64,7 @@ Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De v
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Gebruik voor SQL-Database en Cosmos DB gereserveerde capaciteitsreserveringen
 
-De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken. 
+De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken.
 
 Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
@@ -93,6 +93,10 @@ Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De v
 2. **ConsumptionMeter** is de meter-ID voor de SQL-Database-resource.
 3. De **Meter-Id** is de meter reservering. De kosten van deze meter is $0. Een SQL Database-resources die in aanmerking komen voor de reserveringskorting deze meter-ID in het CSV-bestand bevat.
 
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
@@ -104,9 +108,3 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
-
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

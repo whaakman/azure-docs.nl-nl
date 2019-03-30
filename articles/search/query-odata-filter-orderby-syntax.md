@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578404"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648500"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - De `search.in` functie test of een opgegeven tekenreeks-veld gelijk aan een van een opgegeven lijst met waarden is. Het kan ook worden gebruikt in een of meer aan een enkele waarde van een verzameling tekenreeksveld met een opgegeven lijst met waarden te vergelijken. Gelijkheid van het veld en van elke waarde in de lijst wordt bepaald op een hoofdlettergevoelige manier, dezelfde manier als voor de `eq` operator. Daarom een expressie, zoals `search.in(myfield, 'a, b, c')` is gelijk aan `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, behalve dat `search.in` leidt tot veel betere prestaties. 
 
-  De eerste parameter voor de `search.in` functie is de tekenreeks veldverwijzing (of een variabele bereik via een tekenreeksveld verzameling in het geval waarbij `search.in` wordt gebruikt binnen een `any` of `all` expressie). De tweede parameter is een tekenreeks met de lijst met waarden, gescheiden door spaties en/of komma's. Als u gebruiken, scheidingstekens dan spaties en komma's wilt omdat de waarden die tekens bevatten, kunt u een optionele derde parameter `search.in`. 
-
-  Deze derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter.
+   De eerste parameter voor de `search.in` functie is de tekenreeks veldverwijzing (of een variabele bereik via een tekenreeksveld verzameling in het geval waarbij `search.in` wordt gebruikt binnen een `any` of `all` expressie). 
+  
+   De tweede parameter is een tekenreeks met de lijst met waarden, gescheiden door spaties en/of komma's. 
+  
+   De derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter. Als u gebruiken, scheidingstekens dan spaties en komma's wilt omdat de waarden die tekens bevatten, kunt u een optionele derde parameter `search.in`. 
 
   > [!NOTE]   
   > Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Zoek alle hotels met de naam gelijk is aan 'Roach motel' of 'Budget hotel'). Zinnen bevatten spaties, dit is een standaardscheidingsteken. Als u een onderdrukking scheidingsteken, plaatst u het nieuwe scheidingsteken tussen enkele aanhalingstekens als onderdeel van de filterexpressie:  
+Zoek alle hotels met de naam gelijk is aan 'Roach motel' of 'Budget hotel'). Zinnen bevatten spaties, dit is een standaardscheidingsteken. U kunt specicfy een alternatieve scheidingsteken tussen enkele aanhalingstekens als de derde tekenreeksparameter:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Zoek alle hotels met de tag 'Wi-Fi' of 'groep':
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Een overeenkomst op meerdere tags, 'hete handdoeken rekken' of 'hairdryer opgenomen' vinden. Vergeet niet om op te geven van een alternatieve scheidingsteken als de standaard spatie als scheidingsteken onwerkbare is. 
+Een overeenkomst op zinnen binnen een verzameling, zoals 'hete handdoeken rekken' of 'hairdryer opgenomen' niet vinden in tags. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

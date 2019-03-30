@@ -4,7 +4,7 @@ description: Algemene documentatie voor Service Fabric Reliable Services-melding
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662666"
 ---
 # <a name="reliable-services-notifications"></a>Meldingen van betrouwbare Services
-Kennisgevingen kunnen clients de wijzigingen bijhouden die worden aangebracht in een object waarin ze geïnteresseerd bent. Meldingen voor ondersteunt twee typen objecten: *betrouwbare status Manager* en *betrouwbare Dictionary*.
+Kennisgevingen kunnen clients de wijzigingen bijhouden die worden aangebracht in een object waarin ze geïnteresseerd bent. Twee typen objecten ondersteunen meldingen: *Betrouwbare Toestandmanager* en *betrouwbare Dictionary*.
 
 Veelvoorkomende redenen voor het gebruik van meldingen zijn:
 
@@ -46,9 +46,9 @@ Betrouwbare status Manager houdt bij of de huidige actieve transacties. De enige
 Betrouwbare status Manager onderhoudt een verzameling van betrouwbare statussen, zoals betrouwbare Dictionary en betrouwbare wachtrij. Meldingen van betrouwbare status Manager wordt geactiveerd wanneer deze verzameling wordt gewijzigd: een betrouwbare status is toegevoegd of verwijderd, of de hele verzameling is opnieuw opgebouwd.
 De verzameling van betrouwbare status Manager is opnieuw opgebouwd in drie gevallen:
 
-* Herstel: Wanneer een replica wordt gestart, het herstelt de vorige status van de schijf. Aan het einde van het herstel wordt **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van herstelde betrouwbare statussen bevat.
-* Volledige kopie: voordat u een replica kan deelnemen aan de configuratieset, heeft kunnen worden gebouwd. Soms moet een volledige kopie van betrouwbare status Manager de status van de primaire replica moet worden toegepast op de niet-actieve secundaire replica. Maakt gebruik van betrouwbare status Manager op de secundaire replica **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van betrouwbare statussen die wordt verkregen via de primaire replica bevat.
-* Herstellen: In herstel na noodgevallen, de status van de replica kan worden hersteld vanuit een back-up via **RestoreAsync**. In dergelijke gevallen betrouwbare status Manager op de primaire replica gebruikt **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van betrouwbare statussen die wordt hersteld op basis van de back-up bevat.
+* Herstel: Wanneer een replica wordt gestart, worden de oorspronkelijke staat van de schijf hersteld. Aan het einde van het herstel wordt **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van herstelde betrouwbare statussen bevat.
+* Volledige kopie: Voordat een replica kan deelnemen aan de configuratieset, heeft deze kunnen worden gebouwd. Soms moet een volledige kopie van betrouwbare status Manager de status van de primaire replica moet worden toegepast op de niet-actieve secundaire replica. Maakt gebruik van betrouwbare status Manager op de secundaire replica **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van betrouwbare statussen die wordt verkregen via de primaire replica bevat.
+* Herstellen: In noodgevallen herstelscenario's van de replica-status kan worden hersteld vanuit een back-up via **RestoreAsync**. In dergelijke gevallen betrouwbare status Manager op de primaire replica gebruikt **NotifyStateManagerChangedEventArgs** een gebeurtenis die de set van betrouwbare statussen die wordt hersteld op basis van de back-up bevat.
 
 Als u wilt registreren voor meldingen en/of de status manager-meldingen, moet u registreren bij de **TransactionChanged** of **StateManagerChanged** gebeurtenissen op betrouwbare status Manager. Een algemene plaats om u te registreren bij deze gebeurtenis-handlers is de constructor van de stateful service. Wanneer u zich bij de constructor registreren, kunt u een melding die wordt veroorzaakt door een wijziging tijdens de levensduur van wordt niet missen **IReliableStateManager**.
 
@@ -109,9 +109,9 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>Betrouwbare woordenlijst meldingen
 Betrouwbare Dictionary biedt meldingen voor de volgende gebeurtenissen:
 
-* Opnieuw opbouwen: Aangeroepen wanneer **ReliableDictionary** de status van een herstelde of gekopieerd lokale status- of back-up is hersteld.
+* Opnieuw opbouwen: Wanneer met de naam **ReliableDictionary** de status van een herstelde of gekopieerd lokale status- of back-up is hersteld.
 * Wissen: Aangeroepen wanneer de status van **ReliableDictionary** is uitgeschakeld via de **ClearAsync** methode.
-* Toevoegen: Wordt aangeroepen wanneer een item is toegevoegd aan **ReliableDictionary**.
+* Voeg toe: Wordt aangeroepen wanneer een item is toegevoegd aan **ReliableDictionary**.
 * Update: Wordt aangeroepen wanneer een item in **IReliableDictionary** is bijgewerkt.
 * Verwijderen: Wordt aangeroepen wanneer een item in **IReliableDictionary** is verwijderd.
 

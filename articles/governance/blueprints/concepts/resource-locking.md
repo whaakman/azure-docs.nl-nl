@@ -4,17 +4,17 @@ description: Meer informatie over de vergrendeling opties om resources te besche
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855401"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630725"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Resources vergrendelen in Azure blauwdrukken begrijpen
 
@@ -56,11 +56,56 @@ Een RBAC [weigeren toewijzingen](../../../role-based-access-control/deny-assignm
 > [!IMPORTANT]
 > Azure Resource Manager in de cache opgeslagen rol Toewijzingsdetails gedurende maximaal 30 minuten. Als gevolg hiervan weigeren toewijzingen weigeren van de actie voor blauwdruk resources mogelijk onmiddellijk niet in het volledige effect. Tijdens deze periode is het mogelijk dat het mogelijk om te verwijderen van een resource die is bedoeld om te worden beveiligd door de blauwdruk wordt vergrendeld.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Een principal uitsluiten van een toewijzing weigeren
+
+In bepaalde situaties ontwerp of de beveiliging, kan het nodig zijn om uit te sluiten van een principal van zijn de [toewijzing weigeren](../../../role-based-access-control/deny-assignments.md) de blauwdruktoewijzing wordt gemaakt. Dit doet u in de REST-API door toe te voegen van maximaal vijf waarden naar de **excludedPrincipals** matrix in de **vergrendelingen** eigenschap wanneer [het maken van de toewijzing](/rest/api/blueprints/assignments/createorupdate).
+Dit is een voorbeeld van een aanvraagtekst met **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Ga als volgt de [nieuwe resources beveiligen](../tutorials/protect-new-resources.md) zelfstudie.
-- Meer informatie over de [blauwdruk levenscyclus](lifecycle.md).
-- Meer informatie over het gebruik van [statische en dynamische parameters](parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](sequencing-order.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).
+- Meer informatie over de [levenscyclus van een blauwdruk](lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast.
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185448"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652560"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedure: Geef optioneel claims voor uw Azure AD-app (Preview-versie)
 
@@ -50,7 +50,7 @@ Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmo
 
 ## <a name="standard-optional-claims-set"></a>Standard optioneel claims instellen
 
-De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld. Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)hieronder. Houd er rekening mee dat bij het toevoegen van claims voor de **toegangstoken**, dit geldt voor toegangstokens aangevraagd *voor* de toepassing (een web-API), niet de *door* de toepassing. Dit zorgt ervoor dat, ongeacht de toegang tot uw API-client de juiste gegevens aanwezig in het toegangstoken dat ze gebruiken is voor verificatie op basis van uw API.
+De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld. Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)hieronder. Houd er rekening mee dat bij het toevoegen van claims voor de **toegangstoken**, dit geldt voor toegangstokens aangevraagd *voor* de toepassing (een web-API), niet de *door* de toepassing. Dit zorgt ervoor dat, ongeacht de toegang tot uw API-client de juiste gegevens aanwezig in het toegangstoken dat ze gebruiken is voor verificatie op basis van uw API.
 
 > [!NOTE]
 > De meeste van deze claims kan worden opgenomen in JWTs voor v1.0 en v2.0-tokens, maar geen SAML-tokens, tenzij anders is aangegeven in de kolom Type Token. Bovendien, terwijl optioneel claims worden alleen ondersteund voor AAD-gebruikers momenteel, wordt MSA-ondersteuning toegevoegd. Wanneer MSA optioneel claims ondersteuning op het v2.0-eindpunt heeft, wordt de kolom Type gebruiker geven als een claim beschikbaar voor een AAD- of MSA-gebruikers is. 

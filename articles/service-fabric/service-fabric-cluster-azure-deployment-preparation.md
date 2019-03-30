@@ -3,8 +3,8 @@ title: Plan de implementatie van een Azure Service Fabric-cluster | Microsoft Do
 description: Meer informatie over het plannen en voorbereiden voor een productie-implementatie van Service Fabric-cluster in Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: ryanwi
-ms.openlocfilehash: d29f9af4201eee41720fe60cc9b7a21abc7fc63d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: aljo
+ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449981"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663235"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Plannen en voorbereiden voor de implementatie van een cluster
 

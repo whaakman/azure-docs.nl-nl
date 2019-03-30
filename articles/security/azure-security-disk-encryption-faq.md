@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339488"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649904"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -125,7 +125,7 @@ U kunt geen Azure Disk Encryption toepassen op uw aangepaste installatiekopie va
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>Kan ik updates toepassen op een Linux Red Hat virtuele machine die gebruikmaakt van de update yum?
 
-Ja, kunt u een update uitvoert, of te patchen van een Red Hat Linux-VM. Zie voor meer informatie, [toepassen van updates op een versleutelde virtuele Azure IaaS Red Hat-machine met behulp van de update yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+Ja, kunt u een yum-update uitvoeren op een Red Hat Linux-VM.  Zie voor meer informatie, [Linux Pakketbeheer achter een firewall](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall).
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Wat is de aanbevolen Azure disk encryption-werkstroom voor Linux?
 

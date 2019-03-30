@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/29/2019
+ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454738"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668488"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -48,6 +48,9 @@ Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQ
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
 |**Beveiliging en naleving** | **Beheer**|
 |Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-principals (aanmeldingen)</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+
+> [!IMPORTANT]
+> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
 
 De belangrijkste functies van beheerde exemplaren worden weergegeven in de volgende tabel:
 
@@ -237,5 +240,5 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 - Zie voor meer informatie over VNet-configuratie, [managed instance VNet configuration](sql-database-managed-instance-connectivity-architecture.md).
 - Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md).
 - Zie voor een zelfstudie met behulp van de Azure Database Migration Service (DMS) voor de migratie, [beheerd exemplaar migreren met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Voor geavanceerde bewaking van prestaties van de database beheerde instanties met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen
 - Zie voor informatie over de prijzen [SQL-Database beheerd exemplaar prijzen](https://azure.microsoft.com/pricing/details/sql-database/managed/).
