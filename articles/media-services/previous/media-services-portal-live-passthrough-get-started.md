@@ -1,5 +1,5 @@
 ---
-title: Live streamen met on-premises coderingsprogramma's via Azure Portal | Microsoft Docs
+title: Live streamen met on-premises coderingsprogramma's met behulp van Azure portal | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij het maken van een kanaal dat is geconfigureerd voor een doorvoerlevering.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258697"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758509"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Live streamen met on-premises coderingsprogramma's met behulp van Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
 * [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Algemeen scenario voor live streamen
+
 In de volgende stappen worden de taken beschreven voor het maken van algemene toepassingen voor live streamen die kanalen gebruiken die zijn geconfigureerd voor doorvoerlevering. In deze zelfstudie wordt getoond hoe een doorvoerkanaal en live gebeurtenissen worden gemaakt en beheerd.
 
->[!NOTE]
->Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
+> [!NOTE]
+> Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
     
-1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
+1. Sluit een videocamera aan op een computer. <br/>Bekijk voor setup ideeën [video versnelling met eenvoudige en draagbare gebeurtenisinstelling]( https://link.medium.com/KNTtiN6IeT).
+1. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.<br/>Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
    
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
-2. Maak en start een doorvoerkanaal.
-3. Haal de URL voor opnemen voor het kanaal op. 
+1. Maak en start een doorvoerkanaal.
+1. Haal de URL voor opnemen voor het kanaal op. 
    
     De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
-4. Haal de voorbeeld-URL voor het kanaal op. 
+1. Haal de voorbeeld-URL voor het kanaal op. 
    
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
-5. Maak een live gebeurtenis/programma. 
+1. Maak een live gebeurtenis/programma. 
    
     Wanneer u Azure Portal gebruikt, wordt bij het maken van een live gebeurtenis ook een asset gemaakt. 
 
-6. Start de gebeurtenis/het programma wanneer u klaar bent om te streamen en te archiveren.
-7. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
-8. Stop de gebeurtenis/het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
-9. Verwijder de gebeurtenis/het programma (en verwijder desgewenst de asset).     
+1. Start de gebeurtenis/het programma wanneer u klaar bent om te streamen en te archiveren.
+1. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
+1. Stop de gebeurtenis/het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
+1. Verwijder de gebeurtenis/het programma (en verwijder desgewenst de asset).     
 
 > [!IMPORTANT]
 > Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md) voor meer informatie over de concepten en overwegingen ten aanzien van live streamen met on-premises coderingsprogramma's en doorvoerkanalen.
