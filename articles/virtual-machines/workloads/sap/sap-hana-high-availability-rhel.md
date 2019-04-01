@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669041"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
 
@@ -185,7 +185,7 @@ Lees voor meer informatie over de vereiste poorten voor SAP HANA, het hoofdstuk 
 
 > [!IMPORTANT]
 > Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> SAP-notitie [2382421](https://launchpad.support.sap.com/#/notes/2382421) momenteel bevat conflicterende-instructie, adviseren u net.ipv4.tcp_timestamps instellen op 1. Voor Azure VM's achter Azure Load balancer worden geplaatst, stel de parameter **net.ipv4.tcp_timestamps** naar **0**.
+> Zie ook SAP Opmerking [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>SAP HANA installeren
 
@@ -342,7 +342,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[A]**  Firewall configureren
 
-   De firewall-regel voor de testpoort Azure Load Balancer maken.
+   De firewallregel maken voor de Azure load balancer-test-poort.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -382,14 +382,14 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
    Als u van SAP HANA 2.0 of MDC gebruikmaakt, maakt u een tenantdatabase voor uw SAP NetWeaver-systeem. Vervang **NW1** met de SID van uw SAP-systeem.
 
-   Meld u aan als \<hanasid > adm en voer de volgende opdracht uit:
+   Uitvoeren als < hanasid\>adm de volgende opdracht uit:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]**  System-replicatie configureren op het eerste knooppunt:
 
-   Meld u aan als \<hanasid > adm en back-up van de databases:
+   Back-up van de databases als < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[2]**  System-replicatie configureren op het tweede knooppunt:
     
-   Registreer het tweede knooppunt voor het starten van de systeemreplicatie. Meld u aan als \<hanasid > adm en voer de volgende opdracht uit:
+   Registreer het tweede knooppunt voor het starten van de systeemreplicatie. Voer de volgende opdracht uit als < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[1]**  Maken van de juiste gebruikers.
 
-   Meld u aan als hoofdgebruiker en voer de volgende opdracht uit. Zorg ervoor dat u het vervangen van vet tekenreeksen (HANA System ID **HN1** en het exemplaarnummer **03**) door de waarden van uw SAP HANA-installatie:
+   Voer de volgende opdracht als root. Zorg ervoor dat u het vervangen van vet tekenreeksen (HANA System ID **HN1** en het exemplaarnummer **03**) door de waarden van uw SAP HANA-installatie:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[A]**  De sleutelopslagvermelding maken.
 
-   Meld u aan als hoofdgebruiker en voer de volgende opdracht om te maken van een nieuw sleutelopslagvermelding:
+   Voer de volgende opdracht als de hoofdmap van een nieuw sleutelopslagvermelding maken:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[1]**  Maakt u een back-up van de database.
 
-   Meld u aan als hoofdgebruiker en back-up van de databases:
+   Back-up van de databases als hoofdmap:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[1]**  System-replicatie configureren op het eerste knooppunt.
 
-   Meld u aan als \<hanasid > adm en de primaire site te maken:
+   Maken van de primaire site als < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[2]**  System-replicatie configureren op het tweede knooppunt.
 
-   Meld u aan als \<hanasid > adm en registreert u de secundaire site:
+   Registreert u de secundaire site als < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
