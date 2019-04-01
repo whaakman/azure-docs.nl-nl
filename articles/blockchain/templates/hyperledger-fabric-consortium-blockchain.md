@@ -52,7 +52,7 @@ Zoals eerder vermeld, is de enkele virtuele machine-architectuur gebouwd voor on
 
 ### <a name="multiple-virtual-machine-architecture"></a>Architectuur van meerdere virtuele machines
 
-De meerdere virtuele machine, uitbreidbare architectuur is gebouwd met hoge beschikbaarheid en het schalen van elk onderdeel in de kern. Deze architectuur is veel meer geschikt is voor productie geavanceerde implementaties.
+De meervoudige virtuele machine, scale-out architectuur, is gebouwd met hoge beschikbaarheid en kan elk onderdeel in de basis schalen. Deze architectuur is veel beter geschikt voor implementaties van productielocaties.
 
 ![Architectuur van meerdere virtuele machines](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
@@ -70,11 +70,11 @@ In de **Hyperledger Fabric Consortium** sjabloon, selecteer **maken**.
 
 De sjabloonimplementatie begeleidt u bij het configureren van het [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/)-netwerk met meerdere knooppunten. De implementatiestroom is onderverdeeld in vier stappen: Basics, Consortium netwerkinstellingen, Fabric-configuratie en Optionele componenten.
 
-### <a name="basics"></a>Basisbeginselen
+### <a name="basics"></a>Basics
 
-In **basisbeginselen**, waarden opgeven voor standard parameters voor elke implementatie. Abonnement, resourcegroep en basic virtuele machine, zoals eigenschappen.
+Geef in **Basics** de waarden op voor standaardparameters voor elke implementatie. Zoals eigenschappen voor abonnementen, resourcegroepen en virtual machines.
 
-![Basisbeginselen](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![Basics](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Parameternaam | Description | Toegestane waarden |
 |---|---|---|
@@ -141,7 +141,7 @@ Bekijk in de **samenvatting** de ingevoerde waarden en voer de basisvalidatie v�
 
 ![Samenvatting](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
-Wettelijke informatie en privacy voorwaarden bekijken en selecteer **aankoop** te implementeren. Implementatietijd kan, afhankelijk van het aantal virtuele machines die zijn ingericht, variëren van enkele minuten tot tien minuten.
+Lees de wettelijke en privacyvoorwaarden en selecteer **Aankoop** om te implementeren. Afhankelijk van het aantal VM's dat wordt gebruikt, kan de implementatietijd variëren van enkele minuten tot tientallen minuten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
