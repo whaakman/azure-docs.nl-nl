@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845600"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757158"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
 
@@ -33,18 +33,38 @@ Voor elke extra eindpunten: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 ## <a name="types"></a>Typen  
 
-Er zijn twee **Streaming-eindpunt** typen: **Standard** en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
+Er zijn twee typen **streaming-eindpunten**: **Standard** en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
 
-De tabel staan de typen:  
+In de tabel worden de typen beschreven:  
 
 |Type|Schaaleenheden|Description|
 |--------|--------|--------|  
-|**Standard Streaming-eindpunt** (aanbevolen)|0|De **Standard** type is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. De **Standard** type automatisch wordt geschaald uitgaande bandbreedte. <br/>Voor klanten met een bijzonder veeleisende behoeften Media Services biedt **Premium** streaming-eindpunten, die kunnen worden gebruikt voor het opschalen van capaciteit voor de grootste internet doelgroepen. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
-|**Premium Streaming Endpoint**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Wanneer u de **Premium** type, elke ingeschakelde unit biedt extra bandbreedtecapaciteit voor de toepassing. |
+|**Standaard streaming-eindpunt** (aanbevolen)|0|De Streaming-eindpunt wordt standaard een **Standard** typt, maar kan worden gewijzigd in het type Premium.<br/> Het type Standard is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. Bij het **Standard**-type wordt uitgaande bandbreedte automatisch geschaald. De doorvoer van dit type Streaming-eindpunt is maximaal 600 Mbps. Video-fragmenten in de cache opgeslagen in het CDN, moet u de bandbreedte van het Streaming-eindpunt niet gebruiken.<br/>Voor klanten met extreem hoge eisen biedt Media Services **Premium** streaming-eindpunten, die kunnen worden gebruikt om de capaciteit uit te schalen voor de grootste doelgroepen op internet. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming\@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
+|**Premium-streaming-eindpunt**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Bij gebruik van het **Premium**-type biedt elke ingeschakelde eenheid extra bandbreedte voor de toepassing. |
+ 
+## <a name="comparing-streaming-types"></a>Streaming typen vergelijken
+
+### <a name="features"></a>Functies
+
+Functie|Standard|Premium
+---|---|---
+Gratis voor de eerste 15 dagen| Ja |Nee
+Doorvoer |Maximaal 600 Mbps wanneer Azure CDN wordt niet gebruikt. Schalen met CDN.|200 Mbps per streaming-eenheid (SU). Schalen met CDN.
+SLA | 99.9|99,9 (200 Mbps per SU).
+CDN|Azure CDN, van derden CDN of er is geen CDN.|Azure CDN, van derden CDN of er is geen CDN.
+Facturering is Pro rata| Dagelijks|Dagelijks
+Dynamische versleuteling|Ja|Ja
+Dynamische verpakking|Ja|Ja
+Schalen|Automatisch omhoog kan worden opgeschaald naar de betreffende doorvoer.|Aanvullende streaming-eenheden
+IP-filtering/G20/aangepast host <sup>1</sup>|Ja|Ja
+Progressief downloaden|Ja|Ja
+Aanbevolen gebruik |Aanbevolen voor de meeste streaming-scenario's.|Professionele gebruik.<br/>Als u denkt dat wellicht u behoeften dan Standard. Contact met ons opnemen (amsstreaming@microsoft.com) als u verwacht de grootte van een gelijktijdige doelgroep groter zijn dan 50.000 viewers dat.
+
+<sup>1</sup> alleen rechtstreeks op het Streaming-eindpunt wordt gebruikt wanneer het CDN niet is ingeschakeld op het eindpunt.
 
 ## <a name="working-with-cdn"></a>Werken met CDN
 
-In de meeste gevallen hebt u CDN is ingeschakeld. Echter, als u maximale gelijktijdigheid lager is dan 500 viewers zijn planningscyclus vervolgens het verdient aanbeveling CDN uitschakelen omdat CDN aanbevolen met gelijktijdigheid schaalt.
+In de meeste gevallen moet CDN zijn ingeschakeld. Als u echter een maximale gelijktijdigheid verwacht van minder dan 500 kijkers, dan wordt het aanbevolen CDN uit te schakelen, omdat CDN het beste schaalt met gelijktijdigheid.
 
 > [!NOTE]
 > Het Streaming-eindpunt `hostname` en de streaming-URL blijft hetzelfde, ongeacht of u CDN inschakelt of niet.
@@ -70,7 +90,7 @@ In deze sectie geeft informatie over een aantal van de eigenschappen van het Str
     Als u deze fout optreedt, kan het datacenter deze biedt geen ondersteuning. Probeer een ander datacenter.
 - `cdnProfile` -Wanneer `cdnEnabled` is ingesteld op true, u kunt ook doorgeven `cdnProfile` waarden. `cdnProfile` de naam van het CDN-profiel is waar het CDN-eindpunt dat wordt gemaakt. U kunt een bestaande cdnProfile of gebruik een nieuwe. Als de waarde NULL is en `cdnEnabled` waar is, is de standaardwaarde 'AzureMediaStreamingPlatformCdnProfile' wordt gebruikt. Als de opgegeven `cdnProfile` al bestaat, een eindpunt wordt gemaakt onder het. Als het profiel niet bestaat, wordt een nieuw profiel automatisch gemaakt.
 - `cdnProvider` -Wanneer CDN is geactiveerd, kunt u ook doorgeven `cdnProvider` waarden. `cdnProvider` Hiermee bepaalt u welke provider worden gebruikt. Op dit moment worden drie waarden ondersteund: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Als er geen waarde is opgegeven en `cdnEnabled` is ingesteld op true, 'StandardVerizon' wordt gebruikt (dat wil zeggen de standaardwaarde).
-- `crossSiteAccessPolicies` -Hiermee geeft cross-site-beleidsregels voor verschillende clients. Zie voor meer informatie, [interdomein-bestand beleidsspecificatie](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) en [maken van een Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` -Hiermee geeft cross-site-beleidsregels voor verschillende clients. Zie voor meer informatie, [interdomein-bestand beleidsspecificatie](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) en [maken van een Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>De instellingen zijn alleen van toepassing op Smooth Streaming.
 - `customHostNames` -Gebruikt voor het configureren van een Streaming-eindpunt voor het accepteren van verkeer doorgestuurd naar een aangepaste hostnaam.  Deze eigenschap is ongeldig voor Standard en Premium-Streaming-eindpunten en kunnen worden ingesteld wanneer `cdnEnabled`: false.
     
     Het eigendom van de domeinnaam moet worden bevestigd door Media Services. Media Services controleert het eigendom van de naam van domein of doordat een `CName` record met de ID van de Media Services-account als een onderdeel dat moet worden toegevoegd aan het domein wordt gebruikt. Een voorbeeld: voor 'sports.contoso.com' moet worden gebruikt als een aangepaste hostnaam voor het streaming-eindpunt, een record voor `<accountId>.contoso.com` moet worden geconfigureerd om te verwijzen naar een van de hostnamen voor Media Services-verificatie. De naam van de verificatie van verifydns bestaat. \<mediaservices-dns-zone >. 

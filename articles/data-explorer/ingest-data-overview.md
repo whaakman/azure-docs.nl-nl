@@ -3,17 +3,17 @@ title: Gegevensopname met Azure Data Explorer
 description: Meer informatie over de verschillende manieren waarop die u (load) gegevens in Azure Data Explorer opnemen kan
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133124"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755777"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Gegevensopname met Azure Data Explorer
 

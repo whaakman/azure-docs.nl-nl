@@ -1,6 +1,6 @@
 ---
-title: Selecteren en implementeren van een ASC voor IoT-agent Preview | Microsoft Docs
-description: Meer informatie over hoe selecteren en implementeren van ASC voor IoT security agents op IoT-apparaten.
+title: Selecteren en implementeren van Azure Security Center voor IoT-agent Preview | Microsoft Docs
+description: Meer informatie over hoe selecteren en implementeren van Azure Security Center voor IoT security agents op IoT-apparaten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 208f7cdbc9d610713d73c5af1e02de5faf11474c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580791"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755300"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecteren en implementeren van een beveiligingsagent op uw IoT-apparaat
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-ASC voor IoT biedt referentiearchitecturen voor beveiliging-agents die bewaken en verzamelen gegevens van IoT-apparaten.
+Azure Security Center (ASC) voor IoT biedt referentiearchitecturen voor beveiliging-agents die bewaken en verzamelen gegevens van IoT-apparaten.
 Zie [Security agent referentiearchitectuur](security-agent-architecture.md) voor meer informatie.
 
 Agents als open source-projecten zijn ontwikkeld en zijn beschikbaar in twee versies: <br> [C](https://aka.ms/iot-security-github-c), en [ C# ](https://aka.ms/iot-security-github-cs).

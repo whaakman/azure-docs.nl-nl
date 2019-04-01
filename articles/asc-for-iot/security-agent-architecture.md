@@ -1,6 +1,6 @@
 ---
-title: Inzicht krijgen in ASC voor IoT-agent beveiligingsarchitectuur Preview | Microsoft Docs
-description: Meer informatie over de beveiligingsarchitectuur van agent voor agents die worden gebruikt in de ASC voor IoT-service.
+title: Inzicht in Azure Security Center voor IoT-agent beveiligingsarchitectuur Preview | Microsoft Docs
+description: Meer informatie over de beveiligingsarchitectuur van agent voor agents die worden gebruikt in de Azure Security Center voor IoT-service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651394"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754176"
 ---
 # <a name="security-agent-reference-architecture"></a>Security agent-referentiearchitectuur
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 
-ASC voor IoT biedt referentiearchitectuur voor beveiliging-agents die zich, verwerken, samenvoegen en verzenden van beveiligingsgegevens via IoT hub.
+Azure Security Center (ASC) voor IoT biedt referentiearchitectuur voor beveiliging-agents die zich, verwerken, samenvoegen en verzenden van beveiligingsgegevens via IoT hub.
 
 Beveiligingsagenten zijn ontworpen voor gebruik in een omgeving met beperkte IoT en hoge mate aanpasbaar in termen van waarden die ze bieden in vergelijking tot de bronnen die waarvan ze gebruikmaken.
 

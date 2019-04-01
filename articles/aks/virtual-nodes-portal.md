@@ -7,23 +7,25 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164439"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755262"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Voorbeeld: maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
 Als u wilt snel workloads in een Azure Kubernetes Service (AKS)-cluster implementeert, kunt u virtuele-knooppunten. Met virtuele knooppunten kunt u snel inrichten van pods hebt, en betaalt alleen per seconde voor de uitvoeringstijd. In een scenario voor vergroten/verkleinen moet u niet wachten op het Kubernetes-cluster automatisch schalen om te implementeren VM-rekenknooppunten voor het uitvoeren van de extra schillen. In dit artikel wordt beschreven hoe u maken en configureren van de virtuele-netwerkbronnen en een AKS-cluster met virtuele knooppunten die zijn ingeschakeld.
 
 > [!IMPORTANT]
-> Virtuele voor AKS-knooppunten zijn momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+>
+> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
 
-## <a name="preview-limitations"></a>Preview-beperkingen
+## <a name="regional-availability"></a>Regionale beschikbaarheid
 
-Hoewel deze functie nog in Preview-versie, worden de volgende regio's worden ondersteund voor implementaties:
+De volgende regio's worden ondersteund voor implementaties met virtuele knooppunten:
 
 * Australië-Oost (australiaeast)
 * VS-Oost (VS-Oost)
@@ -182,6 +184,8 @@ Virtuele knooppunten zijn onderdeel van een oplossing voor schalen in AKS. Zie v
 
 - [Gebruik het Kubernetes-schil horizontale automatisch schalen][aks-hpa]
 - [Gebruik het Kubernetes-cluster automatisch schalen][aks-cluster-autoscaler]
+- [Bekijk het voorbeeld voor automatisch schalen voor virtuele-knooppunten][virtual-node-autoscale]
+- [Meer informatie over de Virtual Kubelet open source-bibliotheek][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -190,6 +194,9 @@ Virtuele knooppunten zijn onderdeel van een oplossing voor schalen in AKS. Zie v
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -198,4 +205,3 @@ Virtuele knooppunten zijn onderdeel van een oplossing voor schalen in AKS. Zie v
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
-

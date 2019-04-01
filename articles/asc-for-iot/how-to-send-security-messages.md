@@ -1,6 +1,6 @@
 ---
-title: Uw beveiligingsberichten verzenden naar ASC voor IoT-Preview | Microsoft Docs
-description: Leer hoe u uw beveiligingsberichten verzenden met ASC voor IoT.
+title: Uw beveiligingsberichten verzenden naar Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Leer hoe u uw Azure Security Center gebruiken voor IoT security-berichten te verzenden.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650152"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754776"
 ---
 # <a name="send-security-messages-sdk"></a>Verzenden van beveiligingsberichten SDK
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In deze gebruiksaanwijzing wordt ASC uitgelegd voor servicecapaciteiten IoT wanneer u kiest voor het verzamelen en verzenden van uw apparaat beveiligingsberichten zonder gebruik te maken van een ASC voor IoT-agent en wordt uitgelegd hoe u om dit te doen.  
+In deze gebruiksaanwijzing wordt uitgelegd van Azure Security Center (ASC) voor servicecapaciteiten IoT wanneer u kiest voor het verzamelen en verzenden van uw apparaat beveiligingsberichten zonder gebruik te maken van een ASC voor IoT-agent en wordt uitgelegd hoe u om dit te doen.  
 
 In deze handleiding leert u het volgende: 
 > [!div class="checklist"]

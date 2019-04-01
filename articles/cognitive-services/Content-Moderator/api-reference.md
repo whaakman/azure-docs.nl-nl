@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a6bd92a675885cb343b07ef981c38571af0a931c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862459"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756060"
 ---
 # <a name="content-moderator-api-reference"></a>Referentie voor de Content Moderator-API
 
@@ -28,10 +28,10 @@ U aan de slag met Azure Content Moderator API's in de volgende manieren: (Zie oo
 
 U kunt de volgende Content Moderator API's gebruiken voor het instellen van uw werkstromen na toezicht.
 
-| Description | Referentie |
+| Beschrijving | Referentie |
 | -------------------- |-------------|
 | **Afbeeldingstoezicht-API**<br /><br />Scan afbeeldingen en detecteren van mogelijke erotische en ongepaste inhoud met behulp van tags, vertrouwen scores en andere opgehaalde gegevens. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht. <br /><br />| [Afbeelding van toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "installatiekopie Afbeeldingstoezicht-API-verwijzing")   |
-| **Teksttoezicht-API**<br /><br />Tekstinhoud scannen. Grof taalgebruik voorwaarden en persoonlijk identificeerbare informatie (PII) worden geretourneerd. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht.<br /><br /> | [Tekst toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "tekst Afbeeldingstoezicht-API-verwijzing")   |
+| **Teksttoezicht-API**<br /><br />Tekstinhoud scannen. Grof taalgebruik voorwaarden en persoonlijke gegevens worden geretourneerd. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht.<br /><br /> | [Tekst toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "tekst Afbeeldingstoezicht-API-verwijzing")   |
 | **Videotoezicht-API**<br /><br />Video's scannen en mogelijke erotische en ongepaste inhoud detecteren. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht.<br /><br /> | [Video toezicht-API-overzicht](video-moderation-api.md "toezicht-API voor Video-overzicht")   |
 | **Lijst met Management-API**<br /><br />Maken en beheren van aangepaste uitsluitings- of insluitingsfilters lijsten met tekst en afbeeldingen. Indien ingeschakeld, de **afbeelding: overeenkomen met** en **tekst - scherm** bewerkingen uitvoeren zoeken bij benadering die overeenkomt met de ingediende inhoud op basis van uw aangepaste lijsten. <br /><br />Voor efficiëntie, kunt u de machine learning gebaseerde beheer stap overslaan.<br /><br /> | [Lijst van Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "lijst Management API-verwijzing")   |
 

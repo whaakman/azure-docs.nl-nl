@@ -1,6 +1,6 @@
 ---
-title: Wat is er ASC voor IoT-Preview | Microsoft Docs
-description: Meer informatie over ASC voor IoT-functies en -service.
+title: Wat is Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Meer informatie over Azure Security Center voor IoT-functies en -service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578812"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757595"
 ---
-# <a name="introducing-asc-for-iot"></a>Maak kennis met ASC voor IoT
+# <a name="introducing-azure-security-center-for-iot"></a>Maak kennis met Azure Security Center voor IoT
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="secure-your-azure-iot-solution"></a>Beveiligen van uw Azure-IoT-oplossing 
@@ -35,7 +35,7 @@ Beveiligingsbeheer uniformeren en end-to-bedreigingsanalyse en beveiliging insch
 
 Het Internet of Things transformeert snel onze wereld. Met de mogelijkheid om om inzicht te krijgen van uw verbonden apparaten en back-endsystemen, kunt u nu deze inzichten om in krachtige toepassingen en services om u te helpen uw organisatie een ongekende hoogte van de operationele en zakelijke transformeren prestaties. Echter, zoals miljarden nieuwe apparaten zijn verbonden met internet, en geïntegreerd in onze dagelijkse leven en onze bedrijven; de operations-teams van uw beveiliging nodig hebt om ervoor te zorgen dat hun beveiligingsstrategieën snel genoeg om deze nieuwe oppervlakteaanvallen veranderen. Net als elk ander systeem moet beveiligen van uw IoT-oplossing beveiliging in elke fase van uw implementatie. 
 
-ASC voor IoT vereenvoudigt hybride workload protection door het leveren van geïntegreerde zichtbaarheid en controle, geavanceerde bedreigingen te voorkomen, en intelligente detectie van bedreigingen en antwoord verschillende workloads die worden uitgevoerd in Microsoft edge, on-premises, in Azure, en in andere clouds. 
+Vereenvoudigt het hybride-werkbelastingsbescherming door het leveren van geïntegreerde zichtbaarheid en controle, geavanceerde bedreigingen te voorkomen, en intelligente detectie van bedreigingen en antwoord verschillende workloads die worden uitgevoerd in Microsoft edge, on-premises, in Azure, en in Azure Security Center (ASC) voor IoT andere clouds. 
 
 ![ASC voor IoT-architectuur](./media/architecture/asc-for-iot-architecture.png)
 

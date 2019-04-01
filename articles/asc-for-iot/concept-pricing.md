@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over ASC voor IoT-kosten Preview | Microsoft Docs
-description: Meer informatie over de kosten die zijn gekoppeld aan de ASC voor IoT, en hoe u ze kunt beheren.
+title: Inzicht in Azure Security Center voor IoT kosten Preview | Microsoft Docs
+description: Meer informatie over de kosten die zijn gekoppeld aan Azure Security Center voor IoT, en hoe u ze kunt beheren.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580656"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758041"
 ---
-# <a name="pricing-and-associated-costs"></a>Prijs- en bijbehorende kosten
+# <a name="pricing-and-associated-costs"></a>Prijs en bijbehorende kosten
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In dit artikel wordt uitgelegd ASC voor IoT prijsmodel, bevat een overzicht van alle bijbehorende kosten en wordt uitgelegd hoe u ze kunt beheren.
+In dit artikel wordt uitgelegd van Azure Security Center (ASC) voor IoT-prijsmodel, bevat een overzicht van alle bijbehorende kosten en wordt uitgelegd hoe u ze kunt beheren.
 
 ## <a name="pricing"></a>Prijzen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Beoordelingen maken met behulp van .NET - Content Moderator'
+title: Beoordelingen maken met behulp van .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Beoordelingen maken met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
@@ -7,40 +7,32 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: d6563441285380d0fea468caaacb0130cb259976
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884348"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758651"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Quickstart: Beoordelingen maken met behulp van .NET
+# <a name="create-human-reviews-net"></a>Create human reviews (.NET)
 
-In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
- 
+Beoordelingen opslaan en weergeven van inhoud voor menselijke moderators om vast te stellen. Wanneer een gebruiker is een beoordeling voltooid, worden de resultaten verzonden naar een opgegeven retouraanroep-eindpunt. Deze handleiding vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+
 - Een set beoordelingen voor menselijke moderators maken
 - De status van bestaande beoordelingen voor menselijke moderators ophalen
 
-De inhoud doorloopt over het algemeen de een of andere vorm van geautomatiseerd toezicht voordat deze wordt gepland voor menselijke beoordeling. Dit artikel behandelt alleen het maken van de beoordeling voor menselijk toezicht. Zie de zelfstudies [Facebook-inhoud controleren](facebook-post-moderation.md) en [eCommerce-catalogus modereren](ecommerce-retail-catalog-moderation.md) voor een uitgebreider scenario.
+## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C#.
-
-## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
-
-Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig. Volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op Content Moderator en uw sleutel op te halen.
-
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
-
-Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
+- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
-Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
+Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart.
 
-Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
+Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
 
 Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
@@ -64,14 +56,17 @@ Installeer de volgende NuGet-pakketten:
 
 Pas de using-instructies van het programma aan.
 
-    using Microsoft.Azure.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator.Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading;
+
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
 
 ### <a name="create-the-content-moderator-client"></a>De Content Moderator-client maken
 
@@ -80,55 +75,56 @@ Voeg de volgende code toe om een Content Moderator-client voor uw abonnement te 
 > [!IMPORTANT]
 > Werk de velden **AzureRegion** en **CMSubscriptionKey** bij met de waarden van uw regio-id en de abonnementssleutel.
 
+```csharp
+/// <summary>
+/// Wraps the creation and configuration of a Content Moderator client.
+/// </summary>
+/// <remarks>This class library contains insecure code. If you adapt this
+/// code for use in production, use a secure method of storing and using
+/// your Content Moderator subscription key.</remarks>
+public static class Clients
+{
+    /// <summary>
+    /// The region/location for your Content Moderator account,
+    /// for example, westus.
+    /// </summary>
+    private static readonly string AzureRegion = "YOUR API REGION";
 
     /// <summary>
-    /// Wraps the creation and configuration of a Content Moderator client.
+    /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    /// <remarks>This class library contains insecure code. If you adapt this 
-    /// code for use in production, use a secure method of storing and using
-    /// your Content Moderator subscription key.</remarks>
-    public static class Clients
+    private static readonly string AzureBaseURL =
+        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+    /// <summary>
+    /// Your Content Moderator subscription key.
+    /// </summary>
+    private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+    /// <summary>
+    /// Returns a new Content Moderator client for your subscription.
+    /// </summary>
+    /// <returns>The new client.</returns>
+    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+    /// When you have finished using the client,
+    /// you should dispose of it either directly or indirectly. </remarks>
+    public static ContentModeratorClient NewClient()
     {
-        /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
-        /// </summary>
-        private static readonly string AzureRegion = "YOUR API REGION";
+        // Create and initialize an instance of the Content Moderator API wrapper.
+        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-        /// <summary>
-        /// Your Content Moderator subscription key.
-        /// </summary>
-        private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-        /// <summary>
-        /// Returns a new Content Moderator client for your subscription.
-        /// </summary>
-        /// <returns>The new client.</returns>
-        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-        /// When you have finished using the client,
-        /// you should dispose of it either directly or indirectly. </remarks>
-        public static ContentModeratorClient NewClient()
-        {
-            // Create and initialize an instance of the Content Moderator API wrapper.
-            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-            client.Endpoint = AzureBaseURL;
-            return client;
-        }
+        client.Endpoint = AzureBaseURL;
+        return client;
     }
+}
+```
 
 ## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Maak een klasse om informatie over interne inhoud te koppelen aan een beoordelings-id
 
-Voeg de volgende klasse toe aan de klasse **Program**.
-Met deze klasse kunt u de beoordelings-id koppelen aan de id van uw interne inhoud voor het item.
+Voeg de volgende klasse toe aan de klasse **Program**. Met deze klasse kunt u de beoordelings-id koppelen aan de id van uw interne inhoud voor het item.
 
-    /// <summary>
+```csharp
+/// <summary>
     /// Associates the review ID (assigned by the service) to the internal
     /// content ID of the item.
     /// </summary>
@@ -154,17 +150,19 @@ Met deze klasse kunt u de beoordelings-id koppelen aan de id van uw interne inho
         /// </summary>
         public string ReviewId;
     }
+```
 
 ### <a name="initialize-application-specific-settings"></a>Toepassingsspecifieke instellingen initialiseren
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een limiet voor het aantal aanvragen per seconde (RPS) en als u die limiet overschrijdt, genereert de SDK een uitzondering met foutcode 429. 
+> De sleutel van uw Content Moderator-service heeft een limiet voor het aantal aanvragen per seconde (RPS) en als u die limiet overschrijdt, genereert de SDK een uitzondering met foutcode 429.
 >
 > Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de klasse **Program** in Program.cs.
-    
-    /// <summary>
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de **programma** klasse in Program.cs
+
+```csharp
+/// <summary>
     /// The minimum amount of time, in milliseconds, to wait between calls
     /// to the Image List API.
     /// </summary>
@@ -181,8 +179,9 @@ Met deze klasse kunt u de beoordelings-id koppelen aan de id van uw interne inho
     /// </summary>
     /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
+```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden toe aan de klasse **Program** in Program.cs.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden die u wilt de **programma** klasse in Program.cs
 
 Werk deze waarden bij met informatie die specifiek is voor uw abonnement en team.
 
@@ -191,86 +190,92 @@ Werk deze waarden bij met informatie die specifiek is voor uw abonnement en team
 >
 > De naam van uw team is de waarde van het veld **Id** veld in de sectie **API**.
 
-    /// <summary>
-    /// The name of the team to assign the review to.
-    /// </summary>
-    /// <remarks>This must be the team name you used to create your 
-    /// Content Moderator account. You can retrieve your team name from
-    /// the Content Moderator web site. Your team name is the Id associated 
-    /// with your subscription.</remarks>
-    private const string TeamName = "YOUR REVIEW TEAM ID";
+```csharp
+/// <summary>
+/// The name of the team to assign the review to.
+/// </summary>
+/// <remarks>This must be the team name you used to create your
+/// Content Moderator account. You can retrieve your team name from
+/// the Content Moderator web site. Your team name is the Id associated
+/// with your subscription.</remarks>
+private const string TeamName = "YOUR REVIEW TEAM ID";
 
-    /// <summary>
-    /// The optional name of the subteam to assign the review to.
-    /// </summary>
-    private const string Subteam = null;
+/// <summary>
+/// The optional name of the subteam to assign the review to.
+/// </summary>
+private const string Subteam = null;
 
-    /// <summary>
-    /// The callback endpoint for completed reviews.
-    /// </summary>
-    /// <remarks>Reviews show up for reviewers on your team. 
-    /// As reviewers complete reviews, results are sent to the
-    /// callback endpoint using an HTTP POST request.</remarks>
-    private const string CallbackEndpoint = "YOUR API ENDPOINT";
+/// <summary>
+/// The callback endpoint for completed reviews.
+/// </summary>
+/// <remarks>Reviews show up for reviewers on your team. 
+/// As reviewers complete reviews, results are sent to the
+/// callback endpoint using an HTTP POST request.</remarks>
+private const string CallbackEndpoint = "YOUR API ENDPOINT";
 
-    /// <summary>
-    /// The media type for the item to review.
-    /// </summary>
-    /// <remarks>Valid values are "image", "text", and "video".</remarks>
-    private const string MediaType = "image";
+/// <summary>
+/// The media type for the item to review.
+/// </summary>
+/// <remarks>Valid values are "image", "text", and "video".</remarks>
+private const string MediaType = "image";
 
-    /// <summary>
-    /// The URLs of the images to create review jobs for.
-    /// </summary>
-    private static readonly string[] ImageUrls = new string[] {
-        "https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg"
-        // add more if you want
-    };
+/// <summary>
+/// The URLs of the images to create review jobs for.
+/// </summary>
+private static readonly string[] ImageUrls = new string[] {
+    "https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg"
+    // add more if you want
+};
 
-    /// <summary>
-    /// The metadata key to initially add to each review item.
-    /// </summary>
-    private const string MetadataKey = "sc";
+/// <summary>
+/// The metadata key to initially add to each review item.
+/// </summary>
+private const string MetadataKey = "sc";
 
-    /// <summary>
-    /// The metadata value to initially add to each review item.
-    /// </summary>
-    private const string MetadataValue = "true";
+/// <summary>
+/// The metadata value to initially add to each review item.
+/// </summary>
+private const string MetadataValue = "true";
+```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende statische velden toe aan de klasse **Program** in Program.cs.
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
 
 Gebruik deze velden voor het volgen van de status van de toepassing.
 
-    /// <summary>
-    /// A static reference to the text writer to use for logging.
-    /// </summary>
-    private static TextWriter writer;
+```csharp
+/// <summary>
+/// A static reference to the text writer to use for logging.
+/// </summary>
+private static TextWriter writer;
 
-    /// <summary>
-    /// The cached review information, associating a local content ID
-    /// to the created review ID for each item.
-    /// </summary>
-    private static List<ReviewItem> reviewItems =
-        new List<ReviewItem>();
+/// <summary>
+/// The cached review information, associating a local content ID
+/// to the created review ID for each item.
+/// </summary>
+private static List<ReviewItem> reviewItems =
+    new List<ReviewItem>();
+```
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Een methode definiëren voor het schrijven van berichten naar het logboekbestand
 
-Voeg de volgende methode toe aan de klasse **Program**. 
+Voeg de volgende methode toe aan de klasse **Program**.
 
-    /// <summary>
-    /// Writes a message to the log file, and optionally to the console.
-    /// </summary>
-    /// <param name="message">The message.</param>
-    /// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
-    private static void WriteLine(string message = null, bool echo = false)
+```csharp
+/// <summary>
+/// Writes a message to the log file, and optionally to the console.
+/// </summary>
+/// <param name="message">The message.</param>
+/// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
+private static void WriteLine(string message = null, bool echo = false)
+{
+    writer.WriteLine(message ?? String.Empty);
+
+    if (echo)
     {
-        writer.WriteLine(message ?? String.Empty);
-
-        if (echo)
-        {
-            Console.WriteLine(message ?? String.Empty);
-        }
+        Console.WriteLine(message ?? String.Empty);
     }
+}
+```
 
 ## <a name="create-a-method-to-create-a-set-of-reviews"></a>Een methode definiëren voor het maken van een reeks beoordelingen
 
@@ -278,76 +283,78 @@ Normaal gesproken beschikt u over bedrijfslogica voor het identificeren van binn
 
 Voeg de volgende methode toe aan de klasse **Program**.
 
-    /// <summary>
-    /// Create the reviews using the fixed list of images.
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    private static void CreateReviews(ContentModeratorClient client)
+```csharp
+/// <summary>
+/// Create the reviews using the fixed list of images.
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+private static void CreateReviews(ContentModeratorClient client)
+{
+    WriteLine(null, true);
+    WriteLine("Creating reviews for the following images:", true);
+
+    // Create the structure to hold the request body information.
+    List<CreateReviewBodyItem> requestInfo =
+        new List<CreateReviewBodyItem>();
+
+    // Create some standard metadata to add to each item.
+    List<CreateReviewBodyItemMetadataItem> metadata =
+        new List<CreateReviewBodyItemMetadataItem>(
+        new CreateReviewBodyItemMetadataItem[] {
+            new CreateReviewBodyItemMetadataItem(
+                MetadataKey, MetadataValue)
+        });
+
+    // Populate the request body information and the initial cached review information.
+    for (int i = 0; i < ImageUrls.Length; i++)
     {
-        WriteLine(null, true);
-        WriteLine("Creating reviews for the following images:", true);
-
-        // Create the structure to hold the request body information.
-        List<CreateReviewBodyItem> requestInfo =
-            new List<CreateReviewBodyItem>();
-
-        // Create some standard metadata to add to each item.
-        List<CreateReviewBodyItemMetadataItem> metadata =
-            new List<CreateReviewBodyItemMetadataItem>(
-            new CreateReviewBodyItemMetadataItem[] {
-                new CreateReviewBodyItemMetadataItem(
-                    MetadataKey, MetadataValue)
-            });
-
-        // Populate the request body information and the initial cached review information.
-        for (int i = 0; i < ImageUrls.Length; i++)
+        // Cache the local information with which to create the review.
+        var itemInfo = new ReviewItem()
         {
-            // Cache the local information with which to create the review.
-            var itemInfo = new ReviewItem()
-            {
-                Type = MediaType,
-                ContentId = i.ToString(),
-                Url = ImageUrls[i],
-                ReviewId = null
-            };
+            Type = MediaType,
+            ContentId = i.ToString(),
+            Url = ImageUrls[i],
+            ReviewId = null
+        };
 
-            WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
+        WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
 
-            // Add the item informaton to the request information.
-            requestInfo.Add(new CreateReviewBodyItem(
-                itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
-                CallbackEndpoint, metadata));
+        // Add the item informaton to the request information.
+        requestInfo.Add(new CreateReviewBodyItem(
+            itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
+            CallbackEndpoint, metadata));
 
-            // Cache the review creation information.
-            reviewItems.Add(itemInfo);
-        }
-
-        var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
-            "application/json", TeamName, requestInfo);
-
-        // Update the local cache to associate the created review IDs with
-        // the associated content.
-        var reviewIds = reviewResponse.Result.Body;
-        for (int i = 0; i < reviewIds.Count; i++)
-        {
-            Program.reviewItems[i].ReviewId = reviewIds[i];
-        }
-
-        WriteLine(JsonConvert.SerializeObject(
-        reviewIds, Formatting.Indented));
-
-        Thread.Sleep(throttleRate);
+        // Cache the review creation information.
+        reviewItems.Add(itemInfo);
     }
+
+    var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
+        "application/json", TeamName, requestInfo);
+
+    // Update the local cache to associate the created review IDs with
+    // the associated content.
+    var reviewIds = reviewResponse.Result.Body;
+    for (int i = 0; i < reviewIds.Count; i++)
+    {
+        Program.reviewItems[i].ReviewId = reviewIds[i];
+    }
+
+    WriteLine(JsonConvert.SerializeObject(
+    reviewIds, Formatting.Indented));
+
+    Thread.Sleep(throttleRate);
+}
+```
 
 ## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Een methode definiëren om de status van bestaande beoordelingen op te halen
 
-Voeg de volgende methode toe aan de klasse **Program**. 
+Voeg de volgende methode toe aan de klasse **Program**.
 
 > [!Note]
-> In de praktijk stelt u de callback-URL `CallbackEndpoint` in op de URL die de resultaten van de handmatige beoordeling ontvangt (via een HTTP POST-aanvraag).
-> U kunt deze methode wijzigen om de status van in behandeling zijnde beoordelingen te controleren.
+> In de praktijk stelt u de callback-URL `CallbackEndpoint` in op de URL die de resultaten van de handmatige beoordeling ontvangt (via een HTTP POST-aanvraag). U kunt deze methode wijzigen om de status van in behandeling zijnde beoordelingen te controleren.
 
-    /// <summary>
+```csharp
+/// <summary>
     /// Gets the review details from the server.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
@@ -369,53 +376,58 @@ Voeg de volgende methode toe aan de klasse **Program**.
             Thread.Sleep(throttleRate);
         }
     }
+```
 
 ## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Code toevoegen om een reeks beoordelingen te maken en de status ervan te controleren
 
 Voeg de volgende code aan de methode **Main**.
 
-Deze code simuleert veel van de bewerkingen die u uitvoert bij het definiëren en beheren van de lijst en bij het gebruik van de lijst voor schermafbeeldingen. Met de functies voor logboekregistratie kunt u de antwoordobjecten zien die worden gegenereerd door de SDK-aanroepen naar de Content Moderator-service.
+Deze code simuleert veel van de bewerkingen die u uitvoert bij het definiëren en beheren van de lijst en bij het gebruik van de lijst voor schermafbeeldingen. De functies voor logboekregistratie kunnen u zien dat de antwoordobjecten die worden gegenereerd door de SDK-aanroepen naar de inhoud mModerator-service.
 
-    using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
+```csharp
+using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
+{
+    writer = outputWriter;
+    using (var client = Clients.NewClient())
     {
-        writer = outputWriter;
-        using (var client = Clients.NewClient())
-        {
-            CreateReviews(client);
-            GetReviewDetails(client);
+        CreateReviews(client);
+        GetReviewDetails(client);
 
-            Console.WriteLine();
-            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            Console.WriteLine("Then, press any key to continue.");
-            Console.ReadKey();
+        Console.WriteLine();
+        Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+        Console.WriteLine("Then, press any key to continue.");
+        Console.ReadKey();
 
-            Console.WriteLine();
-            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
-            Thread.Sleep(latencyDelay * 1000);
+        Console.WriteLine();
+        Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
+        Thread.Sleep(latencyDelay * 1000);
 
-            GetReviewDetails(client);
-        }
-
-        writer = null;
-        outputWriter.Flush();
-        outputWriter.Close();
+        GetReviewDetails(client);
     }
 
-    Console.WriteLine();
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
+    writer = null;
+    outputWriter.Flush();
+    outputWriter.Close();
+}
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
+Console.WriteLine();
+Console.WriteLine("Press any key to exit...");
+Console.ReadKey();
+```
+
+## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 
 U krijgt de volgende voorbeelduitvoer te zien:
 
-    Creating reviews for the following images:
+```console
+Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
 
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
+```
 
-Meld u aan bij het Content Moderator-beoordelingsprogramma om de in behandeling zijnde beoordeling van afbeeldingen te zien met het **sc**-label ingesteld op **true**. U ziet ook de standaard **a**- en **r**-tags en eventuele aangepaste tags die u mogelijk hebt gedefinieerd binnen het beoordelingsprogramma. 
+Meld u aan bij het Content Moderator-beoordelingsprogramma om de in behandeling zijnde beoordeling van afbeeldingen te zien met het **sc**-label ingesteld op **true**. U ziet ook de standaard **a**- en **r**-tags en eventuele aangepaste tags die u mogelijk hebt gedefinieerd binnen het beoordelingsprogramma.
 
 Gebruik de knop **Volgende** om de code te verzenden.
 
@@ -423,12 +435,14 @@ Gebruik de knop **Volgende** om de code te verzenden.
 
 Druk vervolgens op een willekeurige toets om door te gaan.
 
-    Waiting 45 seconds for results to propagate.
+```console
+Waiting 45 seconds for results to propagate.
 
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
 
     Press any key to exit...
+```
 
 ## <a name="check-out-the-following-output-in-the-log-file"></a>Bekijk de volgende uitvoer in het logboekbestand.
 
@@ -437,7 +451,8 @@ Druk vervolgens op een willekeurige toets om door te gaan.
 
 De beoordelings-id's en de URL's van de afbeeldingsinhoud verschillen iedere keer wanneer u de toepassing uitvoert. Wanneer een beoordeling is voltooid, geeft het veld `reviewerResultTags` aan hoe de beoordelaar het item gemarkeerd heeft.
 
-    Creating reviews for the following images:
+```json
+Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
     [
         "201712i46950138c61a4740b118a43cac33f434",
@@ -453,8 +468,8 @@ De beoordelings-id's en de URL's van de afbeeldingsinhoud verschillen iedere kee
         "createdBy": "{teamname}",
         "metadata": [
         {
-            "key": "sc",
-            "value": "true"
+              "key": "sc",
+              "value": "true"
         }
         ],
         "type": "Image",
@@ -471,23 +486,23 @@ De beoordelings-id's en de URL's van de afbeeldingsinhoud verschillen iedere kee
         "status": "Complete",
         "reviewerResultTags": [
         {
-            "key": "a",
-            "value": "False"
+              "key": "a",
+              "value": "False"
         },
         {
-            "key": "r",
-            "value": "True"
+              "key": "r",
+              "value": "True"
         },
         {
-            "key": "sc",
-            "value": "True"
+              "key": "sc",
+              "value": "True"
         }
         ],
         "createdBy": "{teamname}",
         "metadata": [
         {
-            "key": "sc",
-            "value": "true"
+              "key": "sc",
+              "value": "true"
         }
         ],
         "type": "Image",
@@ -495,28 +510,30 @@ De beoordelings-id's en de URL's van de afbeeldingsinhoud verschillen iedere kee
         "contentId": "0",
         "callbackEndpoint": "{callbackUrl}"
     }
+```
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>Indien opgegeven ontvangt de URL voor terugbellen deze reactie
 
 U ziet een reactie zoals in het volgende voorbeeld:
 
-    {
-        "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
-        "ModifiedOn": "2018-01-06T05:04:40.5525865Z",
-        "ModifiedBy": "yourusername",
-        "CallBackType": "Review",
-        "ContentId": "0",
-        "ContentType": "Image",
-        "Metadata": {
-            "sc": "true"
-            },
-        "ReviewerResultTags": {
-            "a": "False",
-            "r": "False",
-        }
+```json
+{
+    "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
+    "ModifiedOn": "2018-01-06T05:04:40.5525865Z",
+    "ModifiedBy": "yourusername",
+    "CallBackType": "Review",
+    "ContentId": "0",
+    "ContentType": "Image",
+    "Metadata": {
+        "sc": "true"
+        },
+    "ReviewerResultTags": {
+        "a": "False",
+        "r": "False",
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstarts over Content Moderator voor .NET en begin met de integratie.
+Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en download de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.

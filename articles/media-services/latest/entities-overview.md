@@ -1,6 +1,6 @@
 ---
-title: Filteren, bestellen, voor het wisselbestand van entiteiten in Azure Media Services - Azure | Microsoft Docs
-description: Dit artikel worden besproken filteren, bestellen, voor het wisselbestand van Azure Media Services-entiteiten.
+title: Ontwikkelen met v3 API's - Azure | Microsoft Docs
+description: Dit artikel worden de regels die betrekking hebben op entiteiten en API's bij het ontwikkelen met Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,16 +12,38 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745093"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758534"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
+# <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
-## <a name="overview"></a>Overzicht
+Dit artikel worden de regels die betrekking hebben op entiteiten en API's bij het ontwikkelen met Media Services v3.
+
+## <a name="naming-conventions"></a>Naamconventies
+
+Namen van Azure Media Services v3-resources (bijvoorbeeld activa, taken, transformaties) zijn onderhevig aan de naamgevingsbeperkingen van Azure Resource Manager. In overeenstemming met Azure Resource Manager zijn de resourcenamen altijd uniek. U kunt dus alle unieke id-strings (bijvoorbeeld GUID's) gebruiken voor uw resourcenamen. 
+
+Namen van Media Services-resources mogen niet de volgende tekens bevatten: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', enkele aanhalingstekens of besturingstekens. Alle andere tekens zijn toegestaan. De maximale lengte van een resourcenaam is 260 tekens. 
+
+Zie [Naamvereisten](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) en [Naamconventies](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor meer informatie over Azure Resource Manager-naamgeving.
+
+## <a name="v3-api-design-principles"></a>Ontwerpprincipes voor v3 API
+
+Een van de belangrijkste principes van de API v3 is het beter beveiligen van de API. V3 API's retourneren geen geheimen of referenties naar aanleiding van een**Get**- of **List**-bewerking. De sleutels zijn altijd null, leeg of opgeschoond uit het antwoord. U moet een afzonderlijke actiemethode aanroepen voor het ophalen van geheimen of referenties. Door afzonderlijke acties te gebruiken, kunt u verschillende RBAC-beveiligingsrechten instellen voor het geval een aantal API's wel geheimen ophaalt/weergeeft en andere API's dat niet doen. Zie voor meer informatie over het beheren van toegang met RBAC [RBAC gebruiken om toegang te beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Voorbeelden van hiervoor zijn:
+
+* ContentKey waarden in het ophalen van de StreamingLocator worden niet geretourneerd.
+* De beperking van sleutels in het ophalen van de ContentKeyPolicy worden niet geretourneerd.
+* de query-tekenreeks-onderdeel van de URL (om de handtekening verwijderen) van de taken HTTP invoer-URL's wordt niet geretourneerd.
+
+Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
 
 Media Services ondersteunt de volgende OData-queryopties voor Media Services v3-entiteiten: 
 
@@ -41,7 +63,7 @@ Beschrijving van de operator:
 
 Eigenschappen van entiteiten die van het type datum/tijd zijn altijd in UTC-notatie.
 
-## <a name="page-results"></a>Resultaten van de pagina
+### <a name="page-results"></a>Resultaten van de pagina
 
 Als een query-antwoord veel items bevat, retourneert de service een "\@odata.nextLink" eigenschap om de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. U kunt het formaat van de pagina niet configureren. Formaat van de pagina is afhankelijk van het type entiteit, lees de afzonderlijke secties die volgen voor meer informatie.
 
@@ -50,9 +72,9 @@ Als entiteiten zijn gemaakt of verwijderd, wanneer de verzameling worden er pagi
 > [!TIP]
 > U moet de volgende koppeling altijd gebruiken om inventariseren van de verzameling en niet afhankelijk van het formaat van een bepaalde pagina.
 
-## <a name="assets"></a>Assets
+### <a name="assets"></a>Assets
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe de filters en opties bestellen kunnen worden toegepast op de [Asset](https://docs.microsoft.com/rest/api/media/assets) eigenschappen: 
 
@@ -77,11 +99,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### <a name="pagination"></a>Paginering 
+#### <a name="pagination"></a>Paginering 
 
 Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de paginagrootte 1000.
 
-#### <a name="c-example"></a>C#-voorbeeld
+##### <a name="c-example"></a>C#-voorbeeld
 
 De volgende C#-voorbeeld laat zien hoe om te inventariseren alle activa in het account.
 
@@ -95,7 +117,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-#### <a name="rest-example"></a>REST-voorbeeld
+##### <a name="rest-example"></a>REST-voorbeeld
 
 Houd rekening met het volgende voorbeeld van waar $skiptoken wordt gebruikt. Zorg ervoor dat u vervangen *amstestaccount* met uw accountnaam en stel de *api-versie* waarde naar de nieuwste versie.
 
@@ -137,9 +159,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 Zie voor meer voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/api/media/assets/list)
 
-## <a name="content-key-policies"></a>Beleid voor inhoudssleutels
+### <a name="content-key-policies"></a>Beleid voor inhoudssleutels
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [Inhoudbeleidsregels sleutel](https://docs.microsoft.com/rest/api/media/contentkeypolicies) eigenschappen: 
 
@@ -154,7 +176,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [Inhoudbe
 |properties.policyId|eq, ne||
 |type|||
 
-### <a name="pagination"></a>Paginering
+#### <a name="pagination"></a>Paginering
 
 Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de grootte van 10.
 
@@ -172,9 +194,9 @@ while (currentPage.NextPageLink != null)
 
 Zie voor voorbeelden van REST [inhoud sleutelbeleid - lijst](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## <a name="jobs"></a>Taken
+### <a name="jobs"></a>Taken
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [taken](https://docs.microsoft.com/rest/api/media/jobs) eigenschappen: 
 
@@ -186,7 +208,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [taken](h
 | properties.lastModified | gt, ge, lt, le | Oplopend of aflopend| 
 
 
-### <a name="pagination"></a>Paginering
+#### <a name="pagination"></a>Paginering
 
 Taken paginering wordt ondersteund in Media Services v3.
 
@@ -220,9 +242,9 @@ while (!exit);
 
 Zie voor voorbeelden van REST [taken - lijst](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-## <a name="streaming-locators"></a>Streaming-locators
+### <a name="streaming-locators"></a>Streaming-locators
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingLocator-eigenschappen: 
 
@@ -241,7 +263,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Streaming
 |properties.streamingPolicyName |||
 |type   |||
 
-### <a name="pagination"></a>Paginering
+#### <a name="pagination"></a>Paginering
 
 Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de grootte van 10.
 
@@ -259,9 +281,9 @@ while (currentPage.NextPageLink != null)
 
 Zie voor voorbeelden van REST [Streaming-Locators - lijst](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
-## <a name="streaming-policies"></a>Beleid voor streaming
+### <a name="streaming-policies"></a>Beleid voor streaming
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingPolicy-eigenschappen: 
 
@@ -277,7 +299,7 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Streaming
 |properties.noEncryption|||
 |type|||
 
-### <a name="pagination"></a>Paginering
+#### <a name="pagination"></a>Paginering
 
 Paginering wordt voor elk van de vier ingeschakelde sorteervolgorde ondersteund. Op dit moment is de grootte van 10.
 
@@ -296,9 +318,9 @@ while (currentPage.NextPageLink != null)
 Zie voor voorbeelden van REST [Streaming beleid - lijst](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 
-## <a name="transform"></a>Transformeren
+### <a name="transform"></a>Transformeren
 
-### <a name="filteringordering"></a>Filteren/bestellen
+#### <a name="filteringordering"></a>Filteren/bestellen
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [transformeert](https://docs.microsoft.com/rest/api/media/transforms) eigenschappen: 
 

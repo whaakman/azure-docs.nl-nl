@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over ASC voor aanbevelingen voor beveiliging van IoT Preview | Microsoft Docs
-description: Meer informatie over het concept van aanbevelingen voor beveiliging en hoe ze worden gebruikt in ASC voor IoT.
+title: Meer informatie over Azure Security Center voor aanbevelingen voor beveiliging van IoT Preview | Microsoft Docs
+description: Meer informatie over het concept van aanbevelingen voor beveiliging en hoe ze worden gebruikt in Azure Security Center voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576191"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754819"
 ---
 # <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-ASC voor IoT scant uw Azure-resources en IoT-apparaten en aanbevelingen voor beveiliging te verminderen van uw kwetsbaarheid voor biedt. Aanbevelingen voor beveiliging zijn bruikbare en richt u op het helpen van klanten in die voldoet aan best practices voor beveiliging.
+Azure Security Center (ASC) voor IoT scant uw Azure-resources en IoT-apparaten en aanbevelingen voor beveiliging te verminderen van uw kwetsbaarheid voor biedt. Aanbevelingen voor beveiliging zijn bruikbare en richt u op het helpen van klanten in die voldoet aan best practices voor beveiliging.
 
 In dit artikel vindt u een lijst met aanbevelingen die kan worden geactiveerd op uw IoT-Hub en/of IoT-apparaten.
 
@@ -47,7 +47,7 @@ Apparaat aanbevelingen bieden inzicht en suggesties voor het apparaat het beveil
 
 Operationele aanbevelingen bieden inzicht en suggesties voor het verbeteren van de beveiligingsconfiguratie voor de agent.
 
-| Severity | Name                                    | Gegevensbron | Description                                                                       |
+| Severity | Name                                    | Gegevensbron | Beschrijving                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Laag      | Agent verzendt unutilized berichten          | Agent       | 10% of meer van de beveiligingsberichten zijn kleiner is dan 4kb tijdens de afgelopen 24 uur.  |
 | Laag      | Dubbele beveiligingsconfiguratie niet optimaal | Agent       | Dubbele beveiligingsconfiguratie is niet optimaal.                                        |

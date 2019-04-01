@@ -1,6 +1,6 @@
 ---
-title: Aangepaste waarschuwingen maken voor ASC voor IoT-Preview | Microsoft Docs
-description: Maken en toewijzen van aangepaste apparaatwaarschuwingen voor ASC voor IoT.
+title: Aangepaste waarschuwingen maken voor Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Maken en toewijzen van aangepaste waarschuwingen voor Azure Security Center voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: fa1825d6f6f6ea5e6c026791aa70dd1b37bdad90
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 40bec01b402d7a597a480a738840cba8f388d88b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574733"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755145"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Quickstart: Aangepaste waarschuwingen maken
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Met behulp van aangepaste beveiligingsgroepen en waarschuwingen, kunnen profiteren van de gegevens van de end-to-end beveiliging en de categorische apparaat kennis om te zorgen voor betere beveiliging voor uw IoT-oplossing. 
@@ -33,7 +33,7 @@ Met behulp van aangepaste beveiligingsgroepen en waarschuwingen, kunnen profiter
 
 Weet u het beste IoT-apparaten.
 
-Voor klanten die hun gedrag van het verwachte apparaat beter te begrijpen, ASC voor IoT, kunt u voor de omzetting van deze overeenkomst in een beleid voor het gedrag van apparaat en een waarschuwing voor een afwijking van verwacht, normale gedrag.
+Voor klanten die hun gedrag van het verwachte apparaat beter te begrijpen, Azure Security Center (ASC) voor IoT, kunt u voor de omzetting van deze overeenkomst in een beleid voor het gedrag van apparaat en een waarschuwing voor een afwijking van verwacht, normale gedrag.
 
 ## <a name="security-groups"></a>Beveiligingsgroepen
 
@@ -63,7 +63,7 @@ Beveiligingsgroepen gebruikt om uw apparaten te groeperen in logische categorie√
 
 De volgende tabel bevat een samenvatting van waarschuwingen die beschikbaar zijn voor aanpassing.
 
-| Severity | Name                                                                                                    | Gegevensbron | Description                                                                                                                                     |
+| Severity | Name                                                                                                    | Gegevensbron | Beschrijving                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Laag      | Aangepaste waarschuwing - nummer van cloud naar apparaat-berichten in AMQP-protocol is niet in het toegestane bereik          | IoT Hub     | Het bedrag van cloud naar apparaat-berichten (AMQP-protocol) in een bepaalde periode is niet in de geconfigureerde het toegestane bereik                                  |
 | Laag      | Aangepaste waarschuwing - aantal geweigerde cloud naar apparaat-berichten in AMQP-protocol is niet in het toegestane bereik | IoT Hub     | Het bedrag van cloud naar apparaat-berichten (AMQP-protocol) die zijn geweigerd door het apparaat in een bepaalde periode is niet in de geconfigureerde het toegestane bereik |

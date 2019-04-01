@@ -3,17 +3,17 @@ title: 'Quickstart: een query uitvoeren op gegevens met behulp van de Python-bib
 description: In deze snelstart leert u hoe u query's uitvoert op gegevens in Azure Data Explorer met behulp van Python.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 60e51ba42bddd97c8663a035a29b2ff4880acd8c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715106"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758610"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
 

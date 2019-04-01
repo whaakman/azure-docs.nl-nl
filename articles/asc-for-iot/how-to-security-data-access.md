@@ -1,6 +1,6 @@
 ---
-title: Toegang tot gegevens met behulp van ASC voor IoT-Preview | Microsoft Docs
-description: Meer informatie over hoe u toegang tot uw beveiligingsgegevens voor waarschuwing en de aanbeveling bij het gebruik van ASC voor IoT.
+title: Toegang tot gegevens met behulp van Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Meer informatie over hoe u toegang tot uw beveiligingsgegevens voor waarschuwing en de aanbeveling bij het gebruik van Azure Security Center voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576636"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758529"
 ---
 # <a name="access-your-security-data"></a>Toegang tot uw beveiligingsgegevens 
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-ASC voor IoT slaat beveiligingswaarschuwingen, aanbevelingen en onbewerkte beveiligingsgegevens (als u ervoor kiest het op te slaan) in uw Log Analytics-werkruimte.
+Azure Security Center (ASC) voor IoT slaat beveiligingswaarschuwingen, aanbevelingen en onbewerkte beveiligingsgegevens (als u ervoor kiest het op te slaan) in uw Log Analytics-werkruimte.
 
 ## <a name="log-analytics"></a>Log Analytics
 

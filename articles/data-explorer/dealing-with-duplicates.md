@@ -1,21 +1,21 @@
 ---
-title: Dubbele gegevens zijn getroffen
+title: Dubbele gegevens aanpakken
 description: Dit onderwerp wordt beschreven u verschillende manieren om op te lossen met dubbele gegevens
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: f417ba7d0fcd6f9d6b5bd6cd43cf1730af2ca53c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028317"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756360"
 ---
-# <a name="deal-with-duplicate-data"></a>Dubbele gegevens zijn getroffen
+# <a name="deal-with-duplicate-data"></a>Dubbele gegevens aanpakken
 
 Apparaten die gegevens verzenden naar de Cloud behouden een lokale cache van de gegevens. Afhankelijk van de gegevensgrootte kan kan de lokale cache worden opslag van gegevens voor dagen of zelfs maanden. Wilt u uw analytische databases van niet-functionerende apparaten die opnieuw verzenden van gegevens in de cache en ervoor zorgen dat gegevensontdubbeling in de analytische database beveiligen. In dit onderwerp worden aanbevolen procedures voor het verwerken van dubbele gegevens voor dit soort scenario's.
 

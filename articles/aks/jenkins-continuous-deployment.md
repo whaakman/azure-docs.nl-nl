@@ -3,16 +3,16 @@ title: Zelfstudie - Azure Kubernetes Service (AKS) met Jenkins implementeren van
 description: Jenkins instellen voor continue integratie (CI) van GitHub en continue implementatie (CD) naar Azure Kubernetes Service (AKS)
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188450"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756081"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: Implementeren vanuit GitHub op Azure Kubernetes Service (AKS) met Jenkins continue integratie en implementatie
 
@@ -227,15 +227,15 @@ Klik op **OK** en Ga terug naar de Jenkins-portal.
 Selecteer in de startpagina van uw Jenkins-portal, **nieuw item** aan de linkerkant:
 
 1. Voer *azure-vote* als de taaknaam van de. Kies **Freestyle project**en selecteer vervolgens **OK**
-1. Selecteer onder de sectie **Algemeen** de optie **GitHub-project** en voer de URL van uw gevorkte opslagplaats in, zoals *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Selecteer onder de sectie **Broncodebeheer** de optie **Git** en voer de *.git*-URL van uw gevorkte opslagplaats in, zoals *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Onder de **algemene** sectie, selecteer **GitHub-project** en voer de URL van uw Gevorkte opslagplaats, zoals *https:\//github.com/\<uw-github-account\>/azure-voting-app-redis*
+1. Onder de **broncodebeheer** sectie, selecteer **Git**, Voer uw Gevorkte opslagplaats *.git* URL, zoals *https:\//github.com/\<uw github-account\>/azure-voting-app-redis.git*
 
 1. Onder de **Triggers bouwen** sectie, selecteer **GitHub-hookactivatie voor GITscm-polling**
 1. Onder **omgeving bouwen**, selecteer **geheime teksten of bestanden gebruiken**
 1. Onder **bindingen**, selecteer **toevoegen** > **gebruikersnaam en wachtwoord (gescheiden)**
-    - Voer `ACR_ID` voor de **Gebruikersnaamvariabele**, en `ACR_PASSWORD` voor de **Wachtwoordvariabele**
+   - Voer `ACR_ID` voor de **Gebruikersnaamvariabele**, en `ACR_PASSWORD` voor de **Wachtwoordvariabele**
 
-    ![Jenkins-bindingen](media/aks-jenkins/bindings.png)
+     ![Jenkins-bindingen](media/aks-jenkins/bindings.png)
 
 1. Kies de optie om toe te voegen een **bouwen stap** van het type **shell uitvoeren** en gebruik de volgende tekst. Met dit script maakt een nieuwe containerinstallatiekopie en wordt naar uw ACR-register gepusht.
 
@@ -276,7 +276,7 @@ Als de build-taak voltooid is, klikt u op **bouwen #1** onder build-geschiedenis
 Met een handmatige build voltooid, moet u nu GitHub integreren in de Jenkins-build. Een webhook kan worden gebruikt om uit te voeren van de Jenkins-build-taak telkens wanneer die een code-doorvoer wordt gemaakt in GitHub. Voor het maken van de GitHub-webhook, voert u de volgende stappen uit:
 
 1. Blader naar uw Gevorkte GitHub-opslagplaats in een webbrowser.
-1. Selecteer **instellingen**en selecteer vervolgens **Webhooks** aan de linkerkant.
+1. Selecteer **Instellingen**, selecteer daarna **Webhooks** aan de linkerkant.
 1. Kies aan **webhook toevoegen**. Voor de *nettolading URL*, voer `http://<publicIp:8080>/github-webhook/`, waarbij `<publicIp>` is het IP-adres van de Jenkins-server. Zorg ervoor dat u de afsluitende /. Laat de overige standaardwaarden voor type inhoud en activeren op *push* gebeurtenissen.
 1. Selecteer **webhook toevoegen**.
 

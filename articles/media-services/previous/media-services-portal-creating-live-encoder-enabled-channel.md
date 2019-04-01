@@ -1,5 +1,5 @@
 ---
-title: Live streamen met Azure Media Services om multi-bitrate streams te maken met Azure Portal | Microsoft Docs
+title: Live streamen met Azure Media Services naar multi-bitrate streams te maken met Azure portal | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij de stappen voor het met Azure Portal maken van een kanaal dat een single-bitrate live stream ontvangt en deze codeert naar een multi-bitrate stream.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258085"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757794"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Hoe u live streamen met Media Services naar multi-bitrate streams te maken met de Azure-portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Live streamen met Media Services naar multi-bitrate streams te maken met Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 > [!NOTE]
 > De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 
-1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live-encoder dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
+1. Sluit een videocamera aan op een computer. <br/>Bekijk voor setup ideeën [video versnelling met eenvoudige en draagbare gebeurtenisinstelling]( https://link.medium.com/KNTtiN6IeT).
+1. Start en configureer een on-premises live-encoder dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie. <br/>Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
 
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
-2. Maak en start een kanaal. 
-3. Haal de URL voor opnemen voor het kanaal op. 
+1. Maak en start een kanaal. 
+1. Haal de URL voor opnemen voor het kanaal op. 
 
     De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
-4. Haal de voorbeeld-URL voor het kanaal op. 
+1. Haal de voorbeeld-URL voor het kanaal op. 
 
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
-5. Maak een gebeurtenis/programma (hierbij wordt ook een asset gemaakt). 
-6. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).    
-7. Start de gebeurtenis wanneer u klaar bent om te streamen en te archiveren.
-8. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
-9. Stop de gebeurtenis als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
-10. Verwijder de gebeurtenis (en verwijder desgewenst de asset).   
-
-## <a name="in-this-tutorial"></a>In deze zelfstudie
-In deze zelfstudie wordt Azure Portal gebruikt om de volgende taken uit te voeren: 
-
-1. Maak een kanaal dat is ingeschakeld voor het uitvoeren van live codering.
-2. Haal de URL voor opnemen op om deze aan het live coderingsprogramma te leveren. Het live coderingsprogramma gebruikt deze URL om de stream in het kanaal op te nemen.
-3. Een gebeurtenis/programma (en een asset) maken.
-4. De asset publiceren en streaming-URL's ophalen.  
-5. Uw inhoud afspelen.
-6. Opschonen.
+1. Maak een gebeurtenis/programma (hierbij wordt ook een asset gemaakt). 
+1. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).    
+1. Start de gebeurtenis wanneer u klaar bent om te streamen en te archiveren.
+1. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
+1. Stop de gebeurtenis als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
+1. Verwijder de gebeurtenis (en verwijder desgewenst de asset).   
 
 ## <a name="prerequisites"></a>Vereisten
+
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 * U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. 
@@ -78,6 +70,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 * Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
 ## <a name="create-a-channel"></a>Een kanaal maken
+
 1. Selecteer in [Azure Portal](https://portal.azure.com/) de optie Media Services en klik vervolgens op de naam van uw Media Services-account.
 2. Selecteer **Live streamen**.
 3. Selecteer **Aangepast maken**. Met deze optie kunt u een kanaal maken dat is ingeschakeld voor real-time codering.
@@ -120,9 +113,10 @@ Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](m
 ## <a name="get-ingest-urls"></a>URL’s voor opnemen ophalen
 Wanneer het kanaal is gemaakt, kunt u URL’s voor opnemen ophalen die u aan het live coderingsprogramma levert. Het coderingsprogramma gebruikt deze URL's voor het invoeren van een live stream.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URL's voor opnemen](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Gebeurtenissen maken en beheren
+
 ### <a name="overview"></a>Overzicht
 Een kanaal is gekoppeld aan gebeurtenissen/programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren gebeurtenissen/programma’s. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
 
@@ -154,7 +148,7 @@ Gebeurtenissen kunnen op twee manieren worden gestart:
 
     Geef het volgende op: gebeurtenisnaam, assetnaam, archiefvenster en versleutelingsoptie.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Programma maken](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Als u **Deze live gebeurtenis nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
 

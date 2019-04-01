@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487361"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755722"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -84,7 +84,7 @@ Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines**.
 
 Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines** te maken van de iSCSI-schijven voor de clusters die worden gebruikt door uw SAP-systemen. In het volgende voorbeeld worden SBD apparaten voor meerdere clusters gemaakt. Hier ziet u hoe u een iSCSI-doelserver wilt gebruiken voor meerdere clusters. De apparaten SBD worden geplaatst op de besturingssysteemschijf. Zorg ervoor dat u er genoeg ruimte is.
 
-**NFS** wordt gebruikt voor het identificeren van het cluster NFS **ascsnw1** wordt gebruikt voor het identificeren van het cluster met ASCS **NW1**, **dbnw1** wordt gebruikt voor het identificeren van het databasecluster van **NW1**, **nfs-0** en **nfs-1** zijn de hostnamen van de clusterknooppunten NFS **nw1-xscs-0** en  **1-xscs-nw1** zijn de hostnamen van de **NW1** ASCS clusterknooppunten, en **nw1-db-0** en **nw1-db-1** zijn de hostnamen van de database clusterknooppunten. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
+**` nfs`** wordt gebruikt voor het identificeren van het cluster NFS **ascsnw1** wordt gebruikt voor het identificeren van het cluster met ASCS **NW1**, **dbnw1** wordt gebruikt voor het identificeren van de databasecluster van **NW1** , **nfs-0** en **nfs-1** zijn de hostnamen van de clusterknooppunten NFS **nw1-xscs-0** en **nw1-xscs-1**zijn de hostnamen van de **NW1** ASCS clusterknooppunten, en **nw1-db-0** en **nw1-db-1** zijn de hostnamen van de database clusterknooppunten. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Het configuratiebestand softdog maken
+   Maak de ` softdog` configuratiebestand
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Besturingssysteem configureren
+1. **[A]**  Configureren van het besturingssysteem
 
    In sommige gevallen Pacemaker maakt veel processen en daardoor creditbedrag het toegestane aantal processen. In dat geval kan een heartbeat tussen de knooppunten van het mislukken en leiden tot failover van uw resources. Het is raadzaam om de maximale toegestane processen verhogen door de volgende parameter.
 
@@ -346,6 +346,18 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  Cloud-netconfig azure configureren voor HA-Cluster
+
+   Wijzig het configuratiebestand voor de netwerkinterface, zoals hieronder wordt weergegeven om te voorkomen dat de netwerk-invoegtoepassing voor cloud verwijderen van het virtuele IP-adres (Pacemaker moet beheren van de VIP-toewijzing). Zie voor meer informatie [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]**  Ssh toegang inschakelen

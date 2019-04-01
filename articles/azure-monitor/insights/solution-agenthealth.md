@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983373"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757969"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
-De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Azure Monitor, die niet meer reageert op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Oplossing status van agent in Azure Monitor
+De oplossing status van Agent in Azure kunt u meer informatie over voor alle agents rapporteren rechtstreeks aan de Log Analytics-werkruimte in Azure Monitor of een System Center Operations Manager-beheergroep verbonden met Azure Monitor, die zich niet meer reageert en het indienen van operationele gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u deze oplossing implementeert, Controleer of u beschikt over ondersteunde [Windows agents](../../log-analytics/log-analytics-windows-agent.md) rapporteren aan de Log Analytics-werkruimte of aan een [Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) geïntegreerd met uw werkruimte.
@@ -62,7 +62,7 @@ Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te opene
 | Distribution by OS Type | Een visualisatie van het aantal Windows- en Linux-agents in uw omgeving.|
 | Distribution by Agent Version | Een visualisatie van de verschillende agentversies die zijn geïnstalleerd in uw omgeving en het aantal van elke versie.|
 | Distribution by Agent Category | Een visualisatie van de verschillende categorieën agents die heartbeat-gebeurtenissen verzenden: directe agents, OpsMgr-agents of OpsMgr Management Server.|
-| Distribution by Management Group | Een visualisatie van de verschillende SCOM-beheergroepen in uw omgeving.|
+| Verdeling naar beheergroep | Een visualisatie van de verschillende groepen van de Operations Manager-beheerservers in uw omgeving.|
 | Geo-location of Agents | Een visualisatie van de verschillende landen waarin zich agents bevinden en het totale aantal agents dat in elk land is geïnstalleerd.|
 | Count of Gateways Installed | Het aantal servers die de Log Analytics gateway is geïnstalleerd, en een lijst van deze servers.|
 
@@ -97,7 +97,7 @@ Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee h
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
 
-| Query’s uitvoeren | Description |
+| Query’s uitvoeren | Beschrijving |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Het totale aantal agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |
@@ -117,4 +117,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [waarschuwingen in Azure Monitor](../platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics. 
+* Meer informatie over [waarschuwingen in Azure Monitor](../platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Logboeken-query's. 

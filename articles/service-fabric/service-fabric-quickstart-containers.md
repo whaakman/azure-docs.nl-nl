@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482331"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758589"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Quickstart: Windows-containers implementeren in Service Fabric
 
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert.
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows Server 2016 Nano Server en IIS-container. In deze snelstartgids wordt beschreven hoe u een Windows-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows 2016 Server Core-Server en IIS-container. In deze snelstartgids wordt beschreven hoe u een Windows-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
 
 ![IIS-standaardwebpagina][iis-default]
 
@@ -54,7 +54,7 @@ Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en k
 
 Selecteer **Container** in de lijst met sjablonen voor **gehoste containers en toepassingen**.
 
-In **Naam van installatiekopie** voert u 'microsoft/iis:nanoserver' in, de [Windows Server Nano Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/microsoft/iis/).
+In **Installatiekopienaam**, 'mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016', voer de [Windows Server Core-Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/microsoft-windows-servercore-iis).
 
 Configureer de toewijzing van de containerpoort naar de hostpoort zó, dat binnenkomende aanvragen voor de service op poort 80 worden toegewezen aan poort 80 van de container.  Stel **Containerpoort** in op '80' en **Hostpoort** op '80'.  
 
@@ -74,14 +74,14 @@ Microsoft publiceert verschillende installatiekopieën voor versies van IIS die 
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `microsoft/iis:nanoserver`.
+Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
 
 Wijzig ook in het bestand *ApplicationManifest.xml* de optie **PasswordEncrypted** in **false**. Het account en wachtwoord zijn leeg voor de openbare containerinstallatiekopie die zich in Docker Hub bevindt. Daarom schakelen we versleuteling uit omdat het versleutelen van een leeg wachtwoord een buildfout genereert.
 

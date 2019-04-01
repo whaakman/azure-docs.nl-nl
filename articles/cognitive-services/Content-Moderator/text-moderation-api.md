@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864295"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757765"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informatie over concepten voor beheer van tekst
 
@@ -26,7 +26,7 @@ Antwoord van de service bevat de volgende informatie:
 
 - Grof taalgebruik: op basis van een term die overeenkomt met de ingebouwde lijst van grove voorwaarden in verschillende talen
 - Classificatie: geautomatiseerd classificatie in drie categorieën
-- Persoonlijk identificeerbare informatie (PII)
+- Persoonlijke gegevens
 - Tekst automatisch worden gecorrigeerd
 - Oorspronkelijke tekst
 - Taal
@@ -75,7 +75,7 @@ Het volgende uittreksel in het JSON-extract toont een voorbeeld van uitvoer:
 - `Score` ligt tussen 0 en 1. Hoe hoger de score, hoe hoger het model is voorspellen van de categorie mogelijk van toepassing zijn. Deze functie is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. Het is raadzaam om eerst te testen met uw eigen inhoud om te bepalen hoe elke categorie overeenstemt met uw vereisten.
 - `ReviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten moeten beoordelen of u wilt deze waarde wordt gebruikt of moet u besluiten welke aangepaste drempelwaarden op basis van hun inhoud beleid.
 
-## <a name="personally-identifiable-information-pii"></a>Persoonlijk identificeerbare informatie (PII)
+## <a name="personal-data"></a>Persoonlijke gegevens
 
 De functie PII detecteert de mogelijke aanwezigheid van deze informatie:
 

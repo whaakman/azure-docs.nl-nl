@@ -1,186 +1,76 @@
 ---
-title: Beheer van taken en human-in-the-loop beoordelingen - Content Moderator
+title: Beoordelingen, werkstromen, en taken concepten - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Geautomatiseerd beheer met mogelijkheden voor human-in-the-loop combineren met behulp van het Azure Content Moderator revisie-API om op te halen van de beste resultaten voor uw bedrijf.
+description: Meer informatie over beoordelingen, werkstromen en taken
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862697"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756299"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>Taken voor inhoudstoezicht en beoordelingen
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Beoordelingen voor inhoudstoezicht, werkstromen en taken
 
-Geautomatiseerd beheer met human-in-the-loop mogelijkheden te combineren met behulp van het Azure Content Moderator [revisie API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) om op te halen van de beste resultaten voor uw bedrijf.
+Content Moderator combineert geautomatiseerd beheer met human-in-the-loop mogelijkheden voor het maken van een optimale toezichtproces voor echte scenario's. Dit gebeurt via de cloud-gebaseerde [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com). In deze handleiding leert u over de basisconcepten van het beoordelingsprogramma: beoordelingen, werkstromen en taken.
 
-De beoordeling-API biedt de volgende manieren op te nemen van menselijk toezicht in uw inhoudstoezicht-proces:
+## <a name="reviews"></a>Beoordelingen
 
-* `Job` bewerkingen worden gebruikt om het geautomatiseerd beheer en het maken van menselijke beoordeling start als één stap.
-* `Review` bewerkingen worden gebruikt voor het maken van menselijke beoordeling, buiten de beheer-stap.
-* `Workflow` bewerkingen worden gebruikt voor het beheren van werkstromen automatiseren met drempelwaarden voor het maken van de beoordeling scannen.
+In een beoordeling inhoud naar het beoordelingsprogramma is geüpload en wordt weergegeven onder de **bekijken** tabblad. Gebruikers kunnen hier de toegepaste labels wijzigen en hun eigen aangepaste tags waar nodig toepassen. Wanneer een gebruiker een beoordeling indient, de resultaten worden verzonden naar een opgegeven retouraanroep-eindpunt en de inhoud van de site wordt verwijderd.
 
-De `Job` en `Review` operations accepteren de callback-eindpunten voor het ontvangen van de status en de resultaten.
+![Beoordeling hulpprogramma website kan worden geopend in een browser op het tabblad controleren](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-In dit artikel bevat informatie over de `Job` en `Review` bewerkingen. Lees de [overzicht van werkstromen](workflow-api.md) voor informatie over het maken, bewerken en werkstroomdefinities ophalen.
+Zie de [Review hulpprogramma guide](./review-tool-user-guide/review-moderated-images.md) beoordelingen maken of Raadpleeg de [REST-API-handleiding](./try-review-api-review.md) voor informatie over het programmatisch doen.
 
-## <a name="job-operations"></a>Taakbewerkingen
+## <a name="workflows"></a>Workflows
 
-### <a name="start-a-job"></a>Een taak starten
-Gebruik de `Job.Create` bewerking om een beheer en de taak voor het maken van menselijke beoordeling te starten. Content Moderator scant de inhoud en evalueert de opgegeven werkstroom. Op basis van de resultaten van de werkstroom, deze beoordelingen gemaakt of wordt de stap overgeslagen. Het verzendt ook de codes na toezicht en na beoordeling voor de callback-eindpunt.
+Een werkstroom is een cloud-gebaseerde aangepaste filter voor inhoud. Werkstromen kunnen verbinding maken met tal van services voor het filteren van inhoud op verschillende manieren en vervolgens de juiste actie ondernemen. Met de Content Moderator-connector, een werkstroom automatisch beheer van tags toepassen en beoordelingen met ingediende inhoud maken.
 
-De invoer zijn onder andere de volgende informatie:
+### <a name="view-workflows"></a>Werkstromen weergeven
 
-- De revisie-id-team.
-- De inhoud die moet worden gecontroleerd.
-- De naam van de werkstroom. (De standaardwaarde is de werkstroom 'standaard').
-- Uw API-callback het serviceverbindingspunt voor meldingen.
- 
-Het volgende antwoord bevat de id van de taak die is gestart. U kunt de taak-id de taakstatus en krijgt u gedetailleerde informatie.
+Als u uw bestaande werkstromen, gaat u naar de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en selecteer **instellingen** > **werkstromen**.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![Standaardwerkstroom](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>Taakstatus
+Werkstromen kunnen volledig worden beschreven als JSON-tekenreeksen, waardoor ze toegankelijk zijn via een programma. Als u selecteert de **bewerken** optie voor uw werkstroom en selecteer vervolgens de **JSON** tabblad ziet u een JSON-expressie als volgt uit:
 
-Gebruik de `Job.Get` bewerking en de taak-id voor de details van een taak die wordt uitgevoerd of voltooid. De bewerking retourneert onmiddellijk terwijl voor het beheer van taak asynchroon wordt uitgevoerd. De resultaten worden geretourneerd via de callback-eindpunt.
-
-De invoer zijn onder andere de volgende informatie:
-
-- De ID van de controle-team: De taak-id die wordt geretourneerd door de vorige bewerking
-
-Het antwoord bevat de volgende informatie:
-
-- De id van de beoordeling gemaakt. (Deze ID gebruiken om op te halen van de resultaten van de uiteindelijke beoordeling.)
-- De status van de taak (voltooid of wordt uitgevoerd): De labels van het beheer van toegewezen (sleutel / waarde-paren).
-- Het rapport van de taak kan worden uitgevoerd.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![Beoordeling van afbeelding voor menselijke beoordelaars](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>Bewerkingen controleren
-
-### <a name="create-reviews"></a>Beoordelingen maken
-
-Gebruik de `Review.Create` tijdens het maken van de onlinebeoordelingen door mensen. U ze ergens anders gemiddelde of aangepaste logica gebruik de beheer-labels toe te wijzen.
-
-De invoer voor deze bewerking zijn onder andere:
-
-- De inhoud die moet worden gecontroleerd.
-- De toegewezen tags (sleutel-waardeparen) voor controle door menselijke moderators.
-
-Het volgende antwoord ziet u de revisie-id:
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>Controleer de status ophalen
-Gebruik de `Review.Get` bewerking worden de resultaten opgehaald nadat een menselijke beoordeling van de gecontroleerde installatiekopie is voltooid. U ontvangt een bericht via de verstrekte callback-eindpunt. 
-
-De bewerking retourneert twee sets met tags: 
-
-* De labels die zijn toegewezen door de service beheer
-* De labels nadat de menselijke beoordeling is voltooid
-
-De invoer zijn ten minste:
-
-- De naam van de beoordeling-team
-- De revisie-id die wordt geretourneerd door de vorige bewerking
-
-Het antwoord bevat de volgende informatie:
-
-- De status controleren
-- De tags (sleutel / waarde-paren) door de revisor van de menselijke bevestigd
-- De tags (sleutel / waarde-paren) die is toegewezen door de service beheer
-
-U ziet dat zowel de revisor toegewezen tags (**reviewerResultTags**) en de eerste labels (**metagegevens**) in het volgende voorbeeldantwoord:
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+Zie de [Review hulpprogramma guide](./review-tool-user-guide/workflows.md) aan de slag maken en gebruiken van werkstromen, of Raadpleeg de [REST-API-handleiding](./try-review-api-workflow.md) voor informatie over het programmatisch doen.
+
+## <a name="jobs"></a>Taken
+
+Een taak toezicht fungeert als een soort-wrapper voor de functionaliteit van inhoudstoezicht, werkstromen en recensies. De taak scant uw inhoud met behulp van de Content Moderator afbeeldingstoezicht-API of tekst toezicht-API en vervolgens gecontroleerd op basis van de aangewezen werkstroom. Op basis van de resultaten van de werkstroom, mogelijk is of niet kunnen maken van een beoordeling voor de inhoud van de [beoordelingsprogramma](./review-tool-user-guide/human-in-the-loop.md). Terwijl zowel beoordelingen en werkstromen kunnen worden gemaakt en geconfigureerd met hun respectieve API's, wordt de taak API kunt u een gedetailleerd rapport van het hele proces (die kan worden verzonden naar een eindpunt opgegeven callback) verkrijgen.
+
+Zie de [REST-API-handleiding](./try-review-api-job.md) aan de slag met behulp van taken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

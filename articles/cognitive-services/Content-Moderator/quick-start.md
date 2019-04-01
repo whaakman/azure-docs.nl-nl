@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861167"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756468"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Probeer het Content Moderator op het web
 
@@ -69,5 +69,5 @@ Of Ga door met de volgende stappen aan de slag met behulp van de beheer-API's in
 
 Informatie over het gebruik van de beheer-API's zelf in uw app.
 - Implementeren van afbeeldingen. Gebruik de [API-console](try-image-api.md) of de [ C# snelstartgids](image-moderation-quickstart-dotnet.md) opgehaald om te scannen van installatiekopieën en detecteren van mogelijke erotische en ongepaste inhoud met behulp van tags, vertrouwen scores en andere informatie.
-- Beheer van tekst implementeren. Gebruik de [API-console](try-text-api.md) of gebruik de [ C# snelstartgids](text-moderation-quickstart-dotnet.md) om te scannen op tekstinhoud voor potentieel grof taalgebruik, ongewenste tekst geautomatiseerd classificatie (preview), en persoonlijk identificeerbare informatie (PII). 
+- Beheer van tekst implementeren. Gebruik de [API-console](try-text-api.md) of gebruik de [ C# snelstartgids](text-moderation-quickstart-dotnet.md) om te scannen op tekstinhoud voor potentieel grof taalgebruik en ongewenste tekst geautomatiseerd classificatie (preview), persoonlijke gegevens.
 - Videotoezicht implementeren. Ga als volgt de [procedures voor het beheer van Video-handleiding voor C# ](video-moderation-api.md) om te scannen van video's en detecteren van mogelijke erotische en ongepaste inhoud. 

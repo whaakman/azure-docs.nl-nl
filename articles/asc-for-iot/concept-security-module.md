@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over ASC voor IoT security moduledubbels Preview | Microsoft Docs
-description: Meer informatie over het concept van moduledubbels security en hoe ze worden gebruikt in ASC voor IoT.
+title: Inzicht in Azure Security Center voor IoT-beveiligingsmodule dubbels Preview | Microsoft Docs
+description: Meer informatie over het concept van moduledubbels security en hoe ze worden gebruikt in Azure Security Center voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579373"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758408"
 ---
 # <a name="security-module"></a>Beveiligingsmodule
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In dit artikel wordt uitgelegd hoe ASC voor IoT gebruikt apparaatdubbels en modules. 
+In dit artikel wordt uitgelegd hoe Azure Security Center (ASC) voor IoT gebruikt apparaatdubbels en modules. 
 
 ## <a name="device-twins"></a>Apparaatdubbels
 

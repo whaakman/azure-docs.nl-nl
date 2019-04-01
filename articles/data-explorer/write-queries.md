@@ -3,17 +3,17 @@ title: Schrijven van query's voor Azure Data Explorer
 description: In deze procedures leert u hoe u eenvoudige en meer geavanceerde query's uitvoeren voor Azure Data Explorer.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961517"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758692"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Schrijven van query's voor Azure Data Explorer
 
@@ -26,7 +26,7 @@ U kunt de query's in dit artikel op twee manieren uitvoeren:
 - Op de Azure Data Explorer *helpcluster* dat we hebben ingesteld om te leren.
     [Meld u aan het cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) met een organisatie-e-mailaccount die deel uitmaakt van Azure Active directory.
 
-- Op uw eigen cluster bevat die de StormEvents-voorbeeldgegevens. Zie voor meer informatie, [Quickstart: maken van een cluster van Azure Data Explorer en -database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
+- Op uw eigen cluster bevat die de StormEvents-voorbeeldgegevens. Zie voor meer informatie, [Quick Start: Maak een Azure Data Explorer-cluster en de database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -72,7 +72,7 @@ Query's op uw eigen cluster uitvoeren:
 
 ### <a name="count"></a>count
 
-[**aantal**](https://docs.microsoft.com/azure/kusto/query/countoperator): retourneert het aantal rijen in de tabel.
+[**aantal**](https://docs.microsoft.com/azure/kusto/query/countoperator): Retourneert het aantal rijen in de tabel.
 
 De volgende query retourneert het aantal rijen in de tabel StormEvents.
 
@@ -84,7 +84,7 @@ StormEvents | count
 
 ### <a name="take"></a>toets maken
 
-[**nemen**](https://docs.microsoft.com/azure/kusto/query/takeoperator): retourneert het opgegeven aantal rijen met gegevens.
+[**nemen**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Retourneert het opgegeven aantal rijen met gegevens.
 
 De volgende query retourneert vijf rijen uit de tabel StormEvents. Het sleutelwoord *limiet* is een alias voor *nemen.*
 
@@ -99,7 +99,7 @@ StormEvents | take 5
 
 ### <a name="project"></a>project
 
-[**Project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): een subset van kolommen selecteert.
+[**project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Een subset van kolommen selecteert.
 
 De volgende query retourneert een specifieke set kolommen.
 
@@ -111,9 +111,9 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="where"></a>waar
+### <a name="where"></a>waarbij
 
-[**waar**](https://docs.microsoft.com/azure/kusto/query/whereoperator): een tabel gefilterd op de subset rijen die voldoet aan een predicaat.
+[**waar**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Een tabel gefilterd op de subset rijen die voldoet aan een predicaat.
 
 De gegevens door de volgende query worden gefilterd `EventType` en `State`.
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>Sorteren
 
-[**sorteren**](https://docs.microsoft.com/azure/kusto/query/sortoperator): de rijen van de invoertabel in volgorde sorteren op een of meer kolommen.
+[**sorteren**](https://docs.microsoft.com/azure/kusto/query/sortoperator): De rijen van de invoertabel in volgorde sorteren op een of meer kolommen.
 
 De volgende query worden de gegevens in aflopende volgorde door `DamageProperty`.
 
@@ -145,9 +145,9 @@ StormEvents
 > [!NOTE]
 > De volgorde van bewerkingen is belangrijk. Probeer het plaatsen van `take 5` voordat `sort by`. Waar u verschillende resultaten krijgen?
 
-### <a name="top"></a>Boven
+### <a name="top"></a>top
 
-[**Top**](https://docs.microsoft.com/azure/kusto/query/topoperator): retourneert de eerste *N* records worden gesorteerd op de opgegeven kolommen.
+[**Top**](https://docs.microsoft.com/azure/kusto/query/topoperator): Retourneert de eerste *N* records worden gesorteerd op de opgegeven kolommen.
 
 De volgende query retourneert hetzelfde resultaat als hierboven met een minder operator.
 
@@ -162,7 +162,7 @@ StormEvents
 
 ### <a name="extend"></a>Uitbreiden
 
-[**uitbreiden**](https://docs.microsoft.com/azure/kusto/query/extendoperator): berekeningen afgeleide kolommen.
+[**uitbreiden**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Berekent de afgeleide kolommen.
 
 De volgende query maakt een nieuwe kolom door een waarde in elke rij computing.
 
@@ -180,7 +180,7 @@ Expressies kunnen opnemen de gebruikelijke operators (+, -, *, /, %), en er is e
 
 ### <a name="summarize"></a>samenvatten
 
-[**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): aggregeert Rijgroepen.
+[**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): Aggregeert Rijgroepen.
 
 De volgende query retourneert het aantal gebeurtenissen per `State`.
 
@@ -213,7 +213,7 @@ Het resultaat van een **samenvatten** bewerking heeft:
 
 ### <a name="render"></a>Render
 
-[**renderen**](https://docs.microsoft.com/azure/kusto/query/renderoperator): resultaten als een grafische uitvoer wordt weergegeven.
+[**renderen**](https://docs.microsoft.com/azure/kusto/query/renderoperator): Resultaten als een grafische uitvoer wordt weergegeven.
 
 De volgende query wordt een kolomdiagram weergegeven.
 
@@ -269,9 +269,9 @@ StormEvents
 
 Deze sectie worden enkele van de belangrijkste scalaire operators.
 
-### <a name="bin"></a>BIN()
+### <a name="bin"></a>bin()
 
-[**BIN()**](https://docs.microsoft.com/azure/kusto/query/binfunction): waarden naar een geheel getal afgerond meervoud van de grootte van een opgegeven opslaglocatie.
+[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction): Waarden naar een geheel getal afgerond meervoud van de grootte van een opgegeven opslaglocatie.
 
 De volgende query berekent het aantal en de Bucketgrootte van een van één dag.
 
@@ -285,7 +285,7 @@ StormEvents
 
 ### <a name="case"></a>case()
 
-[**case()**](https://docs.microsoft.com/azure/kusto/query/casefunction): evalueert een lijst met predicaten is en retourneert de eerste resultaat expressie waarvan predicaat is voldaan of de laatste **anders** expressie. U kunt deze operator categoriseren of de groep gegevens:
+[**case()**](https://docs.microsoft.com/azure/kusto/query/casefunction): Evalueert een lijst met predicaten is en retourneert de eerste resultaat expressie waarvan predicaat is voldaan of de laatste **anders** expressie. U kunt deze operator categoriseren of de groep gegevens:
 
 De volgende query retourneert een nieuwe kolom `deaths_bucket` en de sterfgevallen door aantal groepen.
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): haalt een overeenkomt met een reguliere expressie uit een tekenreeks.
+[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): Hiermee haalt u een overeenkomst is met een reguliere expressie uit een tekenreeks.
 
 De volgende query uit waarden van specifieke kenmerken van een tracering worden uitgepakt.
 
@@ -320,7 +320,7 @@ Deze query gebruikt een **laten** instructie, die wordt gebonden een naam (in di
 
 ### <a name="parsejson"></a>parse_json()
 
-[**parse_json()**](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): een tekenreeks als een JSON-waarde wordt geïnterpreteerd en retourneert de waarde als dynamisch. Het is beter met behulp van de **extractjson()** werken wanneer u nodig hebt om op te halen van meer dan een element van een samengestelde JSON-object.
+[**parse_json()**](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Interpreteert een tekenreeks als een JSON-waarde en retourneert de waarde als dynamische. Het is beter met behulp van de **extractjson()** werken wanneer u nodig hebt om op te halen van meer dan een element van een samengestelde JSON-object.
 
 De volgende query haalt de JSON-elementen van een matrix.
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): het opgegeven interval van de huidige UTC clock tijd trekt.
+[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): Het opgegeven interval van de huidige UTC clock tijd trekt.
 
 De volgende query retourneert de gegevens voor de afgelopen 12 uur.
 
@@ -374,7 +374,7 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 
 ### <a name="startofweek"></a>startofweek()
 
-[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): retourneert het begin van de week waarin, de datum, verplaatst door een offset als opgegeven
+[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): Retourneert het begin van de week waarin, de datum, verplaatst door een offset als opgegeven
 
 De volgende query retourneert het begin van de week met een andere offset.
 
@@ -389,7 +389,7 @@ Deze query gebruikt de **bereik** operator, die een tabel met één kolom met wa
 
 ### <a name="between"></a>Between()
 
-[**Between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): komt overeen met de invoer die zich binnen het bereik liggen.
+[**between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Komt overeen met de invoer die zich binnen het bereik liggen.
 
 De volgende query uit de gegevens worden gefilterd op een bepaald datumbereik.
 
@@ -417,7 +417,7 @@ Kusto bevat veel in tabelvorm operators, waarvan sommige in andere gedeelten van
 
 ### <a name="parse"></a>parseren
 
-[**parseren**](https://docs.microsoft.com/azure/kusto/query/parseoperator): een tekenreeksexpressie is geëvalueerd en de waarde ervan in een of meer berekende kolommen worden geparseerd. Er zijn drie manieren om te parseren: eenvoudig (de standaardinstelling), regex, en soepele.
+[**parseren**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Evalueert een tekenreeksexpressie en de waarde ervan in een of meer berekende kolommen worden geparseerd. Er zijn drie manieren om te parseren: eenvoudig (de standaardinstelling), regex, en soepele.
 
 De volgende query uit een tracering parseert en extraheert de relevante waarden, met behulp van een standaardwaarde van eenvoudige parseren. De expressie (aangeduid als StringConstant) is een normale string-waarde en de overeenkomst is strikte: uitgebreide kolommen moeten overeenkomen met de vereiste typen.
 
@@ -510,9 +510,9 @@ We eenvoudige aggregaties zoals besproken **aantal** en **samenvatten**, eerder 
 
 ### <a name="top-nested"></a>Top-geneste
 
-[**Top-geneste**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): hiërarchische bovenste resultaten, waarbij elk niveau Inzoomen op basis van waarden voor vorige niveau is.
+[**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): De resultaten van hiërarchische bovenste, waarbij elk niveau Inzoomen op basis van waarden voor vorige niveau is.
 
-Deze operator is handig voor scenario's dashboard-visualisatie, of wanneer dit nodig is om een vraag als volgt te beantwoorden: "de top N-waarden van K1 (met behulp van sommige aggregatie); vinden voor elk van deze vinden wat zijn de waarden boven-M van K2 (met behulp van een andere aggregatie); ..."
+Deze operator is handig voor scenario's dashboard-visualisatie, of wanneer dit nodig is om te beantwoorden een vraag als volgt uit: "De top N-waarden van K1 (met behulp van sommige aggregatie); vinden voor elk van deze vinden wat zijn de waarden boven-M van K2 (met behulp van een andere aggregatie); ..."
 
 De volgende query retourneert een hiërarchische tabel met `State` op het hoogste niveau, gevolgd door `Sources`.
 
@@ -525,9 +525,9 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-### <a name="pivot-plugin"></a>Pivot()-invoegtoepassing
+### <a name="pivot-plugin"></a>pivot() plugin
 
-[**de invoegtoepassing Pivot()**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): een tabel door het inschakelen van de unieke waarden uit één kolom in de invoertabel in meerdere kolommen in de uitvoertabel draait. De operator voert aggregaties uit waar ze zijn vereist op alle overige waarden in de kolom in de uiteindelijke uitvoer.
+[**pivot() plugin**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): Een tabel draait door het inschakelen van de unieke waarden uit één kolom in de invoertabel in meerdere kolommen in de uitvoertabel. De operator voert aggregaties uit waar ze zijn vereist op alle overige waarden in de kolom in de uiteindelijke uitvoer.
 
 De volgende query uit een filter wordt toegepast en de rijen in kolommen opengaat.
 
@@ -541,9 +541,9 @@ StormEvents
 | evaluate pivot(State)
 ```
 
-### <a name="dcount"></a>DCount()
+### <a name="dcount"></a>dcount()
 
-[**DCount()**](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): retourneert een schatting van het aantal afzonderlijke waarden van een expressie in de groep. Gebruik [ **count()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) alle waarden tellen.
+[**DCount()**](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van een expressie in de groep. Gebruik [ **count()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) alle waarden tellen.
 
 De volgende query uit afzonderlijke telt `Source` door `State`.
 
@@ -556,7 +556,7 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()**](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): een schatting van het aantal afzonderlijke waarden van de expressie voor rijen die het predicaat wordt geëvalueerd op ' True ' geretourneerd.
+[**dcountif()**](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Retourneert een schatting van het aantal afzonderlijke waarden van de expressie voor rijen die het predicaat wordt geëvalueerd op waar.
 
 De volgende query telt de afzonderlijke waarden van `Source` waar `DamageProperty < 5000`.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): berekent de **dcount** van HyperLogLog resultaten (die worden gegenereerd door [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)   of [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Berekent de **dcount** van HyperLogLog resultaten (die worden gegenereerd door [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) of [**hll_merge** ](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 De volgende query gebruikt het algoritme HLL voor het genereren van het aantal.
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): retourneert een dynamische (JSON)-matrix van de set met verschillende waarden die met een expressie in de groep.
+[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Retourneert een dynamische (JSON)-matrix van de set met verschillende waarden die met een expressie in de groep.
 
 De volgende query retourneert alle tijden wanneer een grote is gemeld door elke status en maakt een matrix van de set met unieke waarden.
 
@@ -615,7 +615,7 @@ StormEvents
 
 ### <a name="mvexpand"></a>mvexpand
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): verzameling(en) meerdere waarden uit een kolom dynamisch ingevoerde uitgebreid zodat elke waarde in de verzameling een afzonderlijke rij wordt. De andere kolommen in een uitgevouwen rij worden gedupliceerd. Het is het tegenovergestelde van makelist.
+[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Breidt de verzameling(en) meerdere waarden uit een kolom dynamisch ingevoerde zodat elke waarde in de verzameling een afzonderlijke rij wordt. De andere kolommen in een uitgevouwen rij worden gedupliceerd. Het is het tegenovergestelde van makelist.
 
 De volgende query uit voorbeeldgegevens worden gegenereerd door het maken van een set en vervolgens wordt gebruikt ter illustratie van de **mvexpand** mogelijkheden.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): retourneert een van de schatting voor de opgegeven [**dichtstbijzijnde positie percentiel**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de bevolking gedefinieerd door een expressie. De nauwkeurigheid is afhankelijk van de dichtheid van populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Retourneert een van de schatting voor de opgegeven [**dichtstbijzijnde positie percentiel**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de bevolking gedefinieerd door een expressie. De nauwkeurigheid is afhankelijk van de dichtheid van populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 De volgende query berekent percentielen voor de duur van storm.
 
@@ -663,9 +663,9 @@ StormEvents
 
 Deze sectie worden de elementen waarmee u kunt complexere query's maken, gegevens samenvoegen in tabellen en query's naar andere databases en clusters.
 
-### <a name="let"></a>Laat
+### <a name="let"></a>let
 
-[**Laat**](https://docs.microsoft.com/azure/kusto/query/letstatement): verbetert modulariteit mogelijk te maken en hergebruik. De **laten** instructie kunt u een complexe expressie op te splitsen in meerdere delen, elk gekoppeld aan een naam, en deze onderdelen samen opstellen. Een **laten** instructie kan ook worden gebruikt om de gebruiker gedefinieerde functies en weergaven (expressies over tabellen waarvan de resultaten een nieuwe tabel eruit) te maken. Expressies gebonden bent aan een **laten** instructie van een scalair type, van het type in tabelvorm of de gebruiker gedefinieerde functie (lambdas) kan zijn.
+[**Laat**](https://docs.microsoft.com/azure/kusto/query/letstatement): Verbetert de modulariteit mogelijk te maken en hergebruik. De **laten** instructie kunt u een complexe expressie op te splitsen in meerdere delen, elk gekoppeld aan een naam, en deze onderdelen samen opstellen. Een **laten** instructie kan ook worden gebruikt om de gebruiker gedefinieerde functies en weergaven (expressies over tabellen waarvan de resultaten een nieuwe tabel eruit) te maken. Expressies gebonden bent aan een **laten** instructie van een scalair type, van het type in tabelvorm of de gebruiker gedefinieerde functie (lambdas) kan zijn.
 
 Het volgende voorbeeld maakt u een variabele in tabelvorm type en deze in een latere-expressie gebruikt.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**JOIN**](https://docs.microsoft.com/azure/kusto/query/joinoperator): de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): De rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
 
 Het volgende voorbeeld worden twee tabellen gekoppeld met een inner join.
 
@@ -715,7 +715,7 @@ X
 
 ### <a name="serialize"></a>serialiseren
 
-[**serialiseren**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): de rij instellen, zodat u kunt functies waarvoor geserialiseerde gegevens, zoals serialiseert **row_number()**.
+[**serialiseren**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): De rij instellen, zodat u kunt functies waarvoor geserialiseerde gegevens, zoals serialiseert **row_number()**.
 
 De volgende query is gelukt, omdat de gegevens is geserialiseerd.
 
@@ -757,7 +757,7 @@ Deze sectie bevat de elementen en query's die laten hoe eenvoudig het is zien vo
 
 ### <a name="activitycountsmetrics-plugin"></a>activity_counts_metrics-invoegtoepassing
 
-[**de invoegtoepassing activity_counts_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): berekent de metrische gegevens van nuttige activiteiten (totale aantal waarden, uniek aantal waarden, uniek aantal van de nieuwe waarden en samengevoegde uniek aantal). Metrische gegevens worden berekend voor elke tijdvenster en ze zijn vergeleken, en samengevoegd op en met alle voorgaande tijdvensters.
+[**de invoegtoepassing activity_counts_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Berekent de metrische gegevens van nuttige activiteiten (totale aantal waarden, uniek aantal waarden, uniek aantal van de nieuwe waarden en samengevoegde uniek aantal). Metrische gegevens worden berekend voor elke tijdvenster en ze zijn vergeleken, en samengevoegd op en met alle voorgaande tijdvensters.
 
 De volgende query analyseert acceptatie van de gebruiker door het berekenen van de dagelijkse activiteit telt.
 
@@ -791,7 +791,7 @@ window)
 
 ### <a name="activityengagement-plugin"></a>activity_engagement-invoegtoepassing
 
-[**de invoegtoepassing activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): berekent op basis van de kolom-ID gedurende een sliding window van de tijdlijn van activiteit engagement verhouding. **de invoegtoepassing activity_engagement** kan worden gebruikt voor het berekenen van dagelijks actieve gebruikers, WAU en MAU (dagelijkse, wekelijkse en maandelijkse actieve gebruikers).
+[**de invoegtoepassing activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Wordt berekend op basis van de kolom-ID gedurende een sliding window van de tijdlijn van activiteit engagement verhouding. **de invoegtoepassing activity_engagement** kan worden gebruikt voor het berekenen van dagelijks actieve gebruikers, WAU en MAU (dagelijkse, wekelijkse en maandelijkse actieve gebruikers).
 
 De volgende query retourneert de verhouding van het totale aantal unieke gebruikers met behulp van een toepassing per dag in vergelijking met het totale aantal unieke gebruikers met behulp van de toepassing wekelijks, op een Verschuivend van zeven dagen.
 
@@ -817,7 +817,7 @@ range _day from _start to _end step 1d
 
 ### <a name="activitymetrics-plugin"></a>activity_metrics-invoegtoepassing
 
-[**de invoegtoepassing activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): nuttig metrische gegevens van activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) op basis van de huidige periode venster vergeleken met de vorige periode venster berekent.
+[**de invoegtoepassing activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Berekent de nuttig metrische gegevens van activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) op basis van de huidige periode venster vergeleken met de vorige periode venster.
 
 De volgende query berekent het verloop en retentie-tarief voor een bepaalde gegevensset.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics-invoegtoepassing
 
-[**de invoegtoepassing new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): berekent de metrische gegevens van nuttige activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) voor het cohort van nieuwe gebruikers. Het concept van deze invoegtoepassing is vergelijkbaar met [**activity_metrics invoegtoepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
+[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Hiermee berekent metrische gegevens van nuttige activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) voor het cohort van nieuwe gebruikers. Het concept van deze invoegtoepassing is vergelijkbaar met [**activity_metrics invoegtoepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
 
 De volgende query wordt een tarief retentie en het verloop met een week-over-week-venster voor het gebruikerscohort voor nieuwe (gebruikers dat is ontvangen op de eerste week) berekend.
 
@@ -864,7 +864,7 @@ range Day from _start to _end step 1d
 
 ### <a name="sessioncount-plugin"></a>session_count-invoegtoepassing
 
-[**de invoegtoepassing session_count**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): berekent het aantal sessies dat is gebaseerd op de kolom-ID voor een tijdlijn.
+[**de invoegtoepassing session_count**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Berekent het aantal sessies dat is gebaseerd op de kolom-ID voor een tijdlijn.
 
 De volgende query retourneert het aantal sessies. Een sessie wordt beschouwd als actief als een gebruikers-ID wordt weergegeven ten minste één keer op een tijdsbestek van 100-time-sleuven, terwijl de sessie uiterlijk-back-venster 41-time-sleuven is.
 
@@ -884,7 +884,7 @@ _data
 
 ### <a name="funnelsequence-plugin"></a>funnel_sequence-invoegtoepassing
 
-[**de invoegtoepassing funnel_sequence**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): berekent de tellingen van gebruikers die een reeks statussen hebben genomen; de verdeling van vorige en volgende statussen die hebben geleid tot of zijn gevolgd door de takenreeks weergeeft.
+[**de invoegtoepassing funnel_sequence**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Berekent de tellingen van gebruikers die al een reeks Staten; de verdeling van vorige en volgende statussen die hebben geleid tot of zijn gevolgd door de takenreeks weergeeft.
 
 De volgende query laat zien welke gebeurtenis plaatsvindt vóór en na alle Tornado gebeurtenissen in 2007.
 
@@ -900,7 +900,7 @@ StormEvents
 
 ### <a name="funnelsequencecompletion-plugin"></a>funnel_sequence_completion-invoegtoepassing
 
-[**de invoegtoepassing funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): berekent de trechter van voltooide reeks stappen binnen verschillende perioden.
+[**de invoegtoepassing funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Berekent de trechter van voltooide takenreeksstappen in verschillende perioden.
 
 De volgende query controleert de trechter voltooiing van de reeks: `Hail -> Tornado -> Thunderstorm -> Wind` in 'algemene' duur van één uur, vier uur en één dag (`[1h, 4h, 1d]`).
 

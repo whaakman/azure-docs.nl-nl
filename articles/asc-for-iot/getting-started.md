@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Security Center (ASC) voor de Preview van IoT | Microsoft Docs
-description: Aan de slag in informatie over de basiswerkstroom van ASC voor IoT-functies en -service.
+description: Aan de slag in informatie over de basiswerkstroom van Azure Security Center voor IoT-functies en -service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648313"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755117"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>Aan de slag met Azure Security Center (ASC) voor IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Aan de slag met Azure Security Center voor IoT 
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In dit artikel bevat een uitleg van de verschillende bouwstenen van de ASC voor IoT-service en wordt uitgelegd hoe u aan de slag met [inschakelen van de service](quickstart-onboard-iot-hub.md). 
+In dit artikel bevat een uitleg van de verschillende bouwstenen van de Azure Security Center (ASC) voor IoT-service en wordt uitgelegd hoe u aan de slag met [inschakelen van de service](quickstart-onboard-iot-hub.md). 
 
 ASC voor IoT kan naadloos worden geïntegreerd in uw IoT-Hub voor analyse van IoT hub-configuratie, de apparaat-id en de hub-apparaat communicatiepatronen.
 ASC voor IoT biedt mogelijkheden voor verbeterde beveiliging, op basis van een agent verzamelen van beveiligingsgegevens van uw IoT-apparaten.

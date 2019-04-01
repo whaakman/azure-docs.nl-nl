@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 03/29/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437506"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754938"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Begin uw ASP.NET-webtoepassing te controleren
 
@@ -61,21 +61,21 @@ Application Insights verzamelt telemetriegegevens voor uw toepassing, ongeacht w
 
 U kunt nu Application Insights openen in Azure Portal om allerlei gegevens over uw actieve toepassing weer te geven.
 
-1. Klik met de rechtermuisknop op de map **Connected Services Application Insights** in Solution Explorer en klik op **Open Application Insights Portal**.  U ziet een aantal gegevens over uw toepassing en allerlei opties.
+1. Vouw de **Connected Services** map (cloud en plug-pictogram) in de Solution Explorer klikt u vervolgens met de rechtermuisknop op de **Application Insights** map en klikt u op **Open Application Insights-Portal** .  U ziet een aantal gegevens over uw toepassing en allerlei opties.
 
-    ![Toepassingskaart](media/quick-monitor-portal/overview-001.png)
+    ![Toepassingskaart](media/quick-monitor-portal/4overview.png)
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing.  Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-    ![Toepassingskaart](media/quick-monitor-portal/application-map-001.png)
+    ![Toepassingskaart](media/quick-monitor-portal/5appmap.png)
 
-3. Klik op het pictogram ![Toepassingskaart](media/quick-monitor-portal/app-analytics-icon.png) van **App-analyse** bij een van de toepassingsonderdelen.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights.  In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek.  U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3. Klik op de **Appanalyses** pictogram ![Toepassingsoverzicht](media/quick-monitor-portal/app-analytics-icon.png) **weergeven in Analytics** op een van de onderdelen van de toepassing. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights.  In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
-    ![Analyse](media/quick-monitor-portal/analytics.png)
+    ![Analyse](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Ga terug naar de pagina **Overzicht** en klik op **Live Stream**.  Hier worden live statistieken weergegeven over uw toepassing terwijl deze wordt uitgevoerd.  Dit zijn onder andere gegevens over het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden.  U kunt ook kritieke prestatiegegevens inspecteren, zoals de processor en het geheugen.
+4. Klik op **Live Metrics Stream** aan de linkerkant onder onderzoeken. Hier worden live statistieken weergegeven over uw toepassing terwijl deze wordt uitgevoerd. Dit zijn onder andere gegevens over het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. U kunt ook kritieke prestatiegegevens inspecteren, zoals de processor en het geheugen.
 
-    ![Live Stream](media/quick-monitor-portal/live-stream.png)
+    ![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
     Als u klaar bent om uw toepassing in Azure te hosten, kunt u deze nu publiceren. Volg de stappen [Create an ASP.NET Web App Quickstart](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy) (Snelstartgids voor het maken van een ASP.NET-webapp).
 
@@ -107,7 +107,7 @@ Raadpleeg de GitHub-opslagplaats voor de [open-source JavaScript SDK](https://gi
 * Externe stapsgewijze video over [Application Insights configureren met een .NET-toepassing helemaal](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Volgende stappen
-Aan de hand van deze snelstartgids hebt u uw toepassing ingesteld voor bewaking met Azure Application Insights.  Ga verder met de zelfstudies om te leren hoe u dit kunt gebruiken om statistieken bij te houden en problemen in uw toepassing te detecteren.
+In deze snelstartgids hebt hebt u uw toepassing voor bewaking door Azure Application Insights ingeschakeld.  Ga verder met de zelfstudies om te leren hoe u dit kunt gebruiken om statistieken bij te houden en problemen in uw toepassing te detecteren.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Application Insights](tutorial-runtime-exceptions.md)

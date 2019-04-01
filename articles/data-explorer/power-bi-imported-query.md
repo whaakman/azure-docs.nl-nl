@@ -3,23 +3,23 @@ title: 'Quickstart: Gegevens visualiseren met behulp van een query die is geïmp
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: het importeren van een query vanuit Azure Data Explorer.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 139b20a2390c7301bd83113c3e98be40846fab22
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858148"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756114"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van een query die is geïmporteerd in Power BI
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie.
 
-Azure Data Explorer biedt drie opties waarmee u verbinding kunt maken met gegevens in Power BI: de ingebouwde connector gebruiken, een query importeren uit Azure Data Explorer, of een SQL-query gebruiken. In deze quickstart ziet u hoe u een query importeert zodat u gegevens kunt ophalen en deze kunt visualiseren in een Power BI-rapport.
+Azure Data Explorer biedt drie opties om gegevens te verbinden in Power BI: de ingebouwde connector gebruiken, een query importeren uit Azure Data Explorer, of een SQL-query gebruiken. In deze quickstart ziet u hoe u een query importeert zodat u gegevens kunt ophalen en deze kunt visualiseren in een Power BI-rapport.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
@@ -79,9 +79,9 @@ Eerst maakt u een query in de Azure Data Explorer-desktop-app en exporteert u de
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u het rapport dat u hebt gemaakt voor deze quickstart, niet meer nodig hebt, verwijdert u het Power BI Desktop-bestand (.pbix).
+Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, verwijdert u het Power BI Desktop-bestand (.pbix).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-sql-query.md)
+> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-sql-query.md)

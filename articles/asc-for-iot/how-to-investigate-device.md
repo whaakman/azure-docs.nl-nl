@@ -1,6 +1,6 @@
 ---
-title: ASC voor onderzoek voor Preview-versie voor IoT-apparaat | Microsoft Docs
-description: Deze stapsgewijze handleiding wordt uitgelegd hoe u ASC voor IoT gebruiken voor het onderzoeken van een verdachte IoT-apparaat met de Log Analytics.
+title: Azure Security Center voor onderzoek voor Preview-versie voor IoT-apparaat | Microsoft Docs
+description: Deze stapsgewijze handleiding wordt uitgelegd hoe u Azure Security Center voor IoT gebruiken voor het onderzoeken van een verdachte IoT-apparaat met de Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580536"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755246"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Onderzoeken van een verdachte IoT-apparaat
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-ASC voor IoT-servicewaarschuwingen en bewijs bieden duidelijk aangegeven wanneer de IoT-apparaten wordt vermoed dat ze van de betrokkenheid bij verdachte activiteiten of wanneer vermeldingen bestaat dat een apparaat is geknoeid. 
+Azure Security Center (ASC) voor IoT-servicewaarschuwingen en bewijs bieden duidelijk aangegeven wanneer de IoT-apparaten wordt vermoed dat ze van de betrokkenheid bij verdachte activiteiten of wanneer vermeldingen bestaat dat een apparaat is geknoeid. 
 
 Gebruik onderzoek suggesties om te bepalen van de mogelijke risico's voor uw organisatie, bepalen hoe u wilt herstellen, en de beste manieren zijn om in de toekomst te voorkomen dat dergelijke aanvallen te detecteren die in deze handleiding.  
 

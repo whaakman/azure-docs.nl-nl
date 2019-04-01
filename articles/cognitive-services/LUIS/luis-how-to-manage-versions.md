@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338238"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754906"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Versies gebruiken om te bewerken en te testen zonder dat dit fasering of productie-apps
 
@@ -59,7 +59,7 @@ Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de 
 
 ### <a name="import-errors"></a>Fouten bij het importeren
 
-* Tokenizer fouten: Als er een **tokenizer fout** bij het importeren, u probeert te importeren een versie die gebruikmaakt van een andere [tokenizer](luis-language-support.md#custom-tokenizer-versions) dan de app wordt momenteel gebruikt. U kunt dit verhelpen, hebt u twee opties. Zie [migreren tussen versies tokenizer](luis-language-support.md#migrating-between-tokenizer-versions) voor meer informatie.
+* Tokenizer fouten: Als er een **tokenizer fout** bij het importeren, u probeert te importeren een versie die gebruikmaakt van een andere [tokenizer](luis-language-support.md#custom-tokenizer-versions) dan de app wordt momenteel gebruikt. U kunt dit verhelpen Zie [migreren tussen versies tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 

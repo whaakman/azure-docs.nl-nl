@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480536"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754253"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Gebruik en geschatte kosten bewaken
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Gebruik en geschatte kosten in Azure Monitor bewaken
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u gebruik en geschatte kosten weergeven in meerdere Azure bewakingsfuncties voor verschillende prijsmodellen.  Raadpleeg de volgende artikelen voor meer informatie.
-> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](../../azure-monitor/platform/manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
+> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
 > - [Gegevensgebruik analyseren in Log Analytics](../../azure-monitor/platform/data-usage.md) wordt beschreven hoe u om te analyseren en ontvang een waarschuwing op het gegevensgebruik van uw.
 > - [Prijzen en gegevensvolumes in Application Insights beheren](../../azure-monitor/app/pricing.md) wordt beschreven hoe u gegevensgebruik analyseren in Application Insights.
 
@@ -184,7 +184,7 @@ Als u vervolgens opnieuw uitvoeren van het vorige script waarvoor ``-Action list
 Als u meerdere abonnementen, die u wilt migreren die worden gehost in dezelfde tenant hebt, kunt u uw eigen variant met behulp van de onderdelen van de volgende scripts kunt maken:
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-Het script kan worden verfijnd verder met het maken van een script dat drie matrices worden gegenereerd. Een matrix wordt bestaan uit alle abonnement-id's waarvoor ```isGrandFatherableSubscription``` ingesteld op True en optedInDate heeft momenteel geen waarde. Een tweede reeks abonnementen die momenteel op het nieuwe prijsmodel. En een derde matrix ingevuld met de abonnement-id's in uw tenant die niet in aanmerking komen voor het nieuwe prijsmodel zijn:
+Het script kan worden verfijnd verder met het maken van een script dat drie matrices worden gegenereerd. Een matrix wordt bestaan uit alle abonnement-id's die zijn ```isGrandFatherableSubscription``` ingesteld op True en optedInDate heeft momenteel geen waarde. Een tweede reeks abonnementen die momenteel op het nieuwe prijsmodel. En een derde matrix ingevuld met de abonnement-id's in uw tenant die niet in aanmerking voor het nieuwe prijsmodel:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

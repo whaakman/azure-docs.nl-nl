@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445480"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756808"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
+Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, DevOps-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
 
 ## <a name="built-in-monitoring-roles"></a>Ingebouwde bewaking rollen
 Azure Monitor ingebouwde rollen zijn ontworpen om te beperken van toegang tot resources in een abonnement terwijl nog steeds die verantwoordelijk zijn voor het bewaken van de infrastructuur voor het downloaden en configureren van de gegevens die ze nodig hebben. Azure Monitor biedt twee out-of-the-box-rollen: Een Monitoring Reader en een controle Inzender.
@@ -38,10 +38,10 @@ Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abo
 * Toegang tot Application Insights-gegevens en gegevens weergeven in Analytics AI.
 * Zoeken naar gegevens in de werkruimte Log Analytics met inbegrip van gegevens over gebruik voor de werkruimte.
 * Log Analytics-beheergroepen weergeven.
-* De Log Analytics-zoekschema ophalen.
-* Lijst met Log Analytics intelligencepacks.
-* Haal en Log Analytics opgeslagen zoekopdrachten uitvoeren.
-* De opslagconfiguratie voor logboekanalyse ophalen.
+* Het schema van de zoekopdracht in Log Analytics-werkruimte ophalen.
+* Lijst met bewakingspakketten in Log Analytics-werkruimte.
+* Opgehaald en opgeslagen zoekopdrachten uitvoeren in Log Analytics-werkruimte.
+* De opslagconfiguratie voor Log Analytics-werkruimte ophalen.
 
 > [!NOTE]
 > Deze rol heeft geen leestoegang geven tot logboekgegevens die zijn gestreamd naar een event hub of die zijn opgeslagen in een storage-account. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
@@ -57,9 +57,9 @@ Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven i
 * Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Application Insights-webtests en -onderdelen maken.
 * Lijst met Log Analytics-werkruimte gedeelde sleutels.
-* In- of uitschakelen van Log Analytics intelligencepacks.
-* Maken en verwijderen en Log Analytics opgeslagen zoekopdrachten uitvoeren.
-* Maak en verwijder de opslagconfiguratie voor logboekanalyse.
+* In- of uitschakelen van bewakingspakketten in Log Analytics-werkruimte.
+* Maken en verwijderen en opgeslagen zoekopdrachten uitvoeren in Log Analytics-werkruimte.
+* Maak en verwijder de opslagconfiguratie voor Log Analytics-werkruimte.
 
 \*de gebruiker moet ook afzonderlijk worden verleend ListKeys machtiging voor de doelresource (storage-account of event hub-naamruimte) een logboekprofiel of de diagnostische instelling in te stellen.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813888"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758208"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Postman configureren voor Media Services REST API-aanroepen
 
@@ -89,6 +89,13 @@ Voordat u begint met het bewerken van AMS v3 resources die u wilt ophalen en ins
 
     ![AAD-token verkrijgen](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Zie ook
+
+- [Bestanden uploaden naar een Media Services-account - REST](upload-files-rest-how-to.md)
+- [Filters maken met Media Services - REST](filters-dynamic-manifest-rest-howto.md)
+- [REST API op basis van Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bestanden met de REST Stream](stream-files-tutorial-with-rest.md).  
+- [Bestanden met de REST Stream](stream-files-tutorial-with-rest.md).  
+- [Zelfstudie: Extern bestand coderen op basis van URL en video streamen - REST](stream-files-tutorial-with-rest.md)

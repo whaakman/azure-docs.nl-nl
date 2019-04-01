@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662122"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755905"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -44,30 +44,11 @@ Met Media Services kunt u diverse mediawerkstromen bouwen in de cloud. Hier volg
 * Gebruik Azure Media Services in combinatie met [Azure Cognitive Services API's](https://docs.microsoft.com/azure/#pivot=products&panel=ai) om ondertitels en bijschriften toe te voegen aan video's om een breder publiek te bereiken (bijvoorbeeld mensen met een gehoorbeperking of personen die de video in een andere taal willen volgen).
 * Schakel Azure CDN in om grote schaalbaarheid te bieden, zodat piekbelastingen beter kunnen worden verwerkt (bijvoorbeeld bij een productlancering). 
 
-## <a name="naming-conventions"></a>Naamconventies
-
-Namen van Azure Media Services v3-resources (bijvoorbeeld activa, taken, transformaties) zijn onderhevig aan de naamgevingsbeperkingen van Azure Resource Manager. In overeenstemming met Azure Resource Manager zijn de resourcenamen altijd uniek. U kunt dus alle unieke id-strings (bijvoorbeeld GUID's) gebruiken voor uw resourcenamen. 
-
-Namen van Media Services-resources mogen niet de volgende tekens bevatten: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', enkele aanhalingstekens of besturingstekens. Alle andere tekens zijn toegestaan. De maximale lengte van een resourcenaam is 260 tekens. 
-
-Zie [Naamvereisten](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) en [Naamconventies](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor meer informatie over Azure Resource Manager-naamgeving.
-
-## <a name="v3-api-design-principles"></a>Ontwerpprincipes voor v3 API
-
-Een van de belangrijkste principes van de API v3 is het beter beveiligen van de API. V3 API's retourneren geen geheimen of referenties naar aanleiding van een**Get**- of **List**-bewerking. De sleutels zijn altijd null, leeg of opgeschoond uit het antwoord. U moet een afzonderlijke actiemethode aanroepen voor het ophalen van geheimen of referenties. Door afzonderlijke acties te gebruiken, kunt u verschillende RBAC-beveiligingsrechten instellen voor het geval een aantal API's wel geheimen ophaalt/weergeeft en andere API's dat niet doen. Zie voor meer informatie over het beheren van toegang met RBAC [RBAC gebruiken om toegang te beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
-
-Voorbeelden hiervan zijn onder andere 
-
-* Er worden geen waarden voor ContentKey geretourneerd in de Get-bewerking van de StreamingLocator; 
-* De beperkingssleutels worden niet Key geretourneerd in de Get-bewerking van de ContentKeyPolicy; 
-* Het URL-onderdeel met de queryreeks van de HTTP invoer-URL's van taken wordt niet geretourneerd (om de handtekening te verwijderen).
-
-Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-key-policy-dotnet-howto.md).
-
-
 ## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3? 
 
 Informatie over het coderen en inpakken van inhoud, streamen van video's op aanvraag, live uitzenden, analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
+
+Controleer voordat u begint met het ontwikkelen, [basisconcepten](concepts-overview.md)<br/>
 
 ### <a name="quickstarts"></a>Snelstartgidsen  
 
@@ -97,7 +78,7 @@ Artikelen bevatten voorbeelden van code die laten zien hoe u om een taak te volt
 * [Coderen met HTTPS als invoer - taak .NET](job-input-from-http-how-to.md)  
 * [Monitor voor gebeurtenissen - Portal](monitor-events-portal-how-to.md)
 * [Dynamisch versleutelen met multi-DRM - .NET](protect-with-drm.md) 
-* [Coderen met een aangepaste transformeren met behulp van CLI](custom-preset-cli-howto.md)
+* [Coderen met een aangepaste transformatie - CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

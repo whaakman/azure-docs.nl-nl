@@ -1,6 +1,6 @@
 ---
-title: Log Analytics voor serviceproviders | Microsoft Docs
-description: Log Analytics kunt Managed Service Providers (MSP's), grote ondernemingen Independent Software Vendors (ISV's) en hosting serviceproviders beheren en controleren van servers in van de klant on-premises of cloud-infrastructuur.
+title: Azure Monitor voor serviceproviders | Microsoft Docs
+description: Azure Monitor kunt Managed Service Providers (MSP's), grote ondernemingen Independent Software Vendors (ISV's) en hosting serviceproviders beheren en controleren van servers in van de klant on-premises of cloud-infrastructuur.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264766"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756570"
 ---
-# <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
-Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
+# <a name="azure-monitor-for-service-providers"></a>Azure Monitor voor serviceproviders
+Log Analytics-werkruimten in Azure Monitor kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
 
 Grote ondernemingen delen veel overeenkomsten met serviceproviders, met name wanneer er een centrale IT-team dat verantwoordelijk is is voor het beheer van IT voor veel verschillende bedrijfseenheden. Voor het gemak in dit document wordt de term gebruikt *serviceprovider* maar dezelfde functionaliteit is ook beschikbaar voor ondernemingen en andere klanten.
 
-Voor partners en leveranciers van de service die deel uitmaken van de [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programma, Log Analytics is een van de Azure-services beschikbaar zijn in [Azure CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Voor partners en leveranciers van de service die deel uitmaken van de [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programma, Log Analytics in Azure Monitor is een van de Azure-services beschikbaar zijn in [Azure CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Architecturen voor serviceproviders
 
@@ -70,11 +70,11 @@ De nadelen van deze architectuur zijn:
 
 De derde architectuur combineren tussen de twee opties. Deze is gebaseerd op de eerste gedistribueerde architectuur waar de logboeken lokaal op elke klant worden, maar sommige mechanisme gebruiken voor het maken van een centrale opslagplaats voor Logboeken. Een gedeelte van de logboeken worden opgehaald in een centrale locatie voor rapportage en analyse. Dit gedeelte wordt mogelijk beperkt aantal gegevenstypen of een samenvatting van de activiteit zoals dagelijks statistieken.
 
-Er zijn twee opties voor het implementeren van de centrale locatie in Log Analytics:
+Er zijn twee opties voor het implementeren van Logboeken op een centrale locatie:
 
 1. Centrale werkruimte: De serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](../../azure-monitor/platform/data-collector-api.md) om de gegevens uit de verschillende werkruimten op een centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen Log Analytics en [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen de Log Analytics-werkruimte en [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen

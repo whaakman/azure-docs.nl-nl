@@ -1,6 +1,6 @@
 ---
-title: Maken van een security moduledubbel voor ASC voor IoT-Preview | Microsoft Docs
-description: Meer informatie over het maken van een ASC voor IoT-moduledubbel voor gebruik met ASC voor IoT.
+title: Maken van een dubbel van de module beveiliging voor Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Meer informatie over het maken van een Azure Security Center voor IoT-moduledubbel voor gebruik met ASC voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd085333f0ddc8a9d49637a2d7156b34c6e5cc72
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579424"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758368"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Maken van een azureiotsecurity moduledubbel
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview. Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+> Azure Security Center voor IoT is momenteel in openbare preview. Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Deze snelstartgids uitleg over het maken van afzonderlijke _azureiotsecurity_ moduledubbels voor nieuwe apparaten of batch moduledubbels voor alle apparaten in een IoT-Hub maken.  
 
@@ -32,7 +32,7 @@ Deze snelstartgids uitleg over het maken van afzonderlijke _azureiotsecurity_ mo
 
 Apparaatdubbels spelen voor IoT-oplossingen die zijn gemaakt in Azure, een belangrijke rol in Apparaatbeheer en automatisering van bedrijfsprocessen. 
 
-ASC voor IoT biedt volledige integratie met uw bestaande IoT platform voor Apparaatbeheer, zodat u kunt de beveiligingsstatus van uw apparaat te beheren en maken gebruik van bestaande mogelijkheden voor toegangsbeheer van apparaat.
+Azure Security Center (ASC) voor IoT biedt volledige integratie met uw bestaande IoT platform voor Apparaatbeheer, zodat u kunt de beveiligingsstatus van uw apparaat te beheren en maken gebruik van bestaande mogelijkheden voor toegangsbeheer van apparaat.
 ASC voor IoT-integratie wordt bereikt met behulp van de IoT-Hub twin mechanisme.  
 
 Zie [IoT-Hub moduledubbels](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) voor meer informatie over het algemeen concept van moduledubbels in Azure IoT Hub. 

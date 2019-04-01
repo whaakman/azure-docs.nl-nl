@@ -1,6 +1,6 @@
 ---
-title: Handleiding voor het installeren en implementeren van Linux C# agent van ASC voor IoT-Preview | Microsoft Docs
-description: Informatie over het installeren van de ASC voor IoT-agent op zowel 32-bits en 64-bits Linux.
+title: Handleiding voor het installeren en implementeren van Linux C# agent van Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Informatie over het installeren van de Azure Security Center voor IoT-agent op zowel 32-bits en 64-bits Linux.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619905"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758336"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>ASC implementeren voor IoT C#-security-agent voor Linux gebaseerd
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Azure Security Center implementeren voor IoT C#-security-agent voor Linux gebaseerd
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Deze handleiding wordt uitgelegd hoe u te installeren en implementeren van de ASC voor IoT C#-security-agent op Linux gebaseerd.
+Deze handleiding wordt uitgelegd hoe u te installeren en implementeren van de Azure Security Center (ASC) voor IoT C#-security-agent op Linux gebaseerd.
 
 In deze handleiding leert u het volgende: 
 > [!div class="checklist"]

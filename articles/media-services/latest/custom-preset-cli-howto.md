@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7160b7c9cdb82d378870edb1750c9d9016aa2d18
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: b0329c8c0bfa56e5ae36c5f4223edca91e6510a0
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58006848"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755605"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-cli"></a>Coderen met een aangepaste transformeren met behulp van CLI
+# <a name="how-to-encode-with-a-custom-transform---cli"></a>Coderen met een aangepaste transformatie - CLI
 
 Wanneer u met Azure Media Services encoding, u kunt snel aan de slag met een van de aanbevolen ingebouwde voorinstellingen, gebaseerd op best practices, zoals geïllustreerd in de [Streaming bestanden](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Quick Start. U kunt ook een aangepaste voorinstelling wilt richten op uw specifieke vereisten voor scenario of het apparaat maken.
 

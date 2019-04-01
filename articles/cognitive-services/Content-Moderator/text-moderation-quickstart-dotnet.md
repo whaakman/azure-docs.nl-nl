@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312239"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756533"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snelstartgids: Tekstinhoud op ongewenst materiaal analyseren in C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snelstartgids: Tekstinhoud op ongewenst materiaal analyseren in C#
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). U leert hoe u kunt filteren op termen en tekstinhoud classificeren met het doel toezicht te houden op mogelijk ongewenst materiaal.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Voeg de volgende code aan de methode **Hoofd**. De **ScreenText**-methode is de essentiële bewerking. De parameters ervan bepalen welke bewerkingen voor inhoudtoezicht worden uitgevoerd. In dit voorbeeld wordt de methode geconfigureerd om het volgende te doen:
 - Mogelijk grof taalgebruik in de tekst te detecteren.
 - De tekst te normaliseren en typfouten automatisch te corrigeren.
-- Persoonlijk identificeerbare informatie (PII) zoals telefoonnummers in de VS en het Verenigd Koninkrijk, e-mailadressen en postadressen in de VS detecteren.
+- Persoonlijke gegevens detecteren, zoals de Verenigde Staten en het VK telefoon getallen, e-mailadressen en adressen van VS.
 - Machine-learningmodellen gebruiken om de tekst onder te verdelen in drie categorieën.
 
 Als u meer wilt weten over wat deze bewerkingen doen, volgt u de koppeling in de sectie [Volgende stappen](#next-steps).

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472803"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755513"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -41,7 +41,9 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
    Beginnen met 2018-05-01-preview-versie, ondersteunt Event Grid een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, Event Grid verzendt een `validationUrl` eigenschap in het gegevensgedeelte van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake vinden die URL in de gebeurtenisgegevens en handmatig een GET-aanvraag te verzenden. U kunt een REST-client of uw webbrowser.
 
-   De opgegeven URL is geldig gedurende vijf minuten. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
+   De opgegeven URL is geldig gedurende vijf minuten. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 5 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
+
+    Dit verificatiemechanisme vereist ook de webhook-eindpunt naar een HTTP-statuscode 200 retourneren zodat het weet dat het bericht voor de validatiegebeurtenis is geaccepteerd voordat deze kan worden geplaatst in de modus handmatig worden gevalideerd. Met andere woorden, als het eindpunt als 200 resultaat maar niet een validatie respons terug via een programma, wordt de modus overgezet naar de modus handmatig worden gevalideerd. Als er een download van de validatie-URL binnen 5 minuten is, wordt de validatie-handshake gezien om succesvol te zijn.
 
 ### <a name="validation-details"></a>Validatiedetails
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455243"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758132"
 ---
 # <a name="what-is-azure-content-moderator"></a>Wat is Azure Content Moderator?
 
@@ -41,24 +41,23 @@ De Content Moderator-service bestaat uit verschillende webservice-API's die besc
 
 De Content Moderator-service omvat API's voor de volgende scenario's.
 
-| Bewerking | Beschrijving |
+| API-groep | Description |
 | ------ | ----------- |
-|[**Teksttoezicht**](text-moderation-api.md)| Hiermee wordt tekst gescand op aanstootgevende inhoud, expliciet of suggestief seksuele inhoud, grof taalgebruik en persoonlijk identificeerbare informatie (PII).|
+|[**Teksttoezicht**](text-moderation-api.md)| Tekst voor aanstootgevende inhoud, seksueel expliciet of suggestieve inhoud, grof taalgebruik en persoonlijke gegevens scant.|
 |[**Aangepaste terminologielijsten**](try-terms-list-api.md)| Hiermee wordt tekst niet alleen vergeleken met de ingebouwde termen maar ook met een aangepaste terminologielijst. U kunt aangepaste lijsten gebruiken om inhoud te blokkeren of toe te staan volgens uw eigen beleidsregels voor inhoud.|  
 |[**Afbeeldingstoezicht**](image-moderation-api.md)| Hiermee worden afbeeldingen gescand op erotische of racistische inhoud, wordt tekst in afbeeldingen gedetecteerd met de OCR-functie (optische tekenherkenning) en worden gezichten gedetecteerd.|
 |[**Aangepaste afbeeldingslijsten**](try-image-list-api.md)| Hiermee worden afbeeldingen vergeleken met een aangepaste lijst van afbeeldingen. U kunt aangepaste afbeeldingslijsten gebruiken om te filteren op exemplaren van veelvoorkomende terugkerende inhoud die u niet opnieuw wilt classificeren.|
 |[**Videotoezicht**](video-moderation-api.md)| Hiermee worden video's gescand op erotische of racistische inhoud en worden tijdmarkeringen voor deze inhoud geretourneerd.|
-|[**Beoordeling**](try-review-api-job.md)| Gebruik de bewerkingen [Taken](try-review-api-job.md), [Beoordelingen](try-review-api-review.md) en [Werkstroom](try-review-api-workflow.md) om werkstromen voor menselijke beoordeling met het hulpprogramma voor menselijke beoordeling te maken en te automatiseren. De werkstroom-API is nog niet beschikbaar via de SDK voor .NET.|
+|[**API's bekijken**](try-review-api-job.md)| Gebruik de bewerkingen [Taken](try-review-api-job.md), [Beoordelingen](try-review-api-review.md) en [Werkstroom](try-review-api-workflow.md) om werkstromen voor menselijke beoordeling met het hulpprogramma voor menselijke beoordeling te maken en te automatiseren. De werkstroom-API is nog niet beschikbaar in de .NET SDK.|
 
-### <a name="human-review-tool"></a>Programma voor menselijke beoordeling
+### <a name="review-tool"></a>Beoordelingsprogramma
 
-De Content Moderator-service bevat ook het webgebaseerde [hulpprogramma voor menselijke beoordeling](Review-Tool-User-Guide/human-in-the-loop.md). 
+De Content Moderator-service bevat ook de webgebaseerde [beoordelingsprogramma](Review-Tool-User-Guide/human-in-the-loop.md), die als host fungeert voor de inhoud beoordelingen voor menselijke moderators te verwerken. De service wordt niet getraind door menselijke invoer, maar de combinatie van het werk van de service en de menselijke beoordelingsteams zorgt voor een juiste balans tussen de efficiëntie en de nauwkeurigheid. Het beoordelingsprogramma biedt ook een gebruiksvriendelijke front-end voor een verscheidenheid aan Content Moderator-resources.
 
 ![Startpagina van het hulpprogramma voor menselijke beoordeling van Content Moderator](images/homepage.PNG)
 
-Met de Beoordelen-API's kunt u teambeoordelingen instellen van tekst, afbeeldingen en video-inhoud, op basis van filters die u opgeeft. Daarna kunnen menselijke moderators de uiteindelijke toezichtsbeslissingen nemen. De service wordt niet getraind door menselijke invoer, maar de combinatie van het werk van de service en de menselijke beoordelingsteams zorgt voor een juiste balans tussen de efficiëntie en de nauwkeurigheid.
-
 ## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
+
 Zoals geldt voor alle services van Cognitive Services, dienen ontwikkelaars die de Content Moderator-service gebruiken op de hoogte te zijn van het beleid van Microsoft inzake klantgegevens. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen

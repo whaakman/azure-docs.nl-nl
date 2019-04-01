@@ -1,6 +1,6 @@
 ---
-title: Implementeren van een ASC voor IoT Edge-module | Microsoft Docs
-description: Meer informatie over het implementeren van ASC voor IoT security-agent op IoT Edge.
+title: Azure Security Center implementeren voor IoT Edge-module | Microsoft Docs
+description: Meer informatie over het implementeren van Azure Security Center voor IoT security-agent op IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580491"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754768"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>Beveiligingsmodule voor op uw IoT Edge-apparaat implementeren
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-ASC voor IoT **azureiotsecurity** module biedt een uitgebreide oplossing voor uw IoT Edge-apparaat.
+Azure Security Center (ASC) voor IoT **azureiotsecurity** module biedt een uitgebreide oplossing voor uw IoT Edge-apparaat.
 Security module verzamelt, verzamelt en analyseert onbewerkte beveiligingsgegevens van uw besturingssysteem en de Container-systeem in de praktijk toepasbare aanbevelingen en waarschuwingen.
 Zie voor meer informatie, [Security-module voor IoT Edge](security-edge-architecture.md).
 

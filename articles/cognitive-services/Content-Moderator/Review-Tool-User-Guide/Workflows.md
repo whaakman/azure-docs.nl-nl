@@ -1,90 +1,86 @@
 ---
-title: Definiëren en gebruiken van werkstromen voor inhoudstoezicht - Content Moderator
+title: Definiëren en gebruiken van inhoud werkstromen via het beoordelingsprogramma - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: U kunt de API's en Azure Content Moderator workflow designer gebruiken om aangepaste werkstromen en drempelwaarden op basis van uw inhoud beleidsregels te definiëren.
+description: U kunt het Azure Content Moderator workflow designer gebruiken om aangepaste werkstromen en drempelwaarden op basis van uw inhoud beleidsregels te definiëren.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8fe380e3015e5b6929aebcb898eef44d6f6bceda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213273"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757402"
 ---
-# <a name="define-test-and-use-workflows"></a>Definiëren, testen en werkstromen gebruiken
+# <a name="define-and-use-moderation-workflows"></a>Definiëren en toezicht werkstromen gebruiken
 
-U kunt de API's en Azure Content Moderator workflow designer gebruiken om aangepaste werkstromen en drempelwaarden op basis van uw inhoud beleidsregels te definiëren.
+In deze handleiding leert u hoe u kunt instellen en gebruiken [werkstromen](../review-api.md#workflows) op de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com) website. Werkstromen zijn cloud-gebaseerde aangepaste filters die u gebruiken kunt voor het afhandelen van inhoud efficiënter. Werkstromen kunnen verbinding maken met tal van services voor het filteren van inhoud op verschillende manieren en vervolgens de juiste actie ondernemen. Deze handleiding wordt beschreven hoe u inhoud filteren en onlinebeoordelingen door mensen in een scenario voor het beheer van typische instellen met de Content Moderator-connector (die is opgenomen in de standaardinstelling).
 
-Werkstromen 'verbinding maken' naar het Content Moderator-API met behulp van connectors. U kunt andere API's gebruiken als een connector voor die API beschikbaar is. In dit voorbeeld maakt gebruik van de Content Moderator-connector die is opgenomen in de standaardinstelling.
+## <a name="create-a-new-workflow"></a>Een nieuwe werkstroom maken
 
-## <a name="browse-to-the-workflows-section"></a>Blader naar de sectie werkstromen
+Ga naar de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) en meld u aan. Op de **instellingen** tabblad **werkstromen**.
 
-Op de **instellingen** tabblad **werkstromen**.
+![Werkstromen instellen](images/2-workflows-0.png)
 
-  ![Werkstromen instellen](images/2-workflows-0.png)
+Selecteer op het volgende scherm **werkstroom toevoegen**.
 
-## <a name="start-a-new-workflow"></a>Een nieuwe werkstroom starten
+![Een werkstroom toevoegen](images/2-workflows-1.png)
 
-Selecteer **werkstroom toevoegen**.
+### <a name="assign-a-name-and-description"></a>Toewijzen van een naam en beschrijving
 
-  ![Een werkstroom toevoegen](images/2-workflows-1.png)
+Naam van uw werkstroom, voer een beschrijving in en kies of de werkstroom wordt afgehandeld, afbeeldingen of tekst.
 
-## <a name="assign-a-name-and-description"></a>Toewijzen van een naam en beschrijving
+![Naam van de werkstroom en beschrijving](images/image-workflow-create.PNG)
 
-Naam van uw werkstroom, voer een beschrijving in en kies of de workflow afbeeldingen of tekst voert.
+### <a name="define-evaluation-criteria"></a>Van evaluatiecriteria definiëren
 
-  ![Naam van de werkstroom en beschrijving](images/ocr-workflow-step-1.PNG)
+In het volgende scherm, gaat u naar de **als** sectie. Kies in het bovenste vervolgkeuzemenu **voorwaarde**. Hiermee kunt u de voorwaarde waarop de werkstroom wordt maatregelen te configureren. Als u gebruiken van meerdere voorwaarden wilt, kiest u **combinatie** in plaats daarvan. 
 
-## <a name="define-the-evaluation-criteria-condition"></a>De van evaluatiecriteria ('voorwaarde') definiëren
+Selecteer vervolgens een connector. In dit voorbeeld wordt **Content Moderator**. Afhankelijk van de connector die u kiest, krijgt u verschillende opties voor gegevensuitvoer. Zie de [Connectors](./configure.md#connectors) sectie van de handleiding voor de beoordeling van hulpprogramma voor meer informatie over het instellen van andere connectors.
 
-In de volgende schermafbeelding ziet u de velden en de If-dan-anders selecties die u nodig hebt om te definiëren voor uw werkstromen. Kies een connector. In dit voorbeeld wordt **Content Moderator**. Afhankelijk van de connector die u kiest, worden de beschikbare opties voor uitvoer wijzigen.
+![Selecteer de connector werkstroom](images/image-workflow-connect-to.PNG)
 
-  ![Werkstroom voorwaarde definiëren](images/ocr-workflow-step-2-condition.PNG)
+Kies de gewenste uitvoer te gebruiken en de voorwaarden om te controleren tegen instellen.
 
-Nadat u de connector en de uitvoer die u hebt gekozen, selecteert u een operator en de waarde voor de voorwaarde.
+![Werkstroom voorwaarde definiëren](images/image-workflow-condition.PNG)
 
-## <a name="define-the-action-to-take"></a>De actie te ondernemen definiëren
+### <a name="define-the-action"></a>De actie definiëren
 
-Selecteer de actie moet worden uitgevoerd en de voorwaarde om te voldoen. Het volgende voorbeeld maakt u een beoordeling van de installatiekopie, een label toegewezen `a`, gemarkeerd voor de voorwaarde die wordt weergegeven. U kunt ook meerdere voorwaarden om de resultaten die u wilt combineren. Hiermee voegt u desgewenst een alternatieve (Else)-pad.
+Ga naar de **vervolgens** sectie, waar u een actie selecteren. Het volgende voorbeeld maakt u een beoordeling van de installatiekopie en een label toegewezen. U kunt (optioneel) een alternatieve (Else)-pad toevoegen en een actie voor die ook ingesteld.
 
-  ![Werkstroomactie definiëren](images/ocr-workflow-step-3-action.PNG)
+![Werkstroomactie definiëren](images/image-workflow-action.PNG)
 
-## <a name="save-your-workflow"></a>De werkstroom opslaan
+### <a name="save-the-workflow"></a>De werkstroom opslaan
 
-Ten slotte wordt de werkstroom opslaan, en noteer de Werkstroomnaam van de. U moet de naam om te beginnen een beheer-taak met behulp van de API controleren.
+Noteer de Werkstroomnaam van de; u moet de naam voor het starten van een taak voor beheer met de werkstroom-API (Zie hieronder). Sla ten slotte de werkstroom met de **opslaan** knop aan de bovenkant van de pagina.
 
 ## <a name="test-the-workflow"></a>De werkstroom testen
 
-Nu dat u een aangepaste werkstroom hebt gedefinieerd, kunt u deze met voorbeeldinhoud testen.
+Nu dat u een aangepaste werkstroom hebt gedefinieerd, kunt u deze met voorbeeldinhoud testen. Ga naar **werkstromen** en selecteert u de bijbehorende **werkstroom uitvoeren** knop.
 
-Selecteer de bijbehorende **werkstroom uitvoeren** knop.
+![Werkstroom testen](images/image-workflow-execute.PNG)
 
-  ![Werkstroom testen](images/ocr-workflow-step-6-list.PNG)
+Sla dit [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) naar uw lokale schijf. Selecteer vervolgens **bestand(en) Kies** en de installatiekopie uploaden naar de werkstroom.
 
-### <a name="upload-a-file"></a>Bestand uploaden
+![een vrouw in een bepaalde bad kleur](images/sample-racy.PNG)
 
-Sla de [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) naar uw lokale schijf. Als u wilt testen van de werkstroom, selecteer **bestand(en) Kies** en upload de installatiekopie.
+### <a name="track-progress"></a>Voortgang bijhouden
 
-  ![Installatiekopiebestand uploaden](images/ocr-workflow-step-7-upload.PNG)
+U kunt de voortgang van de werkstroom weergeven in het volgende pop-upvenster.
 
-### <a name="track-the-workflow"></a>Bijhouden van de werkstroom
+![Bijhouden van uitvoering](images/image-workflow-job.PNG)
 
-Bijhouden van de werkstroom als deze wordt uitgevoerd.
+### <a name="verify-workflow-action"></a>Controleer of de werkstroomactie
 
-  ![Bijhouden van uitvoering](images/ocr-workflow-step-4-test.PNG)
+Ga naar de **installatiekopie** tabblad onder **bekijken** en controleer of er een beoordeling van de zojuist gemaakte installatiekopie.
 
-### <a name="review-any-images-flagged-for-human-moderation"></a>Controleer alle afbeeldingen die is gemarkeerd voor menselijk toezicht
+![Afbeeldingen beoordelen](images/image-workflow-review.PNG)
 
-Om te zien van de afbeelding bekijken, gaat u naar de **installatiekopie** tabblad onder **bekijken**.
+## <a name="next-steps"></a>Volgende stappen
 
-  ![Afbeeldingen beoordelen](images/ocr-sample-image-workflow1.PNG)
-
-## <a name="next-steps"></a>Volgende stappen 
-
-Voor het aanroepen van de werkstroom van code, met behulp van aangepaste werkstromen met de [ `Job` console-API-snelstart](../try-review-api-job.md) en de [.NET SDK-snelstartgids](../moderation-jobs-quickstart-dotnet.md).
+In deze handleiding hebt u geleerd hoe u kunt instellen en gebruiken van werkstromen voor beheer van de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com). Hieronder staan de [REST-API-handleiding](../try-review-api-workflow.md) voor meer informatie over het maken van werkstromen via een programma.

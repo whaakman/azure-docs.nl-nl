@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445922"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757138"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Een downstream-apparaat verbinden met Azure IoT Edge-gateway
 
@@ -43,7 +43,7 @@ Voordat u de stappen in dit artikel te volgen, hebt u twee apparaten klaar om te
     Op dit moment kunnen alleen downstream apparaten met verificatie met een symmetrische sleutel verbinding maken via IoT Edge-gateways. X.509-CA's en zelf-ondertekend X.509-certificaten worden momenteel niet ondersteund.
     
 > [!NOTE]
-> De "gatewaynaam" gebruikt voor het maken van de certificaten in deze instructie moet dezelfde naam als gebruikt als de hostnaam in uw IoT Edge config.yaml-bestand en als GatewayHostName in de verbindingsreeks van de downstream-apparaat. De gatewaynaam"" moet worden omgezet naar een IP-adres, hetzij met behulp van DNS- of een hostbestandvermelding. Communicatie op basis van het protocol dat wordt gebruikt (MQTTS:8883 / AMQPS:5671 / HTTPS:433) moet mogelijk tussen downstream-apparaat en het transparant IoT Edge. Als een firewall tussen is, moet de respectieve poort geopend.
+> "Moet de gatewaynaam' in dit artikel gebruikt niet hetzelfde als die worden gebruikt als de hostnaam in uw IoT Edge config.yaml-bestand een naam. Naam van de gateway moet worden omgezet naar een IP-adres, hetzij met behulp van DNS- of een hostbestandvermelding. Communicatie op basis van het protocol dat wordt gebruikt (MQTTS:8883 / AMQPS:5671 / HTTPS:433) moet mogelijk tussen downstream-apparaat en het transparant IoT Edge. Als een firewall tussen is, moet de respectieve poort geopend.
 
 ## <a name="prepare-a-downstream-device"></a>Een downstream apparaat voorbereiden
 
@@ -197,6 +197,14 @@ Dit is een voorbeeldopdracht instellen voor welke tests dat alles is correct. U 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Problemen met de gatewayverbinding oplossen
+
+Als het leaf-apparaat heeft een onregelmatige verbinding met de gateway-apparaat, probeert u de volgende stappen uit voor het omzetten van. 
+
+1. Is de naam van de gateway toegevoegd aan de verbinding tekenreeks gelijk zijn aan de hostnaam in het IoT Edge config.yaml-bestand op de gateway-apparaat?
+2. Is de gatewaynaam van de worden opgelost als een IP-adres? U kunt intenmittent verbindingen oplossen met behulp van DNS of door een hostbestandvermelding toe te voegen op het leaf-apparaat.
+3. Communicatiepoorten openen in uw firewall zijn? Communicatie op basis van het protocol dat wordt gebruikt (MQTTS:8883 / AMQPS:5671 / HTTPS:433) moet mogelijk tussen downstream-apparaat en het transparant IoT Edge.
 
 ## <a name="next-steps"></a>Volgende stappen
 

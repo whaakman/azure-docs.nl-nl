@@ -1,6 +1,6 @@
 ---
-title: ASC inschakelen voor IoT-service in de Preview-fase van IoT Hub | Microsoft Docs
-description: Informatie over het inschakelen van ASC voor IoT-service in uw IoT-Hub.
+title: Azure Security Center inschakelen voor IoT-service in de Preview-fase van IoT Hub | Microsoft Docs
+description: Leer hoe u Azure Security Center inschakelen voor IoT-service in uw IoT-Hub.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cb89bb4316b1cd62b3b42a6a0fa05a9fa4513e54
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754318"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Quickstart: In IoT Hub-service inschakelen
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-In dit artikel bevat een uitleg over het inschakelen van de ASC voor IoT preview-service op uw IoT-Hub.  
+In dit artikel bevat een uitleg over het inschakelen van de Azure Security Center (ASC) voor IoT preview-service op uw IoT-Hub.  
 
 > [!NOTE]
-> ASC voor IoT op dit moment biedt alleen ondersteuning voor standard-laag en hoger IoT-Hubs.
->ASC voor IoT is een oplossing voor één hub. Als u meerdere hubs vereist, moeten er meerdere oplossingen. 
+> Azure Security Center voor IoT op dit moment ondersteunt alleen de standard-laag en hoger IoT-Hubs.
+> Azure Security Center voor IoT is een één-hub-oplossing. Als u meerdere hubs vereist, moeten er meerdere oplossingen. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Vereisten voor het inschakelen van de service
 

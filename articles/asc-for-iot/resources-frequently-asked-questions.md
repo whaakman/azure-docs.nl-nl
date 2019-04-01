@@ -1,6 +1,6 @@
 ---
-title: Veelgestelde vragen over ASC voor IoT-Preview | Microsoft Docs
-description: Zoek antwoorden op veelgestelde vragen over ASC voor IoT-functies en -service.
+title: Veelgestelde vragen over Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Zoek antwoorden op veelgestelde vragen over Azure Security Center voor IoT-functies en -service.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575144"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755327"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>Veelgestelde vragen over ASC voor IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Veelgestelde vragen over Azure Security Center voor IoT  
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Dit artikel bevat een lijst met veelgestelde vragen en antwoorden over ASC voor IoT. 
+Dit artikel bevat een lijst met veelgestelde vragen en antwoorden over Azure Security Center (ASC) voor IoT. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>Biedt Azure ondersteuning voor IoT-beveiliging?
 

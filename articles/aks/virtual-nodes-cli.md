@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177667"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757421"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Voorbeeld: maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -47,9 +47,9 @@ Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider me
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>Preview-beperkingen
+## <a name="regional-availability-limitations"></a>Regionale beschikbaarheid beperkingen
 
-Hoewel deze functie nog in Preview-versie, worden de volgende regio's worden ondersteund voor implementaties:
+De volgende regio's worden ondersteund voor implementaties met virtuele knooppunten:
 
 * Australië-Oost (australiaeast)
 * VS-Oost (VS-Oost)
@@ -331,6 +331,8 @@ Virtuele knooppunten zijn vaak een onderdeel van een oplossing voor schalen in A
 
 - [Gebruik het Kubernetes-schil horizontale automatisch schalen][aks-hpa]
 - [Gebruik het Kubernetes-cluster automatisch schalen][aks-cluster-autoscaler]
+- [Bekijk het voorbeeld voor automatisch schalen voor virtuele-knooppunten][virtual-node-autoscale]
+- [Meer informatie over de Virtual Kubelet open source-bibliotheek][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -338,6 +340,8 @@ Virtuele knooppunten zijn vaak een onderdeel van een oplossing voor schalen in A
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

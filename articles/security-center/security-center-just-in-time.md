@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199831"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758303"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-time
 
@@ -162,9 +162,13 @@ In de Azure-portal, wanneer u probeert verbinding maken met een virtuele machine
 
   ![JIT-prompt](./media/security-center-just-in-time/jit-prompt.png)
 
-- Als u een JIT-beleid dat is geconfigureerd op de virtuele machine hebt, kunt u klikken op **toegang aanvragen** waarmee u kunt toegang in overeenstemming met het JIT-beleid instellen voor de virtuele machine.
+- Als u een JIT-beleid dat is geconfigureerd op de virtuele machine hebt, kunt u klikken op **toegang aanvragen** waarmee u kunt toegang in overeenstemming met het JIT-beleid instellen voor de virtuele machine. De toegang wordt aangevraagd met de volgende standaardparameters:
+    - **bron-IP**: 'Any' (*) (kan niet worden gewijzigd)
+    - **tijdsbereik**: drie uur (kan niet worden gewijzigd)
+    - **poortnummer** RDP-poort 3389 voor Windows / -poort 22 voor Linux (kunt u het poortnummer in de **verbinding maken met virtuele machine** in het dialoogvenster.)
 
-  ![aanvraag voor JIT-toegang](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![aanvraag voor JIT-toegang](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Controlegegevens voor JIT-toegang
 

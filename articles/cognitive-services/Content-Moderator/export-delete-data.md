@@ -1,5 +1,5 @@
 ---
-title: Exporteren of verwijderen van uw gegevens - Content Moderator
+title: Exporteren of verwijderen van gebruikersgegevens - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Informatie over het exporteren of verwijderen van uw gegevens in de Content Moderator.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 15a59bbdc4c93202f8906689100c24ba713ee487
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1cd70bee22e56e2580b322b93e0f121261d97a94
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311253"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758093"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exporteren of verwijderen van gebruikersgegevens in de Content Moderator
 

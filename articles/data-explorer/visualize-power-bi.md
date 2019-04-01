@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: gegevens visualiseren van Azure Data Explorer in Power BI'
+title: 'Zelfstudie: Visualiseer gegevens uit Azure Data Explorer in Power BI'
 description: In deze zelfstudie leert u hoe u verbinding met Azure Data Explorer kunt maken in Power BI om uw gegevens te visualiseren.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854098"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757739"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Zelfstudie: gegevens visualiseren van Azure Data Explorer in Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Zelfstudie: Visualiseer gegevens uit Azure Data Explorer in Power BI
 
-Azure Data Explorer is een snelle en zeer schaalbare service voor gegevensverkenning voor telemetrische gegevens en gegevens uit logboeken. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie. In deze zelfstudie leert u hoe u visuele elementen kunt genereren in Azure Data Explorer. Vervolgens maakt u via Power BI verbinding met Azure Data Explorer, stelt u een rapport samen op basis van voorbeeldgegevens en publiceert u het rapport in de Power BI-service.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie. In deze zelfstudie leert u hoe u visuele elementen kunt genereren in Azure Data Explorer. Vervolgens maakt u via Power BI verbinding met Azure Data Explorer, stelt u een rapport samen op basis van voorbeeldgegevens en publiceert u het rapport in de Power BI-service.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint. [Meld u aan voor een gratis proefversie](https://app.powerbi.com/signupredirect?pbi_source=web) voordat u begint als u nog niet bent aangemeld voor Power BI Pro.
 

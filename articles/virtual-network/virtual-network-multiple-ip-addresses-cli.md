@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 5606fb2f01a79a517279809d6da21ec865ee8b0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110134"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648330"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Meerdere IP-adressen toewijzen aan virtuele machines met de Azure CLI
 
@@ -165,7 +165,7 @@ De privé IP-adressen toevoegen aan het besturingssysteem van de virtuele machin
 
 ## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt extra persoonlijke en openbare IP-adressen toevoegen aan een bestaande Azure-netwerk-interface via de stappen die volgen. De voorbeelden zijn gebaseerd op de [scenario](#Scenario) in dit artikel beschreven.
+U kunt extra persoonlijke en openbare IP-adressen toevoegen aan een bestaande Azure-netwerk-interface via de stappen die volgen. De voorbeelden zijn gebaseerd op de [scenario](#scenario) in dit artikel beschreven.
 
 1. Open een opdrachtshell en voltooi de resterende stappen in deze sectie in één sessie. Als u nog geen Azure-CLI is geïnstalleerd en geconfigureerd hebt, voer de stappen in de [Azure CLI-installatie](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel en meld u aan bij uw Azure-account met de `az-login` opdracht.
 

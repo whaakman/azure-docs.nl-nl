@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075063"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758121"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
 In dit artikel leeft u hoe u Video Indexer-widgets insluit in uw toepassingen. Video Indexer biedt ondersteuning voor insluiten twee typen widgets in uw toepassing: **Cognitieve inzichten** en **Player**. 
-
-> [!NOTE]
-> Vanaf versie 1 van 1 februari 2018 de **cognitieve inzichten** widget wordt afgeschaft. De ingesloten URL-versie wordt teruggezet op `version=2`.
 
 Vanaf versie 2, bevat de widget basis-URL van het account regio. Bijvoorbeeld, een account in de regio VS-West genereert: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ De widget **Inzichten** bevat alle visuele inzichten die tijdens het indexerings
 |Name|Definitie|Description|
 |---|---|---|
 |widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** De **widgets** URL-parameter wordt niet ondersteund als **versie 2 =** wordt gebruikt. |
-|versie|Versies van de widget **Inzichten**|Als u de laatste inzichten widget updates, toevoegen `?version=2` param naar de URL van de ingesloten query. Bijvoorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Als u de oudere versie wilt gebruiken, verwijdert u de `version=2` uit de URL.
 
 ### <a name="player-widget"></a>Widget Speler
 

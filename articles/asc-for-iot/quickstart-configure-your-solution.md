@@ -1,6 +1,6 @@
 ---
-title: Configureren van uw ASC voor IoT-oplossing Preview | Microsoft Docs
-description: Informatie over het configureren van uw end-to-end-IoT-oplossing met behulp van ASC voor IoT.
+title: Configureren van uw Azure Security Center voor IoT-oplossing Preview | Microsoft Docs
+description: Informatie over het configureren van uw end-to-end-IoT-oplossing met behulp van Azure Security Center voor IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0fc67f77e907bd0bc939bf95b34ed4daaab29a2d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576442"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756783"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Quickstart: Configureren van uw IoT-oplossing
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 In dit artikel bevat een uitleg van het uitvoeren van de oorspronkelijke configuratie van uw IoT-beveiliging-oplossing met behulp van ASC voor IoT. 
 
-## <a name="asc-for-iot"></a>ASC voor IoT
+## <a name="azure-security-center-asc-for-iot"></a>Azure Security Center (ASC) voor IoT
 
 ASC voor IoT biedt volledige end-to-end beveiliging voor op basis van Azure IoT-oplossingen.
 

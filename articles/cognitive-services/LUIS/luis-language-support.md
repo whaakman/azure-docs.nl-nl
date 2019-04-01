@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339513"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757660"
 ---
 # <a name="language-and-region-support-for-luis"></a>Ondersteuning voor LUIS taal en regio
 
@@ -105,10 +105,10 @@ De volgende culturen zijn aangepaste tokenizer-versies:
 |Duits<br>`de-de`|1.0.1|Basis van woorden woordgrenzen door ze op opslagruimten worden gesplitst.<br> Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance blijft een specifiek token. Dus `krankenwagen` is gemarkeerd als één entiteit. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migreren tussen tokenizer-versies
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Uw eerste keuze is het wijzigen van het tokenizer-versie in het appbestand, klikt u vervolgens de versie te importeren. Deze actie hoe de uitingen zijn tokenized wordt gewijzigd, maar kunt u dezelfde app-ID. 
-
-Tokenizer JSON voor 1.0.0. U ziet de eigenschapswaarde voor `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Tokenizer JSON voor 1.0.0. U ziet de eigenschapswaarde voor `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON voor versie 1.0.1. U ziet de eigenschapswaarde voor `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Tokenizer JSON voor versie 1.0.1. U ziet de eigenschapswaarde voor `tokenizerVer
     "settings": []
 }
 ```
+-->
 
-De tweede keuze is aan [importeert u het bestand als een nieuwe app](luis-how-to-start-new-app.md#import-an-app-from-file), in plaats van een versie. Deze actie betekent dat de nieuwe app heeft een andere app-ID, maar het tokenizer-versie opgegeven in het bestand wordt gebruikt. 
+Tokeniseren gebeurt op het niveau van de app. Er is geen ondersteuning voor versie-niveau tokeniseren. 
+
+[Importeer het bestand als een nieuwe app](luis-how-to-start-new-app.md#import-an-app-from-file), in plaats van een versie. Deze actie betekent dat de nieuwe app heeft een andere app-ID, maar het tokenizer-versie opgegeven in het bestand wordt gebruikt. 

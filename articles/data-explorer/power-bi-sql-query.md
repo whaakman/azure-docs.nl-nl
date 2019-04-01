@@ -3,19 +3,19 @@ title: 'Quickstart: Gegevens visualiseren met behulp van een SQL-query in Power 
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: een SQL-query voor een Azure Data Explorer-cluster.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977281"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756340"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met de Azure Data Explorer-connector voor Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie.
 
@@ -69,7 +69,7 @@ Doorgaans gebruikt u de systeemeigen querytaal met Azure Data Explorer, maar dez
 
     ![Aanmelden](media/power-bi-sql-query/sign-in.png)
 
-1. Selecteer in het scherm **help.kusto.windows.net: Voorbeelden** de optie **Laden**.
+1. Op de **help.kusto.windows.net: Voorbeelden** scherm, selecteer **Load**.
 
     ![Gegevens laden](media/power-bi-sql-query/load-data.png)
 
@@ -86,4 +86,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)
+> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)

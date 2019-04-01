@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401916"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756623"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 
@@ -253,7 +253,7 @@ Dit beleid op het niveau van bewerking wordt niet doorsturen van aanvragen naar 
 
 | Kenmerk                               | Description                                                                                                      | Vereist | Standaard     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt. Minimale waarde is 0 seconden. Maximale waarden is 240 seconden.| Nee       | 240 seconden |
+| timeout="integer"                       | De hoeveelheid tijd in seconden na afloop van de HTTP-antwoordheaders moeten worden geretourneerd door de back-endservice voordat een time-outfout wordt gegeven. Minimale waarde is 0 seconden. Waarden die groter zijn dan 240 seconden niet gebruikt als de onderliggende netwerkinfrastructuur worden kan kunnen niet-actieve verbindingen verwijderen na dit tijdstip. | Nee       | Geen |
 | follow-redirects="true &#124; false"    | Geeft aan of omleidingen van de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.      | Nee       | false       |
 | buffer-request-body="true &#124; false" | Wanneer is ingesteld op "true" aanvraag de buffer wordt opgeslagen en worden hergebruikt voor [opnieuw](api-management-advanced-policies.md#Retry). | Nee       | false       |
 
@@ -355,7 +355,7 @@ Een willekeurige tekenreeks kan worden gebruikt als de waarde moet zijn aangemel
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk     | Description                                                               | Vereist                                                             |
+| Kenmerk     | Beschrijving                                                               | Vereist                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | De id van het logboek geregistreerd met uw API Management-service.         | Ja                                                                  |
 | partitie-id  | Hiermee geeft u de index van de partitie waarnaar moeten worden verzonden.             | Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt. |
@@ -400,7 +400,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk    | Description                                                                                           | Vereist | Standaard |
+| Kenmerk    | Beschrijving                                                                                           | Vereist | Standaard |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | Hiermee geeft u antwoordstatuscode en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema.                 | Nee       | 200     |
 | inhoudstype | Hiermee geeft u `Content-Type` headerwaarde antwoord en wordt gebruikt voor het selecteren van de bijbehorende voorbeeld of schema. | Nee       | Geen    |
@@ -675,7 +675,7 @@ In dit voorbeeld toont één manier om te controleren of de verwijzing naar een 
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard  |
+| Kenmerk                       | Beschrijving                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Bepaalt of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopie hoofdtekst van de aanvraag niet geïnitialiseerd.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nee       | Nieuw      |
 | response-variable-name="string" | De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, deze na een geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.                                                                                                                                                                                                                                                                                                                          | Ja      | N/A      |
@@ -820,13 +820,13 @@ In dit voorbeeld laat zien hoe een 401-respons retourneren als het verificatieto
 
 ### <a name="elements"></a>Elementen
 
-| Element    | Description   | Vereist |
+| Element    | Beschrijving   | Vereist |
 | ---------- | ------------- | -------- |
 | set-status | Root-element. | Ja      |
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk       | Description                                                | Vereist | Standaard |
+| Kenmerk       | Beschrijving                                                | Vereist | Standaard |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | De HTTP-statuscode om terug te keren.                            | Ja      | N/A     |
 | reason="string" | Een beschrijving van de reden voor het retourneren van de statuscode. | Ja      | N/A     |
@@ -928,13 +928,13 @@ De `trace` beleid wordt toegevoegd een tekenreeks in de [API Inspector](https://
 
 ### <a name="elements"></a>Elementen
 
-| Element | Description   | Vereist |
+| Element | Beschrijving   | Vereist |
 | ------- | ------------- | -------- |
 | Tracering   | Root-element. | Ja      |
 
 ### <a name="attributes"></a>Kenmerken
 
-| Kenmerk | Description                                                                             | Vereist | Standaard |
+| Kenmerk | Beschrijving                                                                             | Vereist | Standaard |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Letterlijke tekenreeks zinvol is voor de traceringsviewer voor en de bron van het bericht op te geven. | Ja      | N/A     |
 

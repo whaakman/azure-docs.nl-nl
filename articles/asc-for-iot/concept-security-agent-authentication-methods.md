@@ -1,6 +1,6 @@
 ---
-title: Verificatiemethoden voor ASC voor IoT-Preview | Microsoft Docs
-description: Meer informatie over de diverse verificatiemethoden die beschikbaar is bij het gebruik van de ASC voor IoT-service.
+title: Verificatiemethoden voor Azure Security Center voor IoT-Preview | Microsoft Docs
+description: Meer informatie over de diverse verificatiemethoden die beschikbaar is bij het gebruik van de Azure Security Center voor IoT-service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577797"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758383"
 ---
 # <a name="security-agent-authentication-methods"></a>Security agent verificatiemethoden 
 
 > [!IMPORTANT]
-> ASC voor IoT is momenteel in openbare preview.
+> Azure Security Center voor IoT is momenteel in openbare preview.
 > Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 In dit artikel wordt uitgelegd dat de diverse verificatiemethoden die u met de agent AzureIoTSecurity gebruiken kunt om te verifiëren met de IoT-Hub.
 
-Voor elk apparaat toegevoegd aan ASC voor IoT in de IoT-Hub is een security module vereist. Voor de verificatie van het apparaat heeft kunt ASC voor IoT gebruiken een van twee methoden. Kies de methode die geschikt is voor uw bestaande IoT-oplossing. 
+Een beveiligingsmodule is vereist voor de onboarding voor elk apparaat naar Azure Security Center (ASC) voor IoT in de IoT-Hub. Voor de verificatie van het apparaat heeft kunt ASC voor IoT gebruiken een van twee methoden. Kies de methode die geschikt is voor uw bestaande IoT-oplossing. 
 
 > [!div class="checklist"]
 > * Module-optie voor beveiliging
