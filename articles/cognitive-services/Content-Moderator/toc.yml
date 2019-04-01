@@ -28,7 +28,7 @@ items:
     href: ecommerce-retail-catalog-moderation.md
   - name: Facebook-inhoud beheren
     href: facebook-post-moderation.md
-  - name: Beheer van video's en transcripties
+  - name: Video's en transcripties beoordelen
     href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepten
   items:
@@ -38,80 +38,60 @@ items:
     href: text-moderation-api.md
   - name: Beheer van video
     href: video-moderation-human-review.md
-  - name: Taken en beoordelingen
+  - name: Beoordelingsprogramma
+    href: Review-Tool-User-Guide/human-in-the-loop.md
+  - name: Beoordelingen, werkstromen en taken
     href: review-api.md
-  - name: Werkstromen
-    href: workflow-api.md
 - name: Handleidingen
   items:
-  - name: De toezichtsservices gebruiken
+  - name: Inhoud beheren
     items:
-    - name: Beheer-API's
+    - name: REST-API
       items:
-      - name: De .NET SDK gebruiken
-        items:
-        - name: Video-inhoud bekijken
-          href: video-moderation-api.md
-        - name: Installatiekopieën vergelijken met aangepaste lijsten
-          href: image-lists-quickstart-dotnet.md
-        - name: Tekst vergelijken met aangepaste voorwaarden
-          href: term-lists-quickstart-dotnet.md
-      - name: REST API's gebruiken
-        items:
-        - name: Afbeeldingen - API-console
-          href: try-image-api.md
-        - name: Aangepaste afbeeldingen - API-console
-          href: try-image-list-api.md
-        - name: Tekst - API-console
-          href: try-text-api.md
-        - name: Aangepaste voorwaarden - API-console
-          href: try-terms-list-api.md
-  - name: Het beoordelingsprogramma gebruiken
+      - name: Afbeeldingen - API-console
+        href: try-image-api.md
+      - name: Aangepaste afbeeldingen - API-console
+        href: try-image-list-api.md
+      - name: Tekst - API-console
+        href: try-text-api.md
+      - name: Aangepaste voorwaarden - API-console
+        href: try-terms-list-api.md
+    - name: .NET SDK
+      items:
+      - name: Video-inhoud bekijken
+        href: video-moderation-api.md
+      - name: Installatiekopieën vergelijken met aangepaste lijsten
+        href: image-lists-quickstart-dotnet.md
+      - name: Tekst vergelijken met aangepaste voorwaarden
+        href: term-lists-quickstart-dotnet.md
+  - name: Beoordelingen definiëren en gebruiken
     items:
-    - name: Beoordelings-API's
-      items:
-      - name: De .NET SDK gebruiken
-        items:
-        - name: Taken - .NET
-          href: moderation-jobs-quickstart-dotnet.md
-        - name: Beoordelingen - .NET
-          href: moderation-reviews-quickstart-dotnet.md
-        - name: Videobeoordelingen - .NET
-          href: video-reviews-quickstart-dotnet.md
-        - name: Videotranscriptiebeoordelingen - .NET
-          href: video-transcript-reviews-quickstart-dotnet.md
-      - name: REST API's gebruiken
-        items:
-        - name: Taken - API-console
-          href: try-review-api-job.md
-        - name: Beoordelingen - API-console
-          href: try-review-api-review.md
-        - name: Werkstromen - API-console
-          href: try-review-api-workflow.md
-    - name: Overzicht van het controlehulpprogramma
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Instellingen van het controlehulpprogramma
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Team beheren
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Tags gebruiken
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Afbeeldingen beoordelen
+    - name: Beoordelingsprogramma (browser)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Tekst beoordelen
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Referenties beheren
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: Connectors gebruiken
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: Werkstromen gebruiken
+    - name: REST-API
+      href: try-review-api-review.md
+    - name: .NET SDK
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Videobeoordelingen (.NET)
+      href: video-reviews-quickstart-dotnet.md
+    - name: Videotranscriptiebeoordelingen (.NET)
+      href: video-transcript-reviews-quickstart-dotnet.md
+  - name: Werkstromen definiëren en gebruiken
+    items:
+    - name: Beoordelingsprogramma (browser)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Dashboard weergeven
-      href: Review-Tool-User-Guide/View-Dashboard.md
+    - name: REST-API
+      href: try-review-api-workflow.md
+  - name: Taken definiëren en gebruiken
+    items:
+    - name: REST-API
+      href: try-review-api-job.md
+    - name: .NET SDK
+      href: moderation-jobs-quickstart-dotnet.md
+  - name: Het beoordelingsprogramma configureren
+    href: Review-Tool-User-Guide/Configure.md
   - name: Accountgegevens exporteren of verwijderen
     href: ./export-delete-data.md
-  - name: Azure-webinarserie
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Naslaginformatie
   items:
   - name: Content Moderator-API
@@ -142,6 +122,8 @@ items:
       href: samples-rest.md
     - name: Andere Azure-voorbeelden
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+  - name: Azure-webinarserie
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Veelgestelde vragen
     href: FAQs.md
   - name: Prijzen en beperkingen
@@ -158,9 +140,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure-roadmap
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: cee9e6c585dfa65ccee5c0f4631b5efc81dde760
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8948caa31d1fa464f13295a4dd4c1174b88543f5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758153"

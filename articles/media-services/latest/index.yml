@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339178"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663640"
 documentType: LandingData
 title: Documentatie voor Azure Media Services v3
 metadata:
@@ -21,24 +21,18 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Informatie over video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers. <br/> De SDK's zijn gebaseerd op <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specificatie (Swagger)</a>.
+  description: Informatie over coderen en verpakken van content, video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers. <br/> De SDK's zijn gebaseerd op <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specificatie (Swagger)</a>.
 sections:
-- items:
+- title: 
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsD
     items:
-    - image:
-        src: 
-      html: <p>Meer informatie over de basisconcepten van Media Services.</p>
-      href: /azure/media-services/latest/concepts-overview/
-      title: Informatie over concepten
-    - image:
-        src: 
-      html: <p>Momenteel kunt u v3-resources niet beheren met de Azure-portal. Gebruik de REST API, CLI of een van de ondersteunde SDK's.</p>
-      href: /azure/media-services/latest/developers-guide/
-      title: Ontwikkelen met de v3-API
+    - title: Informatie over concepten
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uploaden naar en opslaan in de cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media Analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Verpakken</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Beveiliging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live streamen</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Afspeel-clients</a></p>
+    - title: Ontwikkelen met de v3-API
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Begin met ontwikkelen met SDK's</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Ontwikkelen met REST</a></p>
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -47,32 +41,60 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Videobestanden streamen
+        src: media/index/dotnet.svg
+      text: Coderen en streamen met .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: Coderen en streamen met CLI
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Coderen en streamen met Node.js
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
     text: "Informatie over bestanden streamen op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3:"
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Video's uploaden, coderen en streamen
+        src: media/index/dotnet.svg
+      html: <p>In deze zelfstudie wordt een lokaal videobestand geüpload en gecodeerd en wordt de gecodeerde inhoud gestreamd.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
+      title: Geüploade bestanden coderen en video streamen
     - image:
-        src: media/index/AMSIcons-live.svg
-      text: Live uitzenden
+        src: media/index/dotnet.svg
+      html: <p>In de zelfstudie wordt uitgelegd hoe u een live-gebeurtenis kunt voorbereiden. Vervolgens wordt in de zelfstudie besproken hoe u .NET kunt gebruiken om een live-gebeurtenis van het type pass-through te maken.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
+      title: Live uitzenden
     - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Uw video's analyseren
+        src: media/index/dotnet.svg
+      html: <p>In deze zelfstudie ziet u hoe u video's kunt analyseren met de Azure Media Services-API.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: Uw video analyseren
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Informatie over het configureren en gebruiken van Media Services-API's om uw inhoud dynamisch te versleutelen met AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: Dynamisch versleutelen met AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Informatie over het configureren en gebruiken van Media Services-API's uw inhoud dynamisch te versleutelen met multi-DRM (PlayReady, Widevine en FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: Dynamisch versleutelen met multi-DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>In deze zelfstudie wordt besproken hoe u een extern bestand kunt coderen op basis van een URL en vervolgens video kunt streamen.</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: Externe bestanden coderen en video streamen
 - title: Voorbeelden
   items:
   - type: paragraph
-    text: "Voorbeelden waarin u kunt zien hoe u API’s kunt gebruiken voor video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3:"
+    text: "In de volgende GitHub-voorbeelden kunt u zien hoe u API's kunt gebruiken voor video-streaming, live uitzenden en het analyseren van uw video's met Media Services v3:"
   - type: list
     style: icon48
     items:

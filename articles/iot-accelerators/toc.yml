@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: Veelgestelde vragen over bewaking op afstand
       href: iot-accelerators-faq-rm-v2.md
-- name: Verbonden factory
+- name: Industriële IoT
   items:
   - name: Overzicht
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: Architectuur
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Wat is industriële IoT?
+      href: overview-iot-industrial.md
+    - name: OPC Twin
+      items:
+      - name: Wat is OPC Twin?
+        href: overview-opc-twin.md
+      - name: OPC Twin-architectuur
+        href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+      - name: Wat is OPC Vault?
+        href: overview-opc-vault.md
+    - name: Verbonden factory
+      items:
+      - name: Overzicht van verbonden fabriek
+        href: iot-accelerators-connected-factory-features.md
+      - name: Architectuur van verbonden fabriek
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Snelstartgidsen
     items:
     - name: Een oplossing voor een verbonden fabriek uitproberen
       href: quickstart-connected-factory-deploy.md
   - name: Handleidingen
     items:
-    - name: Het dashboard gebruiken
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Een gateway implementeren
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: De uitgever van OPC gebruiken
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: De oplossingsversneller configureren
-      href: iot-accelerators-connected-factory-configure.md
-    - name: De oplossingsversneller aanpassen
-      href: iot-accelerators-connected-factory-customize.md
+    - name: Verbonden factory
+      items:
+      - name: Het dashboard gebruiken
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Een gateway implementeren
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: De uitgever van OPC gebruiken
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: De oplossingsversneller configureren
+        href: iot-accelerators-connected-factory-configure.md
+      - name: De oplossingsversneller aanpassen
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: OPC Twin-services implementeren
+        href: howto-opc-twin-deploy-existing.md
+      - name: OPC Twin-module implementeren op IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Alleen OPC Twin-afhankelijkheden implementeren
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC Vault
+      items:
+      - name: OPC Vault implementeren naar een bestaand project
+        items:
+        - name: Communicatie van OPC Client en OPC PLC beveiligen
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: OPC UA Client en OPC UA-servertoepassing beveiligen
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: OPC Vault helemaal vanaf het begin implementeren
+        href: howto-opc-vault-deploy-scratch.md
   - name: Resources
     items:
     - name: GitHub-opslagplaats
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Externe bewaking V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342034"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757205"
