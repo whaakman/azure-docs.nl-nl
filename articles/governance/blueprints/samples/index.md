@@ -1,6 +1,6 @@
 ---
 title: Index van blauwdrukvoorbeelden
-description: Index van voorbeelden voor Azure Blueprints
+description: Index van voorbeelden met betrekking tot naleving en standaardomgevingen die kunnen worden geïmplementeerd met Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202500"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804329"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk Azure blauwdrukken ISO 27001 gedeelde Services implementeren
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren
 
 Voor het implementeren van het voorbeeld van de blauwdruk Azure blauwdrukken ISO 27001 gedeelde Services, moeten de volgende stappen worden uitgevoerd:
 
@@ -67,7 +67,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 1. Geef de parameterwaarden voor de blauwdruktoewijzing:
 
-   - Basisbeginselen
+   - Basics
 
      - **Abonnementen**: Selecteer een of meer van de abonnementen die in de beheergroep die u zijn uw exemplaar van de blauwdruk monster opgeslagen. Als u meer dan één abonnement selecteert, wordt een toewijzing worden gemaakt voor elk gebruik van de ingevoerde parameters.
      - **Naam van de roltoewijzing**: De naam is ingevuld op basis van de naam van de blauwdruk.

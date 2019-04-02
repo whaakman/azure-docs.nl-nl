@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e389eb01faff93c0e45c66cded41e94ac3730715
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226025"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804646"
 documentType: LandingData
-title: Documentatie voor Azure Policy
+title: Documentatie voor de Azure Policy-service
 metadata:
   title: Documentatie voor Azure Policy - zelfstudies, API-naslaginformatie
   description: Azure Policy helpt u bij het beheren en voorkomen van IT-problemen met behulp van beleidsdefinities die regels en effecten voor uw resources afdwingen. Als u Azure Policy gebruikt, blijven uw resources voldoen aan uw bedrijfsnormen en service level agreements.

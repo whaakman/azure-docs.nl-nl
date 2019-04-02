@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld - Blauwdruk voor ISO 27001 conforme App Service Environment-/SQL Database-workloads - Overzicht
+title: Voorbeeld - blauwdruk voor ISO 27001 conforme ASE-/SQL-workloads - overzicht
 description: Overzicht en architectuur van het blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Overzicht en architectuur van het Azure Blueprints-blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Overzicht van het blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads
 
 Het blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads biedt een aanvullende infrastructuur voor het blauwdrukvoorbeeld [ISO 27001 conforme gedeelde services](../iso27001-shared/index.md).
 Aan de hand van deze blauwdruk kunnen klanten op de cloud gebaseerde architecturen implementeren die oplossingen bieden voor scenario's met accreditatie- en nalevingsvereisten.
@@ -23,7 +23,7 @@ Er zijn twee ISO 27001 conforme blauwdrukvoorbeelden: dit voorbeeld en het voorb
 
 Het blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads implementeert een webomgeving op basis van een Platform-as-a-Service. De omgeving kan worden gebruikt voor het hosten van meerdere webtoepassingen, web-API's en SQL Database-exemplaren die voldoen aan de ISO 27001-standaarden. Dit blauwdrukvoorbeeld is afhankelijk van het blauwdrukvoorbeeld [ISO 27001 conforme gedeelde services](../iso27001-shared/index.md).
 
-![Ontwerp van het blauwdrukvoorbeeld voor ISO 27001 conforme App Service Environment-/SQL Database-workloads](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Ontwerp van het blauwdrukvoorbeeld voor ISO 27001 conforme ASE-/SQL-workloads](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Deze omgeving bestaat uit diverse Azure-services die samen een veilige, volledig bewaakte en direct inzetbare workloadinfrastructuur bieden op basis van de ISO 27001-standaarden. De omgeving bestaat uit de volgende elementen:
 

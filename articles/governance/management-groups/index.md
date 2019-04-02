@@ -18,7 +18,7 @@ U kunt bijvoorbeeld beleid toepassen op een beheergroep, dat het aantal regio's 
 
 U kunt een flexibele structuur van managementgroepen en abonnementen bouwen om uw resources in een hiërarchie te ordenen voor uniform beleid en toegangsbeheer. Het volgende diagram laat een voorbeeld zien van hoe een hiërarchie voor governance kan worden gemaakt met behulp van beheergroepen.
 
-![boomstructuur](./media/tree.png)
+![Voorbeeld van een hiërarchiestructuur voor beheergroepen](./media/tree.png)
 
 Maak een hiërarchie, zodat u beleid kunt toepassen. Bijvoorbeeld: de VM-locaties voor de groep 'Productie' beperken tot de regio US - west. Dit beleid wordt overgenomen door beide EA-abonnementen onder deze beheergroep en geldt voor alle VM’s onder deze abonnementen. Dit beveiligingsbeleid kan niet worden gewijzigd door de eigenaar van de resource of het abonnement, wat zorgt voor betere governance.
 

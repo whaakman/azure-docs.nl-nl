@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Overzicht van de Azure Blueprints-voorbeeldblauwdruk voor ISO 27001 conforme gedeelde services
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Overzicht van de voorbeeldblauwdruk voor ISO 27001 conforme gedeelde services
 
 De voorbeeldblauwdruk voor ISO 27001 conforme gedeelde services biedt een set met conforme infrastructuurpatronen en beleidsrichtlijnen die de route naar ISO 27001-attestatie vergemakkelijken. Aan de hand van deze blauwdruk kunnen klanten op de cloud gebaseerde architecturen implementeren die oplossingen bieden voor scenario's met accreditatie- en nalevingsvereisten.
 

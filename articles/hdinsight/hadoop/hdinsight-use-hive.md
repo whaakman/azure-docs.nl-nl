@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.date: 03/26/2019
+ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446340"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801926"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -37,17 +37,15 @@ HDInsight biedt verschillende clustertypen die zijn afgesteld voor specifieke we
 
 Gebruik de volgende tabel voor het detecteren van de verschillende manieren voor het gebruik van Hive met HDInsight:
 
-| **Gebruik deze methode** als u wilt... | ... **interactieve** query's | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
+| **Gebruik deze methode** als u wilt... | ... **interactieve** query's | ...**batch** verwerken | ...from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |
-| [HDInsight tools voor Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X of Windows |
-| [HDInsight tools voor Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux of Windows * |Windows |
-| [Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Elke (op basis van browser) |
-| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux of Windows * |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux of Windows * |Windows |
+| [HDInsight tools voor Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X of Windows |
+| [HDInsight tools voor Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Elke (op basis van browser) |
+| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X of Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X of Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-> [!IMPORTANT]
-> \* Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="hiveql-language-reference"></a>Naslaggids voor HiveQL
 
@@ -119,7 +117,6 @@ Hive in HDInsight wordt vooraf geladen geleverd met een interne tabel met de naa
 De volgende HiveQL-instructies project kolommen naar de `/example/data/sample.log` bestand:
 
 ```hiveql
-set hive.execution.engine=tez;
 DROP TABLE log4jLogs;
 CREATE EXTERNAL TABLE log4jLogs (
     t1 string,
@@ -138,10 +135,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
 
-* `set hive.execution.engine=tez;`: Hiermee stelt u de gebruik van Apache Tez-uitvoeringsengine. Met Tez bieden een toename van de prestaties van query's. Zie voor meer informatie over Tez de [Apache Tez gebruiken voor verbeterde prestaties](#usetez) sectie.
-
-    > [!NOTE]  
-    > Deze verklaring is alleen vereist als u een Windows-gebaseerde HDInsight-cluster. Tez is de engine voor het uitvoeren van standaard voor HDInsight op basis van Linux.
 
 * `DROP TABLE`: Als de tabel al bestaat, verwijderen.
 
@@ -163,7 +156,6 @@ In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
 Maakt een **interne** in plaats van de externe tabel, gebruikt u de volgende HiveQL:
 
 ```hiveql
-set hive.execution.engine=tez;
 CREATE TABLE IF NOT EXISTS errorLogs (
     t1 string,
     t2 string,
@@ -193,16 +185,7 @@ Deze instructies uit uitvoeren de volgende acties:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) is een structuur waarmee gegevensintensieve toepassingen, zoals Hive, veel efficiënter op schaal worden uitgevoerd. Tez is standaard ingeschakeld voor Linux gebaseerde HDInsight-clusters.
-
-> [!NOTE]  
-> Tez is momenteel standaard uitgeschakeld voor HDInsight op basis van een Windows-clusters en het moet worden ingeschakeld. Als u wilt profiteren van Tez, moet de volgende waarde worden ingesteld voor een Hive-query:
->
-> `set hive.execution.engine=tez;`
->
-> Tez is de standaard-engine voor Linux gebaseerde HDInsight-clusters.
-
-De [Apache Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over de implementatie-opties en afstemmen configuraties.
+[Apache Tez](https://tez.apache.org) is een structuur waarmee gegevensintensieve toepassingen, zoals Hive, veel efficiënter op schaal worden uitgevoerd. Tez is standaard ingeschakeld.  De [Apache Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over de implementatie-opties en afstemmen configuraties.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Low Latency Analytical Processing (LLAP)
 
