@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970175"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792481"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Externe services van de Azure API Management-service gebruiken
 Het beleid dat beschikbaar is in Azure API Management-service kan een breed scala aan nuttig werk op basis van alleen de inkomende aanvraag, de uitgaande antwoord, en informatie over de standaardconfiguratie. Echter, de mogelijkheid om te communiceren met externe services van API Management beleid opent u veel meer mogelijkheden.
@@ -27,7 +27,7 @@ Het beleid dat beschikbaar is in Azure API Management-service kan een breed scal
 U hebt eerder hebt gezien hoe om te communiceren met de [Azure Event Hub-service voor logboekregistratie, bewaking en analyse](api-management-log-to-eventhub-sample.md). In dit artikel ziet u beleidsregels waarmee u kunt om te communiceren met een externe service op basis van HTTP. Dit beleid kunnen worden gebruikt voor het activeren van externe evenementen of voor het ophalen van informatie die wordt gebruikt voor het bewerken van de oorspronkelijke aanvraag en respons op een bepaalde manier.
 
 ## <a name="send-one-way-request"></a>Een-manier-verzoek om te verzenden
-Mogelijk de eenvoudigste externe interactie is de stijl fire-and-forgetstromen van aanvraag waarmee een externe service om te worden geïnformeerd over een of andere belangrijke gebeurtenis. Beleid voor de stroom `choose` kan worden gebruikt voor het detecteren van welke aard dan ook van de voorwaarde die u geïnteresseerd bent in.  Als de voorwaarde is voldaan, kunt u een externe HTTP-aanvraag met de [-één-manier-Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) beleid. Dit kan een aanvraag voor een berichtensysteem zoals Hipchat of Slack, of een e-mailbericht API, zoals SendGrid of MailChimp, of voor kritieke support-incidenten, iets zoals PagerDuty. Al deze berichtsystemen hebben eenvoudige HTTP-APIs die kunnen worden aangeroepen.
+Mogelijk de eenvoudigste externe interactie is de stijl fire-and-forgetstromen van aanvraag waarmee een externe service om te worden geïnformeerd over een of andere belangrijke gebeurtenis. Beleid voor de stroom `choose` kan worden gebruikt voor het detecteren van welke aard dan ook van de voorwaarde die u geïnteresseerd bent in.  Als de voorwaarde is voldaan, kunt u een externe HTTP-aanvraag met de [-één-manier-Verzendaanvraag](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) beleid. Dit kan een aanvraag voor een berichtensysteem zoals Hipchat of Slack, of een e-mailbericht API, zoals SendGrid of MailChimp, of voor kritieke support-incidenten, iets zoals PagerDuty. Al deze berichtsystemen hebben eenvoudige HTTP-APIs die kunnen worden aangeroepen.
 
 ### <a name="alerting-with-slack"></a>Waarschuwingen met Slack
 Het volgende voorbeeld ziet u hoe u een bericht verzenden naar een Slack chatruimte als de HTTP-antwoordstatuscode groter dan of gelijk aan 500 is. Een 500-bereikfout duidt op een probleem met de back-end API die de client van de API kan niet worden opgelost. Hiervoor wordt meestal een soort interventie op API Management-onderdeel.  
@@ -62,7 +62,7 @@ Slack is het begrip van inkomende webhooks. Bij het configureren van een binnenk
 ![Slack-Webhook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Fire is en goed genoeg vergeten?
-Er zijn bepaalde afwegingen bij het gebruik van een fire-and-forget-stijl van de aanvraag. Als voor een of andere reden, de aanvraag mislukt, en vervolgens de fout wordt niet gerapporteerd. In dit geval, is de complexiteit van een secundaire fout melden van systeem en de kosten voor extra prestaties wachten op het antwoord dat u hoeft niet gerechtvaardigd. Voor scenario's waarin het essentieel om te controleren of het antwoord, dan zal de [Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) beleid is een betere optie.
+Er zijn bepaalde afwegingen bij het gebruik van een fire-and-forget-stijl van de aanvraag. Als voor een of andere reden, de aanvraag mislukt, en vervolgens de fout wordt niet gerapporteerd. In dit geval, is de complexiteit van een secundaire fout melden van systeem en de kosten voor extra prestaties wachten op het antwoord dat u hoeft niet gerechtvaardigd. Voor scenario's waarin het essentieel om te controleren of het antwoord, dan zal de [Verzendaanvraag](/azure/api-management/api-management-advanced-policies#SendRequest) beleid is een betere optie.
 
 ## <a name="send-request"></a>Verzonden aanvragen
 De `send-request` beleid maakt met een externe service voor de complexe verwerkingsfuncties uitvoeren en retourneren gegevens naar de API management-service die kunnen worden gebruikt voor verdere beleidsverwerking.
@@ -209,7 +209,7 @@ Zodra u deze informatie hebt, kunt u aanvragen naar de back-endsystemen. Elke aa
 Deze aanvragen worden uitgevoerd in de reeks, dit niet ideaal is. 
 
 ### <a name="responding"></a>Reageert
-Kan het samengestelde antwoord, kunt u de [retour-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleid. De `set-body` element een expressie kunt gebruiken om samen te stellen een nieuwe `JObject` met alle van de component-representaties ingesloten als eigenschappen.
+Kan het samengestelde antwoord, kunt u de [retour-response](/azure/api-management/api-management-advanced-policies#ReturnResponse) beleid. De `set-body` element een expressie kunt gebruiken om samen te stellen een nieuwe `JObject` met alle van de component-representaties ingesloten als eigenschappen.
 
 ```xml
 <return-response response-variable-name="existing response variable">

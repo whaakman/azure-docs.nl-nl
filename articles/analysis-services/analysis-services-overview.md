@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 340f121f64cb01803401a972038677448849e94f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444154"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803508"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -144,6 +144,11 @@ DirectQuery-modus* maakt gebruik van de relationele back-end-database voor opsla
 
 Tabellarische modellen in Azure Analysis Services ondersteunen een breed scala aan gegevensbronnen, van eenvoudige tekstbestanden tot Big Data in Azure Data Lake Store. Raadpleeg voor meer informatie [Data sources supported in Azure Analysis Services](analysis-services-datasource.md) (Gegevensbronnen die in Azure Analysis Services worden ondersteund).
 
+## <a name="compatibility-level"></a>Compatibiliteitsniveau
+
+Compatibiliteitsniveau verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en hoger. Zie voor meer informatie, [compatibiliteitsniveau voor tabellaire modellen van Analysis Services](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
 
 Azure Analysis Services beveiligt uw gevoelige gegevens op meerdere niveaus. Als Azure-service is bij Analysis Services een **basisniveau** aan DDoS-aanvallen automatisch ingeschakeld als onderdeel van het Azure-platform. Zie voor meer informatie het [overzicht van de DDoS Protection-standaard](../virtual-network/ddos-protection-overview.md). 
@@ -225,7 +230,7 @@ Azure Analysis Services ondersteunt ook het gebruik van [DMV's (dynamische behee
 
 Specifieke documentatie bij Azure Analysis Services is hier opgenomen. Gebruik de inhoudsopgave aan de linkerkant van uw browserscherm om artikelen te zoeken. 
 
-Omdat de tabellarische modellen van Azure Analysis Services sterk lijken op tabellarische modellen in SQL Server Analysis Services, is er een uitgebreide bibliotheek met gedeelde conceptuele, procedurele, ontwikkelaars- en referentieartikelen in de [documentatie van SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services). Bij artikelen in de documentatie van SQL Server Analysis Services wordt aangegeven of ze ook van toepassing zijn op Azure Analysis Services door de banner VAN TOEPASSING OP onder de titel.
+Omdat Azure Analysis Services-modellen in tabelvorm bijna hetzelfde als tabellaire modellen in SQL Server Analysis Services zijn, er is een uitgebreide bibliotheek met gedeelde overzichtsinformatie, procedures, developer en naslaginformatie in [SQL Server Analysis Services Documentatie](https://docs.microsoft.com/sql/analysis-services/analysis-services). Bij artikelen in de documentatie van SQL Server Analysis Services wordt aangegeven of ze ook van toepassing zijn op Azure Analysis Services door de banner VAN TOEPASSING OP onder de titel.
 
 ![Gedeelde documentatie](./media/analysis-services-overview/aas-overview-applies-to.png)
 

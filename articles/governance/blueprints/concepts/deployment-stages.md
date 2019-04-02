@@ -1,6 +1,6 @@
 ---
-title: Fasen van een implementatie van de blauwdruk
-description: Meer informatie over de stappen die de blauwdruk services doorloopt tijdens een implementatie.
+title: Stappen in een blauwdrukimplementatie
+description: Meer informatie over de stappen die de blauwdruk voor Azure-services doorloopt tijdens een implementatie.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a3ab5589cd327b73f2e66540da5c49343c4449cd
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ced8c8ab2e65fb1d3f8a976f122a387fe9161750
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57999169"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801961"
 ---
-# <a name="stages-of-a-blueprint-deployment"></a>Fasen van een implementatie van de blauwdruk
+# <a name="stages-of-a-blueprint-deployment"></a>Stappen in een blauwdrukimplementatie
 
 Wanneer een blauwdruk wordt geïmplementeerd, wordt een reeks acties die door de blauwdrukken voor Azure-service om de resources die zijn gedefinieerd in de blauwdruk te implementeren. In dit artikel bevat informatie over wat elke stap bestaat uit.
 
@@ -61,8 +61,8 @@ Zodra de implementaties zijn voltooid, blauwdrukken trekt u de rechten van de **
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het gebruik van [statische en dynamische parameters](parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](resource-locking.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).
+- Meer informatie over hoe u [statische en dynamische parameters](parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

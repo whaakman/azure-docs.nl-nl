@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897670"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791544"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Problemen op te lossen groepen
 
 ## <a name="troubleshooting-group-creation-issues"></a>Het oplossen van problemen bij het maken van de groep
+
 **Ik security group maken in Azure portal hebt uitgeschakeld, maar kunnen nog steeds groepen worden gemaakt via Powershell** de **gebruikers kan beveiligingsgroepen maken in Azure-portals** instellen in de Azure portal-controles of niet-beheerders gebruikers kunnen beveiligingsgroepen maken in het toegangsvenster of de Azure-portal. Dit heeft geen controle over beveiliging groep maken via Powershell.
 
 Groep maken voor gebruikers van niet-beheerders in Powershell uitschakelen:
 1. Controleer of dat niet-beheerders zijn toegestaan om groepen te maken:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. Als het resultaat `UsersPermissionToCreateGroupsEnabled : True`, niet-beheerders groepen kunnen maken. Deze functie uitschakelen:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

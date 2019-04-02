@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754776"
+ms.locfileid: "58762766"
 ---
 # <a name="send-security-messages-sdk"></a>Verzenden van beveiligingsberichten SDK
 
@@ -88,7 +88,7 @@ Nadat deze is ingesteld als een bericht en verzonden, dit bericht wordt verwerkt
 
 ## <a name="send-security-messages"></a>Beveiligingsberichten verzenden 
 
-Beveiligingsberichten verzenden zonder de ASC voor IoT-agent, met behulp van de [Azure IoT C# apparaat-SDK](https://github.com/Azure/azure-iot-sdk-csharp) of [apparaat Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+Beveiligingsberichten verzenden zonder de ASC voor IoT-agent, met behulp van de [Azure IoT C# apparaat-SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) of [apparaat Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 Voor het verzenden van het apparaatgegevens van uw apparaten voor verwerking door ASC voor IoT, door een van de volgende API's te gebruiken om berichten voor een correcte routering naar ASC voor IoT verwerkings-pipeline markeren. Berichten die worden verzonden op deze manier wordt verwerkt en weergegeven als beveiligingsinzichten binnen ASC voor IoT binnen zowel IoT-Hub of Azure Security Center. 
 

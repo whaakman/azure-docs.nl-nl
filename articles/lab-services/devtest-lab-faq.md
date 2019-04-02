@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337694"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803371"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -44,7 +44,7 @@ We zijn op dit moment werkt aan migreren bestaande blogberichten (met uitzonderi
 We plaatsen met behulp van onze Twitter-handle voortaan onderbreking-updates. Volg ons op Twitter voor de meest recente updates op uitval en bekende fouten optreden.
 
 ### <a name="twitter"></a>Twitter 
-Onze Twitter-handle: azlabservices
+Onze Twitter-handle: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Wat gebeurt er als mijn vraag hier niet wordt beantwoord?
 Als uw vraag hier niet wordt weergegeven, laat ons weten en we helpen u een antwoord.
@@ -139,7 +139,9 @@ U hebt twee opties voor het maken van meerdere virtuele machines tegelijkertijd 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Hoe verplaats ik mijn bestaande Azure-VM's in mijn lab DevTest Labs?
 Uw bestaande virtuele machines naar DevTest Labs kopiëren:
 
-1. Kopieer de VHD-bestand van uw bestaande virtuele machine met behulp van een [Windows PowerShell-script](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Kopieer de VHD-bestand van uw bestaande virtuele machine met behulp van een PowerShell-script:
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * Klassiek: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. [De aangepaste installatiekopie maken](devtest-lab-create-template.md) binnen uw lab in DevTest Labs.
 3. Een virtuele machine in een testomgeving door uw aangepaste installatiekopie maken.
 

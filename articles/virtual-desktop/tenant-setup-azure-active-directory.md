@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8ab1f31d61b7a6a1637cd274cc5ac7fc4f5dc2f1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622158"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801672"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Zelfstudie: Een tenant maken in Windows Virtual Desktop Preview
 
@@ -30,6 +30,8 @@ Dit is wat u nodig hebt voor het instellen van uw virtuele Windows-bureaublad-te
 * De [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) tenant-ID voor Windows virtueel bureaublad-gebruikers.
 * Een globale beheerdersaccount in de Azure Active Directory-tenant.
    * Dit geldt ook voor Cloud Solution Provider (CSP) organisaties is het maken van een tenant virtueel bureaublad van Windows voor hun klanten. Als u een CSP-organisatie, moet u aanmelden als globale beheerder van de klant Azure Active Directory zijn.
+   * Het administrator-account moet afkomstig zijn van de Azure Active Directory-tenant in die u probeert te maken van de tenant virtuele Windows-bureaublad. Dit proces biedt geen ondersteuning voor Azure Active Directory B2B-accounts (Gast).
+   * Het administrator-account moet een account voor werk of school.
 * Een Azure-abonnement-ID
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Machtigingen verlenen Azure Active Directory naar de service Windows Virtual Desktop Preview

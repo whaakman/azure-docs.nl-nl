@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190677"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807552"
 ---
 ## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
@@ -43,7 +43,7 @@ U kunt [Azure op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-
 
 ### <a name="data-disks"></a>Gegevensschijven
 
-Een gegevensschijf is een beheerde schijf die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens, of andere gegevens die u wilt houden. Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest. Elke gegevensschijf heeft een maximale capaciteit van 4095 gibibytes (GiB). De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan het en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.
+Een gegevensschijf is een beheerde schijf die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens, of andere gegevens die u wilt houden. Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest. Elke gegevensschijf heeft een maximale capaciteit van 32.767 gibibytes (GiB). De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan het en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.
 
 ### <a name="os-disks"></a>OS-schijven
 
@@ -53,7 +53,7 @@ Deze schijf heeft een maximale capaciteit van 2048 GiB.
 
 ### <a name="temporary-disk"></a>Tijdelijke schijf
 
-Elke virtuele machine bevat een tijdelijke schijf, niet een beheerde schijf is. De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en is bedoeld voor het opslaan van gegevens, zoals pagina-of wisselbestanden alleen. Op de tijdelijke schijf mogelijk gegevens verloren tijdens een [onderhoudsgebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) gebeurtenis of wanneer u [een virtuele machine opnieuw implementeren](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Tijdens een geslaagde standaard opnieuw opstarten van de virtuele machine blijft de gegevens op de tijdelijke schijf. 
+Elke virtuele machine bevat een tijdelijke schijf, niet een beheerde schijf is. De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en is bedoeld voor het opslaan van gegevens, zoals pagina-of wisselbestanden alleen. Op de tijdelijke schijf mogelijk gegevens verloren tijdens een [onderhoudsgebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) gebeurtenis of wanneer u [een virtuele machine opnieuw implementeren](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Tijdens een geslaagde standaard opnieuw opstarten van de virtuele machine blijft de gegevens op de tijdelijke schijf.
 
 ## <a name="managed-disk-snapshots"></a>Momentopnamen van de beheerde schijf
 
@@ -62,7 +62,7 @@ Een momentopname van een beheerde schijf is een alleen-lezen kopie van een behee
 Zie de volgende bronnen voor meer informatie over het maken van momentopnamen met beheerde schijven:
 
 * [Kopie maken van een VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Kopie van de VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Linux maken](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Installatiekopieën
 
@@ -71,7 +71,7 @@ Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aange
 Zie de volgende artikelen voor meer informatie over het maken van installatiekopieën:
 
 * [Hoe u een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Een virtuele Linux-machine generaliseren en vastleggen met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Installatiekopieën met momentopnamen
 

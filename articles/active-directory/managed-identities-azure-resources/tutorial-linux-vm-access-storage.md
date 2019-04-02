@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7772797aa6c20c8f583608bac8fc002a92796a11
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444042"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801858"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage 
 
@@ -84,7 +84,7 @@ U kunt de beheerde identiteit van de virtuele machine gebruiken om de gegevens i
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.  
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
 3. Klik op **+ Roltoewijzing toevoegen** boven aan de pagina om een nieuwe roltoewijzing voor de VM toe te voegen.
-4. In de vervolgkeuzelijst onder **Rol** selecteert u **Gegevenslezer voor opslagblob (preview-versie)**. 
+4. Onder **rol**, in de vervolgkeuzelijst, selecteer **gegevenslezer voor Opslagblob**. 
 5. In de volgende vervolgkeuzelijst, onder **Toegang toewijzen aan**, kiest u **Virtuele machine**.  
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**, en stel **Resourcegroep** in op **Alle resourcegroepen**.  
 7. Kies onder **Selecteren** uw virtuele machine en klik vervolgens op **Opslaan**.

@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863131"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792424"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Gegevens met Azure Data Factory kopiëren van Azure Blob Storage naar SQL Database
+
 In deze zelfstudie maakt u een data factory met een pijplijn die gegevens kopieert van Azure Blob Storage naar Azure SQL Database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
 
 In deze zelfstudie voert u de volgende stappen uit:
@@ -97,7 +98,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
 1. Klik op **Hulpprogramma's** -> **NuGet Package Manager** -> **Package Manager-console**.
 2. Voer in **Package Manager Console** de volgende opdrachten uit om pakketten te installeren. Raadpleeg voor meer informatie het [NuGet-pakket Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -117,6 +118,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
+
     
 2. Voeg de volgende code toe aan de methode **Main** waarmee variabelen worden ingesteld. Vervang de plaatsaanduidingen door uw eigen waarden. Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
@@ -513,6 +515,7 @@ Press any key to exit...
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. U hebt geleerd hoe u: 
 
 > [!div class="checklist"]

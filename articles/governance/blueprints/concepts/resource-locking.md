@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 5409de8aabb52a531551abbc28ae9e873b262eba
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630725"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762426"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Resources vergrendelen in Azure blauwdrukken begrijpen
 
@@ -27,7 +27,7 @@ Vergrendeling modi, maar kan niet worden gewijzigd buiten blauwdrukken.
 
 Resources die zijn gemaakt door artefacten in een blauwdruktoewijzing heeft vier statussen: **Niet vergrendeld**, **alleen-lezen**, **kan niet bewerken / verwijderen**, of **kan niet worden verwijderd**. Elk artefacttype kan zich in de **niet vergrendeld** staat. De volgende tabel kan worden gebruikt om de status van een resource te bepalen:
 
-|Modus|Artefacttype-Resource|Status|Description|
+|Modus|Artefacttype-Resource|Status|Beschrijving|
 |-|-|-|-|
 |Niet vergrendelen|*|Niet vergrendeld|Resources niet zijn beveiligd door de blauwdrukken. Deze status wordt ook gebruikt voor resources die zijn toegevoegd aan een **alleen-lezen** of **niet verwijderen** resource group-artefact van buiten een blauwdruktoewijzing.|
 |Alleen-lezen|Resourcegroep|Kan geen bewerken / verwijderen|De resourcegroep is alleen-lezen en tags voor de resourcegroep kunnen niet worden gewijzigd. **Niet vergrendeld** resources kunnen worden toegevoegd, verplaatst, gewijzigd of verwijderd uit deze resourcegroep.|
@@ -52,6 +52,8 @@ Wanneer de toewijzing wordt verwijderd, worden de vergrendelingen die zijn gemaa
 ## <a name="how-blueprint-locks-work"></a>Hoe werken in blauwdruk wordt vergrendeld
 
 Een RBAC [weigeren toewijzingen](../../../role-based-access-control/deny-assignments.md) weigeren actie wordt toegepast op artefact resources tijdens de toewijzing van blauwdruk als de toewijzing hebt geselecteerd de **alleen-lezen** of **niet verwijderen** optie. De actie voor weigeren van de beheerde identiteit van de blauwdruktoewijzing is toegevoegd en kan alleen worden verwijderd uit het artefact resources door de dezelfde beheerde identiteit. Dit beveiligingsmaatregel dwingt de vergrendeling en voorkomt u dat de blauwdruk vergrendeling buiten blauwdrukken verwijderen.
+
+![Blauwdruk weigeren toewijzing op resourcegroep](../media/resource-locking/blueprint-deny-assignment.png)
 
 > [!IMPORTANT]
 > Azure Resource Manager in de cache opgeslagen rol Toewijzingsdetails gedurende maximaal 30 minuten. Als gevolg hiervan weigeren toewijzingen weigeren van de actie voor blauwdruk resources mogelijk onmiddellijk niet in het volledige effect. Tijdens deze periode is het mogelijk dat het mogelijk om te verwijderen van een resource die is bedoeld om te worden beveiligd door de blauwdruk wordt vergrendeld.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483202"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803575"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Een Azure AD-identiteit voor toegang tot blob- en wachtrijservices gegevens met CLI of PowerShell gebruiken
 
@@ -61,7 +61,7 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
         --encryption-services blob
     ```
     
-1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac.md).
+1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC-roltoewijzingen duurt een paar minuten worden doorgegeven.
@@ -114,7 +114,7 @@ Het volgende voorbeeld ziet hoe u een container maken in een nieuw opslagaccount
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac.md).
+1. Voordat u de container maken, toewijzen de [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rol aan uzelf. Hoewel u eigenaar van het account zijn, moet u expliciete machtigingen voor het uitvoeren van bewerkingen voor het opslagaccount. Zie voor meer informatie over het toewijzen van RBAC-rollen [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC-roltoewijzingen duurt een paar minuten worden doorgegeven.

@@ -14,22 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: d32d593fcc93ec2e27676b1bb174940c12c24193
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667647"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791589"
 ---
 # <a name="package-an-application"></a>Toepassingspakket maken
+
 In dit artikel wordt beschreven hoe u een Service Fabric-toepassing verpakken en geef deze als gereed voor implementatie.
 
 ## <a name="package-layout"></a>Lay-out
+
 Het toepassingsmanifest, een of meer servicemanifesten en andere benodigde pakket-bestanden moeten worden ingedeeld in een specifieke indeling voor implementatie in een Service Fabric-cluster. De manifesten voorbeeld in dit artikel moet worden ingedeeld in de volgende mapstructuur:
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -49,6 +53,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 De mappen zijn met de naam overeenkomt met de **naam** kenmerken van elke overeenkomstige element. Bijvoorbeeld, als het servicemanifest bevat twee pakketten met de namen van de **MyCodeA** en **MyCodeB**, en vervolgens twee mappen met dezelfde namen zou de vereiste binaire bestanden voor ieder codepakket bevatten.
 
 ## <a name="use-setupentrypoint"></a>Gebruik SetupEntryPoint
+
 Typische scenario's voor het gebruik van **SetupEntryPoint** als u wilt uitvoeren van een uitvoerbaar bestand voordat u de service wordt gestart of moet u een bewerking met verhoogde bevoegdheden uit te voeren. Bijvoorbeeld:
 
 * Instellen van en het initialiseren van omgevingsvariabelen die het uitvoerbare bestand van de service nodig heeft. Het is niet beperkt tot alleen uitvoerbare bestanden die zijn geschreven via de Service Fabric-programmeermodellen. Npm.exe moet bijvoorbeeld enkele omgevingsvariabelen die is geconfigureerd voor het implementeren van een node.js-toepassing.
@@ -57,8 +62,11 @@ Typische scenario's voor het gebruik van **SetupEntryPoint** als u wilt uitvoere
 Voor meer informatie over het configureren van de **SetupEntryPoint**, Zie [het beleid voor een toegangspunt voor service-instellingen configureren](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
+
 ## <a name="configure"></a>Configureren
+
 ### <a name="build-a-package-by-using-visual-studio"></a>Een pakket bouwen met behulp van Visual Studio
+
 Als u Visual Studio 2015 gebruikt om uw toepassing te maken, kunt u de pakket-opdracht voor het automatisch maken van een pakket dat overeenkomt met de indeling die hierboven worden beschreven.
 
 Voor het maken van een pakket met de rechtermuisknop op het toepassingsproject in Solution Explorer en kies de pakket-opdracht, zoals hieronder wordt weergegeven:
@@ -68,6 +76,7 @@ Voor het maken van een pakket met de rechtermuisknop op het toepassingsproject i
 Wanneer het verpakken is voltooid, vindt u de locatie van het pakket in de **uitvoer** venster. De stap verpakking gebeurt automatisch wanneer u implementeert of fouten opsporen in uw toepassing in Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Het bouwen van een pakket met de opdrachtregel
+
 Het is ook mogelijk via een programma verpakken uw toepassing met `msbuild.exe`. Achter de schermen, Visual Studio wordt uitgevoerd wordt, zodat de uitvoer hetzelfde is.
 
 ```shell
@@ -75,12 +84,16 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## <a name="test-the-package"></a>Het pakket testen
+
 U kunt de pakketstructuur lokaal via PowerShell controleren met behulp van de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) opdracht.
 Met deze opdracht wordt gecontroleerd op manifest parseren problemen en controleer of alle verwijzingen. Met deze opdracht wordt alleen gecontroleerd of de mappen en bestanden in het pakket structurele juist.
 Het niet controleren of een van de inhoud van een pakket code of gegevens buiten de controleren of alle vereiste bestanden aanwezig zijn.
 
+```powershell
+Test-ServiceFabricApplicationPackage .\MyApplicationType
 ```
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
+
+```Output
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
@@ -89,8 +102,10 @@ FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_71957
 Deze fout ziet u dat de *MySetup.bat* bestand waarnaar wordt verwezen in het servicemanifest **SetupEntryPoint** ontbreekt in het codepakket. Nadat het ontbrekende bestand is toegevoegd, wordt de verificatie van de App wordt doorgegeven:
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -106,10 +121,14 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
+```
 
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
+```powershell
+Test-ServiceFabricApplicationPackage .\MyApplicationType
+```
+
+```Output
 True
-PS D:\temp>
 ```
 
 Als uw toepassing heeft [toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) gedefinieerd, kunt u ze in doorgeven [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) voor validatie.
@@ -119,6 +138,7 @@ Als u bekend bent met het cluster waarop de toepassing wordt geïmplementeerd, i
 Zodra de toepassing correct wordt geleverd en de validatietests doorstaat, houd rekening met het pakket voor snellere implementatiebewerkingen comprimeren.
 
 ## <a name="compress-a-package"></a>Een pakket comprimeren
+
 Wanneer een pakket groot is of veel bestanden bevat, kunt u het comprimeren voor een snellere implementatie. Compressie vermindert het aantal bestanden en de grootte van het pakket.
 Voor een gecomprimeerde toepassingspakket [uploaden van het toepassingspakket](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan langer duren in vergelijking tot het uploaden van het niet-gecomprimeerde pakket, met name als compressie wordt gedaan als onderdeel van de kopie. Met compressie wordt [registreren](service-fabric-deploy-remove-applications.md#register-the-application-package) en [niet registreren het toepassingstype](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sneller.
 
@@ -131,8 +151,10 @@ De volgende opdracht wordt het pakket zonder te kopiëren naar de installatiekop
 Het pakket bevat nu ZIP-bestanden voor de `code`, `config`, en `data` pakketten. Manifest van de toepassing en de servicemanifesten zijn niet ingepakte, omdat ze nodig voor veel interne bewerkingen zijn wel. Bijvoorbeeld: package delen, toepassing de naam en versie extraheren voor bepaalde alle validaties nodig voor toegang tot de manifesten. Het inpakken van de manifesten zouden deze bewerkingen inefficiënt.
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -148,10 +170,14 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+```
 
-PS D:\temp> tree /f .\MyApplicationType
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -165,8 +191,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 U kunt ook comprimeren en kopieer het pakket met [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in één stap.
 Als het pakket groot is, geeft u de time-out van een hoog genoeg zijn zodat er voldoende tijd voor het ondersteuningspakket niet comprimeren en voor het uploaden naar het cluster.
-```
-PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
+
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
 Service Fabric berekent intern controlesommen voor de toepassingspakketten voor validatie. Bij het gebruik van compressie, worden de controlesommen worden berekend op de gecomprimeerde versies van elk pakket. Genereren van een nieuw zip van de dezelfde toepassingspakket maakt verschillende controlesommen. Gebruik ter voorkoming van validatiefouten [diff inrichting](service-fabric-application-upgrade-advanced.md). Met deze optie moet u niet de ongewijzigd pakketten opnemen in de nieuwe versie. In plaats daarvan ernaar te verwijzen rechtstreeks vanuit de nieuwe servicemanifest.
@@ -176,6 +203,7 @@ Als de diff-inrichting kan niet worden gebruikt en moet u de pakketten opnemen, 
 Het pakket is nu correct worden verpakt, gevalideerd en gecomprimeerd (indien nodig), zodat deze gereed is voor [implementatie](service-fabric-deploy-remove-applications.md) naar een of meer Service Fabric-clusters.
 
 ### <a name="compress-packages-when-deploying-using-visual-studio"></a>Comprimeren van pakketten bij het implementeren met Visual Studio
+
 Kunt u Visual Studio voor het comprimeren van pakketten op implementatie door toe te voegen opdracht geven de `CopyPackageParameters` element naar uw publicatieprofiel, en stel de `CompressPackage` kenmerk `true`.
 
 ``` xml
@@ -187,6 +215,7 @@ Kunt u Visual Studio voor het comprimeren van pakketten op implementatie door to
 ```
 
 ## <a name="create-an-sfpkg"></a>Een sfpkg maken
+
 Vanaf versie 6.1, kunt Service Fabric inrichten vanuit een externe opslag.
 Met deze optie geen het toepassingspakket moet worden gekopieerd naar de installatiekopieopslag. In plaats daarvan kunt u een `sfpkg` en dit uploaden naar een externe opslag en geef vervolgens de download-URI in Service Fabric bij het inrichten. Hetzelfde pakket kan worden ingericht met meerdere clusters. De tijd die nodig is om te kopiëren van het pakket naar elk cluster inrichten vanuit externe opslag worden opgeslagen.
 
@@ -207,6 +236,7 @@ Gebruik voor het inrichten van het pakket, externe inrichten, waarvoor de URI vo
 > Inrichting op basis van het relatieve pad naar afbeelding store ondersteunt momenteel geen `sfpkg` bestanden. Daarom de `sfpkg` moet niet worden gekopieerd naar de installatiekopieopslag.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Implementeren en verwijderen van toepassingen] [ 10] wordt beschreven hoe u PowerShell gebruiken voor het beheren van instanties van een toepassing
 
 [Parameters voor de toepassing voor meerdere omgevingen beheren] [ 11] wordt beschreven hoe u parameters en variabelen voor exemplaren van een andere toepassing.

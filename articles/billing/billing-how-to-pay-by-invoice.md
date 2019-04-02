@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852335"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762239"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Een aanvraag indient bij de Azure-abonnement betalen per factuur
 
 U kunt de betalingsmethode voor uw Azure-abonnement te factureren door het indienen van een verzoek tot ondersteuning van Azure kunt wijzigen. Zodra uw aanvraag is goedgekeurd, vindt u instructies over het instellen van uw abonnement voor factuurbetaling.
 
 > [!IMPORTANT]
-> * Betalen per factuur is alleen beschikbaar voor bedrijven-accounts.
+> * Betalen via factuur is alleen beschikbaar voor zakelijke accounts.
 > * [Van derden en externe services](billing-understand-your-azure-marketplace-charges.md) kan niet worden aangeschaft of betaald voor het gebruik van betalen per factuur. Als uw abonnement resources van externe services, zoals SendGrid bevat, moeten ze worden verwijderd voordat u kunt wijzigen naar betalen per factuur. Om aan te schaffen externe services na het overschakelen naar factuur betaalt, moet u een afzonderlijk abonnement met een creditcard of betaalpas.
-> * Als u overschakelt naar betalen per factuur, die u kunt niet overstappen naar creditcard of betaalpas betaling.
+> * Wanneer u overschakelt naar betalen via factuur, kunt u niet meer terugkeren naar betalen met creditcard of betaalpas.
 
 ## <a name="request-pay-by-invoice"></a>Aanvraag voor betalen per factuur
 
@@ -36,17 +36,39 @@ U kunt de betalingsmethode voor uw Azure-abonnement te factureren door het indie
 
     ![Help en ondersteuning van de knop](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Selecteer **Facturering** als het type probleem, selecteer het abonnement waarvoor u per factuur wilt betalen, selecteer een ondersteuningsplan selecteren en selecteer ten slotte **Volgende**.
+2. Selecteer **Facturering** als het type probleem, selecteer het abonnement waarvoor u per factuur wilt betalen, selecteer een ondersteuningsplan selecteren en selecteer ten slotte **Volgende**.
 
-1. Selecteer **Betalen via factuur** in de lijst **Probleemtype**.
+3. Selecteer **Betalen via factuur** in de lijst **Probleemtype**.
 
-1. Voer de volgende informatie in de **Details** vak en selecteer vervolgens **volgende**.
+ 4. Voer de volgende informatie in de **Details** vak en selecteer vervolgens **volgende**.
 
-    * Bedrijfsnaam
-    * Factuuradres
-    * [E-mailadres van accountbeheerder](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - De **bedrijfsnaam** en **adres bedrijf** moet overeenkomen met de informatie die u hebt opgegeven voor de Azure-account.  Als u wilt weergeven of bijwerken van de informatie, Zie [wijzigen van de profielgegevens van uw Azure-account](billing-how-to-change-azure-account-profile.md).
+    - Voordat u het tegoed is besteed, kan worden goedgekeurd, moet u uw contactpersoon voor facturatie toevoegen in Azure portal. De gegevens van de contactpersoon moeten zijn gerelateerd aan de leveranciers of financiële afdeling van het bedrijf. Voor het bijwerken van de contactpersoon in de facturering, gaat u naar [Azure-Accountcentrum](https://account.azure.com/Profile).
 
-1. Controleer uw contactgegevens en de voorkeurscontactmethode en klik vervolgens op **Maken**.
+5. Controleer uw contactgegevens en de voorkeurscontactmethode en klik vervolgens op **Maken**.
 
 Als we een kredietcontrole worden uitgevoerd vanwege de hoeveelheid tegoed die u nodig hebt moeten, sturen we dat u een tegoed dat u de toepassing controleren. Nadat u de toepassing hebt verzonden, kan 5-7 dagen voor het verwerken van duren voordat de kredietaanvraag.
 

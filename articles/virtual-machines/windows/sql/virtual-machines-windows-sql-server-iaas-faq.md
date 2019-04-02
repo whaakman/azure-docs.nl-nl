@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113262"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762681"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -139,12 +139,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Kan ik een benoemd exemplaar van SQL Server gebruiken met de extensie IaaS**?
    
-   Ja, als het benoemde exemplaar is het enige exemplaar op de SQL Server, en als de oorspronkelijke standaardexemplaar correct is verwijderd. Voor het gebruik van een benoemd exemplaar, het volgende doen:
-    1. Implementeer een SQL Server-VM vanuit de marketplace. 
-    1. De IaaS-extensie verwijderen.
-    1. SQL Server volledig worden verwijderd.
-    1. Installeer SQL Server in een benoemd exemplaar. 
-    1. De IaaS-extensie installeren. 
+   Ja, als het benoemde exemplaar is het enige exemplaar op de SQL Server, en als de oorspronkelijke standaardexemplaar is [correct verwijderd](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Als er geen standaardexemplaar is en er meerdere benoemde exemplaren op een enkele virtuele machine voor SQL-Server zijn, mislukt de IaaS-extensie te installeren. 
 
 1. **Kan ik SQL Server volledig verwijderen uit een SQL-VM?**
 
@@ -176,6 +171,10 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 1. **Hoe installeer ik hulpprogramma's voor SQL-gegevens op mijn Azure-VM?**
 
     Download en installeer de SQL-gegevens-hulpprogramma's van [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **Gedistribueerde transacties worden bij MSDTC ondersteund op SQL Server-VM's?**
+   
+    Ja. Lokale DTC wordt ondersteund voor SQL Server 2016 SP2 en hoger. Toepassingen moeten echter worden getest bij het gebruik van AlwaysOn availability groups als transacties die onderweg zijn tijdens een failover mislukken en moet opnieuw worden uitgevoerd. Geclusterde DTC is beschikbaar vanaf Windows Server 2019. 
 
 ## <a name="resources"></a>Resources
 

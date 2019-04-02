@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170819"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792515"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Een script voor installatie zonder toezicht voor de Azure AD Application Proxy-connector maken
 
@@ -34,7 +34,7 @@ Deze mogelijkheid is handig als u wilt:
 * De installatie van connector en de registratie als onderdeel van een andere procedure integreren.
 * Maak een standaard-server-installatiekopie die de connector-bits bevat, maar is niet geregistreerd.
 
-Voor de [Application Proxy-connector](application-proxy-connectors.md) wilt werken, deze worden geregistreerd bij Azure Active directory met behulp van een globale beheerder en het wachtwoord heeft. Normaal gesproken deze informatie wordt opgegeven tijdens de installatie van de Connector in een pop-updialoogvenster, maar u kunt PowerShell gebruiken in plaats daarvan dit proces automatiseren.
+Voor de [Application Proxy-connector](application-proxy-connectors.md) wilt werken, deze worden geregistreerd bij Azure Active directory met behulp van een beheerder van de toepassing en het wachtwoord heeft. Normaal gesproken deze informatie wordt opgegeven tijdens de installatie van de Connector in een pop-updialoogvenster, maar u kunt PowerShell gebruiken in plaats daarvan dit proces automatiseren.
 
 Er zijn twee stappen voor een installatie zonder toezicht. Installeer eerst de connector. Ten tweede, registreert u de connector met Azure AD. 
 

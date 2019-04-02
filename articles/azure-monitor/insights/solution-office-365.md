@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996710"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794016"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -34,6 +34,7 @@ De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Offic
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
+
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
 
 - Organisatie Office 365-abonnement.
@@ -42,12 +43,16 @@ Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfi
  
 
 ## <a name="management-packs"></a>Management packs
+
 Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../platform/om-agents.md).
   
+
 ## <a name="install-and-configure"></a>Installeren en configureren
+
 Begin met het toevoegen van de [Office 365-oplossing voor uw abonnement](solutions.md#install-a-monitoring-solution). Wanneer deze toegevoegd, moet u de configuratiestappen uitvoeren in deze sectie om deze toegang geven tot uw Office 365-abonnement.
 
 ### <a name="required-information"></a>Vereiste informatie
+
 Voordat u deze procedure begint, moet u de volgende informatie verzamelen.
 
 Van uw Log Analytics-werkruimte:
@@ -64,6 +69,7 @@ Vanuit uw Office 365-abonnement:
 - Clientgeheim: Gecodeerde tekenreeks die nodig zijn voor verificatie.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Een Office 365-toepassing maken in Azure Active Directory
+
 De eerste stap is het maken van een toepassing in Azure Active Directory dat door de oplossing wordt gebruikt voor toegang tot uw Office 365-oplossing.
 
 1. Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com/).
@@ -111,11 +117,12 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![Sleutels](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Toestemming van een beheerder toevoegen
+
 Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toestemming van een beheerder opgeven voor de toepassing. U kunt dit doen met een PowerShell-script. 
 
 1. Sla het volgende script als *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
     ```
 
 2. Voer het script met de volgende opdracht. U wordt twee keer om referenties gevraagd. Geef eerst de referenties voor uw Log Analytics-werkruimte en vervolgens de referenties van de globale beheerder voor uw Office 365-tenant.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Voorbeeld:
 
     ```
@@ -175,11 +184,12 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
     ![toestemming van de beheerder](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Abonneren op Log Analytics-werkruimte
+
 De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werkruimte. U doen dit ook met een PowerShell-script.
 
 1. Sla het volgende script als *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
     ```
 
 2. Voer het script met de volgende opdracht:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Voorbeeld:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
 
 Mogelijk ziet u de volgende fout als uw toepassing al is geabonneerd op deze werkruimte of als deze tenant is geabonneerd op een andere werkruimte.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 Mogelijk ziet u de volgende fout als ongeldige parameterwaarden worden geleverd.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Verwijderen
+
 U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in verwijderen [verwijderen van een oplossing voor](solutions.md#remove-a-monitoring-solution). Hiermee worden gegevens die worden verzameld van Office 365 in Azure Monitor echter niet gestopt. Volg de onderstaande procedure om te afmelden voor Office 365 en stop het verzamelen van gegevens.
 
 1. Sla het volgende script als *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
 
     Voorbeeld:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>Gegevensverzameling
+
 ### <a name="supported-agents"></a>Ondersteunde agents
+
 De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
+
 Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Azure Monitor telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Azure Monitor binnen een paar minuten nadat u hebt ontvangen.
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
@@ -511,6 +527,7 @@ Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovens
 Alle records in de Log Analytics-werkruimte in Azure Monitor is gemaakt door de Office 365-oplossing hebben een **Type** van **OfficeActivity**.  De **OfficeWorkload** eigenschap bepaalt welke Office 365-service die de record naar - Exchange, AzureActiveDirectory, SharePoint of OneDrive verwijst.  De **RecordType** eigenschap geeft u het type bewerking.  De eigenschappen voor elk bewerkingstype variëren en worden weergegeven in de onderstaande tabellen.
 
 ### <a name="common-properties"></a>Algemene eigenschappen
+
 De volgende eigenschappen gelden voor alle Office 365-records.
 
 | Eigenschap | Description |
@@ -528,6 +545,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
+
 De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 
 | Eigenschap | Description |
@@ -539,6 +557,7 @@ De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 
 
 ### <a name="azure-active-directory-account-logon"></a>Aanmelding bij Azure Active Directory-Account
+
 Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert aan te melden.
 
 | Eigenschap | Description |
@@ -552,9 +571,10 @@ Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht in Azure Active Directory-objecten.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -569,9 +589,10 @@ Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht 
 
 
 ### <a name="data-center-security"></a>Datacenter-beveiliging
+
 Deze records worden gemaakt vanuit Data Center Security audit-gegevens.  
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | EffectiveOrganization | De naam van de tenant die de uitbreiding van bevoegdheden/cmdlet is gericht op. |
 | ElevationApprovedTime | De tijdstempel voor wanneer de uitbreiding is goedgekeurd. |
@@ -584,6 +605,7 @@ Deze records worden gemaakt vanuit Data Center Security audit-gegevens.
 
 
 ### <a name="exchange-admin"></a>Exchange-beheerder
+
 Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de configuratie van Exchange.
 
 | Eigenschap | Description |
@@ -598,6 +620,7 @@ Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de confi
 
 
 ### <a name="exchange-mailbox"></a>Exchange-postvak
+
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-postvakken.
 
 | Eigenschap | Description |
@@ -620,6 +643,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 
 
 ### <a name="exchange-mailbox-audit"></a>Controle van Exchange-postvak
+
 Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt.
 
 | Eigenschap | Description |
@@ -634,6 +658,7 @@ Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange-postvak Audit-groep
+
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-groepen.
 
 | Eigenschap | Description |
@@ -652,6 +677,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 
 
 ### <a name="sharepoint-base"></a>SharePoint Base
+
 Deze eigenschappen gelden voor alle records van SharePoint.
 
 | Eigenschap | Description |
@@ -668,9 +694,10 @@ Deze eigenschappen gelden voor alle records van SharePoint.
 
 
 ### <a name="sharepoint-schema"></a>SharePoint Schema
+
 Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -680,6 +707,7 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint-bestandsbewerkingen
+
 Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
 | Eigenschap | Description |
@@ -700,6 +728,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
+
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
 | Query’s uitvoeren | Description |
@@ -713,6 +742,7 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Gebruik [query's bijgehouden in Azure Monitor](../log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../learn/tutorial-logs-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
 * [Waarschuwingen maken](../platform/alerts-overview.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

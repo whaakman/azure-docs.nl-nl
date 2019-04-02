@@ -1,17 +1,17 @@
 ---
-title: Wijzigen, verwijderen of beheren van uw beheergroepen in Azure - Azure-beheer
+title: Wijzigen, verwijderen of beheren van uw beheergroepen - Azure-beheer
 description: Informatie over het weergeven, onderhouden, bijwerken en verwijderen van uw hiÃ«rarchie beheren.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622056"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801761"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -37,11 +37,11 @@ U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell 
 
 1. Selecteer de **naam van groep** optie aan de bovenkant van de pagina.
 
-   ![Naam van groep-optie](./media/detail_action_small.png)
+   ![Naam van groep-optie op de pagina van beheer](./media/detail_action_small.png)
 
 1. Wanneer het menu wordt geopend, typt u de nieuwe naam die u wilt weergeven.
 
-   ![Deelvenster van de naam van groep](./media/rename_context.png)
+   ![Naam van groep deelvenster naam wijzigen van de beheergroep](./media/rename_context.png)
 
 1. Selecteer **Opslaan**.
 
@@ -223,7 +223,7 @@ Om te controleren welke machtigingen u hebt in de Azure portal, selecteer de man
 
 1. Selecteer het abonnement in de lijst met de juiste ID.
 
-   ![Onderliggende items](./media/add_context_sub.png)
+   ![Beschikbare abonnementen om toe te voegen aan een beheergroep](./media/add_context_sub.png)
 
 1. Selecteer 'Opslaan'.
 
@@ -237,13 +237,13 @@ Om te controleren welke machtigingen u hebt in de Azure portal, selecteer de man
 
 1. Selecteer de ellips aan het einde van de rij voor het abonnement in de lijst die u wilt verplaatsen.
 
-   ![Optie verplaatsen](./media/move_small.png)
+   ![Optie op een beheergroep verplaatsen](./media/move_small.png)
 
 1. Selecteer **verplaatsen**.
 
 1. Selecteer op het menu dat verschijnt, de **bovenliggende beheergroep**.
 
-   ![Deelvenster verplaatsen](./media/move_small_context.png)
+   ![Deelvenster te wijzigen van de bovenliggende groep verplaatsen](./media/move_small_context.png)
 
 1. Selecteer **Opslaan**.
 
@@ -294,7 +294,7 @@ Wanneer u een bovenliggende beheergroep hebt verplaatst, worden ook de mappenhiÃ
    - Nieuw selecteren, wordt een nieuwe beheergroep maken.
    - Selecteren van een bestaande, geeft u met een vervolgkeuzelijst van alle beheergroepen die u naar deze beheergroep verplaatsen kunt.  
 
-   ![Verplaatsen](./media/add_context_MG.png)
+   ![Een beheergroep verplaatsen naar nieuwe of bestaande groep](./media/add_context_MG.png)
 
 1. Selecteer **Opslaan**.
 

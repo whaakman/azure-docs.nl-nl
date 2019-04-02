@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c7b1f737d0331ecd40ab318cec0c082a3f7ddd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181334"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791541"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Gebruikersprivacy en Azure AD naadloze eenmalige aanmelding
 
@@ -50,7 +50,7 @@ Controleer de inhoud van **%ProgramData%\AADConnect** map en verwijder de tracer
 
 U kunt controleren en verwijderen van deze logboekbestanden voor tracering met behulp van Windows Explorer of u kunt de volgende PowerShell-script gebruiken om uit te voeren van de nodige maatregelen:
 
-```
+```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
  
 Foreach ($file in $Files) { 
@@ -67,6 +67,7 @@ Voor meer informatie over gerelateerde vereisten voor Azure AD Connect Avg, Zie 
 Als logboekregistratie is ingeschakeld, kan dit product-logboeken genereren voor uw domeincontrollers. Lees voor meer informatie over het configureren van controlebeleid, dit [artikel](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [De Microsoft Privacy controlebeleid op Vertrouwenscentrum](https://www.microsoft.com/trustcenter)
   - [**Problemen oplossen** ](tshoot-connect-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
   - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.

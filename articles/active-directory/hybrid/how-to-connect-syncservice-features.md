@@ -16,14 +16,15 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b3da5b2340b6bd4dd49dd6f8278f2fced477bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792396"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Functies van Azure AD Connect sync-service
+
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
 
 * Het on-premises-onderdeel met de naam **Azure AD Connect-synchronisatie**, ook wel genoemd **synchronisatie-engine**.
@@ -65,26 +66,29 @@ De volgende instellingen zijn geconfigureerd door Azure AD Connect en kan niet w
 | UserWriteback |Momenteel niet ondersteund. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Tolerantie van dubbele kenmerken
+
 In plaats van mislukt voor het inrichten van objecten met dubbele UPN's / proxyAddresses, dubbel kenmerk 'quarantaine' en een tijdelijke waarde is toegewezen. Wanneer het conflict is opgelost, wordt de tijdelijke UPN automatisch gewijzigd in de juiste waarde. Zie voor meer informatie, [duplicatiekenmerken identificeren voor synchronisatie- en](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName soft match
+
 Wanneer deze functie is ingeschakeld, zachte match is ingeschakeld voor de UPN in aanvulling op de [primaire SMTP-adres](https://support.microsoft.com/kb/2641663), dat altijd is ingeschakeld. Zachte match wordt zodat deze overeenkomen met bestaande cloudgebruikers in Azure AD met on-premises gebruikers gebruikt.
 
 Als u wilt vergelijken on-premises AD-accounts met bestaande accounts die zijn gemaakt in de cloud en u geen gebruikmaakt van Exchange Online, wordt deze functie is handig. In dit scenario hebben niet u over het algemeen een reden voor het instellen van de SMTP-kenmerk in de cloud.
 
 Deze functie is standaard ingeschakeld voor zojuist gemaakt Azure AD-mappen. U kunt zien of deze functie is ingeschakeld voor u door te voeren:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 Als deze functie is niet ingeschakeld voor uw Azure AD-directory, kunt klikt u vervolgens u dit inschakelen door te voeren:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
 ## <a name="synchronize-userprincipalname-updates"></a>UserPrincipalName-updates synchroniseren
+
 In het verleden updates voor het kenmerk UserPrincipalName met behulp van de synchronisatieservice van on-premises is geblokkeerd, tenzij beide volgende voorwaarden wordt voldaan:
 
 * De gebruiker wordt beheerd (niet-gefedereerde).
@@ -96,19 +100,19 @@ Inschakelen van deze functie kunt de synchronisatie-engine bijwerken van de user
 
 Deze functie is standaard ingeschakeld voor zojuist gemaakt Azure AD-mappen. U kunt zien of deze functie is ingeschakeld voor u door te voeren:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 Als deze functie is niet ingeschakeld voor uw Azure AD-directory, kunt klikt u vervolgens u dit inschakelen door te voeren:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
 Nadat deze functie is ingeschakeld, blijven bestaande userPrincipalName waarden als-is. Op de volgende wijziging van de userPrincipalName-kenmerk on-premises, wordt de normale Deltasynchronisatie op gebruikers de UPN bijgewerkt.  
 
 ## <a name="see-also"></a>Zie ook
+
 * [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md).
-

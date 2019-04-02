@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979714"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792414"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify keren Linux-Agent-extensie
 
 ## <a name="overview"></a>Overzicht
+
 Stackify biedt producten die meer informatie over uw toepassing om te zoeken en oplossen van problemen snel bijhouden. Voor teams van ontwikkelaars, keren dat is een volledig geïntegreerde, meerdere omgevingen app prestaties Supergebruikers. Het combineert verschillende programma's die elke ontwikkelteam nodig heeft.
 
 Keren is de alleen-hulpprogramma dat voorziet in alle van de volgende mogelijkheden in alle omgevingen in één platform.
@@ -40,6 +41,7 @@ Deze uitbreiding biedt een installatiepad voor de Linux-Agent voor keren.
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem 
+
 De agent keren kan worden uitgevoerd voor deze Linux-distributies
 
 | Distributie | Versie |
@@ -50,12 +52,14 @@ De agent keren kan worden uitgevoerd voor deze Linux-distributies
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
+
 De Stackify Agent-extensie voor Linux is vereist dat de virtuele doelmachine is verbonden met internet. 
 
 Mogelijk moet u uw netwerkconfiguratie Stackify verbindingen worden toegestaan, raadpleeg dan aanpassen https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Extensieschema
+
 ---
 
 De volgende JSON ziet u het schema voor de Stackify keren Agent-extensie. De extensie is vereist de `environment` en `activationKey`.
@@ -151,7 +155,7 @@ De `Set-AzVMExtension` opdracht kan worden gebruikt om de extensie van de virtue
 
 De extensie is vereist de `environment` en `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

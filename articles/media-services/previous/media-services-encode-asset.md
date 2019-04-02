@@ -12,18 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187741"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801676"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Overzicht en vergelijking van Azure op de media-coderingsprogramma 
 
 ## <a name="encoding-overview"></a>Overzicht van versleuteling
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services biedt meerdere opties voor de versleuteling van media in de cloud.
 
 Wanneer u begint met Media Services, is het belangrijk dat u het verschil tussen codecs en bestandsindelingen.
@@ -31,8 +35,7 @@ Codecs zijn de software die de algoritmen compressie/decompressie implementeert 
 
 Media Services biedt dynamische pakketten waarmee u uw adaptive bitrate MP4- of Smooth Streaming gecodeerde inhoud in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) leveren zonder dat u hoeft op te opnieuw in een van deze streaming-indelingen.
 
-> [!NOTE]
-> Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
 Media Services ondersteunt de volgende op aanvraag coderingsprogramma's die in dit artikel worden beschreven:
 
@@ -41,8 +44,7 @@ Media Services ondersteunt de volgende op aanvraag coderingsprogramma's die in d
 
 In dit artikel biedt een kort overzicht van de on-demand media coderingsprogramma's en vindt u koppelingen naar artikelen met meer gedetailleerde informatie. Het onderwerp bevat ook een vergelijking van het coderingsprogramma's.
 
->[!NOTE]
->Standaard kan elke Media Services-account een actieve coderingstaak tegelijk hebben. Encoding-eenheden waarmee u kunt meerdere coderingstaken gelijktijdig worden uitgevoerd, één voor elke codering gereserveerde eenheid die u koopt hebt, kunt u reserveren. Zie voor meer informatie, [encoding-eenheden schalen](media-services-scale-media-processing-overview.md).
+Standaard kan elke Media Services-account een actieve coderingstaak tegelijk hebben. Encoding-eenheden waarmee u kunt meerdere coderingstaken gelijktijdig worden uitgevoerd, één voor elke codering gereserveerde eenheid die u koopt hebt, kunt u reserveren. Zie voor meer informatie, [encoding-eenheden schalen](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Gebruiksinstructies

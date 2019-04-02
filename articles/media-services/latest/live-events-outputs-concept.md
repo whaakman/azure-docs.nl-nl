@@ -11,30 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189356"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762351"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
-Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. Voor het configureren van uw live streaming-gebeurtenissen in Media Services v3, moet u inzicht in concepten die in dit artikel worden besproken:
-
-* [Live-evenementen](#live-events)
-* Live gebeurtenistypen
-* Vergelijking van de typen Live gebeurtenis
-* [Opties voor het maken van Live gebeurtenis](#live-event-creation-options)
-* [URL's voor Live-gebeurtenis opnemen](#live-event-ingest-urls)
-* [Live gebeurtenis de voorbeeld-URL](#live-event-preview-url)
-* [Live uitvoer](#live-outputs).
+Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. Voor het configureren van uw live streaming-gebeurtenissen in Media Services v3, moet u inzicht in concepten die in dit artikel worden besproken. <br/>De lijst met secties wordt aan de rechterkant van de pagina weergegeven.
 
 ## <a name="live-events"></a>Livegebeurtenissen
 
-[Live gebeurtenissen](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Wanneer u een Live gebeurtenis maakt, wordt een invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerde MP4)-protocol. Voor de Smooth Streaming-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `http://` of `https://`. Voor het RTMP-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `rtmp://` of `rtmps://`. 
+[Livegebeurtenissen](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live videofeeds. Als u een livegebeurtenis maakt, wordt er een invoereindpunt gemaakt dat u kunt gebruiken om een livesignaal vanaf een externe encoder te verzenden. De externe live-encoder verzendt de bijdragefeed naar dat invoereindpunt met behulp van het protocol [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerd MP4). Voor de Smooth Streaming-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `http://` of `https://`. Voor het RTMP-opnameprotocol worden gebruikt, zijn de ondersteunde URL-schema's `rtmp://` of `rtmps://`. 
 
 ## <a name="live-event-types"></a>Live gebeurtenistypen
 
@@ -44,9 +36,9 @@ Een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan
 
 ![Pass Through-query](./media/live-streaming/pass-through.svg)
 
-Bij het gebruik van de pass-through **Live gebeurtenis**, afhankelijk van uw on-premises live coderingsprogramma meerdere bitrate videostream genereren en verzenden dat er als de bijdrage feed aan de Live-gebeurtenis (met behulp van RTMP- of gefragmenteerde MP4-protocol). De Live gebeurtenis wordt vervolgens via de binnenkomende video stromen zonder verdere verwerking. Dergelijke een Pass Through-LiveEvent is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. Bij het maken van dit soort Live gebeurtenis, geeft u geen (LiveEventEncodingType.None).
+Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Een dergelijke pass-through livegebeurtenis wordt geoptimaliseerd voor langdurige livegebeurtenissen of 24x365 lineair live streamen. Bij het maken van dit type livegebeurtenis, geeft u None op (LiveEventEncodingType.None).
 
-U kunt verzenden de bijdrage feed met een resolutie van maximaal 4 K en bij een frame 60 aantal frames per seconde, met H.264/AVC of H.265/HEVC videocodecs en AAC (AAC-LC, hij AACv1 of hij AACv2)-audiocodec.  Zie de [Live gebeurtenis van het type vergelijking](live-event-types-comparison.md) artikel voor meer informatie.
+U kunt de bijdragefeed verzenden bij een resolutie tot maximaal 4K en een framesnelheid van 60 frames per seconde, met ofwel H.264/AVC- of H.265/HEVC-videocodecs, en AAC (AAC-LC, HE-AACv1 of HE-AACv2)-audiocodec.  Zie het artikel [Vergelijking van typen livegebeurtenissen](live-event-types-comparison.md) voor meer informatie.
 
 > [!NOTE]
 > Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
@@ -58,14 +50,14 @@ Zie een .NET-codevoorbeeld in [MediaV3LiveApp](https://github.com/Azure-Samples/
 
 ![Live encoding](./media/live-streaming/live-encoding.svg)
 
-Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de Live-gebeurtenis (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De Live gebeurtenis codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit soort Live gebeurtenis, geef het type codering als **Standard** (LiveEventEncodingType.Standard).
+Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit type livegebeurtenis, geeft u het coderingstype **Standard** (LiveEventEncodingType.Standard) op.
 
-U kunt de bijdrage op maximaal 1080 p oplossing tegen een tarief van het kader van 30 frames/seconde, met de video codec H.264/AVC en AAC-kanaal verzenden (AAC-LC, hij AACv1 of hij AACv2)-audiocodec. Zie de [Live gebeurtenis van het type vergelijking](live-event-types-comparison.md) artikel voor meer informatie.
+U kunt de bijdragefeed verzenden bij een resolutie tot maximaal 1080 p en een framesnelheid van 30 frames per seconde, met H.264/AVC-videocodec en AAC (AAC-LC, HE-AACv1 of HE-AACv2)-audiocodec. Zie het artikel [Vergelijking van typen livegebeurtenissen](live-event-types-comparison.md) voor meer informatie.
 
-Bij het gebruik van live codering (Live gebeurtenis wordt ingesteld op **Standard**), de vooraf ingestelde standaardcodering definieert hoe de binnenkomende stream wordt gecodeerd in meerdere bitsnelheden of lagen. Zie voor meer informatie, [systeemwaarden](live-event-types-comparison.md#system-presets).
+Bij gebruik van live codering (livegebeurtenis ingesteld op **Standard**), bepaalt de vooraf ingestelde codering hoe de binnenkomende stream in meerdere bitrates of lagen wordt gecodeerd. Zie [Systeemwaarden](live-event-types-comparison.md#system-presets) voor meer informatie.
 
 > [!NOTE]
-> Op dit moment de enige toegestane vooraf ingestelde waarde voor het type standaard Live gebeurtenis is *Default720p*. Als u gebruiken een aangepaste voorinstelling voor live codering wilt, contact op met amshelp@microsoft.com. U moet de gewenste tabel van de oplossing en bitrates opgeven. Controleer of er slechts één laag bij 720p en maximaal 6 lagen.
+> Momenteel is *Default720p* de enige toegestane vooraf ingestelde waarde voor het type Standard van de livegebeurtenis. Als u een aangepaste vooraf ingestelde waarde voor live codering wilt gebruiken, neemt u contact op met amshelp@microsoft.com. Geef de gewenste tabel met resoluties en bitrates op. Controleer of er slechts één laag is op 720 p, en maximaal zes lagen.
 
 ## <a name="live-event-creation-options"></a>Opties voor het maken van Live gebeurtenis
 
@@ -79,24 +71,24 @@ Bij het maken van een Live-gebeurtenis, kunt u de volgende opties opgeven:
 
 ## <a name="live-event-ingest-urls"></a>URL's voor Live-gebeurtenis opnemen
 
-Nadat de Live-gebeurtenis is gemaakt, krijgt u URL's die u aan de live on-premises coderingsprogramma voor opnemen. Het live coderingsprogramma gebruikt deze URL's voor het invoeren van een live stream. Zie voor meer informatie, [aanbevolen on-premises live coderingsprogramma's](recommended-on-premises-live-encoders.md). 
+Wanneer de livegebeurtenis is gemaakt, kunt u URL's voor opnemen ophalen die u aan de on-premises live-encoder levert. De live-encoder gebruikt deze URL's voor het invoeren van een live-stream. Zie voor meer informatie, [aanbevolen on-premises live coderingsprogramma's](recommended-on-premises-live-encoders.md). 
 
-U kunt geen aangepaste URL's of aangepaste URL's gebruiken. 
+U kunt niet-vanity-URL's en vanity-URL's gebruiken. 
 
 * Niet-vanity-URL
 
-    Niet-vanity-URL is de standaardmodus in AMS v3. U mogelijk snel de Live gebeurtenis maar URL voor opnemen staat bekend als er op de live-gebeurtenis wordt gestart. De URL zal veranderen als u stoppen/starten de Live-gebeurtenis. <br/>Niet-Vanity is handig in scenario's wanneer een gebruiker wil om te streamen met behulp van een app wanneer de app wil ophalen van een live gebeurtenis ASAP en met een dynamische opname-URL is geen probleem.
+    Een niet-vanity-URL is de standaardmodus in AMS v3. U krijgt de livegebeurtenis mogelijk snel, maar de opname-URL is alleen bekend als de livegebeurtenis wordt gestart. De URL wordt gewijzigd als u de livegebeurtenis stopt of start. <br/>Niet-vanity is handig in scenario's waarbij een eindgebruiker wil streamen met een app waarbij de app een livegebeurtenis zo snel mogelijk wil downloaden en waarbij een dynamische opname-URL geen probleem is.
 * Vanity URL
 
-    De voorkeur vanity-modus door grote media tv-zenders die gebruikmaken van hardware broadcast-coderingsprogramma's en niet wilt dat hun coderingsprogramma's opnieuw configureren wanneer ze de Live-gebeurtenis starten. Ze willen een voorspellende opname-URL, die niet na verloop van tijd verandert.
+    De vanity-modus heeft de voorkeur bij grote tv-media die gebruikmaken van hardware broadcast-encoders en die hun encoders niet opnieuw willen configureren als de livegebeurtenis wordt gestart. Ze willen een voorspellende opname-URL, die niet na verloop van tijd verandert.
 
 > [!NOTE] 
 > Voor een URL voor opnemen worden voorspeld, moet u de modus 'aangepaste' gebruiken en uw eigen token (om te voorkomen dat een willekeurige token in de URL) doorgeven.
 
 ### <a name="live-ingest-url-naming-rules"></a>Live naamgevingsregels URL voor opnemen
 
-De *willekeurige* onderstaande tekenreeks is een 128-bits hexadecimaal nummer (die bestaat uit 32 tekens van 0-9, a-f).<br/>
-De *toegangstoken* hieronder vindt u wat u nodig hebt om op te geven voor vaste-URL. Het is ook 128-bits hexadecimaal nummer.
+De *willekeurige* tekenreeks hieronder is een 128-bits hexadecimaal getal (bestaande uit 32 tekens, van 0-9 en a-f).<br/>
+Het *toegangstoken* hieronder dient u op te geven voor een vaste URL. Dit is ook een 128-bits hexadecimaal getal.
 
 #### <a name="non-vanity-url"></a>Niet-vanity-URL
 
@@ -133,6 +125,10 @@ Zodra de **Live gebeurtenis** ontvangen van de bijdrage feed is gestart, kunt u 
 > [!IMPORTANT]
 > Zorg ervoor dat de video worden doorgestuurd naar de URL van de Preview-versie voordat u verdergaat!
 
+## <a name="live-event-long-running-operations"></a>Live gebeurtenis langlopende bewerkingen
+
+Zie voor meer informatie, [langlopende bewerkingen](entities-overview.md#long-running-operations)
+
 ## <a name="live-outputs"></a>Live-uitvoer
 
 Zodra u de stroom doorgestuurd naar de Live gebeurtenis hebt, kunt u de streaminggebeurtenis starten door het maken van een [Asset](https://docs.microsoft.com/rest/api/media/assets), [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs), en [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators). Live uitvoer wordt de stream gearchiveerd en beschikbaar maken aan kijkers via de [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
@@ -140,7 +136,7 @@ Zodra u de stroom doorgestuurd naar de Live gebeurtenis hebt, kunt u de streamin
 > [!NOTE]
 > Live-uitvoer starten zodra ze zijn gemaakt en stoppen wanneer ze worden verwijderd. Wanneer u de live-uitvoer verwijdert, verwijdert u de onderliggende Asset en de inhoud van de Asset niet. 
 
-De relatie tussen een **Live gebeurtenis** en de bijbehorende **uitvoer Live** is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**Live gebeurtenis**) vertegenwoordigt een constante streamen van video en een opname (**uitvoer Live**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in Live gebeurtenissen wordt beheerd de **ArchiveWindowLength** eigenschap. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
+De relatie tussen een **Live gebeurtenis** en de bijbehorende **uitvoer Live** is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**Live gebeurtenis**) vertegenwoordigt een constante streamen van video en een opname (**uitvoer Live**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt televisie opnemen met een digitale videorecorder (DVR). De overeenkomstige functie in livegebeurtenissen wordt beheerd via de eigenschap **ArchiveWindowLength**. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
 
 De **uitvoer Live** object lijkt op een tape-recorder die variabel en noteer de live stream in een activum in Media Services-account. De opgenomen inhoud wordt permanent worden opgeslagen in de Azure Storage-account dat is gekoppeld aan uw account in de container die wordt gedefinieerd door de resource actief. De **uitvoer Live** ook kunt u enkele eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom wordt opgeslagen in het archief opnemen (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers kunnen starten Volg de live stream. Het archief op schijf is een circulaire archief "venster" die bevat alleen de hoeveelheid inhoud die is opgegeven in de **archiveWindowLength** eigenschap van de **uitvoer Live**. Inhoud die buiten dit venster valt wordt automatisch verwijderd uit de opslagcontainer en kan niet worden hersteld. U kunt meerdere maken **uitvoer Live** (maximaal drie maximum) op een **Live gebeurtenis** met verschillende archief sleutellengten en -instellingen.  
 

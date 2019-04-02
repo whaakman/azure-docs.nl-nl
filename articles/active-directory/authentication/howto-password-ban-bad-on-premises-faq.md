@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ed127d6be6966baba7d6f862624ef7bca16f40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 50ab4d3c9134e94b60c4dd3eeb5603f450b036c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309552"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794033"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -109,6 +109,10 @@ Kortom, is de implementatie van de Azure AD-wachtwoord DC Protection Agent-servi
 **V: Een System Center Operations Manager managementpack beschikbaar is voor Azure AD-wachtwoord beveiliging?**
 
 Nee.
+
+**V: Waarom Azure nog steeds weigert zwakke wachtwoorden zelfs als het beleid om te worden in de controlemodus geconfigureerd?**
+
+Controlemodus wordt alleen ondersteund in de on-premises Active Directory-omgeving. Azure is impliciet altijd in de modus 'afdwingen' wanneer wachtwoorden worden geëvalueerd.
 
 ## <a name="additional-content"></a>Aanvullende inhoud
 

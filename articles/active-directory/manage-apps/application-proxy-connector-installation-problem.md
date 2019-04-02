@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444279"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793036"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Probleem bij het installeren van de connector voor de toepassingsproxyagent
 
@@ -64,13 +64,13 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Controleer of de beheerder wordt gebruikt om de connector te installeren
 
-**Doel:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment moet de gebruiker een beheerder van de toepassing of globale beheerder voor de installatie te voltooien.
+**Doel:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment moet de gebruiker ten minste een beheerder van de toepassing voor de installatie te voltooien.
 
 **Om te controleren of dat de referenties correct zijn:**
 
 Verbinding maken met <https://login.microsoftonline.com> en gebruik de dezelfde referenties. Zorg ervoor dat de aanmelding is geslaagd. U kunt de gebruikersrol controleren door te gaan naar **Azure Active Directory**  - &gt; **gebruikers en groepen**  - &gt; **alle gebruikers**. 
 
-Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol ' beheerder van de toepassing ' of 'Globale beheerder'. Als u geen toegang tot alle pagina's die aan deze stappen bent, hebt u niet de vereiste functieservices.
+Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol 'Beheerder van de toepassing'. Als u geen toegang tot alle pagina's die aan deze stappen bent, hebt u niet de vereiste functieservices.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)

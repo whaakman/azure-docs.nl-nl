@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885945"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792464"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Een Azure-Machine met behulp van C# en Resource Manager-sjabloon implementeren
+
 Dit artikel ziet u hoe u een Azure Resource Manager-sjabloon met C# implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
 
 Zie voor een gedetailleerde beschrijving van de bron van de virtuele machine, [virtuele machines in een Azure Resource Manager-sjabloon](template-description.md). Zie voor meer informatie over alle resources in een sjabloon, [overzicht Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -44,7 +45,7 @@ NuGet-pakketten zijn de eenvoudigste manier voor het installeren van de biblioth
 1. Klik op **extra** > **Nuget Package Manager**, en klik vervolgens op **Package Manager Console**.
 2. Typ deze opdrachten in de console:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -206,15 +207,17 @@ Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt 
 3. Sla het bestand azureauth.properties.
 4. Stel een omgevingsvariabele in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar bestand met autorisatieregels die u hebt gemaakt, bijvoorbeeld de volgende PowerShell-opdracht kan worden gebruikt:
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
+
     
+
 ## <a name="create-the-management-client"></a>De management-client maken
 
 1. Open het bestand Program.cs van het project dat u hebt gemaakt en voeg deze using-instructies toe aan de bestaande instructies aan de bovenkant van het bestand:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -226,7 +229,7 @@ Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt 
 
 2. Voor het maken van de management-client, voeg deze code toe aan de methode Main om:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -241,7 +244,7 @@ Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt 
 
 Waarden voor de toepassing wilt opgeven, voeg code toe aan de methode Main om:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -256,7 +259,7 @@ De sjabloon en parameters worden van een opslagaccount in Azure geïmplementeerd
 
 Voor het maken van het account, voeg deze code toe aan de methode Main om:
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -296,7 +299,7 @@ Implementeer de sjabloon en parameters van het opslagaccount dat is gemaakt.
 
 Als u wilt implementeren de sjabloon, voeg deze code toe aan de methode Main om:
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -315,7 +318,7 @@ Omdat u voor resources die worden gebruikt in Azure betaalt, is het altijd verst
 
 Als u wilt verwijderen van de resourcegroep, voeg deze code toe aan de methode Main om:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -328,5 +331,6 @@ Het duurt ongeveer vijf minuten voor deze consoletoepassing volledig uitvoeren v
 2. Voordat u druk op **Enter** om te beginnen met verwijderen van resources, kunt u een paar minuten om te controleren of het maken van de resources in Azure portal kunt nemen. Klik op de status van de implementatie als u wilt weergeven over de implementatie.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Als er problemen met de implementatie zijn, een volgende stap zou zijn om te kijken naar [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Informatie over het implementeren van een virtuele machine en de ondersteunende resources aan de hand [implementeren van een Azure virtuele Machine met behulp van C#](csharp.md).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762885"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Twilio voor spraak en SMS-mogelijkheden van Azure gebruiken
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -30,7 +30,7 @@ Twilio is de toekomst van zakelijke communicatie, zodat ontwikkelaars kunnen spr
 **Twilio-stem** zorgt ervoor dat uw toepassingen maken en telefoongesprekken binnenkrijgt. **Twilio-SMS** kunnen uw toepassingen te verzenden en ontvangen van SMS-berichten. **Twilio-Client** kunt u VoIP-aanroepen vanuit een telefoon, tablet of een browser en biedt ondersteuning voor WebRTC.
 
 ## <a id="Pricing"></a>Twilio-prijzen en speciale aanbiedingen
-Azure-klanten ontvangen een [speciale aanbieding](https://www.twilio.com/azure): gratis $10 van Twilio-tegoed bij de upgrade van uw Twilio-Account. Deze Twilio-tegoed kan worden toegepast op een Twilio-gebruik (tegoed van $10 gelijk aan maximaal 1000 SMS-berichten verzenden of ontvangen van maximaal 1000 inkomende Voice-minuten, afhankelijk van de locatie van uw telefoon en -bericht of aanroep van de bestemming). Wisselen van deze Twilio-tegoed en aan de slag op [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+Azure-klanten ontvangen een [speciale aanbieding](https://www.twilio.com/azure): gratis $10 van Twilio-tegoed bij de upgrade van uw Twilio-Account. Deze Twilio-tegoed kan worden toegepast op een Twilio-gebruik (tegoed van $10 gelijk aan maximaal 1000 SMS-berichten verzenden of ontvangen van maximaal 1000 inkomende Voice-minuten, afhankelijk van de locatie van uw telefoon en -bericht of aanroep van de bestemming). Wisselen van deze Twilio-tegoed en aan de slag op [twilio.com/azure](https://twilio.com/azure).
 
 Twilio is een betalen per gebruik. Er zijn geen kosten voor configuratie en kunt u uw account op elk gewenst moment sluiten. U vindt meer informatie op [Twilio prijzen](https://www.twilio.com/voice/pricing).
 
@@ -46,12 +46,12 @@ Hier volgt een lijst met Twilio-bewerkingen.  Meer informatie over de andere bew
 
 * `<Dial>`: De oproepende functie verbindt met een ander telefoonnummer.
 * `<Gather>`: Verzamelt cijfers ingevoerd op het telefoonnummer.
-* `<Hangup>`: Een aanroep wordt beëindigd.
-* `<Play>`: Een geluidsbestand afgespeeld.
+* `<Hangup>`: Een gesprek is beëindigd.
+* `<Play>`: Hiermee wordt een geluidsbestand afgespeeld.
 * `<Pause>`: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
-* `<Record>`: De stem van de oproepende functie registreert en retourneert een URL van een bestand met de opname.
-* `<Redirect>`: Overdrachten controle van een telefoongesprek of SMS aan de TwiML op een andere URL.
-* `<Reject>`: Een binnenkomende oproep naar uw Twilio-getal zonder dat u facturering afwijzen
+* `<Record>`: Registreert de stem van de oproepende functie en het resultaat van een URL van een bestand met de opname.
+* `<Redirect>`: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
+* `<Reject>`: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder dat u facturering
 * `<Say>`: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
 * `<Sms>`: Verzendt een SMS-bericht.
 
@@ -115,7 +115,7 @@ Microsoft Visual Studio 2010 installeert standaard versie 1.2 van NuGet. Install
 5. Typ in het zoekvak online *twilio*.
 6. Klik op **installeren** op het Twilio-pakket.
 
-## <a id="howto_make_call"></a>Hoe: een uitgaande aanroep
+## <a id="howto_make_call"></a>Procedures: Een uitgaande aanroep
 Hieronder ziet u hoe u een uitgaande aanroepen met behulp van de **CallResource** klasse. Deze code maakt ook gebruik van een site Twilio-voorwaarde om te retourneren van het antwoord Twilio Markup Language (TwiML). Vervang de waarden voor de **naar** en **van** telefoonnummers, en zorg ervoor dat u controleert of de **van** telefoonnummer voor uw Twilio-account voordat de code wordt uitgevoerd.
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 Voor meer informatie over de parameters doorgegeven aan de **CallResource.Create** methode, Zie [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
-Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML. Zie voor meer informatie, [hoe: bieden TwiML reacties van uw eigen website](#howto_provide_twiml_responses).
+Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML. Zie voor meer informatie [Procedure: Bieden van respons van uw eigen website TwiML](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Hoe: een SMS-bericht verzenden
+## <a id="howto_send_sms"></a>Procedures: Een SMS-bericht verzenden
 De volgende schermafbeelding ziet u hoe u verzendt een SMS-bericht met de **MessageResource** klasse. De **van** nummer wordt verstrekt door Twilio voor proefaccounts voor het verzenden van SMS-berichten. De **naar** getal moet worden geverifieerd voor uw Twilio-account voordat u de code uitvoeren.
 
 ```csharp
@@ -172,8 +172,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>Hoe: bieden van respons TwiML van uw eigen website
-Wanneer een aanroep naar de Twilio-API - voorbeeld in uw toepassing wordt gestart de **CallResource.Create** methode - Twilio stuurt de aanvraag naar een URL die wordt verwacht dat een TwiML antwoord. Het voorbeeld in [hoe: een uitgaande aanroep](#howto_make_call) maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url] om terug te keren van het antwoord.
+## <a id="howto_provide_twiml_responses"></a>Procedures: Bieden van respons TwiML van uw eigen website
+Wanneer een aanroep naar de Twilio-API - voorbeeld in uw toepassing wordt gestart de **CallResource.Create** methode - Twilio stuurt de aanvraag naar een URL die wordt verwacht dat een TwiML antwoord. Het voorbeeld in [het: Een uitgaande aanroep](#howto_make_call) maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url] om terug te keren van het antwoord.
 
 > [!NOTE]
 > Terwijl TwiML is bedoeld voor gebruik door webservices, kunt u de TwiML weergeven in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege `<Response>` element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) om te zien een `<Response>` element met een &lt;zeg&gt; element.

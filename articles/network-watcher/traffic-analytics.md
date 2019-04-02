@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081063"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805054"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -64,6 +64,7 @@ U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteund
 * US - centraal
 * US - west
 * US - west 2
+* Frankrijk - centraal
 * Europa -west
 * Europa - noord
 * Brazilië - zuid
@@ -71,20 +72,26 @@ U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteund
 * Verenigd Koninkrijk Zuid
 * Australië - oost
 * Australië - zuidoost
+* Azië - oost
 * Azië - zuidoost
+* Korea - centraal
 * India - centraal
 * India - zuid
 * Japan - oost 
+* Japan - west
 * VS (overheid) - Virginia
 
 De Log Analytics-werkruimte moet bestaan in de volgende regio's:
 * Canada - midden
 * US - west-centraal
+* US - west 2
 * US - oost
+* Frankrijk - centraal
 * Europa -west
 * Verenigd Koninkrijk Zuid
 * Australië - zuidoost
 * Azië - zuidoost
+* Korea - centraal
 * India - centraal
 * Japan - oost
 * VS (overheid) - Virginia

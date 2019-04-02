@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965152"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793941"
 ---
 # <a name="what-is-api-management"></a>Wat is API Management?
 
@@ -101,7 +101,7 @@ Zie voor meer informatie [Ontwikkelaars maken of uitnodigen][How to create or in
 ## <a name="policies"> </a> Beleidsregels
 Beleidsregels zijn een krachtige mogelijkheid van API Management waarmee het gedrag van de API via configuratie in Azure Portal kan worden gewijzigd. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Populaire instructies omvatten indelingsconversie van XML in JSON en beperking van de aanroepfrequentie om het aantal inkomende aanroepen van een ontwikkelaar te beperken. Er zijn nog vele andere beleidsregels beschikbaar.
 
-Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels, tenzij het beleid iets anders aangeeft. Sommige beleidsregels, zoals de beleidsregels [Stroom controleren](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) en [Variabele instellen](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), zijn gebaseerd op beleidsexpressies. Zie [Geavanceerde beleidsregels](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) en [Beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) voor meer informatie.
+Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels, tenzij het beleid iets anders aangeeft. Sommige beleidsregels, zoals de beleidsregels [Stroom controleren](/azure/api-management/api-management-advanced-policies#choose) en [Variabele instellen](/azure/api-management/api-management-advanced-policies#set-variable), zijn gebaseerd op beleidsexpressies. Zie [Geavanceerde beleidsregels](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) en [Beleidsexpressies](/azure/api-management/api-management-policy-expressions) voor meer informatie.
 
 
 Zie [Naslaginformatie over beleid][Policy reference] voor een volledige lijst met API Management-beleidsregels. Zie [API Management-beleidsregels][API Management policies] voor meer informatie over het gebruiken en configureren van beleidsregels. Zie [Geavanceerde productinstellingen maken en configureren][How create and configure advanced product settings] voor een zelfstudie over het maken van een product met beleidsregels voor frequentielimiet en quotum.

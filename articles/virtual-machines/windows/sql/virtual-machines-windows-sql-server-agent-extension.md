@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767122"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762698"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatiseer beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-De SQL Server IaaS Agent-extensie (SqlIaasExtension) wordt uitgevoerd op Azure virtual machines voor het automatiseren van beheertaken. Dit artikel bevat een overzicht van de services die worden ondersteund door de extensie, evenals de instructies voor installatie, status en verwijdering.
+De SQL Server IaaS Agent-extensie (SqlIaasExtension) wordt uitgevoerd op virtuele Azure-machines beheertaken te automatiseren. Dit artikel bevat een overzicht van de services die worden ondersteund door de extensie, evenals de instructies voor installatie, status en verwijdering.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -70,17 +70,31 @@ Vereisten voor het gebruik van de SQL Server IaaS Agent-extensie op de virtuele 
 > Op dit moment de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) wordt niet ondersteund voor FCI van SQL Server op Azure. Het is raadzaam dat u de extensie van virtuele machines die deel uitmaken van een FCI verwijderen. De functies die worden ondersteund door de extensie zijn niet beschikbaar voor de SQL-VM's nadat de agent is verwijderd.
 
 ## <a name="installation"></a>Installatie
-De SQL Server IaaS Agent-extensie wordt automatisch geïnstalleerd wanneer u een van de galerie met installatiekopieën van SQL Server virtuele machine inricht. Als u moet de extensie handmatig installeren op een van deze SQL Server-VM's, gebruikt u de volgende PowerShell-opdracht:
+De SQL Server IaaS Agent-extensie wordt automatisch geïnstalleerd wanneer u een van de galerie met installatiekopieën van SQL Server virtuele machine inricht. De SQL IaaS-extensie biedt beheerbaarheid voor één exemplaar van de SQL Server-VM. Als er een standaardexemplaar, klikt u vervolgens de extensie werkt met het standaardexemplaar en er geen ondersteuning voor het beheren van andere exemplaren. Als er geen standaard-exemplaar, maar slechts één benoemd exemplaar, wordt deze het benoemde exemplaar beheren. Als er geen standaardexemplaar is en er meerdere genoemde instanties zijn, mislukt de extensie te installeren. 
+
+
+
+Als u moet de extensie handmatig installeren op een van deze SQL Server-VM's, gebruikt u de volgende PowerShell-opdracht:
 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
-> [!IMPORTANT]
+> [!WARNING]
 > Als de extensie niet al is geïnstalleerd, opnieuw installeren van de extensie de SQL Server-service. Bijwerken van de SQL IaaS-extensie heeft echter niet start de SQL Server-service. 
 
 > [!NOTE]
-> De SQL Server IaaS Agent-extensie wordt alleen ondersteund op [installatiekopieën van SQL Server-VM-galerie](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betalen per gebruik of bring-your-own-license). Het wordt niet ondersteund als u SQL Server voor het handmatig op een alleen-besturingssysteem Windows Server-machine installeren of als u een aangepaste SQL Server-VM VHD implementeren. In dergelijke gevallen is het mogelijk om te installeren en beheren van de extensie handmatig met behulp van PowerShell, maar u krijgt niet de SQL Server-configuratie-instellingen in Azure portal. Het is echter ten zeerste aanbevolen om in plaats daarvan installeert een installatiekopie van SQL Server-VM-galerie en vervolgens aan te passen.
+> Hoewel het mogelijk voor het installeren van de SQL Server IaaS Agent-extensie voor aangepaste SQL Server-installatiekopieën, de functionaliteit is momenteel beperkt tot [wijzigen van het licentietype](virtual-machines-windows-sql-ahb.md). Andere functies van de SQL IaaS-extensie werkt alleen op [installatiekopieën van SQL Server-VM-galerie](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betalen per gebruik of bring-your-own-license).
+
+### <a name="use-a-single-named-instance"></a>Een enkele benoemd exemplaar
+De SQL IaaS-extensie werkt met een benoemd exemplaar op een SQL Server-installatiekopie als het standaardexemplaar correct wordt verwijderd, en als de IaaS-extensie is geïnstalleerd.
+
+Voor het gebruik van een benoemd exemplaar van SQL Server, het volgende doen:
+   1. Implementeer een SQL Server-VM vanuit de marketplace. 
+   1. De IaaS-extensie verwijderen vanuit de [Azure-portal](https://portal.azure.com).
+   1. Verwijder de SQL-Server volledig in de SQL Server-VM.
+   1. Installeer SQL Server in een benoemd exemplaar in de SQL Server-VM. 
+   1. Installeer de IaaS-extensie van de Azure-portal.  
 
 ## <a name="status"></a>Status
 Er is één manier om te controleren of de extensie is geïnstalleerd om de agentstatus in Azure portal weer te geven. Selecteer **alle instellingen** in het venster van de virtuele machine en klik vervolgens op **extensies**. U ziet de **SqlIaasExtension** extensie is die weergegeven.
@@ -98,7 +112,7 @@ De vorige opdracht wordt bevestigd dat de agent is geïnstalleerd en biedt algem
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>Verwijdering
-In de Azure-Portal, kunt u de extensie verwijderen door te klikken op het beletselteken op de **extensies** venster van de eigenschappen van uw virtuele machine. Klik vervolgens op **Verwijderen**.
+In de Azure-portal, kunt u de extensie verwijderen door te klikken op het beletselteken op de **extensies** venster van de eigenschappen van uw virtuele machine. Klik vervolgens op **Verwijderen**.
 
 ![Verwijderen van de SQL Server IaaS Agent-extensie in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

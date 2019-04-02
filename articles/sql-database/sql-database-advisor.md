@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560869"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793673"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Aanbevelingen voor prestaties voor SQL-Database
 
@@ -85,6 +85,10 @@ De aanbeveling voor 'Schemaprobleem op te lossen' wordt weergegeven wanneer de s
 | 213 |Kolomnaam of -nummer van opgegeven waarden komt niet overeen met tabeldefinitie. |
 | 2812 |Kan de opgeslagen procedure niet vinden ' *'. |
 | 8144 |Procedure of functie * zijn te veel argumenten opgegeven. |
+
+## <a name="custom-applications"></a>Aangepaste toepassingen
+
+Ontwikkelaars overwegen voor het ontwikkelen van aangepaste toepassingen met behulp van de aanbevelingen voor prestaties voor Azure SQL Database. Alle aanbevelingen die worden vermeld in de portal voor een database kan worden geopend via [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Volgende stappen
 Bewaak uw aanbevelingen en doorgaan om toe te passen om prestaties te zetten. Databaseworkloads zijn dynamisch en veranderen voortdurend. SQL Database Advisor blijft bewaakt en doet aanbevelingen die u kunnen mogelijk de verbeteren de prestaties van uw database. 

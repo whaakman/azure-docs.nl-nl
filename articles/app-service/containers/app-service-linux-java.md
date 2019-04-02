@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335841"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803512"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -154,6 +154,14 @@ Spring Boot-ontwikkelaars kunnen gebruikmaken van de [Azure Active Directory Spr
 ### <a name="configure-tlsssl"></a>TLS/SSL configureren
 
 Volg de instructies in de [een bestaand aangepast SSL-certificaat binden](/azure/app-service/app-service-web-tutorial-custom-ssl) voor het uploaden van een bestaand SSL-certificaat en bindt dit aan de domeinnaam van uw toepassing. Standaard worden uw toepassing nog steeds kunt HTTP-verbindingen-Volg de specifieke stappen in de zelfstudie voor het afdwingen van SSL en TLS.
+
+### <a name="use-keyvault-references"></a>Key Vault verwijzingen gebruiken
+
+[Met Azure Key Vault](../../key-vault/key-vault-overview.md) biedt gecentraliseerd beheer van geheim met de geschiedenis voor het beleid en de controle van toegang. U kunt geheimen (zoals wachtwoorden of tekenreeksen voor databaseverbindingen) in Key Vault opslaan en toegang tot deze geheimen in uw toepassing via omgevingsvariabelen.
+
+Eerst, volg de instructies voor [uw apptoegang verlenen tot Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) en [maken van een Key Vault-verwijzing naar het geheim in een toepassingsinstelling](../app-service-key-vault-references.md#reference-syntax). U kunt valideren dat de verwijzing wordt omgezet naar het geheim met afdrukken via de omgevingsvariabele tijdens het op afstand openen van de App Service-terminal.
+
+Als u wilt deze geheime gegevens in uw configuratiebestand Spring of Tomcat invoeren, gebruikt u de omgeving variabele injectie syntaxis (`${MY_ENV_VAR}`). Voor de Spring-configuratiebestanden, Zie de deze documentatie over [externalized configuraties](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## <a name="data-sources"></a>Gegevensbronnen
 

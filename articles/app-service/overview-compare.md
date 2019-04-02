@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322024"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793840"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 
@@ -29,7 +29,7 @@ Azure App Service is de beste keuze voor de meeste web-apps. Implementatie en be
 
 Service Fabric is een goede keuze als u een nieuwe app maakt of een bestaande app herschrijft voor gebruik met een microservice-architectuur. Apps die worden uitgevoerd in een gedeelde groep machines, kunnen kleinschalig beginnen en afhankelijk van de behoefte opschalen tot wel honderden of duizenden machines. Stateful services maken het eenvoudig om de app-status consistent en betrouwbaar op te slaan en Service Fabric beheert automatisch de partitionering, schaalbaarheid en beschikbaarheid van de service voor u.  Service Fabric ondersteunt ook WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core.  Vergeleken met App Service biedt Service Fabric ook meer controle over en directe toegang tot de onderliggende infrastructuur. U hebt op afstand toegang tot uw servers en u kunt taken configureren om de server te starten. Cloud Services biedt een vergelijkbare mate van beheer en gebruiksgemak als Service Fabric, maar is een verouderde service. Er wordt aanbevolen bij de ontwikkeling van nieuwe toepassingen Service Fabric te gebruiken.
 
-Als u een bestaande toepassing hebt waarvoor aanzienlijke wijzigingen nodig zouden zijn om deze uit te voeren in App Service of Service Fabric, kunt u Virtual Machines gebruiken om de migratie naar de cloud te vereenvoudigen. Het correct configureren, beveiligen en onderhouden van virtuele machines vereist echter veel meer tijd en IT-expertise, vergeleken met Azure App Service en Service Fabric. Als u Azure Virtual Machines overweegt, moet u rekening houden met doorlopende onderhoudswerkzaamheden voor het patchen, bijwerken en beheren van uw VM-omgeving. Azure Virtual Machines vormt een Infrastructure-as-a-Service (IaaS), terwijl App Service en Service Fabric een Platform-as-a-Service (PaaS) zijn. 
+Als u een bestaande toepassing hebt waarvoor aanzienlijke wijzigingen nodig zouden zijn om deze uit te voeren in App Service of Service Fabric, kunt u Virtual Machines gebruiken om de migratie naar de cloud te vereenvoudigen. Het correct configureren, beveiligen en onderhouden van virtuele machines vereist echter veel meer tijd en IT-expertise, vergeleken met Azure App Service en Service Fabric. Als u Azure Virtual Machines overweegt, moet u rekening houden met doorlopende onderhoudswerkzaamheden voor het patchen, bijwerken en beheren van uw VM-omgeving. Azure Virtual Machines vormt een Infrastructure-as-a-Service (IaaS), terwijl App Service en Service Fabric een Platform-as-a-Service (PaaS) zijn.
 
 ## <a name="features"></a>Vergelijking van functies
 In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Virtual Machines en Service Fabric vergeleken, zodat u de beste keuze kunt maken voor uw toepassing. Raadpleeg de [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) voor actuele informatie over de SLA voor elke optie.
@@ -78,7 +78,7 @@ Hier volgen enkele veelvoorkomende scenario's met aanbevelingen over welk soort 
 * [Ik wil een REST API of webservice voor mobiele clients hosten.](#mobile)
 
 ### <a id="onprem"></a> Ik heb een web-front-end nodig met achtergrondverwerking en een database-back-end om zakelijke toepassingen uit te voeren met integratie voor on-premises assets.
-Azure App Service is een uitstekende oplossing voor complexe zakelijke toepassingen. U kunt hiermee apps ontwikkelen die automatisch schalen op een platform met een load balancer, zijn beveiligd met behulp van Active Directory en verbinding maken met uw on-premises resources. Het beheer van deze apps wordt eenvoudiger door de hoogwaardige portal en API's, en u kunt meer inzicht krijgen in hoe klanten deze apps gebruiken met behulp van de hulpprogramma's voor app-inzicht. U kunt achtergrondprocessen en taken uitvoeren als onderdeel van uw weblaag, met behulp van de functie [Webjobs][Webjobs], en hybride verbindingen en VNET-functies zorgen ervoor dat u eenvoudig verbinding kunt maken met on-premises resources. Azure App Service biedt drie-maal-negen-SLA's voor web-apps en stelt u in staat om:
+Azure App Service is een uitstekende oplossing voor complexe zakelijke toepassingen. U kunt hiermee apps ontwikkelen die automatisch schalen op een platform met een load balancer, zijn beveiligd met behulp van Active Directory en verbinding maken met uw on-premises resources. Het beheer van deze apps wordt eenvoudiger door de hoogwaardige portal en API's, en u kunt meer inzicht krijgen in hoe klanten deze apps gebruiken met behulp van de hulpprogramma's voor app-inzicht. De [Webjobs] [ Webjobs] functie kunt u uitvoeren achtergrondprocessen en taken als onderdeel van uw weblaag, terwijl hybride verbindingen en VNet-functies kunnen u eenvoudig verbinding maken met back-ups maken met on-premises bronnen. Azure App Service biedt drie-maal-negen-SLA's voor web-apps en stelt u in staat om:
 
 * uw toepassingen betrouwbaar uit te voeren op een zelfherstellend, automatisch bijgewerkt cloudplatform;
 * automatisch te schalen in een wereldwijd netwerk van datacenters;
@@ -145,7 +145,7 @@ Als uw open source-framework in App Service wordt ondersteund, worden de talen e
 Als uw open source-framework niet wordt ondersteund in App Service, kunt u het uitvoeren in een van de andere opties voor Azure-webhosting. U kunt Virtual Machines gebruiken en de software installeren en configureren op de installatiekopie, die gebaseerd kan zijn op Windows of Linux.
 
 ### <a id="lob"></a> Ik heb een line-of-business-toepassing die verbinding moet maken met het bedrijfsnetwerk.
-Als u een line-of-business-toepassing wilt maken, heeft uw website mogelijk directe toegang nodig tot de services of gegevens op het bedrijfsnetwerk. Dit kunt u configureren in App Service, Service Fabric en Virtual Machines, met behulp van de [Azure Virtual Network-service](/azure/virtual-network/). In App Service kunt u de [VNET-integratiefunctie](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) gebruiken, waardoor uw Azure-toepassingen worden uitgevoerd alsof ze zich in uw bedrijfsnetwerk bevinden.
+Als u een line-of-business-toepassing wilt maken, heeft uw website mogelijk directe toegang nodig tot de services of gegevens op het bedrijfsnetwerk. Dit kunt u configureren in App Service, Service Fabric en Virtual Machines, met behulp van de [Azure Virtual Network-service](/azure/virtual-network/). In App Service kunt u de [VNet-integratiefunctie](/azure/app-service/web-sites-integrate-with-vnet), waarmee uw Azure-toepassingen worden uitgevoerd alsof ze zich in uw bedrijfsnetwerk.
 
 ### <a id="mobile"></a> Ik wil een REST API of webservice voor mobiele clients hosten.
 Met op HTTP gebaseerde web-services kunt u een verscheidenheid aan clients ondersteunen, waaronder mobiele clients. Frameworks als ASP.NET Web API bieden integratie met Visual Studio om het eenvoudiger te maken REST-services te maken en te gebruiken.  Deze services worden beschikbaar gemaakt vanaf een webeindpunt, zodat u alle technieken voor webhosting in Azure kunt gebruiken om dit scenario te ondersteunen. App Service is echter een uitstekende keuze voor het hosten van REST API's. Met App Service kunt u:
@@ -157,8 +157,6 @@ Met op HTTP gebaseerde web-services kunt u een verscheidenheid aan clients onder
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een account, gaat u naar <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>. Hier kunt u direct gratis een tijdelijke app maken in Azure App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
-> 
-> 
 
 ## <a id="nextsteps"></a> Volgende stappen
 Raadpleeg [Introducing Azure](../fundamentals-introduction-to-azure.md) (Kennismaken met Azure) voor meer informatie over de drie opties voor webhosting.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825756"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807527"
 ---
 ### <a name="what-is-expressroute-direct"></a>Wat is ExpressRoute Direct?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct biedt klanten direct 100 Gbps poortparen in de algemene Micr
 
 ExpressRoute Direct wordt gefactureerd voor het paar poort op een vast bedrag. Standard-circuits worden opgenomen op geen extra uren en premium is een lichte aanvullende kosten in rekening gebracht. Uitgaand verkeer wordt gefactureerd op basis van per circuit op basis van de zone van de locatie.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>Wanneer de status van de facturering voor de poortparen ExpressRoute Direct?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Facturering start wanneer voor de poortparen ExpressRoute Direct?
 
 Poortparen ExpressRoute Direct van 45 dagen worden gefactureerd in het maken van de resource die ExpressRoute rechtstreeks of wanneer 1 of beide van de koppelingen zijn ingeschakeld, afhankelijk van wat het eerste komt. De respijtperiode van 45 dagen wordt verleend aan kunnen klanten het proces overlappende verbinding met de provider CO-locatie is voltooid.

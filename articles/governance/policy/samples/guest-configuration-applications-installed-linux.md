@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld - Audit als opgegeven toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
+title: Voorbeeld - Audit als toepassingen niet zijn geïnstalleerd in virtuele Linux-machines
 description: In dit voorbeeld Gast beleidsconfiguratie initiatief en definities controleren als de opgegeven toepassingen niet binnen de virtuele Linux-machines zijn geïnstalleerd.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc4c54fa157f5468bbc324ebdf03dd65a47488c9
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: c939deda9b1468b5ce843d497b81a462938a2554
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190490"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805547"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Voorbeeld - Audit als opgegeven toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
 
@@ -107,16 +107,16 @@ Na de **controleren** en **deployIfNotExists** definities in de portal zijn gema
 
 ### <a name="create-copy-of-audit-definition"></a>Kopie van de audit-definitie maken
 
-[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
-[![Implementeren in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![De voorbeeld-beleid implementeren naar Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![de voorbeeld-beleid implementeren naar Azure (overheid)](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Gebruik deze knoppen voor het implementeren via de portal maakt een kopie van de **controleren** beleidsdefinitie.
 Zonder de gekoppelde **deployIfNotExists** beleidsdefinitie, de configuratie van de Gast werkt niet correct.
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Kopie van deployIfNotExists-definitie maken
 
-[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
-[![Implementeren in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![De voorbeeld-beleid implementeren naar Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![de voorbeeld-beleid implementeren naar Azure (overheid)](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Gebruik deze knoppen voor het implementeren via de portal maakt een kopie van de **deployIfNotExists** beleidsdefinitie. Zonder de gekoppelde **controleren** beleidsdefinitie, de configuratie van de Gast werkt niet correct.
 

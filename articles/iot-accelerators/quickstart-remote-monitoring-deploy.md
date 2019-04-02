@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184169"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792498"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: een cloudoplossing voor bewaking op afstand proberen
 
 In deze snelstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert. In deze cloudoplossing gebruikt u de pagina **Dashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de pagina **Onderhoud** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 
 Met de eerste implementatie wordt de oplossingsverbetering geconfigureerd voor een bedrijf met de naam Contoso. Als operator bij Contoso beheert u een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
+
+In deze quickstart implementeert een **Basic** versie van de oplossingsversneller voor test-en demonstratiedoeleinden die kosten minimaliseert. Zie voor meer informatie over de verschillende versies kunt u implementeren, [Basic en standard-implementaties](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 U hebt een actief Azure-abonnement nodig om deze snelstart te voltooien.
 
@@ -36,9 +38,7 @@ Klik op de tegel **Externe bewaking**. Klik op de pagina **Externe bewaking**  o
 
 ![Externe controle kiezen](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Selecteer een **basisimplementatie** op de pagina **Oplossing voor externe controle maken**. Als u de oplossingsverbetering implementeert om te leren hoe deze werkt of om een demonstratie uit te voeren, kiest u de optie **Basis** om de kosten te minimaliseren.
-
-Kies **.NET** als de taal. De Java- en .NET-implementaties hebben dezelfde functies.
+Kies  **C# Microservices** als de **implementatieopties**. De Java en C# implementaties hebben de dezelfde functies.
 
 Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm**.
 
@@ -111,7 +111,7 @@ Als u wilt reageren op de koelunit, schuift u omlaag naar **Verwante informatie*
 
 Kies in het deelvenster **Taken** de optie **Methode uitvoeren** en vervolgens de methode **EmergencyValveRelease**. Voeg de taaknaam **ChillerPressureRelease** toe en klik op **Toepassen**. Met deze instellingen wordt een taak voor u gemaakt die onmiddellijk wordt uitgevoerd.
 
-Als u de taakstatus wilt bekijken, gaat u terug naar de **Onderhoudspagina** en bekijkt u de lijst met taken in de weergave **Taken**. Mogelijk moet u een aantal seconden wachten voordat u ziet dat de taak wordt uitgevoerd voor het verlichten van de druk op de kleppen van de koelunit:
+Als u de taakstatus wilt bekijken, gaat u terug naar de **Onderhoudspagina** en bekijkt u de lijst met taken in de weergave **Taken**. U moet mogelijk Wacht een paar seconden voordat u ziet dat de taak is uitgevoerd:
 
 [![De status van de taken in de weergave Taken](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

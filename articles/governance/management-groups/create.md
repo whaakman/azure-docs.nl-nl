@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992733"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801261"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
@@ -37,14 +37,14 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 1. Selecteer op de hoofdpagina van **nieuwe beheergroep**.
 
-   ![Main-groep](./media/main.png)
+   ![Pagina voor het werken met beheergroepen](./media/main.png)
 
 1. Vul in het veld management groep-ID.
 
    - De **beheergroep-ID** is de unieke id van map die wordt gebruikt voor het verzenden van opdrachten in deze beheergroep. Deze id kan niet worden bewerkt nadat is gemaakt, omdat deze in het hele systeem Azure gebruikt om te identificeren van deze groep.
    - Het weergavenaamveld is de naam die wordt weergegeven in Azure portal. Een afzonderlijke weergavenaam is een optioneel veld bij het maken van het beheer te groeperen en op elk gewenst moment kan worden gewijzigd.  
 
-   ![Maken](./media/create_context_menu.png)  
+   ![Deelvenster Opties voor het maken van een nieuwe beheergroep](./media/create_context_menu.png)  
 
 1. Selecteer **Opslaan**.
 

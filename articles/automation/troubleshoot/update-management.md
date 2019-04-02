@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448690"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804459"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -29,7 +29,7 @@ Er is een agent probleemoplosser voor Hybrid Worker-agent om te bepalen van het 
 
 U blijven ziet het volgende bericht op een virtuele machine 15 minuten na de onboarding:
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -55,7 +55,7 @@ Deze fout kan worden veroorzaakt door de volgende redenen:
 
 U ontvangt de volgende fout bij het maken van een update-implementatie voor de machines in een andere Azure-tenant:
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -104,7 +104,7 @@ De volgende sectie worden specifieke foutberichten en een mogelijke oplossing vo
 
 U ontvangt de volgende strekking weergegeven:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -122,15 +122,15 @@ Voer het opruimen van oude artefacten op de computer door [verwijderen van de hy
 
 U ontvangt een van de volgende foutberichten:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -148,7 +148,7 @@ Controleer uw netwerken en zorg ervoor dat de juiste poorten en -adressen zijn t
 
 U ontvangt een van de volgende foutberichten:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -203,7 +203,7 @@ De Hybrid Worker in Linux is beschadigd.
 
 Maak een kopie van het volgende logboekbestand en handhaven voor het oplossen van problemen:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -229,7 +229,7 @@ In sommige gevallen pakketupdates kunnen leiden tot problemen met Update Managem
 
 Als u een probleem met een patch niet kunt oplossen, maakt u een kopie van het volgende logboekbestand en handhaven **voordat** de volgende update-implementatie is gestart voor het oplossen van problemen:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

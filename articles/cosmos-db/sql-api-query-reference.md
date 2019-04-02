@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361979"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805462"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
-Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de SQL-query language-syntaxis, die compatibel met SQL API-accounts is. Zie voor een overzicht van voorbeeld van de SQL-query's, [SQL-query's in Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de syntaxis van de SQL-query in SQL-API-accounts gebruikt. Zie voor een overzicht van voorbeeld van de SQL-query's, [voorbeelden van de SQL-query in Cosmos DB](how-to-sql-query.md).  
   
-Ga naar de [testomgeving voor Query's](https://www.documentdb.com/sql/demo) kunt u Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
+Ga naar de [testomgeving voor Query's](https://www.documentdb.com/sql/demo), kunt u Cosmos DB uitproberen en SQL-query's op een voorbeeldgegevensset uitvoeren.  
   
 ## <a name="select-query"></a>SELECT-query  
-Elke query bestaat uit een SELECT-component en optionele FROM- en WHERE-componenten conform ANSI-SQL-standaarden. Normaal gesproken wordt de bron in de FROM-component voor elke query geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de SELECT-lijst te projecten. De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling. Zie voor voorbeelden van [SELECT-query-voorbeelden](how-to-sql-query.md#SelectClause)
+Elke query bestaat uit een SELECT-component en optionele FROM- en WHERE-componenten conform ANSI-SQL-standaarden. Normaal gesproken voor elke query, de bron in de component FROM is geïnventariseerd en vervolgens het filter in de component WHERE wordt toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de SELECT-lijst te projecten. Zie voor voorbeelden van [SELECT-query-voorbeelden](how-to-sql-query.md#SelectClause)
   
 **Syntaxis**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Is geldige JSON-matrix-expressie. Houd er rekening mee dat tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)
+   Is geldige scalaire expressie die moet worden geëvalueerd als een JSON-matrix-expressie. Houd er rekening mee dat geneste tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)
   
   **Typen retourneren**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   Het volgende voorbeeld laat zien hoe StringToArray gedraagt zich op verschillende typen. 
   
-```  
+ Hier volgen enkele voorbeelden met geldige invoer.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Hier volgt de resultatenset.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Hier volgt de resultatenset.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ Hier volgt een voorbeeld van ongeldige invoer. 
+   
+ Enkele aanhalingstekens binnen de matrix zijn geen geldige JSON.
+Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige matrices. Tekenreeksen in de matrix-tekenreeks moeten ofwel worden weergegeven "[\"\"] ' of de omringende offerte moet één ' [" "]'.
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Hier volgt de resultatenset.
+
+```
+[{}]
+```
+
+ Hier volgen enkele voorbeelden van ongeldige invoer.
+   
+ De expressie doorgegeven zal worden geparseerd als een JSON-matrix. het volgende doen niet evalueren voor het type matrix en dus retourneren niet gedefinieerd.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Hier volgt de resultatenset.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Expressie vertaald naar een Booleaanse waarde retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Een geldige expressie is.  
+   Is geldige scalaire expressie die moet worden geëvalueerd als een Boole-expressie.  
   
   **Typen retourneren**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **Voorbeelden**  
   
   Het volgende voorbeeld laat zien hoe StringToBoolean gedraagt zich op verschillende typen. 
-  
+ 
+ Hier volgen enkele voorbeelden met geldige invoer.
+
+ Witruimte mag alleen vóór of na 'true '/ ' false'.
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Hier volgt de resultatenset.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ Hier volgen enkele voorbeelden met ongeldige invoer.
+ 
+ Booleaanse waarden zijn hoofdlettergevoelig en moeten worden geschreven met alle kleine letters, dat wil zeggen 'true' en 'false'.
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Hier volgt de resultatenset.  
+  
+```  
+[{}]
+``` 
+
+ De expressie doorgegeven zal worden geparseerd als een Booleaanse expressie; deze invoer niet geëvalueerd voor het type Boolean en dus retourneren niet gedefinieerd.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Hier volgt de resultatenset.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Een geldige expressie is.  
+   Is geldige scalaire expressie die moet worden geëvalueerd als een null-expressie.
   
   **Typen retourneren**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **Voorbeelden**  
   
   Het volgende voorbeeld laat zien hoe StringToNull gedraagt zich op verschillende typen. 
-  
+
+ Hier volgen enkele voorbeelden met geldige invoer.
+ 
+ Witruimte mag alleen vóór of na 'null'.
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Hier volgt de resultatenset.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ Hier volgen enkele voorbeelden met ongeldige invoer.
+
+ Null is hoofdlettergevoelig en moet worden geschreven met alle kleine letters dat wil zeggen 'null'.
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{}]
+```  
+
+ De expressie doorgegeven zal worden geparseerd als een null-expressie. deze invoer niet geëvalueerd voor het type null en dus retourneren niet gedefinieerd.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Is geldige JSON getal-expressie. Getallen in JSON moet een geheel getal of een drijvende komma zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+   Is geldige scalaire expressie die moet worden geëvalueerd als een getal van de JSON-expressie. Getallen in JSON moet een geheel getal of een drijvende komma zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
   
   **Typen retourneren**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **Voorbeelden**  
   
   Het volgende voorbeeld laat zien hoe StringToNumber gedraagt zich op verschillende typen. 
-  
+
+ Witruimte mag alleen vóór of na het getal.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Hier volgt de resultatenset.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ Worden in de JSON die een geldig getal ofwel moet een geheel getal of een drijvende-kommagetal zijn.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+{{}}
+```  
+
+ De expressie doorgegeven zal worden geparseerd als een numerieke expressie. deze invoer niet geëvalueerd typt nummer en dus terugkeren niet gedefinieerd. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Is een geldige expressie van de JSON-object. Houd er rekening mee dat tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+   Is geldige scalaire expressie die moet worden geëvalueerd als een JSON-object-expressie. Houd er rekening mee dat geneste tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
   
   **Typen retourneren**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   Het volgende voorbeeld laat zien hoe StringToObject gedraagt zich op verschillende typen. 
   
-```  
+ Hier volgen enkele voorbeelden met geldige invoer.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Hier volgt de resultatenset.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ Hier volgen enkele voorbeelden met ongeldige invoer.
+Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige objecten. Tekenreeksen in de tekenreeks van object moeten een escape "{\"een\":\"str\"} ' of de omringende offerte moet één ' {"a": 'str'}'.
+
+ Enkele aanhalingstekens rond de namen van eigenschappen zijn niet geldig JSON.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Hier volgt de resultatenset.
+
 ```  
-  
- Hier volgt de resultatenset.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Eigenschapnamen zonder omringende aanhalingstekens zijn niet geldig JSON.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Hier volgt de resultatenset.
+
 ```  
+[{}]
+``` 
+
+ Hier volgen enkele voorbeelden met ongeldige invoer.
+ 
+ De expressie doorgegeven zal worden geparseerd als een JSON-object. deze invoer niet geëvalueerd voor het type object en dus retourneren niet gedefinieerd.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Hier volgt de resultatenset.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> DE SUBTEKENREEKS  
  Onderdeel van een tekenreeksexpressie vanaf de op nul gebaseerde positie van het opgegeven teken geretourneerd en blijft aan de opgegeven lengte of aan het einde van de tekenreeks.  

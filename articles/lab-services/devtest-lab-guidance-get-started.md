@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure DevTest Labs
-description: Dit artikel bevat de primaire scnearios voor het gebruik van Azure DevTest Labs en twee algemene paden om te beginnen met de service in uw organisatie.
+description: Dit artikel bevat de primaire scenario's voor het gebruik van Azure DevTest Labs en twee algemene paden om te beginnen met de service in uw organisatie.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,57 +10,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 21837265a963829539f12cf7911191a61be43fbc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243040"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803796"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Aan de slag met Azure DevTest Labs
-Als u DevTest Labs verkennen besluit, er zijn twee algemene paden voorwaarts – Proof of Concept vs schaal implementatie. 
-
-Een **uitgebreide implementatie** bestaat uit weken/maanden van controleren en planning met de opzet van de implementatie van DevTest Labs voor de hele onderneming met honderden of duizenden ontwikkelaars. 
-
-Een **bewijs van concept implementatie** richt zich op een geconcentreerd inspanningen van één team tot stand brengen van organisatie-waarde. Terwijl het verleidelijk zijn kan om na te denken van een uitgebreide implementatie, doorgaans de aanpak kan niet vaker dan het bewijs van concept-optie. Daarom raden wij aan dat u klein beginnen, leer van de eerste team, herhaalt u de dezelfde benadering met twee of drie extra teams en vervolgens te plannen voor een uitgebreide implementatie op basis van de kennis opgedaan uit. Voor een geslaagde bewijs van concept, wordt aangeraden dat u een of twee teams kiest, en identificeren van de scenario's (dev-omgeving vs testomgevingen), hun huidige gebruiksvoorbeelden document, en DevTest Labs implementeert. 
-
-## <a name="scenarios"></a>Scenario's
-Er zijn drie primaire scenario's voor een DevTest Labs-implementatie: 
+Afhankelijk van de behoeften van een onderneming, kan de DevTest Labs worden geconfigureerd om te voldoen aan verschillende vereisten.  Dit artikel worden de gangbare scenario's. Elk scenario bevat informatie over voordelen gebracht met behulp van DevTest Labs en resources te gebruiken voor het implementeren van deze scenario's.  
 
 - Developer bureaubladen
 - Testomgevingen
-- Training-Labs/hackathon
+- Trainingssessies, praktijksessies en hackathons
+- Sandbox onderzoeken
+- Leslokaallabs
 
 ## <a name="developer-desktops"></a>Developer bureaubladen
-Ontwikkelaars hebben vaak verschillende vereisten voor de ontwikkeling van machines voor verschillende projecten. Met DevTest Labs kunnen ontwikkelaars hebben altijd toegang tot on-demand virtuele machines die vooraf zijn geconfigureerd aan de behoeften van hun meest voorkomende scenario's. DevTest Labs biedt de volgende voordelen:
+Ontwikkelaars hebben vaak verschillende vereisten voor de ontwikkeling van machines voor verschillende projecten. Met DevTest Labs kunnen ontwikkelaars hebben altijd toegang tot on-demand virtuele machines die aan de behoeften van hun meest voorkomende scenario's zijn geconfigureerd. DevTest Labs biedt de volgende voordelen:
 
-- Organisaties krijgt u een gemeenschappelijk ontwikkelings- en testomgevingen ervoor te zorgen dat de consistentie tussen teams
-- Ontwikkelaars kunnen snel inrichten voor hun ontwikkeling-machines op aanvraag
-- Ontwikkelaars kunnen resources inrichten op een manier Self-service zonder abonnement machtigingen
-- IT of beheerders kunnen de netwerktopologie vooraf gedefinieerde en ontwikkelaars kunnen rechtstreeks gebruikmaken van deze op een eenvoudige en intuïtieve manier zonder speciale toegang
-- Ontwikkelaars kunnen hun ontwikkeling machines gemakkelijk aanpassen indien nodig
+- Organisaties kunnen bieden algemene ontwikkeling machines ervoor te zorgen dat de consistentie tussen teams.
+- Ontwikkelaars kunnen snel inrichten voor hun ontwikkeling-machines op aanvraag of [claimen van een bestaande, vooraf geconfigureerde machine](devtest-lab-add-claimable-vm.md).
+- Ontwikkelaars kunnen resources inrichten op een manier selfservice zonder machtigingen op abonnementsniveau.
+- IT of beheerders kunt [vooraf definiëren de netwerktopologie](devtest-lab-configure-vnet.md) en ontwikkelaars kunnen rechtstreeks worden gebruikt in een eenvoudige en intuïtieve manier zonder speciale toegang.
+- Ontwikkelaars kunnen eenvoudig [aanpassen](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) hun ontwikkeling machines zo nodig.
 - Beheerders kunnen kosten beheren door ervoor te zorgen dat:
-    - Ontwikkelaars kunnen niet meer virtuele machines bevat dan ze nodig hebt voor ontwikkeling ophalen
-    - VM's worden afgesloten wanneer deze niet in gebruik
-    - Waarbij alleen een subset van de VM-exemplaargrootten voor de specifieke werkbelastingen
+    - Ontwikkelaars [meer virtuele machines kan niet worden opgehaald](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user) dan ze nodig hebt voor ontwikkeling
+    - [VM's zijn afgesloten](devtest-lab-set-lab-policy.md#set-auto-shutdown) wanneer deze niet in gebruik
+    - Alleen [waarmee een subset van de VM-exemplaargrootten](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) voor de specifieke labs
+    - [Beheren van kosten doelen en meldingen](devtest-lab-configure-cost-management.md) voor elk lab.
+
+Zie voor meer informatie, [met Azure DevTest Labs voor ontwikkelaars](devtest-lab-developer-lab.md). 
 
 ## <a name="test-environments"></a>Testomgevingen
-Het maken en beheren van testomgevingen binnen een onderneming kunnen een aanzienlijke inspanning vereisen. Met DevTest Labs, kunnen testomgevingen worden eenvoudig gemaakt, bijgewerkt of wordt gedupliceerd, waarmee teams voor toegang tot een volledig geconfigureerde omgeving als dat nodig. In dit scenario biedt DevTest Labs de volgende voordelen:
+Het maken en beheren van testomgevingen binnen een onderneming kunnen een aanzienlijke inspanning vereisen. Met DevTest Labs, kunnen testomgevingen worden eenvoudig gemaakt, bijgewerkt of gedupliceerd. Hiermee kunnen teams voor toegang tot een volledig geconfigureerde omgeving als dat nodig. In dit scenario biedt DevTest Labs de volgende voordelen:
 
-- Testers kunnen de nieuwste versie van de toepassing testen door snel Windows en Linux-omgevingen inrichten met behulp van herbruikbare sjablonen en artefacten.
-- Testers kunnen hun belastingtests op via het inrichten van meerdere testagents opschalen
+- Organisaties kunnen bieden algemene testomgevingen ervoor te zorgen dat de consistentie tussen teams.
+- Testers kunnen de nieuwste versie van de toepassing testen door snel Windows en Linux-omgevingen inrichten met behulp van herbruikbare sjablonen.
 - Beheerders verbinding kunnen maken van de testomgeving met Azure DevOps, DevOps-scenario's inschakelen
-- Beheerders kunnen kosten beheren door ervoor te zorgen dat:
-    - Testers kunnen niet meer virtuele machines bevat dan ze nodig hebben ophalen
-    - VM's worden afgesloten wanneer deze niet in gebruik
-    - Waarbij alleen een subset van de VM-exemplaargrootten voor de specifieke werkbelastingen
+- Lab-eigenaar kunnen u kosten beheren door ervoor te zorgen dat:
+    - [VM's in een omgeving zijn afgesloten](devtest-lab-set-lab-policy.md#set-auto-shutdown) wanneer deze niet in gebruik
+    - Alleen [waarmee een subset van de VM-exemplaargrootten voor](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) de specifieke labs
+    - [Beheren van kosten doelen en meldingen](devtest-lab-configure-cost-management.md) voor elk lab.
 
-## <a name="labs-workshops-trainings-and-hackathons"></a>Labs, workshops, trainingen en hackathons  
-Een lab in Azure DevTest Labs fungeert als een geweldige container voor tijdelijke activiteiten zoals workshops, praktijksessies, training of hackathons. De service kunt u het maken van een lab waarin u aangepaste sjablonen die elke leerling gebruiken kunt voor het maken van identieke en geïsoleerde omgevingen voor training kunt opgeven. U kunt beleid om ervoor te zorgen dat training omgevingen beschikbaar voor elke leerling zijn alleen wanneer ze deze nodig hebt en voldoende resources - zoals virtuele machines - vereiste voor de training bevatten toepassen. Ten slotte kunt u de testomgeving eenvoudig delen met stagiairs, die ze in één klik kunnen openen. Nadat de klasse heeft gesloten, is het gemakkelijk in het lab en alle gerelateerde resources te verwijderen.
+Zie voor meer informatie, [testomgevingen met Azure DevTest Labs voor virtuele machine en PaaS](devtest-lab-test-env.md).
 
+## <a name="sandboxed-investigations"></a>Sandbox onderzoeken
+Ontwikkelaars onderzoeken vaak verschillende technologieën of het ontwerp van infrastructuur. Standaard worden alle omgevingen die zijn gemaakt met DevTest Labs worden gemaakt in hun eigen resourcegroep bevinden. De DevTest Labs-gebruiker ontvangt alleen lezen-toegang tot deze bronnen. Echter, voor ontwikkelaars die meer controle nodig hebt, een lab-instelling kan worden bijgewerkt zodat [Inzender-rechten](https://azure.microsoft.com/updates/azure-devtest-labs-view-and-set-access-rights-to-an-environment-rg/) naar de oorspronkelijke DevTest Labs-gebruiker voor elke omgeving die ze maken.  Met DevTest Labs, kunnen de machtiging Inzender automatisch doorvoert in omgevingen waarin ze in het lab maken op ontwikkelaars worden opgegeven.  In dit scenario kan ontwikkelaars toevoegen en/of Azure-resources te wijzigen als ze nodig hebben voor hun ontwikkeling- of testomgevingen. De [kosten per resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) op de pagina kunt Lab-eigenaren voor het bijhouden van de kosten van elke omgeving moet worden gebruikt voor onderzoek.
+
+Zie voor meer informatie, [toegangsrechten instellen op een resourcegroep omgeving](https://aka.ms/dtl-sandbox).
+
+## <a name="trainings-hands-on-labs-and-hackathons"></a>U kunt, praktijksessies en hackathons 
+Een lab in Azure DevTest Labs fungeert als een geweldige container voor tijdelijke activiteiten zoals workshops, praktijksessies, u kunt of hackathons.  De service kunt u het maken van een lab waarin u aangepaste sjablonen die elke leerling gebruiken kunt voor het maken van identieke en geïsoleerde omgevingen voor training kunt opgeven. In dit scenario biedt DevTest Labs de volgende voordelen:
+
+- [Beleid](devtest-lab-set-lab-policy.md) zorgen stagiairs krijgen alleen het aantal resources, zoals virtuele machines, die ze nodig hebben.
+- Vooraf geconfigureerde en gemaakte machines zijn [geclaimd](devtest-lab-add-claimable-vm.md) met één actie van leerling.
+- Labs met stagiairs worden gedeeld door het openen van [URL voor de testomgeving](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab).
+- [Vervaldatums](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs) op virtuele machines ervoor te zorgen dat machines worden verwijderd nadat ze zijn niet meer nodig hebt.
+- Het is eenvoudig te [verwijderen van een lab](devtest-lab-delete-lab-vm.md#delete-a-lab) en alle [gerelateerde resources](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) wanneer de training ligt boven de.
+
+Zie voor meer informatie, [Azure DevTest Labs gebruiken voor training](devtest-lab-training-lab.md).  
+
+## <a name="proof-of-concept-vs-scaled-deployment"></a>Testen van concept versus uitgebreide implementatie
+Als u DevTest Labs verkennen besluit, zijn er twee algemene paden doorsturen: Bewijs van Concept vs schaal implementatie.  
+
+Een **uitgebreide implementatie** bestaat uit weken/maanden van controleren en planning met de opzet van de implementatie van DevTest Labs voor de hele onderneming met honderden of duizenden ontwikkelaars.
+
+Een **concepttest** implementatie is gericht op een geconcentreerd inspanningen van één team tot stand brengen van organisatie-waarde. Terwijl het verleidelijk zijn kan om na te denken van een uitgebreide implementatie, doorgaans de aanpak kan niet vaker dan het bewijs van concept-optie. Daarom raden wij aan dat u klein beginnen, leer van de eerste team, herhaalt u de dezelfde benadering met twee of drie extra teams en vervolgens te plannen voor een uitgebreide implementatie op basis van de kennis opgedaan uit. Voor een geslaagde bewijs van concept, wordt aangeraden dat u een of twee teams kiest, en identificeren van de scenario's (dev-omgeving vs testomgevingen), hun huidige gebruiksvoorbeelden document, en DevTest Labs implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het volgende artikel in deze reeks: [Schalen van uw implementatie DevTest Labs](devtest-lab-guidance-scale.md)
+Lees de volgende artikelen:
+
+- [DevTest Labs-concepten](devtest-lab-concepts.md)
+- [Veelgestelde vragen DevTest Labs](devtest-lab-faq.md)
+

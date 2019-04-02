@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484251"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793744"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor Elastic Database
 
@@ -116,8 +116,10 @@ Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **N
     $ErrorActionPreference = "Continue"
    }
    ```
+
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Maken van een T-SQL-Script voor de uitvoering voor databases
-   ```
+
+   ```powershell
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -137,7 +139,7 @@ Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **N
 
 ## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>De taak voor het uitvoeren van een script voor de aangepaste groep databases maken
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -148,50 +150,53 @@ Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **N
    ```
 
 ## <a name="execute-the-job"></a>Het uitvoeren van taak
+
 De volgende PowerShell-script kan worden gebruikt voor het uitvoeren van een bestaande taak:
 
 Update voor de volgende variabele overeenstemming met de naam van de gewenste taak hebt uitgevoerd:
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
    ```
 
 ## <a name="retrieve-the-state-of-a-single-job-execution"></a>De status van het uitvoeren van een enkele taak ophalen
+
 Gebruik dezelfde **Get-AzureSqlJobExecution** cmdlet met de **voor IncludeChildren** parameter om de status van onderliggende taakuitvoeringen, namelijk de specifieke status voor het uitvoeren van elke taak voor elke database weer te geven het doel van de taak.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>De status over meerdere taakuitvoeringen weergeven
+
 De **Get-AzureSqlJobExecution** cmdlet heeft meerdere optionele parameters die kunnen worden gebruikt om meerdere taakuitvoeringen, gefilterd door de opgegeven parameters weer te geven. Het volgende voorbeeld toont enkele van de mogelijke manieren waarop u met Get-AzureSqlJobExecution:
 
 Alle actieve op het hoogste niveau taakuitvoeringen ophalen:
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution
    ```
 
 Alle taakuitvoeringen op het hoogste niveau, met inbegrip van niet-actieve taakuitvoeringen ophalen:
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
 Alle onderliggende taakuitvoeringen van een opgegeven taak uitvoerings-ID, met inbegrip van niet-actieve taakuitvoeringen ophalen:
 
-   ```
+   ```powershell
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
 Ophalen van alle taakuitvoeringen gemaakt met behulp van een planning / taak combinatie, met inbegrip van niet-actieve taken:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
@@ -199,7 +204,7 @@ Ophalen van alle taakuitvoeringen gemaakt met behulp van een planning / taak com
 
 Alle taken die zijn gericht op een opgegeven shard-toewijzing, met inbegrip van niet-actieve taken ophalen:
 
-   ```
+   ```powershell
     $shardMapServerName = "{Shard Map Server Name}"
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
@@ -209,7 +214,7 @@ Alle taken die zijn gericht op een opgegeven shard-toewijzing, met inbegrip van 
 
 Alle taken die zijn gericht op een opgegeven aangepaste verzameling, met inbegrip van niet-actieve taken ophalen:
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
@@ -217,7 +222,7 @@ Alle taken die zijn gericht op een opgegeven aangepaste verzameling, met inbegri
 
 Ophalen van de lijst van de taak taakuitvoeringen binnen een specifieke taak kan worden uitgevoerd:
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Write-Output $jobTaskExecutions
@@ -226,16 +231,18 @@ Ophalen van de lijst van de taak taakuitvoeringen binnen een specifieke taak kan
 Ophalen van gegevens van taakuitvoering taak:
 
 De volgende PowerShell-script kan worden gebruikt om de details van een taak uitvoeren van taak, die vooral handig is bij het opsporen van fouten van de uitvoering weer te geven.
-   ```
+
+   ```powershell
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Fouten in taakuitvoeringen voor de taak ophalen
+
 Het object JobTaskExecution bevat een eigenschap voor de levenscyclus van de taak, samen met de berichteigenschap van een. Als de uitvoering van de taak een taak is mislukt, de levenscyclus van de eigenschap is ingesteld op *mislukt* en de bericht-eigenschap is ingesteld op de resulterende uitzonderingsbericht en de stack. Als een taak is mislukt, is het belangrijk om de details van de taken die niet is gelukt voor een bepaalde taak weer te geven.
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Foreach($jobTaskExecution in $jobTaskExecutions)
@@ -248,14 +255,16 @@ Het object JobTaskExecution bevat een eigenschap voor de levenscyclus van de taa
    ```
 
 ## <a name="waiting-for-a-job-execution-to-complete"></a>Wachten op het uitvoeren van een taak te voltooien
+
 De volgende PowerShell-script kan worden gebruikt om te wachten op een taak te voltooien:
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Een van aangepaste uitvoeringsbeleid maken
+
 Taken voor elastic Database biedt ondersteuning voor het maken van aangepaste uitvoeringsbeleidsregels die kunnen worden toegepast bij het starten van taken.
 
 Uitvoeringsbeleidsregels toestaan op dit moment voor het definiëren van:
@@ -278,7 +287,7 @@ Het standaard-uitvoeringsbeleid maakt gebruik van de volgende waarden:
 
 Maak de gewenste uitvoeringsbeleid:
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -290,9 +299,10 @@ Maak de gewenste uitvoeringsbeleid:
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>Een aangepaste uitvoeringsbeleid bijwerken
+
 Update voor de gewenste uitvoeringsbeleid om bij te werken:
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -329,38 +339,41 @@ Stop-AzureSqlJobExecution moet in plaats daarvan worden aangeroepen als u wilt a
 
 Voor het activeren van taak verwijderen, gebruikt u de **Remove-AzureSqlJob** cmdlet en stel de **JobName** parameter.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
 ## <a name="create-a-custom-database-target"></a>Maak een aangepaste database-doel
+
 Aangepaste database doelen kunnen worden gedefinieerd in de taken voor Elastic Database die kunnen worden gebruikt voor de uitvoering van rechtstreeks of voor opname in de groep van een aangepaste database. Aangezien **elastische pools** niet nog rechtstreeks worden ondersteund via de PowerShell-APIs u Maak eenvoudig een aangepaste database doel en de aangepaste database verzameling target dit alle databases in de groep omvat.
 
 Stel de volgende variabelen in overeenstemming met de gewenste database-informatie:
 
-   ```
+   ```powershell
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>Maak een verzameling aangepaste database doel
+
 Een doel van de verzameling aangepaste database kan worden gedefinieerd om in te schakelen worden uitgevoerd in meerdere database gedefinieerde doelen. Nadat de groep van een database is gemaakt, is databases kunnen worden gekoppeld aan het doel van de aangepaste verzameling.
 
 Stel de volgende variabelen in overeenstemming met de configuratie van de gewenste aangepaste verzameling doel:
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Databases toevoegen aan een verzameling aangepaste database doel
+
 Doelen van de database kunnen worden gekoppeld aan de doelen van verzameling aangepaste database te maken van een groep databases. Wanneer een taak wordt gemaakt die gericht is op een verzameling aangepaste database doel, wordt het uitgevouwen wilt richten op de databases die zijn gekoppeld aan de groep op het moment van uitvoering.
 
 De gewenste database toevoegen aan een specifieke aangepaste verzameling:
 
-   ```
+   ```powershell
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,9 +381,10 @@ De gewenste database toevoegen aan een specifieke aangepaste verzameling:
    ```
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>De databases binnen een doel van de verzameling aangepaste database bekijken
+
 Gebruik de **Get-AzureSqlJobTarget** cmdlet voor het ophalen van de onderliggende databases binnen een verzameling aangepaste database doel.
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -378,9 +392,10 @@ Gebruik de **Get-AzureSqlJobTarget** cmdlet voor het ophalen van de onderliggend
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Een taak voor het uitvoeren van een script voor een doel van de verzameling aangepaste database maken
+
 Gebruik de **New-AzureSqlJob** cmdlet om een taak op basis van een groep databases die zijn gedefinieerd door een doel van de verzameling aangepaste database te maken. Taken voor elastic Database breidt de taak naar meerdere onderliggende taken elke overeenkomt met een database die is gekoppeld aan het doel van de verzameling aangepaste database en zorg ervoor dat het script is uitgevoerd voor elke database. Nogmaals, is het belangrijk dat scripts idempotent zijn voor nieuwe pogingen tolerantie.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $customCollectionName = "{Custom Collection Name}"
@@ -391,6 +406,7 @@ Gebruik de **New-AzureSqlJob** cmdlet om een taak op basis van een groep databas
    ```
 
 ## <a name="data-collection-across-databases"></a>Het verzamelen van gegevens tussen databases
+
 **Taken voor elastic Database** biedt ondersteuning voor een query uitvoeren voor een groep databases en de resultaten verzenden naar een opgegeven databasetabel. De tabel kan worden opgevraagd achteraf om te zien van de query-resultaten van elke database. Dit is een asynchrone mechanisme voor het uitvoeren van een query voor verschillende databases. Mislukte aanvragen, zoals een van de databases worden tijdelijk niet beschikbaar worden automatisch verwerkt via nieuwe pogingen.
 
 De opgegeven doeltabel wordt automatisch gemaakt als deze nog niet bestaat, die overeenkomt met het schema van de geretourneerde resultaten. Als de uitvoering van een script meerdere resultatensets worden geretourneerd, verzendt taken voor Elastic Database alleen het eerste item aan de tabel van de opgegeven bestemming.
@@ -399,7 +415,7 @@ De volgende PowerShell-script kan worden gebruikt voor het uitvoeren van een scr
 
 Stel het volgende in overeenstemming met de gewenste script, referenties en doel voor uitvoering:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $executionCredentialName = "{Execution Credential Name}"
@@ -413,7 +429,8 @@ Stel het volgende in overeenstemming met de gewenste script, referenties en doel
    ```
 
 ### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Maak en start een taak voor scenario's voor het verzamelen van gegevens
-   ```
+
+   ```powershell
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -421,10 +438,12 @@ Stel het volgende in overeenstemming met de gewenste script, referenties en doel
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Een schema voor het uitvoeren van de taak met behulp van de trigger van een taak maken
+
 De volgende PowerShell-script kan worden gebruikt om een terugkerende planning te maken. Met dit script maakt gebruik van een interval van één minuut, maar nieuwe AzureSqlJobSchedule biedt ook ondersteuning voor de parameters - DayInterval, - HourInterval, - MonthInterval, en -WeekInterval. Schema's die slechts één keer uitvoeren kunnen worden gemaakt door te geven - eenmalig.
 
 Een nieuw schema maken:
-   ```
+
+   ```powershell
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
@@ -433,11 +452,12 @@ Een nieuw schema maken:
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Een taak trigger hebt een taak uitgevoerd op een tijdschema
+
 Een trigger voor de taak kan worden gedefinieerd als een taak uitgevoerd volgens een schema. De volgende PowerShell-script kan worden gebruikt om te maken van een trigger voor de taak.
 
 De volgende variabelen overeen te komen met de gewenste taak en de planning instellen:
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
@@ -445,16 +465,18 @@ De volgende variabelen overeen te komen met de gewenste taak en de planning inst
    ```
 
 ### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Verwijderen van een geplande is gekoppeld aan de taak wordt uitgevoerd op de planning stoppen
+
 Als u wilt stoppen met het uitvoeren van terugkerende taak via een trigger taak, kan de trigger van de taak worden verwijderd.
 Verwijderen van een trigger taak voor het stoppen van een taak uit te voeren op basis van een planning met de **Remove-AzureSqlJobTrigger** cmdlet.
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Queryresultaten voor elastische database importeren in Excel
+
  U kunt de resultaten van een query naar een Excel-bestand importeren.
 
 1. Start Excel 2013.
@@ -471,9 +493,11 @@ Verwijderen van een trigger taak voor het stoppen van een taak uit te voeren op 
 Alle rijen uit **klanten** tabel, die zijn opgeslagen in verschillende shards de Excel-werkblad vullen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nu kunt u functies van Excel-gegevens. Gebruik de verbindingsreeks met de servernaam, databasenaam en referenties verbinding maken met uw gegevens en BI-integratie-hulpprogramma's van de query's in elastic database. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. Raadpleeg de query's in elastic database en de externe tabellen net als elke andere SQL Server-database en SQL Server-tabellen waarmee u verbinding met uw hulpprogramma maken wilt.
 
 ### <a name="cost"></a>Kosten
+
 Er is geen extra kosten in rekening gebracht voor het gebruik van de functie Elastic Database-query. Hoewel op dit moment deze functie is alleen beschikbaar op Premium en bedrijfskritiek databases en elastische pools als een eindpunt, de shards kunnen zijn van een servicelaag.
 
 Zie voor informatie over de prijzen [prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).

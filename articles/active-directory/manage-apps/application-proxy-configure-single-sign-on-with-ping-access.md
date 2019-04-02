@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652328"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791520"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -54,7 +54,7 @@ Als u al hebt van de toepassingsproxy is ingeschakeld, en een connector is geïn
 
 De Application Proxy-connector is een Windows Server-service die zorgt ervoor het verkeer van uw externe medewerkers naar uw gepubliceerde apps dat. Zie voor meer installatie-instructies gedetailleerde, [toepassingsproxy inschakelen in Azure portal](application-proxy-add-on-premises-application.md).
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een beheerder van de toepassing.
 2. Selecteer **Azure Active Directory** > **toepassingsproxy**.
 3. Selecteer **Connector downloaden** om de Application Proxy connector downloaden te starten. Volg de installatie-instructies.
 
@@ -69,7 +69,7 @@ Er zijn twee acties die u moet uitvoeren in Azure portal. Eerst moet u uw toepas
 
 Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd overzicht van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md).
 
-1. Als u niet hebt gedaan in de laatste sectie, aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
+1. Als u niet hebt gedaan in de laatste sectie, aanmelden bij de [Azure-portal](https://portal.azure.com) als een beheerder van de toepassing.
 2. Selecteer **Azure Active Directory** > **bedrijfstoepassingen**.
 3. Selecteer **toevoegen** aan de bovenkant van de blade.
 4. Selecteer **On-premises toepassing**.
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 In dit voorbeeld wordt de [Azure-portal](https://portal.azure.com) om bij te werken de *acceptedMappedClaims* veld:
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een beheerder van de toepassing.
 2. Selecteer **Azure Active Directory** > **App-registraties**.
 3. Selecteer uw toepassing > **Manifest**.
 4. Selecteer **bewerken**, zoek de *acceptedMappedClaims* veld en wijzig de waarde in **waar**.

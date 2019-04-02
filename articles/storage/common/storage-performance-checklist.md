@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445998"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793965"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -269,7 +269,7 @@ Als u wilt één grote blob snel uploaden, moet u de clienttoepassing de blokken
 * C++: Gebruik de methode blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Veel blobs zijn uploaden snel
-Om u te veel blobs zijn snel uploaden, blobs parallel te uploaden. Dit is sneller dan één blobs uploaden op een tijdstip via parallel blok uploads, omdat het uploaden van de verspreidt over meerdere partities van de storage-service. Één blob biedt alleen ondersteuning voor een doorvoer van 60 MB per seconde (ongeveer 480 Mbps). Op het moment van schrijven, wordt een VS gebaseerde LRS-account ondersteunt maximaal 20 Gbps inkomend verkeer dat nog veel meer is dan de doorvoer die wordt ondersteund door een afzonderlijke blob is.  [AzCopy](#subheading18) uploads parallel standaard uitvoert, en wordt aanbevolen voor dit scenario.  
+Om u te veel blobs zijn snel uploaden, blobs parallel te uploaden. Dit is sneller dan één blobs uploaden op een tijdstip via parallel blok uploads, omdat het uploaden van de verspreidt over meerdere partities van de storage-service. Één blob biedt alleen ondersteuning voor een doorvoer van 60 MB per seconde (ongeveer 480 Mbps). Op het moment van schrijven, wordt een VS gebaseerde LRS-account ondersteunt maximaal 20 Gbps inkomend verkeer, dit nog veel meer is dan de doorvoer die wordt ondersteund door een afzonderlijke blob is.  [AzCopy](#subheading18) uploads parallel standaard uitvoert, en wordt aanbevolen voor dit scenario.  
 
 ### <a name="subheading23"></a>Het juiste type blob kiezen
 Azure Storage ondersteunt twee typen blob: *pagina* blobs en *blok* blobs. Uw keuze van het blobtype heeft invloed op de prestaties en schaalbaarheid van uw oplossing voor een bepaalde gebruiksscenario. Blok-blobs zijn geschikt als u wilt uploaden van grote hoeveelheden gegevens efficiënt: bijvoorbeeld mogelijk een clienttoepassing foto's of video uploaden naar blob-opslag. Pagina-blobs geschikt als de toepassing nodig heeft om uit te voeren van willekeurige schrijfbewerkingen op de gegevens zijn: bijvoorbeeld Azure-VHD's worden opgeslagen als pagina-blobs.  
@@ -297,9 +297,7 @@ Vanaf versie van de service storage 2013-08-15, ondersteunt de table-service het
 Zie voor meer informatie het bericht [Microsoft Azure-tabellen: Inleiding tot JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) en [indeling nettolading voor servicebewerkingen tabel](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle uitschakelen
-Van Nagle algoritme wordt breed geïmplementeerd via TCP/IP-netwerken als ter verbetering van netwerkprestaties. Het is echter niet optimaal zijn in alle gevallen (zoals zeer interactieve omgevingen). Van Nagle-algoritme heeft een nadelige invloed op de prestaties van aanvragen voor de tabel en wachtrij-services voor Azure Storage, en moet u dit indien mogelijk uitschakelen.  
-
-Zie voor meer informatie onze blogbericht [van Nagle algoritme is niet beschrijvende voor kleine aanvragen](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), waarin wordt uitgelegd waarom van Nagle algoritme slecht communiceert met de tabel en wachtrij aanvragen en laat zien hoe u deze in uw client uitschakelen de toepassing.  
+Van Nagle algoritme wordt breed geïmplementeerd via TCP/IP-netwerken als ter verbetering van netwerkprestaties. Het is echter niet optimaal zijn in alle gevallen (zoals zeer interactieve omgevingen). Van Nagle-algoritme heeft een nadelige invloed op de prestaties van aanvragen voor de tabel en wachtrij-services voor Azure Storage, en moet u dit indien mogelijk uitschakelen.
 
 ### <a name="schema"></a>Schema
 Is de grootste één factor die van invloed is op de prestaties van de table-service het vertegenwoordigen en uw gegevens op te vragen. Hoewel elke toepassing verschilt, is deze sectie geeft een overzicht enkele algemene bewezen procedures die betrekking hebben op:  
@@ -390,7 +388,7 @@ Huidige schaalbaarheidsdoelen op weergeven [Azure Storage Scalability and Perfor
 Zie de sectie over de configuratie van de tabel die worden beschreven het algoritme Nagle: het algoritme Nagle is in het algemeen niet voor de prestaties van de wachtrij aanvragen en moet u dit uitschakelen.  
 
 ### <a name="subheading41"></a>Berichtgrootte
-Wachtrij afneemt prestaties en schaalbaarheid wanneer het bericht grootte toeneemt. U moet alleen de gegevens de ontvanger moet in een bericht plaatsen.  
+Wachtrij-prestaties en schaalbaarheid afnemen wanneer het bericht grootte toeneemt. U moet alleen de gegevens de ontvanger moet in een bericht plaatsen.  
 
 ### <a name="subheading42"></a>Het ophalen van batch
 U kunt maximaal 32 berichten ophalen uit een wachtrij in één bewerking. Verminder het aantal interactie van de clienttoepassing, dit vooral handig voor omgevingen, zoals mobiele apparaten is, kan dit met een hoge latentie.  
@@ -401,7 +399,7 @@ De meeste toepassingen of er berichten uit een wachtrij, dit kan een van de groo
 Zie voor meer kosteninformatie recente, [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-U kunt **UpdateMessage** te verhogen van de time-out voor onzichtbaarheid of bijwerken van informatie over de status van een bericht. Dit is een krachtige, houd er rekening mee dat elke **UpdateMessage** bewerking wordt geteld tegen het schaalbaarheidsdoel. Dit kan echter zijn dat een benadering veel efficiënter dan een werkstroom waarmee een taak uit een wachtrij worden doorgegeven aan de volgende, om elke stap van de taak is voltooid. Met behulp van de **UpdateMessage** bewerking kan uw toepassing voor het opslaan van de taakstatus van de op het bericht en vervolgens doorgaan met werken, in plaats van het bericht voor de volgende stap van de taak opnieuw queuing telkens wanneer een stap is voltooid.  
+U kunt **UpdateMessage** te verhogen van de time-out voor onzichtbaarheid of bijwerken van informatie over de status van een bericht. Dit is een krachtige, houd er rekening mee dat elke **UpdateMessage** bewerking wordt geteld tegen het schaalbaarheidsdoel. Dit kan echter zijn dat een benadering veel efficiënter dan een werkstroom waarmee een taak uit een wachtrij worden doorgegeven aan de volgende, om elke stap van de taak is voltooid. Met behulp van de **UpdateMessage** bewerking kan uw toepassing voor het opslaan van de taakstatus van de op het bericht en vervolgens doorgaan met werken, in plaats van het bericht voor de volgende stap van de taak requeuing telkens wanneer een stap is voltooid.  
 
 Zie voor meer informatie het artikel [het: Wijzig de inhoud van een bericht in de wachtrij](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

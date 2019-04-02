@@ -1,19 +1,19 @@
 ---
 title: Configuraties van clusters met Apache Ambari - Azure HDInsight optimaliseren
 description: Gebruik Apache Ambari-Webinterface voor het configureren en optimaliseren van HDInsight-clusters.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722920"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805377"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
@@ -51,7 +51,7 @@ De NameNode Java heap-grootte wijzigen:
 
     ![NameNode Java heap-grootte bewerken](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. De NameNode Java heap-grootte wordt gewijzigd naar 2 GB van 1 GB.
+1. De NameNode Java heap-grootte is gewijzigd in 1 GB van 2 GB.
 
     ![Bewerkt NameNode Java heap-grootte](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Een Hive-query wordt uitgevoerd in een of meer fasen. Als de onafhankelijke fase
 
 1.  Als u wilt uitvoeren van parallelle query's inschakelen, gaat u naar de component **Config** tabblad en zoek de `hive.exec.parallel` eigenschap. De standaardwaarde is false. Wijzig de waarde true en druk vervolgens op **Enter** om op te slaan de waarde.
  
-1.  Als u wilt beperken het aantal taken parallel worden uitgevoerd, wijzigt de `hive.exec.parallel.thread.number` eigenschap. De standaardwaarde is 8.
+1.  Als u wilt beperken het aantal taken parallel uitvoeren, wijzigen de `hive.exec.parallel.thread.number` eigenschap. De standaardwaarde is 8.
 
     ![Exec parallelle hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -178,7 +178,7 @@ De beschikbare compressietypen zijn:
 
 | Indeling | Hulpprogramma | Algoritme | Bestandsextensie | Splitsbare? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | VERKLEINEN | .gz | Nee |
+| Gzip | Gzip | DEFLATE | .gz | Nee |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, als geïndexeerd |
 | Snappy | N/A | Snappy | Snappy | Nee |
@@ -295,7 +295,7 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 
 1. Zoeken, verwijder de opmerkingen en wijzig de waarde van de eigenschap die u wilt wijzigen.
 
-1. Selecteer **opslaan** op de rechtsboven in het venster om op te slaan van de nieuwe waarde. Sommige eigenschappen is mogelijk een service opnieuw is gestart.
+1. Selecteer **opslaan** aan de rechterbovenhoek van het venster om op te slaan van de nieuwe waarde. Sommige eigenschappen is mogelijk een service opnieuw is gestart.
 
     ![Geavanceerde pig-eigenschappen](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -448,10 +448,10 @@ Grootte van de geheugenopslag is gedefinieerd door de `hbase.regionserver.global
 
 Gebruik van setSize() lokale toewijzing buffer wordt bepaald door de eigenschap `hbase.hregion.memstore.mslab.enabled`. Wanneer dit is ingeschakeld (waar) of zo wordt voorkomen dat heapfragmentatie van de tijdens zware schrijfbewerking. De standaardwaarde is true.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [HDInsight-clusters met de Apache Ambari-Webinterface beheren](hdinsight-hadoop-manage-ambari.md)
-* [Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

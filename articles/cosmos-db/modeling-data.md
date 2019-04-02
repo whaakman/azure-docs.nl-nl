@@ -8,40 +8,37 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295093"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762579"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>Modellering van documentgegevens van het voor NoSQL-databases
+# <a name="data-modeling-in-azure-cosmos-db"></a>Gegevens modelleren in Azure Cosmos DB
 
-Terwijl databases zonder schema, zoals Azure Cosmos DB, u kunnen heel eenvoudig om te spelen op wijzigingen in uw gegevensmodel moet nog steeds besteedt u bepaalde tijd na te denken over uw gegevens.
+Terwijl databases zonder schema, zoals Azure Cosmos DB, u heel eenvoudig opslaan en opvragen van ongestructureerde en semi-gestructureerde gegevens kunnen, moet u enkele denken tijd besteden aan over uw gegevensmodel moet optimaal van de service in termen van prestaties en schaalbaarheid en de laagste kosten.
 
-Hoe er gegevens worden opgeslagen? Hoe uw toepassing gaat ophalen en gegevens op te vragen? Is uw toepassing dikke lezen of schrijven zware?
+Hoe er gegevens worden opgeslagen? Hoe uw toepassing gaat ophalen en gegevens op te vragen? Is uw toepassing leesintensief of schrijfintensief?
 
 Na het lezen van dit artikel, kunt u zich de volgende vragen beantwoorden:
 
-* Wat moet ik een document in een documentdatabase doen?
 * Wat is gegevensmodellering en waarom moet ik care?
-* Hoe verschilt modellering van gegevens in een documentdatabase voor een relationele database?
+* Hoe verschilt modellering van gegevens in Azure Cosmos DB met een relationele database?
 * Hoe ik de relaties tussen gegevens in een niet-relationele database express?
 * Wanneer insluiten gegevens en wanneer kan ik koppelen aan gegevens?
 
 ## <a name="embedding-data"></a>Gegevens insluiten
 
-Wanneer u begint met het modelleren van gegevens in een document-store, zoals Azure Cosmos DB, probeert te behandelen van uw entiteiten als **zichzelf documenten** in JSON weergegeven.
+Als u begint met het modelleren van gegevens in Azure Cosmos DB proberen te behandelen van uw entiteiten als **zichzelf items** weergegeven als JSON-documenten.
 
-Voordat we dieper te veel verder, laat het ons weer een paar stappen uitvoeren en kijken hoe we iets in een relationele database, een onderwerp veel mensen al bekend met bent mogelijk model. Het volgende voorbeeld laat zien hoe een persoon kan worden opgeslagen in een relationele database.
+Ter vergelijking: eerst kijken hoe we kunnen gegevens modelleren in een relationele database. Het volgende voorbeeld laat zien hoe een persoon kan worden opgeslagen in een relationele database.
 
 ![Relationele database-model](./media/sql-api-modeling-data/relational-data-model.png)
 
-Bij het werken met relationele databases, hebben we geleerd jaar te normaliseren, normaliseren, normaliseren.
+Bij het werken met relationele databases, bestaat de strategie uit het normaliseren van al uw gegevens. Normaal gesproken normaliseren van uw gegevens omvat het maken van een entiteit, zoals een persoon, en splitsen in afzonderlijke onderdelen. In het bovenstaande voorbeeld hebben van een persoon meerdere records van de details van contactpersonen, evenals de meerdere-adresrecords. Gegevens van de contactpersoon kunnen worden verder onderverdeeld op basis van verdere extraheren algemene velden, zoals een type. Dit geldt ook voor adres, elke record kan worden van het type *Start* of *Business*.
 
-Doorgaans normaliseren van uw gegevens omvat het maken van een entiteit, zoals een persoon en splitsen in afzonderlijke stukken van gegevens. In het bovenstaande voorbeeld hebben van een persoon meerdere records van de details van contactpersonen, evenals de meerdere-adresrecords. We nog een stap verder gaan en contactgegevens onderverdeeld per verdere extraheren algemene velden, zoals een type. Hetzelfde adres, heeft elke record hier een type, zoals *Start* of *Business*.
-
-De begeleiden premises wanneer de gegevens normaliseren wordt **te voorkomen dat opslaan van redundante gegevens** op elk vastleggen en in plaats daarvan verwijst naar gegevens. In dit voorbeeld om te lezen van een persoon, met al hun gegevens van de contactpersoon en -adressen, moet u met JOINS effectief Verzamel uw gegevens tijdens de uitvoering.
+De begeleiden premises wanneer de gegevens normaliseren wordt **te voorkomen dat opslaan van redundante gegevens** op elk vastleggen en in plaats daarvan verwijst naar gegevens. In dit voorbeeld, om te lezen van een persoon, met al hun gegevens van de contactpersoon en -adressen, die u wilt met behulp van JOINS effectief compose terug (of denormaliseren) uw gegevens tijdens de uitvoering.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -51,7 +48,7 @@ De begeleiden premises wanneer de gegevens normaliseren wordt **te voorkomen dat
 
 Een en dezelfde persoon bijwerken met hun contactgegevens en adressen van vereist schrijfbewerkingen voor veel afzonderlijke tabellen.
 
-Nu eens kijken hoe we dezelfde gegevens als een zelfstandige entiteit in een documentdatabase zou model.
+Nu eens kijken hoe we dezelfde gegevens als een zelfstandige entiteit in Azure Cosmos DB zou model.
 
     {
         "id": "1",
@@ -72,10 +69,10 @@ Nu eens kijken hoe we dezelfde gegevens als een zelfstandige entiteit in een doc
         ]
     }
 
-Met behulp van de bovenstaande benadering, nu we hebben **gedenormaliseerde** de persoon vastleggen waar we **ingesloten** alle informatie met betrekking tot deze persoon, zoals hun contactgegevens en -adressen in een enkel JSON het document.
+Met behulp van de methode hierboven we hebben **gedenormaliseerde** de persoon vastleggen door **insluiten** alle informatie met betrekking tot deze persoon, zoals hun contactgegevens en -adressen in een *één JSON* document.
 Bovendien hebben we de flexibiliteit voor handelingen zoals met gegevens van de contactpersoon van verschillende vormen volledig omdat we niet tot een vast schema beperkt bent.
 
-Het ophalen van een die volledige persoonsrecord uit de database is nu één bewerking op basis van één verzameling en voor één document lezen. Bijwerken van de persoonsrecord van een, met hun contactgegevens en -adressen, is ook een één schrijfbewerking voor één document.
+Het ophalen van een die volledige persoonsrecord uit de database is nu een **één leesbewerking** op basis van een enkele container en voor één item. Een persoonsrecord bijwerken met de contactgegevens en adressen, is ook een **één schrijfbewerking** op basis van één item.
 
 Door denormalizing gegevens, moet uw toepassing mogelijk minder query's en updates voor algemene bewerkingen worden voltooid.
 
@@ -86,15 +83,15 @@ In het algemeen gebruikt ingesloten gegevens modellen wanneer:
 * Er zijn **opgenomen** relaties tussen entiteiten.
 * Er zijn **één-op-paar** relaties tussen entiteiten.
 * Er zijn ingesloten gegevens die **niet vaak worden gewijzigd**.
-* Er is ingesloten gegevens wordt niet groeien **zonder gebonden**.
-* Er zijn ingesloten gegevens die **integraal** met gegevens in een document.
+* Er zijn ingesloten gegevens die niet zullen groeien **zonder gebonden**.
+* Er zijn ingesloten gegevens die **vaak samen worden opgevraagd**.
 
 > [!NOTE]
 > Gewoonlijk gedenormaliseerd gegevens modellen betere bieden **lezen** prestaties.
 
 ### <a name="when-not-to-embed"></a>Als niet in te sluiten
 
-Terwijl de databasebestandsgrootte in een documentdatabase is te denormaliseren alles en alle gegevens in één document insluiten, kan dit leiden tot bepaalde situaties die moeten worden vermeden.
+Terwijl de databasebestandsgrootte in Azure Cosmos DB is te denormaliseren alles en alle gegevens in één item insluiten, kan dit leiden tot bepaalde situaties die moeten worden vermeden.
 
 Deze JSON-codefragment duren.
 
@@ -114,13 +111,13 @@ Deze JSON-codefragment duren.
         ]
     }
 
-Dit wordt mogelijk wat een post-entiteit met ingesloten opmerkingen zou er als volgt uitzien als we een typische blog of CMS, system zijn modelleren. Het probleem met dit voorbeeld is dat de matrix opmerkingen **niet-gebonden**, wat betekent dat er is geen (praktische) limiet voor het aantal opmerkingen een enkel bericht kan hebben. Hiermee wordt een probleem als de grootte van het document kan aanzienlijk toenemen.
+Dit wordt mogelijk wat een post-entiteit met ingesloten opmerkingen zou er als volgt uitzien als we een typische blog of CMS, system zijn modelleren. Het probleem met dit voorbeeld is dat de matrix opmerkingen **niet-gebonden**, wat betekent dat er is geen (praktische) limiet voor het aantal opmerkingen een enkel bericht kan hebben. Dit kan een probleem worden als de grootte van het item oneindig grote kan toenemen.
 
-Wanneer de grootte van het document de mogelijkheid voor het verzenden van de gegevens via de kabel, evenals met het lezen en bijwerken van het document, op schaal, groeit wordt beïnvloed.
+Wanneer de grootte van het item de mogelijkheid groeit voor het verzenden van de gegevens via de kabel, evenals lezen en bijwerken van het item, op schaal wordt beïnvloed.
 
-In dit geval zou het beter om te overwegen het volgende model zijn.
+In dit geval zou het beter om te overwegen het volgende gegevensmodel zijn.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -132,7 +129,7 @@ In dit geval zou het beter om te overwegen het volgende model zijn.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -151,9 +148,9 @@ In dit geval zou het beter om te overwegen het volgende model zijn.
         ]
     }
 
-Dit model heeft de drie meest recente opmerkingen ingesloten in het bericht, dit een matrix met een vaste is afhankelijk van dit moment. De andere opmerkingen worden gegroepeerd in batches van 100 opmerkingen en opgeslagen in afzonderlijke documenten. De grootte van de batch is gekozen als 100 omdat onze fictieve toepassing kan de gebruiker 100 opmerkingen tegelijk worden geladen.  
+Dit model heeft de drie meest recente opmerkingen in de post-container, zodat een matrix met een vaste set kenmerken is ingesloten. De andere opmerkingen zijn gegroepeerd in batches van 100 opmerkingen en opgeslagen als afzonderlijke items. De grootte van de batch is gekozen als 100 omdat onze fictieve toepassing kan de gebruiker 100 opmerkingen tegelijk worden geladen.  
 
-Een andere aanvraag ingesloten gegevens waar niet een goed idee is is wanneer de ingesloten gegevens vaak voor documenten gebruikt wordt en vaak worden gewijzigd.
+Een andere aanvraag ingesloten gegevens waar niet een goed idee is is wanneer de ingesloten gegevens vaak voor artikelen gebruikt wordt en vaak worden gewijzigd.
 
 Deze JSON-codefragment duren.
 

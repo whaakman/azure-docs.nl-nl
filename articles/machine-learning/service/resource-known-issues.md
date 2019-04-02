@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791742"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -104,8 +104,7 @@ Als u rechtstreeks naar het weergeven van uw werkruimte van een koppeling voor h
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen.
-Dit is waar de logboekbestanden bevinden:
+Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Sommige Logboeken vindt u [Azure-portal](https://portal.azure.com) en Ga naar uw workpsace en selecteer **werkruimte > Experiment > uitvoeren > Logboeken**.
 
 ## <a name="resource-quotas"></a>Resourcequota
 

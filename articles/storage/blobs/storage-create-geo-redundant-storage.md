@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 703256206a6626222013f4e502545c5c1f8cfab7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648687"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793699"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag
 
@@ -49,7 +49,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 * [Python](https://www.python.org/downloads/) installeren
 * [Azure Storage-SDK voor Python](https://github.com/Azure/azure-storage-python) downloaden en installeren
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Versie 7 Java SDK](#tab/java-v7)
 
 * Installeer en configureer [Maven](https://maven.apache.org/download.cgi) om te werken vanuit de opdrachtregel
 * Installeer en configureer een [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Versie 7 Java SDK](#tab/java-v7)
 
 [Download het voorbeeldproject](https://github.com/Azure-Samples/storage-java-ha-ra-grs) en pak het opslag-java-ragrs.zip-bestand uit. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeldproject bevat een eenvoudige Java-toepassing.
 
@@ -161,7 +161,7 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Versie 7 Java SDK](#tab/java-v7)
 
 In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Het wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
@@ -370,7 +370,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Versie 7 Java SDK](#tab/java-v7)
 
 Met Java is het definiëren van retouraanroep-handlers niet nodig als de eigenschap **LocationMode** van uw **BlobRequestOptions** is ingesteld op **PRIMARY\_THEN\_SECONDARY**. Hierdoor kan de toepassing automatisch overschakelen naar de secundaire locatie als ze de primaire locatie niet kan bereiken wanneer u **HelloWorld.png** probeert te downloaden.
 

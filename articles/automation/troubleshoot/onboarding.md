@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van fouten met de updatebeheer, w
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342725"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802028"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
 
@@ -25,19 +25,23 @@ Fouten kunnen optreden tijdens het onboarding-oplossingen zoals updatebeheer of 
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt het volgende bericht wanneer u te onboarden een virtuele machine naar een oplossing probeert:
+U ontvangen een van de volgende berichten wanneer u te onboarden een virtuele machine naar een oplossing probeert:
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen op de virtuele machine of voor de gebruiker.
+Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen op de virtuele machine, de werkruimte, of voor de gebruiker.
 
 #### <a name="resolution"></a>Oplossing
 
-Zorg ervoor dat u hebt juiste machtigingen voor de Onboarding van de virtuele machine. Controleer de [machtigingen die nodig zijn voor Onboarding van machines](../automation-role-based-access-control.md#onboarding) en probeer zorgen voor onboarding de oplossing voor het opnieuw.
+Zorg ervoor dat u hebt juiste machtigingen voor de Onboarding van de virtuele machine. Controleer de [machtigingen die nodig zijn voor Onboarding van machines](../automation-role-based-access-control.md#onboarding) en probeer zorgen voor onboarding de oplossing voor het opnieuw. Als u de foutmelding `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, zorg ervoor dat u hebt de `Microsoft.OperationalInsights/workspaces/read` toestemming om te kunnen vinden als de virtuele machine toegevoegd aan een werkruimte is.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -79,11 +83,11 @@ Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Bij het implementeren van een oplossing voor een verscheidenheid aan gerelateerde resources worden geïmplementeerd. Een van deze resources is de Microsoft Monitoring Agent-extensie of Log Analytics-agent voor Linux. Dit zijn geïnstalleerd door de virtuele machine-Gastagent die verantwoordelijk is voor communicatie met de geconfigureerde Log Analytics-werkruimte, ten behoeve van hoger coördinatie van het downloaden van de binaire bestanden extensies voor virtuele machines en andere bestanden die de oplossing voor u onboarding zijn afhankelijk van nadat deze uitvoering is begonnen.
+Bij het implementeren van een oplossing voor een verscheidenheid aan gerelateerde resources worden geïmplementeerd. Een van deze resources is de Microsoft Monitoring Agent-extensie of Log Analytics-agent voor Linux. Dit zijn geïnstalleerd door de virtuele machine-Gastagent die verantwoordelijk is voor communicatie met de geconfigureerde Log Analytics-werkruimte, ten behoeve van hoger coördinatie van het downloaden van de binaire bestanden extensies voor virtuele machines en andere bestanden die de oplossing voor u onboarding afhankelijk van wanneer de uitvoering wordt gestart.
 U doorgaans eerst op de hoogte van de MMA of Log Analytics-agent voor Linux-installatiefouten vanaf een melding wordt weergegeven in Notification hubs. Te klikken op de melding dat biedt meer informatie over de specifieke fout. Navigatie naar de resource resourcegroepen, en vervolgens naar het element implementaties binnen het bevat ook informatie over de fouten bij de implementatie die zijn opgetreden.
 Installatie van de MMA of Log Analytics-agent voor Linux kan om verschillende redenen mislukken en de stappen voor het oplossen van deze fouten zijn afhankelijk van het probleem. Specifieke stappen volgt.
 
-Het volgende gedeelte bevat verschillende problemen die optreden kunnen wanneer onboarding die leiden een fout opgetreden bij de implementatie van de MMA-extensie tot.
+De volgende sectie worden verschillende problemen beschreven die u kunt tijdens het onboarding die ertoe leiden dat een fout opgetreden bij de implementatie van de MMA-extensie.
 
 ### <a name="webclient-exception"></a>Scenario: Er is een uitzondering opgetreden tijdens een WebClient-aanvraag
 
@@ -113,9 +117,9 @@ Er zijn enkele mogelijke oorzaken voor deze fout:
 
 Zorg ervoor dat u de juiste poorten hebt en adressen voor communicatie openen. Zie voor een lijst met poorten en -adressen, [plannen van uw netwerk](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scenario: De installatie is mislukt vanwege problemen met de tijdelijke omgeving
+### <a name="transient-environment-issue"></a>Scenario: De installatie is mislukt vanwege een tijdelijke omgevingsproblemen
 
-De installatie van de Microsoft Monitoring Agent-extensie is mislukt tijdens de implementatie vanwege een andere installatie of blokkeren van de installatie van de actie
+De installatie van de Microsoft Monitoring Agent-extensie is tijdens de implementatie is mislukt vanwege een andere installatie of blokkeren van de installatie van de actie
 
 #### <a name="issue"></a>Probleem
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Er zijn enkele mogelijke oorzaken voor deze fout:
 
 * Een andere installatie wordt uitgevoerd
-* Het systeem opnieuw opstarten tijdens de sjabloonimplementatie is geactiveerd
+* Het systeem wordt opnieuw opstarten tijdens de sjabloonimplementatie van de geactiveerd
 
 #### <a name="resolution"></a>Oplossing
 
@@ -150,7 +154,7 @@ De installatie van de MMA-extensie is niet voltooid vanwege een time-out.
 
 #### <a name="issue"></a>Probleem
 
-Hier volgt een voorbeeld van een foutbericht die kan worden geretourneerd:
+Het volgende voorbeeld heeft een foutbericht die kan worden geretourneerd:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Oorzaak
 
-Deze fout is omdat de virtuele machine wordt zwaar belast tijdens de installatie.
+Deze fout treedt op omdat de virtuele machine wordt zwaar belast tijdens de installatie.
 
 ### <a name="resolution"></a>Oplossing
 
@@ -166,7 +170,7 @@ Poging tot de MMA-extensie installeren wanneer de virtuele machine minder belast
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u het probleem niet wordt gezien of kan niet aan het oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
+Als u uw probleem niet zien of u niet kunt oplossen van uw probleem, gaat u naar een van de volgende kanalen voor ondersteuning van meer:
 
 * Krijg antwoorden van Azure-experts op [Azure-Forums](https://azure.microsoft.com/support/forums/)
 * Maak verbinding met [@AzureSupport](https://twitter.com/azuresupport), het officiële Microsoft Azure-account voor het verbeteren van de gebruikerservaring door de Azure-community in contact te brengen met de juiste resources: antwoorden, ondersteuning en experts.

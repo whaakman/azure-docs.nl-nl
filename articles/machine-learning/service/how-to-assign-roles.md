@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993821"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805597"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Toegang tot een Azure Machine Learning-werkruimte beheren
 
@@ -33,7 +33,7 @@ Een Azure Machine Learning-werkruimte is een Azure-resource. Net als andere Azur
 | **Eigenaar** | Volledige toegang tot de werkruimte, inclusief de mogelijkheid om te bekijken, maken, bewerken of verwijderen (indien van toepassing) activa in een werkruimte. U kunt bovendien roltoewijzingen wijzigen. |
 
 > [!IMPORTANT]
-> Roltoegang kan worden gericht op meerdere niveaus in Azure. Bijvoorbeeld iemand met de eigenaar van de toegang tot een werkgroep mogelijk niet de eigenaar van de toegang tot de resourcegroep met de werkgroep. Zie voor meer informatie, [hoe RBAC werkt](/azure/role-based-access-control/overview#how-rbac-works).
+> Roltoegang kan worden gericht op meerdere niveaus in Azure. Bijvoorbeeld iemand met de eigenaar van toegang tot een werkruimte mogelijk niet de eigenaar van de toegang tot de resourcegroep met de werkruimte. Zie voor meer informatie, [hoe RBAC werkt](/azure/role-based-access-control/overview#how-rbac-works).
 
 Zie voor meer informatie over specifieke ingebouwde rollen, [ingebouwde rollen voor Azure](/azure/role-based-access-control/built-in-roles).
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871778"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793880"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Een data factory en pijplijn maken met behulp van .NET SDK
 
@@ -36,12 +36,15 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Visual Studio 2013 of 2015 gebruiken.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
+
 Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/) op uw computer.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
+
 Volg de instructies in de secties van [dit artikel](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
@@ -64,7 +67,7 @@ Maak met behulp van Visual Studio 2013/2015/2017 een C# .NET-consoletoepassing.
 1. Klik op **Hulpprogramma's** -> **NuGet Package Manager** -> **Package Manager-console**.
 2. Voer in **Package Manager Console** de volgende opdrachten uit om pakketten te installeren. Raadpleeg voor meer informatie het [NuGet-pakket Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>De uitvoer controleren
+
 De uitvoermap wordt automatisch door de pijplijn gemaakt in de blobcontainer adftutorial. Vervolgens wordt het bestand emp.txt gekopieerd van de invoermap naar de uitvoermap. 
 
 1. Klik in Azure Portal op de pagina met de **adftutorial**-container op **Vernieuwen** om de uitvoermap weer te geven. 
@@ -419,6 +423,7 @@ De uitvoermap wordt automatisch door de pijplijn gemaakt in de blobcontainer adf
     ![Vernieuwen](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
+
 Als u de data factory programmatisch wilt verwijderen, voegt u de volgende regels code toe aan het programma: 
 
 ```csharp
@@ -427,4 +432,5 @@ Als u de data factory programmatisch wilt verwijderen, voegt u de volgende regel
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's. 

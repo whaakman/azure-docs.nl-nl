@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660457"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791572"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Een Azure Data Box-Edge-apparaat via Windows PowerShell beheren
 
@@ -59,6 +59,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Voor meer informatie over certificaten, gaat u naar [Azure IoT Edge certificaten](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) of [-certificaten installeren op een gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Gegevens van een apparaat weergeven
+
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -75,9 +76,10 @@ Als de compute-rol is geconfigureerd op uw apparaat, kunt u ook de compute-logbo
 
     Het volgende voorbeeld ziet u het gebruik van deze cmdlet:
 
-    ```
+    ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
+
     Hier volgt een beschrijving van de parameters voor de cmdlet:
     - `Path`: Geef een netwerkpad naar de bestandsshare waar u de compute-log-pakket maken.
     - `Credential`: Geef de gebruikersnaam en wachtwoord voor de netwerkshare.

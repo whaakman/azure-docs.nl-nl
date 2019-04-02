@@ -12,18 +12,18 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002153"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793755"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Detectie van bedreigingen met Azure SQL-Database voor één of gegroepeerde databases
 
-[Detectie van bedreigingen](sql-database-threat-detection-overview.md) voor één en gepoolde databases detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven. Detectie van bedreigingen kunt identificeren **mogelijke SQL-injectie**, **toegang vanaf ongebruikelijke locatie of data center**, **toegang vanaf onbekende principal of mogelijk schadelijke toepassing**, en **Brute force SQL-referenties** -Zie voor meer informatie [waarschuwingen voor detectie van bedreigingen](sql-database-threat-detection-overview.md#threat-detection-alerts).
+[Detectie van bedreigingen](sql-database-threat-detection-overview.md) voor één en gepoolde databases detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven. Detectie van bedreigingen kunt identificeren **mogelijke SQL-injectie**, **toegang vanaf ongebruikelijke locatie of data center**, **toegang vanaf onbekende principal of mogelijk schadelijke toepassing**, en **Brute force SQL-referenties** -Zie voor meer informatie [waarschuwingen voor detectie van bedreigingen](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmeldingen](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) of [Azure-portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmeldingen](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) of [Azure-portal](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
 [Detectie van bedreigingen](sql-database-threat-detection-overview.md) maakt deel uit van de [geavanceerde gegevensbeveiliging](sql-database-advanced-data-security.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL AD-portal. Het beveiligingspakket geavanceerde gegevens wordt in rekening gebracht 15$ / maand per logische Server met de eerste 30 dagen gratis.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838014"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805565"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -67,11 +67,11 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 1. Artefacten toegevoegd aan de blauwdruk waarvoor parameteropties weergeven **X van Y-parameters ingevuld** in de **Parameters** kolom. Klik op de rij artefact om de parameters van het artefact te bewerken.
 
-   ![Blauwdrukparameters](../media/parameters/parameter-column.png)
+   ![Blauwdrukparameters in de blauwdrukdefinitie van een](../media/parameters/parameter-column.png)
 
 1. De **bewerken artefact** waardeopties geschikt is voor het artefact op hebt geklikt op pagina worden weergegeven. Elke parameter op het artefact heeft een titel en een waarde in een selectievakje. Het vak ingesteld op uitgeschakeld zodat deze een **statische parameter**. In het voorbeeld hieronder, alleen _locatie_ is een **statische parameter** omdat u dit selectievakje is uitgeschakeld en _groepsnaam voor Accountresources_ is ingeschakeld.
 
-   ![Statische blauwdrukparameters](../media/parameters/static-parameter.png)
+   ![Statische blauwdrukparameters op een artefact blauwdruk](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Statische parameters van de instelling van de REST-API
 
@@ -182,7 +182,7 @@ Het tegenovergestelde van een statische parameter is een **dynamische parameter*
 
 1. Op de **blauwdruk toewijzen** pagina, zoek de **artefact parameters** sectie. Elke artefact met ten minste één **dynamische parameter** het artefact en de configuratie-opties worden weergegeven. Geef de vereiste waarden voor de parameters voordat u de blauwdruk toewijzen. In het onderstaande voorbeeld _naam_ is een **dynamische parameter** die moet worden gedefinieerd om blauwdruktoewijzing te voltooien.
 
-   ![Blauwdruk dynamische parameter](../media/parameters/dynamic-parameter.png)
+   ![Blauwdruk dynamische parameter tijdens de blauwdruktoewijzing](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Dynamische parameters van de instelling van de REST-API
 

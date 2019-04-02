@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496890"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805569"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Gegevensoverdracht voor grote gegevenssets met gemiddeld naar hoogste netwerkbandbreedte
  
@@ -62,7 +62,7 @@ De volgende tabellen geven een overzicht van de verschillen in de belangrijkste 
 
 Als u offline gegevensoverdracht, gebruik de volgende tabel om te weten wat de verschillen in de belangrijkste mogelijkheden.
 
-|                                     |    Data Box-schijf (preview)    |    Data Box                                      |    Gegevens in het zware (preview)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Gegevensgrootte                        |    Tot 35 TB                 |    Maximaal 80 TB per apparaat                       |    Maximaal 800 TB per apparaat               |    Variabele                            |
 |    Gegevenstype                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
@@ -83,7 +83,7 @@ Als u online gegevensoverdracht, gebruikt u de tabel in de volgende sectie voor 
 
 ### <a name="high-network-bandwidth"></a>Hoge netwerkbandbreedte
 
-|                                     |    Hulpprogramma's-AzCopy <br>Azure PowerShell, <br>Azure-CLI             |    Azure Storage REST API's en SDK 's                   |    Data Box-Gateway of gegevens in Edge (preview)           |    Azure Data Factory                                            |
+|                                     |    Hulpprogramma's-AzCopy <br>Azure PowerShell, <br>Azure-CLI             |    Azure Storage REST API's en SDK 's                   |    Data Box-Gateway of Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Gegevenstype                  |    Azure-Blobs, Azure Files, Azure-tabellen    |    Azure-Blobs, Azure Files, Azure-tabellen    |    Azure-Blobs, Azure Files                           |   Biedt ondersteuning voor 70 gegevensconnectors voor data-archieven en indelingen    |
 |    Vormfactor                |    Opdrachtregelprogramma's                        |    Programma-interface                    |    Microsoft levert een virtuele <br>of het fysieke apparaat     |    -Service in Azure portal                                            |

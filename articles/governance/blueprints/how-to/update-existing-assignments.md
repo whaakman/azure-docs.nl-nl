@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999846"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805751"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Het bijwerken van een bestaande blauwdruktoewijzing van
 
@@ -32,17 +32,17 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **toewijzing bijwerken** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **toewijzing bijwerken**.
 
-   ![Toewijzing bijwerken](../media/update-existing-assignments/update-assignment.png)
+   ![Bijwerken van een bestaande blauwdruktoewijzing van](../media/update-existing-assignments/update-assignment.png)
 
 1. De **blauwdruk toewijzen** pagina vooraf gevuld met alle waarden uit de oorspronkelijke toewijzing wordt geladen. Kunt u de **blauwdruk definitieversies**, wordt de **vergrendeling toewijzing** staat, en een van de dynamische parameters die aanwezig zijn op de blauwdrukdefinitie van de. Klik op **toewijzen** wanneer alle wijzigingen hebt aangebracht.
 
 1. Op de pagina met details van bijgewerkte toewijzing, moet u de nieuwe status zien. In dit voorbeeld hebben we toegevoegd **vergrendelen** aan de toewijzing.
 
-   ![Bijgewerkte toewijzing - vergrendeld](../media/update-existing-assignments/updated-assignment.png)
+   ![Een bestaande blauwdruktoewijzing van - lock-modus gewijzigd bijgewerkt](../media/update-existing-assignments/updated-assignment.png)
 
 1. Bekijk details over andere **toewijzingsbewerkingen** met behulp van de vervolgkeuzelijst. De tabel van **beheerde resources** updates voor geselecteerde toewijzingsbewerking.
 
-   ![Toewijzingsbewerkingen](../media/update-existing-assignments/assignment-operations.png)
+   ![Toewijzingsbewerkingen van een blauwdruktoewijzing van de](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regels voor het bijwerken van toewijzingen
 

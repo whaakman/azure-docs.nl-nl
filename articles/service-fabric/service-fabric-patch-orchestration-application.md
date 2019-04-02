@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665811"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762834"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665811"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> De versie 1.2. * uit een ondersteuning op 30 April 2019. Voer een upgrade uit naar de nieuwste versie.
+
 
 [Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is de aanbevolen procedure voor uw besturingssystemen gevuld in Azure bewaren en de Patch Orchestration-toepassing (POA) is een wrapper rond Service Fabrics RepairManager systemen service waarmee configuratie op basis van OS patch plannen voor niet-Azure gehoste clusters. POA is niet vereist voor niet-Azure gehoste clusters, maar het patchinstallatie door de domeinen bijwerken plannen is vereist voor het vullen van Service Fabric-clusters hosts zonder uitvaltijd.
 
