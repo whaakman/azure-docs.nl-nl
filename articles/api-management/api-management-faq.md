@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728565"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793302"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
@@ -32,9 +32,9 @@ De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 * [Wat betekent het dat als een functie beschikbaar als preview is?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Hoe kan ik de verbinding tussen de API Management-gateway en mijn back-endservices beveiligen?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
-* [Hoe kopieer ik mijn API Management service-exemplaar naar een nieuw exemplaar?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
+* [How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance) (Hoe kopieer ik mijn exemplaar van de API Management service naar een nieuw exemplaar?)
 * [Kan ik mijn API Management-exemplaar via een programma beheren?](#can-i-manage-my-api-management-instance-programmatically)
-* [Hoe voeg ik een gebruiker aan de groep Administrators?](#how-do-i-add-a-user-to-the-administrators-group)
+* [Hoe voeg ik een gebruiker toe aan de groep Beheerders?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Waarom is het beleid dat ik niet beschikbaar in de beleidseditor wilt toevoegen?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Hoe stel ik meerdere omgevingen in één API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Kan ik SOAP gebruiken met API Management?](#can-i-use-soap-with-api-management)
@@ -42,12 +42,12 @@ De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API 
 * Kan ik een OAuth 2.0-autorisatie-server configureren met AD FS-beveiliging?
 * [Welke routeringsmethode gebruikt API Management in implementaties van verschillende geografische locaties?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Kan ik een Azure Resource Manager-sjabloon gebruiken voor het maken van een exemplaar van API Management-service?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Kan ik een zelf-ondertekend SSL-certificaat voor een back-end gebruiken?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [Kan ik een zelfondertekend SSL-certificaat gebruiken voor een back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Waarom krijg ik een verificatiefout wanneer ik probeer om een gitopslagplaats te klonen?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Werkt de API Management met Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Waarom hebben we een toegewezen subnet in Resource Manager-stijl VNETs nodig wanneer u API Management wordt geïmplementeerd in deze?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [Wat is de minimale subnetgrootte die nodig zijn bij het implementeren van API Management in een VNET?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
-* [Kan ik een API Management-service van één abonnement verplaatsen naar een andere?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another) (Kan ik een API Management-service overzetten naar een ander abonnement?)
 * [Zijn er beperkingen met betrekking tot of bekende problemen met het importeren van mijn API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Hoe kan ik van de Microsoft Azure API Management-team een vraag stellen?
@@ -72,13 +72,13 @@ U hebt verschillende mogelijkheden voor het beveiligen van de verbinding tussen 
 U hebt verschillende opties als u wilt kopiëren van een API Management-exemplaar naar een nieuw exemplaar. U kunt:
 
 * Gebruik de back-up en herstellen van de functie in API Management. Zie voor meer informatie, [herstel na noodgevallen implementeren met behulp van service back-up en herstellen in Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
-* Maak uw eigen back-up en herstellen van de functie met behulp van de [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx). De REST-API voor het opslaan en terugzetten van de entiteiten van de service-exemplaar dat u wilt gebruiken.
+* Maak uw eigen back-up en herstellen van de functie met behulp van de [API Management REST API](/rest/api/apimanagement/). De REST-API voor het opslaan en terugzetten van de entiteiten van de service-exemplaar dat u wilt gebruiken.
 * Configuratie van de service met behulp van Git downloaden en vervolgens te uploaden naar een nieuw exemplaar. Zie voor meer informatie, [opslaan en de configuratie van uw API Management-service configureren met behulp van Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan ik mijn API Management-exemplaar via een programma beheren?
 Ja, kunt u de API Management via een programma beheren met behulp van:
 
-* De [API Management REST-API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* De [API Management REST-API](/rest/api/apimanagement/).
 * De [Beheerbibliotheek ApiManagement-Service van Microsoft Azure SDK](https://aka.ms/apimsdk).
 * De [implementatie](https://docs.microsoft.com/powershell/module/wds) en [servicebeheer](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell-cmdlets.
 
@@ -97,7 +97,7 @@ Nu de pas toegevoegde Inzender kunt Azure PowerShell gebruiken [cmdlets](https:/
 4. Gebruik de URL voor toegang tot de beheerportal.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Waarom is het beleid dat ik niet beschikbaar in de beleidseditor wilt toevoegen?
-Als het beleid dat u wilt toevoegen wordt grijs weergegeven of ervoor dat u het juiste bereik voor het beleid wordt grijs weergegeven in de beleidseditor, worden weergegeven. Elke beleidsverklaring is ontworpen voor gebruik in specifieke scopes en -beleid voor secties. De secties van beleid en bereiken voor een beleid, Zie sectie voor het gebruik in van het beleid [API Management-beleidsregels](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Als het beleid dat u wilt toevoegen wordt grijs weergegeven of ervoor dat u het juiste bereik voor het beleid wordt grijs weergegeven in de beleidseditor, worden weergegeven. Elke beleidsverklaring is ontworpen voor gebruik in specifieke scopes en -beleid voor secties. De secties van beleid en bereiken voor een beleid, Zie sectie voor het gebruik in van het beleid [API Management-beleidsregels](/azure/api-management/api-management-policies).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hoe stel ik meerdere omgevingen in één API?
 Om in te stellen meerdere omgevingen, bijvoorbeeld een testomgeving en een productie-omgeving in één API, hebt u twee opties. U kunt:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Directe methode voor API bijwerken ####
-1. Maak een [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) entiteit met behulp van API Management.       
+1. Maak een [back-end](/rest/api/apimanagement/) entiteit met behulp van API Management.     
 2. Stel de **skipCertificateChainValidation** eigenschap **waar**.     
 3. Als u niet meer toestaan dat zelfondertekende certificaten wilt, de back-end-entiteit niet verwijderen of stel de **skipCertificateChainValidation** eigenschap **false**.
 

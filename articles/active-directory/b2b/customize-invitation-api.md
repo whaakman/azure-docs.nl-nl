@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111307"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793376"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en aanpassingen
 
 We hebben veel klanten laat ons weten dat ze willen aanpassen van het uitnodigingsproces op een manier die het meest geschikt voor hun organisaties gehad. U kunt precies dat doen met onze API's. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Mogelijkheden van de uitnodiging API
+
 De API biedt de volgende mogelijkheden:
 
 1. Een externe gebruiker met uitnodigen *eventuele* e-mailadres.
@@ -68,21 +69,25 @@ De API biedt de volgende mogelijkheden:
 
 
 ## <a name="authorization-model"></a>Autorisatiemodel
+
 De API kan worden uitgevoerd in de volgende modi voor autorisatie:
 
 ### <a name="app--user-mode"></a>App + gebruikersmodus
+
 In deze modus is degene die met behulp van de behoeften van de API de machtigingen hebben voor B2B-uitnodigingen worden gemaakt.
 
 ### <a name="app-only-mode"></a>Alleen App-modus
+
 In de app alleen context moet de app het User.Invite.All bereik voor de uitnodiging te voltooien.
 
 Zie voor meer informatie: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 U kunt PowerShell gebruiken toe te voegen en externe gebruikers uitnodigen voor een organisatie eenvoudig. Maak een uitnodiging met de cmdlet:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ Nadat u een externe gebruiker een uitnodiging verzenden, kunt u de **Get-AzureAD
 
 U kunt de **Filter** optie voor het filteren van de resultaten door **UserState**. In het volgende voorbeeld laat zien hoe resultaten om weer te geven alleen gebruikers met een uitnodiging voor een in behandeling te filteren. Het voorbeeld ziet u ook de **lijst indeling** optie, waarmee u de eigenschappen om weer te geven. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Bekijk de uitnodiging voor API-verwijzing in [ https://developer.microsoft.com/g
 - [De elementen van de B2B-samenwerking uitnodigingse-mail](invitation-email-elements.md)
 - [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md)
 - [Gebruikers van B2B-samenwerking zonder uitnodiging toevoegen](add-user-without-invite.md)
-

@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215656"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793438"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -73,7 +73,7 @@ In Azure Portal worden alleen functies getoond die momenteel werken voor Web App
 
 App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic, Standard en Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost.  
 
-Vanwege een huidige beperking kunt u ook geen Windows- en Linux-apps door elkaar gebruiken in dezelfde resourcegroep.
+Op basis van een beperking, u Windows en Linux-apps in dezelfde resourcegroep kan niet worden gecombineerd.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

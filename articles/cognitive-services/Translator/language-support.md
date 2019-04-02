@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241566"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803114"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -52,7 +52,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |Nederlands| `nl`    |Neurale beschikbaar|  Neurale|
 |Engels|   `en`    |Neurale beschikbaar|  Neurale|
 |Estisch|  `et`    |Neurale beschikbaar|  Neurale|
-|Fiji|    `fj`    |Alleen statistisch|  Statistische|
+|Fijisch|    `fj`    |Alleen statistisch|  Statistische|
 |Filipijns|  `fil`   |Alleen statistisch|  Statistische|
 |Fins|   `fi`    |Neurale beschikbaar|  Neurale|
 |Frans|    `fr`    |Neurale beschikbaar|  Neurale|
@@ -83,7 +83,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |Queretaro Otomi|   `otq`   |Alleen statistisch|  Statistische|
 |Roemeens|  `ro`    |Neurale beschikbaar|  Neurale|
 |Russisch|   `ru`    |Neurale beschikbaar|  Neurale|
-|Samoaanse|    `sm`    |Alleen statistisch|  Statistische|
+|Samoaans|    `sm`    |Alleen statistisch|  Statistische|
 |Servisch (Cyrillisch)|    `sr-Cyrl`   |Alleen statistisch|  Statistische|
 |Servisch (Latijns)|   `sr-Latn`   |Alleen statistisch   |Statistische|
 |Slowaaks|    `sk`    |Neurale beschikbaar|  Neurale|
@@ -290,6 +290,7 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Hebreeuws      | `he`          |
 | Hindi      | `hi`          |
 | Hongaars      | `hu`          |
+| IJslands | `is` |
 | Italiaans      | `it`          |
 | Japans      | `ja`          |
 | Koreaans      | `ko`          |
@@ -309,6 +310,7 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Turks      | `tr`          |
 | Oekraïens      | `uk`          |
 | Vietnamees      | `vi`          |
+| Welsh | `cy` |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Toegang tot de lijst op de website van Microsoft Translator
 

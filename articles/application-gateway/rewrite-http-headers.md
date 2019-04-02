@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520918"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793461"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
@@ -96,7 +96,7 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourneert de lijst met coderingen die worden ondersteund door de client          |
 | ciphers_used               | retourneert de tekenreeks van de coderingen die worden gebruikt voor een SSL-verbinding tot stand gebrachte |
-| client_ip                  | IP-adres van de client van waaruit de application gateway de aanvraag ontvangen. Als er een omgekeerde proxy voor de toepassingsgateway en de oorspronkelijke client is, klikt u vervolgens *client_ip* retourneert het IP-adres van de omgekeerde proxy. tjsi variabele is bijzonder nuttig in scenario's waarbij klanten van plan bent te herschrijven van de X-doorgestuurd-voor-header ingesteld door Application Gateway, zodat de header alleen de IP-adres zonder de informatie over de poort bevat. |
+| client_ip                  | IP-adres van de client van waaruit de application gateway de aanvraag ontvangen. Als er een omgekeerde proxy voor de toepassingsgateway en de oorspronkelijke client is, klikt u vervolgens *client_ip* retourneert het IP-adres van de omgekeerde proxy. Deze variabele is bijzonder nuttig in scenario's waarbij klanten van plan bent te herschrijven van de X-doorgestuurd-voor-header ingesteld door Application Gateway, zodat de header alleen de IP-adres zonder de informatie over de poort bevat. |
 | client_port                | Clientpoort                                                  |
 | client_tcp_rtt             | informatie over de client TCP-verbinding. beschikbaar op systemen die ondersteuning bieden voor de TCP_INFO socket-optie |
 | client_user                | Wanneer u HTTP-verificatie, de gebruikersnaam moet worden opgegeven voor verificatie |

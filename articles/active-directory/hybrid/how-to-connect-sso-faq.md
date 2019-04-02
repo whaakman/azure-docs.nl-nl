@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309585"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804374"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: Veelgestelde vragen
 
@@ -89,7 +89,7 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 4. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
-5. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
+5. Bel `Get-AzureADSSOStatus | ConvertFrom-Json`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Stap 2. Bijwerken van de Kerberos-ontsleutelingssleutel op elk AD-forest dat deze is dit instellen op
 
@@ -140,7 +140,7 @@ Voer de taken 1 tot en met 4 hieronder als u naadloze eenmalige aanmelding met A
 2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 4. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
-5. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
+5. Bel `Get-AzureADSSOStatus | ConvertFrom-Json`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Stap 3. Verwijder handmatig de `AZUREADSSOACCT` computeraccount in elk AD-forest die u ziet die worden vermeld.
 

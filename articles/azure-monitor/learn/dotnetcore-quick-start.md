@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 03/29/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886725"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801076"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -37,7 +37,7 @@ Als u een ASP.NET Core web-App niet hebt, kunt u onze stapsgewijze handleiding v
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -45,9 +45,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke toepassing met een internetverbinding, ongeacht of deze on-premises wordt uitgevoerd of in de cloud. Gebruik de volgende stappen om deze gegevens te bekijken.
 
-1. Selecteer **Een resource maken** > **Controle en Beheer** > **Application Insights**.
+1. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**.
 
-   ![Application Insights-resource toevoegen](./media/dotnetcore-quick-start/0001-dc.png)
+   ![Application Insights-resource toevoegen](./media/dotnetcore-quick-start/1createresourceappinsight.png)
 
     Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
@@ -64,32 +64,36 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. Open het **project** uit ASP.NET Core-web-app in Visual Studio > Klik met de rechtermuisknop op de naam van de app in **Solution Explorer** > Selecteer **Toevoegen** > **Application Insights Telemetry**.
 
-    ![Application Insights Telemetry toevoegen](./media/dotnetcore-quick-start/0001.png)
+    ![Application Insights Telemetry toevoegen](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
-2. Klik op de knop **Gratis starten** > Selecteer de **bestaande resource** die u hebt gemaakt in Azure Portal, > Klik op **Registreren**.
+2. Klik op de **aan de slag** knop
 
-3. Selecteer **Foutopsporing** > **Starten zonder foutopsporing** (Ctrl + F5) om de app te starten
+3. Selecteer uw account en abonnement > Selecteer de **bestaande resource** u hebt gemaakt in Azure portal > klikt u op **registreren**.
+
+4. Selecteer **Foutopsporing** > **Starten zonder foutopsporing** (Ctrl + F5) om de app te starten
+
+    ![Menu Overzicht van Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Het duurt 3-5 minuten voordat de gegevens worden weergegeven in de portal. Let op: als deze app een test-app met weinig verkeer is, worden de meeste metrische gegevens alleen vastgelegd bij actieve aanvragen en bewerkingen.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Beginnen met controleren in Azure Portal
 
-1. U kunt de pagina **Overzicht** van Application Insights in Azure Portal nu opnieuw openen door **Project** > **Application Insights** > **Application Insights openen** te selecteren om de details te bekijken van de toepassing die momenteel wordt uitgevoerd.
+1. Open de Application Insights **overzicht** pagina in de Azure portal door **Start** en selecteer de resource die u eerder hebt gemaakt, voor meer informatie over uw actieve onder recente bronnen de toepassing.
 
-   ![Menu Overzicht van Application Insights](./media/dotnetcore-quick-start/overview-001.png)
+   ![Menu Overzicht van Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/dotnetcore-quick-start/application-map.png)
+   ![Toepassingskaart](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Klik op het **App Analytics**-pictogram ![Pictogram Toepassingskaart](./media/dotnetcore-quick-start/006.png).  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3. Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/dotnetcore-quick-start/006.png) **weergeven in Analytics**. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
-   ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/dotnetcore-quick-start/0007-dc.png)
+   ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/dotnetcore-quick-start/6analytics.png)
 
 4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-dashboards.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
 
-   ![Tijdlijngrafieken voor het Statusoverzicht](./media/dotnetcore-quick-start/overview-graphs.png)
+   ![Tijdlijngrafieken voor het Statusoverzicht](./media/dotnetcore-quick-start/7kpidashboards.png)
 
    Als u de grafiek **Laadtijd voor paginaweergave** wilt vullen met **telemetriegegevens aan de clientzijde**, voegt u dit script toe aan elke pagina die u wilt bijhouden:
 
@@ -113,13 +117,12 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
    </script>
    ```
 
-5. Klik onder de koptekst **Onderzoeken** op **Browser**. Hier vindt u metrische gegevens die betrekking hebben op de prestaties van de app-pagina's. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen.
+5. Op de linkermuisknop op **metrische gegevens**. U kunt de metrics explorer gebruiken als u voor het onderzoeken van de status en het gebruik van uw resource. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen. Bijvoorbeeld, kunt u een grafiek waarin de gemiddelde laadtijd van browserpagina 'Laadtijd van browserpagina' kiezen door in de vervolgkeuzelijst voor metrische gegevens en 'Gem.' van aggregatie wordt weergegeven. Voor meer informatie over Azure Metrics Explorer Bezoek [aan de slag met Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![Grafiek voor metrische servergegevens](./media/dotnetcore-quick-start/009-Black.png)
+     ![Metrische gegevens op het tabblad: Grafiek met gemiddelde browser pagina laden](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u van plan bent om door te gaan met andere snelstartgidsen of met de zelfstudies, verwijdert u de resources die u in deze snelstartgids hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**.
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.

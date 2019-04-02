@@ -11,14 +11,18 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899346"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793132"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Anomaliedetectie-API
+
+> [!NOTE]
+> Dit item is in onderhoud. We raden u aan het gebruik van de [Anomaliedetectie Detector API-service](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) mogelijk gemaakt door een galerie van Machine Learning-algoritmen onder Azure Cognitive Services voor het detecteren van afwijkingen van bedrijven, operationeel is, en IoT-metrische gegevens.
+
 ## <a name="overview"></a>Overzicht
 [API voor afwijkingsdetectie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) volgt een voorbeeld gebouwd met Azure Machine Learning waarmee afwijkingen worden gedetecteerd in time series-gegevens met numerieke waarden zijn gelijkmatig verdeeld in de tijd.
 

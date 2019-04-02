@@ -1,6 +1,6 @@
 ---
 title: Overzicht van Azure Blueprints
-description: Azure Blueprints is een service in Azure waarmee u artefacten kunt maken, definiëren en implementeren in uw Azure-omgeving.
+description: Begrijpen hoe de blauwdrukken voor Azure-service kunt u maken, definiëren en implementeren van artefacten in uw Azure-omgeving.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823090"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802572"
 ---
-# <a name="what-is-azure-blueprints"></a>Wat is Azure Blueprints?
+# <a name="overview-of-the-azure-blueprints-service"></a>Overzicht van de service Azure blauwdrukken
 
 Net zoals een blauwdruk het een ingenieur of architect mogelijk maakt om de ontwerpparameters voor een project te schetsen, stelt Azure Blueprints cloudarchitecten en centrale IT-groepen in staat om een ​​herhaalbare set Azure-resources te definiëren die voldoet aan de normen, patronen en vereisten van een organisatie en deze implementeert. Met Azure Blueprints kunnen ontwikkelteams snel nieuwe omgevingen bouwen en instellen in het volste vertrouwen dat ze voldoen aan de vereisten van de organisatie, met een set ingebouwde componenten, zoals netwerken, om de ontwikkeling en levering te versnellen.
 
@@ -54,7 +54,7 @@ Een beleid kan worden opgenomen als een van de vele _artefacten_ in de definitie
 
 Een blauwdruk bestaat uit _artefacten_. Blauwdrukken ondersteunen momenteel de volgende resources als artefacten:
 
-|Resource  | Hiërarchieopties| Beschrijving  |
+|Resource  | Hiërarchieopties| Description  |
 |---------|---------|---------|
 |Resourcegroepen | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen. |
 |Azure Resource Manager-sjabloon | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |

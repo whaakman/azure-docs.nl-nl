@@ -4,17 +4,17 @@ description: Azure Policy definition hebben verschillende effecten die bepalen h
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551205"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802638"
 ---
 # <a name="understand-azure-policy-effects"></a>Informatie over Azure Policy-effecten
 
@@ -180,9 +180,10 @@ De **details** eigenschap van de gevolgen AuditIfNotExists heeft alle subeigensc
 
 - **Type** (vereist)
   - Hiermee geeft u het type van de bijbehorende resource aan.
-  - Begint met het ophalen van een resource onder de **als** voorwaarde resource en vervolgens query's in dezelfde resourcegroep bevinden als de **als** resource-voorwaarde.
+  - Als **details.type** is een resourcetype onder de **als** voorwaarde resource, het beleid voor resources van deze query **type** binnen het bereik van de geëvalueerde resource. Anders wordt beleid voor query's in dezelfde resourcegroep bevinden als de geëvalueerde resource.
 - **Naam** (optioneel)
   - Hiermee geeft u de exacte naam van de resource waarop en zorgt ervoor dat het beleid voor het ophalen van een bepaalde resource in plaats van alle resources van het opgegeven type.
+  - Wanneer de voorwaarde waarden voor **if.field.type** en **then.details.type** overeenkomen, klikt u vervolgens **naam** wordt _vereist_ en moet `[field('name')]`. Echter, een [controleren](#audit) effect in plaats daarvan moet worden beschouwd.
 - **ResourceGroupName** (optioneel)
   - Kan de overeenkomst van de bijbehorende resource afkomstig zijn van een andere resourcegroep.
   - Niet van toepassing als **type** is een resource die onder de **als** resource-voorwaarde.
@@ -253,6 +254,7 @@ De **details** eigenschap van het DeployIfNotExists-effect heeft de subeigenscha
   - Begint met het ophalen van een resource onder de **als** voorwaarde resource en vervolgens query's in dezelfde resourcegroep bevinden als de **als** resource-voorwaarde.
 - **Naam** (optioneel)
   - Hiermee geeft u de exacte naam van de resource waarop en zorgt ervoor dat het beleid voor het ophalen van een bepaalde resource in plaats van alle resources van het opgegeven type.
+  - Wanneer de voorwaarde waarden voor **if.field.type** en **then.details.type** overeenkomen, klikt u vervolgens **naam** wordt _vereist_ en moet `[field('name')]`.
 - **ResourceGroupName** (optioneel)
   - Kan de overeenkomst van de bijbehorende resource afkomstig zijn van een andere resourcegroep.
   - Niet van toepassing als **type** is een resource die onder de **als** resource-voorwaarde.

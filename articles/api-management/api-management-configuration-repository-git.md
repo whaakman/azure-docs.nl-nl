@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851343"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793268"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -57,7 +57,7 @@ Als u wilt weergeven en configureren uw Git-configuratie-instellingen, klikt u o
 >
 >
 
-Zie voor meer informatie over het inschakelen of uitschakelen van Git-toegang met behulp van de REST-API [in- of uitschakelen van de Git-toegang met behulp van de REST-API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Zie voor meer informatie over het inschakelen of uitschakelen van Git-toegang met behulp van de REST-API [in- of uitschakelen van de Git-toegang met behulp van de REST-API](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Configuratie van de service om op te slaan de Git-opslagplaats
 
@@ -69,7 +69,7 @@ Na enkele ogenblikken de configuratie wordt opgeslagen en de status van de confi
 
 Wanneer de configuratie is opgeslagen in de opslagplaats, kunnen worden gekloond.
 
-Zie voor informatie over het uitvoeren van deze bewerking via de REST API, [doorvoeren configuratie momentopname over met de REST-API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Zie voor informatie over het uitvoeren van deze bewerking via de REST API, [doorvoeren configuratie momentopname over met de REST-API](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Kloon de opslagplaats naar uw lokale computer
 
@@ -266,7 +266,7 @@ Zie voor informatie over andere manieren voor het beheren van uw service-exempla
   * [Naslaginformatie over PowerShell-cmdlets voor service-implementatie](https://docs.microsoft.com/powershell/module/wds)
   * [Naslaginformatie over PowerShell-cmdlets voor servicebeheer](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Beheer van uw service-exemplaar met behulp van de REST-API
-  * [API Management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API-naslaginformatie](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099481"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793115"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -124,7 +124,7 @@ Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een
 Zie de volgende artikelen voor meer informatie:
 * [Veelvoorkomende problemen met het netwerk configuratie tijdens het instellen van Azure API Management in een virtueel netwerk][Common network configuration problems]
 * [Virtueel netwerk Veelgestelde vragen](../virtual-network/virtual-networks-faq.md)
-* [Het maken van een record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
+* [Het maken van een record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

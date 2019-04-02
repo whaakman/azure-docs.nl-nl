@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112084"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802258"
 ---
 # <a name="create-a-custom-policy-definition"></a>Een aangepaste beleidsdefinitie maken
 
@@ -72,7 +72,7 @@ Er zijn verschillende manieren om te kijken naar een [Resource Manager-sjabloon]
 De eenvoudigste manier om eigenschappen te vinden is een bestaande resource van hetzelfde type te bekijken. Resources die al zijn geconfigureerd met de instelling die u wilt afdwingen, bevatten ook de waarde waarmee moet worden vergeleken.
 Bekijk de pagina **Automation-script** (onder **Instellingen**) in de Azure-portal voor die specifieke resource.
 
-![Pagina Automation-script](../media/create-custom-policy-definition/automation-script.png)
+![Sjabloonpagina op bestaande resources exporteren](../media/create-custom-policy-definition/automation-script.png)
 
 Wanneer u dit doet voor een opslagaccount, ziet u een sjabloon die lijkt op het volgende voorbeeld:
 

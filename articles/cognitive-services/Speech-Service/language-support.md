@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225430"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803099"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Ondersteuning voor de spraakservices taal en regio
 
@@ -55,7 +55,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
  ru-RU | Russisch (Rusland) | Ja | Ja | Nee
  SV-SE | Zweeds (Zweden) | Nee | Nee | Nee
  zh-CN | Chinees (Mandarijn, vereenvoudigd) | Ja | Ja | Nee
- zh-HK | Chinees (Mandarijn, traditionele) | Nee | Ja | Nee
+ zh-HK | Chinees (Kantonees, traditionele) | Nee | Ja | Nee
  zh-TW | Chinees (Taiwan Mandarijn) | Nee | Ja | Nee
  e-e | Thai (Thailand) | Nee | Nee | Nee
 

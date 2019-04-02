@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 989d09b3e4b576fa21156ec71485c54422c643b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 36947eae2c134761f61459dac37b324c03bd85dd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804018"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Voorbeeld - Tag met standaardwaarde toepassen
 
@@ -51,10 +51,10 @@ De JSON definieert de beleidsparameters, zoals gebruikt door Azure CLI en Azure 
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Naam |Type |Veld |Beschrijving |
+|Name |Type |Veld |Beschrijving |
 |---|---|---|---|
-|tagName |Tekenreeks |tags |Naam van de tag, bijvoorbeeld costCenter|
-|tagValue |Tekenreeks |tags |Waarde van de tag, bijvoorbeeld headquarter|
+|tagName |String |tags |Naam van de tag, bijvoorbeeld costCenter|
+|tagValue |String |tags |Waarde van de tag, bijvoorbeeld headquarter|
 
 Bij het maken van een toewijzing via PowerShell of Azure CLI kunnen de parameterwaarden worden doorgegeven als JSON in een tekenreeks of via een bestand met `-PolicyParameter` (PowerShell) of `--params` (Azure CLI).
 PowerShell ondersteunt ook `-PolicyParameterObject`, waarvoor de cmdlet een hashtabel met naam/waardeparen moet ontvangen waarin **Name** de parameternaam is en **Value** is de enkelvoudige waarde of matrix met waarden die tijdens toewijzing wordt doorgegeven.
@@ -74,8 +74,8 @@ In deze voorbeeldparameter zijn een _tagName_ van **costCenter** en _tagValue_ v
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[![Implementeren in Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
-[![Implementeren in Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![De voorbeeld-beleid implementeren naar Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![de voorbeeld-beleid implementeren naar Azure (overheid)](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

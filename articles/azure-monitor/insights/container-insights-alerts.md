@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886761"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804817"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Over het instellen van waarschuwingen voor problemen met de prestaties in Azure Monitor voor containers
 Azure Monitor voor containers monitors de prestaties van containerwerkbelastingen geïmplementeerd in een Azure Container Instances of beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS). 
 
 Dit artikel wordt beschreven hoe u om in te schakelen waarschuwingen voor de volgende situaties:
 
-* Bij het gebruik van CPU en geheugen op knooppunten van het cluster of de opgegeven drempelwaarde overschrijdt.
+* Wanneer gebruik CPU of geheugen op knooppunten van het cluster is groter dan de ingestelde drempel is gekomen.
 * Wanneer gebruik van de CPU of geheugen op een van de containers in een domeincontroller is groter dan de ingestelde drempel is gekomen in vergelijking met de ingestelde limiet voor de overeenkomende resource.
+* **NotReady** status knooppunt wordt geteld
+* Pod fase aantal **mislukt**, **in behandeling**, **onbekende**, **met**, of **geslaagd**
 
-Om u te waarschuwen wanneer CPU of geheugen gebruik voor een cluster of een domeincontroller hoog is, maakt u een waarschuwingsregel voor de meting van metrische gegevens die is gebaseerd op logboekzoekopdrachten logboeken-query's opgegeven. De query's vergelijken van een datum/tijd bij de huidige met behulp van de operator nu en één uur terug. Alle datums die zijn opgeslagen door Azure Monitor voor containers worden in UTC-notatie.
+Om u te waarschuwen wanneer de CPU of geheugen gebruik hoog op de knooppunten van het cluster is, u kunt maken van een waarschuwing voor metrische gegevens of een meting van metrische gegevens waarschuwingsregel met behulp van de logboeken-query's opgegeven. Hoewel metrische waarschuwingen lagere latentie dan logboekwaarschuwingen hebben, biedt een waarschuwing voor een geavanceerde query's en verfijning dan een waarschuwing voor metrische gegevens. Voor waarschuwingen, wordt de query's vergelijken van een datum/tijd bij de huidige met behulp van de operator nu en één uur terug. Alle datums die zijn opgeslagen door Azure Monitor voor containers worden in UTC-notatie.
 
-Voordat u begint, als u niet bekend met waarschuwingen in Azure Monitor bent, Zie [overzicht van waarschuwingen in Microsoft Azure](../platform/alerts-overview.md). Zie voor meer informatie over waarschuwingen via Logboeken-query's, [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md)
+Voordat u begint, als u niet bekend met waarschuwingen in Azure Monitor bent, Zie [overzicht van waarschuwingen in Microsoft Azure](../platform/alerts-overview.md). Zie voor meer informatie over waarschuwingen via Logboeken-query's, [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md). Zie voor meer informatie over waarschuwingen voor metrische [metrische waarschuwingen in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Resource-gebruik log zoekquery 's
 De query's in deze sectie vindt u om alle waarschuwingen scenario te ondersteunen. De query's zijn vereist voor stap 7 onder de [waarschuwing maken](#create-alert-rule) onderstaande sectie.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+De volgende query retourneert alle knooppunten en het aantal met de status van **gereed** en **NotReady**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+De volgende query retourneert pod fase wordt geteld op basis van alle fasen - **mislukt**, **in behandeling**, **onbekende**, **met**, of **Geslaagd**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>Om te waarschuwen wanneer bepaalde pod-fasen zoals **in behandeling**, **mislukt**, of **onbekende**, moet u de laatste regel van de query wijzigen. Bijvoorbeeld om een waarschuwing te *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## <a name="create-alert-rule"></a>Waarschuwingsregel maken
 Voer de volgende stappen uit voor het maken van een waarschuwing op het logboek in Azure Monitor met een van de regels van het logboek zoeken die eerder is verkregen.  

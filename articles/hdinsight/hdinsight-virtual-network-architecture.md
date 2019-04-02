@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759406"
+ms.locfileid: "58762919"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight-architectuur voor virtueel netwerk
 
@@ -31,8 +31,6 @@ Azure HDInsight-clusters hebben verschillende typen virtuele machines of knooppu
 | Knooppunt regio | Voor het type van HBase-cluster, wordt in het knooppunt regio is (ook wel een knooppunt gegevens genoemd) de regio-Server wordt uitgevoerd. Regioservers fungeren en een gedeelte van de gegevens die worden beheerd door HBase te beheren. Regio-knooppunten kunnen worden toegevoegd of verwijderd uit het cluster schalen computing capaciteit en kosten beheren.|
 | Nimbus-knooppunt | Voor het type van Storm-cluster biedt het Nimbus-knooppunt functionaliteit die vergelijkbaar is met het hoofdknooppunt. Het Nimbus-knooppunt wijst taken toe aan andere knooppunten in een cluster via Zookeeper, die de uitvoering van Storm-topologieën coördineert. |
 | Supervisor knooppunt | Voor het type van Storm-cluster voert het supervisor-knooppunt de instructies van het Nimbus-knooppunt tot het uitvoeren van de gewenste verwerking. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase en typen van R Server-cluster
 
 ## <a name="basic-virtual-network-resources"></a>Basic virtuele-netwerkbronnen
 

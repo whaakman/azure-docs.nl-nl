@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758534"
+ms.locfileid: "58804867"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
@@ -42,6 +42,30 @@ Voorbeelden van hiervoor zijn:
 * de query-tekenreeks-onderdeel van de URL (om de handtekening verwijderen) van de taken HTTP invoer-URL's wordt niet geretourneerd.
 
 Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="long-running-operations"></a>Langlopende bewerkingen
+
+De bewerkingen die zijn gemarkeerd met `x-ms-long-running-operation` in de Azure Media Services [swagger-bestanden](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) zijn lang bewerkingen. 
+
+Zie voor meer informatie over hoe u kunt Azure-asynchrone bewerkingen bijhouden [asynchrone bewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services heeft de volgende langlopende bewerkingen:
+
+* LiveEvent maken
+* LiveEvent bijwerken
+* LiveEvent verwijderen
+* LiveEvent starten
+* LiveEvent stoppen
+* LiveEvent opnieuw instellen
+* LiveOutput maken
+* LiveOutput verwijderen
+* Streamingendpoint zo maken
+* Update StreamingEndpoint
+* Streamingendpoint zo verwijderen
+* Start StreamingEndpoint
+* Stop StreamingEndpoint
+* Schaal streamingendpoint zo
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
 

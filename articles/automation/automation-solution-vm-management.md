@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902243"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762936"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
 De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Monitor-logboeken en optioneel e-mailberichten worden verzonden via [actiegroepen](../azure-monitor/platform/action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
+
+> [!NOTE]
+> De virtuele machines starten/stoppen buiten kantooruren oplossing is getest met de Azure-modules die worden geïmporteerd in uw Automation-Account wanneer u de oplossing implementeert. De oplossing werkt niet op dit moment met een nieuwere versie van de Azure-module. Dit is alleen van invloed op de Automation-Account dat u gebruikt om uit te voeren van de VM's starten/stoppen buiten kantooruren oplossing. U kunt nog steeds nieuwere versies van de Azure-module gebruiken in uw andere Automation-Accounts, zoals beschreven in [het bijwerken van Azure PowerShell-modules in Azure Automation](automation-update-azure-modules.md)
 
 Deze oplossing biedt een automatiseringsoptie gedecentraliseerde van de lage kosten voor gebruikers die hun VM-kosten optimaliseren. Met deze oplossing kunt u het volgende doen:
 
@@ -204,7 +207,7 @@ Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar
 
 De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alleen Wijzig variabelen die worden voorafgegaan door **externe**. Variabelen wijzigen voorafgegaan door **intern** zorgt ervoor dat ongewenste effecten.
 
-|Variabele | Description|
+|Variabele | Beschrijving|
 |---------|------------|
 |External_AutoStop_Condition | De conditionele operator vereist voor het configureren van de voorwaarde voordat een waarschuwing wordt geactiveerd. Acceptabele waarden zijn **groter dan**, **GreaterThanOrEqual**, **LessThan**, en **LessThanOrEqual**.|
 |External_AutoStop_Description | De waarschuwing op de virtuele machine stoppen als het CPU-percentage hoger is dan de drempelwaarde.|
@@ -264,7 +267,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 
 ### <a name="job-streams"></a>Taakstromen
 
-|Eigenschap | Description|
+|Eigenschap | Beschrijving|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
 |Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams.|

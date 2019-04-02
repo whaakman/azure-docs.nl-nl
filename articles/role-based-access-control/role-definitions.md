@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342776"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804527"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informatie over roldefinities voor Azure-resources
 
@@ -97,11 +97,11 @@ Ter ondersteuning van gegevensbewerkingen, zijn gegevenseigenschappen van nieuwe
 - Een opslag-blob schrijven in een container
 - Een bericht in een wachtrij verwijderen
 
-Hier volgt de [gegevenslezer voor Opslagblob (Preview)](built-in-roles.md#storage-blob-data-reader-preview) roldefinitie, waaronder operations in zowel de `Actions` en `DataActions` eigenschappen. Deze rol kunt u de blob-container en ook de onderliggende blob-gegevens worden gelezen.
+Hier volgt de [gegevenslezer voor Opslagblob](built-in-roles.md#storage-blob-data-reader) roldefinitie, waaronder operations in zowel de `Actions` en `DataActions` eigenschappen. Deze rol kunt u de blob-container en ook de onderliggende blob-gegevens worden gelezen.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ Autorisatie voor alle management bewerking API-aanroepen wordt verwerkt door Azu
 
 ### <a name="data-operations-example"></a>Voorbeeld van de gegevens-bewerkingen
 
-Voor meer informatie over de werking van beheer en bewerkingen, laten we eens een specifiek voorbeeld. Els is toegewezen de [eigenaar](built-in-roles.md#owner) rol op het abonnementsbereik. Bob is toegewezen de [Gegevensbijdrager voor Blob (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) rol bij een storage-accountbereik. Het volgende diagram toont het volgende voorbeeld.
+Voor meer informatie over de werking van beheer en bewerkingen, laten we eens een specifiek voorbeeld. Els is toegewezen de [eigenaar](built-in-roles.md#owner) rol op het abonnementsbereik. Bob is toegewezen de [Gegevensbijdrager voor Blob](built-in-roles.md#storage-blob-data-contributor) rol bij een storage-accountbereik. Het volgende diagram toont het volgende voorbeeld.
 
 ![Op rollen gebaseerd toegangsbeheer is uitgebreid ter ondersteuning van beheer- en bewerkingen](./media/role-definitions/rbac-management-data.png)
 
-De [eigenaar](built-in-roles.md#owner) rol voor Els en de [Gegevensbijdrager voor Blob (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) rol voor Berend hebben de volgende acties:
+De [eigenaar](built-in-roles.md#owner) rol voor Els en de [Gegevensbijdrager voor Blob](built-in-roles.md#storage-blob-data-contributor) rol voor Berend hebben de volgende acties:
 
 Eigenaar
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Gegevensbijdrager voor opslagblob (preview-versie)
+Bijdrager voor opslagblobgegevens
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Gegevensbijdrager voor opslagblob (preview-versie)
 
 Aangezien Alice een jokerteken heeft (`*`) actie op het bereik van een abonnement, haar machtigingen overnemen omlaag zodat zij alle beheeracties uitvoeren. Els kan lezen, schrijven en verwijderen van containers. Els kan echter niet gegevensbewerkingen uitvoeren zonder extra stappen uit te voeren. Bijvoorbeeld: standaard, Els kan niet lezen de blobs in een container. Als u wilt de blobs lezen, zou Els moeten ophalen van de toegangssleutels voor opslag en deze gebruiken voor toegang tot de blobs.
 
-Berend machtigingen zijn beperkt tot alleen de `Actions` en `DataActions` opgegeven in de [Gegevensbijdrager voor Blob (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Op basis van de rol, kunt Bob uitvoeren beheer- en bewerkingen voor gegevens. Bijvoorbeeld, Bob kan lezen, schrijven en verwijderen van containers in het opgegeven opslagaccount en hij kan ook lezen, schrijven en verwijderen van de blobs.
+Berend machtigingen zijn beperkt tot alleen de `Actions` en `DataActions` opgegeven in de [Gegevensbijdrager voor Blob](built-in-roles.md#storage-blob-data-contributor) rol. Op basis van de rol, kunt Bob uitvoeren beheer- en bewerkingen voor gegevens. Bijvoorbeeld, Bob kan lezen, schrijven en verwijderen van containers in het opgegeven opslagaccount en hij kan ook lezen, schrijven en verwijderen van de blobs.
 
 Zie voor meer informatie over het beheer en beveiliging van gegevens vlak voor de opslag, de [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md).
 

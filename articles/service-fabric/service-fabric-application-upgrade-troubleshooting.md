@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666950"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792447"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Problemen met toepassingsupgrades oplossen
+
 In dit artikel vindt u enkele van de algemene problemen rond een upgrade van een Azure Service Fabric-toepassing en hoe u ze op te lossen.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>De upgrade van een mislukte toepassing oplossen
+
 Wanneer een upgrade is mislukt, de uitvoer van de **Get-ServiceFabricApplicationUpgrade** opdracht bevat aanvullende informatie voor foutopsporing van de fout.  De volgende lijst geeft aan hoe de aanvullende informatie kan worden gebruikt:
 
 1. Identificeer het fouttype.
@@ -34,6 +36,7 @@ Wanneer een upgrade is mislukt, de uitvoer van de **Get-ServiceFabricApplication
 Deze informatie is beschikbaar wanneer de Service Fabric detecteert de fout, ongeacht of u de **FailureAction** is het forestfunctionaliteitsniveau terug te zetten of onderbreken van de upgrade.
 
 ### <a name="identify-the-failure-type"></a>Het fouttype identificeren
+
 In de uitvoer van **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identificeert de tijdstempel (in UTC) waarop een upgrade mislukt is gedetecteerd door de Service Fabric en  **FailureAction** is geactiveerd. **FailureReason** identificeert een van drie op hoog niveau mogelijke oorzaken van de fout:
 
 1. UpgradeDomainTimeout - geeft aan dat een bepaalde upgradedomein duurt te lang om te voltooien en **UpgradeDomainTimeout** is verlopen.
@@ -43,11 +46,14 @@ In de uitvoer van **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc
 Deze vermeldingen alleen weergegeven in de uitvoer wanneer de upgrade mislukt en wordt gestart terug te draaien. Meer informatie wordt weergegeven, afhankelijk van het type van de fout.
 
 ### <a name="investigate-upgrade-timeouts"></a>Upgrade-outs onderzoeken
+
 Time-out voor fouten meestal door problemen met de servicebeschikbaarheid veroorzaakt worden upgrade. De uitvoer die hieronder is karakteristiek upgrades waarbij service-replica's of exemplaren niet worden gestart in de nieuwe codeversie. De **UpgradeDomainProgressAtFailure** veld een momentopname van in behandeling upgrade werk op het moment van de fout wordt vastgelegd.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                : fabric:/DemoApp
 ApplicationTypeName            : DemoAppType
 TargetApplicationTypeVersion   : v2
@@ -90,11 +96,14 @@ De huidige **UpgradeState** is *RollingBackCompleted*, zodat de oorspronkelijke 
 In zeldzame gevallen, het **UpgradeDomainProgressAtFailure** veld mag niet leeg zijn als de upgrade van de algemene time-out optreedt, net zoals alle werk voor het huidige upgradedomein is voltooid door het systeem. Als dit gebeurt, verhoog de **UpgradeTimeout** en **UpgradeDomainTimeout** parameterwaarden upgraden en probeer de upgrade.
 
 ### <a name="investigate-health-check-failures"></a>Health check-storingen onderzoeken
+
 Controle-statusfouten kunnen worden geactiveerd door verschillende problemen die kunnen ontstaan nadat alle knooppunten in een upgradedomein upgraden en alle controles van de veiligheid te geven. De uitvoer volgen dit lid is van een upgrade mislukt vanwege een mislukte statuscontroles typische. De **UnhealthyEvaluations** veld bevat een momentopname van statuscontroles die niet op het moment van de upgrade op basis van de opgegeven [statusbeleid](service-fabric-health-introduction.md).
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                         : fabric:/DemoApp
 ApplicationTypeName                     : DemoAppType
 TargetApplicationTypeVersion            : v4
@@ -149,6 +158,7 @@ Controle-statusfouten onderzoeken eerst is vereist voor een goed begrip van het 
 De upgrade is onderbroken wanneer mislukken door op te geven een **FailureAction** van de handleiding bij het starten van de upgrade. In deze modus kan we voor het onderzoeken van het live systeem in de status mislukt voordat u verdere actie te ondernemen.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Herstellen na een upgrade van een onderbroken
+
 Met een terugdraaiactie **FailureAction**, er is geen herstel nodig omdat de upgrade automatisch teruggedraaid in bij mislukken. Met een handmatige **FailureAction**, er zijn verschillende opties voor herstel:
 
 1.  trigger terugdraaien
@@ -161,9 +171,11 @@ De **hervatten ServiceFabricApplicationUpgrade** opdracht kan worden gebruikt om
 
 De **Update ServiceFabricApplicationUpgrade** opdracht kan worden gebruikt voor het hervatten van de bewaakte upgrade met beide veiligheid en statuscontroles die worden uitgevoerd.
 
+```powershell
+Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 ```
-PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
+```Output
 UpgradeMode                             : Monitored
 ForceRestart                            :
 UpgradeReplicaSetCheckTimeout           :
@@ -179,14 +191,14 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-
-PS D:\temp>
 ```
 
 De upgrade blijft in het upgradedomein waar deze het laatst werd onderbroken en gebruik dezelfde parameters en statusbeleid als vóór upgrade. Indien nodig, kan een van de parameters voor het bijwerken en statusbeleid wordt weergegeven in de voorgaande uitvoer worden gewijzigd in dezelfde opdracht als de upgrade wordt gehaald. In dit voorbeeld is de upgrade in de bewaakte modus, met de parameters en het statusbeleid ongewijzigd hervat.
 
 ## <a name="further-troubleshooting"></a>Meer informatie
+
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric is de opgegeven statusbeleid niet volgen
+
 Mogelijke oorzaak 1:
 
 Service Fabric zet alle percentages in het werkelijke aantal entiteiten (bijvoorbeeld: replica's, partities en -services) voor de evaluatie van de status en altijd rondt af naar boven op hele entiteiten. Bijvoorbeeld, als de maximale *MaxPercentUnhealthyReplicasPerPartition* 21% is en er zijn vijf replica's, en vervolgens de Service Fabric kunt maximaal twee replica's beschadigd (dat wil zeggen,`Math.Ceiling (5*0.21)`). Statusbeleid moeten dus dienovereenkomstig worden ingesteld.
@@ -198,12 +210,15 @@ Statusbeleid worden opgegeven in termen van percentage van totale services en ni
 Tijdens de upgrade, kan D worden echter in orde terwijl C slecht. De upgrade kan desondanks slagen omdat alleen 25% van de services niet in orde zijn. Echter kan leiden tot onverwachte fouten als gevolg van C wordt onverwacht niet in orde in plaats van D. In dit geval D moet worden gemodelleerd als een andere servicetype in A, B en C. Omdat het statusbeleid per servicetype zijn opgegeven, kunnen verschillende niet in orde percentage drempelwaarden naar verschillende services worden toegepast. 
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Kan ik een statusbeleid voor upgrade van de toepassing niet hebt opgegeven, maar de upgrade nog steeds mislukt voor sommige time-outs die ik heb nooit opgegeven
+
 Wanneer statusbeleid niet zijn opgegeven voor de aanvraag om een upgrade, ze zijn afkomstig uit de *ApplicationManifest.xml* van de huidige toepassingsversie. Bijvoorbeeld, als u de X-toepassing van versie 1.0 naar versie 2.0, statusbeleid toepassing opgegeven bijwerkt voor in versie 1.0 worden gebruikt. Als een andere health-beleid moet worden gebruikt voor de upgrade, klikt u vervolgens moet het beleid worden opgegeven als onderdeel van de toepassing upgrade API-aanroep. Het beleid dat is opgegeven als onderdeel van de API-aanroep zijn alleen van toepassing tijdens de upgrade. Nadat de upgrade voltooid is, het beleid moet worden opgegeven in de *ApplicationManifest.xml* worden gebruikt.
 
 ### <a name="incorrect-time-outs-are-specified"></a>Onjuiste time-outs zijn opgegeven
+
 U zich mogelijk afgevraagd over wat er gebeurt wanneer time-outs inconsistent worden ingesteld. Bijvoorbeeld, u mogelijk een *UpgradeTimeout* dat kleiner is dan de *UpgradeDomainTimeout*. Het antwoord is dat er een fout wordt geretourneerd. Er worden fouten geretourneerd als de *UpgradeDomainTimeout* kleiner is dan de som van *HealthCheckWaitDuration* en *HealthCheckRetryTimeout*, of als  *UpgradeDomainTimeout* kleiner is dan de som van *HealthCheckWaitDuration* en *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>Mijn upgrades duurt lang
+
 De tijd voor een upgrade te voltooien, is afhankelijk van de statuscontroles en time-outs die zijn opgegeven. Statuscontroles en time-outs afhankelijk van hoe lang het duurt om te kopiëren, distribueren en regulering van de toepassing. Wordt te agressief met time-outs kan het zijn dat meer mislukte upgrades, zodat u kunt het beste beginnen voorzichtig met langer time-outs.
 
 Hier volgt een snel refresher op hoe de time-outs met de upgrade tijden communiceren:
@@ -215,6 +230,7 @@ Upgrade mislukt is niet mogelijk sneller dan *HealthCheckWaitDuration* + *Health
 De tijd voor de upgrade voor een upgradedomein wordt beperkt door *UpgradeDomainTimeout*.  Als *HealthCheckRetryTimeout* en *HealthCheckStableDuration* beide nul zijn en de status van de toepassing blijft heen en weer schakelen en vervolgens de upgrade uiteindelijk een optreedt op time-out*UpgradeDomainTimeout*. *UpgradeDomainTimeout* begint tellen eenmaal omlaag van de upgrade voor het huidige upgradedomein begint.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Een upgrade van uw toepassing met behulp van Visual Studio](service-fabric-application-upgrade-tutorial.md) begeleidt u bij de upgrade van een toepassing met Visual Studio.
 
 [Een upgrade van uw toepassing met behulp van Powershell](service-fabric-application-upgrade-tutorial-powershell.md) begeleidt u bij de upgrade van een toepassing met behulp van PowerShell.

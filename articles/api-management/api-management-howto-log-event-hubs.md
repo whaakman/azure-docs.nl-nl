@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428479"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793557"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management
 Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Eventhubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra de gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met elke gewenste realtime analyseprovider of batching/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
@@ -40,7 +40,7 @@ Als u wilt een logger maken, moet u een HTTP PUT-aanvraag van de volgende URL-sj
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Vervang `{your service}` met de naam van uw API Management service-exemplaar.
-* Vervang `{new logger name}` met de gewenste naam voor uw nieuwe logger. U wilt verwijzen naar deze naam wanneer u configureert de [logboek naar eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
+* Vervang `{new logger name}` met de gewenste naam voor uw nieuwe logger. U wilt verwijzen naar deze naam wanneer u configureert de [logboek naar eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) beleid
 
 Voeg de volgende headers toe aan de aanvraag:
 

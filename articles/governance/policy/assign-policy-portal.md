@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342708"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803983"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Een beleidstoewijzing maken om niet-conforme resources te identificeren
 
@@ -31,15 +31,15 @@ In deze snelstart maakt u een beleidstoewijzing en wijst u de beleidsdefinitie *
 
 1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
 
-   ![Zoeken naar beleid](./media/assign-policy-portal/search-policy.png)
+   ![Zoeken naar beleid in alle Services](./media/assign-policy-portal/search-policy.png)
 
 1. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina. Een toewijzing is een beleid dat is toegewezen om te worden toegepast binnen een bepaald bereik.
 
-   ![Toewijzingen selecteren](./media/assign-policy-portal/select-assignments.png)
+   ![Toewijzingen pagina overzichtspagina voor beleid selecteren](./media/assign-policy-portal/select-assignments.png)
 
 1. Selecteer **Beleid toewijzen** boven in de pagina **Beleidstoewijzingen**.
 
-   ![Een beleidsdefinitie toewijzen](./media/assign-policy-portal/select-assign-policy.png)
+   ![Een beleidsdefinitie op de pagina Toewijzingen toewijzen](./media/assign-policy-portal/select-assign-policy.png)
 
 1. Selecteer op de pagina **Beleid toewijzen** het **bereik** door te klikken op het beletselteken en een beheergroep of abonnement te selecteren. U kunt ook een resourcegroep selecteren. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen.  Klik vervolgens op **Selecteren** aan de onderkant van de pagina **Bereik**.
 
@@ -71,7 +71,7 @@ U bent er nu klaar voor om niet-compatibele resources te identificeren om inzich
 
 Selecteer **Naleving** links op de pagina. Zoek dan de beleidstoewijzing **Virtuele machines zonder beheerde schijven controleren** die u hebt gemaakt.
 
-![Beleidsnaleving](./media/assign-policy-portal/policy-compliance.png)
+![Details van de naleving op de pagina beleidsnaleving](./media/assign-policy-portal/policy-compliance.png)
 
 Als er bestaande resources zijn die niet conform deze nieuwe toewijzing zijn, worden deze weergegeven bij **Niet-conforme resources**.
 
@@ -94,7 +94,7 @@ Als u de gemaakte toewijzing wilt verwijderen, volgt u deze stappen:
 
 1. Klik met de rechtermuisknop op de beleidstoewijzing **Controleren van virtuele machines die geen beheerde schijven gebruiken** en selecteer **Toewijzing verwijderen**
 
-   ![Een toewijzing verwijderen](./media/assign-policy-portal/delete-assignment.png)
+   ![Een toewijzing van de naleving pagina verwijderen](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

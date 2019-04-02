@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403405"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793812"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager verbinden met Azure Monitor
 
@@ -41,6 +41,7 @@ Het volgende diagram toont de verbinding tussen de beheerservers en agents in ee
 Als uw IT-beveiligingsbeleid niet computers in uw netwerk verbinding maken met Internet toestaat, kunnen servers voor het beheer worden geconfigureerd voor het verbinding maken met de Log Analytics-gateway naar configuratie-informatie ontvangen en verzenden van verzamelde gegevens, afhankelijk van de oplossingen ingeschakeld. Zie voor meer informatie en instructies over het configureren van uw Operations Manager-beheergroep om te communiceren via een Log Analytics-gateway naar Azure Monitor, [computers verbinden met Azure Monitor met behulp van de Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Vereisten 
+
 Voordat u begint, raadpleegt u de volgende vereisten.
 
 * Azure Monitor biedt alleen ondersteuning voor System Center Operations Manager 2016 of hoger, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger. Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
@@ -60,6 +61,7 @@ Voordat u begint, raadpleegt u de volgende vereisten.
 >Dit management pack-update is niet van toepassing op System Center Operations Manager 1807, dit is een update-release van versie 1801 en niet een volledige build van het product.   
 
 ### <a name="network"></a>Netwerk
+
 Gegevens van de onderstaande lijst de vereist zijn voor de Operations Manager-agent, beheerservers en Operations-console om te communiceren met Azure Monitor-proxy en firewall-configuratie-informatie. Verkeer van elk onderdeel is het uitgaande verkeer van uw netwerk naar Azure Monitor.   
 
 |Resource | Poortnummer| HTTPS-controle overslaan|  
@@ -87,9 +89,11 @@ Gegevens van de onderstaande lijst de vereist zijn voor de Operations Manager-ag
 |docs.loganalytics.io| 80 en 443||  
 
 ### <a name="tls-12-protocol"></a>TLS 1.2-protocol
+
 Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Azure Monitor, sterk raden we u aan de groep agent en -beheerserver te gebruiken ten minste configureren Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**. Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Operations Manager verbinden met Azure Monitor
+
 Voer de volgende stappen uit om uw Operations Manager-beheergroep te verbinden met een van uw Log Analytics-werkruimten.
 
 De optie om op te geven van de configuratie van de proxy voor de beheergroep is tijdens de eerste registratie van uw Operations Manager-beheergroep met Log Analytics-werkruimte niet beschikbaar in de Operations-console.  Deze optie is pas beschikbaar als de beheergroep bij de service is geregistreerd.  Om dit te omzeilen, moet u bijwerken van de systeemconfiguratie van de proxyserver met behulp van Netsh op het systeem het uitvoeren van de Operations-console van het configureren van integratie en alle beheerservers in de beheergroep.  
@@ -121,6 +125,7 @@ Na het voltooien van de volgende stappen uit om te integreren met Azure Monitor 
 1. Op de **Wizard Operations Management Suite voorbereiden: Voltooien** pagina, klikt u op **sluiten**.
 
 ### <a name="add-agent-managed-computers"></a>Door een agent beheerde computers toevoegen
+
 Na het configureren van integratie met uw Log Analytics-werkruimte, wordt alleen een verbinding tot stand met de service, er worden geen gegevens worden verzameld van de agents die rapporteren aan de beheergroep. Dit zal niet worden uitgevoerd tot nadat u hebt geconfigureerd welke specifieke door agents beheerde computers logboekgegevens verzamelen voor Azure Monitor. U kunt de computerobjecten afzonderlijk selecteren of een groep met Windows-computerobjecten selecteren. U kunt geen groep met objecten van een andere klasse selecteren, zoals logische schijven of SQL-databases.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
@@ -131,6 +136,7 @@ Na het configureren van integratie met uw Log Analytics-werkruimte, wordt alleen
 U kunt de computers en groepen die zijn geconfigureerd voor het verzamelen van gegevens bekijken in het knooppunt Beheerde computers onder Operations Management Suite in de werkruimte **Beheer** van de Operations-console. Hier kunt u zo nodig computers en groepen toevoegen of verwijderen.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Proxy-instellingen configureren in de Operations-console
+
 Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep en de Azure Monitor is. Deze instellingen worden centraal beheerd uit de beheergroep en gedistribueerd naar door agent beheerde systemen die zijn opgenomen in het bereik voor het verzamelen van gegevens aan het logboek voor Azure Monitor.  Dit is nuttig voor oplossingen die de beheerserver overslaan en gegevens rechtstreeks naar de service verzenden.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
@@ -156,6 +162,7 @@ Nadat de verbinding is gemaakt en u configureren welke agents wordt verzamelen e
 * Agents en groepen die u hebt geselecteerd voor het verzamelen van gegevens in de beheergroep, worden toegevoegd aan de **Microsoft System Center Advisor Monitoring Server-groep**.
 
 ## <a name="management-pack-updates"></a>Management pack-updates
+
 Nadat de configuratie is voltooid, wordt de Operations Manager-beheergroep een verbinding met Azure Monitor. De beheerserver wordt gesynchroniseerd met de webservice en ontvangt informatie over de bijgewerkte configuratie in de vorm van management packs voor de oplossingen die u hebt ingeschakeld en die zijn geïntegreerd met Operations Manager. Operations Manager wordt gecontroleerd op updates van deze management packs en automatisch downloaden en importeert deze als ze beschikbaar. Dit gedrag wordt voornamelijk bepaald door twee regels:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** -Updates van de basis van Azure Monitor management packs. Deze regel wordt standaard elke 12 uur uitgevoerd.
@@ -166,6 +173,7 @@ U kunt deze instellingen vervangen twee regels te voorkomen dat automatisch down
 Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement voor het beheren van management Packs in uw productiebeheergroep, kunt u uitschakelen van de regels en ze inschakelen tijdens bepaalde uren waarin updates mogen. Als u een ontwikkelings- of QA-beheergroep in uw omgeving hebt en deze met internet verbonden is, kunt u die beheergroep configureren met een Log Analytics-werkruimte ter ondersteuning van dit scenario. Hiermee kunt u bekijken en evalueren van de iteratieve releases van de Azure Monitor management packs voordat ze in uw productiebeheergroep zijn vrijgegeven.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Een Operations Manager-groep overschakelen naar een nieuwe Log Analytics-werkruimte
+
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics** en maak vervolgens een werkruimte.  
 1. Open de Operations Manager-console met een account dat lid is van de rol Administrators in Operations Manager en selecteer de werkruimte **Beheer**.
@@ -179,9 +187,11 @@ Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement 
    > 
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Valideren van Operations Manager-integratie met Azure Monitor
+
 Er zijn een aantal verschillende manieren kunt u controleren dat Azure Monitor aan Operations Manager-integratie voltooid is.
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Integratie controleren vanuit Azure Portal
+
 1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer.
 1. Selecteer de toepasselijke werkruimte in de lijst met Log Analytics-werkruimten.  
 1. Selecteer achtereenvolgens **Geavanceerde instellingen**, **Verbonden bronnen** en **System Center**. 
@@ -190,6 +200,7 @@ Er zijn een aantal verschillende manieren kunt u controleren dat Azure Monitor a
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Integratie controleren vanuit de Operations-console
+
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 1. Selecteer **Management Packs** en typ in het tekstvak **Look for:** (Zoeken naar) **Advisor** of **Intelligence**.
 1. Voor elke oplossing die u hebt ingeschakeld, ziet u een bijbehorend management pack in de lijst met zoekresultaten.  Als u bijvoorbeeld de oplossing Waarschuwingenbeheer hebt ingeschakeld, wordt het management pack Microsoft System Center Advisor Waarschuwingenbeheer weergegeven in de lijst.
@@ -198,6 +209,7 @@ Er zijn een aantal verschillende manieren kunt u controleren dat Azure Monitor a
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Integratie met Azure Monitor verwijderen
+
 Als de integratie tussen uw Operations Manager-beheergroep en de Log Analytics-werkruimte niet meer nodig is, moet u verschillende stappen uitvoeren om de verbinding en de configuratie in de beheergroep correct te verwijderen. De volgende procedure moet u uw Log Analytics-werkruimte bijwerken door te verwijderen van de referentie van uw beheergroep, verwijderen van de Azure Monitor-connectors en verwijder vervolgens management packs voor integratie met de service ondersteunt.  
 
 Management packs voor de oplossingen die u die kunnen worden geïntegreerd met Operations Manager hebt ingeschakeld en de management packs die vereist zijn ter ondersteuning van integratie met Azure Monitor kunnen niet eenvoudig worden verwijderd uit de beheergroep. Dit is omdat sommige van de Azure Monitor management packs afhankelijk van andere gerelateerde management packs zijn. Download het script [remove a management pack with dependencies](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) (een management pack met afhankelijkheden verwijderen) van TechNet Script Center als u management packs die afhankelijk zijn van andere management packs wilt verwijderen.  
@@ -244,7 +256,7 @@ Als u de twee connectors Microsoft.SystemCenter.Advisor.DataConnector en Advisor
 > 
 > 
 
-```
+```powershell
     param(
     [String] $connectorName,
     [String] $msName="localhost"
@@ -336,6 +348,5 @@ In de toekomst als u van plan uw beheergroep die u wilt een Log Analytics-werkru
 * Van het meest recente updatepakket dat op de beheergroep is toegepast. Voor Operations Manager 2012 is de bronmap ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` en voor 2012 R2 bevindt deze zich in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Als u wilt toevoegen van functionaliteit en het verzamelen van gegevens, Zie [toevoegen Azure Monitor-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md).
-
-

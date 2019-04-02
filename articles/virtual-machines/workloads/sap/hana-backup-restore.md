@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 69417551c1c8d410f75e74a8164c8b8a223ab835
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541227"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805326"
 ---
 # <a name="backup-and-restore"></a>Back-ups en herstellen
 
@@ -58,7 +58,7 @@ De opslaginfrastructuur onderliggende SAP HANA op Azure (grote instanties) biedt
 - Bij het activeren van een momentopname over /hana/data en /hana/shared (inclusief /usr/sap) initieert volumes, de momentopnametechnologie voor van een SAP HANA momentopname voordat deze wordt uitgevoerd met de storage-momentopname. Deze SAP HANA-momentopname is het setup-punt voor het uiteindelijke log herstelbewerkingen kunnen na het herstel van de momentopname van de opslag. Voor de HANA-momentopname om succesvol te zijn, moet u een actief exemplaar van HANA.  Storage-momentopname wordt in HSR scenario wordt niet ondersteund op huidige secundaire knooppunt waar de HANA-momentopname kan niet worden uitgevoerd.
 - Nadat de momentopname van de opslag is uitgevoerd, wordt de SAP HANA-momentopname verwijderd.
 - Transactielogboekback-ups regelmatig worden genomen en worden opgeslagen in het volume /hana/logbackups of in Azure. U kunt het /hana/logbackups volume met de transactielogboekback-ups als u wilt maken van een momentopname van een afzonderlijk activeren. In dat geval hoeft u niet voor het uitvoeren van een momentopname van een HANA.
-- Als u een database naar een bepaald punt in tijd herstellen moet, aanvragen die Microsoft Azure-ondersteuning (voor een storing in de productie) of SAP HANA op Azure Service Management terugzetten van een momentopname van een bepaalde opslag. Een voorbeeld is een geplande herstel van een sandbox-systeem in de oorspronkelijke staat.
+- Als u een database naar een bepaald punt in tijd herstellen moet, aanvragen die Microsoft Azure-ondersteuning (voor een storing in de productie) of SAP HANA op Azure herstellen naar een bepaalde opslag-momentopname. Een voorbeeld is een geplande herstel van een sandbox-systeem in de oorspronkelijke staat.
 - De SAP HANA-momentopname die opgenomen in de storage-momentopname is een offset punt voor het toepassen van transactielogboekback-ups die zijn uitgevoerd en opgeslagen nadat de storage-momentopname is gemaakt.
 - Deze transactielogboekback-ups gaat naar de database herstellen naar een bepaald punt in tijd.
 
@@ -167,15 +167,16 @@ MACs hmac-sha1
 
 Voor toegang tot de interfaces van de momentopname van opslag van uw tenant HANA grote instantie, moet u een procedure aanmelden via een openbare sleutel vast. Maak op de eerste SAP HANA op Azure (grote instanties)-server in uw tenant, een openbare sleutel moet worden gebruikt voor toegang tot de opslaginfrastructuur. De openbare sleutel zorgt ervoor dat een wachtwoord niet vereist is voor aanmelding bij de storage-momentopname-interfaces. Het maken van een openbare sleutel betekent ook dat u niet wilt wachtwoordreferenties onderhouden. Voer de volgende opdracht uit om de openbare sleutel te genereren in Linux op door de SAP HANA grote instanties-server:
 ```
-  ssh-keygen –t dsa –b 1024
+  ssh-keygen -t rsa –b 5120 -C ""
 ```
-De nieuwe locatie is **_/root/.ssh/id\_dsa.pub**. Voer een wachtwoord niet, anders moet u het wachtwoord invoeren telkens wanneer die u zich aanmeldt. Selecteer in plaats daarvan **Enter** twee keer te verwijderen van de vereiste "wachtwoord" voor het aanmelden.
+
+De nieuwe locatie is **_/root/.ssh/id\_rsa.pub**. Voer een wachtwoord niet, anders moet u het wachtwoord invoeren telkens wanneer die u zich aanmeldt. Selecteer in plaats daarvan **Enter** twee keer te verwijderen van de vereiste "wachtwoord" voor het aanmelden.
 
 Zorg ervoor dat de openbare sleutel is gecorrigeerd zoals verwacht door het wijzigen van mappen die moeten worden **/root/.ssh/** en vervolgens uitvoeren van de `ls` opdracht. Als de sleutel aanwezig is, kunt u deze kunt kopiëren met de volgende opdracht:
 
 ![De openbare sleutel wordt door het uitvoeren van deze opdracht gekopieerd](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-Op dit moment, neem contact op met SAP HANA op Azure Service Management en hen voorzien van de openbare sleutel. De medewerker van de service maakt gebruik van de openbare sleutel registreren in de onderliggende opslaginfrastructuur die voor uw tenant HANA grote instantie is gehaald.
+Op dit moment, neem contact op met SAP HANA op Azure en hen voorzien van de openbare sleutel. De medewerker van de service maakt gebruik van de openbare sleutel registreren in de onderliggende opslaginfrastructuur die voor uw tenant HANA grote instantie is gehaald.
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Stap 4: Een SAP HANA-gebruikersaccount maken
 
@@ -262,7 +263,7 @@ Het doel van de andere scripts en -bestanden is als volgt:
 - **removeTestStorageSnapshot.pl**: Met dit script wordt verwijderd van de test-momentopname gemaakt met het script **testStorageSnapshotConnection.pl**.
 - **azure\_hana\_dr\_failover.pl**: Met dit script initieert een DR-failover in een andere regio. Het script moet worden uitgevoerd op de eenheid HANA grote instantie in de DR-regio, of op de eenheid die u wilt een failover uitvoeren naar. Met dit script storage-replicatie vanaf de primaire naar de secundaire zijde stopt, worden de meest recente momentopname op de DR-volumes hersteld en biedt de quorumbron: voor het herstel na Noodgevallen volumes.
 - **azure\_hana\_test\_dr\_failover.pl**: Met dit script voert een testfailover uit in de DR-site. In tegenstelling tot het script azure_hana_dr_failover.pl onderbroken deze tot uitvoering van de storage-replicatie van primaire naar secundaire niet. In plaats daarvan klonen van de volumes gerepliceerde opslag worden gemaakt op de DR-zijde en de Stel de volgende parameter van de gekloonde volumes worden geleverd. 
-- **HANABackupCustomerDetails.txt**: Dit bestand is een aanpasbare configuratiebestand dat u wijzigen wilt om aan te passen aan uw SAP HANA-configuratie. De *HANABackupCustomerDetails.txt* bestand is het besturingselement en de configuratie-bestand voor het script dat wordt uitgevoerd de storage-momentopnamen. Het bestand voor uw toepassing en de instellingen aanpassen. U ontvangt de **back-up Opslagnaam** en de **opslag IP-adres** van SAP HANA op Azure Service Management bij het implementeren van uw instanties. U kunt de volgorde hebben, niet wijzigen, bestellen of afstand van een van de variabelen in dit bestand. Als u dit doet, worden de scripts niet correct uitgevoerd. Bovendien ontvangt u het IP-adres van het knooppunt omhoog schalen of het hoofdknooppunt (als scale-out) van SAP HANA op Azure Service Management. U weet ook het nummer van HANA-instantie die u tijdens de installatie van SAP HANA. Nu moet u een back-naam toevoegen aan het configuratiebestand.
+- **HANABackupCustomerDetails.txt**: Dit bestand is een aanpasbare configuratiebestand dat u wijzigen wilt om aan te passen aan uw SAP HANA-configuratie. De *HANABackupCustomerDetails.txt* bestand is het besturingselement en de configuratie-bestand voor het script dat wordt uitgevoerd de storage-momentopnamen. Het bestand voor uw toepassing en de instellingen aanpassen. U ontvangt de **back-up Opslagnaam** en de **opslag IP-adres** van SAP HANA op Azure wanneer uw instanties implementeert. U kunt de volgorde hebben, niet wijzigen, bestellen of afstand van een van de variabelen in dit bestand. Als u dit doet, worden de scripts niet correct uitgevoerd. Bovendien ontvangt u het IP-adres van het knooppunt omhoog schalen of het hoofdknooppunt (als scale-out) van SAP HANA op Azure. U weet ook het nummer van HANA-instantie die u tijdens de installatie van SAP HANA. Nu moet u een back-naam toevoegen aan het configuratiebestand.
 
 Voor een scale-up- of scale-out-implementatie, zou het configuratiebestand eruit het volgende voorbeeld nadat u de naam van de server van de eenheid HANA grote instantie en het IP-adres van de server hebt ingevuld. Vul alle vereiste velden voor elke SAP HANA-SID die u wilt back-up of herstellen.
 
@@ -628,9 +629,9 @@ Voor de momentopname-typen **hana** en **logboeken**, u hebt toegang tot de mome
 
 In een scenario voor productie-omlaag, kan het proces van het herstellen van een momentopname van de opslag worden gestart als een klant-incident met ondersteuning voor Microsoft Azure. Het is een paar met hoge urgentie als gegevens in een productiesysteem is verwijderd, en de enige manier om op te halen om de productiedatabase te herstellen.
 
-In een andere situatie een point-in-time-herstel mogelijk met lage urgentie en geplande dagen van tevoren. U kunt dit herstel met SAP HANA op Azure Service Management plannen in plaats van de markering van een hoge prioriteit verhogen. U kan bijvoorbeeld worden plan te upgraden van de SAP-software door het toepassen van een nieuwe uitbreiding-pakket. Vervolgens moet u terugkeren naar een momentopname die de status voor de uitbreiding pakketupgrade vertegenwoordigt.
+In een andere situatie een point-in-time-herstel mogelijk met lage urgentie en geplande dagen van tevoren. U kunt dit herstel met SAP HANA op Azure plannen in plaats van de markering van een hoge prioriteit verhogen. U kan bijvoorbeeld worden plan te upgraden van de SAP-software door het toepassen van een nieuwe uitbreiding-pakket. Vervolgens moet u terugkeren naar een momentopname die de status voor de uitbreiding pakketupgrade vertegenwoordigt.
 
-Voordat u de aanvraag verzendt, moet u om voor te bereiden. De SAP HANA op Azure Service Management-team kan vervolgens de aanvragen worden verwerkt en de herstelde volumes bevatten. Daarna herstelt u de HANA-database op basis van de momentopnamen. 
+Voordat u de aanvraag verzendt, moet u om voor te bereiden. De SAP HANA op Azure-team kan vervolgens de aanvragen worden verwerkt en de herstelde volumes bevatten. Daarna herstelt u de HANA-database op basis van de momentopnamen. 
 
 Het volgende laat zien hoe u om voor te bereiden voor de aanvraag:
 
@@ -648,9 +649,9 @@ Het volgende laat zien hoe u om voor te bereiden voor de aanvraag:
 
 1. Een Azure-ondersteuningsaanvraag openen en instructies over het terugzetten van een momentopname van een specifieke bevatten.
 
-   - Tijdens het terugzetten: SAP HANA op Azure Service Management mogelijk gevraagd om bij te wonen een telefonische vergadering om ervoor te zorgen coördinatie, verificatie en bevestiging dat de juiste opslag-momentopname is teruggezet. 
+   - Tijdens het terugzetten: SAP HANA op Azure mogelijk gevraagd om bij te wonen een telefonische vergadering om ervoor te zorgen coördinatie, verificatie en bevestiging dat de juiste opslag-momentopname is teruggezet. 
 
-   - Na het herstel: SAP HANA op Azure Service Management waarschuwt u als de opslag-momentopname is teruggezet.
+   - Na het herstel: SAP HANA op Azure-Service waarschuwt u als de opslag-momentopname is teruggezet.
 
 1. Nadat het herstelproces voltooid is, koppelen de gegevensvolumes.
 
@@ -752,5 +753,5 @@ HANA snapshot deletion successfully.
 U kunt in dit voorbeeld zien hoe het script registreert voor het maken van de HANA-momentopname. Dit proces wordt in het geval van scale-out wordt gestart op het hoofdknooppunt. Het hoofdknooppunt initieert de synchrone maken van de SAP HANA-momentopnamen op elk van de worker-knooppunten. De momentopname van de opslag wordt vervolgens gemaakt. Na de voltooiing van uitvoering van de storage-momentopnamen, is de HANA-momentopname verwijderd. Het verwijderen van de HANA-momentopname wordt gestart vanuit het hoofdknooppunt.
 
 
-**Volgende stappen**
-- Raadpleeg [principes voor herstel na noodgevallen en voorbereiding](hana-concept-preparation.md).
+## <a name="next-steps"></a>Volgende stappen
+- Zie [principes voor herstel na noodgevallen en voorbereiding](hana-concept-preparation.md).

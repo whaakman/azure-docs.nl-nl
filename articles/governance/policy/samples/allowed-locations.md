@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c55fa3a1e4126e651f846d2980aee5cab54cff53
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0dc93b171fb610d901d2f13f3521b87aa91b1fd6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550629"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804714"
 ---
 # <a name="sample---allowed-region-locations"></a>Voorbeeld - Toegestane regiolocaties
 
@@ -53,7 +53,7 @@ De JSON definieert de beleidsparameters, zoals gebruikt door Azure CLI en Azure 
 
 ## <a name="parameters"></a>Parameters
 
-|Name |Type |Veld |Description |
+|Name |Type |Veld |Beschrijving |
 |---|---|---|---|
 |listOfAllowedLocations |Matrix |locaties |De lijst met toegestane locaties|
 
@@ -75,8 +75,8 @@ In deze voorbeeldparameter zijn alleen de locaties _eastus2_ of _westus_ toegest
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[![Implementeren in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
-[![Implementeren in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![De voorbeeld-beleid implementeren naar Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![de voorbeeld-beleid implementeren naar Azure (overheid)](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

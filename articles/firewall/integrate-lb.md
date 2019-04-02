@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321769"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805241"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Firewall van Azure integreren met Azure Standard Load Balancer
 
-U kunt een Azure-Firewall integreren in een virtueel netwerk met een Azure Standard Load Balancer (openbare of interne). U moet echter rekening houden met een probleem van asymmetrische routering die functionaliteit met de openbare load balancer-scenario kan breken.
+U kunt een Azure-Firewall integreren in een virtueel netwerk met een Azure Standard Load Balancer (openbare of interne). 
+
+Het ontwerp van voorkeur is een interne load balancer integreren met uw firewall van Azure, omdat dit een ontwerp voor veel eenvoudiger. U kunt een openbare load balancer gebruiken als u nog niet geïmplementeerd hebt en u wilt bewaren en op locatie. U moet echter rekening houden met een probleem van asymmetrische routering die functionaliteit met de openbare load balancer-scenario kan breken.
 
 Zie voor meer informatie over Azure Load Balancer [wat is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ Wanneer u een Azure-Firewall in een subnet implementeert, is er één stap het m
 
 Wanneer u de firewall in uw load balancer-scenario introduceren, wilt u uw internetverkeer naar geleverd via het openbare IP-adres van uw firewall. Van daaruit geldt de firewall de firewall-regels en de NAT's de pakketten voor openbare IP-adres van de load balancer. Dit is waar het probleem zich voordoet. Pakketten op het openbare IP-adres van de firewall aankomt, maar gaat u terug naar de firewall via de privé IP-adres (met behulp van de standaardroute).
 Om te voorkomen dat dit probleem, maakt u een extra hostroute voor openbare IP-adres van de firewall. Pakketten die naar het openbare IP-adres van de firewall worden gerouteerd via Internet. Hiermee voorkomt u de standaard-route naar de privé IP-adres van de firewall geleid.
+
+![Asymmetrisch routeren](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Bijvoorbeeld, zijn de volgende routes voor een firewall op openbare IP-adres 13.86.122.41 en privé-IP-adres 10.3.1.4.
 

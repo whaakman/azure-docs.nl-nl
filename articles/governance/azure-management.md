@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338067"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804136"
 ---
-# <a name="management-in-azure"></a>Beheer in Azure
+# <a name="overview-of-management-services-in-azure"></a>Overzicht van de Management-services in Azure
 
 Governance in Azure is slechts één aspect van Azure Management. In dit artikel bevat informatie over de verschillende beheergebieden voor het implementeren en beheren van uw resources in Azure.
 
@@ -22,7 +22,7 @@ Beheer refereert aan de taken en processen die nodig zijn om uw zakelijke toepas
 
 In het volgende diagram ziet u de verschillende beheergebieden die nodig zijn om een toepassing of resource te onderhouden. Deze reeks gebieden kunnen worden beschouwd als een levenscyclus. Elk gebied is vereist in continu achter elkaar gedurende de levensduur van een resource. De levenscyclus van deze resource begint met de initiële implementatie via vervolgt en ten slotte bij buiten gebruik gesteld.
 
-![Management disciplines](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplines van beheer in Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Er is geen enkele Azure-service voldoet volledig aan de vereisten van een bepaald gebied. In plaats daarvan wordt elk gerealiseerd door verschillende services samen te werken. Sommige services, zoals Application Insights, bieden gerichte bewakingsfunctionaliteit voor webtoepassingen. Anderen, opslaan zoals Azure Monitor-Logboeken, van beheergegevens voor andere services. Deze functie kunt u gegevens van verschillende typen die zijn verzameld door verschillende services kunt analyseren.
 

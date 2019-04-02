@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447740"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793626"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Uw API's met Azure API Management, Eventhubs en Moesif controleren
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
@@ -47,7 +47,7 @@ Een Event Hub accepteert gebeurtenisgegevens als een eenvoudige tekenreeks. De i
 
 Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](https://tools.ietf.org/html/rfc7230). Dit mediatype exact dezelfde indeling die wordt gebruikt voor het verzenden van daadwerkelijk HTTP-berichten via de kabel gebruikt, maar het hele bericht te plaatsen in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan alleen we de hoofdtekst als onze bericht gebruiken om te verzenden naar Event Hubs. Eenvoudig, is er een parser die deel uitmaakt van [2.2-Client voor Microsoft ASP.NET Web API](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar de native `HttpRequestMessage` en `HttpResponseMessage` objecten.
 
-Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier is het beleid, die vervolgens een HTTP-aanvraagbericht naar Azure Event Hubs doorsturen.
+Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](/azure/api-management/api-management-policy-expressions) in Azure API Management. Hier is het beleid, die vervolgens een HTTP-aanvraagbericht naar Azure Event Hubs doorsturen.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -315,4 +315,4 @@ Azure API Management-service biedt een ideale locatie voor het vastleggen van de
 * Meer informatie over de integratie van API Management en Event Hubs
   * [Hoe u gebeurtenissen registreren bij Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Verwijzing naar de Logger-entiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [documentatie voor log Event hub beleid](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [documentatie voor log Event hub beleid](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

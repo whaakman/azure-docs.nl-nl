@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 827f8eb7491c6f64b275dee83345c29d51c0933d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d56e2da00e60b9daa44e040db6796215dd03436b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442478"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793081"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Over het beheren van gebruikersaccounts in Azure API Management
 
-Ontwikkelaars zijn in API Management, de gebruikers van de API's die u beschikbaar maakt met behulp van API Management. Deze handleiding wordt beschreven hoe om te maken en ontwikkelaars uitnodigen met de API's en producten die u hen ter beschikking met uw exemplaar van API Management. Zie voor meer informatie over het programmatisch beheren van gebruikersaccounts, het [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentatie in de [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) verwijzing.
+Ontwikkelaars zijn in API Management, de gebruikers van de API's die u beschikbaar maakt met behulp van API Management. Deze handleiding wordt beschreven hoe om te maken en ontwikkelaars uitnodigen met de API's en producten die u hen ter beschikking met uw exemplaar van API Management. Zie voor meer informatie over het programmatisch beheren van gebruikersaccounts, het [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-Taken in dit artikel uit te voeren: [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
+Taken in dit artikel uitvoeren: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,7 +69,7 @@ Volg de volgende stappen uit voor het blokkeren van een gebruiker.
 
 ## <a name="reset-a-user-password"></a>Een gebruikerswachtwoord opnieuw instellen
 
-Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentatie in de [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
+Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
 
 ## <a name="next-steps"> </a>Volgende stappen
 Zodra een developer-account is gemaakt, kunt u deze koppelen aan rollen en het abonneren op producten en API's. Zie voor meer informatie, [hoe u groepen maken en gebruiken][How to create and use groups].

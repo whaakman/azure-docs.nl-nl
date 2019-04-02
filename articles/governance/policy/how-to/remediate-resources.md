@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816556"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802555"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 
@@ -139,11 +139,11 @@ Maakt een **herstel taak**, als volgt te werk:
 
 1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
 
-   ![Zoeken naar beleid](../media/remediate-resources/search-policy.png)
+   ![Zoeken naar beleid in alle Services](../media/remediate-resources/search-policy.png)
 
 1. Selecteer **herstel** aan de linkerkant van de Azure Policy-pagina.
 
-   ![Herstel selecteren](../media/remediate-resources/select-remediation.png)
+   ![Herstel op de pagina beleid selecteren](../media/remediate-resources/select-remediation.png)
 
 1. Alle **deployIfNotExists** beleidstoewijzingen met niet-compatibele resources zijn opgenomen in de **beleidsregels voor het herstellen** tabblad en een gegevenstabel. Klik op een beleid met de resources die niet compatibel zijn. De **nieuwe herstel taak** pagina wordt geopend.
 
@@ -152,11 +152,11 @@ Maakt een **herstel taak**, als volgt te werk:
 
 1. Op de **nieuwe herstel taak** pagina, filteren de resources voor het herstellen met behulp van de **bereik** weglatingstekens om op te halen van de onderliggende resources van waaraan het beleid is toegewezen (inclusief omlaag naar de afzonderlijke resource objecten). Bovendien gebruiken de **locaties** vervolgkeuzelijst als filter de resources. Alleen de resources die worden vermeld in de tabel worden hersteld.
 
-   ![Herstellen - resources selecteren](../media/remediate-resources/select-resources.png)
+   ![Herstellen: Selecteer welke resources om te herstellen](../media/remediate-resources/select-resources.png)
 
 1. De herstel-taak starten wanneer de resources zijn gefilterd door te klikken op **herstellen**. De pagina van de naleving van het beleid wordt geopend aan de **herstel taken** tabblad om de status van de voortgang van de taken weer te geven.
 
-   ![Herstellen - taak wordt uitgevoerd](../media/remediate-resources/task-progress.png)
+   ![Herstellen - voortgang van taken voor herstel](../media/remediate-resources/task-progress.png)
 
 1. Klik op de **herstel taak** van de pagina voor de naleving van beleid voor meer informatie over de voortgang. De filters die wordt gebruikt voor de taak wordt weergegeven, samen met een lijst van de resources die worden hersteld.
 

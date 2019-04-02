@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317150"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802827"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 > [!div class="op_single_selector"]
@@ -29,23 +29,18 @@ ms.locfileid: "58317150"
 >  
 
 > [!NOTE]
-> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
-> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowsAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Overzicht
-> [!NOTE]
-> Zie voor meer informatie over het coderen van inhoud met de Advanced Encryption Standard (AES) voor de levering van Safari op Mac OS [dit blogbericht](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-> Zie voor een overzicht van het beveiligen van uw media-inhoud met AES-versleuteling, [in deze video](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-> 
-> 
-
- U kunt Media Services gebruiken om HTTP Live Streaming (HLS) en Smooth Streaming is versleuteld met de AES met behulp van 128-bits versleutelingssleutels te bieden. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. Als u Media Services voor het versleutelen van een asset wilt, kunt u een versleutelingssleutel gemaakt koppelen aan de asset en ook configureren autorisatiebeleid voor de sleutel. Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van AES-versleuteling. Voor het ontsleutelen van de stream, wordt door de speler de sleutel van de sleutelleveringsservice aangevraagd. Om te bepalen dat of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat de autorisatiebeleidsregels die u hebt opgegeven voor de sleutel.
+U kunt Media Services gebruiken om HTTP Live Streaming (HLS) en Smooth Streaming is versleuteld met de AES met behulp van 128-bits versleutelingssleutels te bieden. Media Services biedt ook de sleutelleveringsservice die zorgt voor versleutelingssleutels gemachtigde gebruikers. Als u Media Services voor het versleutelen van een asset wilt, kunt u een versleutelingssleutel gemaakt koppelen aan de asset en ook configureren autorisatiebeleid voor de sleutel. Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van AES-versleuteling. Voor het ontsleutelen van de stream, wordt door de speler de sleutel van de sleutelleveringsservice aangevraagd. Om te bepalen dat of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat de autorisatiebeleidsregels die u hebt opgegeven voor de sleutel.
 
 Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperkingen. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de indelingen [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) en [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Zie [Het autorisatiebeleid voor inhoudssleutels configureren](media-services-protect-with-aes128.md#configure_key_auth_policy) voor meer informatie.
 
 Als u dynamische versleuteling wilt gebruiken, moet u een asset hebben die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. U moet ook Configureer het leveringsbeleid voor de asset (dat verderop in dit artikel wordt beschreven). Vervolgens zorgt de server voor streaming on demand er op basis van de indeling die is opgegeven in de streaming-URL voor dat de stream wordt geleverd in het protocol dat u hebt geselecteerd. Als gevolg hiervan moet u voor het opslaan en betaal alleen voor de bestanden in één opslagindeling. Media Services bouwt en verwerkt het juiste antwoord op basis van aanvragen van een client.
 
 Dit artikel is nuttig voor ontwikkelaars die werken aan toepassingen die beveiligde media leveren die. Het artikel wordt beschreven hoe u de sleutelleveringsservice met een autorisatiebeleid zo configureert dat alleen geautoriseerde clients versleutelingssleutels kunnen ontvangen. U ziet ook hoe u dynamische versleuteling wilt gebruiken.
+
+Zie voor meer informatie over het coderen van inhoud met de Advanced Encryption Standard (AES) voor de levering van Safari op Mac OS [dit blogbericht](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+Zie voor een overzicht van het beveiligen van uw media-inhoud met AES-versleuteling, [in deze video](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Dynamische AES-128-versleuteling en sleutellevering servicewerkstroom

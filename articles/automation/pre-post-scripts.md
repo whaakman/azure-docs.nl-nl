@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441505"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793633"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -116,6 +116,9 @@ Het volgende voorbeeld wordt een JSON-tekenreeks doorgegeven aan de **SoftwareUp
 
 Een compleet voorbeeld met alle eigenschappen kan worden gevonden op: [Configuraties van Software-Update - ophalen met de naam](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
+> [!NOTE]
+> De `SoftwareUpdateConfigurationRunContext` object dubbele vermeldingen voor machines kan bevatten. Hierdoor kan de scripts voor vóór en na meerdere keren uitvoeren op dezelfde computer. Tijdelijke oplossing dit gedrag, gebruik `Sort-Object -Unique` alleen unieke namen van virtuele machine in uw script te selecteren.
+
 ## <a name="samples"></a>Voorbeelden
 
 Voorbeelden voor vóór en na-scripts vindt u de [Scriptcentrumgalerie](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), of via de Azure-portal geïmporteerd. Deze te importeren via de portal, in uw Automation-Account onder **procesautomatisering**, selecteer **Runbookgalerie**. Gebruik **updatebeheer** voor het filter.
@@ -167,7 +170,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 

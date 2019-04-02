@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535202"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802947"
 ---
-# <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
+# <a name="get-compliance-data-of-azure-resources"></a>Nalevingsgegevens van Azure-resources ophalen
 
 Een van de grootste voordelen van Azure Policy is het inzicht en de besturingselementen die het biedt ten opzichte van resources in een abonnement of [beheergroep](../../management-groups/overview.md) van abonnementen. Dit besturingselement kan worden uitgeoefend op veel verschillende manieren, zoals het voorkomen van resources die worden gemaakt in de verkeerde locatie afdwingen van het gebruik van de gemeenschappelijke en consistente tag, of bestaande resources van de controle voor configuraties en instellingen van toepassing. In alle gevallen worden gegevens wordt gegenereerd door beleid waarmee u inzicht krijgt in de compatibiliteitsstatus van uw omgeving.
 
@@ -120,27 +120,27 @@ Maakt gebruik van beleid voor de **type** en **naam** velden in het definitie om
 Het compatibiliteitspercentage wordt bepaald door het delen van **compatibele** resources door _totaal aantal resources_.
 _Totaal aantal resources_ wordt gedefinieerd als de som van de **compatibele**, **niet-compatibele**, en **conflicterende** resources. De algemene naleving getallen zijn de som van afzonderlijke resources die zijn **compatibele** gedeeld door de som van alle afzonderlijke resources. In de onderstaande afbeelding zijn er 20 verschillende resources die van toepassing zijn en is slechts één **niet-compatibele**. De algemene compatibiliteit van de resource is 95% (19 van 20).
 
-![Voorbeeld van eenvoudige naleving](../media/getting-compliance-data/simple-compliance.png)
+![Voorbeeld van naleving van het beleid van de pagina voor Apparaatnaleving](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portal
 
 De Azure portal brengt een grafische interface van visualiseren en inzicht krijgen in de status van naleving in uw omgeving. Op de **beleid** pagina, de **overzicht** optie bevat details voor beschikbare bereiken op de naleving van beleid en de initiatieven. Samen met de compatibiliteitsstatus en het aantal per toewijzing bevat een grafiek met naleving in de afgelopen zeven dagen.
 De **naleving** pagina bevat veel van dezelfde informatie (met uitzondering van de grafiek), maar bieden aanvullende filteren en sorteren van opties.
 
-![Pagina voor het naleven van beleid](../media/getting-compliance-data/compliance-page.png)
+![Voorbeeld van naleving van het beleid-pagina](../media/getting-compliance-data/compliance-page.png)
 
 Omdat een beleid of initiatief kan worden toegewezen aan verschillende bereiken, bevat de tabel in het bereik voor elke toewijzing en het type van de definitie die is toegewezen. Het aantal niet-compatibele resources en niet-conforme beleidsregels voor elke toewijzing worden ook gegeven. Te klikken op een beleid of initiatief in de tabel bevat een stil bij de naleving voor die bepaalde toewijzing.
 
-![Details van compatibiliteit van beleid](../media/getting-compliance-data/compliance-details.png)
+![Voorbeeld van de pagina met Details van beleid voor naleving](../media/getting-compliance-data/compliance-details.png)
 
 De lijst met resources op de **resourcenaleving** tabblad toont de evaluatiestatus van bestaande resources voor de huidige toewijzing. Het tabblad standaard ingesteld op **niet-compatibele**, maar kan worden gefilterd.
 Gebeurtenissen (toevoegen, controleren, weigeren, implementeren) geactiveerd door de aanvraag voor het maken van een resource die wordt weergegeven onder de **gebeurtenissen** tabblad.
 
-![Beleid voor naleving-gebeurtenissen](../media/getting-compliance-data/compliance-events.png)
+![Voorbeeld van gebeurtenissen van de naleving van beleid](../media/getting-compliance-data/compliance-events.png)
 
 Met de rechtermuisknop op de rij van de gebeurtenis die u wilt meer informatie verzamelen over en selecteer **activiteitlogboeken weergeven**. De pagina activiteitenlogboek wordt geopend en wordt vooraf gefilterd voor de zoekopdracht met de details voor de toewijzing en de gebeurtenissen. Het activiteitenlogboek bevat aanvullende context en informatie over deze gebeurtenissen.
 
-![Beleid voor naleving-activiteitenlogboek](../media/getting-compliance-data/compliance-activitylog.png)
+![Voorbeeld van beleid voor naleving-activiteitenlogboek](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Informatie over niet-naleving
 

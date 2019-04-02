@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314123"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802742"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
@@ -46,7 +46,7 @@ Als u wilt weergeven van de details van de naleving, de volgende stappen uit:
 
 1. De **compatibiliteitsdetails** in gegevens van de meest recente beoordeling van de resource naar de huidige toewijzing van configuratiebeleid wordt weergegeven. In dit voorbeeld wordt het veld **Microsoft.Sql/servers/version** is geconstateerd _12.0_ terwijl de beleidsdefinitie verwacht _14.0_. Als de resource om verschillende redenen niet-compatibel is, wordt elk vermeld in dit deelvenster.
 
-   ![Deelvenster met details naleving](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Deelvenster met details naleving en de redenen voor niet-naleving](../media/determine-non-compliance/compliance-details-pane.png)
 
    Voor een **auditIfNotExists** of **deployIfNotExists** beleidsdefinitie, de volgende gegevens bevatten de **details.type** eigenschap en de optionele eigenschappen. Zie voor een lijst [auditIfNotExists eigenschappen](../concepts/effects.md#auditifnotexists-properties) en [deployIfNotExists eigenschappen](../concepts/effects.md#deployifnotexists-properties). **Laatst geëvalueerd resource** is een gerelateerde bron van de **details** sectie van de definitie.
 
@@ -94,16 +94,16 @@ De volgende matrix wijst elke mogelijke _reden_ naar de verantwoordelijk [voorwa
 |Huidige waarde moet bestaan. |Er bestaat |
 |De huidige waarde moet binnen de doelwaarde vallen. |in of **niet** notIn |
 |Huidige waarde moet gelijk zijn aan de doelwaarde. |Net als of **niet** notlike zijn |
-|Huidige waarde moet hoofdlettergevoelige overeenkomst de doelwaarde. |overeenkomen met of **niet** notMatch |
-|Huidige waarde moet niet-hoofdlettergevoelige overeenkomst de doelwaarde. |matchInsensitively of **niet** notMatchInsensitively |
+|Huidige waarde moet overeenkomen met de doelwaarde (hoofdlettergevoelig). |overeenkomen met of **niet** notMatch |
+|Huidige waarde moet overeenkomen met de doelwaarde (niet hoofdlettergevoelig). |matchInsensitively of **niet** notMatchInsensitively |
 |Huidige waarde mag de doelwaarde niet als sleutel bevatten. |notContainsKey of **niet** containsKey|
 |Huidige waarde mag de doelwaarde niet bevatten. |notContains of **niet** bevat |
 |Huidige waarde mag niet gelijk zijn aan de doelwaarde. |notEquals of **niet** is gelijk aan |
 |Huidige waarde mag niet bestaan. |**niet** bestaat  |
 |Huidige waarde mag niet binnen de doelwaarde vallen. |notIn of **niet** in |
 |Huidige waarde mag niet gelijk zijn aan de doelwaarde. |notlike zijn of **niet** zoals |
-|Huidige waarde moet niet-hoofdlettergevoelige overeenkomst de doelwaarde. |notMatch of **niet** overeen met |
-|Huidige waarde moet geen niet-hoofdlettergevoelige overeenkomst de doelwaarde. |notMatchInsensitively of **niet** matchInsensitively |
+|Huidige waarde mag niet overeenkomen met de doelwaarde (hoofdlettergevoelig). |notMatch of **niet** overeen met |
+|Huidige waarde mag niet overeenkomen met de doelwaarde (niet hoofdlettergevoelig). |notMatchInsensitively of **niet** matchInsensitively |
 |Er zijn geen verwante resources die overeenkomen met de effectdetails in de beleidsdefinitie. |Een resource van het type dat is gedefinieerd in **then.details.type** en gerelateerd zijn aan de resource die is gedefinieerd in de **als** gedeelte van de beleidsregel bestaat niet. |
 
 ## <a name="change-history-preview"></a>Wijzigingsoverzicht (Preview)
@@ -118,11 +118,11 @@ Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de 
 
 1. Selecteer de **wijzigingsoverzicht (preview)** tabblad op de **Resourcenaleving** pagina. Een lijst met gedetecteerd wijzigingen, als alle bestaan, worden weergegeven.
 
-   ![Beleid wijzigingsoverzicht - tabblad](../media/determine-non-compliance/change-history-tab.png)
+   ![De wijzigingsgeschiedenis van tabblad beleid op de pagina Resourcenaleving](../media/determine-non-compliance/change-history-tab.png)
 
 1. Selecteer een van de gedetecteerde wijzigingen. De _visual diff_ voor de resource wordt weergegeven op de **wijzigingsoverzicht** pagina.
 
-   ![Beleid wijzigingsoverzicht - Visual Diff](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Beleid wijzigen geschiedenis Visual Diff op de pagina overzicht wijzigen](../media/determine-non-compliance/change-history-visual-diff.png)
 
 De _visual diff_ aides bij het identificeren van wijzigingen aan een resource. De wijzigingen gedetecteerd kunnen niet worden gerelateerd aan de huidige nalevingsstatus van de resource.
 

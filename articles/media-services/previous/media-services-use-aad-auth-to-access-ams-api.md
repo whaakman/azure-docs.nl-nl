@@ -11,25 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316871"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802487"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Toegang tot de API van Azure Media Services met Azure AD-verificatie  
- 
+
+> [!NOTE]
+> Er worden geen nieuwe functies of functionaliteit meer aan Media Services v2. toegevoegd. <br/>Maak kennis met de nieuwste versie, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zie ook [hulp bij de migratie van v2 naar v3](../latest/migrate-from-v2-to-v3.md)
+
 De API van Azure Media Services is een RESTful-API. U kunt deze gebruiken voor het uitvoeren van bewerkingen op media resources met behulp van een REST-API of met behulp van de beschikbare client-SDK's. Azure Media Services biedt een Media Services-client-SDK voor .NET van Microsoft. Als u wilt worden geautoriseerd voor toegang tot Media Services-resources en de API van Media Services, moet u eerst worden geverifieerd. 
 
 Media Services ondersteunt [Azure Active Directory (Azure AD)-verificatie op basis van](../../active-directory/fundamentals/active-directory-whatis.md). De Azure Media REST-service is vereist dat de gebruiker of toepassing waarmee de REST API vraagt een de **Inzender** of **eigenaar** rol voor toegang tot de resources. Zie voor meer informatie, [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Media Services ondersteunt momenteel het model van Azure Access Control service-verificatie. Access Control-autorisatie worden echter op 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren.
-
 Dit document geeft een overzicht van hoe u toegang tot de Media Services-API met behulp van REST- of .NET-API's.
+
+> [!NOTE]
+> Access Control-autorisatie is vanaf 1 juni 2018 afgeschaft.
 
 ## <a name="access-control"></a>Toegangsbeheer
 

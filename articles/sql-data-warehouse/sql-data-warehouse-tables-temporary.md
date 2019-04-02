@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/01/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434756"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793098"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tijdelijke tabellen in SQL Data Warehouse
 In dit artikel bevat essentiële instructies voor het gebruik van tijdelijke tabellen en markeert u de beginselen van de sessie op tijdelijke tabellen. Gebruik de informatie in dit artikel kunt u modularize van uw code, om zowel herbruikbaarheid en eenvoudig onderhoud van uw code te verbeteren.
 
 ## <a name="what-are-temporary-tables"></a>Wat zijn tijdelijke tabellen?
-Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens de transformatie waar de tussenliggende resultaten tijdelijk zijn. In SQL Data Warehouse aanwezig tijdelijke tabellen op het sessieniveau van de.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar een lokaal in plaats van de externe opslag.  Tijdelijke tabellen zijn enigszins in Azure SQL Data Warehouse dan Azure SQL Database, omdat ze kunnen worden benaderd vanaf elke locatie in de sessie, met inbegrip van zowel binnen als buiten een opgeslagen procedure.
+Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens de transformatie waar de tussenliggende resultaten tijdelijk zijn. In SQL Data Warehouse aanwezig tijdelijke tabellen op het sessieniveau van de.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar een lokaal in plaats van de externe opslag.
 
 ## <a name="create-a-temporary-table"></a>Maak een tijdelijke tabel
 Tijdelijke tabellen worden gemaakt door het voorvoegsel van de tabelnaam van uw met een `#`.  Bijvoorbeeld:
@@ -215,7 +215,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Beperkingen van de tijdelijke tabel
-SQL Data Warehouse een aantal beperkingen opleggen bij het implementeren van tijdelijke tabellen.  Op dit moment alleen tijdens de sessie binnen het bereik van tijdelijke tabellen worden ondersteund.  Globale tijdelijke tabellen worden niet ondersteund.  Bovendien kunnen niet weergaven worden gemaakt op tijdelijke tabellen.
+SQL Data Warehouse een aantal beperkingen opleggen bij het implementeren van tijdelijke tabellen.  Op dit moment alleen tijdens de sessie binnen het bereik van tijdelijke tabellen worden ondersteund.  Globale tijdelijke tabellen worden niet ondersteund.  Bovendien kunnen niet weergaven worden gemaakt op tijdelijke tabellen.  Tijdelijke tabellen kunnen alleen worden gemaakt met hash of round robin-verdeling.  Distributie van gerepliceerde tijdelijke tabel wordt niet ondersteund. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het ontwikkelen van tabellen, het [tabeloverzicht](sql-data-warehouse-tables-overview.md).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370105"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802949"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -27,9 +27,9 @@ Tijdens het gebruik van RBAC-roltoewijzingen een krachtig mechanisme voor het be
 
 Azure Storage biedt drie ingebouwde RBAC-rollen voor Blob-opslag: 
 
-- [De eigenaar van een opslag-Blob-gegevens](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Gegevenslezer voor Opslagblob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [De eigenaar van een opslag-Blob-gegevens](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Gegevensbijdrager voor Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Gegevenslezer voor Opslagblob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Als gegevens RBAC-machtigingen via een van deze ingebouwde rollen, of via een aangepaste rol is verleend door een gebruiker of service-principal, worden deze machtigingen eerst bij de autorisatie van een aanvraag geëvalueerd. Als de aangevraagde bewerking is geautoriseerd door de aanroeper RBAC-toewijzingen en autorisatie onmiddellijk afgesloten en er geen aanvullende wordt worden ACL-controles uitgevoerd. U kunt ook als de oproepende functie heeft geen een toewijzing RBAC of bewerking van de aanvraag komt niet overeen met de toegewezen machtiging, klikt u vervolgens ACL controles uitgevoerd om te bepalen of de aanroeper is gemachtigd om uit te voeren van de aangevraagde bewerking.
 
@@ -285,7 +285,7 @@ Er wordt een GUID weergegeven als de betekenis van een gebruiker en dat de gebru
 
 Bij het definiëren van ACL's voor service-principals, is het belangrijk dat u de Object-ID (OID) van de *service-principal* voor de appregistratie van de die u hebt gemaakt. Het is belangrijk te weten dat geregistreerde apps een afzonderlijke service-principal in de specifieke hebben Azure AD-tenant. Geregistreerde apps hebben een OID die zichtbaar is in de Azure-portal, maar de *service-principal* heeft een andere (verschillende) OID.
 
-Als u de OID voor de service-principal die corresonds aan een app-registratie, kunt u de `az ad sp show` opdracht. Geef de toepassings-ID als de parameter. Hier volgt een voorbeeld over het verkrijgen van de OID voor de service-principal die overeenkomt met de appregistratie van een met App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Voer de volgende opdracht uit in de Azure CLI:
+Als u de OID voor de service-principal die overeenkomt met een app-registratie, kunt u de `az ad sp show` opdracht. Geef de toepassings-ID als de parameter. Hier volgt een voorbeeld over het verkrijgen van de OID voor de service-principal die overeenkomt met de appregistratie van een met App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Voer de volgende opdracht uit in de Azure CLI:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

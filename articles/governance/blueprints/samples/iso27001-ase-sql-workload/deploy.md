@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld - ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk - stappen implementeren
+title: Voorbeeld - ISO 27001-as-omgeving/SQL werkbelasting blauwdruk - stappen implementeren
 description: Stappen van de ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk voorbeeld implementeren.
 services: blueprints
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 80c98170fc136c20d8489cec5d145f96e207bc9f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4ed51ee5f8cbdc50fa65a189d8f468bd7713a74b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201905"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804153"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Het voorbeeld van Azure blauwdrukken ISO 27001-App Service Environment/SQL Database-workload blauwdruk implementeren
+# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>De ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk voorbeeld implementeren
 
 Voor het implementeren van het voorbeeld van Azure blauwdrukken ISO 27001-App Service Environment/SQL Database-workload blauwdruk, moeten de volgende stappen worden genomen:
 
@@ -75,7 +75,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 1. Geef de parameterwaarden voor de blauwdruktoewijzing:
 
-   - Basisbeginselen
+   - Basics
 
      - **Abonnementen**: Selecteer een of meer van de abonnementen die in de beheergroep die u zijn uw exemplaar van de blauwdruk monster opgeslagen. Als u meer dan één abonnement selecteert, wordt een toewijzing worden gemaakt voor elk gebruik van de ingevoerde parameters.
      - **Naam van de roltoewijzing**: De naam is ingevuld op basis van de naam van de blauwdruk.
@@ -114,7 +114,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 De volgende tabel geeft een lijst van de blauwdruk artefact parameters:
 
-|Naam van het artefact|Type artefact|Parameternaam|Description|
+|Naam van het artefact|Type artefact|Parameternaam|Beschrijving|
 |-|-|-|-|
 |Log Analytics-resourcegroep|Resourcegroep|Name|**Vergrendeld** -worden samengevoegd in de **organisatienaam** met `-workload-log-rg` uniek te maken de resourcegroep.|
 |Log Analytics-resourcegroep|Resourcegroep|Locatie|**Vergrendeld** -de blauwdrukparameter wordt gebruikt.|

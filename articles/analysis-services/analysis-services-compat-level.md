@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880123"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803490"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Compatibiliteitsniveau voor tabellaire modellen van Analysis Services
 
@@ -27,7 +27,11 @@ Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteits
 *  Beveiliging op objectniveau voor tabel- en kolomnamen, naast de gegevens daarin.
 *  Verbeterde ondersteuning voor niet-aaneengesloten hiërarchieën.
 *  Bewaking van prestaties en verbeteringen.
- 
+
+> [!NOTE]
+> Azure Analysis Services biedt ondersteuning voor geïmporteerde Power BI Desktop-bestanden op het compatibiliteitsniveau 1465. Het importeren van Power BI Desktop-functionaliteit, die een preview-functie altijd is, is echter buiten gebruik gesteld en verwijderd uit de service in maart 2019. Bestaande modellen op het compatibiliteitsniveau 1465 blijven ondersteund.  
+
+
 ## <a name="set-compatibility-level"></a>Compatibiliteitsniveau van de set
 
  Als u een nieuw project voor tabellair model in SSDT, kunt u het compatibiliteitsniveau van de **ontwerpfunctie Tabellair model** dialoogvenster. 
@@ -47,6 +51,9 @@ Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteits
  In SSMS, met de rechtermuisknop op de servernaam > **eigenschappen** > **compatibiliteitsniveau ondersteund**.  
   
  Deze eigenschap geeft u het hoogste compatibiliteitsniveau van een database die wordt uitgevoerd op de server (exclusief Preview-versie). Het compatibiliteitsniveau van de ondersteunde kan niet worden gewijzigd.  
+
+> [!NOTE]
+> In SSMS, als die zijn verbonden met een Azure Analysis Services-server, de **compatibiliteitsniveau ondersteund** ziet u de eigenschap **1200**. Dit is een bekend probleem en wordt opgelost in een toekomstige SSMS update. Wanneer is opgelost, wordt deze eigenschap het hoogste compatibiliteitsniveau van de ondersteunde weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

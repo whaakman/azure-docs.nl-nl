@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540955"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803150"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -39,17 +39,17 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepas
 Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>Vrijgeven van een nieuwe versie van Azure AD Connect is een proces waarvoor verschillende kwaliteitscontrole stap om te controleren of de functionaliteit van de bewerking van de service, en hoewel we gaan door dit proces het versienummer van een nieuwe versie, evenals de release-status wordt bijgewerkt in overeenstemming met de meest recente status.
+Terwijl we dit proces doorloopt, wordt het versienummer van de release worden weergegeven met een 'X' in de secundaire versie nummer positie, zoals in '1.3.X.0' - Dit geeft aan dat de opmerkingen bij de release in dit document zijn geldig voor alle versies, beginnend met '1.3.'. Het releaseversienummer wordt bijgewerkt naar de meest recent uitgebrachte versie en de status van de release wordt bijgewerkt naar 'Vrijgegeven voor downloaden en automatisch upgraden' zodra we het uitgifteproces hebt voltooid.
+Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13100"></a>1.3.10.0 
+## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>Releasestatus 
 
-3/25/2019: Nog niet is vrijgegeven 
+3/25/2019: In behandeling
  
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen 
-
-
 
 - Voeg ondersteuning toe voor het domein vernieuwen 
 - De functie openbare e-mailmappen Exchange gaat algemeen beschikbaar 

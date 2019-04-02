@@ -14,14 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bd3f45958870a20ac0386bd2f8a67ef4b4c0010
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670554"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793149"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementeren en verwijderen van toepassingen met behulp van PowerShell
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -56,16 +57,19 @@ Om op te schonen, de exemplaren van een toepassing verwijderen en registratie va
 > Visual Studio biedt momenteel geen ondersteuning voor externe inrichten.
 
  
+
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+
 Voordat u een PowerShell-opdrachten in dit artikel uitvoert, begin altijd met behulp van [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) verbinding maken met de Service Fabric-cluster. Voor verbinding met het lokale ontwikkelcluster, voert u het volgende uit:
 
 ```powershell
-PS C:\>Connect-ServiceFabricCluster
+Connect-ServiceFabricCluster
 ```
 
 Voor voorbeelden van het verbinden met een extern cluster of het cluster is beveiligd met behulp van Azure Active Directory, X509 certificaten of raadpleegt u de Active Directory Windows [verbinding maken met een beveiligd cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="upload-the-application-package"></a>Het toepassingspakket uploaden
+
 Uploaden van het toepassingspakket is ondergebracht in een locatie die toegankelijk is voor interne Service Fabric-onderdelen.
 Als u controleren of het toepassingspakket op een lokaal wilt, gebruikt u de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
@@ -76,8 +80,11 @@ Stel dat u maken en een toepassing met de naam *MyApplication* in Visual Studio 
 De volgende opdracht worden de inhoud van het toepassingspakket:
 
 ```powershell
-PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
-PS C:\> tree /f $path
+$path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+tree /f $path
+```
+
+```Output
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -111,9 +118,12 @@ Als u wilt een gecomprimeerde pakket decomprimeren, gebruikt u dezelfde [kopie S
 
 De volgende cmdlet wordt het pakket zonder te kopiëren naar de installatiekopieopslag gecomprimeerd. Het pakket bevat nu ZIP-bestanden voor de `Code` en `Config` pakketten. De toepassing en de servicemanifesten zijn niet ingepakte, omdat ze nodig voor veel interne bewerkingen zijn wel (zoals delen, toepassing de naam en versie extraheren voor bepaalde validaties pakket). Het inpakken van de manifesten zouden deze bewerkingen inefficiënt.
 
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+tree /f $path
 ```
-PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
-PS C:\> tree /f $path
+
+```Output
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -142,7 +152,7 @@ Nadat u een pakket is gecomprimeerd, kan deze worden geüpload naar een of meer 
 In het volgende voorbeeld wordt het pakket naar de installatiekopieopslag geüpload naar een map met de naam 'MyApplicationV1':
 
 ```powershell
-PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -TimeoutSec 1800
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -TimeoutSec 1800
 ```
 
 Als u geen opgeeft de *- ApplicationPackagePathInImageStore* parameter, het toepassingspakket is gekopieerd naar de map "Debug" in de installatiekopieopslag.
@@ -171,25 +181,31 @@ Afhankelijk van de factoren beschreven, moet u wellicht Verhoog de time-out. Als
 
 
 ## <a name="register-the-application-package"></a>Registreren van het toepassingspakket
+
 Het toepassingstype en de versie is gedeclareerd in het manifest van de toepassing beschikbaar voor gebruik wanneer het toepassingspakket is geregistreerd. Het systeem leest het pakket in de vorige stap hebt geüpload, controleert of het pakket, de inhoud van het pakket verwerkt en de verwerkte pakket worden gekopieerd naar de locatie van een intern systeem.  
 
 Voer de [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet het toepassingstype te registreren in het cluster en het beschikbaar voor implementatie:
 
 ### <a name="register-the-application-package-copied-to-image-store"></a>Het toepassingspakket gekopieerd naar de installatiekopieopslag registreren
+
 Wanneer een pakket is eerder hebt gekopieerd naar de installatiekopieopslag, wordt in de register-bewerking wordt het relatieve pad opgegeven in de installatiekopieopslag.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
+```
+
+```Output
 Register application type succeeded
 ```
 
 "MyApplicationV1" is de map in de installatiekopieopslag waar het toepassingspakket zich bevindt. Het toepassingstype met de naam 'MyApplicationType' en '1.0.0' (beide zijn gevonden in het toepassingsmanifest)-versie is nu geregistreerd in het cluster.
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registreren van het toepassingspakket gekopieerd naar een externe opslag
+
 Beginnen met Service Fabric versie 6.1, ondersteunt het pakket downloaden vanaf een externe opslag inrichten. Het downloaden van de URI het pad naar vertegenwoordigt de [ `sfpkg` toepassingspakket](service-fabric-package-apps.md#create-an-sfpkg) waar het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocol. Het pakket moet zijn eerder hebt geüpload naar deze externe locatie. De URI moet leestoegang toestaan om Service Fabric kan het bestand downloaden. De `sfpkg` bestand moet de extensie '.sfpkg' hebben. De bewerking voor het inrichten, moet de informatie van het type toepassing, zoals gevonden in het toepassingsmanifest bevatten.
 
-```
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```powershell
+Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
 ```
 
 De [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) opdracht retourneert alleen nadat het systeem heeft het toepassingspakket geregistreerd. Hoe lang inschrijving duurt is afhankelijk van de grootte en de inhoud van het toepassingspakket. Indien nodig, de **- TimeoutSec** parameter kan worden gebruikt om op te geven van een langere time-out (de standaardtime-out is 60 seconden).
@@ -198,8 +214,10 @@ Als u een grote toepassing verpakken of als u time-outs ondervindt, gebruikt u d
 De [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) opdracht worden de versies van een toepassingstype en de status van de registratie. U kunt deze opdracht gebruiken om te bepalen wanneer de registratie is voltooid.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -207,39 +225,50 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Een toepassingspakket verwijderen uit de installatiekopieopslag
+
 Als een pakket is gekopieerd naar de installatiekopieopslag, moet u het verwijderen van de tijdelijke locatie nadat de registratie van de toepassing is geslaagd. Toepassingspakketten verwijderen uit de installatiekopieopslag vrijgemaakt systeemresources. Niet-gebruikte toepassingspakketten disk-opslag verbruikt en leidt tot prestatieproblemen van toepassing.
 
 ```powershell
-PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
 ```
 
 ## <a name="create-the-application"></a>De toepassing maken
+
 U kunt instantiëren van de toepassing in een versie van een toepassing die is geregistreerd met behulp van de [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet. De naam van elke toepassing moet beginnen met de *' fabric: "* -schema en moet uniek zijn voor elk exemplaar. Standaardservices die zijn gedefinieerd in het toepassingsmanifest van het type doeltoepassing worden ook gemaakt.
 
 ```powershell
-PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
+New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
+```
 
+```Output
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationParameters  : {}
 ```
+
 Meerdere exemplaren van een toepassing kunnen worden gemaakt voor een bepaalde versie van het type van een geregistreerde toepassing. Elk exemplaar geïsoleerd, met een eigen werk directory en het proces wordt uitgevoerd.
 
 Om te zien die met de naam apps en services worden uitgevoerd in het cluster, voert u de [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) en [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlets:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplication  
+Get-ServiceFabricApplication  
+```
 
+```Output
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Ok
 ApplicationParameters  : {}
+```
 
-PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService
+```powershell
+Get-ServiceFabricApplication | Get-ServiceFabricService
+```
 
+```Output
 ServiceName            : fabric:/MyApp/Stateless1
 ServiceKind            : Stateless
 ServiceTypeName        : Stateless1Type
@@ -250,30 +279,38 @@ HealthState            : Ok
 ```
 
 ## <a name="remove-an-application"></a>Een toepassing verwijderen
+
 Wanneer een exemplaar van de toepassing niet meer nodig hebt is, kunt u permanent verwijderen deze met behulp van de naam van de [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) cmdlet. [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) worden alle services die deel uitmaken van de toepassing ook, permanent verwijderen van de status van alle service automatisch verwijderd. 
 
 > [!WARNING]
 > Met deze bewerking kan niet ongedaan worden gemaakt en de status van toepassing kan niet worden hersteld.
 
 ```powershell
-PS C:\> Remove-ServiceFabricApplication fabric:/MyApp
+Remove-ServiceFabricApplication fabric:/MyApp
+```
 
+```Output
 Confirm
 Continue with this operation?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 Remove application instance succeeded
+```
 
-PS C:\> Get-ServiceFabricApplication
+```powershell
+Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Registratie van een toepassingstype
+
 Wanneer een bepaalde versie van een toepassingstype niet meer nodig hebt is, moet u de toepassing met behulp van registratie de [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Registratie van niet-gebruikte toepassingstypen versies opslagruimte die wordt gebruikt door de installatiekopieopslag door het verwijderen van de bestanden van het type toepassing. Registratie van een toepassingstype wordt het toepassingspakket gekopieerd naar de installatiekopie store tijdelijke locatie, niet verwijderd als kopiëren naar de installatiekopieopslag is gebruikt. Een toepassingstype kan ongedaan worden, zolang er zijn geen toepassingen worden geïnstantieerd tegen en niet in afwachting van toepassing upgrades verwijzen naar deze.
 
 Voer [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) om te zien van de toepassingstypen die zijn geregistreerd in het cluster:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -283,15 +320,17 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 Voer [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) registratie van het type van een specifieke toepassing:
 
 ```powershell
-PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
+Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
+
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Kopiëren-ServiceFabricApplicationPackage vraagt om een ImageStoreConnectionString
+
 De Service Fabric-SDK-omgeving moet de juiste standaardwaarden instellen al hebben. Maar indien nodig, de ImageStoreConnectionString voor alle opdrachten moet overeenkomen met de waarde die door de Service Fabric-cluster wordt gebruikt. U kunt de ImageStoreConnectionString vinden in het clustermanifest opgehaald met de [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) en Get-ImageStoreConnectionStringFromClusterManifest opdrachten:
 
 ```powershell
-PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
+Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
 De **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet die deel van de Service Fabric SDK PowerShell-module uitmaakt, wordt gebruikt om op te halen van de verbindingsreeks van de installatiekopie-store.  Voor het importeren van de SDK-module, voert u de volgende uit:
@@ -317,6 +356,7 @@ De ImageStoreConnectionString is gevonden in het clustermanifest:
 Zie [inzicht in de verbindingsreeks van de installatiekopie-store](service-fabric-image-store-connection-string.md) verbindingsreeks voor aanvullende informatie over de installatiekopieopslag en de installatiekopie te slaan.
 
 ### <a name="deploy-large-application-package"></a>Grote toepassingspakket implementeren
+
 Probleem: [Kopiëren-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) er is een time-out opgetreden voor een grote toepassing-pakket (volgorde van GB).
 Probeer:
 - Geef een hogere time-out voor [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) opdracht met `TimeoutSec` parameter. De time-out is standaard 30 minuten.
@@ -331,8 +371,10 @@ De compressie vermindert de grootte en het aantal bestanden, die op zijn beurt w
 - Geef `Async` overschakelen voor [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). De opdracht retourneert wanneer het cluster de opdracht accepteert en de registratie van het toepassingstype asynchroon blijft. Daarom is er niet nodig om op te geven een hogere time-out in dit geval. De [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) opdracht geeft een lijst van alle versies van een toepassingstype is geregistreerd en hun registratiestatus. U kunt deze opdracht gebruiken om te bepalen wanneer de registratie is voltooid.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -340,6 +382,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ### <a name="deploy-application-package-with-many-files"></a>Toepassingspakket implementeren met veel bestanden
+
 Probleem: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) time-out optreedt voor een toepassingspakket met veel bestanden (volgorde van duizenden).
 Probeer:
 - [Comprimeren van het pakket](service-fabric-package-apps.md#compress-a-package) voordat u kopieert naar de installatiekopieopslag. De compressie vermindert het aantal bestanden.
@@ -348,8 +391,10 @@ Probeer:
 Daarom is er niet nodig om op te geven een hogere time-out in dit geval. De [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) opdracht geeft een lijst van alle versies van een toepassingstype is geregistreerd en hun registratiestatus. U kunt deze opdracht gebruiken om te bepalen wanneer de registratie is voltooid.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -357,6 +402,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Toepassingspakket maken](service-fabric-package-apps.md)
 
 [Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md)

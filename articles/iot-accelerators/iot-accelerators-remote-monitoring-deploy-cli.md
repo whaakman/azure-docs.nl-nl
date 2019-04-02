@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182129"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793756"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossingsversnellers bewaking op afstand met behulp van de CLI implementeren
 
@@ -49,7 +49,7 @@ Volg de aanwijzingen op het scherm instructies om het proces aanmelden te voltoo
 
 Wanneer u de oplossingsversneller implementeert, zijn er verschillende opties die het implementatieproces configureren:
 
-| Optie | Waarden | Description |
+| Optie | Waarden | Beschrijving |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie bedoeld is voor testen en demonstraties, deze alle microservices op een enkele virtuele machine implementeert. Een _standard_ implementatie bedoeld is voor productie, deze implementeert de microservices naar meerdere virtuele machines. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure cloudservices, zoals opslag en Cosmos DB. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
@@ -61,6 +61,8 @@ Zie voor meer informatie over het gebruik van de optie voor lokale implementatie
 In deze sectie bevat een overzicht van de belangrijkste verschillen tussen een basic en standard-implementatie.
 
 ### <a name="basic"></a>Basic
+
+U kunt dit doen voor een eenvoudige implementatie van [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) of met behulp van de CLI.
 
 De Basic-implementatie is bedoeld om de oplossing te demonstreren. Als u wilt verlagen, worden alle microservices worden geïmplementeerd in een enkele virtuele machine. Deze implementatie gebruik geen van een architectuur gereed is voor productie.
 
@@ -80,6 +82,8 @@ Een eenvoudige implementatie wordt gemaakt van de volgende services in uw Azure-
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 eenheid              | Opslag voor analyse van berichten gegevens en maakt uitgebreide telemetrie |
 
 ### <a name="standard"></a>Standard
+
+U kunt een standaardimplementatie alleen met behulp van de CLI kunt doen.
 
 Een standaardimplementatie is een gereed is voor productie-implementatie die een ontwikkelaar kunt aanpassen en uitbreiden. Gebruik de optie standaard-implementatie wanneer u klaar om aan te passen van een architectuur gereed is voor productie bent, die is gebouwd voor schaal en uitbreidbaarheid. Toepassing microservices worden gebouwd als Docker-containers en geïmplementeerd met behulp van de Azure Kubernetes Service. De Kubernetes-orchestrator implementeert, kan worden geschaald en beheert de microservices.
 
