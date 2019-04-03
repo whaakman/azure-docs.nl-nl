@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449135"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879240"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedure: Migreren vanuit de Azure Access Control Service
 
@@ -152,7 +152,7 @@ SharePoint 2013, 2016 en SharePoint Online-klanten hebben lang ACS gebruikt voor
 
 | Functie | Richtlijnen |
 | ------- | -------- |
-| Verifiëren van gebruikers van Azure AD | Voorheen Azure AD bieden geen ondersteuning voor SAML 1.1-tokens vereist voor SharePoint voor verificatie en ACS is gebruikt als een intermediair die SharePoint compatibel met Azure AD-token indelingen. U kunt nu [SharePoint rechtstreeks verbinden met Azure AD met behulp van Azure AD App Gallery SharePoint op de lokale app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Verifiëren van gebruikers van Azure AD | Voorheen Azure AD bieden geen ondersteuning voor SAML 1.1-tokens vereist voor SharePoint voor verificatie en ACS is gebruikt als een intermediair die SharePoint compatibel met Azure AD-token indelingen. U kunt nu [SharePoint rechtstreeks verbinden met Azure AD met behulp van Azure AD App Gallery SharePoint on premises app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App-verificatie & server-naar-server-verificatie in SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. | 
 | [Lage vertrouwensrelatie autorisatie voor SharePoint-invoegtoepassingen (provider die wordt gehost en SharePoint die wordt gehost)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Niet beïnvloed door ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig. |

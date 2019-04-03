@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93990a11860e8b8181bee0ba67351b095d940878
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893574"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met UltiPro
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van UltiPro in Azure AD moet u UltiPro uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om UltiPro toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen UltiPro uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -111,7 +111,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij UltiPro te con
     |--|
     | `https://<companyname>.ultipro.com/`|
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | ` https://<companyname>.ultipro.ca`|
+    | `https://<companyname>.ultipro.ca`|
     
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
 
@@ -213,9 +213,9 @@ Wanneer u op de tegel UltiPro in het toegangsvenster klikt, zou u automatisch mo
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

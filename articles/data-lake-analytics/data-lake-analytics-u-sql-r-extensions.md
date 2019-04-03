@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401212"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885023"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Uitbreiden met R-code in Azure Data Lake Analytics U-SQL-scripts
 
 Het volgende voorbeeld wordt de basisstappen voor het implementeren van R-code:
 * Gebruik de `REFERENCE ASSEMBLY` instructie voor het inschakelen van R-extensies voor de U-SQL-Script.
-* Gebruik de` REDUCE` bewerking voor het partitioneren van de ingevoerde gegevens op een sleutel.
+* Gebruik de `REDUCE` bewerking voor het partitioneren van de ingevoerde gegevens op een sleutel.
 * De R-uitbreidingen voor U-SQL bevatten een ingebouwde reducer (`Extension.R.Reducer`) die op elk hoekpunt dat is toegewezen aan de reducer R-code wordt uitgevoerd. 
-* Gebruik van toegewezen met de naam met de naam gegevensframes `inputFromUSQL` en `outputToUSQL `respectievelijk voor doorgeven van gegevens tussen de U-SQL en R. invoer en uitvoer DataFrame id-namen zijn opgelost (dat wil zeggen, gebruikers niet wijzigen van deze vooraf gedefinieerde namen van de invoer en uitvoer DataFrame id's).
+* Gebruik van toegewezen met de naam met de naam gegevensframes `inputFromUSQL` en `outputToUSQL` respectievelijk voor doorgeven van gegevens tussen de U-SQL en R. invoer en uitvoer DataFrame id-namen zijn opgelost (dat wil zeggen, gebruikers niet wijzigen van deze vooraf gedefinieerde namen van de invoer en uitvoer DataFrame id's).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Het insluiten van R-code in de U-SQL-script
 
@@ -208,5 +208,5 @@ Eerst maakt u een aangepaste R-module en het zip- en vervolgens de ingepakte R a
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [U-SQL-scripts ontwikkelen met Data Lake-hulpmiddelen voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [U-SQL-vensterfuncties gebruiken voor Azure Data Lake Analytics-taken](data-lake-analytics-use-window-functions.md)

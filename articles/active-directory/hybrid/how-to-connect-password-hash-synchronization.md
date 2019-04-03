@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517994"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863080"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
@@ -46,7 +46,7 @@ Een gebruiker moet hun zakelijke referenties een tweede keer invoeren om te veri
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Gedetailleerde beschrijving van de werking van wachtwoord-hashsynchronisatie
 De volgende sectie wordt beschreven, uitgebreide, de werking van wachtwoord-hashsynchronisatie tussen Active Directory en Azure AD.
 
-![Gedetailleerde wachtwoord stroom](./media/how-to-connect-password-hash-synchronization/arch3a.png)
+![Gedetailleerde wachtwoord stroom](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. Elke twee minuten de wachtwoord-hash synchronisatie-agent op de AD Connect-serveraanvragen opgeslagen wachtwoord-hashes (het kenmerk unicodePwd) vanaf een domeincontroller.  Deze aanvraag is via de standaard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replicatie-protocol gebruikt voor het synchroniseren van gegevens tussen domeincontrollers. Het serviceaccount moet directorywijzigingen en repliceren Directory wijzigingen alle AD machtigingen (standaard op installatie) hebben tot de wachtwoord-hashes ophalen.
@@ -142,5 +142,5 @@ Als u problemen met wachtwoord-hashsynchronisatie hebt, raadpleegt u [wachtwoord
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
-* [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
+* [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](whatis-hybrid-identity.md)
 * [Ontvangt u een stapsgewijze implementatie-abonnement voor het migreren van AD FS naar wachtwoord-Hashsynchronisatie](https://aka.ms/authenticationDeploymentPlan)

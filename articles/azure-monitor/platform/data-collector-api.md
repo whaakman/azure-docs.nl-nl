@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449356"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883935"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
 Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -166,6 +166,11 @@ Maar als u deze volgende verzending vervolgens gemaakt, maakt Azure Monitor de e
 Als u de volgende vermelding, klikt u vervolgens verzonden voordat het recordtype is gemaakt, Azure Monitor een record wilt maken met drie eigenschappen **gunstig**, **boolean_s**, en **string_s**. In deze post is elk van de oorspronkelijke waarden opgemaakt als een tekenreeks:
 
 ![Voorbeeldrecord 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>Gereserveerde eigenschappen
+De volgende eigenschappen zijn gereserveerd en mag niet worden gebruikt in een aangepaste recordtype. U ontvangt een foutmelding als de nettolading een van de namen van deze eigenschappen bevat.
+
+- tenant
 
 ## <a name="data-limits"></a>Gegevenslimieten
 Er zijn enkele beperkingen om de gegevens in de gegevensverzameling van Azure Monitor API geplaatst.
@@ -468,7 +473,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternatieven en overwegingen
 De Collector-API moet beslaat van uw behoeften voor het verzamelen van vrije-gegevens in Azure-Logboeken, maar er zijn gevallen waarbij alternatief nodig zijn om het oplossen van enkele van de beperkingen van de API. Alle uw opties zijn als volgt de belangrijkste zaken die zijn opgenomen:
 
-| Alternatieve | Description | Het meest geschikt voor |
+| Alternatieve | Beschrijving | Het meest geschikt voor |
 |---|---|---|
 | [Aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Systeemeigen SDK op basis van opname in Application Insights | Application Insights, doorgaans geïnstrumenteerd via een SDK in uw toepassing, biedt de mogelijkheid voor u om aangepaste gegevens door middel van aangepaste gebeurtenissen te verzenden. | <ul><li> Gegevens die is gegenereerd in uw toepassing, maar niet zijn doorgevoerd door SDK via een van de standaard-gegevenstypen (ie: aanvragen, afhankelijkheden, uitzonderingen, enzovoort).</li><li> Gegevens die vaak wordt gecorreleerd met de andere toepassingsgegevens in Application Insights </li></ul> |
 | [Gegevensverzamelaar-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Logboeken van Azure Monitor | De Collector-API in Azure Monitor-Logboeken is een volledig mogelijkheden voor opname van gegevens. Geen gegevens ingedeeld in een JSON-object kunnen hier worden verzonden. Als verzonden, wordt verwerkt en beschikbaar zijn in Logboeken om te worden gecorreleerd met andere gegevens in Logboeken of op basis van andere Application Insights gegevens. <br/><br/> Het is redelijk eenvoudig de gegevens te uploaden als bestanden naar een Azure Blob-blob uit waar deze bestanden worden verwerkt en geüpload naar Log Analytics. Raadpleeg [dit](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikel voor een Voorbeeldimplementatie van dergelijke een pijplijn. | <ul><li> Gegevens die niet noodzakelijkerwijs worden gegenereerd in een toepassing die is geïnstrumenteerd in Application Insights.</li><li> Voorbeelden zijn onder meer lookup-en feitentabellen, referentiegegevens, vooraf samengevoegde statistieken, enzovoort. </li><li> Bedoeld voor gegevens die op basis van andere Azure Monitor-gegevens (bijvoorbeeld Application Insights, andere gegevenstypen Logboeken, Security Center, Azure-Monitor voor Containers/VM's, enzovoort) waarnaar wordt verwezen. </li></ul> |

@@ -3,27 +3,27 @@ title: 'Verificatie van eindgebruikers: REST-API met Azure Data Lake Storage Gen
 description: Meer informatie over het bereiken van eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met behulp van REST-API
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108185"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881440"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [.NET-SDK gebruiken](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [.NET SDK gebruiken](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Python gebruiken](data-lake-store-end-user-authenticate-python.md)
-> * [REST-API gebruiken](data-lake-store-end-user-authenticate-rest-api.md)
+> * [REST API gebruiken](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 

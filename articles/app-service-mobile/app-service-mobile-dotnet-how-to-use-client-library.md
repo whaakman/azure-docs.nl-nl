@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093004"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886009"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +68,7 @@ Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile A
 Gebruik een van de volgende methoden voor het installeren van de beheerde client-SDK-pakket voor mobiele Apps van [NuGet][9]:
 
 * **Visual Studio** met de rechtermuisknop op uw project, klikt u op **NuGet-pakketten beheren**, zoek de `Microsoft.Azure.Mobile.Client` pakket en klik vervolgens op **installeren**.
-* **Xamarin Studio** met de rechtermuisknop op uw project, klikt u op **toevoegen** > **NuGet-pakketten toevoegen**, zoek de `Microsoft.Azure.Mobile.Client `verpakt en klik vervolgens op **pakket toevoegen** .
+* **Xamarin Studio** met de rechtermuisknop op uw project, klikt u op **toevoegen** > **NuGet-pakketten toevoegen**, zoek de `Microsoft.Azure.Mobile.Client` verpakt en klik vervolgens op **pakket toevoegen** .
 
 In het bestand van uw belangrijkste activiteit, vergeet niet om toe te voegen van de volgende **met behulp van** instructie:
 
@@ -95,7 +95,7 @@ Vervang in de bovenstaande code `MOBILE_APP_URL` met de URL van de back-end van 
 De volgende sectie wordt uitgelegd hoe om te zoeken en records ophalen en de gegevens in de tabel wijzigen.  De volgende onderwerpen komen aan bod:
 
 * [Maken van een tabelverwijzing](#instantiating)
-* [Gegevens op te vragen](#querying)
+* [Querygegevens](#querying)
 * [Geretourneerde gegevens filteren](#filtering)
 * [Geretourneerde gegevens sorteren](#sorting)
 * [Als resultaat de gegevens op pagina 's](#paging)
@@ -116,7 +116,7 @@ De code die toegang heeft tot of wijzigt u gegevens in de endtabel van een back-
 IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 ```
 
-Het geretourneerde object maakt gebruik van het type serialisatie-model. Een niet-getypeerde serialisatie-model wordt ook ondersteund. Het volgende voorbeeld [Hiermee maakt u een verwijzing naar een niet-getypeerde tabel]:
+Het geretourneerde object maakt gebruik van het type serialisatie-model. Een niet-getypeerde serialisatie-model wordt ook ondersteund. Het volgende voorbeeld [maakt u een verwijzing naar een niet-getypeerde tabel]:
 
 ```csharp
 // Get an untyped table reference
@@ -200,7 +200,7 @@ De `Where` component biedt ondersteuning voor bewerkingen die worden vertaald na
 * Toegang tot de eigenschappen van een object, en
 * Expressies combineren van elk van deze bewerkingen.
 
-Wanneer u overweegt wat de SDK-Server ondersteunt, kunt u overwegen de [OData v3-documentatie].
+Wanneer u overweegt wat de SDK-Server ondersteunt, kunt u overwegen de [OData v3 documentatie].
 
 ### <a name="sorting"></a>Procedures: Geretourneerde gegevens sorteren
 De volgende code laat zien hoe u gegevens sorteren door op te nemen een [OrderBy] of [OrderByDescending] functie in de query. Het resultaat van items uit `todoTable` door oplopend gesorteerd de `Text` veld.
@@ -218,7 +218,7 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Procedures: Als resultaat de gegevens op pagina 's
-De back-end retourneert standaard alleen de eerste 50 rijen. U kunt het aantal geretourneerde rijen verhogen door het aanroepen van de [nemen] methode. Gebruik `Take` samen met de [Skip] methode om aan te vragen van een specifieke "page" van de totale gegevensset die wordt geretourneerd door de query. De volgende query, wanneer uitgevoerd, retourneert de bovenste drie items in de tabel.
+De back-end retourneert standaard alleen de eerste 50 rijen. U kunt het aantal geretourneerde rijen verhogen door het aanroepen van de [nemen] methode. Gebruik `Take` samen met de [overslaan] methode om aan te vragen van een specifieke "page" van de totale gegevensset die wordt geretourneerd door de query. De volgende query, wanneer uitgevoerd, retourneert de bovenste drie items in de tabel.
 
 ```csharp
 // Define a filtered query that returns the top 3 items.
@@ -249,7 +249,7 @@ In een echte wereld-app, kunt u query's die vergelijkbaar is met het voorgaande 
 
 
 ### <a name="selecting"></a>Procedures: Specifieke kolommen selecteren
-U kunt opgeven welke set eigenschappen om op te nemen in de resultaten door toe te voegen een [Selecteren] component aan uw query. Bijvoorbeeld, toont de volgende code hoe u slechts één veld selecteert en ook hoe u kunt selecteren en formatteren van meerdere velden:
+U kunt opgeven welke set eigenschappen om op te nemen in de resultaten door toe te voegen een [Selecteer] component aan uw query. Bijvoorbeeld, toont de volgende code hoe u slechts één veld selecteert en ook hoe u kunt selecteren en formatteren van meerdere velden:
 
 ```csharp
 // Select one field -- just the Text
@@ -462,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Zie voor meer informatie de [Offlinesynchronisatie van gegevens in Azure Mobile Apps] onderwerp.
+Zie voor meer informatie de [Offline gegevenssynchronisatie in Azure Mobile Apps] onderwerp.
 
 ### <a name="binding"></a>Procedures: Mobile Apps-gegevens binden aan een Windows-gebruikersinterface
 Deze sectie wordt beschreven hoe objecten van geretourneerde gegevens met behulp van UI-elementen in een Windows-app kunt weergeven.  De volgende voorbeeldcode koppelt aan de bron van de lijst met een query voor onvolledige items. De [MobileServiceCollection] maakt een verzameling met mobiele Apps-bewuste binding.
@@ -827,7 +827,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Als u een id-provider dan Facebook gebruikt, wijzigt u de waarde van [MobileServiceAuthenticationProvider] naar de waarde voor de provider.
 
-In een stroom server beheert Azure App Service de OAuth-verificatie-stroom door de aanmeldingspagina van de geselecteerde provider weer te geven.  Zodra de id-provider retourneert, Azure App Service genereert een App Service-verificatietoken. De [LoginAsync] methode retourneert een [MobileServiceUser], waarmee u zowel de [UserId] van de geverifieerde gebruiker en de [MobileServiceAuthenticationToken], als een JSON webtoken (JWT). Dit token kan worden opgeslagen in de cache en opnieuw worden gebruikt totdat het verloopt. Zie voor meer informatie, [Caching het verificatietoken](#caching).
+In een stroom server beheert Azure App Service de OAuth-verificatie-stroom door de aanmeldingspagina van de geselecteerde provider weer te geven.  Zodra de id-provider retourneert, Azure App Service genereert een App Service-verificatietoken. De [LoginAsync] methode retourneert een [MobileServiceUser], waarmee u zowel de [UserId] van de geverifieerde gebruiker en de [ MobileServiceAuthenticationToken], als een JSON webtoken (JWT). Dit token kan worden opgeslagen in de cache en opnieuw worden gebruikt totdat het verloopt. Zie voor meer informatie, [Caching het verificatietoken](#caching).
 
 ### <a name="caching"></a>Het verificatietoken opslaan in cache
 In sommige gevallen kan de aanroep naar de aanmeldingsmethode na de eerste authenticatie worden vermeden door op te slaan van het verificatietoken van de provider.  Microsoft Store- en UWP-apps kunt [PasswordVault] cache van het huidige verificatietoken na een geslaagde aanmelding, als volgt:
@@ -963,7 +963,7 @@ MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObj
 
 Alle tags worden onmiddellijk verwijderd tijdens de registratie voor beveiliging. Tags toevoegen aan installaties of -sjablonen in installaties, Zie [werken met de .NET back-endserver SDK voor Azure Mobile Apps].
 
-Om meldingen te verzenden met behulp van deze geregistreerde sjablonen, raadpleegt u de [Notification Hubs-API 's].
+Om meldingen te verzenden met behulp van deze geregistreerde sjablonen, raadpleegt u de [Notification Hubs-API's].
 
 ## <a name="misc"></a>Diverse onderwerpen
 ### <a name="errors"></a>Procedures: Fouten verwerken
@@ -986,7 +986,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Een ander voorbeeld van het afhandelen van fouten kunt u vinden in de [Voorbeeld van mobiele Apps-bestanden]. De [LoggingHandler] voorbeeld biedt een handler voor het delegeren van logboekregistratie om de aanvragen worden ingediend bij de back-end te registreren.
+Een ander voorbeeld van het afhandelen van fouten kunt u vinden in de [Mobile Apps bestanden voorbeeld]. De [LoggingHandler] voorbeeld biedt een handler voor het delegeren van logboekregistratie om de aanvragen worden ingediend bij de back-end te registreren.
 
 ### <a name="headers"></a>Procedures: Aanvraagheaders aanpassen
 Ter ondersteuning van uw specifieke app-scenario, moet u mogelijk communicatie met de back-end van Mobile App aanpassen. U wilt bijvoorbeeld een aangepaste header toevoegen aan elke uitgaande aanvraag of antwoord-statuscodes zelfs wijzigen. U kunt een aangepaste [DelegatingHandler], zoals in het volgende voorbeeld:
@@ -1062,13 +1062,13 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[nemen]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Selecteren]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Selecteer]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Overslaan]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure-portal]: https://portal.azure.com/
+[Gebruikers-id]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[Waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

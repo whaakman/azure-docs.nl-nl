@@ -1,6 +1,6 @@
 ---
 title: SQL Server Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP | Microsoft Docs
-description: SQL Server Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
+description: DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor SQL Server
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992496"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881083"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992496"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -409,7 +408,7 @@ U hebt verschillende mogelijkheden om uit te voeren 'manual' back-ups door:
 2.  SQL Server 2012 CU4 en hoger kunt back-up van databases naar een Azure storage-URL.
 3.  Momentopname van de bestanden back-ups van databasebestanden in Azure Blob-opslag. Deze methode werkt alleen als uw SQL Server-gegevens en logboekbestanden bestanden bevinden zich in Azure blob-opslag
 
-De eerste methode is erg bekend is en toegepast in veel gevallen in de on-premises ter wereld. Echter, krijgt u met de taak om op te lossen de langere termijn back-uplocatie. Omdat u niet dat uw back-ups behouden gedurende meer dan 30 dagen in de lokaal gekoppelde Azure Storage wilt, hebt u de noodzaak om te gebruiken Azure Backup-Services of een ander hulpprogramma van derden back-up/herstel met toegang en retentie management voor uw back-ups. Of u maken van een grote bestandsserver in Azure met behulp van Windows-opslagruimten.
+De eerste methode is het erg bekend is en toegepast in veel gevallen in de on-premises wereld. Echter, krijgt u met de taak om op te lossen de langere termijn back-uplocatie. Omdat u niet dat uw back-ups behouden gedurende meer dan 30 dagen in de lokaal gekoppelde Azure Storage wilt, hebt u de noodzaak om te gebruiken Azure Backup-Services of een ander hulpprogramma van derden back-up/herstel met toegang en retentie management voor uw back-ups. Of u maken van een grote bestandsserver in Azure met behulp van Windows-opslagruimten.
 
 De tweede methode dichter bij in het artikel wordt beschreven [SQL Server back-up naar URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Verschillende versies van SQL Server hebben enkele variaties in deze functionaliteit. U moet daarom de documentatie bekijken voor de controle van uw specifieke SQL Server-release. Belangrijk te weten dat dit artikel vindt u een groot aantal beperkingen. U hebt de mogelijkheid om uit te voeren van de back-up op basis van:
 
@@ -531,7 +530,7 @@ In gevallen waarin u SAP SQL Server-databases van on-premises naar Azure verplaa
 - Bij oudere versies van SQL Server heeft back-upcompressie niet efficiëntie ophalen meer wanneer u uw SQL Server-database versleuteld. Dit probleem kan zich ontwikkelen in een probleem wanneer uw abonnement is voor het versleutelen van uw SQL Server-database on-premises en kopieer vervolgens een back-up naar Azure om de database herstellen in Azure. SQL Server-back-upcompressie realiseert meestal een compressieverhouding van factor 4.
 - Met SQL Server 2016 introduceert SQL Server de nieuwe functionaliteit waarmee de versleutelde databases op een efficiënte manier ook het comprimeren. Zie [deze blogs](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) voor sommige details.
  
-De toepassing van TDE versleuteling zonder dat er te weinig SAP werkbelasting te behandelen, moet u testen in uw specifieke configuratie op of is het beter om toe te passen TDE naar uw SAP-database on-premises of om dit te doen in Azure. In Azure, u zeker beschikt over meer flexibiliteit in termen van te veel inrichting infrastructuur en de infrastructuur te verkleinen nadat TDE is toegepast.
+De toepassing van TDE versleuteling zonder dat er te weinig SAP werkbelasting te behandelen, moet u testen in uw specifieke configuratie op of is het beter om toe te passen TDE uw SAP on-premises database of om dit te doen in Azure. In Azure, u zeker beschikt over meer flexibiliteit in termen van te veel inrichting infrastructuur en de infrastructuur te verkleinen nadat TDE is toegepast.
 
 ### <a name="using-azure-key-vault"></a>Met behulp van Azure Key Vault
 Azure biedt de service van een [Key Vault](https://azure.microsoft.com/services/key-vault/) versleutelingssleutels wilt opslaan. SQL Server op de andere zijde bieden een connector gebruikmaken van Azure Key Vault als archief voor de TDE-certificaten.

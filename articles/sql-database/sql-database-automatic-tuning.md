@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727396"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863216"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisch afstemmen in Azure SQL Database
 
@@ -50,7 +50,7 @@ Azure SQL Database automatisch afstemmen, is de kernlogica delen met de SQL Serv
 
 ## <a name="use-automatic-tuning"></a>Gebruik van automatisch afstemmen
 
-Automatisch afstemmen moet handmatig worden ingeschakeld voor uw abonnement. Inschakelen van automatisch afstemmen met behulp van Azure portal [automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md).
+Automatisch afstemmen moet worden ingeschakeld voor uw abonnement. Inschakelen van automatisch afstemmen met behulp van Azure portal [automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md).
 
 Automatisch afstemmen kunt autonoom werken via automatisch toepassen van aanbevelingen voor afstemming, met inbegrip van geautomatiseerde verificatie van de prestaties verbeteren. 
 
@@ -74,7 +74,9 @@ Opties voor automatisch afstemmen in Azure SQL Database beschikbaar zijn:
 
 Automatisch afstemmen identificeert **CREATE INDEX**, **DROP INDEX**, en **FORCE laatste goede PLAN** aanbevelingen die u kunnen de databaseprestaties van uw te optimaliseren en waarin wordt getoond in [Azure-portal](sql-database-advisor-portal.md), en wordt aangegeven dat ze via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) en [REST-API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
-Aanbevelingen voor afstemming via de portal handmatig toepassen of u kunt automatisch afstemmen autonoom toepassen van aanbevelingen voor afstemming voor u. De voordelen van het systeem autonoom toepassen van aanbevelingen voor afstemming voor u laten is dat deze automatisch gevalideerd Er bestaat een positieve winst op de werkbelastingsprestaties en als er geen aanzienlijke prestatieverbetering gedetecteerd, wordt deze automatisch afstemmen aanbeveling teruggezet. Houd er rekening mee dat in het geval van query's beïnvloed door de aanbevelingen die niet vaak worden uitgevoerd voor het afstemmen, de validatiefase maximaal 72 kunnen uur en standaard. Als u handmatig afstemmen toepast zijn aanbevelingen, de prestaties van de automatische validatie en terugboeking mechanismen niet beschikbaar.
+Aanbevelingen voor afstemming via de portal handmatig toepassen of u kunt automatisch afstemmen autonoom toepassen van aanbevelingen voor afstemming voor u. De voordelen van het systeem autonoom toepassen van aanbevelingen voor afstemming voor u laten is dat deze automatisch gevalideerd Er bestaat een positieve winst op de werkbelastingsprestaties en als er geen aanzienlijke prestatieverbetering gedetecteerd, wordt deze automatisch afstemmen aanbeveling teruggezet. Houd er rekening mee dat in het geval van query's beïnvloed door de aanbevelingen die niet vaak worden uitgevoerd voor het afstemmen, de validatiefase maximaal 72 kunnen uur en standaard.
+
+Als u handmatig afstemmen toepast zijn aanbevelingen, de prestaties van de automatische validatie en terugboeking mechanismen niet beschikbaar. Bovendien blijft handmatig toegepaste aanbevelingen actief en wordt weergegeven in de lijst met aanbevelingen voor 24 tot 48 uur. voordat het systeem automatisch ze intrekt. Als u wilt verwijderen van een aanbeveling sneller wilt, kunt u het handmatig verwijderen.
 
 Opties voor automatisch afstemmen kunnen onafhankelijk van elkaar zijn ingeschakeld of uitgeschakeld per database, of ze kunnen worden geconfigureerd op SQL Database-servers en toegepast op elke database die u neemt instellingen over van de server. SQL Database-servers kunnen standaardinstellingen van Azure voor de instellingen voor automatisch afstemmen overnemen. Standaardinstellingen van Azure op dit moment zijn ingesteld op FORCE_LAST_GOOD_PLAN is ingeschakeld, CREATE_INDEX is ingeschakeld en DROP_INDEX is uitgeschakeld.
 

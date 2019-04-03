@@ -8,15 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004130"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849591"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Beheren en bewaken back-ups van SQL Server-databases
-
 
 In dit artikel worden algemene taken beschreven voor het beheren en controleren van SQL Server-databases die worden uitgevoerd op een Azure-machine (VM) en die zijn back-ups op een Azure Backup Recovery Services-kluis door het [Azure Backup](backup-overview.md) service. U leert hoe u taken en waarschuwingen bewaken, stoppen en hervatten van databasebeveiliging, back-uptaken uitvoeren en een virtuele machine uit de back-ups van de registratie ongedaan maken.
 
@@ -113,6 +112,7 @@ U kunt verschillende typen back-ups op aanvraag uitvoeren:
 * Differentiële back-up
 * Logboekback-up
 
+Terwijl u nodig hebt om op te geven van de bewaartermijn voor de kopie-alleen volledige back-, wordt de bewaartermijn voor andere back-uptypen automatisch ingesteld op 30 dagen na de huidige tijd. <br/>
 Zie voor meer informatie, [SQL Server-back-uptypen](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Registratie van een SQL Server-exemplaar ongedaan maken

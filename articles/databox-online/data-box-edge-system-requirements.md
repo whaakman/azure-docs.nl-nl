@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401758"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884649"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box-Edge-systeemvereisten
 
@@ -86,10 +86,14 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 | https://\*.azurecr.io                     | Persoonlijke en van derden container Registry (optioneel) |   |
 | https://\*.azure-devices.net              | IoT Hub-toegang (vereist)                             |   |
 
+### <a name="url-patterns-for-azure-government"></a>URL-patronen voor Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>Internet-bandbreedte
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Volgende stap
 
-- [Uw Azure Data Box-Edge implementeren](data-box-Edge-deploy-prep.md)
+- [Uw Azure Data Box-Edge implementeren](data-box-edge-deploy-prep.md)

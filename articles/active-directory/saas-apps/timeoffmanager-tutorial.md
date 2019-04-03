@@ -4,281 +4,257 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+ms.topic: tutorial
+ms.date: 03/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d80312acfa90690a0b0fe7b212a614945e1e5b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5595bb1333d26e43498af1a74e087cc7c91eef13
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200391"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Zelfstudie: Azure Active Directory-integratie met TimeOffManager
 
 In deze zelfstudie leert u hoe u TimeOffManager integreren met Azure Active Directory (Azure AD).
-
 TimeOffManager integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot TimeOffManager heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij TimeOffManager (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
+* U kunt beheren in Azure AD die toegang tot TimeOffManager heeft.
+* U kunt uw gebruikers worden automatisch aangemeld TimeOffManager (Single Sign-On) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met TimeOffManager, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een TimeOffManager eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Eenmalige aanmelding TimeOffManager ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. TimeOffManager uit de galerie toevoegen
-1. Azure AD-eenmalige aanmelding configureren en testen
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-timeoffmanager-from-the-gallery"></a>TimeOffManager uit de galerie toevoegen
+* Biedt ondersteuning voor TimeOffManager **IDP** gestart door SSO
+
+* Biedt ondersteuning voor TimeOffManager **Just In Time** inrichten van gebruikers
+
+## <a name="adding-timeoffmanager-from-the-gallery"></a>TimeOffManager uit de galerie toe te voegen
+
 Voor het configureren van de integratie van TimeOffManager in Azure AD, moet u TimeOffManager uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen TimeOffManager uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Applicaties][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **TimeOffManager**, selecteer **TimeOffManager** van resultaat deelvenster en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Uit de galerie toevoegen](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
+4. Typ in het zoekvak **TimeOffManager**, selecteer **TimeOffManager** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met TimeOffManager op basis van een testgebruiker 'Julia steen' genoemd.
+     ![TimeOffManager in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in TimeOffManager is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in TimeOffManager tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In TimeOffManager, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met TimeOffManager op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in TimeOffManager tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met TimeOffManager, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker TimeOffManager](#create-a-timeoffmanager-test-user)**  : als u wilt een equivalent van Britta Simon in TimeOffManager die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Configureren van eenmalige aanmelding TimeOffManager](#configure-timeoffmanager-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Maken van de testgebruiker TimeOffManager](#create-timeoffmanager-test-user)**  : als u wilt een equivalent van Britta Simon in TimeOffManager die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing TimeOffManager.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met TimeOffManager, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD eenmalige aanmelding met TimeOffManager, moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **TimeOffManager** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **TimeOffManager** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![SAML-aanmelding](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **TimeOffManager domein en URL's** sectie, voer de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-     ![Sectie TimeOffManager domein en URL 's](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke antwoord-URL. Krijgt u voor deze waarde **instellingenpagina voor eenmalige aanmelding** die wordt verderop in de zelfstudie of neem contact op met [TimeOffManager ondersteuningsteam](https://www.purelyhr.com/contact-us).
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Sectie voor SAML-handtekeningcertificaat](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_certificate.png) 
+    ![TimeOffManager domein en URL's, eenmalige aanmelding informatie](common/idp-reply.png)
 
-1. Het doel van deze sectie is om een overzicht van hoe u gebruikers wilt verifiëren naar TimeOffManger met hun account in Azure AD gebruikmaakt van Federatie op basis van het SAML-protocol te.
-    
-    Uw toepassing TimeOffManger wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermopname ziet u een voorbeeld hiervan.
+    In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
-    ![SAML-token kenmerken](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_attrb.png "saml-token kenmerken")
-    
-    | Naam kenmerk | Waarde kenmerk |
+    > [!NOTE]
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Krijgt u voor deze waarde **instellingenpagina voor eenmalige aanmelding** die wordt verderop in de zelfstudie of neem contact op met [TimeOffManager ondersteuningsteam](https://www.purelyhr.com/contact-us). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+
+5. TimeOffManager toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
+
+    ![image](common/edit-attribute.png)
+
+6. Bovendien hierboven verwacht TimeOffManager toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel: 
+
+    | Name | Bronkenmerk|
     | --- | --- |
     | Voornaam |User.givenName |
-    | Lastname |User.surname |
+    | Achternaam |User.surname |
     | Email |User.mail |
-    
-    a.  Voor elke gegevensrij in de bovenstaande tabel, klikt u op **toevoegen gebruikerskenmerk**.
-    
-    ![SAML-token kenmerken](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb.png "saml-token kenmerken")
-    
-    ![SAML-token kenmerken](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb1.png "saml-token kenmerken")
-    
-    b.  In de **kenmerknaam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
-    
-    c.  In de **kenmerkwaarde** textbox, selecteert u de waarde van het kenmerk wordt weergegeven voor die rij.
-    
-    d.  Klik op **OK**.
-    
-1. Klik op de knop **Save**.
 
-    ![Eenmalige aanmelding configureren](./media/timeoffmanager-tutorial/tutorial_general_400.png)
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-1. Op de **TimeOffManager configuratie** sectie, klikt u op **configureren TimeOffManager** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![image](common/new-save-attribute.png)
 
-    ![Configuratiesectie TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_configure.png) 
+    ![image](common/new-attribute-details.png)
 
-1. Meld u in een ander browservenster in uw bedrijf TimeOffManager site als beheerder.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-1. Ga naar **Account \> accountopties \> Single Sign-On instellingen**.
-   
-   ![Single Sign-On instellingen](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On-instellingen")
-1. In de **instellingen voor eenmalige aanmelding** sectie, voert u de volgende stappen uit:
-   
-   ![Single Sign-On instellingen](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On-instellingen")
-   
-   a. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u het gehele certificaat in **X.509-certificaat** tekstvak.
-   
-   b. In **Idp verlener** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.
-   
-   c. In **IdP eindpunt-URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.
-   
-   d. Als **afdwingen SAML**, selecteer **Nee**.
-   
-   e. Als **gebruikers automatisch maakt**, selecteer **Ja**.
-   
-   f. In **afmeldings-URL van** tekstvak, plak de waarde van **afmelding URL** die u hebt gekopieerd vanuit Azure portal.
-   
-   g. Klik op **wijzigingen opslaan**.
+    c. Laat **Naamruimte** leeg.
 
-1. In **instellingen voor eenmalige aanmelding** pagina-, Kopieer de waarde van **URL van de Bevestigingsconsumerservice** en plak deze in de **antwoord-URL** tekstvak onder **TimeOffManager Domein en URL's** sectie in Azure portal. 
+    d. Selecteer Bron bij **Kenmerk**.
 
-      ![Single Sign-On instellingen](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On-instellingen")
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    f. Klik op **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    g. Klik op **Opslaan**.
+
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+
+8. Op de **TimeOffManager instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-timeoffmanager-single-sign-on"></a>TimeOffManager voor eenmalige aanmelding configureren
+
+1. In een ander browservenster, meld u aan bij uw bedrijf TimeOffManager site als beheerder.
+
+2. Ga naar **Account \> accountopties \> Single Sign-On instellingen**.
+   
+    ![Instellingen voor eenmalige aanmelding](./media/timeoffmanager-tutorial/ic795917.png "Instellingen voor eenmalige aanmelding")
+
+3. In de **instellingen voor eenmalige aanmelding** sectie, voert u de volgende stappen uit:
+   
+    ![Instellingen voor eenmalige aanmelding](./media/timeoffmanager-tutorial/ic795918.png "Instellingen voor eenmalige aanmelding")
+   
+    a. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u het gehele certificaat in **X.509-certificaat** tekstvak.
+   
+    b. In **Idp verlener** tekstvak, plak de waarde van **Azure AD-id** die u hebt gekopieerd vanuit Azure portal.
+   
+    c. In **IdP eindpunt-URL** tekstvak, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
+   
+    d. Als **afdwingen SAML**, selecteer **Nee**.
+   
+    e. Als **gebruikers automatisch maakt**, selecteer **Ja**.
+   
+    f. Plak in het tekstvak **Logout URL** de waarde van **Afmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
+   
+    g. Klik op **wijzigingen opslaan**.
+
+4. In **instellingen voor eenmalige aanmelding** pagina-, Kopieer de waarde van **URL van de Bevestigingsconsumerservice** en plak deze in de **antwoord-URL** tekstvak onder **Basic SAML Configuratie** sectie in Azure portal. 
+
+      ![Instellingen voor eenmalige aanmelding](./media/timeoffmanager-tutorial/ic795915.png "Instellingen voor eenmalige aanmelding")
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/timeoffmanager-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Gebruikers en groepen--> alle gebruikers](./media/timeoffmanager-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Knop toevoegen](./media/timeoffmanager-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Dialoogvenster op de gebruikerspagina](./media/timeoffmanager-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-timeoffmanager-test-user"></a>Maak een testgebruiker TimeOffManager
-
-Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij TimeOffManager, moeten ze worden ingericht op TimeOffManager.  
-
-TimeOffManager biedt ondersteuning voor just-in-tijd van gebruikersinrichting. Er is geen actie-item voor u.  
-
-De gebruikers worden automatisch toegevoegd tijdens de eerste keer aanmelden met behulp van eenmalige aanmelding op.
-
->[!NOTE]
->U kunt alle andere TimeOffManager gebruiker-account maken van hulpprogramma's of API's geleverd door TimeOffManager voor het inrichten van gebruikersaccounts van de Azure AD.
-> 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan TimeOffManager.
 
-![Gebruiker toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **TimeOffManager**.
 
-**Als u wilt Britta Simon aan TimeOffManager toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **TimeOffManager**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling TimeOffManager in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **TimeOffManager**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![TimeOffManager in lijst met Apps](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_app.png) 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Gebruiker toewijzen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-timeoffmanager-test-user"></a>TimeOffManager testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in TimeOffManager. TimeOffManager biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in TimeOffManager bestaat, wordt een nieuw gemaakt nadat verificatie.
+
+>[!NOTE]
+>U kunt alle andere TimeOffManager gebruiker-account maken van hulpprogramma's of API's geleverd door TimeOffManager voor het inrichten van gebruikersaccounts van de Azure AD.
+> 
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel TimeOffManager in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing TimeOffManager. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel TimeOffManager in het toegangsvenster, moet u worden automatisch aangemeld bij de TimeOffManager waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/timeoffmanager-tutorial/tutorial_general_01.png
-[2]: ./media/timeoffmanager-tutorial/tutorial_general_02.png
-[3]: ./media/timeoffmanager-tutorial/tutorial_general_03.png
-[4]: ./media/timeoffmanager-tutorial/tutorial_general_04.png
-
-[100]: ./media/timeoffmanager-tutorial/tutorial_general_100.png
-
-[200]: ./media/timeoffmanager-tutorial/tutorial_general_200.png
-[201]: ./media/timeoffmanager-tutorial/tutorial_general_201.png
-[202]: ./media/timeoffmanager-tutorial/tutorial_general_202.png
-[203]: ./media/timeoffmanager-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

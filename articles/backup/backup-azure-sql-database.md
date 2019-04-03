@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285442"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847302"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -55,7 +55,7 @@ Voordat u begint, controleert u het volgende:
 
 - SQL Server back-up kan worden geconfigureerd in Azure portal of **PowerShell**. We bieden geen ondersteuning voor CLI.
 - Virtuele machine met SQL Server moet verbinding met internet voor toegang tot Azure openbare IP-adressen.
-- SQL Server Always on **Failover Cluster Instances (Failoverclusterinstanties)** worden niet ondersteund.
+- SQL Server **Failover Cluster exemplaar (FCI)** en SQL Server Always on Failover Cluster Instance worden niet ondersteund.
 - Back-up en herstel bewerkingen voor de mirror-databases en momentopnamen van databases worden niet ondersteund.
 - Met behulp van meer dan een back-upoplossingen back-up van uw zelfstandige SQL Server kan-exemplaar of SQL Always on-beschikbaarheidsgroep leiden tot back-upfouten; in dat geval weerhouden.
 - Back-ups van twee knooppunten van een beschikbaarheidsgroep afzonderlijk met dezelfde of verschillende oplossingen, kunnen ook leiden tot back-upfouten. Azure Backup kunt detecteren en alle knooppunten die zich in dezelfde regio bevinden als de kluis beveiligen. Als uw SQL Server altijd op beschikbaarheidsgroep meerdere Azure-regio's omvat, stelt u de back-up van de regio waaraan het primaire knooppunt. Azure Backup kunt detecteren en beveiligen van alle databases in de beschikbaarheidsgroep op basis van uw back-upvoorkeur.  

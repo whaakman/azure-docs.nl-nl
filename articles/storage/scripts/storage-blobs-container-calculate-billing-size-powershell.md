@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080893"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880760"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>De totale grootte van een blobcontainer berekenen voor facturering
 
@@ -43,11 +43,11 @@ In de volgende secties wordt beschreven hoe de opslagcapaciteit voor blobcontain
 
 De volgende berekening laat zien hoe u de hoeveelheid opslag kunt schatten die per blobcontainer wordt verbruikt:
 
-`
+```
 48 bytes + Len(ContainerName) * 2 bytes +
 For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
-`
+```
 
 Hieronder ziet u de uitsplitsing:
 * 48 bytes overhead voor elke container, inclusief Tijdstip laatst gewijzigd, Machtigingen, Openbare instellingen en enkele systeemmetagegevens.
@@ -64,22 +64,22 @@ De volgende berekeningen laten zien hoe u de hoeveelheid opslag kunt schatten di
 
 * Blok-blob (basis-blob of momentopname):
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
    SizeInBytes(data in unique committed data blocks stored) +
    SizeInBytes(data in uncommitted data blocks)
-   `
+   ```
 
 * Pagina-blob (basis-blob of momentopname):
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    number of nonconsecutive page ranges with data * 12 bytes +
    SizeInBytes(data in unique pages stored)
-   `
+   ```
 
 Hieronder ziet u de uitsplitsing:
 

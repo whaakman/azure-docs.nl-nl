@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107760"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862162"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Een aangepaste test maken voor Application Gateway met behulp van de portal
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -49,12 +49,12 @@ Tests worden geconfigureerd in een proces in twee stappen via de portal. De eers
 
 1. Op de **test toevoegen** blade, vul de vereiste gegevens voor de test en klikt u op wanneer u klaar bent **OK**.
 
-   |**Instelling** | **Waarde** | **Details**|
+   |**Instelling** | **Value** | **Details**|
    |---|---|---|
-   |**Naam**|customProbe|Deze waarde is een beschrijvende naam in de test die toegankelijk is in de portal.|
+   |**Name**|customProbe|Deze waarde is een beschrijvende naam in de test die toegankelijk is in de portal.|
    |**Protocol**|HTTP of HTTPS | Het protocol dat gebruikmaakt van de statustest.|
    |**Host**|i.e contoso.com|Deze waarde is de naam van de host die wordt gebruikt voor de test. Van toepassing alleen als er meerdere sites is geconfigureerd in Application Gateway, anders gebruiken '127.0.0.1'. Deze waarde verschilt van de naam van de VM-host.|
-   |**Pad**|/ of een ander pad|De rest van de volledige url voor de aangepaste test. Een geldig pad begint met '/'. Voor het standaardpad van http://contoso.com gewoon gebruiken '/' |
+   |**Pad**|/ of een ander pad|De rest van de volledige url voor de aangepaste test. Een geldig pad begint met '/'. Voor het standaardpad van http:\//contoso.com gewoon gebruiken '/' |
    |**Interval (seconden)**|30|Hoe vaak de test wordt uitgevoerd om te controleren op status. Het wordt niet aanbevolen om in te stellen, des te lager dan 30 seconden.|
    |**Time-out (seconden)**|30|De hoeveelheid tijd die de test moet voordat een time-out optreedt wachten. De time-outinterval moet hoog genoeg waarop een http-aanroep om ervoor te zorgen dat de health-pagina back-end beschikbaar kan worden gesteld.|
    |**Drempelwaarde voor onjuiste status**|3|Het aantal mislukte pogingen om te worden als slecht beschouwd. Een drempelwaarde 0 betekent dat als een controle van gatewayservicestatus is mislukt de back-end wordt onmiddellijk niet in orde bepaald.|

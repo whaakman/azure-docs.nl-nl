@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888548"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886995"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade van SharePoint 2010 voor SharePoint 2013 en installeer vervolgens de StorSomple-Adapter voor SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55888548"
 > U moet plannen dat deze upgrade worden uitgevoerd tijdens een geplande onderhoudsvenster om de volgende redenen:
 > 
 > * Eerder zich externalized inhoud niet beschikbaar totdat de adapter is geïnstalleerd.
-> * Alle inhoud die geüpload naar de site nadat u de vorige versie van de StorSimple-Adapter voor SharePoint hebt verwijderd, maar voordat u de nieuwe versie installeert worden, opgeslagen in de inhoud van de database. U moet overstappen van die inhoud op het StorSimple-apparaat nadat u de nieuwe-adapter installeren. U kunt de Microsoft` RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint voor het migreren van de inhoud. Zie voor meer informatie, [inhoud migreren naar of uit Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Alle inhoud die geüpload naar de site nadat u de vorige versie van de StorSimple-Adapter voor SharePoint hebt verwijderd, maar voordat u de nieuwe versie installeert worden, opgeslagen in de inhoud van de database. U moet overstappen van die inhoud op het StorSimple-apparaat nadat u de nieuwe-adapter installeren. U kunt de Microsoft `RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint voor het migreren van de inhoud. Zie voor meer informatie, [inhoud migreren naar of uit Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

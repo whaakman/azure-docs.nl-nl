@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232864"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885584"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installeren en configureren van de StorSimple-Adapter voor SharePoint
 ## <a name="overview"></a>Overzicht
@@ -226,9 +226,9 @@ Voordat u de StorSimple-Adapter voor SharePoint-software verwijdert, moet u alle
 4. Op de **StorSimple-Adapter configureren** pagina, klikt u op de **uitschakelen** knop onder elk van de inhoudsdatabases die u wilt verwijderen van externe BLOB-opslag. 
 5. De objecten uit SharePoint verwijderen en vervolgens opnieuw uploaden.
 
-U kunt ook kunt u de Microsoft` RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint. Zie voor meer informatie, [inhoud migreren naar of uit Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx).
+U kunt ook kunt u de Microsoft `RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint. Zie voor meer informatie, [inhoud migreren naar of uit Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx).
 
-Nadat u de BLOBs terug naar de inhoud van de database verplaatsen, gaat u naar de volgende stap: [verwijderen van de adapter](#uninstall-the-adapter).
+Nadat u de BLOBs terug naar de inhoud van de database verplaatsen, gaat u naar de volgende stap: [Verwijderen van de adapter](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>De adapter verwijderen
 Nadat u de BLOBs terug naar de SQL Server-inhoudsdatabases verplaatsen, kunt u een van de volgende opties voor het verwijderen van de StorSimple-Adapter voor SharePoint gebruiken.
@@ -238,7 +238,7 @@ Nadat u de BLOBs terug naar de SQL Server-inhoudsdatabases verplaatsen, kunt u e
 2. Dubbelklik op de StorSimple-Adapter voor SharePoint-installatieprogramma. De Wizard Setup wordt gestart.
    
     ![Setup-wizard](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Klik op **Volgende**. De volgende pagina wordt weergegeven.
+3. Klik op **volgende**. De volgende pagina wordt weergegeven.
    
     ![Pagina voor Setup wizard verwijderen](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Klik op **verwijderen** het verwijderingsproces te selecteren. De volgende pagina wordt weergegeven.

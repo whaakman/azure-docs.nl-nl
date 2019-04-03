@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993389"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885873"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -40,7 +40,7 @@ Nee. Een Recovery Services-kluis kunt opslagopties alleen wijzigen voordat u een
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan ik een Item niveau herstellen (ILR) voor virtuele machines een back-up naar een Recovery Services-kluis?
 - ILR wordt ondersteund voor virtuele Azure-machines back-up gemaakt door Azure VM backup. Zie voor meer informatie, [artikel](backup-azure-restore-files-from-vm.md)
-- ILR wordt niet ondersteund voor online herstelpunten van on-premises virtuele machines een back-up door Azure Backup-Server of System Center DPM.
+- ILR wordt niet ondersteund voor online herstelpunten van on-premises machines back-ups van door Azure Backup-Server of System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
@@ -93,7 +93,7 @@ Ja.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Welke besturingssystemen worden ondersteund voor back-up?
 Azure Backup biedt ondersteuning voor deze besturingssystemen voor back-ups van bestanden en mappen en apps die zijn beveiligd door Azure Backup Server en DPM.
 
-**Besturingssysteem** | **SKU** | **Details**
+**OS** | **SKU** | **Details**
 --- | --- | ---
 Werkstation | |
 Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.

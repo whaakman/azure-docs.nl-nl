@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177718"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883442"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Federatiecertificaten vernieuwen voor Office 365 en Azure Active Directory
 ## <a name="overview"></a>Overzicht
@@ -118,7 +118,7 @@ Controleer het volgende om te bevestigen dat het certificaat automatisch kan wor
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-waar `(your_FS_name) `wordt vervangen door de hostnaam van de federation-service gebruikmaakt van uw organisatie, zoals fs.contoso.com.  Als u kunt om te controleren of beide van deze instellingen is, u niet hoeft te doen.  
+waar `(your_FS_name)` wordt vervangen door de hostnaam van de federation-service gebruikmaakt van uw organisatie, zoals fs.contoso.com.  Als u kunt om te controleren of beide van deze instellingen is, u niet hoeft te doen.  
 
 Voorbeeld: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Het token-ondertekening certificaat handmatig vernieuwen <a name="manualrenew"></a>

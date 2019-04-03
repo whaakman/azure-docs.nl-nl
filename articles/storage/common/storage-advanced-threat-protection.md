@@ -1,21 +1,21 @@
 ---
-title: Advanced Threat Protection voor Azure-opslag
+title: Advanced Threat Protection voor Azure Storage
 description: Azure Storage Advanced Threat Protection voor de detectie van afwijkingen in Accountactiviteit en een melding van mogelijk schadelijke pogingen om toegang te krijgen tot uw account configureren.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133226"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850716"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure-opslag
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
 Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van opslagaccounts gedetecteerd. Deze extra beveiliging kunt u om bedreigingen zonder de noodzaak om te worden van een beveiligingsexpert of beheren van controle beveiligingssystemen. 
 
@@ -51,6 +51,24 @@ Wanneer u zich abonneert op de Standard-laag in Azure Security Center Advanced T
 
 Gebruik een Azure Resource Manager-sjabloon voor het implementeren van een Azure Storage-account met Advanced Threat Protection ingeschakeld.
 Zie voor meer informatie, [Storage-account met Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-azure-policy"></a>Met behulp van Azure Policy
+
+Azure-beleid gebruiken om in te schakelen van Advanced Threat Protection voor opslagaccounts in een bepaald abonnement of resourcegroep bevinden.
+
+1. De Azure lunch **beleid - definities** pagina.
+
+1. Zoek de **implementeren Advanced Threat Protection op Storage-Accounts** beleid.
+
+     ![Beleid voor zoeken](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Selecteer een Azure-abonnement of resourcegroep.
+
+    ![Abonnement of groep selecteren](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Het beleid toewijst.
+
+    ![Pagina met beleid-definities](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>REST API gebruiken
 Rest-API-opdrachten gebruiken voor het maken, bijwerken of de instelling van Advanced Threat Protection voor een specifiek opslagaccount ophalen.

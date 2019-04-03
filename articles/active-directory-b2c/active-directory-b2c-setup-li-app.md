@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427816"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863169"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een LinkedIn-account met behulp van Azure Active Directory B2C
 
@@ -41,3 +41,6 @@ Gebruik een LinkedIn-account als een [id-provider](active-directory-b2c-referenc
 7. Selecteer **instellen van deze id-provider** en voert u de Client-Id die u eerder hebt genoteerd als de **Client-ID** en voer het Clientgeheim die u hebt genoteerd als de **clientgeheim**van de LinkedIn-account-toepassing die u eerder hebt gemaakt.
 8. Klik op **OK** en klik vervolgens op **maken** om op te slaan van de configuratie van uw LinkedIn-account.
 
+## <a name="migration-from-v10-to-v20"></a>Migratie van v1.0 naar v2.0
+
+Onlangs LinkedIn [bijgewerkt van hun API's van v1.0 naar v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Als onderdeel van de migratie kan Azure AD B2C alleen verkrijgen van de volledige naam van de gebruiker LinkedIn tijdens de aanmelding. Als een e-mailadres is een van de kenmerken die worden verzameld tijdens het aanmelden, de gebruiker moet handmatig invoeren van het e-mailadres en te valideren.

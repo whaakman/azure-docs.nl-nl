@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351436"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883070"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hoe u de classificatie verbeteren
 
@@ -72,6 +72,15 @@ U lost dit probleem, bevatten een verscheidenheid aan installatiekopieën om erv
 * __Stijl:__ Installatiekopieën van verschillende stijlen van dezelfde klasse (bijvoorbeeld verschillende soorten van de dezelfde vruchten) bevatten. Echter, als u objecten aanzienlijk verschillen stijlen (zoals Mickey muis vergeleken met een muis concrete) hebt, raden wij dat u ze een label als afzonderlijke klassen beter vertegenwoordigen de afzonderlijke functies.
 
     ![Afbeelding van de stijl van voorbeelden](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="negative-images"></a>Negatieve afbeeldingen
+
+Op een bepaald moment in uw project, moet u mogelijk toevoegen _voorbeelden negatieve_ om uw classificatie nauwkeurigere ervoor. Negatieve voorbeelden zijn die niet overeenkomen met een van de andere labels. Wanneer u deze installatiekopieën uploaden, van toepassing op de speciale **negatieve** naar hen te labelen.
+
+> [!NOTE]
+> De Custom Vision Service biedt ondersteuning voor de verwerking van sommige automatische negatieve afbeeldingen. Bijvoorbeeld, als u een gedeeltelijk versus bananen classificatie bouwen en verzenden van een installatiekopie van een schoen voor voorspelling, moet de classificatie die installatiekopie als dicht bij 0% score voor gedeeltelijk en bananen.
+> 
+> In gevallen waar de negatieve afbeeldingen slechts een variant van de afbeeldingen in training gebruikt zijn, is het aan de andere kant waarschijnlijk dat het model wordt het classificeren van de installatiekopieën van het negatieve als een gelabelde klasse vanwege de grote overeenkomsten. Bijvoorbeeld, als u een oranje versus pompelmoezen en pomelo's classificatie hebt en u in een afbeelding van een clementine feed, kan het beoordelen de clementine als een oranje omdat veel functies van de clementine lijken op die van de appels. Als uw negatieve installatiekopieën van deze aard zijn, het beste maken van een of meer extra labels (zoals **andere**) en de negatieve afbeeldingen met dit label te labelen tijdens de training om toe te staan van het model beter onderscheid maken tussen deze klassen .
 
 ## <a name="use-prediction-images-for-further-training"></a>Voorspelling installatiekopieën gebruiken voor het trainen van verdere
 

@@ -3,20 +3,20 @@ title: 'Verificatie van eindgebruikers: Azure Data Lake Storage Gen1 met Azure A
 description: Meer informatie over het bereiken van eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954769"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880080"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Zorg ervoor dat u selecteert bij de instructies in de koppeling te volgen, **sys
 
 ![Web-app maken](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "systeemeigen app maken")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>Stap 2: Ophalen van toepassings-ID en omleidings-URI
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Stap 2: Toepassings-ID ophalen en omleidings-URI
 
 Zie [de toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) om op te halen van de toepassings-ID.
 
@@ -95,7 +95,7 @@ Als u wilt de omleidings-URI ophalen, moet u de volgende stappen uitvoeren.
 3. Kopieer de waarde die wordt weergegeven.
 
 
-## <a name="step-3-set-permissions"></a>Stap 3: Machtigingen voor het instellen
+## <a name="step-3-set-permissions"></a>Stap 3: Machtigingen instellen
 
 1. Selecteer in de Azure-portal **Azure Active Directory**, klikt u op **App-registraties**, en zoeken en klikt u op de systeemeigen Azure AD-toepassing die u hebt gemaakt.
 

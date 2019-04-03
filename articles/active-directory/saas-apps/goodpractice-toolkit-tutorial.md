@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864402"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Zelfstudie: Azure Active Directory-integratie met GoodPractice Toolkit
 
@@ -52,7 +52,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van GoodPractice Toolkit in Azure AD te configureren, moet u GoodPractice Toolkit vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Ga als volgt te werk om GoodPractice Toolkit vanuit de galerie toe te voegen:**
+**Als u wilt toevoegen GoodPractice Toolkit uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -105,7 +105,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens voor domein en URL's voor eenmalige aanmelding bij GoodPractice Toolkit](common/sp-intiated.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
     > De waarde voor de aanmeldings-URL is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ondersteuningsteam van GoodPractice Toolkit](mailto:support@goodpractice.com) om de waarde op te vragen.
@@ -191,9 +191,9 @@ Wanneer u in het toegangsvenster op de tegel GoodPractice Toolkit klikt, zou u a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

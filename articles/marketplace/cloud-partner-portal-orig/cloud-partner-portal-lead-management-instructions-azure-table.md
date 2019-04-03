@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850714"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878006"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Potentiële klanten Management instructies voor het Azure-tabel
 
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u Azure Table configureren voor het opslaan 
 
     ![Stappen voor het maken van een Azure storage-account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Kopieer de verbindingsreeks van de storage-account voor de sleutel en plak deze in de **Storage Account Connection String** veld in de Cloud Partner-Portal. Een voorbeeld van een connection-string is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Kopieer de verbindingsreeks van de storage-account voor de sleutel en plak deze in de **Storage Account Connection String** veld in de Cloud Partner-Portal. Een voorbeeld van een connection-string is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Azure-opslagsleutel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
@@ -148,4 +148,4 @@ Als u een e-mailmeldingen voor lead ontvangt, betekent dit dat er nieuwe leads b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Klantenleads ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)
+[Klantenleads configureren](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

@@ -1,25 +1,25 @@
 ---
 title: Windows-installatie van Azure Security Center voor IoT-agent Preview | Microsoft Docs
 description: Meer informatie over het installeren van Azure Security Center voor IoT-agent op 32-bits of 64-bits Windows-apparaten.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e3cb1f44711a8eedb248320db8bce5dfd0eaf0c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b45d64f56653ad6d0baabef4a63351ef14f24c42
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754595"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861952"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Een Azure Security Center implementeren voor IoT C#-op basis van de security-agent voor Windows
 
@@ -120,7 +120,7 @@ Logboekregistratie inschakelen:
 
 1. De agent opnieuw starten door het uitvoeren van de volgende PowerShell of vanaf de opdrachtregel:
 
-    **Powershell**
+    **PowerShell**
      ```
      Restart-Service "ASC IoT Agent"
      ```

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899023"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884360"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -284,9 +284,9 @@ Het volgende voorbeeld laat zien hoe om te lezen, metrische gegevens op de metri
 
 Resource-ID is een unieke id van een resource in Azure. Wanneer u de Azure Monitor REST API gebruikt definities voor metrische gegevens of waarden wilt lezen, moet u de resource-ID gebruiken voor de resource waarop u van plan bent om te werken. De resource-ID sjabloon met de volgende notatie:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 Storage beschikt over metrische gegevens in zowel het niveau van de storage-account en het serviceniveau met Azure Monitor. Bijvoorbeeld, kunt u metrische gegevens voor alleen Blob-opslag ophalen. Elk niveau heeft een eigen resource-ID, die wordt gebruikt om op te halen van de metrische gegevens voor alleen dat niveau.
 
@@ -294,34 +294,38 @@ Storage beschikt over metrische gegevens in zowel het niveau van de storage-acco
 
 Hieronder ziet u de indeling voor het opgeven van de Resource-ID voor een opslagaccount.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>Resource-ID voor de storage-services
 
 Hieronder ziet u de indeling voor het opgeven van de Resource-ID voor elk van de storage-services.
 
-* BLOB-service resource-ID `
+* BLOB-service resource-ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* Tabel-service resource-ID `
+```
+* Tabel-service resource-ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* Queue-service resource-ID `
+```
+* Queue-service resource-ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* Resource-ID File-service `
+```
+* Resource-ID File-service
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Resource-ID in Azure Monitor REST-API
 
 Hieronder ziet u het patroon dat wordt gebruikt bij het aanroepen van de Azure Monitor REST API.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Capaciteit metrische gegevens
 Capaciteit metrische waarden worden verzonden naar Azure Monitor om het uur. De waarden worden dagelijks vernieuwd. Het tijdsinterval definieert het tijdsinterval waarvoor metrische waarden worden weergegeven. Het ondersteunde tijdsinterval voor alle metrische gegevens over capaciteit is een uur (PT1H).
@@ -330,7 +334,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="account-level"></a>Accountniveau
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | UsedCapacity | De hoeveelheid opslag die wordt gebruikt door de storage-account. Voor standard storage-accounts is het de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium-opslagaccounts en Blob storage-accounts is het hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
@@ -353,7 +357,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="queue-storage"></a>Queue Storage
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | QueueCapacity | De hoeveelheid van Queue storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | QueueCount   | Het aantal wachtrijen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |

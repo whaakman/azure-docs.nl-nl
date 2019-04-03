@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284575"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876425"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-databases die worden uitgevoerd op een Azure-VM back-up
 
@@ -42,7 +42,7 @@ Automatisch-herstel knooppuntservice als een functie is ingeschakeld voor alle g
 Ja. De snelheid waarmee het back-upbeleid voor het minimaliseren van de impact op een exemplaar van SQL Server wordt uitgevoerd, kunt u beperken. Ga als volgt te werk om de instelling te wijzigen:
 1. Op de SQL Server-exemplaar in de *C:\Program Files\Azure werkbelasting Backup\bin* map, maken de *ExtensionSettingsOverrides.json* bestand.
 2. In de *ExtensionSettingsOverrides.json* bestand, wijzig de **DefaultBackupTasksThreshold** instellen op een lagere waarde (bijvoorbeeld 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Sla uw wijzigingen op en sluit het bestand.
 4. Open **Taakbeheer** op het SQL Server-exemplaar. Start de service **AzureWLBackupCoordinatorSvc** opnieuw.

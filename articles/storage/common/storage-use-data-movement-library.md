@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996143"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878737"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Gegevensoverdracht met het Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing
 
@@ -49,7 +49,7 @@ Dit document laat zien hoe u een .NET Core-consoletoepassing die wordt uitgevoer
 3. Deze map openen in Visual Studio Code. Deze stap kan worden snel uitgevoerd via de opdrachtregel door te typen `code .` in Windows.
 4. Installeer de [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) van de Visual Studio Code Marketplace. Start Visual Studio Code opnieuw op.
 5. Op dit moment ziet u twee vragen. Een is voor het toevoegen van "vereiste assets om te bouwen en fouten opsporen." Klik op 'Ja'. Een andere vraag is voor het herstellen van niet-omgezette afhankelijkheden. Klik op 'herstellen'.
-6. Wijzigen `launch.json` onder `.vscode` externe terminal als een console gebruiken. Deze instelling moet lezen ` "console": "externalTerminal"`
+6. Wijzigen `launch.json` onder `.vscode` externe terminal als een console gebruiken. Deze instelling moet lezen `"console": "externalTerminal"`
 7. Visual Studio Code kunt u fouten opsporen in .NET Core-toepassingen. Raak `F5` uw toepassing uitvoeren en controleren of de installatie werkt. U ziet "Hallo wereld!" weergegeven in de console.
 
 ## <a name="add-data-movement-library-to-your-project"></a>-Bibliotheek voor gegevensverplaatsing toevoegen aan uw project

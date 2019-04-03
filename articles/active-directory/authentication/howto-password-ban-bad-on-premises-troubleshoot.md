@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487223"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863170"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD-wachtwoordbeveiliging oplossen
 
@@ -44,7 +44,13 @@ De belangrijkste symptoom van dit probleem is 30018 gebeurtenissen in het gebeur
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>De Proxy-service kunt aanroepen ontvangen van DC-agents in het domein, maar kan niet communiceren met Azure
 
-Zorg ervoor dat de proxy-computer is verbonden met de eindpunten die worden vermeld in de [implementatievereisten](howto-password-ban-bad-on-premises-deploy.md).
+1. Zorg ervoor dat de proxy-computer is verbonden met de eindpunten die worden vermeld in de [implementatievereisten](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Zorg ervoor dat het forest en alle proxy-servers zijn geregistreerd op basis van de dezelfde Azure-tenant.
+
+   U kunt dit controleren door het uitvoeren van de `Get-AzureADPasswordProtectionProxy` en `Get-AzureADPasswordProtectionDCAgent` PowerShell-cmdlets, vergelijkt de `AzureTenant` eigenschap van elk item geretourneerd. Voor een juiste werking moeten deze overeenkomen met het binnen een forest, met alle DC-agents en proxy-servers.
+
+   Als een voorwaarde voor het Azure-tenant registratie verschil bestaat, dit kan worden hersteld door het uitvoeren van de `Register-AzureADPasswordProtectionProxy` en/of `Register-AzureADPasswordProtectionForest` PowerShell-cmdlets als nodig is, en zorg ervoor dat u de referenties van de dezelfde Azure-tenant voor alle registraties.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>De DC-agent is kan niet versleutelen of ontsleutelen van bestanden van het wachtwoord en andere status
 

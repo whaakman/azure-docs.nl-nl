@@ -16,18 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550153"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849764"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
 Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden. Bijvoorbeeld, als een virtuele machine is vereist voor software-installatie, beveiliging tegen virussen, of een script daarbinnen uit te voeren, kan een VM-extensie kan worden gebruikt. Azure VM-extensies kunnen worden uitgevoerd met de Azure CLI, PowerShell, Azure resourcemanager-sjablonen en Azure portal. Extensies worden gebundeld met een nieuwe VM-implementatie of op basis van een bestaand systeem worden uitgevoerd.
 
 In dit artikel biedt een overzicht van VM-extensies, vereisten voor het gebruik van Azure VM-extensies, en instructies over het detecteren, beheren en verwijderen van de VM-extensies. Dit artikel bevat algemene informatie, omdat veel VM-extensies beschikbaar zijn, elk met een potentieel unieke configuratie. Extensie-specifieke details vindt u in elk document specifiek is voor de afzonderlijke extensie.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="use-cases-and-samples"></a>Use cases en voorbeelden
 
@@ -94,27 +96,27 @@ De volgende methoden kunnen worden gebruikt om uit te voeren van een uitbreiding
 Er bestaan verschillende PowerShell-opdrachten voor het uitvoeren van afzonderlijke uitbreidingen. Een lijst wilt bekijken, gebruikt u [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) en filtert u op *extensie*:
 
 ```powershell
-Get-Command Set-Az*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module Az.Compute
 ```
 
 Deze biedt uitvoer is vergelijkbaar met het volgende:
 
 ```powershell
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+CommandType     Name                                          Version    Source
+-----------     ----                                          -------    ------
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      Az.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      Az.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      Az.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      Az.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      Az.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      Az.Compute
 ```
 
 Het volgende voorbeeld wordt de aangepaste scriptextensie voor het downloaden van een script vanuit een GitHub-opslagplaats naar de doel-VM en voer het script. Zie voor meer informatie over de aangepaste scriptextensie [Custom Script extensieoverzicht](custom-script-windows.md).
@@ -416,7 +418,7 @@ U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 4. Kies **verwijderen**.
 
 ## <a name="common-vm-extensions-reference"></a>Algemene referentie van de VM-extensies
-| Extensienaam | Description | Meer informatie |
+| Extensienaam | Beschrijving | Meer informatie |
 | --- | --- | --- |
 | Aangepaste Scriptextensie voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste Scriptextensie voor Windows](custom-script-windows.md) |
 | DSC-extensie voor Windows |PowerShell DSC (Desired State Configuration)-extensie |[DSC-extensie voor Windows](dsc-overview.md) |

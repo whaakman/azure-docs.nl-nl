@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585059"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862723"
 ---
 # <a name="az-module-support-in-azure-automation"></a>AZ-module-ondersteuning in Azure Automation
 
@@ -69,7 +69,7 @@ Eén manier om uw runbooks testen voordat uw runbook voor het gebruik van de nie
 
 ## <a name="after-migration-details"></a>Na de details van de migratie
 
-Nadat de migratie voltooid is, niet starten met behulp van runbooks `AzureRM` modules op het account meer. Het verdient ook niet importeren of bijwerken `AzureRM` modules voor dit account. Vanaf dit moment kunt u dit account wordt gemigreerd naar `Az`, en werken met `Az` alleen modules. Wanneer een nieuw Automation-Account wordt gemaakt aan de bestaande `AzureRM` modules worden nog steeds geïnstalleerd en de zelfstudierunbooks wordt nog steeds worden gemaakt met `AzureRM` cmdlets. Deze runbooks moeten niet worden uitgevoerd.
+Nadat de migratie voltooid is, niet starten met behulp van runbooks `AzureRM` modules op het account meer. Het verdient ook niet importeren of bijwerken `AzureRM` modules voor dit account. Vanaf dit moment kunt u dit account wordt gemigreerd naar `Az`, en werken met `Az` alleen modules. Wanneer een nieuw Automation-Account wordt gemaakt aan de bestaande `AzureRM` modules worden nog steeds geïnstalleerd en de zelfstudierunbooks wordt nog steeds worden gemaakt met `AzureRM` cmdlets. Deze runbooks moet niet worden uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

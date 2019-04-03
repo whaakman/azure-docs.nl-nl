@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 96d84b2328ffb83d5c1ea7218b17314a537fa45b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904555"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885703"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Gebruik Servicebus van .NET met AMQP 1.0
 
@@ -93,7 +93,7 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 | --- | --- | --- |
 | URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>Gedragsalgoritmen verschillen
 

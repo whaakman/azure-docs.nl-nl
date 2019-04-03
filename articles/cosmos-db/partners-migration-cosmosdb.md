@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860496"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880607"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migratie en application development-partners
 
@@ -19,14 +19,14 @@ Van de migratie van de NoSQL ontwikkeling van toepassingen, kunt u kiezen uit ta
 
 ## <a name="migration-tools"></a>Hulpprogramma's voor migratie
 
-|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
+|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen**  |**Contactpersoon**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Gegevensmigratie](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) van MongoDB met Azure Cosmos DB. <br/> Imanis gegevens kunt wereldwijd opererende ondernemingen snel en eenvoudig migreren van hun on-premises of in de cloud met Azure Cosmos DB MongoDB-databases. Imanis gegevens biedt een benadering van de migratie zonder agent, incrementele permanent cloud voor MongoDB-gegevensarchieven die vereenvoudigt de migratie en hebt u aanzienlijk minder uitvaltijd.|  USA  |   [Website](http://www.imanisdata.com/)      |
 |![Realtimeplatform][2]    |  [Realtime gegevens verplaatsen met Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) uit een groot aantal gegevensbronnen. <br/> Realtimeplatform vereenvoudigt het realtime verzamelen en het verplaatsen van gegevens uit een groot aantal on-premises bronnen, met inbegrip van enterprise-document en relationele databases, sensoren en logboekbestanden in Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systeemintegratorpartners
 
-|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
+|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen**  |**Contactpersoon**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migratie; Nieuwe app-ontwikkeling | USA | [Website](https://www.10thmagnitude.com/)|
 |![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](https://www.altoros.com/)     |

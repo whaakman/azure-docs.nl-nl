@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885448"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Ontwerprichtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse
 In dit artikel biedt aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen om queryprestaties te verbeteren door minder gegevens verplaatsen en query complex.
@@ -95,8 +95,8 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Een gerepliceerde tabel is een verplaatsing van gegevens niet vereist voor joins, omdat de hele tabel al aanwezig op elk knooppunt is. Als de dimensietabellen gedistribueerd middels round-robin, kopieert een join de dimensietabel volledig naar elk knooppunt. Het queryplan bevat voor het verplaatsen van de gegevens, een bewerking met de naam BroadcastMoveOperation. Dit type verplaatsing van gegevens wordt vertraagd prestaties van query's en verwijderd met behulp van gerepliceerde tabellen. Als u wilt weergeven querystappen plan, gebruiken de [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) catalogusweergave system. 
 
-Bijvoorbeeld, in de volgende query uit op basis van de AdventureWorks-schema, de ` FactInternetSales` tabel is hash worden verdeeld. De `DimDate` en `DimSalesTerritory` tabellen zijn kleiner dimensietabellen. Deze query retourneert de totale verkoop in Noord-Amerika voor boekjaar 2004:
- 
+Bijvoorbeeld, in de volgende query uit op basis van de AdventureWorks-schema, de `FactInternetSales` tabel is hash worden verdeeld. De `DimDate` en `DimSalesTerritory` tabellen zijn kleiner dimensietabellen. Deze query retourneert de totale verkoop in Noord-Amerika voor boekjaar 2004:
+
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s

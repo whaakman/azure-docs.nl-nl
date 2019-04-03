@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407180"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879383"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media Services en koppelingen naar andere relevante artikelen.
 
 > [!NOTE]
-> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -53,21 +53,21 @@ Een Live-gebeurtenis kan een van twee typen zijn: Pass Through- en live codering
 
 ![Pass Through-query](./media/live-streaming/pass-through.svg)
 
-Bij het gebruik van de pass-through **Live gebeurtenis**, afhankelijk van uw on-premises live coderingsprogramma meerdere bitrate videostream genereren en verzenden dat er als de bijdrage feed aan de Live-gebeurtenis (met behulp van RTMP- of gefragmenteerde MP4-protocol). De Live gebeurtenis wordt vervolgens via de binnenkomende video stromen zonder verdere verwerking. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
+Bij gebruik van de pass-through **livegebeurtenis** bent u afhankelijk van de on-premises live-encoder voor het genereren van een multiple-bitrate videostream en het verzenden ervan als de bijdragefeed voor de livegebeurtenis (met behulp van RTMP of een gefragmenteerd MP4-protocol). De livegebeurtenis voert de binnenkomende videostream vervolgens zonder verdere verwerking uit. Dergelijke een Pass Through-Live-gebeurtenis is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![Live encoding](./media/live-streaming/live-encoding.svg)
 
-Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de Live-gebeurtenis (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De Live gebeurtenis codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. 
+Bij gebruik van live-codering met Media Services zou u uw on-premises live-encoder zodanig configureren dat één bitrate-video als bijdragefeed wordt verzonden naar de livegebeurtenis (met behulp van het protocol RTMP of gefragmenteerde MP4). De livegebeurtenis codeert de binnenkomende enkelvoudige bitrate gegevensstroom in een [videostroom met meerdere bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) en maakt deze beschikbaar voor afgifte naar afspeelapparaten via protocollen als MPEG-DASH, HLS en Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
 
 Voor meer informatie over de werkstroom voor live streaming in Media Services v3, moet u eerst controleren en begrijpen van de volgende concepten: 
 
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
-- [Live-evenementen en Live-uitvoer](live-events-outputs-concept.md)
-- [Streaming-Locators](streaming-locators-concept.md)
+- [Live gebeurtenissen en live uitvoer](live-events-outputs-concept.md)
+- [Streaming-locators](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Algemene stappen
 
@@ -85,10 +85,10 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 
 ## <a name="other-important-articles"></a>Andere belangrijke artikelen
 
-- [Aanbevolen live coderingsprogramma 's](recommended-on-premises-live-encoders.md)
-- [Met behulp van een cloud-DVR](live-event-cloud-dvr.md)
+- [Aanbevolen live-encoders](recommended-on-premises-live-encoders.md)
+- [Een cloud-DVR gebruiken](live-event-cloud-dvr.md)
 - [Live gebeurtenistypen vergelijking van functies](live-event-types-comparison.md)
-- [Statussen en facturering](live-event-states-billing.md)
+- [Staten en facturering](live-event-states-billing.md)
 - [Latentie](live-event-latency.md)
 
 ## <a name="next-steps"></a>Volgende stappen

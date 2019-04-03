@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958971"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877258"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
 
@@ -41,7 +41,7 @@ Voordat u met deze zelfstudie begint, leest u de [Azure Firewall-logboeken en me
 Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie hebt voltooid, kan het enkele minuten duren voordat de gegevens in uw logboeken verschijnen. Als u aanvankelijk niets ziet, controleert u het een paar minuten later opnieuw.
 
 1. Open in de Azure-portal uw firewall-resourcegroep en klik op de firewall.
-2. Klik onder **Bewaking** op **Diagnostische logboeken**.
+2. Onder **bewaking**, klikt u op **diagnostische instellingen**.
 
    Voor Azure Firewall zijn er twee servicespecifieke logboeken beschikbaar:
 
@@ -57,7 +57,7 @@ Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie
 9. Op de pagina **Log Analytics-werkruimte** typt u **firewall-oms** als naam voor de nieuwe **Log Analytics-werkruimte**.
 10. Selecteer uw abonnement, gebruik de bestaande firewall-resourcegroep (**Test-FW-RG**), selecteer **VS - oost** als locatie en selecteer de prijscategorie **Gratis**.
 11. Klik op **OK**.
-   ![Het configuratieproces starten][1] OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.  
+   ![Vanaf het configuratieproces][1] OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.  
 12. Klik onder **Logboek** op **AzureFirewallApplicationRule** en **AzureFirewallNetworkRule** om logboeken voor toepassings- en netwerkregels te verzamelen.
    ![Diagnostische instellingen opslaan][2]
 13. Klik op **Opslaan**.
@@ -113,7 +113,7 @@ Ga naar een Azure Firewall via **Bewaking** en klik op **Metrische gegevens**. O
 Nu u uw firewall hebt geconfigureerd om logboeken te verzamelen, kunt u Azure Monitor-logboeken verkennen om uw gegevens te bekijken.
 
 > [!div class="nextstepaction"]
-> [Netwerkbewakingsoplossingen in Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md)
+> [Netwerken bewakingsoplossingen in Azure Monitor-Logboeken](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

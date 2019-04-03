@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004980"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861876"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Een aangepaste test maken voor Azure Application Gateway (klassiek) met behulp van PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -150,11 +150,11 @@ De parameters voor de configuratie zijn:
 
 |Parameter|Description|
 |---|---|
-|**Naam** |De referentienaam voor aangepaste test. |
+|**Name** |De referentienaam voor aangepaste test. |
 | **Protocol** | Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).|
-| **Host** en **pad** | Volledige URL-pad dat wordt aangeroepen door de application gateway de status van het exemplaar te bepalen. Bijvoorbeeld, als u een website hebt http://contoso.com/, en vervolgens de aangepaste test kan worden geconfigureerd voor "http://contoso.com/path/custompath.htm' voor de test wordt gecontroleerd om een geslaagde HTTP-antwoord.|
+| **Host** en **pad** | Volledige URL-pad dat wordt aangeroepen door de application gateway de status van het exemplaar te bepalen. Bijvoorbeeld, hebt u een website http:\//contoso.com/ en vervolgens de aangepaste test kan worden geconfigureerd voor "http:\//contoso.com/path/custompath.htm ' voor de test wordt gecontroleerd om een geslaagde HTTP-antwoord.|
 | **Interval** | Hiermee configureert u de testcontroles interval in seconden.|
-| **Timeout** | Definieert de time-out voor de test voor de controle van een HTTP-antwoord.|
+| **Time-out** | Definieert de time-out voor de test voor de controle van een HTTP-antwoord.|
 | **UnhealthyThreshold** | Het aantal mislukte HTTP-antwoorden die nodig zijn voor het markeren van de back-end-instantie als *niet in orde*.|
 
 Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen die back-end-pool maakt gebruik van aangepaste test-instellingen.

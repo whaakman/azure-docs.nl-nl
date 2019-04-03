@@ -15,18 +15,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 2bae96c1c87a4bbb44c006ed628ee8019ab2635c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd10c503c6e65f68d063deb5f8a537fc9f3c9f0f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671186"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846323"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensie van virtuele machine met Azure Monitor-afhankelijkheid voor Windows
 
 De Azure-Monitor voor de functie voor toewijzing van virtuele machines worden de gegevens uit de agent voor Microsoft Dependency opgehaald. De afhankelijkheid van Azure VM agent virtuele machine-extensie voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie installeert de agent voor afhankelijkheden op Azure virtual machines. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de afhankelijkheid van Azure VM agent-virtuele machine voor Windows.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### <a name="operating-system"></a>Besturingssysteem
 
@@ -130,11 +132,11 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van d
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de afhankelijkheid agent-virtuele machine op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en privé-configuraties worden opgeslagen in een PowerShell-hash-tabel. 
+De `Set-AzVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de afhankelijkheid agent-virtuele machine op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en privé-configuraties worden opgeslagen in een PowerShell-hash-tabel. 
 
 ```powershell
 
-Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
+Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
@@ -150,7 +152,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgen
 Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van de Azure PowerShell-module. Als wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, voert u de volgende opdracht uit met behulp van de Azure PowerShell-module.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Extensie uitvoering uitvoer wordt vastgelegd op bestanden die zijn gevonden in de volgende map:

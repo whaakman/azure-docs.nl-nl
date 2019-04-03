@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009919"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878414"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -74,7 +74,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Description |
+|Claim | Indeling | Beschrijving |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | String | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
@@ -107,7 +107,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 | `oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in de Microsoft identity-platform, in dit geval een gebruikersaccount. Het kan ook worden gebruikt voor het uitvoeren van controles autorisatie veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. Dus `oid` kunnen worden gebruikt bij het maken van query's voor Microsoft online services, zoals de Microsoft Graph. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
 | `rh` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources moeten deze claim niet gebruiken. |
 | `scp` | Tekenreeks, een spatie gescheiden lijst met scopes | De set met scopes die worden weergegeven door uw toepassing waarvoor de clienttoepassing heeft aangevraagd (en ontvangen) toestemming geven. Uw app moet controleren of deze bereiken geldige die door uw app beschikbaar gesteld zijn en autorisatiebeslissingen te op basis van de waarde van deze bereiken nemen. Alleen opgenomen voor [gebruikerstokens](#user-and-application-tokens). |
-| `roles` | Tekenreeks, een spatie gescheiden lijst met machtigingen | De set met machtigingen die worden weergegeven door uw toepassing die de aanvragende toepassing heeft zijn gemachtigd om aan te roepen. Dit wordt gebruikt tijdens de [-clientreferenties](v1-oauth2-client-creds-grant-flow.md) flow in plaats van de gebruiker bereiken en is alleen aanwezig in [toepassing tokens](#user-and-application-tokens). |
+| `roles` | Matrix van tekenreeksen, een lijst met machtigingen | De set met machtigingen die worden weergegeven door uw toepassing die de aanvragende toepassing heeft zijn gemachtigd om aan te roepen. Voor [toepassing tokens](#user-and-application-tokens), dit wordt gebruikt tijdens de [-clientreferenties](v1-oauth2-client-creds-grant-flow.md) stroom in plaats van de gebruiker bereiken.  Voor [gebruikerstokens](#user-and-application-tokens) dit wordt gevuld met de rollen die de gebruiker is toegewezen aan op de doeltoepassing. |
 | `sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd is aanwezig zijn in de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een autorisatiesysteem voor algemeen gebruik. Het onderwerp is echter een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
 | `tid` | Tekenreeks, een GUID | Hiermee geeft u de Azure AD-tenant die door de gebruiker uit. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 | `unique_name` | String | Alleen aanwezig in v1.0 tokens. Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. |

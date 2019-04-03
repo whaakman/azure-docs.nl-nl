@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434888"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877054"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedure: Aanmelden-fouten oplossen met behulp van Azure Active Directory-rapporten
 
@@ -55,7 +55,7 @@ U hebt de volgende zaken nodig:
 
     ![Problemen oplossen en ondersteuning](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. De reden van fout beschrijving van de fout. Bijvoorbeeld, in dit scenario, reden van de fout is **ongeldige gebruikersnaam of wachtwoord of ongeldige on-premises-gebruikersnaam of wachtwoord**. De oplossing wordt gewoon aanmelden opnieuw met de juiste gebruikersnaam en wachtwoord.
+6. De reden van fout beschrijving van de fout. Bijvoorbeeld, in dit scenario, reden van de fout is **ongeldige gebruikersnaam of wachtwoord of ongeldige on-premises gebruikersnaam of wachtwoord**. De oplossing wordt gewoon aanmelden opnieuw met de juiste gebruikersnaam en wachtwoord.
 
 7. Krijgt u meer informatie, waaronder ideeën voor herstel, door te zoeken naar de foutcode **50126** in dit voorbeeld in de [naslaginformatie over foutcodes in het aanmeldingen](reference-sign-ins-error-codes.md). 
 

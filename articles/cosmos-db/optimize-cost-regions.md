@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457646"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876699"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Kosten voor meerdere regio's in Azure Cosmos DB optimaliseren
 
 U kunt toevoegen en verwijderen van regio's aan uw Azure Cosmos-account op elk gewenst moment. De doorvoer die u voor verschillende Azure-Cosmos-databases en containers configureert is in elke regio die is gekoppeld aan uw account gereserveerd. Als de doorvoer per uur hebt ingericht, dat is de som van RU/s is geconfigureerd voor alle databases en containers voor uw Azure Cosmos-account is `T` en het aantal Azure-regio's die zijn gekoppeld aan uw databaseaccount is `N`, klikt u vervolgens het totaal ingerichte doorvoer voor uw Cosmos-account, voor een bepaald uur is gelijk aan:
 
-1. ` T x N RU/s` Als uw Azure Cosmos-account is geconfigureerd met een enkele schrijfregio. 
+1. `T x N RU/s` Als uw Azure Cosmos-account is geconfigureerd met een enkele schrijfregio. 
 
 1. `T x (N+1) RU/s` Als uw Azure Cosmos-account is geconfigureerd met alle regio's kunnen schrijfbewerkingen verwerken. 
 
@@ -25,13 +25,13 @@ Ingerichte doorvoer met één schrijfregio kost $0.008/ uur per 100 RU/s en inge
 
 ## <a name="costs-for-multiple-write-regions"></a>Kosten voor meerdere schrijven regio 's
 
-In een systeem met meerdere masters, schrijft de netto beschikbare ru's voor operations toeneemt `N` tijden waar `N` is het aantal regio's schrijven. In tegenstelling tot één regio schrijfbewerkingen, elke regio kan nu worden bewerkt en moet ondersteuning bieden voor conflictoplossing. Het bedrag van de werkbelasting voor schrijvers is toegenomen. Van de kosten voor het plannen van oogpunt om uit te voeren` M` RU/s-waarde van schrijfbewerkingen over de hele wereld, moet u voor het inrichten van M `RUs` op het niveau van een container of de database. Vervolgens kunt u zoveel regio's als u wilt en ze voor schrijfbewerkingen gebruiken om uit te voeren toevoegen `M` RU-waarde van schrijfbewerkingen over de hele wereld. 
+In een systeem met meerdere masters, schrijft de netto beschikbare ru's voor operations toeneemt `N` tijden waar `N` is het aantal regio's schrijven. In tegenstelling tot één regio schrijfbewerkingen, elke regio kan nu worden bewerkt en moet ondersteuning bieden voor conflictoplossing. Het bedrag van de werkbelasting voor schrijvers is toegenomen. Van de kosten voor het plannen van oogpunt om uit te voeren `M` RU/s-waarde van schrijfbewerkingen over de hele wereld, moet u voor het inrichten van M `RUs` op het niveau van een container of de database. Vervolgens kunt u zoveel regio's als u wilt en ze voor schrijfbewerkingen gebruiken om uit te voeren toevoegen `M` RU-waarde van schrijfbewerkingen over de hele wereld. 
 
 ### <a name="example"></a>Voorbeeld
 
 U kunt u een container in West-Amerika hebt ingericht met doorvoer 10 K RU/s en 1 TB aan gegevens van deze maand worden opgeslagen. Stel dat u toevoegt drie regio's: VS-Oost, Noord-Europa en Oost-Azië, elk met dezelfde opslag en doorvoer en u wilt dat de mogelijkheid om te schrijven naar de containers in alle vier regio's van uw wereldwijd gedistribueerde app. Uw totale maandfactuur (uitgaande van 31 dagen) in een maand is als volgt:
 
-|**Item**|**Gebruik (maandelijks)**|**Snelheid**|**Maandelijkse kosten**|
+|**Item**|**Gebruik (maandelijks)**|**Tarief**|**Maandelijkse kosten**|
 |----|----|----|----|
 |Doorvoerfactuur voor container in West-Amerika (meerdere regio's de schrijven) |10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$1,190.40 |
 |Doorvoerfactuur voor 3 extra regio's: VS-Oost, Noord-Europa en Oost-Azië (meerdere regio's de schrijven) |(3 + 1) * 10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$4,761.60 |
