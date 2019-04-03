@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467370"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882222"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
@@ -102,7 +102,7 @@ azcopy \
     --source-key <key> 
 ```
 
-Als de map `/mnt/myfiles` niet bestaat, AzCopy wordt deze gemaakt en gedownload `abc.txt ` naar de nieuwe map. 
+Als de map `/mnt/myfiles` niet bestaat, AzCopy wordt deze gemaakt en gedownload `abc.txt` naar de nieuwe map. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Één blob downloaden uit de secundaire regio
 
@@ -704,7 +704,7 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
 ### <a name="azure-storage-documentation"></a>Documentatie voor Azure Storage:
 * [Kennismaking met Azure Storage](../storage-introduction.md)
-* [Een opslagaccount maken](../storage-create-storage-account.md)
+* [Create a storage account](../storage-create-storage-account.md)
 * [Blobs beheren met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [De Azure CLI gebruiken met Azure Storage](../storage-azure-cli.md)
 * [Het Blob storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)

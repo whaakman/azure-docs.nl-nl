@@ -1,25 +1,25 @@
 ---
 title: Verificatiemethoden voor Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over de diverse verificatiemethoden die beschikbaar is bij het gebruik van de Azure Security Center voor IoT-service.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758383"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862910"
 ---
 # <a name="security-agent-authentication-methods"></a>Security agent verificatiemethoden 
 
@@ -114,4 +114,4 @@ Bewerken _LocalConfiguration.json_ met de volgende parameters:
 ## <a name="see-also"></a>Zie ook
 - [Beveiligingsoverzicht van agents](security-agent-architecture.md)
 - [Security-agent implementeren](how-to-deploy-agent.md)
-- [Toegang tot onbewerkte security gegevens](how-to-security-data-access.md)
+- [Toegang tot onbewerkte beveiligingsgegevens](how-to-security-data-access.md)

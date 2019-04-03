@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094657"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883907"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure-Logboekintegratie: Azure Key Vault-gebeurtenissen verwerken met behulp van Event Hubs
 
@@ -92,10 +92,10 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Naam van uw abonnement kan afwijken. U kunt zien dit als onderdeel van de uitvoer van de vorige opdracht.)
     - ```$location = 'West US'``` (Deze variabele wordt gebruikt om door te geven van de locatie waar de resources moeten worden gemaakt. U kunt deze variabele om te worden van een willekeurige locatie van uw keuze worden wijzigen.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (De naam kan van alles zijn, maar hierbij moet alleen kleine letters en cijfers.)
-    - ``` $storageName = $name``` (U kunt deze variabele wordt gebruikt voor naam van het opslagaccount.)
-    - ```$rgname = $name ``` (U kunt deze variabele wordt gebruikt voor naam van de resourcegroep.)
-    - ``` $eventHubNameSpaceName = $name``` (Dit is de naam van de event hub-naamruimte.)
+    - ```$name = 'azlogtest' + $random``` (De naam kan van alles zijn, maar hierbij moet alleen kleine letters en cijfers.)
+    - ```$storageName = $name``` (U kunt deze variabele wordt gebruikt voor naam van het opslagaccount.)
+    - ```$rgname = $name``` (U kunt deze variabele wordt gebruikt voor naam van de resourcegroep.)
+    - ```$eventHubNameSpaceName = $name``` (Dit is de naam van de event hub-naamruimte.)
 1. Geef het abonnement dat u met werkt:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. De regel-ID die wordt gebruikt met de insights-provider niet ophalen:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Ophalen van alle mogelijke Azure-locaties en de namen toevoegen aan een variabele die kan worden gebruikt in een latere stap:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
     Zie voor meer informatie over het profiel van de Azure log [overzicht van de Azure-activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Wanneer u probeert te maken van een logboekprofiel, kunt u een foutmelding krijgen. Vervolgens kunt u de documentatie voor Get-AzLogProfile en Remove-AzLogProfile bekijken. Als u Get-AzLogProfile uitvoert, ziet u informatie over het logboekprofiel. U kunt de bestaande logboekprofiel verwijderen door te voeren de ```Remove-AzLogProfile -name 'Log Profile Name' ``` opdracht.
+> Wanneer u probeert te maken van een logboekprofiel, kunt u een foutmelding krijgen. Vervolgens kunt u de documentatie voor Get-AzLogProfile en Remove-AzLogProfile bekijken. Als u Get-AzLogProfile uitvoert, ziet u informatie over het logboekprofiel. U kunt de bestaande logboekprofiel verwijderen door te voeren de ```Remove-AzLogProfile -name 'Log Profile Name'``` opdracht.
 >
 >![Fout bij het Resource Manager-profiel](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
 1. De key vault maken:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Logboekregistratie voor de key vault configureren:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Genereren van een activiteit
 
@@ -157,7 +157,8 @@ Aanvragen moeten worden verzonden naar de Key Vault voor het genereren van een a
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Instellen en lezen van een geheim voor het genereren van extra vermeldingen:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Geheime geretourneerd](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Nu dat u hebt de vereiste elementen voor Key Vault logboekregistratie naar een e
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Voer de opdracht AzLog voor elke event hub:
 

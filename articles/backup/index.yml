@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bb766cb1ab2c38ea642262ace785cb0dde0c3c0a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328833"
 documentType: LandingData
 title: Documentatie over Azure Backup
 metadata:
-  title: Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs
-  description: Met Azure Backup kunt u een back-up maken van de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-server, SharePoint-server, en meer. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.
+  title: 'Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'Met Azure Backup kunt u een back-up maken van de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-server, SharePoint-server, en meer. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.'
   services: backup
   author: rayne-wiselman
   manager: carmonm
@@ -19,57 +13,57 @@ metadata:
   ms.date: 05/22/2018
   ms.author: raynew
 abstract:
-  description: Gebruik Azure Backup om de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-servers, SharePoint-servers en meer te beschermen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.
+  description: 'Gebruik Azure Backup om de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-servers, SharePoint-servers en meer te beschermen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.'
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Meer informatie over het maken van een back-up van een virtuele Azure-machine in Azure.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure-portal
-      href: quick-backup-vm-portal
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: quick-backup-vm-powershell
-    - image:
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Azure-CLI
-      href: quick-backup-vm-cli
-- title: Stapsgewijze zelfstudies
-  items:
-  - type: paragraph
-    text: Meer informatie over het maken van back-ups en het herstellen van virtuele machines in Azure of van Windows Server.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Meer informatie over het maken van een back-up van een virtuele Azure-machine in Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Azure-portal
+            href: quick-backup-vm-portal
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: quick-backup-vm-powershell
+          - image:
+              src: 'https://docs.microsoft.com/media/common/cli.svg'
+            text: Azure-CLI
+            href: quick-backup-vm-cli
+  - title: Stapsgewijze zelfstudies
     items:
-    - html: <a href="tutorial-backup-vm-at-scale">Back-ups maken van meerdere virtuele Azure-machines</a>
-    - html: <a href="tutorial-restore-disk">Een schijf herstellen en een herstelde VM maken</a>
-    - html: <a href="tutorial-restore-files">Bestanden herstellen naar een virtuele machine in Azure</a>
-    - html: <a href="tutorial-backup-windows-server-to-azure">Een back-up maken van Windows Server naar Azure</a>
-    - html: <a href="tutorial-backup-restore-files-windows-server">Bestanden herstellen van Azure naar een Windows-server</a>
-- title: Voorbeelden
-  items:
-  - type: paragraph
-    text: Gebruik de volgende voorbeelden ter beveiliging van uw gegevens in Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Meer informatie over het maken van back-ups en het herstellen van virtuele machines in Azure of van Windows Server.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-backup-vm-at-scale">Back-ups maken van meerdere virtuele Azure-machines</a>
+          - html: <a href="tutorial-restore-disk">Een schijf herstellen en een herstelde VM maken</a>
+          - html: <a href="tutorial-restore-files">Bestanden herstellen naar een virtuele machine in Azure</a>
+          - html: <a href="tutorial-backup-windows-server-to-azure">Een back-up maken van Windows Server naar Azure</a>
+          - html: <a href="tutorial-backup-restore-files-windows-server">Bestanden herstellen van Azure naar een Windows-server</a>
+  - title: Voorbeelden
     items:
-    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Gebruik de volgende voorbeelden ter beveiliging van uw gegevens in Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+  - title: Naslaginformatie
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/powershell/module/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure-CLI</a></p>
-    - title: Talen
-      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/backup/">Azure Backup API-naslaginformatie</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure-CLI</a></p>
+          - title: Talen
+            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/backup/">Azure Backup API-naslaginformatie</a></p>
