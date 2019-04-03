@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437494"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885414"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Windows-machine in .NET
 
@@ -148,7 +148,7 @@ Open een opdrachtprompt.
 
 U kunt "Hallo wereld" in de console afdrukken door het uitvoeren van de volgende opdrachten:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 Open de *Program.cs* bestand en voeg deze pakketten toe:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ Bewerk het klassebestand bevat de code in het volgende proces voor verificatie i
 1. Haal een token uit het lokale MSI-eindpunt op de virtuele machine op. In dat geval ophaalt een token ook uit Azure AD.
 1. Het token doorgegeven aan uw key vault en vervolgens uw geheim ophalen. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)
@@ -226,4 +226,4 @@ Wanneer ze niet meer nodig hebt zijn, verwijdert u de virtuele machine en uw key
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [REST-API van Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault REST-API](https://docs.microsoft.com/rest/api/keyvault/)

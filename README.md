@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168550"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882205"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentatie voor Microsoft Azure
 
@@ -12,7 +12,7 @@ Welkom bij de open source-[documentatie](https://docs.microsoft.com/azure) van [
 
 ## <a name="getting-started"></a>Aan de slag
 
-Bijdragen aan open source-documentatie omvat meer dan alleen het maken van updates. U geeft het ook aan als u problemen in documenten ontdekt. Lees onze [richtlijnen voor inzenders](.github/CONTRIBUTING.md) voor meer informatie.
+Bijdragen aan open source-documentatie omvat meer dan alleen het maken van updates. U geeft het ook aan als u problemen in documenten ontdekt. Lees onze [richtlijnen voor inzenders](CONTRIBUTING.md) voor meer informatie.
 
 ### <a name="prerequisites"></a>Vereisten
 

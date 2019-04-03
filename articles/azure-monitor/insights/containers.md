@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092545"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877785"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Container Monitoring-oplossing in Azure Monitor
 
@@ -365,7 +365,7 @@ U kunt omsagent DaemonSets maken met of zonder geheimen.
         KEY:    88 bytes
         ```
 
-    5. Maken van uw omsagent-daemon-set door uit te voeren ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Maken van uw omsagent-daemon-set door uit te voeren ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Controleer of de Log Analytics-agent DaemonSet is uitgevoerd, die vergelijkbaar is met het volgende:
 
@@ -409,7 +409,7 @@ Voor Windows Kubernetes, kunt u een script gebruiken voor het genereren van de g
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Maken van uw omsagent-daemon-set door uit te voeren ``` kubectl create -f omsagentsecret.yaml ```
+    3. Maken van uw omsagent-daemon-set door uit te voeren ```kubectl create -f omsagentsecret.yaml```
     4. Als u wilt controleren, voert u het volgende uit:
 
         ```

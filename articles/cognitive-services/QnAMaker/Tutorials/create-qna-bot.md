@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095208"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879605"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v3
 
@@ -104,6 +104,12 @@ Selecteer in de Azure portal, **testen in Web Chat** voor het testen van de bot.
 ![QnA Maker-bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Uw QnA Bot antwoorden uit uw knowledge base.
+
+## <a name="related-to-qna-maker-bots"></a>Met betrekking tot QnA Maker bots
+
+* De QnA Maker help bot, die wordt gebruikt in de portal voor QnA Maker is beschikbaar als een [bot voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot-pictogram is rood robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Gezondheidszorg bots](https://docs.microsoft.com/HealthBot/qna_model_howto) QnA Maker gebruiken als een van hun [taalmodellen](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543726"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885737"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow Expression Builder
 
@@ -51,7 +51,7 @@ Opmerkingen toevoegen aan uw expressies met behulp van één regel en de syntaxi
 
 ## <a name="regular-expressions"></a>Reguliere expressies
 
-De taal van de expressie gegevensstroom van Azure Data Factory [volledige naslaginformatie documentatie die hier beschikbaar](https://aka.ms/dataflowexpressions), kunnen functies die reguliere-expressiesyntaxis bevatten. Wanneer u de functies van de reguliere expressie, de opbouwfunctie voor expressies wordt geprobeerd om te interpreteren backslash (\) als een escapereeks-teken. Wanneer u de backslash-tekens in uw reguliere expressie, ofwel de gehele reguliere expressie insluiten in tikken ` ` of gebruik een dubbele backslash.
+De taal van de expressie gegevensstroom van Azure Data Factory [volledige naslaginformatie documentatie die hier beschikbaar](https://aka.ms/dataflowexpressions), kunnen functies die reguliere-expressiesyntaxis bevatten. Wanneer u de functies van de reguliere expressie, de opbouwfunctie voor expressies wordt geprobeerd om te interpreteren backslash (\\) als een escapereeks-teken. Wanneer u de backslash-tekens in uw reguliere expressie, ofwel de gehele reguliere expressie insluiten in tikken (\`) of gebruik een dubbele backslash.
 
 Voorbeeld met behulp van maatstreepjes
 

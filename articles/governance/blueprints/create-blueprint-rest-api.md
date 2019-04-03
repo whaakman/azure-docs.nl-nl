@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994865"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885958"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -40,10 +40,10 @@ Zie [Azure Blueprints REST API](/rest/api/blueprints/) voor de specificaties van
 
 Als u nog geen hulpprogramma hebt om REST API-aanroepen te doen, kunt u overwegen PowerShell te gebruiken voor deze instructies. Hieronder volgt een voorbeeldheader voor verificatie met Azure. Genereer een verificatieheader, ook wel een **Bearer-token** genoemd, en zorg ervoor dat de REST API-URI verbinding maakt met parameters of een **Aanvraagbody**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +68,8 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- Vervang `{YourMG}` door de ID van uw beheergroep
-- Vervang `{subscriptionId}` door uw abonnements-ID
+- `{YourMG}` -Vervangen door de ID van de beheergroep
+- `{subscriptionId}` -Vervangen door uw abonnements-ID
 
 > [!NOTE]
 > Blauwdrukken kunnen ook worden gemaakt op abonnementsniveau. Zie voor een voorbeeld [blauwdruk maken abonnement voorbeeld](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -334,9 +334,9 @@ Nadat een blauwdruk is gepubliceerd met REST API, kan deze worden toegewezen aan
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- Vervang `{tenantId}` door uw tenant-id
-- Vervang `{YourMG}` door de ID van uw beheergroep
-- Vervang `{subscriptionId}` door uw abonnements-ID
+- `{tenantId}` -Vervangen door uw tenant-ID
+- `{YourMG}` -Vervangen door de ID van de beheergroep
+- `{subscriptionId}` -Vervangen door uw abonnements-ID
 
 1. Geef in de Azure Blueprint-service-principal de rol **Eigenaar** op in het doelabonnement. De AppId statisch is (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), maar de service-principal-ID is afhankelijk van de tenant. U kunt voor uw tenant details aanvragen met de volgende REST API. Deze gebruikt [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md), die een andere autorisatie heeft.
 
@@ -438,9 +438,9 @@ Als u de blauwdruk zelf wilt verwijderen, gebruikt u de volgende REST API-bewerk
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [blauwdruk levenscyclus](./concepts/lifecycle.md).
-- Meer informatie over het gebruik van [statische en dynamische parameters](./concepts/parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](./concepts/sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](./concepts/resource-locking.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](./how-to/update-existing-assignments.md).
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md).
+- Meer informatie over de [levenscyclus van een blauwdruk](./concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](./concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](./concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](./concepts/resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](./how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](./troubleshoot/general.md).

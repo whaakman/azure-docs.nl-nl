@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483961"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878703"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -173,7 +173,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
 3. Klik op de **kluis registratie** tabblad.
 4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
 6. Open een opdrachtvenster Admin PowerShell.
 7. De volgende opdracht uitvoeren
@@ -283,7 +283,7 @@ De server als volgt bijwerken:
     `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. De configuratieserver verwijderen
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
 > De **-forceren** optie in de Remove-AzureRmSiteRecoveryFabric kan worden gebruikt om af te dwingen de verwijdering/verwijdering van de configuratieserver.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074910"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883272"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>De oplossing VMware Monitoring (afgeschaft) in Azure Monitor
 
@@ -189,13 +189,13 @@ Kunnen er meerdere redenen zijn:
   1. Om te bevestigen, meld u aan bij de ESXi-host met behulp van ssh en voer de volgende opdracht uit: `nc -z ipaddressofVM 1514`
 
       Als dit niet lukt, vSphere-instellingen in de geavanceerde configuratie waarschijnlijk niet corrigeren. Zie [syslog-verzameling configureren](#configure-syslog-collection) voor meer informatie over het instellen van de ESXi-host voor syslog doorsturen.
-  1. Als syslog-poort verbinding geslaagd is, maar u nog steeds geen gegevens ziet, moet u vervolgens de syslog op de ESXi-host laden met behulp van ssh de volgende opdracht uit te voeren: ` esxcli system syslog reload`
+  1. Als syslog-poort verbinding geslaagd is, maar u nog steeds geen gegevens ziet, moet u vervolgens de syslog op de ESXi-host laden met behulp van ssh de volgende opdracht uit te voeren: `esxcli system syslog reload`
 * De virtuele machine met Log Analytics-agent is niet correct ingesteld. U kunt dit testen, moet u de volgende stappen uitvoeren:
 
   1. Log Analytics luistert naar de 1514-poort. Om te controleren dat geopend is, moet u de volgende opdracht uitvoeren: `netstat -a | grep 1514`
   1. U ziet nu poort `1514/tcp` openen. Als u dit niet doet, moet u controleren of de omsagent correct is geïnstalleerd. Als u de informatie over de poort niet ziet, klikt u vervolgens is de syslog-poort niet geopend op de virtuele machine.
 
-     a. Controleren of de Log Analytics-agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Controleren of de Log Analytics-agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Open het `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`-bestand.
 

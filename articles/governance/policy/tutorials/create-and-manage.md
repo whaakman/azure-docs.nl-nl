@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae4be75a4030db9afb02c5696a427b321f9f16b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 879636b9db2d7c2c48c7a4a194b43985785d2623
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802606"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878250"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -120,7 +120,7 @@ Nu u een ingebouwde beleidsdefinitie hebt toegewezen, kunt u meer kunt doen met 
 
 U kunt een beleid maken met de REST API voor beleidsdefinities. Met de REST API kunt u beleidsdefinities maken en verwijderen en informatie over bestaande definities ophalen. Gebruik het volgende voorbeeld om een beleidsdefinitie te maken:
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -458,4 +458,4 @@ In deze zelfstudie hebt u de volgende taken uitgevoerd:
 Lees het volgende artikel voor meer informatie over de structuur van beleidsdefinities:
 
 > [!div class="nextstepaction"]
-> [Structuur van Azure Policy-definities](../concepts/definition-structure.md)
+> [Structuur van Azure-beleidsdefinities](../concepts/definition-structure.md)

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431195"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883884"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Een Python Flask-webtoepassing bouwen met Azure Cosmos DB
 
@@ -417,7 +417,7 @@ Nu de volledige toepassing correct werkt met Azure Cosmos DB, gaan we een web.co
     ![Resultaten van het publiceren van Bottle-, Flask- en Django-apps naar App Service](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Als de webpagina niet wordt weergegeven of als het bericht 'De pagina kan niet worden weergegeven omdat er een interne serverfout is opgetreden.' nog steeds wordt weergegeven, opent u het bestand web.config in Kudo, voegt u ` <httpErrors errorMode="Detailed"></httpErrors>` toe aan de sectie system.webServer en vernieuwt u de pagina. Hierdoor wordt er gedetailleerde foutuitvoer naar de browser verzonden. 
+    > Als de webpagina niet wordt weergegeven of als het bericht 'De pagina kan niet worden weergegeven omdat er een interne serverfout is opgetreden.' nog steeds wordt weergegeven, opent u het bestand web.config in Kudo, voegt u `<httpErrors errorMode="Detailed"></httpErrors>` toe aan de sectie system.webServer en vernieuwt u de pagina. Hierdoor wordt er gedetailleerde foutuitvoer naar de browser verzonden. 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als dit de eerste Python-app is die u op uw computer uitvoert, moet u ervoor zorgen dat de variabele PATH de volgende mappen (of gelijkwaardige installatielocaties) bevat:

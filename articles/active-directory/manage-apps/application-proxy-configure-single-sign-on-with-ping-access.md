@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791520"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882783"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -163,7 +163,7 @@ In dit voorbeeld wordt de [Azure-portal](https://portal.azure.com) om bij te wer
 >[!NOTE]
 >Voor het gebruik van een aangepaste claim, moet u ook een aangepast beleid gedefinieerd en toegewezen aan de toepassing hebben.  Dit beleid moet alle vereiste aangepaste kenmerken bevatten.
 >
->Beleidsdefinitie en de toewijzing kunnen worden gedaan via PowerShell, Azure AD Graph Explorer of MS Graph.  Als u dit in PowerShell doet, moet u mogelijk eerst met `New-AzureADPolicy `en deze vervolgens toewijzen aan de toepassing met `Set-AzureADServicePrincipalPolicy`.  Zie voor meer informatie de [documentatie voor Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Beleidsdefinitie en de toewijzing kunnen worden gedaan via PowerShell, Azure AD Graph Explorer of MS Graph.  Als u dit in PowerShell doet, moet u mogelijk eerst met `New-AzureADPolicy` en deze vervolgens toewijzen aan de toepassing met `Set-AzureADServicePrincipalPolicy`.  Zie voor meer informatie de [documentatie voor Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Optioneel: gebruik een aangepaste claim
 Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opnemen, zorg ervoor dat u ook hebt [een aangepaste claims toewijzen van beleid gemaakt en toegewezen aan de toepassing](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).

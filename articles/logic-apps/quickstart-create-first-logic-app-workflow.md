@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065185"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884228"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Quickstart: uw eerste geautomatiseerde werkstroom maken met Azure Logic Apps - Azure-portal
 
@@ -44,7 +44,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
    | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------| 
-   | **Naam** | MyFirstLogicApp | De naam voor uw logische app | 
+   | **Name** | MyFirstLogicApp | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | My-First-LA-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
    | **Locatie** | US - west | De regio waar uw logische app-gegevens wordt opgeslagen | 
@@ -69,7 +69,7 @@ Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Trigger instellen met RSS-feed, frequentie en interval](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Eigenschap | Waarde | Beschrijving | 
+   | Eigenschap | Waarde | Description | 
    |----------|-------|-------------| 
    | **De URL voor de RSS-feed** | ```http://feeds.reuters.com/reuters/topNews``` | De koppeling voor de RSS-feed die u wilt bijhouden | 
    | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
@@ -114,7 +114,7 @@ Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waa
       Negeer voorlopig de lijst **Dynamische inhoud toevoegen** die wordt weergegeven. 
       Wanneer u in bepaalde invoervakken klikt, wordt deze lijst geopend met alle beschikbare parameters uit de vorige stap die u als invoer in uw werkstroom kunt opnemen. 
 
-   2. Voer in het vak **Onderwerp** deze tekst met een afsluitende spatie in: ```New RSS item: ```
+   2. Voer in het vak **Onderwerp** deze tekst met een afsluitende spatie in: ```New RSS item:```
 
       ![Het onderwerp van de e-mail invoeren](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
@@ -185,4 +185,4 @@ Als u dit voorbeeld niet meer nodig hebt, verwijdert u de resourcegroep die uw l
 In deze quickstart hebt u uw eerste logische app gemaakt die controleert op de aanwezigheid van RSS-updates op basis van de opgegeven planning (elke minuut) en onderneemt actie (stuurt e-mail) wanneer er updates zijn. Als u meer wilt weten, gaat u verder met deze zelfstudie om geavanceerdere werkstromen op basis van een planning te maken:
 
 > [!div class="nextstepaction"]
-> [Verkeer controleren met een logische app op basis van een planning](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+> [Verkeer controleren met een gepland op basis van een logische app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

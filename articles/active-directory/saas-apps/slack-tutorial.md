@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bc27abf7dd21c4996cfd8cea0c2a478cb6dfb4fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875031"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -53,7 +53,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Als u de integratie van Slack in Azure AD wilt configureren, moet u Slack vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Slack toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen Slack uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -107,7 +107,7 @@ Voer de volgende stappen uit om eenmalige aanmelding voor Azure Ad met Slack te 
 
     ![Informatie over Slack-domein en URLs voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.slack.com`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.slack.com`
 
     b. Typ een URL in het vak **Id (Entiteits-id)**: `https://slack.com`
 
@@ -247,7 +247,7 @@ Het doel van dit gedeelte is het maken van een gebruiker met de naam van Britta 
 > Als u een gebruiker handmatig moet maken, neem dan contact op met het [Slack-ondersteuningsteam](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect is het synchronisatiehulpprogramma dat on-premises Active Directory-identiteiten kan synchroniseren met Azure AD, waarna deze gesynchroniseerde gebruikers, net als andere cloudgebruikers, ook toepassingen kunnen gebruiken.
+> Azure AD Connect is het hulpprogramma voor synchronisatie die on-premises Active Directory-identiteiten met Azure AD kan worden gesynchroniseerd en vervolgens deze gesynchroniseerde gebruikers kunnen ook toepassingen wilt gebruiken als een andere cloudgebruikers.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
@@ -257,9 +257,9 @@ Wanneer u op de tegel Slack in het toegangsvenster klikt, zou u automatisch moet
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

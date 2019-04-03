@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884122"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Zelfstudie: Een knowledge base maken en vervolgens een vraag beantwoorden via de QnA Maker-portal
 
@@ -66,7 +66,7 @@ Voor deze zelfstudie moet u beschikken over een bestaande [QnA Maker-service](..
     |Naam van instelling|Instellingswaarde|Doel|
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |De inhoud van de veelgestelde vragen bij die URL zijn ingedeeld met een vraag gevolgd door een antwoord. QnA Maker kan deze indeling interpreteren om vragen en de bijbehorende antwoorden te extraheren.|
-    |File |_niet gebruikt in deze zelfstudie_|Hiermee worden bestanden voor vragen en antwoorden geüpload. |
+    |File |_in deze zelfstudie niet gebruikt_|Hiermee worden bestanden voor vragen en antwoorden geüpload. |
     |De persoonlijkheid 'Heen- en weergepraat'|De vriend(in)|Dit biedt een vriendelijke en informele persoonlijkheid voor veelgestelde vragen en antwoorden. U kunt deze vragen en antwoorden later bewerken. |
 
     ![Stap 4 van het proces voor het maken van een KB](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
@@ -105,7 +105,7 @@ Nadat de KB is gepubliceerd, wordt het eindpunt weergegeven
 
     ![Curl-opdracht](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Kopieer de tekst van het tabblad **Curl** en voer dit uit in een voor Curl ingeschakelde terminal of opdrachtregel. De waarde van de autorisatie-header bevat de tekst `Endpoint ` met een volgspatie en vervolgens de sleutel.
+1. Kopieer de tekst van het tabblad **Curl** en voer dit uit in een voor Curl ingeschakelde terminal of opdrachtregel. De waarde van de autorisatie-header bevat de tekst `Endpoint` met een volgspatie en vervolgens de sleutel.
 
 1. Vervang `<Your question>` door `How large can my KB be?`. Dit komt dicht bij de vraag, `How large a knowledge base can I create?`, in de buurt, maar is niet precies hetzelfde. QnA Maker past natuurlijke taalverwerking toe om te bepalen of de twee vragen hetzelfde zijn.     
 

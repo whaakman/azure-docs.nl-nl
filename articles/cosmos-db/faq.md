@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259904"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881032"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Ja. De [Azure Cosmos DB-Emulator](local-emulator.md) biedt een uiterst betrouwba
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Waarom zijn lang drijvende-waarden in een document afgerond wanneer deze wordt bekeken in data explorer in de portal.
 
-Dit is beperking van JavaScript. JavaScript getallen met dubbele precisie drijvende-indeling gebruikt zoals opgegeven in de IEEE 754 en erin getallen tussen - kunnen veilig worden opgenomen (253 - 1) en 253-1 (dat wil zeggen, 9007199254740991) alleen.
+Dit is beperking van JavaScript. JavaScript getallen met dubbele precisie drijvende-indeling gebruikt zoals opgegeven in de IEEE 754 en erin getallen tussen - kunnen veilig worden opgenomen (2<sup>53</sup> -1) en 2<sup>53</sup>-1 (dat wil zeggen, 9007199254740991) alleen.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Waar zijn de machtigingen in de objecthiërarchie toegestaan?
 
@@ -292,7 +292,7 @@ Als een van deze verschillen een probleem voor uw project, neem dan contact op m
 
 U kunt uw feedback delen in een van de volgende manieren:
 
-* [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Meningen van gebruikers](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259615"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881616"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren pijplijn (Preview)
 
@@ -129,9 +129,6 @@ Aangezien dit uw eerste aanvraag is, controleert u Azure Portal om te bevestigen
   ![Tegel Gegevensbronnen in de portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Tegel Gegevensbronnen in de portal")
 
 Als u een 403- of 404-fout krijgt, controleert u de constructie van de aanvraag: `api-version=2017-11-11-Preview` moet in het eindpunt staan, `api-key` in de header na `Content-Type`, en de waarde ervan moet geldig voor een zoekservice zijn. U kunt de header hergebruiken voor de overige stappen in deze zelfstudie.
-
-> [!TIP]
-> Voordat u veel werk uitvoert, is het goed om te controleren of de zoekservice wordt uitgevoerd in een van de ondersteunde locaties die de preview-functie bieden: US - zuid-centraal of Europa - west.
 
 ## <a name="create-a-skillset"></a>Een set vaardigheden maken
 
@@ -554,4 +551,4 @@ De snelste manier om op te schonen na een zelfstudie is om de resourcegroep met 
 De pijplijn uitbreiden of aanpassen met aangepaste vaardigheden. Door een aangepaste vaardigheid te maken en deze toe te voegen aan een set vaardigheden, kunt u zelfgeschreven tekst- of afbeeldingsanalyse integreren. 
 
 > [!div class="nextstepaction"]
-> [Voorbeeld: een aangepaste vaardigheid maken](cognitive-search-create-custom-skill-example.md)
+> [Voorbeeld: Maak een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md)

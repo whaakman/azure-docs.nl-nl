@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225362"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885941"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -154,7 +154,7 @@ De blauwdruk omvat een groot aantal anonieme medische dossiers ter illustratie v
 
 Alex van taak is het evalueren van de technologieën die kunnen reductie van de werkbelasting van het beheer van een on-premises netwerk en verlagen voor beheer. Alex evalueren Azure heeft gedurende een bepaalde periode, maar heeft pogingen gedaan om de services die hij nodig heeft om te voldoen aan de nalevingsvereisten HiTrust patiënt gegevens opslaan in de cloud te configureren. Alex heeft de status van Azure AI voor het implementeren van een oplossing de status gereed is voor naleving, die de vereisten om te voldoen aan de eisen van klanten voor HiTrust heeft verwerkt geselecteerd.
 
-**Data Scientist -- Debra**
+**Gegevenswetenschapper Debra**
 
 *E-mail: Debra\_DataScientist*
 
@@ -166,7 +166,7 @@ Debra is verantwoordelijk voor het maken en gebruiken van modellen die medische 
 
 Danny is de belangrijkste contactpersoon voor alles wat met betrekking tot de Microsoft SQL Server de patiënt gegevens voor Contosoclinic slaat. Danny is een ervaren SQL Server-beheerder die onlangs met Azure SQL Database raken is.
 
-**Chief Medical Information Officer -- Caroline**
+**Chief Medical Information Officer--Caroline**
 
 Caroline werkt samen met de Care Line Manager Chris en Debra de Gegevenswetenschapper om te bepalen welke factoren van invloed zijn op de verblijfsduur.
 De voorspellingen op basis van de lengte van blijven (LOS)-oplossing Caroline gebruikt om te bepalen als resources op de juiste wijze worden toegewezen in het ziekenhuisnetwerk. Bijvoorbeeld, met behulp van het dashboard dat is opgegeven in deze oplossing.

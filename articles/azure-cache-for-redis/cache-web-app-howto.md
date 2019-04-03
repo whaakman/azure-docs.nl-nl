@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 100d2e4cb57f2b2d0278540a0382fb845dbba53c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649013"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886366"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
@@ -116,7 +116,7 @@ Omdat het bestand *CacheSecrets.config* niet in Azure wordt geïmplementeerd met
 2. Ga in het bestand *web.config* naar het element `<appSetting>`. Voeg vervolgens het volgende `file`-kenmerk toe. Als u een andere bestandsnaam of -locatie gebruikt, vervangt u deze waarden door de waarden die in het voorbeeld worden weergegeven.
 
 * Voor: `<appSettings>`
-* Na: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Na:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u de web-app implementeert in Azure, wordt het bestand *CacheSecrets.config* niet geïmplementeerd.
 
@@ -274,7 +274,7 @@ Nadat het lokaal testen van de app is geslaagd, implementeert u de app in Azure 
 
 3. Breng in het dialoogvenster**App Service maken** de volgende wijzigingen aan:
 
-    | Instelling | Aanbevolen waarde | Description |
+    | Instelling | Aanbevolen waarde | Beschrijving |
     | ------- | :---------------: | ----------- |
     | **Naam van app** | Gebruik de standaard. | De app-naam is de hostnaam voor de app wanneer deze is geïmplementeerd in Azure. Aan de naam is mogelijk een tijdstempel als achtervoegsel toegevoegd om deze uniek te maken, indien nodig. |
     | **Abonnement** | Kies uw Azure-abonnement. | Voor dit abonnement worden eventuele gerelateerde hostingkosten in rekening gebracht. Als u meerdere Azure-abonnementen hebt, controleert u of het gewenste abonnement is geselecteerd.|
@@ -337,4 +337,4 @@ Na enkele ogenblikken worden de resourcegroep en alle bijbehorende resources ver
 In de volgende zelfstudie gebruikt u Azure Cache voor Redis in een realistischer scenario om de prestaties van een app te verbeteren. U werkt deze toepassing bij zodat leaderboardresultaten in de cache worden geplaatst met behulp van het cache-aside-patroon met ASP.NET en een database.
 
 > [!div class="nextstepaction"]
-> [Een 'cache-aside' leaderboard maken in ASP.NET](cache-web-app-cache-aside-leaderboard.md)
+> [een cache-aside-leaderboard maken in ASP.NET](cache-web-app-cache-aside-leaderboard.md)

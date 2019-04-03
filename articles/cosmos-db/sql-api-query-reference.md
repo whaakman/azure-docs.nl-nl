@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9625cb75bcae60f7f6eb2bae61e73066520037fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805462"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878255"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -41,7 +41,7 @@ SELECT <select_specification>
 -   [SELECT-component](#bk_select_query)    
 -   [FROM-component](#bk_from_clause)    
 -   [WHERE-component](#bk_where_clause)    
--   [ORDER BY-component](#bk_orderby_clause)  
+-   [ORDER BY clause](#bk_orderby_clause)  
   
 De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
   
@@ -51,7 +51,7 @@ De volgorde waarin de EU worden verwerkt, is:
 
 1.  [FROM-component](#bk_from_clause)  
 2.  [WHERE-component](#bk_where_clause)  
-3.  [ORDER BY-component](#bk_orderby_clause)  
+3.  [ORDER BY clause](#bk_orderby_clause)  
 4.  [SELECT-component](#bk_select_query)  
 
 Houd er rekening mee dat dit wijkt af van de volgorde waarin ze worden weergegeven in de syntaxis. De volgorde is dat alle nieuwe symbolen die door een verwerkte component zichtbaar zijn en kunnen worden gebruikt in de componenten die later worden verwerkt. Bijvoorbeeld, aliassen gedeclareerd in een FROM-component in, waarbij toegankelijk zijn en SELECT-component.  
@@ -62,7 +62,7 @@ Alleen spaties bevatten die geen deel uitmaken van een tekenreeks tussen aanhali
 
 De querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen, zoals  
 
--   SQL-instructie `-- comment text [newline]`  
+-   SQL Statement `-- comment text [newline]`  
 
 Terwijl uit witruimte bestaat en opmerkingen niet een betekenis in de grammatica hebt, moeten ze worden gebruikt voor het scheiden van tokens. Bijvoorbeeld: `-1e5` is één getal token, even`: – 1 e5` wordt-token van een minteken, gevolgd door nummer 1 en id e5.  
 
@@ -474,32 +474,32 @@ ORDER BY <sort_specification>
 |**Categorie**|**Details**|  
 |-|-|  
 |**Rekenkundige**|Operator verwacht invoerwaarde(n) (s) zijn. Uitvoer is ook een getal. Als een van de invoer is **niet-gedefinieerde** of type dan het getal klikt u vervolgens het resultaat is **niet-gedefinieerde**.|  
-|**Bitsgewijze**|Operator verwacht invoerwaarde(n) ondertekende 32-bits geheel getal (s). Uitvoer is ook 32-bits geheel getal.<br /><br /> Een niet-integer-waarde wordt afgerond. Positieve waarde wordt afgerond naar beneden en negatieve getallen naar boven afgerond.<br /><br /> Een waarde buiten het bereik van de 32-bits geheel getal wordt geconverteerd, door te nemen van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of typ dan het getal, dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** De bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
+|**bitwise**|Operator verwacht invoerwaarde(n) ondertekende 32-bits geheel getal (s). Uitvoer is ook 32-bits geheel getal.<br /><br /> Een niet-integer-waarde wordt afgerond. Positieve waarde wordt afgerond naar beneden en negatieve getallen naar boven afgerond.<br /><br /> Een waarde buiten het bereik van de 32-bits geheel getal wordt geconverteerd, door te nemen van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of typ dan het getal, dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** De bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
 |**Logische**|Operator verwacht invoerwaarde(n) Boolean(s) zijn. Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoer is **niet-gedefinieerde** of typ dan Booleaanse waarde, wordt het resultaat **niet-gedefinieerde**.|  
 |**Vergelijking**|Operator verwacht invoerwaarde(n) hetzelfde type en niet zijn niet gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoer is **niet-gedefinieerde** of de invoer hebben verschillende typen en vervolgens het resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van de waarden voor vergelijking** tabel voor details bestellen-waarde.|  
-|**Tekenreeks**|Operator verwacht invoerwaarde(n) meer zijn. Uitvoer is ook een tekenreeks.<br />Als een van de invoer is **niet-gedefinieerde** of andere dan tekenreeks typt en vervolgens het resultaat is **niet-gedefinieerde**.|  
+|**string**|Operator verwacht invoerwaarde(n) meer zijn. Uitvoer is ook een tekenreeks.<br />Als een van de invoer is **niet-gedefinieerde** of andere dan tekenreeks typt en vervolgens het resultaat is **niet-gedefinieerde**.|  
   
  **De unitaire operators:**  
   
-|**Naam**|**Operator**|**Details**|  
+|**Name**|**Operator**|**Details**|  
 |-|-|-|  
 |**Rekenkundige**|+<br /><br /> -|Retourneert de waarde.<br /><br /> Bitsgewijze onderhandeling. De numerieke waarde retourneert genegeerde.|  
-|**Bitsgewijze**|~|Aanvulling zijn. Retourneert een aanvulling op van een numerieke waarde.|  
-|**Logical**|**NIET**|Negatie. Retourneert genegeerde Booleaanse waarde.|  
+|**bitwise**|~|Aanvulling zijn. Retourneert een aanvulling op van een numerieke waarde.|  
+|**Logisch**|**NIET**|Negatie. Retourneert genegeerde Booleaanse waarde.|  
   
  **Binaire operators:**  
   
-|**Naam**|**Operator**|**Details**|  
+|**Name**|**Operator**|**Details**|  
 |-|-|-|  
 |**Rekenkundige**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Toevoeging.<br /><br /> Aftrekken.<br /><br /> Vermenigvuldigen.<br /><br /> Delen.<br /><br /> Modulatie.|  
-|**Bitsgewijze**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links uit.<br /><br /> Verschuiving naar rechts uit.<br /><br /> Nul opvulling rechts verplaatsen.|  
-|**Logische**|**EN**<br /><br /> **OR**|Logische combinatie. Retourneert **waar** als beide argumenten zijn **waar**, retourneert **false** anders.<br /><br /> Logische scheiding. Retourneert **waar** als alle argumenten zijn **waar**, retourneert **false** anders.|  
+|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links uit.<br /><br /> Verschuiving naar rechts uit.<br /><br /> Nul opvulling rechts verplaatsen.|  
+|**Logische**|**EN**<br /><br /> **OF**|Logische combinatie. Retourneert **waar** als beide argumenten zijn **waar**, retourneert **false** anders.<br /><br /> Logische scheiding. Retourneert **waar** als alle argumenten zijn **waar**, retourneert **false** anders.|  
 |**Vergelijking**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **waar** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **waar** als argumenten niet gelijk zijn zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **waar** als eerste argument groter dan de tweede waarde is, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **waar** als eerste argument groter dan of gelijk zijn aan de tweede waarde is, retourneren **false** anders.<br /><br /> Kleiner dan. Retourneert **waar** als eerste argument minder is dan het tweede één rendement **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **waar** als eerste argument kleiner dan of gelijk zijn aan de tweede waarde, retourneren **false** anders.<br /><br /> Samenvoegen. Het tweede argument geeft als resultaat als het eerste argument is een **niet-gedefinieerde** waarde.|  
 |**String**|**&#124;&#124;**|Samenvoeging. Retourneert een samenvoeging van beide argumenten.|  
   
  **Ternair operators:**  
 
-|**Naam**|**Operator**|**Details**| 
+|**Name**|**Operator**|**Details**| 
 |-|-|-|  
 |Ternaire operator|?|Het tweede argument geeft als resultaat als het eerste argument wordt geëvalueerd als **waar**; anders wordt het derde argument geretourneerd.|  
 
@@ -510,9 +510,9 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Undefined**|Niet vergelijkbaar.|  
 |**Null**|Enkele waarde: **null**|  
-|**Number**|Natuurlijke reëel getal.<br /><br /> Negatieve oneindigheid waarde is kleiner dan andere numerieke waarde.<br /><br /> Positieve oneindigheid waarde is groter dan andere numerieke waarde. **NaN** waarde kan niet worden vergeleken. Vergelijken met **NaN** zal leiden tot **niet-gedefinieerde** waarde.|  
+|**Aantal**|Natuurlijke reëel getal.<br /><br /> Negatieve oneindigheid waarde is kleiner dan andere numerieke waarde.<br /><br /> Positieve oneindigheid waarde is groter dan andere numerieke waarde. **NaN** waarde kan niet worden vergeleken. Vergelijken met **NaN** zal leiden tot **niet-gedefinieerde** waarde.|  
 |**String**|Lexicographical volgorde.|  
-|**Array**|Er is geen bestellen, maar billijke.|  
+|**Matrix**|Er is geen bestellen, maar billijke.|  
 |**Object**|Er is geen bestellen, maar billijke.|  
   
  **Opmerkingen**  
@@ -538,10 +538,10 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Undefined**|Enkele waarde: **niet gedefinieerd**|  
 |**Null**|Enkele waarde: **null**|  
-|**Boolean**|Waarden: **false**, **waar**.|  
-|**Number**|Een getal met dubbele precisie getal met drijvende komma, IEEE 754 standard.|  
+|**Booleaans**|Waarden: **false**, **waar**.|  
+|**Aantal**|Een getal met dubbele precisie getal met drijvende komma, IEEE 754 standard.|  
 |**String**|Een reeks van nul of meer Unicode-tekens. Tekenreeksen moeten tussen enkele of dubbele aanhalingstekens worden geplaatst.|  
-|**Array**|Een reeks van nul of meer elementen. Elk element kan een waarde van elk gegevenstype scalaire, met uitzondering van Undefined zijn.|  
+|**Matrix**|Een reeks van nul of meer elementen. Elk element kan een waarde van elk gegevenstype scalaire, met uitzondering van Undefined zijn.|  
 |**Object**|Een niet-geordende set van nul of meer naam/waarde-paren. Naam is een Unicode-tekenreeks, de waarde kan zijn van elk gegevenstype scalaire, behalve **Undefined**.|  
   
  **Syntaxis**  
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   Volgende escapereeksen zijn toegestaan:  
   
-|**Escape-reeks**|**Beschrijving**|**Unicode-teken**|  
+|**Escape-reeks**|**Description**|**Unicode-teken**|  
 |-|-|-|  
 |\\'|enkel aanhalingsteken (')|U+0027|  
 |\\"|dubbel aanhalingsteken (")|U+0022|  
@@ -676,13 +676,13 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a> Ingebouwde functies  
  Cosmos DB biedt veel ingebouwde SQL-functies. De categorieën ingebouwde functies worden hieronder vermeld.  
   
-|Function|Description|  
+|Function|Beschrijving|  
 |--------------|-----------------|  
 |[Wiskundige functies](#bk_mathematical_functions)|Wiskundige functies elke uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en retourneert een numerieke waarde.|  
-|[Controle van functies van het type](#bk_type_checking_functions)|Met de typecontrolefuncties kunt u het type van een expressie in SQL-query's controleren.|  
+|[Functies voor controle van het type](#bk_type_checking_functions)|Met de typecontrolefuncties kunt u het type van een expressie in SQL-query's controleren.|  
 |[Tekenreeksfuncties](#bk_string_functions)|De tekenreeks-functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, een numerieke of Booleaanse waarde.|  
 |[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of Matrixwaarde.|  
-|[Ruimtelijke-functies](#bk_spatial_functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
+|[Ruimtelijke functies](#bk_spatial_functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
   
 ###  <a name="bk_mathematical_functions"></a> Wiskundige functies  
  De volgende functies uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en retourneert een numerieke waarde.  
@@ -690,11 +690,11 @@ ORDER BY <sort_specification>
 ||||  
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[MAXIMUM](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOGBOEK](#bk_log)|  
-|[LOG10](#bk_log10)|[PI](#bk_pi)|[ENERGIEBEHEER](#bk_power)|  
-|[RADIANS](#bk_radians)|[AFRONDEN](#bk_round)|[SIN](#bk_sin)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[GRADEN](#bk_degrees)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
+|[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
+|[RADIALEN](#bk_radians)|[AFRONDEN](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
@@ -1843,13 +1843,13 @@ SELECT
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[BEVAT](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTE](#bk_length)|  
-|[LAGERE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
-|[REPLICEREN](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
+|[INDEX_OF](#bk_index_of)|[LINKS](#bk_left)|[LENGTE](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICEREN](#bk_replicate)|[OMKEREN](#bk_reverse)|[RECHTS](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
-|[StringToObject](#bk_stringtoobject)|[DE SUBTEKENREEKS](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[BOVENSTE](#bk_upper)||
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden.  
@@ -2372,7 +2372,7 @@ SELECT
  Hier volgt een voorbeeld van ongeldige invoer. 
    
  Enkele aanhalingstekens binnen de matrix zijn geen geldige JSON.
-Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige matrices. Tekenreeksen in de matrix-tekenreeks moeten ofwel worden weergegeven "[\"\"] ' of de omringende offerte moet één ' [" "]'.
+Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige matrices. Tekenreeksen in de matrix-tekenreeks moeten ofwel worden weergegeven "[\\"\\"] ' of de omringende offerte moet één ' [" "]'.
 
 ```
 SELECT
@@ -2662,7 +2662,7 @@ SELECT
 ```
  
  Hier volgen enkele voorbeelden met ongeldige invoer.
-Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige objecten. Tekenreeksen in de tekenreeks van object moeten een escape "{\"een\":\"str\"} ' of de omringende offerte moet één ' {"a": 'str'}'.
+Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige objecten. Tekenreeksen in de tekenreeks van object ofwel moeten worden weergegeven ' {\\"een\\":\\"str\\'} ' of de omringende offerte moet één ' {"a": 'str'}'.
 
  Enkele aanhalingstekens rond de namen van eigenschappen zijn niet geldig JSON.
 
