@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435309"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886451"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services kunnen worden gebruikt om veel media bron-bestand
 
 [Streaming-eindpunten](streaming-endpoint-concept.md) is de service voor dynamische pakketten in Media Services gebruikt voor het leveren van media-inhoud naar client spelers. Dynamische pakketten is een functie die wordt standaard geleverd op alle **Streaming-eindpunten** (Standard of Premium). 
 
-Om te profiteren van **dynamische pakketten**, moet u beschikken over een **Asset** met een set adaptive bitrate MP4-bestanden en streaming-configuratiebestanden die nodig zijn voor Media Services dynamische pakketten. Er is één manier om de bestanden naar Codeer uw tussentijds (bron) bestand met Media Services. Als u video's in de gecodeerde Asset beschikbaar voor clients om te worden afgespeeld, u moet maken een **Streaming-Locator gemaakt** en streaming-URL's te bouwen. Klik, op basis van de indeling die is opgegeven in de client streamingmanifest (HLS, DASH of Smooth), u de stream ontvangt in het protocol dat u hebt gekozen.
+Om te profiteren van **dynamische pakketten**, moet u beschikken over een **Asset** met een set adaptive bitrate MP4-bestanden en streaming-configuratiebestanden die nodig zijn voor Media Services dynamische pakketten. U kunt uw mezzanine-bestanden (bronbestanden) ophalen door ze te coderen met Media Services. Als u video's in de gecodeerde Asset beschikbaar voor clients om te worden afgespeeld, u moet maken een **Streaming-Locator gemaakt** en streaming-URL's te bouwen. Klik, op basis van de indeling die is opgegeven in de client streamingmanifest (HLS, DASH of Smooth), u de stream ontvangt in het protocol dat u hebt gekozen.
 
 Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client. 
 
@@ -79,11 +79,11 @@ Het volgende diagram toont de live streamen met dynamische verpakking werkstroom
 
 |Protocol|Voorbeeld|
 |---|---|
-|HLS V4-PROCESSORS |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|CSF VOOR MPEG-DASH| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|CMAF VOOR MPEG-DASH|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs invoervideo ondersteund door dynamische verpakking
@@ -196,7 +196,7 @@ Hier volgt een voorbeeld van een manifest Smooth Streaming:
 Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

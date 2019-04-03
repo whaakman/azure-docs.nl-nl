@@ -1,25 +1,25 @@
 ---
 title: Waarschuwing-beveiligingshandleiding voor Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over beveiligingswaarschuwingen en aanbevolen herstelstappen met behulp van Azure Security Center voor IoT-functies en -service.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755107"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861975"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center voor IoT-beveiligingswaarschuwingen
 
@@ -37,7 +37,7 @@ Zie voor meer informatie, [aangepaste waarschuwingen maken](quickstart-create-cu
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Ingebouwde waarschuwingen voor IoT-apparaten
 
-| Severity | Name                                                   | Gegevensbron | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Severity | Name                                                   | Gegevensbron | Beschrijving                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hoog     | Lokale aanmelding die is geslaagd                                 | Agent       | Aanmelden bij lokale apparaat gedetecteerd                                                                                                                                                                                                                                                                                                                                                                                         |
 | Hoog     | Geslaagde beveiligingsaanval                                  | Agent       | Meerdere mislukte aanmeldingspogingen gedetecteerd, gevolgd door een geslaagde aanmelding. Apparaat is opgetreden voor een geslaagde beveiligingsaanval.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +81,7 @@ Zie voor meer informatie, [aangepaste waarschuwingen maken](quickstart-create-cu
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Ingebouwde waarschuwingen voor IoT-Hub
 
-| Severity | Name                                                                         | Description                                                                                                                                                                                                                                                                                                                            |
+| Severity | Name                                                                         | Beschrijving                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Middelgroot   | Nieuw certificaat toegevoegd aan een IoT-Hub                                    |Nieuw certificaat toegevoegd aan een IoT-hub. Als deze toevoeging niet door een geautoriseerde partij gemaakt is, kan dit wijzen op schadelijke activiteiten.                                                                                                                                                                                                    |
 | Middelgroot   | Certificaat is verwijderd van een IoT-Hub                                    | Het certificaat is verwijderd van een IoT-hub. Als deze actie niet door een geautoriseerde partij gemaakt is, kan dit wijzen op schadelijke activiteiten.                                                                                                                                                                                                |

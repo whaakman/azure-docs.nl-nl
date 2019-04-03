@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: ebff47dc4007ab265b43d32c9f956eb73d5ba1ac
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213412"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848579"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Relay in Azure Monitor (preview)
 Metrische gegevens van Azure Relay bieden u de status van resources in uw Azure-abonnement. Met een uitgebreide set metrische gegevens, kunt u de algemene status van de Relay-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze helpen u de status van Azure Relay bewaken. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
@@ -31,7 +31,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de vers
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals operations Management Suite en Event Hubs. Zie voor meer informatie, [door gegevens te controleren die worden verzameld door Azure Monitor](../azure-monitor/platform/data-collection.md).
+Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals operations Management Suite en Event Hubs. Zie voor meer informatie, [door gegevens te controleren die worden verzameld door Azure Monitor](../azure-monitor/platform/data-platform.md).
 
 Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
 
@@ -83,7 +83,7 @@ Alle metrische waarden worden verzonden naar Azure Monitor elke minuut. De tijdg
 
 Azure Relay biedt ondersteuning voor de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-|Dimensienaam|Description|
+|Dimensienaam|Beschrijving|
 | ------------------- | ----------------- |
 |EntityName| Azure Relay biedt ondersteuning voor messaging-entiteiten in de naamruimte.|
 

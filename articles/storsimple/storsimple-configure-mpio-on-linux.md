@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439869"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877581"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>U kunt MPIO configureren op een StorSimple-host waarop CentOS wordt uitgevoerd
 In dit artikel worden de stappen beschreven die vereist voor het configureren van multipath i/o-(MPIO) op uw Centos 6.6 host-server. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Er wordt in detail beschreven de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.
@@ -35,15 +35,15 @@ De functie multipath kunt u het configureren van meerdere i/o-paden tussen een h
 
 Het doel van meerdere paden is tweeledig:
 
-* **Hoge beschikbaarheid**: biedt een alternatief pad uitval van een element van het i/o-pad (bijvoorbeeld een kabel, switch, netwerk-interface of domeincontroller).
-* **Taakverdeling**: afhankelijk van de configuratie van uw opslagapparaat, kan deze de prestaties verbeteren door het detecteren van de belasting van de i/o-paden en dynamisch herverdeling de belasting.
+* **Hoge beschikbaarheid**: Het biedt een alternatief pad uitval van een element van het i/o-pad (bijvoorbeeld een kabel, switch, netwerk-interface of domeincontroller).
+* **Taakverdeling**: Afhankelijk van de configuratie van uw opslagapparaat, kan deze de prestaties verbeterd door het detecteren van de belasting van de i/o-paden en dynamisch herverdeling de belastingen.
 
 ### <a name="about-multipathing-components"></a>Over Multipath-onderdelen
 Meerdere paden in Linux bestaat uit onderdelen van de kernel en gebruikersruimte onderdelen zoals Zie tabel hieronder.
 
-* **Kernel**: het belangrijkste onderdeel is het *apparaat-mapper* die omgeleid i/o en biedt ondersteuning voor failover voor paden en pad groepen.
+* **Kernel**: Het belangrijkste onderdeel is het *apparaat-mapper* die omgeleid i/o en biedt ondersteuning voor failover voor paden en pad groepen.
 
-* **Gebruikersruimte**: dit zijn *multipath-hulpprogramma's* die multipathed apparaten beheren door de apparaat-mapper-module voor multipath wat te doen. De hulpprogramma's bestaan uit:
+* **Gebruikersruimte**: Dit zijn *multipath-hulpprogramma's* die multipathed apparaten beheren door de apparaat-mapper-module voor multipath wat te doen. De hulpprogramma's bestaan uit:
    
    * **Multipath**: geeft een lijst van en multipathed apparaten configureert.
    * **Multipathd**: daemon waarvoor het uitvoeren van multipath en bewaakt de paden.
@@ -57,8 +57,8 @@ Het configuratiebestand `/etc/multipath.conf` maakt veel van de functies van mee
 De multipath.conf heeft vijf secties:
 
 - **Niveau standaardwaarden van het systeem** *(standaard ingesteld)*: U kunt op standaardwaarden van het systeem onderdrukken.
-- **Op de blokkeringslijst apparaten** *(blacklist)*: kunt u de lijst met apparaten die niet moeten worden beheerd door apparaat toewijzen.
-- **Uitzonderingen zwarte** *(blacklist_exceptions)*: U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de blokkeringslijst.
+- **Op de blokkeringslijst apparaten** *(blacklist)*: U kunt de lijst met apparaten die niet moeten worden beheerd door apparaat toewijzen.
+- **Uitzonderingen zwarte** *(blacklist_exceptions)*: U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de zwarte lijst identificeren.
 - **Specifieke Opslaginstellingen controller** *(apparaten)*: U kunt configuratie-instellingen die worden toegepast op apparaten met de leverancier en productinformatie opgeven.
 - **Specifieke instellingen voor apparaten** *(multipaths)*: U kunt in deze sectie gebruiken voor het afstemmen van de configuratie-instellingen voor afzonderlijke LUN's.
 
@@ -183,7 +183,7 @@ De configuratie van de bovenstaande tot 4 afzonderlijke paden tussen uw apparaat
 ## <a name="configuration-steps"></a>Configuratiestappen
 De configuratiestappen voor meerdere paden hebben betrekking op het configureren van de beschikbare paden voor automatische detectie, op te geven het taakverdelingsalgoritme moet worden gebruikt, Multipath inschakelen en ten slotte de configuratie te controleren. Elk van deze stappen wordt besproken in de volgende secties.
 
-### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Stap 1: Configureer meerdere paden voor automatische detectie
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Stap 1: Meerdere paden voor automatische detectie configureren
 De multipath-ondersteunde apparaten kunnen automatisch worden gedetecteerd en geconfigureerd.
 
 1. Initialiseren `/etc/multipath.conf` bestand. Type:
@@ -210,7 +210,7 @@ De multipath-ondersteunde apparaten kunnen automatisch worden gedetecteerd en ge
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Stap 2: Configureer meerdere paden voor StorSimple-volumes
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Stap 2: Configureren van meerdere paden voor StorSimple-volumes
 Standaard worden alle apparaten zwart zijn vermeld in het bestand multipath.conf en worden overgeslagen. U moet een blokkerlingslijst met uitzonderingen om toe te staan van meerdere paden voor volumes van StorSimple-apparaten maken.
 
 1. Bewerk de `/etc/mulitpath.conf` bestand. Type:
@@ -250,7 +250,7 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 > 
 > 
 
-### <a name="step-4-enable-multipathing"></a>Stap 4: Schakel Multipath
+### <a name="step-4-enable-multipathing"></a>Stap 4: Meerdere paden inschakelen
 1. Start opnieuw op de `multipathd` daemon. Type:
    
     `service multipathd restart`
@@ -259,7 +259,7 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
 
-### <a name="step-5-verify-multipathing"></a>Stap 5: Controleer of de opslaginfrastructuur
+### <a name="step-5-verify-multipathing"></a>Stap 5: Controleer of Multipath
 1. Zorg eerst dat iSCSI-verbinding tot stand is gebracht met het StorSimple-apparaat als volgt:
    
    a. Ontdek uw StorSimple-apparaat. Type:
@@ -298,7 +298,7 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 
     Als u slechts één hostinterface en hier twee paden ziet, moet u zowel de interfaces op de host voor iSCSI-inschakelen. U kunt volgen de [gedetailleerde instructies in de documentatie voor virtuele Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. Een volume wordt blootgesteld aan de CentOS-server van de StorSimple-apparaat. Zie voor meer informatie, [stap 6: een volume maken](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal op uw StorSimple-apparaat.
+1. Een volume wordt blootgesteld aan de CentOS-server van de StorSimple-apparaat. Zie voor meer informatie, [stap 6: Maak een volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal op uw StorSimple-apparaat.
 
 1. Controleer of de beschikbare paden. Type:
 
@@ -351,7 +351,7 @@ Het is ook waard controleren dat u daadwerkelijk sommige schijven zien kan nadat
 
 * Gebruik de volgende opdracht om te scannen van de SCSI-bus:
   
-    `$ rescan-scsi-bus.sh `(onderdeel van sg3_utils pakket)
+    `$ rescan-scsi-bus.sh` (onderdeel van sg3_utils pakket)
 * Typ de volgende opdrachten:
   
     `$ dmesg | grep sd*`
@@ -420,7 +420,7 @@ A. Als u wilt controleren of uw apparaat in de whitelist opgenomen, gebruik de v
 Ga voor meer informatie naar [gebruiken het oplossen van interactieve opdracht voor meerdere paden](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lijst met nuttige opdrachten
-| Type | Opdracht | Beschrijving |
+| Type | Opdracht | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |ISCSI-service starten |
 | &nbsp; |`service iscsid stop` |ISCSI-service stoppen |

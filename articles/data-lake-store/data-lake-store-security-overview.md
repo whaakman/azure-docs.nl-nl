@@ -3,21 +3,21 @@ title: Overzicht van de beveiliging in Azure Data Lake Storage Gen1 | Microsoft 
 description: Informatie over hoe Azure Data Lake Storage Gen1 is een veiligere big data-archief
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959609"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883293"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Beveiliging in Azure Data Lake Storage Gen1
 Veel ondernemingen profiteren van big data-analyses voor zakelijke inzichten zodat ze slimme besluiten. Een organisatie kan een complexe en gereguleerde omgeving, met een toenemend aantal diverse gebruikers hebben. Het is essentieel voor een onderneming om ervoor te zorgen dat kritieke bedrijfsgegevens veiliger, worden opgeslagen met het juiste niveau van toegang verleend aan individuele gebruikers. Azure Data Lake Storage Gen1 is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel leert u over de beveiligingsfuncties van Data Lake Storage Gen1, met inbegrip van:
@@ -112,5 +112,5 @@ Als u zien van nieuwe functies in Data Lake Storage Gen1 wilt, stuur ons uw feed
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Aan de slag met Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

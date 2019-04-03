@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649083"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848927"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Maak een zelftest-client voor het vooraf valideren van een installatiekopie van een virtuele machine van Azure
 
@@ -51,7 +51,7 @@ Het volgende diagram toont de werking van autorisatie voor service-to-service aa
 De API testen bevat één eindpunt die ondersteuning biedt voor alleen de POST-methode.  De volgende structuur heeft.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -357,7 +357,7 @@ De volgende Schermafbeelding toont een voorbeeld van een token krijgen met de cu
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Om te maken en een met c#-token verkrijgen&#35;
 
-Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking op de [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) eindpunt met een nettolading van de volgende indeling hebben:
+Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking naar de https:\//soamtenant.auth0.com/oauth/token eindpunt met een nettolading van de volgende indeling hebben:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Om te maken en een token met behulp van PowerShell
 
-Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking op de [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) eindpunt met een nettolading van de volgende indeling hebben:
+Om te stellen Auth0 voor tokens voor het gebruik van uw geautoriseerde toepassingen, uitvoeren van een POST-bewerking naar de https:\//soamtenant.auth0.com/oauth/token eindpunt met een nettolading van de volgende indeling hebben:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

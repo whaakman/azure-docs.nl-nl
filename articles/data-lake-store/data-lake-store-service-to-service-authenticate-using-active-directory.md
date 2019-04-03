@@ -3,20 +3,20 @@ title: 'Service-naar-serviceverificatie: Azure Data Lake Storage Gen1 met Azure 
 description: Meer informatie over het bereiken van service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956607"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884989"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Wanneer u zich programmatisch aanmeldt, moet u de ID voor uw toepassing. Als de 
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Stap 4: Het OAuth 2.0-tokeneindpunt ophalen (alleen voor Java-toepassingen)
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Stap 4: De OAuth 2.0 token-eindpunt ophalen (alleen voor Java-toepassingen)
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op Active Directory in het linkerdeelvenster.
 

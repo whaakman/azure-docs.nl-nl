@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002273"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850687"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -47,7 +47,7 @@ Voor het instellen van een lokale server voor het Grafana [downloaden en install
 
 7. Het openbare IP-adres van uw server Grafana Get - gaat u terug naar de lijst met resources en selecteer **openbaar IP-adres**.
 
-## <a name="log-in-to-grafana"></a>Meld u aan bij Grafana
+## <a name="sign-in-to-grafana"></a>Aanmelden bij Grafana
 
 1. Met behulp van het IP-adres van uw server, opent u de aanmeldingspagina op *http://\<IP-adres\>: 3000* of de  *\<DNS-naam >\:3000* in uw browser. 3000 is de standaardpoort, Let op: u hebt een andere poort geselecteerd tijdens de installatie. U ziet een aanmeldingspagina voor de Grafana-server die u hebt gemaakt.
 
@@ -167,5 +167,5 @@ Als u een omgeving met Grafana setup op Azure hebt, worden er kosten berekend wa
 2. Klik op de pagina van uw resourcegroep **verwijderen**, type **Grafana** in het tekstvak in en klik vervolgens op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Overzicht van Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md)
+* [Overzicht van Azure Monitor Metrics](data-platform.md)
 

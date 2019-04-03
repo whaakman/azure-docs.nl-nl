@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: df0dd3f54fb645590ff6e5b30a7ccc42f5ddd2eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036270"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879468"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totale kosten van Ownership(TCO) met Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB is ontworpen met de fijnmazige multitenancy en resource governan
 
 De OSS-NoSQL-database-oplossingen, zoals Apache Cassandra, MongoDB, HBase, -engines zijn ontworpen voor on-premises. Ze zijn gelijk aan een Resource Manager-sjabloon met een tenantdatabase voor de ingerichte clusters beheren en controleren van ondersteuning wanneer die worden aangeboden als een beheerde service. OSS-NoSQL-architecturen vereisen aanzienlijke operationele overhead en de expertise die kan worden moeilijk en kostbaar zijn om te zoeken. Aan de andere kant, is Azure Cosmos DB een volledig beheerde cloudservice, waardoor ontwikkelaars zich richten op zakelijke innovatie in plaats van op beheer en onderhoud van database-infrastructuur. 
 
-In tegenstelling tot een cloud-eigen databaseservice Azure Cosmos DB, OSS-NoSQL-database-engines niet ontworpen en gebouwd met de resourcebeheer of fijnmazig multitenancy als de fundamentele architectonische principes. OSS-NoSQL-database-engines, zoals Cassandra en MongoDB maken een fundamentele ervan uitgegaan dat de resources van de virtuele machine waarop ze worden uitgevoerd beschikbaar voor het gebruik ervan zijn. Veel van deze database-engines kunnen niet worden gebruikt als de hoeveelheid resources onder een bepaalde drempelwaarde komt. Bijvoorbeeld: voor kleine VM-instanties, en ze zijn beschikbaar met de leverancier van de aanbevolen configuraties doorgaans grootschalige VM's met hogere kosten voorstellen. Het is dus niet mogelijk het hosten van een OSS-NoSQL- of andere on-premises database-engine en beschikbaar maken met behulp van een op consumptie gebaseerd Bezig met laden model, zoals aanvragen per seconde of verbruikt opslag.
+In tegenstelling tot een cloud-eigen databaseservice Azure Cosmos DB, OSS-NoSQL-database-engines niet ontworpen en gebouwd met de resourcebeheer of fijnmazig multitenancy als de fundamentele architectonische principes. OSS-NoSQL-database-engines, zoals Cassandra en MongoDB maken een fundamentele ervan uitgegaan dat de resources van de virtuele machine waarop ze worden uitgevoerd beschikbaar voor het gebruik ervan zijn. Veel van deze database-engines kunnen niet worden gebruikt als de hoeveelheid resources onder een bepaalde drempelwaarde komt. Bijvoorbeeld: voor kleine VM-instanties, en ze zijn beschikbaar met de leverancier van de aanbevolen configuraties doorgaans grootschalige VM's met hogere kosten voorstellen. Dus het is niet mogelijk voor het hosten van een OSS-NoSQL of een andere on-premises database-engine en beschikbaar maken met behulp van een op consumptie gebaseerd Bezig met laden model, zoals aanvragen per seconde of verbruikt opslag.
 
 ## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Totale eigendomskosten van Azure Cosmos DB 
 

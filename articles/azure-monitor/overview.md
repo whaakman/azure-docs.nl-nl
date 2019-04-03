@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874899"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850828"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -26,7 +26,7 @@ Azure Monitor maximaliseert de beschikbaarheid en prestaties van uw toepassingen
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Overzicht
-Het volgende diagram biedt een weergave op hoog niveau van Azure Monitor. In het midden van het diagram worden de gegevensarchieven voor metrische gegevens en Logboeken, die de twee fundamentele typen gegevens gebruikt door Azure Monitor zijn. Aan de linkerkant wordt de [bronnen van bewakingsgegevens](platform/data-sources.md) die deze vullen [gegevensarchieven](platform/data-collection.md). Aan de rechterkant worden de verschillende functies die Azure Monitor met deze verzamelde gegevens, zoals analyse, uitvoert waarschuwingen en streaming naar externe systemen.
+Het volgende diagram biedt een weergave op hoog niveau van Azure Monitor. In het midden van het diagram worden de gegevensarchieven voor metrische gegevens en Logboeken, die de twee fundamentele typen gegevens gebruikt door Azure Monitor zijn. Aan de linkerkant wordt de [bronnen van bewakingsgegevens](platform/data-sources.md) die deze vullen [gegevensarchieven](platform/data-platform.md). Aan de rechterkant worden de verschillende functies die Azure Monitor met deze verzamelde gegevens, zoals analyse, uitvoert waarschuwingen en streaming naar externe systemen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,7 +34,7 @@ Het volgende diagram biedt een weergave op hoog niveau van Azure Monitor. In het
 
 
 ## <a name="monitoring-data-platform"></a>Bewaking van data-platform
-Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, past [metrische gegevens en logboeken](platform/data-collection.md). [Metrische gegevens](platform/data-collection.md#metrics) zijn numerieke waarden die een bepaald aspect van een systeem op een bepaald punt in tijd beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. [Logboeken](platform/data-collection.md#logs) bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets van eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
+Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, past [metrische gegevens en logboeken](platform/data-platform.md). [Metrische gegevens](platform/data-platform-metrics.md) zijn numerieke waarden die een bepaald aspect van een systeem op een bepaald punt in tijd beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. [Logboeken](platform/data-platform-logs.md) bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets van eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
 
 Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rechtermuisknop op de pagina overzicht in Azure portal Azure Monitor. Een overzicht van elke virtuele machine bijvoorbeeld hebben en ziet u verschillende grafieken met metrische gegevens voor prestaties weergeven. Klik op een of meer grafieken om te openen van de gegevens in [metrics explorer](platform/metrics-charts.md) in Azure portal, kunt u de waarden van meerdere metrische gegevens gedurende een periode van grafiek.  U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven.
 
@@ -55,7 +55,7 @@ Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zi
 - **Azure-abonnement bewakingsgegevens**: Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. 
 - **Azure-tenant bewakingsgegevens**: Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory.
 
-Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](platform/activity-logs-overview.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](platform/data-collection.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
+Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](platform/activity-logs-overview.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](platform/data-platform.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
 
 Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](platform/diagnostic-logs-overview.md) en [toevoegen van een agent](platform/agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](platform/agent-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
 
@@ -143,6 +143,6 @@ Meerdere API's zijn beschikbaar voor lezen en schrijven logboeken en metrische g
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over:
 
-* [Metrische gegevens en logboeken](platform/data-collection.md) voor de gegevens die door Azure Monitor worden verzameld.
+* [Metrische gegevens en logboeken](platform/data-platform.md) voor de gegevens die door Azure Monitor worden verzameld.
 * [Gegevensbronnen](platform/data-sources.md) voor het verzenden van telemetrie in de verschillende onderdelen van uw toepassing.
 * [Query's bijgehouden](log-query/log-query-overview.md) voor het analyseren van verzamelde gegevens.

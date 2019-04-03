@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 281e1109964ac64853b8b82525579b7ff4de0d2f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406402"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851169"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen met OpenID Connect en Azure Active Directory
 
@@ -88,14 +88,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parameter |  | Description |
+| Parameter |  | Beschrijving |
 | --- | --- | --- |
 | tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
 | client_id |vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory**, klikt u op **App-registraties**, kiest u de toepassing en zoekt u de Id op de pagina van de toepassing. |
 | response_type |vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere response_types zoals `code` of `token`. |
 | scope | Aanbevolen | De OpenID Connect-specificatie is vereist voor het bereik `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. Deze en andere OIDC-scopes op het eindpunt v1.0 worden genegeerd, maar is nog steeds een aanbevolen procedure voor standaarden-compatibele clients. |
 | nonce |vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende `id_token` als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks of GUID die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| redirect_uri | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Als ontbreekt, wordt de gebruikersagent worden verzonden naar een van de omleidings-URI's in willekeurige volgorde voor de app is geregistreerd. |
+| redirect_uri | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Als ontbreekt, wordt de gebruikersagent worden verzonden naar een van de omleidings-URI's in willekeurige volgorde voor de app is geregistreerd. De maximale lengte is 255 bytes |
 | response_mode |optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar de app. Ondersteunde waarden zijn `form_post` voor *HTTP formulier post* en `fragment` voor *URL-fragment*. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest veilige overdracht van tokens aan uw toepassing. De standaardwaarde voor een stroom met inbegrip van een id_token `fragment`.|
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
 | prompt |optioneel |Geeft het type tussenkomst van de gebruiker die is vereist. Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '. `prompt=login` Hiermee wordt de gebruiker zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding. `prompt=none` is het tegenovergestelde - Hiermee zorgt u ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet op de achtergrond via eenmalige aanmelding worden voltooid, wordt in het eindpunt een fout geretourneerd. `prompt=consent` de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
@@ -141,7 +141,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
-| Foutcode | Description | Clientactie |
+| Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
@@ -242,7 +242,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316334"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886077"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -131,9 +131,9 @@ Beleid voor onvoorziene gebeurtenissen voorwaardelijke toegang is een **uitgesch
   
 Deze naamgevingsnorm voor het beleid voor onvoorziene gebeurtenissen zijn als volgt: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 Het volgende voorbeeld: **Voorbeeld van de A - Contingency CA-beleid toegang herstellen naar bedrijfskritische Apps voor samenwerking**, is een typische zakelijke onvoorziene gebeurtenissen. In dit scenario, de organisatie doorgaans MFA is vereist voor alle toegang tot Exchange Online en SharePoint Online en de onderbreking van de in dit geval is dat de MFA-provider voor de klant heeft een onderbreking (of Azure MFA, on-premises MFA-provider, of externe MFA). Dit beleid beperkt deze onderbreking door gebruikers in staat specifieke gerichte toegang tot deze apps uit de vertrouwde Windows-apparaten alleen wanneer ze de app vanuit het vertrouwde bedrijfsnetwerk openen. Dit wordt ook noodgevallen accounts en core beheerders uitsluiten van deze beperkingen. De beoogde gebruikers wordt vervolgens toegang krijgen tot Exchange Online en SharePoint Online, terwijl andere gebruikers nog steeds geen toegang tot de apps die vanwege de onderbreking. In dit voorbeeld moet een benoemde netwerklocatie **CorpNetwork** en een beveiligingsgroep **ContingencyAccess** met de doelgebruikers, een groep met de naam **CoreAdmins** met de Core-beheerders en een groep met de naam **EmergencyAccess** met de accounts voor toegang in noodgevallen. De gebeurtenis moet vier beleidsregels om de gewenste toegang te bieden. 
 
@@ -261,12 +261,12 @@ Als uw organisatie van verouderde MFA-beleid per gebruiker gebruikmaakt, kunt u 
 
 ## <a name="learn-more"></a>Meer informatie
 
-* [Documentatie over Azure AD-verificatie](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Documentatie voor Azure AD-verificatie](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Beheerdersaccounts voor EMS-toegang beheren in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Benoemde locaties configureren in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Het configureren van hybride Azure Active Directory verbonden apparaten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Implementatiehandleiding Windows Hello voor Bedrijven](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Windows Hello voor bedrijven-Implementatiehandleiding](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

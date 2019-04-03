@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801761"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881038"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -330,7 +330,7 @@ Wanneer u verwijst naar beheergroepen van de andere Resource Provider acties, mo
 
 Een voorbeeld van het gebruik van dit pad is bij het toewijzen van een nieuwe functie toewijzen aan een beheergroep in PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -344,8 +344,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Voor meer informatie over beheergroepen gaat u naar:
 
-- [Beheergroepen maken om Azure-resources te ordenen](create.md)
-- [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](/powershell/module/az.resources#resources)
-- [Beheergroepen bekijken via de REST-API](/rest/api/resources/managementgroups)
-- [Beheergroepen bekijken via de Azure-CLI](/cli/azure/account/management-group)
+- [Beheergroepen voor het ordenen van Azure-resources maken](create.md)
+- [Wijzigen, verwijderen of uw beheergroepen beheren](manage.md)
+- [Van beheergroepen in Azure PowerShell-Module voor Resources bekijken](/powershell/module/az.resources#resources)
+- [Bekijk beheergroepen in REST-API](/rest/api/resources/managementgroups)
+- [Van beheergroepen in Azure CLI bekijken](/cli/azure/account/management-group)

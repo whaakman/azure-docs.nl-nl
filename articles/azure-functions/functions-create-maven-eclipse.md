@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167542"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881423"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Uw eerste functie maken met Java en Eclipse (Preview)
-
-> [!NOTE] 
-> Java voor Azure Functions is momenteel in preview.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Uw eerste functie maken met Java en Eclipse 
 
 Dit artikel leest u over het maken van een [serverloze](https://azure.microsoft.com/solutions/serverless/) function-project met de Eclipse IDE en Apache Maven, testen en foutopsporing kunt uitvoeren en vervolgens implementeren op Azure Functions. 
 
@@ -52,7 +49,7 @@ Het raadzaam ook installeren [versie 2 van Azure Functions Core Tools](functions
 1. Selecteer **toevoegen Archetype** en toevoegen van de vermeldingen voor de [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype groeps-ID: com.microsoft.azure
     - Archetype artefact-ID: azure-functions-archetype
-    - Versie: Gebruik meest recente versie van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Versie: De meest recente versie gebruikt van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven maken](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Klik op **OK** en details invoeren voor het huidige project en uiteindelijk **voltooien**.
 

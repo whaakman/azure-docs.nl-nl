@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 542bc1a185f80eaae442931650eb3cd604c197b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080464"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849390"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Beginnen met controleren van de Node.js-webtoepassing
 
@@ -33,7 +33,7 @@ Als u geen Node.js-webtoepassing hebt, kunt u er een maken door de snelstartgids
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -41,9 +41,12 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke toepassing met een internetverbinding, ongeacht of deze on-premises wordt uitgevoerd of in de cloud. Gebruik de volgende stappen om deze gegevens te bekijken.
 
-1. Selecteer **Een resource maken** > **Controle en Beheer** > **Application Insights**.
+1. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**.
 
-   ![Application Insights-resource toevoegen](./media/nodejs-quick-start/001-u.png)
+   ![Application Insights-resource toevoegen](./media/nodejs-quick-start/1createresourseappinsights.png)
+
+   ![Application Insights-resource toevoegen](./media/nodejs-quick-start/2createnodejs.png)
+
 
    Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
@@ -58,9 +61,9 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 ## <a name="configure-app-insights-sdk"></a>App Insights-SDK configureren
 
-1. Selecteer **Overzicht** > **Essentials** > kopieer de **Instrumentatiesleutel** van uw toepassing.
+1. Selecteer **overzicht** en kopiëren van uw toepassing **Instrumentatiesleutel**.
 
-   ![Nieuw App Insights-resourceformulier](./media/nodejs-quick-start/instrumentation-key-001.png)
+   ![Nieuw App Insights-resourceformulier](./media/nodejs-quick-start/3key.png)
 
 2. Voeg de Application Insights-SDK voor Node.js toe aan uw toepassing. Voer deze opdracht uit vanuit de hoofdmap van uw app:
 
@@ -84,19 +87,19 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. U kunt de pagina **Overzicht** van Application Insights in Azure Portal, waar u de instrumentatiesleutel hebt opgehaald, nu opnieuw openen om de details te bekijken van de toepassing die momenteel wordt uitgevoerd.
 
-   ![Menu Overzicht van Application Insights](./media/nodejs-quick-start/overview-001.png)
+   ![Menu Overzicht van Application Insights](./media/nodejs-quick-start/4overview.png)
 
-2. Klik op **App-kaart** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
+2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/nodejs-quick-start/application-map.png)
+   ![Toepassingskaart](./media/nodejs-quick-start/5appmap.png)
 
-3. Klik op het **App Analytics**-pictogram ![Pictogram Toepassingskaart](./media/nodejs-quick-start/006.png).  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3. Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/nodejs-quick-start/006.png) **weergeven in Analytics**.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
-   ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/nodejs-quick-start/007-Black.png)
+   ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/nodejs-quick-start/6analytics.png)
 
-4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-grafieken.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. 
+4. Ga terug naar de pagina **Overzicht** en bekijk de KPI-grafieken.  Dit dashboard biedt statistische gegevens over de toepassingsstatus, waaronder het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden.
 
-   ![Tijdlijngrafieken voor het Statusoverzicht](./media/nodejs-quick-start/overview-perf.png)
+   ![Tijdlijngrafieken voor het Statusoverzicht](./media/nodejs-quick-start/7kpidashboards.png)
 
    Als u de grafiek **Laadtijd voor paginaweergave** wilt vullen met **telemetriegegevens aan de clientzijde**, voegt u dit script toe aan elke pagina die u wilt bijhouden:
 
@@ -120,15 +123,15 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
    </script>
    ```
 
-5. Klik onder de koptekst **Onderzoeken** op **Browser**. Hier vindt u metrische gegevens die betrekking hebben op de prestaties van de app-pagina's. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen.
+5. Op de linkermuisknop op **metrische gegevens**. U kunt de metrics explorer gebruiken als u voor het onderzoeken van de status en het gebruik van uw resource. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen. Bijvoorbeeld, kunt u een grafiek waarin de gemiddelde laadtijd van browserpagina 'Laadtijd van browserpagina' kiezen door in de vervolgkeuzelijst voor metrische gegevens en 'Gem.' van aggregatie wordt weergegeven. Voor meer informatie over Azure Metrics Explorer Bezoek [aan de slag met Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![Grafiek voor metrische servergegevens](./media/nodejs-quick-start/009-Black.png)
+   ![Grafiek voor metrische servergegevens](./media/nodejs-quick-start/8metrics.png)
 
 Bekijk de [extra Node./js-documentatie voor App Insights](../../azure-monitor/app/nodejs.md) voor meer informatie over het controleren van Node.js.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent om door te gaan met andere snelstartgidsen of met de zelfstudies, verwijdert u de resources die u in deze snelstartgids hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**.
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.

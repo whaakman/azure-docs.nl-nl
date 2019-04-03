@@ -3,21 +3,21 @@ title: Beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Storage Ge
 description: Meer informatie over het beveiligen van gegevens in Azure Data Lake Storage Gen1 met behulp van groepen en toegangsbeheerlijsten
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296733"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885669"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Het beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Storage Gen1
 Gegevens beveiligen in Azure Data Lake Storage Gen1 is een benadering drie stappen.  Beide op rollen gebaseerd toegangsbeheer (RBAC) en toegangsbeheerlijsten (ACL's) moeten worden ingesteld op volledig toegang tot gegevens voor gebruikers en beveiligingsgroepen in te schakelen.
@@ -130,7 +130,7 @@ Toegang tot gegevens is niet gewijzigd en wordt nog steeds beheerd door de toega
 1. Klik in de blade van het Data Lake Storage Gen1-account op **Access Control (IAM)**. 
    
     ![Beveiligingsgroep toewijzen aan Gen1 van Data Lake Storage-account](./media/data-lake-store-secure-data/adl.select.user.icon.png "beveiligingsgroep toewijzen aan Gen1 van Data Lake Storage-account")
-2. In de **Access Control (IAM)** blade, klikt u op de beveiliging-groepen die u wilt verwijderen. Klik op **verwijderen**.
+2. In de **Access Control (IAM)** blade, klikt u op de beveiliging-groepen die u wilt verwijderen. Klik op **Verwijderen**.
    
     ![Beveiligingsgroep verwijderd](./media/data-lake-store-secure-data/adl.remove.group.png "beveiligingsgroep verwijderd")
 

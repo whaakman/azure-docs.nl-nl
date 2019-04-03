@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102095"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847006"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent-gegevensbronnen in Azure Monitor
-De gegevens die door Azure Monitor worden verzameld van agents wordt gedefinieerd door de gegevensbronnen die u configureert.  De gegevens van agents wordt opgeslagen als [logboekgegevens](data-collection.md) met een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
+De gegevens die door Azure Monitor worden verzameld van agents wordt gedefinieerd door de gegevensbronnen die u configureert.  De gegevens van agents wordt opgeslagen als [logboekgegevens](data-platform-logs.md) met een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
 
 ![Logboek gegevens verzamelen](media/agent-data-sources/overview.png)
 

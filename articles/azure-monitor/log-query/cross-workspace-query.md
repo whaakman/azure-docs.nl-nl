@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: d69ddcd44fd947f3d1dc61ac960e7b55258c163e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b0d12021be5a5dca348ea3ffa3f0b853725812da
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872009"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882239"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Meerdere bronnen logboeken-query's uitvoeren in Azure Monitor  
 
@@ -50,7 +50,7 @@ Identificeren van een werkruimte kan worden uitgevoerd op verschillende manieren
 
 * Gekwalificeerde naam - is de 'volledige naam' van de werkruimte, die bestaat uit de naam van abonnement, resourcegroep en Onderdeelnaam in deze indeling: *resourceGroup-subscriptionName/componentName*. 
 
-    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
     >Omdat Azure-abonnementnamen zijn niet uniek is, is het mogelijk dat deze id niet eenduidig. 

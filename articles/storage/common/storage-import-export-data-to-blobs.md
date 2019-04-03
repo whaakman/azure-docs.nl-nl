@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000239"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878176"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -54,7 +54,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     `cd C:\WaImportExportV1`
 5.  Als u de BitLocker-sleutel van het station, moet u de volgende opdracht uitvoeren:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
 6.  Voer de volgende opdracht om voor te bereiden op de schijf. **Afhankelijk van de gegevensgrootte, kan dit enkele uren duren tot dagen.** 
 
     ```
@@ -64,13 +64,13 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     
     De parameters die worden gebruikt worden in de volgende tabel beschreven:
 
-    |Optie  |Description  |
+    |Optie  |Beschrijving  |
     |---------|---------|
     |/j:     |De naam van het logboekbestand met de extensie jrn. Er wordt een logboekbestand gegenereerd per station. U wordt aangeraden dat u het serienummer van de schijf als de naam van het logboek gebruiken.         |
     |/ID:     |De sessie-ID. Gebruik een unieke sessie voor elk exemplaar van de opdracht.      |
     |/sk:     |De sleutel van de Azure Storage-account.         |
     |/t:     |De stationsletter van de schijf om te worden verzonden. Bijvoorbeeld station `D`.         |
-    |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke uit de uitvoer van ` manage-bde -protectors -get D: `      |
+    |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke uit de uitvoer van `manage-bde -protectors -get D:`      |
     |/srcdir:     |De stationsletter van de schijf om te worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage.         |
     |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf moet worden voorbereid.          |

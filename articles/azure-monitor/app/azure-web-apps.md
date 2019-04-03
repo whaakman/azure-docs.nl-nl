@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804989"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862604"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 
@@ -101,7 +101,7 @@ Bewaking aan clientzijde is aanmelden voor ASP.NET. Aan de clientzijde bewaking 
 
      Naam: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Waarde:`true`
+     Waarde: `true`
 
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 
@@ -120,7 +120,7 @@ Als u wilt om een bepaalde reden Schakel bewaking aan clientzijde uit:
 
      Naam: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Waarde:`false`
+     Waarde: `false`
 
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 
@@ -137,7 +137,7 @@ Alleen de instellingen van de toepassing moeten worden ingesteld zodat de verzam
 |Naam van de App-instelling |  Definitie | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Belangrijkste uitbreiding, waarmee wordt bepaald runtimecontrole. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  In zijn de modus alleen essentiële functies ingeschakeld om te verzekeren van optimale prestaties. | `default` of `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  In zijn de modus alleen essentiële functies ingeschakeld om te verzekeren van optimale prestaties. | `default` Of `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Bepaalt of de engine voor het binaire bestand herschrijven `InstrumentationEngine` wordt ingeschakeld. Deze instelling heeft gevolgen voor de prestaties en heeft gevolgen voor koude start/opstarttijd. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controleert of SQL en Azure-tabel tekst wordt samen met de afhankelijkheidsaanroepen worden vastgelegd. Van Prestatiewaarschuwing: deze instelling moet de `InstrumentationEngine`. | `~1` |
 
@@ -322,7 +322,7 @@ Hieronder vindt u onze stapsgewijze gids voor probleemoplossing voor de extensie
 > Java en Node.js-toepassingen worden alleen ondersteund in Azure App Services via handmatige op basis van SDK instrumentatie en daarom de onderstaande stappen niet van toepassing op deze scenario's.
 
 1. Controleer of de toepassing wordt bewaakt via `ApplicationInsightsAgent`.
-    * Controleer of ' ApplicationInsightsAgent_EXTENSION_AGENT app-instelling is ingesteld op een waarde van '~ 2'.
+    * Controleer of `ApplicationInsightsAgent_EXTENSION_VERSION` app-instelling is ingesteld op een waarde van '~ 2'.
 2. Zorg ervoor dat de toepassing voldoet aan de vereisten om te worden bewaakt.
     * Blader naar `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -353,10 +353,10 @@ De onderstaande tabel bevat een meer gedetailleerde uitleg van de betekenis van 
 Voor de meest recente informatie over de Application Insights/agentextensie, bekijkt u de [opmerkingen bij de release](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* [Voer de profiler uit in uw live app](../../azure-monitor/app/profiler.md).
+* [Voer de profiler uit in uw live app](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample): Azure Functions bewaken met Application Insights
-* [Schakel diagnostische Azure-gegevens in](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) om te verzenden naar Application Insights.
-* [Controleer metrische gegevens voor servicestatus](../../azure-monitor/platform/data-collection.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
-* [Ontvang waarschuwingsmeldingen](../../azure-monitor/platform/alerts-overview.md) wanneer er operationele gebeurtenissen plaatsvinden of metrische gegevens een drempelwaarde overschrijden.
-* [Stel webtests voor beschikbaarheid in](../../azure-monitor/app/monitor-web-app-availability.md) om te worden gewaarschuwd als uw site niet actief is.
+* [Schakel diagnostische Azure-gegevens in](../platform/diagnostics-extension-to-application-insights.md) om te verzenden naar Application Insights.
+* [Controleer metrische gegevens voor servicestatus](../platform/data-platform.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
+* [Ontvang waarschuwingsmeldingen](../platform/alerts-overview.md) wanneer er operationele gebeurtenissen plaatsvinden of metrische gegevens een drempelwaarde overschrijden.
+* Gebruik [Application Insights voor JavaScript-apps en -webpagina's](javascript.md) om clienttelemetrie op te halen uit de browsers die een webpagina bezoeken.
+* [Stel webtests voor beschikbaarheid in](monitor-web-app-availability.md) om te worden gewaarschuwd als uw site niet actief is.

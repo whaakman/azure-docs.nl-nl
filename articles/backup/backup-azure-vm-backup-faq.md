@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402062"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885261"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
 
@@ -68,7 +68,7 @@ Ja. Back-ups uitgevoerd wanneer een virtuele machine wordt afgesloten. Het herst
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak in uitvoering annuleren?
 Ja. U kunt back-uptaak in annuleren een **duurt momentopname** staat. U kunt een taak niet annuleren als de overdracht van gegevens vanuit de momentopname uitgevoerd wordt.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Ik ingeschakeld vergrendelen op de resourcegroep hebt gemaakt met Azure Backup-Service (zoals) ` AzureBackupRG_<geo>_<number>`), blijven mijn back-ups werken?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Ik ingeschakeld vergrendelen op de resourcegroep hebt gemaakt met Azure Backup-Service (zoals) `AzureBackupRG_<geo>_<number>`), blijven mijn back-ups werken?
 Wanneer u de resourcegroep hebt gemaakt met Azure Backup-Service, back-ups niet gestart omdat er een maximumlimiet van 18 herstelpunten.
 
 Gebruiker moet Verwijder de vergrendeling en schakelt u de verzameling voor herstelpunt in die resourcegroep zodat de toekomstige back-ups lukt, [als volgt te werk](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) de herstelpuntverzameling verwijderen.
@@ -88,7 +88,7 @@ Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azu
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?
 Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
 
-We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd bent, een e-mail verzenden naar ` AskAzureBackupTeam@microsoft.com ` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
+We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd bent, een e-mail verzenden naar `AskAzureBackupTeam@microsoft.com` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
 
 
 ## <a name="restore"></a>Herstellen

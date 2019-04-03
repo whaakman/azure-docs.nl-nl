@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449551"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851176"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 
@@ -1259,7 +1259,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |SearchLatency|Zoeklatentie|Seconden|Gemiddeld|Gemiddelde zoeklatentie voor de search-service|Er zijn geen dimensies|
 |SearchQueriesPerSecond|Zoekquery's per seconde|CountPerSecond|Gemiddeld|Zoekquery's per seconde voor de search-service|Er zijn geen dimensies|
-|ThrottledSearchQueriesPercentage|Percentage beperkte zoekquery's|Procent|Gemiddeld|Percentage van de zoekquery's die zijn beperkt voor de search-service|Er zijn geen dimensies|
+|ThrottledSearchQueriesPercentage|Percentage beperkte zoekquery 's|Procent|Gemiddeld|Percentage van de zoekquery's die zijn beperkt voor de search-service|Er zijn geen dimensies|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1296,7 +1296,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
-|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
+|log_write_percent|Logboek-IO-percentage|Procent|Gemiddeld|Logboek-IO-percentage|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |opslag|Totale databasegrootte|Bytes|Maximum|Totale databasegrootte|Er zijn geen dimensies|
 |connection_successful|Geslaagde verbindingen|Count|Totaal|Geslaagde verbindingen|Er zijn geen dimensies|
@@ -1305,8 +1305,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Impasse|Deadlocks|Count|Totaal|Deadlocks|Er zijn geen dimensies|
 |storage_percent|Databaseomvangpercentage|Procent|Maximum|Databaseomvangpercentage|Er zijn geen dimensies|
 |xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
-|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
-|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
+|workers_percent|Percentage van de werknemers|Procent|Gemiddeld|Percentage van de werknemers|Er zijn geen dimensies|
+|sessions_percent|Percentage van sessies|Procent|Gemiddeld|Percentage van sessies|Er zijn geen dimensies|
 |dtu_limit|DTU-limiet|Count|Gemiddeld|DTU-limiet|Er zijn geen dimensies|
 |dtu_used|DTU gebruikt|Count|Gemiddeld|DTU gebruikt|Er zijn geen dimensies|
 |dwu_limit|DWU-limiet|Count|Maximum|DWU-limiet|Er zijn geen dimensies|
@@ -1321,11 +1321,11 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
-|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
+|log_write_percent|Logboek-IO-percentage|Procent|Gemiddeld|Logboek-IO-percentage|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |storage_percent|Opslagpercentage|Procent|Gemiddeld|Opslagpercentage|Er zijn geen dimensies|
-|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
-|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
+|workers_percent|Percentage van de werknemers|Procent|Gemiddeld|Percentage van de werknemers|Er zijn geen dimensies|
+|sessions_percent|Percentage van sessies|Procent|Gemiddeld|Percentage van sessies|Er zijn geen dimensies|
 |eDTU_limit|eDTU-limiet|Count|Gemiddeld|eDTU-limiet|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |eDTU_used|eDTU gebruikt|Count|Gemiddeld|eDTU gebruikt|Er zijn geen dimensies|
@@ -1608,7 +1608,6 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* [Meer informatie over metrische gegevens in Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Waarschuwingen over metrische gegevens maken](../../azure-monitor/platform/alerts-overview.md)
-* [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Meer informatie over metrische gegevens in Azure Monitor](data-platform.md)
+* [Waarschuwingen over metrische gegevens maken](alerts-overview.md)
+* [Metrische gegevens exporteren naar opslag, Event Hub of Log Analytics](diagnostic-logs-overview.md)

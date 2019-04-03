@@ -3,7 +3,7 @@ title: Beveiligen van uw netwerkresources in Azure Security Center | Microsoft D
 description: In dit document adressen aanbevelingen in Azure Security Center die u helpen beveiligen van uw Azure-netwerkresources en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118000"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863148"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
 Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
@@ -30,10 +30,9 @@ In dit artikel biedt aanbevelingen die betrekking hebben op uw Azure-resources v
 > De **netwerken** pagina kunt u dieper ingaan op de status van uw Azure-resource vanuit het netwerkperspectief van een. De netwerk-kaart en besturingselementen voor adaptieve netwerk zijn beschikbaar voor alleen de standaardlaag van Azure Security Center. [Als u de gratis laag, kunt u op de knop **verouderde netwerken weergeven** en netwerkaanbevelingen resource ontvangen](#legacy-networking).
 >
 
-De **netwerken** pagina bevat een overzicht van de secties u diep kunt duiken, voor meer informatie over de status van uw netwerkresources:
+De **netwerken** blade bevat een overzicht van de secties u diep kunt duiken, voor meer informatie over de status van uw netwerkresources:
 
 - Netwerk-kaart (alleen in de Azure Security Center Standard laag)
-- NSG beperken (binnenkort beschikbaar. Meld u aan voor de Preview-versie)
 - Aanbevelingen voor beveiliging van netwerken.
 - Verouderde **netwerken** blade (de vorige netwerken blade) 
  
@@ -49,7 +48,8 @@ Hiermee opent u de netwerktoewijzing:
  
 De standaardweergave van de topologie-kaart wordt weergegeven:
 - Abonnementen die u hebt geselecteerd in Azure. De kaart biedt ondersteuning voor meerdere abonnementen.
-- Virtuele machines, subnetten en Vnets van het type Resource Manager-resource (in klassieke Azure-resources worden niet ondersteund)
+- Virtuele machines, subnetten en VNets van het type Resource Manager-resource (in klassieke Azure-resources worden niet ondersteund)
+- Gekoppelde VNets
 - Alleen de resources met een [netwerk aanbevelingen](security-center-recommendations.md) met een hoge of gemiddelde urgentie  
 - Resources op Internet gerichte
 - De kaart is geoptimaliseerd voor de abonnementen die u hebt geselecteerd in Azure. Als u uw selectie wijzigt, de kaart wordt opnieuw berekend en opnieuw geoptimaliseerd op basis van de nieuwe instellingen.  
@@ -98,7 +98,7 @@ Bijvoorbeeld, u detecteert mogelijk twee machines dat u niet mee kunnen communic
 
 Om in te zoomen naar een resource:
 1. Wanneer u een specifieke bron op de kaart selecteert, in het rechterdeelvenster wordt geopend en biedt u algemene informatie over de resource, verbonden beveiligingsoplossingen indien aanwezig, en de aanbevelingen die relevant zijn voor de resource. Het is hetzelfde type gedrag voor elk type resource dat u selecteert. 
-2. Klik op **verkeer** om te zien van de lijst met mogelijke binnenkomende en uitgaande verkeer op de resource - dit is een uitgebreide lijst die kan communiceren met de resource en op welke deze kan communiceren met en via welke protocollen en poorten.
+2. Klik op **verkeer** om te zien van de lijst met mogelijke binnenkomende en uitgaande verkeer op de resource - dit is een uitgebreide lijst die kan communiceren met de resource en op welke deze kan communiceren met en via welke protocollen en poorten. Bijvoorbeeld, wanneer u selecteert een virtuele machine, alle virtuele machines die deze met communiceren kan worden weergegeven, en wanneer u een subnet selecteert, alle subnetten die met communiceren kan worden weergegeven.
 
 **Deze gegevens is gebaseerd op de analyse van de Network Security Groups, evenals geavanceerde machine learning-algoritmen die meerdere regels voor meer informatie over hun spoorwegkruisingen en interacties te analyseren.** 
 
@@ -143,8 +143,8 @@ VNET|5|DDoS-bescherming standaard inschakelen|Toepassingen met openbare IP-adres
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md) (Uw virtuele machines beveiligen in Azure Security Center)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Uw toepassingen beveiligen in Azure Security Center)
+* [Beveiligen van uw virtuele machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
+* [Beveiligen van uw toepassingen in Azure Security Center](security-center-application-recommendations.md)
 * [Beveiligen van uw Azure SQL-service in Azure Security Center](security-center-sql-service-recommendations.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:

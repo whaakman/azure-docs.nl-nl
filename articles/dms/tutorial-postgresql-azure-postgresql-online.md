@@ -3,20 +3,20 @@ title: 'Zelfstudie: De Azure Database Migration Service gebruiken om een online 
 description: Leer hoe u een online migratie uitvoert van PostgreSQL on-premises naar Azure Database for PostgreSQL met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 9633b6c083b6e7286435c8c3867339868ae53458
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/03/2019
+ms.openlocfilehash: ec106262653ba6d73c244f5f7c7188abf97d59c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105417"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881202"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL migreren naar Azure Database for PostgreSQL online met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises PostgreSQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/postgresql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze zelfstudie migreert u de voorbeelddatabase **DVD-verhuur** van een on-premises exemplaar van PostgreSQL 9.6 naar Azure Database for PostgreSQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
@@ -53,7 +53,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     >
     > Deze configuratie is nodig omdat de Azure Database Migration Service beschikt niet over de verbinding met internet.
 
-- Zorg ervoor dat uw VNET Network Security Group regels Doe het volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Zorg ervoor dat uw Netwerkbeveiligingsgroep VNET-regels niet de volgende poorten voor binnenkomende communicatie naar Azure Database Migration Service blokkeren: 443, 53, 9354, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Stel uw Windows-firewall open voor toegang van de Azure Database Migration Service tot de oorspronkelijke PostgreSQL Server. Standaard verloopt dit via TCP-poort 5432.
 - Wanneer u een firewallapparaat gebruikt voor de brondatabase(s), moet u mogelijk firewallregels toevoegen om voor de Azure Database Migration Service toegang tot de brondatabase(s) voor de migratie toe te staan.

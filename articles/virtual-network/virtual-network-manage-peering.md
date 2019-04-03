@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875205"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882900"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -45,17 +45,16 @@ Voordat u een peering, raken met de vereisten en beperkingen en [benodigde macht
 
 1. Voer in het zoekvak boven aan de Azure-portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u maken van een peering wilt voor.
-3. Selecteer in de lijst met virtuele netwerken, het virtuele netwerk dat u maken van een peering wilt voor.
-4. Onder **instellingen**, selecteer **Peerings**.
-5. Selecteer **+ Toevoegen**. 
-6. <a name="add-peering"></a>Typ of Selecteer waarden voor de volgende instellingen:
+3. Onder **instellingen**, selecteer **Peerings**.
+4. Selecteer **+ Toevoegen**. 
+5. <a name="add-peering"></a>Typ of Selecteer waarden voor de volgende instellingen:
     - **Naam:** De naam voor de peering moet uniek zijn binnen het virtuele netwerk.
     - **Implementatiemodel voor virtueel netwerk:** Selecteer welke het virtuele netwerk dat u koppelen wilt aan is geïmplementeerd via implementatiemodel.
     - **Ik weet mijn resource-ID:** Als u leestoegang tot het virtuele netwerk dat u koppelen wilt aan hebt, laat u dit selectievakje uitgeschakeld. Als u geen leestoegang tot het virtuele netwerk of het abonnement dat u koppelen wilt aan, schakel dit selectievakje in. Voer de volledige resource-ID van het virtuele netwerk dat u koppelen wilt aan de **Resource-ID** vak dat verscheen toen u het selectievakje is ingeschakeld. De resource-ID u moet voor een virtueel netwerk dat zich in dezelfde of [ondersteund verschillende](#requirements-and-constraints) Azure [regio](https://azure.microsoft.com/regions) als dit virtuele netwerk. De volledige resource-ID ziet er ongeveer /subscriptions/<Id>/resourceGroups/ < resource-group-name > /providers/Microsoft.Network/virtualNetworks/ < naam-virtueel netwerk->. U kunt de resource-ID voor een virtueel netwerk ophalen door de eigenschappen voor een virtueel netwerk weer te geven. Zie voor meer informatie over de eigenschappen voor een virtueel netwerk, [virtuele netwerken beheren](manage-virtual-network.md#view-virtual-networks-and-settings). Als het abonnement gekoppeld aan een andere Azure Active Directory-tenant dan het abonnement met het virtuele netwerk dat u de peering is vanuit maakt, moet u eerst een gebruiker toevoegen vanaf elke tenant als een [gastgebruiker](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in de tegengestelde tenant.
     - **Abonnement:** Selecteer de [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) van het virtuele netwerk dat u koppelen wilt aan. Een of meer abonnementen worden weergegeven, afhankelijk van het aantal abonnementen uw account, leestoegang tot heeft. Als u dit selectievakje is ingeschakeld de **Resource-ID** selectievakje, deze instelling is niet beschikbaar.
     - **Virtueel netwerk:** Selecteer het virtuele netwerk dat u koppelen wilt aan. U kunt een virtueel netwerk die zijn gemaakt via een Azure-implementatiemodel selecteren. Als u een virtueel netwerk in een andere regio selecteren wilt, moet u een virtueel netwerk in een [ondersteunde regio](#cross-region). U moet leestoegang tot het virtuele netwerk om te worden weergegeven in de lijst hebben. Als een virtueel netwerk wordt weergegeven, maar lichter gekleurd weergegeven, is het mogelijk omdat de adresruimte voor het virtuele netwerk met de adresruimte voor dit virtuele netwerk overlapt. Als het virtuele netwerk adresruimten elkaar overlappen, kunnen ze kunnen niet worden gekoppeld. Als u dit selectievakje is ingeschakeld de **Resource-ID** selectievakje, deze instelling is niet beschikbaar.
     - **Toegang tot het virtuele netwerk toestaan:** Selecteer **ingeschakeld** (standaard) als u wilt inschakelen van communicatie tussen de twee virtuele netwerken. Inschakelen van communicatie tussen virtuele netwerken, kunt resources die zijn verbonden met een van beide virtueel netwerk om te communiceren met elkaar worden verbonden met de bandbreedte en de latentie als ze zijn verbonden met hetzelfde virtuele netwerk. Alle communicatie tussen resources in de twee virtuele netwerken is via het Azure particuliere netwerk. De **VirtualNetwork** servicetag voor netwerkbeveiligingsgroepen omvat het virtuele netwerk en de gekoppelde virtuele netwerk. Zie voor meer informatie over network security group servicetags [overzicht van netwerkbeveiligingsgroepen](security-overview.md#service-tags). Selecteer **uitgeschakelde** als u niet wilt dat verkeer naar het gekoppelde virtuele netwerk. U kunt bijvoorbeeld selecteren **uitgeschakelde** als u een virtueel netwerk met een ander virtueel netwerk hebt gekoppeld, maar soms wilt uitschakelen van de verkeersstroom tussen de twee virtuele netwerken. U merkt u misschien in-/ uitschakelen is gemakkelijker dan verwijderen en opnieuw peerings te maken. Wanneer deze instelling is uitgeschakeld, wordt verkeer niet stromen tussen de gekoppelde virtuele netwerken.
-    - **Doorgestuurd verkeer toestaan:** Schakel dit selectievakje in om verkeer te staan *doorgestuurd* door een virtueel netwerkapparaat in een virtueel netwerk (die niet afkomstig zijn van het virtuele netwerk) aan de stroom in dit virtuele netwerk via een peering. Denk bijvoorbeeld drie virtuele netwerken met de naam Spoke1 Spoke2 en Hub. Een peering tussen elk knooppunt virtueel netwerk en de virtuele Hub-netwerk bestaat, maar peerings niet bestaan tussen de virtuele spoke-netwerken. Een virtueel netwerkapparaat is geïmplementeerd in het Hub-netwerk en gebruiker gedefinieerde routes worden toegepast op elk knooppunt virtueel netwerk die verkeer tussen de subnetten via het netwerk virtuele apparaat routeren. Als dit selectievakje niet is ingeschakeld voor de peering tussen elk knooppunt virtueel netwerk en de virtuele hub-netwerk, wordt verkeer niet stromen tussen de virtuele spoke-netwerken omdat de hub het verkeer tussen de virtuele netwerken wordt doorgestuurd. Inschakelen van deze mogelijkheid kunt u het doorgestuurde verkeer via de peering, maakt het geen een gebruiker gedefinieerde routes of virtuele netwerkapparaten. Gebruiker gedefinieerde routes en virtuele netwerkapparaten worden afzonderlijk gemaakt. Meer informatie over [gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined). U hoeft niet te controleren met deze instelling als verkeer tussen virtuele netwerken via een Azure VPN-Gateway wordt doorgestuurd.
+    - **Doorgestuurd verkeer toestaan:** Schakel dit selectievakje in om verkeer te staan *doorgestuurd* door een virtueel netwerkapparaat in een virtueel netwerk (die niet afkomstig zijn van het virtuele netwerk) aan de stroom in dit virtuele netwerk via een peering. Denk bijvoorbeeld drie virtuele netwerken met de naam Spoke1 Spoke2 en Hub. Een peering tussen elk knooppunt virtueel netwerk en de virtuele Hub-netwerk bestaat, maar peerings niet bestaan tussen de virtuele spoke-netwerken. Een virtueel netwerkapparaat is geïmplementeerd in het Hub-netwerk en gebruiker gedefinieerde routes worden toegepast op elk knooppunt virtueel netwerk die verkeer tussen de subnetten via het netwerk virtuele apparaat routeren. Als dit selectievakje niet is ingeschakeld voor de peering tussen elk knooppunt virtueel netwerk en de virtuele hub-netwerk, wordt verkeer niet stromen tussen de virtuele spoke-netwerken omdat de hub is het verkeer tussen de virtuele netwerken niet doorsturen. Inschakelen van deze mogelijkheid kunt u het doorgestuurde verkeer via de peering, maakt het geen een gebruiker gedefinieerde routes of virtuele netwerkapparaten. Gebruiker gedefinieerde routes en virtuele netwerkapparaten worden afzonderlijk gemaakt. Meer informatie over [gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined). U hoeft niet te controleren met deze instelling als verkeer tussen virtuele netwerken via een Azure VPN-Gateway wordt doorgestuurd.
     - **Gatewayoverdracht toestaan:** Schakel dit selectievakje in als u een virtuele netwerkgateway die is gekoppeld aan dit virtuele netwerk hebt en wilt toestaan dat verkeer van het gekoppelde virtuele netwerk door de gateway kunnen stromen. Dit virtuele netwerk kan bijvoorbeeld worden gekoppeld aan een on-premises netwerk via een virtuele netwerkgateway. De gateway kan een ExpressRoute of VPN-gateway zijn. Dit selectievakje inschakelt, kunt verkeer van het gekoppelde virtuele netwerk stromen via de gateway die is gekoppeld aan dit virtuele netwerk naar de on-premises netwerk. Als u dit selectievakje inschakelt, kan niet het gekoppelde virtuele netwerk een geconfigureerde gateway hebben. Het gekoppelde virtuele netwerk moet hebben de **externe gateways gebruiken** vakje geselecteerd bij het instellen van de peering vanuit het virtuele netwerk naar dit virtuele netwerk. Als u laat dit selectievakje uitgeschakeld (standaard), verkeer van de gekoppelde virtuele netwerk nog steeds stromen aan dit virtuele netwerk, maar door een virtuele netwerkgateway die is gekoppeld aan dit virtuele netwerk niet kan stromen. Als de peering tussen een virtueel netwerk (Resource Manager) en een virtueel netwerk (klassiek), wordt de gateway moet zich in het virtuele netwerk (Resource Manager). U kunt deze optie niet inschakelen als u bent peering van virtuele netwerken in verschillende regio's.
 
        Naast het doorsturen van verkeer naar een on-premises netwerk, kan een VPN-gateway het netwerkverkeer tussen virtuele netwerken die zijn gekoppeld met het virtuele netwerk dat de gateway, zonder dat de virtuele netwerken dat wordt moet worden gepeerd met elkaar doorsturen. Een VPN-gateway gebruiken voor het doorsturen van verkeer is handig als u wilt gebruiken een VPN-gateway in een hub (Zie de hub en spoke-voorbeeld beschreven voor **doorgestuurd verkeer toestaan**) virtueel netwerk om verkeer te routeren tussen virtuele spoke-netwerken die niet gekoppeld aan elkaar worden verbonden. Zie voor meer informatie over het toestaan van het gebruik van een gateway voor de doorvoer, [configureren van een VPN-gateway voor de doorvoer in een virtueel-netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit scenario vereist de implementatie van de gebruiker gedefinieerde routes die de virtuele netwerkgateway als het volgende hoptype opgeven. Meer informatie over [gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined). U kunt alleen een VPN-gateway opgeven als een volgende hoptype in een door de gebruiker gedefinieerde route, u kunt een ExpressRoute-gateway niet opgeven als het volgende hoptype in een door de gebruiker gedefinieerde route. U kunt deze optie niet inschakelen als u bent peering van virtuele netwerken in verschillende regio's.
@@ -65,7 +64,7 @@ Voordat u een peering, raken met de vereisten en beperkingen en [benodigde macht
 
         U kunt geen externe gateways gebruiken als u al een gateway hebt geconfigureerd in uw virtuele netwerk. U kunt deze optie niet inschakelen als u bent peering van virtuele netwerken in verschillende regio's. Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [een VPN-gateway voor de doorvoer in een virtueel netwerk-peering configureren](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Selecteer **OK** om toe te voegen de peering naar het virtuele netwerk dat u hebt geselecteerd.
+6. Selecteer **OK** om toe te voegen de peering naar het virtuele netwerk dat u hebt geselecteerd.
 
 Zie voor stapsgewijze instructies voor het implementeren van peering tussen virtuele netwerken in verschillende abonnementen en implementatiemodellen [Vervolgstappen](#next-steps).
 
@@ -80,11 +79,10 @@ Voordat u een peering, raken met de vereisten en beperkingen en [benodigde macht
 
 1. Voer in het zoekvak boven aan de portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u wilt wijzigen van instellingen van peering voor.
-3. Selecteer in de lijst met virtuele netwerken, het virtuele netwerk dat u wilt wijzigen van instellingen van peering voor.
-4. Onder **instellingen**, selecteer **Peerings**.
-5. De peering selecteren die u wilt weergeven of wijzigen van instellingen voor.
-6. De juiste instelling wijzigen. Meer informatie over de opties voor elke instelling in [stap 6](#add-peering) van een peering maken.
-7. Selecteer **Opslaan**.
+3. Onder **instellingen**, selecteer **Peerings**.
+4. De peering selecteren die u wilt weergeven of wijzigen van instellingen voor.
+5. De juiste instelling wijzigen. Meer informatie over de opties voor elke instelling in [stap 5](#add-peering) van een peering maken.
+6. Selecteer **Opslaan**.
 
 **Opdrachten**
 
@@ -101,10 +99,9 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 
 1. Voer in het zoekvak boven aan de portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u verwijderen van een peering wilt voor.
-3. Selecteer in de lijst met virtuele netwerken, het virtuele netwerk dat u verwijderen van een peering wilt voor.
-4. Onder **instellingen**, selecteer **Peerings**.
-5. Aan de rechterkant van de peering die u wilt verwijderen, selecteert u **...** , selecteer **verwijderen**en selecteer vervolgens **Ja** verwijderen van de peering vanuit het eerste virtuele netwerk.
-6. De vorige stappen als u wilt verwijderen van de peering vanuit het virtuele netwerk in de peering.
+3. Onder **instellingen**, selecteer **Peerings**.
+4. Aan de rechterkant van de peering die u wilt verwijderen, selecteert u **...** , selecteer **verwijderen**en selecteer vervolgens **Ja** verwijderen van de peering vanuit het eerste virtuele netwerk.
+5. De vorige stappen als u wilt verwijderen van de peering vanuit het virtuele netwerk in de peering.
 
 **Opdrachten**
 
@@ -159,10 +156,10 @@ Als uw account niet aan een van de vorige rollen toegewezen is, moet deze worden
 
   |Azure-implementatiemodel             | Abonnement  |
   |---------                          |---------|
-  |Beide in Resource Manager              |[Hetzelfde](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Verschillend](create-peering-different-subscriptions.md)|
-  |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
-  |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
+  |Beide in Resource Manager              |[Dezelfde](tutorial-connect-virtual-networks-portal.md)|
+  |                                   |[Verschil](create-peering-different-subscriptions.md)|
+  |Eén in Resource Manager, één klassiek  |[Dezelfde](create-peering-different-deployment-models.md)|
+  |                                   |[Verschil](create-peering-different-deployment-models-subscriptions.md)|
 
 - Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Een virtueel netwerk-peering maken met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) voorbeeld scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)

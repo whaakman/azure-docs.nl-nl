@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: 4c8502aad40662766b038205eb19dd3302f601b7
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.date: 04/01/2019
+ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632101"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847761"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Maken en beheren van meer replica's van de Azure CLI
 
 In dit artikel leert u hoe u maken en beheren van lezen-replica's in Azure Database for PostgreSQL via Azure CLI. Zie voor meer informatie over meer replica's, de [overzicht](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> De functie lezen replica is beschikbaar als openbare preview.
 
 ## <a name="prerequisites"></a>Vereisten
 - Een [Azure Database for PostgreSQL-server](quickstart-create-server-up-azure-cli.md) moet de hoofd-server.
@@ -49,9 +46,9 @@ De `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op
 
 De `az mysql server replica create` opdracht moet de volgende parameters:
 
-| Instelling | Voorbeeldwaarde | Description  |
+| Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
-| resource-group | myResourceGroup |  De resourcegroep waar de replica-server wordt gemaakt.  |
+| resource-group | myResourceGroup |  De resourcegroep waar de replica-server wordt gemaakt.  |
 | naam | mydemoserver-replica | De naam van de nieuwe replicaserver die is gemaakt. |
 | source-server | mydemoserver | De naam of resource-ID van de bestaande hoofd-server om te repliceren van. |
 

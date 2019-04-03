@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763417"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849687"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
-Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
+Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-platform.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
 
 Gegevens in Azure te controleren is afkomstig van een groot aantal bronnen die kunnen worden ingedeeld in lagen, de hoogste niveaus wordt uw toepassing en alle besturingssystemen en de lagere lagen worden onderdelen van Azure-platform. Dit wordt geïllustreerd in het volgende diagram met elke laag in de volgende secties gedetailleerd beschreven.
 
@@ -59,7 +59,7 @@ Metrische gegevens en resources niveau diagnostische logboeken bieden informatie
 
 
 ### <a name="metrics"></a>Metrische gegevens
-De meeste Azure-services wordt gegenereerd [platform metrische gegevens](data-collection.md#metrics) die overeenkomen de prestaties en de bewerking. De specifieke [metrische gegevens varieert voor elk type resource](metrics-supported.md).  Ze zijn toegankelijk via analyses van metrische gegevens en logboeken voor trending en andere analyses met behulp van Log Analytics kunnen worden gekopieerd.
+De meeste Azure-services wordt gegenereerd [platform metrische gegevens](data-platform-metrics.md) die overeenkomen de prestaties en de bewerking. De specifieke [metrische gegevens varieert voor elk type resource](metrics-supported.md).  Ze zijn toegankelijk via analyses van metrische gegevens en logboeken voor trending en andere analyses met behulp van Log Analytics kunnen worden gekopieerd.
 
 
 ### <a name="resource-diagnostic-logs"></a>Diagnostische logboeken van resource
@@ -116,4 +116,4 @@ Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [typen gegevens te controleren die worden verzameld door Azure Monitor](data-collection.md) en hoe u kunt weergeven en analyseren van deze gegevens.
+- Meer informatie over de [typen gegevens te controleren die worden verzameld door Azure Monitor](data-platform.md) en hoe u kunt weergeven en analyseren van deze gegevens.

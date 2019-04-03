@@ -3,20 +3,20 @@ title: Richtlijnen voor herstel na noodgevallen voor Azure Data Lake Storage Gen
 description: Richtlijnen voor herstel na noodgevallen voor Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 44c1dc3e3f6c2c9af52a6e9c9320d4a8ba63b4d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127105"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878108"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Richtlijnen voor herstel na noodgevallen voor gegevens in Azure Data Lake Storage Gen1
 
@@ -43,5 +43,5 @@ Organisaties kunnen ook inschakelen [registratie in diagnoselogboek](data-lake-s
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

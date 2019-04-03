@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243757"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850206"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Aan de slag met Azure Storage (Azure-webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "51243757"
 ## <a name="overview"></a>Overzicht
 In dit artikel vindt u C#-codevoorbeelden die laten zien hoe de Azure WebJobs SDK-versie 1.x met de Azure table storage-service. De code-voorbeelden gebruiken de [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) versie 1.x.
 
-De Azure Table storage-service kunt u voor het opslaan van grote hoeveelheden gestructureerde gegevens. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen uit binnen en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens.  Zie [aan de slag met Azure Table storage met .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) voor meer informatie.
+De Azure Table storage-service kunt u voor het opslaan van grote hoeveelheden gestructureerde gegevens. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen uit binnen en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens.  Zie [aan de slag met Azure Table storage met .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) voor meer informatie.
 
 Enkele van de codefragmenten ziet de **tabel** kenmerk dat wordt gebruikt in de functies die worden aangeroepen handmatig, dat wil zeggen, niet met behulp van een van de kenmerken van de trigger.
 

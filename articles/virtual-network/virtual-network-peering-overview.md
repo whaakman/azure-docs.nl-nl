@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200579"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880420"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -92,7 +92,7 @@ Zie [Machtigingen voor peering op een virtueel netwerk](virtual-network-manage-p
 
 Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie over prijzen voor VNet-peering en wereldwijde VNet-peering.
 
-Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Als VNetA bijvoorbeeld een VPN-gateway heeft voor on-premises-connectiviteit en VNetB is gekoppeld aan VNetA met de gewenste geconfigureerde eigenschappen, worden voor verkeer van VNetB naar on-premises alleen kosten voor uitgaand verkeer in rekening gebracht volgens VPN-gatewaytarieven. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Bijvoorbeeld, als VNetA een VPN-gateway voor on-premises connectiviteit is en als VNetB is gekoppeld aan VNetA met de gewenste eigenschappen die zijn geconfigureerd, verkeer van VNetB naar on-premises wordt alleen in rekening gebracht uitgaande prijzen voor VPN-gateway. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -100,10 +100,10 @@ Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk ee
 
     |Azure-implementatiemodel             | Abonnement  |
     |---------                          |---------|
-    |Beide in Resource Manager              |[Hetzelfde](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Verschillend](create-peering-different-subscriptions.md)|
-    |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
-    |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
+    |Beide in Resource Manager              |[Dezelfde](tutorial-connect-virtual-networks-portal.md)|
+    |                                   |[Verschil](create-peering-different-subscriptions.md)|
+    |Eén in Resource Manager, één klassiek  |[Dezelfde](create-peering-different-deployment-models.md)|
+    |                                   |[Verschil](create-peering-different-deployment-models-subscriptions.md)|
 
 * Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Meer informatie over alle [instellingen van peering in virtuele netwerken en hoe u deze kunt aanpassen](virtual-network-manage-peering.md).

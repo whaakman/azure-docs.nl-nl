@@ -3,19 +3,19 @@ title: De Azure CLI gebruiken om aan de slag met Azure Data Lake Storage Gen1 | 
 description: De Azure CLI gebruiken voor een Data Lake Storage Gen1-account maakt en basisbewerkingen uitvoert
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: twooley
+ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880573"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Aan de slag met Azure Data Lake Store met behulp van Azure CLI
 
@@ -234,6 +234,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Data Lake Storage Gen1 gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

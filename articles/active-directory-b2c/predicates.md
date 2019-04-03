@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737022"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880998"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -46,20 +46,20 @@ De **predicaat** element bevat de volgende kenmerken:
 
 De **predicaat** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
 | Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameters** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameter** element bevat de volgende kenmerken:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | De id van de parameter. |
 
@@ -132,7 +132,7 @@ Terwijl de predicaten definiëren de validatie om te controleren op basis van ee
 
 De **PredicateValidations** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
 
@@ -356,7 +356,8 @@ Met de **predikaten** en **PredicateValidations** elementen kunt u de minimale e
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange">
+    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

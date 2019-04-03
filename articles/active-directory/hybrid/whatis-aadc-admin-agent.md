@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488281"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884887"
 ---
-# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Wat is de Azure AD Connect-beheerder-Agent? 
+# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Wat is de Azure AD Connect-beheerderagent? 
 De Azure AD Connect beheer-Agent is een nieuw onderdeel van Azure Active Directory Connect die is geïnstalleerd op een Azure Active Directory Connect-server. Deze wordt gebruikt om specifieke gegevens verzamelen over uw Active Directory-omgeving waarmee u een Microsoft ondersteuningstechnicus kunt oplossen van problemen wanneer u een ondersteuningsaanvraag openen.
 
 Wanneer geïnstalleerd, ondersteuning de Azure AD Connect beheer Agent wacht op specifieke aanvragen voor gegevens uit Azure Active Directory, de aangevraagde gegevens worden opgehaald uit de synchronisatie-omgeving, en verzendt ze naar Azure Active Directory, waar deze wordt weergegeven aan het Microsoft engineer.
@@ -39,7 +39,7 @@ De ondersteuningstechnicus van Microsoft kan gegevens niet wijzigen in uw systee
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Wat gebeurt er als ik wil niet de ondersteuningstechnicus van Microsoft voor toegang tot mijn gegevens? 
  
-Als u niet wilt dat Bel de Microsoft service engineer toegang tot uw gegevens voor een telefoongesprek met de ondersteuning kunt u dit opgeven wanneer u een ondersteuningsaanvraag openen in de portal: 
+Als u niet wilt dat de Microsoft service engineer toegang tot uw gegevens voor een telefoongesprek met de ondersteuning kunt u deze uitschakelen door het wijzigen van het configuratiebestand van de service, zoals hieronder wordt beschreven: 
 
   1.    Open **C:\Program Files\Microsoft Azure AD Connect beheer Agent\AzureADConnectAdministrationAgentService.exe.config** in Kladblok.
   2.    Uitschakelen **UserDataEnabled** instellen zoals hieronder wordt weergegeven. Als **UserDataEnabled** instelling bestaat en is ingesteld op true, wordt deze ingesteld op false. Als de instelling niet bestaat nog, voegt u de instelling zoals hieronder wordt weergegeven.    

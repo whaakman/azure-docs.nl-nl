@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 225bc4368d2a87fa5fef3f74624fd10f42dc7c97
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554994"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850629"
 ---
-# <a name="diagnostic-logs-schemas"></a>Schema's voor diagnostische logboeken
+# <a name="diagnostic-logs-schemas"></a>Schema's van diagnostische logboeken
 
 [Azure Monitor](../../azure-monitor/overview.md) kunt u metrische gegevens controleren en tot diagnostische logboeken waarmee u inzicht in hoe uw toepassingen worden uitgevoerd. U kunt diagnostische logboeken van Media Services controleren en maken van waarschuwingen en meldingen voor de verzamelde metrische gegevens en Logboeken. U kunt Logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze te streamen [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [Log Analytics](https://azure.microsoft.com/services/log-analytics/), of 3rd party services gebruiken.
 
-Zie voor gedetailleerde informatie [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) en [Azure Monitor diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Zie voor gedetailleerde informatie [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) en [Azure Monitor diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Dit artikel wordt beschreven Media Services-schema's voor diagnostische logboeken.
 

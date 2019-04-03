@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884074"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
@@ -44,7 +44,7 @@ Een claims toewijzen van beleid is een type **beleid** -object dat Hiermee wijzi
 
 Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze worden gebruikt in tokens.
 
-| Claim instellen | Description |
+| Claim instellen | Beschrijving |
 |---|---|
 | Core claimset | Aanwezig zijn in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt, en kunnen niet worden gewijzigd. |
 | Basic claimset | Bevat de claims die worden gegenereerd door de standaardwaarde voor tokens (naast de core claimset). U kunt weglaten of basic claims wijzigen met behulp van de claims toewijzen van beleid. |
@@ -52,142 +52,142 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabel 1: JSON Web Token (JWT) beperkte claimset
 
-|Claimtype (naam)|
+| Claimtype (naam) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|AIO|
-|afkomstig|
-|AMR|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|toepassings-id|
-|appidacr|
-|bevestiging|
-|at_hash|
-|AUD|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|CNF|
-|code|
-|besturingselementen|
-|credential_keys|
-|CSR|
-|csr_type|
-|apparaat-id|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|e-mail|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|grafiek|
-|group_sids|
-|groepen|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|IAT|
-|identityprovider|
-|idp|
-|in_corp|
-|exemplaar|
-|ipaddr|
-|isbrowserhostedapp|
-|ISS|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|OID|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|wachtwoord|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|de PUID|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|Bron|
-|role|
-|rolls|
-|scope|
-|scp|
-|beveiligings-id|
-|handtekening|
-|signin_state|
-|src1|
-|src2|
-|Sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|TID|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|UPN|
-|user_setting_sync_url|
-|gebruikersnaam|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| AIO |
+| afkomstig |
+| AMR |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| toepassings-id |
+| appidacr |
+| bevestiging |
+| at_hash |
+| AUD |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| CNF |
+| code |
+| besturingselementen |
+| credential_keys |
+| CSR |
+| csr_type |
+| apparaat-id |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| e-mail |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| grafiek |
+| group_sids |
+| groepen |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| IAT |
+| identityprovider |
+| idp |
+| in_corp |
+| exemplaar |
+| ipaddr |
+| isbrowserhostedapp |
+| ISS |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| OID |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| wachtwoord |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| de PUID |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| Bron |
+| role |
+| rolls |
+| scope |
+| scp |
+| beveiligings-id |
+| handtekening |
+| signin_state |
+| src1 |
+| src2 |
+| Sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| TID |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| UPN |
+| user_setting_sync_url |
+| gebruikersnaam |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>Tabel 2: SAML beperkte claimset
 
-|Claimtype (URI)|
+| Claimtype (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ Om te bepalen welke claims worden uitgezonden en waarin de gegevens vandaan kome
 
 **Gegevenstype:** Booleaanse waarde (waar of ONWAAR)
 
-**Overzicht:** Deze eigenschap bepaalt of de set basic claim is opgenomen in de tokens die worden beïnvloed door dit beleid. 
+**Overzicht:** Deze eigenschap bepaalt of de set basic claim is opgenomen in de tokens die worden beïnvloed door dit beleid.
 
 - Indien ingesteld op True, alle claims in de set basic claim worden uitgezonden in tokens die door het beleid beïnvloed. 
 - Indien ingesteld op False, claims in de set basic claim niet in de tokens, zijn tenzij ze afzonderlijk worden toegevoegd in de claims-schema-eigenschap van hetzelfde beleid.
@@ -284,51 +284,51 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Id-waarden per bron
 
-|Bron|Id|Description|
+| Bron | Id | Description |
 |-----|-----|-----|
-|Gebruiker|surname|Familienaam|
-|Gebruiker|givenname|Voornaam|
-|Gebruiker|displayname|Weergavenaam|
-|Gebruiker|object-id|ObjectID|
-|Gebruiker|mail|E-mailadres|
-|Gebruiker|userprincipalname|User principal name|
-|Gebruiker|department|Afdeling|
-|Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|netbiosname|NetBios-naam|
-|Gebruiker|dnsdomainname|DNS-domeinnaam|
-|Gebruiker|onpremisesecurityidentifier|on-premises beveiligings-id|
-|Gebruiker|bedrijfsnaam|Naam van organisatie|
-|Gebruiker|streetAddress|Adres|
-|Gebruiker|postalcode|Postcode|
-|Gebruiker|preferredlanguange|Voorkeurstaal|
-|Gebruiker|onpremisesuserprincipalname|on-premises UPN|
-|Gebruiker|mailnickname|E-mailbijnaam|
-|Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
-|Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
-|Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|
-|Gebruiker|extensionattribute4|Kenmerk toestelnummer 4|
-|Gebruiker|extensionattribute5|Kenmerk toestelnummer 5|
-|Gebruiker|extensionattribute6|Kenmerk toestelnummer 6|
-|Gebruiker|extensionattribute7|Kenmerk toestelnummer 7|
-|Gebruiker|extensionattribute8|Kenmerk toestelnummer 8|
-|Gebruiker|extensionattribute9|Kenmerk toestelnummer 9|
-|Gebruiker|extensionattribute10|Kenmerk toestelnummer 10|
-|Gebruiker|extensionattribute11|Kenmerk toestelnummer 11|
-|Gebruiker|extensionattribute12|Kenmerk toestelnummer 12|
-|Gebruiker|extensionattribute13|Kenmerk toestelnummer 13|
-|Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
-|Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
-|Gebruiker|othermail|Andere e-Mail|
-|Gebruiker|Land/regio|Land/regio|
-|Gebruiker|city|Plaats|
-|Gebruiker|state|Status|
-|Gebruiker|jobtitle|Functie|
-|Gebruiker|employeeid|Werknemer-id|
-|Gebruiker|facsimiletelephonenumber|Fax telefoonnummer|
-|toepassing, resource, doelgroep|displayname|Weergavenaam|
-|toepassing, resource, doelgroep|objecten|ObjectID|
-|toepassing, resource, doelgroep|tags|Service-Principal Tag|
-|Bedrijf|tenantcountry|Land van de tenant|
+| Gebruiker | surname | Familienaam |
+| Gebruiker | givenname | Voornaam |
+| Gebruiker | displayname | Weergavenaam |
+| Gebruiker | object-id | ObjectID |
+| Gebruiker | mail | E-mailadres |
+| Gebruiker | userprincipalname | User principal name |
+| Gebruiker | department|Afdeling|
+| Gebruiker | onpremisessamaccountname | On-premises SAM-accountnaam |
+| Gebruiker | netbiosname| NetBios-naam |
+| Gebruiker | dnsdomainname | DNS-domeinnaam |
+| Gebruiker | onpremisesecurityidentifier | on-premises beveiligings-id |
+| Gebruiker | bedrijfsnaam| Naam van organisatie |
+| Gebruiker | streetAddress | Adres |
+| Gebruiker | postalcode | Postcode |
+| Gebruiker | preferredlanguange | Voorkeurstaal |
+| Gebruiker | onpremisesuserprincipalname | On-premises UPN |
+| Gebruiker | mailnickname | E-mailbijnaam |
+| Gebruiker | extensionattribute1 | Kenmerk toestelnummer 1 |
+| Gebruiker | extensionattribute2 | Kenmerk toestelnummer 2 |
+| Gebruiker | extensionattribute3 | Kenmerk toestelnummer 3 |
+| Gebruiker | extensionattribute4 | Kenmerk toestelnummer 4 |
+| Gebruiker | extensionattribute5 | Kenmerk toestelnummer 5 |
+| Gebruiker | extensionattribute6 | Kenmerk toestelnummer 6 |
+| Gebruiker | extensionattribute7 | Kenmerk toestelnummer 7 |
+| Gebruiker | extensionattribute8 | Kenmerk toestelnummer 8 |
+| Gebruiker | extensionattribute9 | Kenmerk toestelnummer 9 |
+| Gebruiker | extensionattribute10 | Kenmerk toestelnummer 10 |
+| Gebruiker | extensionattribute11 | Kenmerk toestelnummer 11 |
+| Gebruiker | extensionattribute12 | Kenmerk toestelnummer 12 |
+| Gebruiker | extensionattribute13 | Kenmerk toestelnummer 13 |
+| Gebruiker | extensionattribute14 | Kenmerk toestelnummer 14 |
+| Gebruiker | extensionattribute15 | Kenmerk toestelnummer 15 |
+| Gebruiker | othermail | Andere e-Mail |
+| Gebruiker | Land/regio | Land/regio |
+| Gebruiker | city | Plaats |
+| Gebruiker | state | Status |
+| Gebruiker | jobtitle | Functie |
+| Gebruiker | employeeid | Werknemer-id |
+| Gebruiker | facsimiletelephonenumber | Fax telefoonnummer |
+| toepassing, resource, doelgroep | displayname | Weergavenaam |
+| toepassing, resource, doelgroep | objecten | ObjectID |
+| toepassing, resource, doelgroep | tags | Service-Principal Tag |
+| Bedrijf | tenantcountry | Land van de tenant |
 
 **TransformationID:** Het element TransformationID moet worden opgegeven, alleen als de bron-element is ingesteld op 'transformatie'.
 
@@ -386,32 +386,32 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 
 |Bron|Id|Description|
 |-----|-----|-----|
-|Gebruiker|mail|E-mailadres|
-|Gebruiker|userprincipalname|User principal name|
-|Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|employeeid|Werknemer-id|
-|Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
-|Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
-|Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|
-|Gebruiker|extensionattribute4|Kenmerk toestelnummer 4|
-|Gebruiker|extensionattribute5|Kenmerk toestelnummer 5|
-|Gebruiker|extensionattribute6|Kenmerk toestelnummer 6|
-|Gebruiker|extensionattribute7|Kenmerk toestelnummer 7|
-|Gebruiker|extensionattribute8|Kenmerk toestelnummer 8|
-|Gebruiker|extensionattribute9|Kenmerk toestelnummer 9|
-|Gebruiker|extensionattribute10|Kenmerk toestelnummer 10|
-|Gebruiker|extensionattribute11|Kenmerk toestelnummer 11|
-|Gebruiker|extensionattribute12|Kenmerk toestelnummer 12|
-|Gebruiker|extensionattribute13|Kenmerk toestelnummer 13|
-|Gebruiker|extensionattribute14|Kenmerk toestelnummer 14|
-|Gebruiker|extensionattribute15|Kenmerk toestelnummer 15|
+| Gebruiker | mail|E-mailadres|
+| Gebruiker | userprincipalname|User principal name|
+| Gebruiker | onpremisessamaccountname|Op de lokale Sam-accountnaam|
+| Gebruiker | employeeid|Werknemer-id|
+| Gebruiker | extensionattribute1 | Kenmerk toestelnummer 1 |
+| Gebruiker | extensionattribute2 | Kenmerk toestelnummer 2 |
+| Gebruiker | extensionattribute3 | Kenmerk toestelnummer 3 |
+| Gebruiker | extensionattribute4 | Kenmerk toestelnummer 4 |
+| Gebruiker | extensionattribute5 | Kenmerk toestelnummer 5 |
+| Gebruiker | extensionattribute6 | Kenmerk toestelnummer 6 |
+| Gebruiker | extensionattribute7 | Kenmerk toestelnummer 7 |
+| Gebruiker | extensionattribute8 | Kenmerk toestelnummer 8 |
+| Gebruiker | extensionattribute9 | Kenmerk toestelnummer 9 |
+| Gebruiker | extensionattribute10 | Kenmerk toestelnummer 10 |
+| Gebruiker | extensionattribute11 | Kenmerk toestelnummer 11 |
+| Gebruiker | extensionattribute12 | Kenmerk toestelnummer 12 |
+| Gebruiker | extensionattribute13 | Kenmerk toestelnummer 13 |
+| Gebruiker | extensionattribute14 | Kenmerk toestelnummer 14 |
+| Gebruiker | extensionattribute15 | Kenmerk toestelnummer 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie-methoden die zijn toegestaan voor NameID van SAML
 
-|TransformationMethod|Beperkingen|
+| TransformationMethod | Beperkingen |
 | ----- | ----- |
-|ExtractMailPrefix|Geen|
-|Koppelen|Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant.|
+| ExtractMailPrefix | Geen |
+| Koppelen | Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant. |
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
 
@@ -437,19 +437,19 @@ Om te beginnen, voer de volgende stappen uit:
 
 1. Download de meest recente [openbare preview-versie van Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Voer de opdracht Connect te melden bij uw Azure AD-beheerdersaccount. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. Als u wilt zien van alle beleidsregels die zijn gemaakt in uw organisatie, moet u de volgende opdracht uitvoeren. Het is raadzaam dat u deze opdracht na de meeste bewerkingen in de volgende scenario's uitvoert, om te controleren dat de beleidsregels zijn gemaakt zoals verwacht.
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het overslaan van de basic claims van tokens die zijn uitgegeven aan een service-principal.
-   In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim instellen van tokens die zijn uitgegeven aan de gekoppelde service-principals.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het overslaan van de basic claims van tokens die zijn uitgegeven aan een service-principal
+
+In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim instellen van tokens die zijn uitgegeven aan de gekoppelde service-principals.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, gekoppeld aan specifieke service-principals, Hiermee verwijdert u de eenvoudige claim ingesteld van tokens.
    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
@@ -462,7 +462,7 @@ Om te beginnen, voer de volgende stappen uit:
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen. 
+1. Het beleid toewijzen aan uw service-principal. U moet ook de object-id van uw service principal ophalen.
    1. Als u wilt zien van de service-principals van uw organisatie, kunt u een query Microsoft Graph. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
    2. Wanneer u de object-id van uw service-principal hebt, kunt u de volgende opdracht uitvoeren:  
      
@@ -475,7 +475,7 @@ Om te beginnen, voer de volgende stappen uit:
 In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. Id van de werknemer is verzonden als het claimtype naam in SAML-tokens en JWTs. De TenantCountry wordt verzonden als het type van de claim land/regio in zowel JWTs als SAML-tokens. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
-   1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
+   1. Voer de volgende opdracht voor het maken van het beleid:  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
@@ -499,10 +499,10 @@ In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevo
 In dit voorbeeld maakt u een beleid dat een aangepaste claim "JoinedData" verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld sluiten we de eenvoudige claims in de tokens instellen.
 
 1. Maak een beleid voor claimtoewijzing. Dit beleid, dat is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims naar tokens toegevoegd.
-   1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
+   1. Voer de volgende opdracht voor het maken van het beleid:
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. Om te zien van het nieuwe beleid en het beleid voor object-id ophalen, voert u de volgende opdracht uit: 
@@ -517,3 +517,7 @@ In dit voorbeeld maakt u een beleid dat een aangepaste claim "JoinedData" verlee
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>Zie ook
+
+Zie voor meer informatie over het aanpassen van uitgegeven claims in het SAML-token via Azure portal, [het: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen](active-directory-saml-claims-customization.md)

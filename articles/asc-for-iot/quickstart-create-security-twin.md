@@ -1,25 +1,25 @@
 ---
 title: Maken van een dubbel van de module beveiliging voor Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over het maken van een Azure Security Center voor IoT-moduledubbel voor gebruik met ASC voor IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758368"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862213"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Maken van een azureiotsecurity moduledubbel
 
@@ -67,7 +67,7 @@ Om te controleren of er een dubbel van de module beveiliging voor een specifiek 
 
 1. Selecteer in uw Azure-IoT-Hub, **IoT-apparaten** uit de **Explorers** menu.    
 1. De apparaat-ID invoeren, of Selecteer een optie in de **apparaat queryveld** en klikt u op **query uitvoeren op apparaten**. 
-    ![Query-apparaten](./media/quickstart/verify-security-module-twin.png)
+    ![Query uitvoeren op apparaten](./media/quickstart/verify-security-module-twin.png)
 1. Selecteer het apparaat of dubbelklik erop om de details Apparaatpagina te openen. 
 1. Selecteer de **Module identiteiten** in het menu en bevestigt u sprake is van de **azureiotsecurity** module in de lijst van module-id's die zijn gekoppeld aan het apparaat. 
     ![Modules die zijn gekoppeld aan een apparaat](./media/quickstart/verify-security-module-twin-3.png)

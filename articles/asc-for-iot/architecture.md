@@ -1,25 +1,25 @@
 ---
 title: Inzicht in Azure Security Center voor IoT-oplossingsarchitectuur Preview | Microsoft Docs
 description: Meer informatie over de stroom van gegevens in de Azure Security Center voor IoT-service.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754988"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862362"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center voor IoT-architectuur
 
@@ -55,9 +55,9 @@ ASC voor IoT-aanbevelingen en waarschuwingen (uitvoer analysepijplijn) wordt ges
 
 In dit artikel hebt u geleerd over de basisarchitectuur en de werkstroom van ASC voor IoT-oplossing. Voor meer informatie over vereisten, hoe u aan de slag en inschakelen van uw oplossing van IoT-Hub, Zie de volgende artikelen:
 
-- [Service-vereisten](service-prerequisites.md)
+- [Servicevereisten](service-prerequisites.md)
 - [Aan de slag](getting-started.md)
-- [Uw oplossing configureren](quickstart-configure-your-solution.md)
+- [De oplossing configureren](quickstart-configure-your-solution.md)
 - [Beveiliging van IoT-Hub inschakelen](quickstart-onboard-iot-hub.md)
 - [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)
 - [ASC voor IoT-beveiligingswaarschuwingen](concept-security-alerts.md)

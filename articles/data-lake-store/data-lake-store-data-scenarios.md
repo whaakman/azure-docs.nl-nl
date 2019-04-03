@@ -3,19 +3,19 @@ title: Scenario's voor gegevens met betrekking tot Data Lake Storage Gen1 | Micr
 description: Informatie over de verschillende scenario's en hulpprogramma's die in gegevens die u kunt die zijn opgenomen, verwerkt, gedownload en gevisualiseerd in Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 64c7985508ed7f03b32340cbb2c78de61242f7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: twooley
+ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984276"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878754"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen1 voor big data-vereisten
 
@@ -40,8 +40,8 @@ Dit staat voor kleinere gegevenssets die worden gebruikt voor het maken van een 
 
 | Gegevensbron | Met behulp van opnemen |
 | --- | --- |
-| Lokale computer |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure-CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Azure Storage-Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp die worden uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Lokale computer |<ul> <li>[Azure-portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure-CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp die worden uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Gestreamde gegevens
 Dit verwijst naar gegevens die worden gegenereerd door verschillende bronnen, zoals toepassingen, apparaten, sensoren, enzovoort. Deze gegevens kan worden opgenomen in Data Lake Storage Gen1 met tal van hulpprogramma's. Deze hulpprogramma's wordt meestal opnemen en verwerken van de gegevens op basis van door gebeurtenis in realtime, en schrijf vervolgens de gebeurtenissen in batches in Data Lake Storage Gen1 zodat ze verder kunnen worden verwerkt.

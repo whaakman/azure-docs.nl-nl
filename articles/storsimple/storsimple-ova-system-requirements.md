@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999502"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876833"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systeemvereisten voor StorSimple virtuele array
 ## <a name="overview"></a>Overzicht
@@ -123,14 +123,14 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 | URL-patroon | Onderdeel/functionaliteit |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple-apparaatbeheerfunctie<br>Access Control Service<br>Azure Service Bus<br>Verificatieservice|
 | `http://*.backup.windowsazure.com` |Apparaatregistratie |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Het intrekken van certificaten |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en bewaking |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update-servers<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Ondersteuningspakket |
-| `https://*.data.microsoft.com ` |Telemetrieservice in Windows, Zie de [update voor de gebruikerservaring en diagnostische telemetrie](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetrieservice in Windows, Zie de [update voor de gebruikerservaring en diagnostische telemetrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voorbereiden van de portal voor het implementeren van uw StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

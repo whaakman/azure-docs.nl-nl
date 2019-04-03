@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479526"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862884"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Afdwingen van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory
 
@@ -83,16 +83,6 @@ Beveiliging van Azure AD-wachtwoord is niet een realtime toepassing beleidsengin
 Implementatie van de beveiliging van Azure AD-wachtwoord in een Active Directory-forest moet de registratie van dit forest met Azure AD. Elke proxyservice die wordt gedistribueerd moet ook worden geregistreerd bij Azure AD. Deze forest- en proxy-registraties zijn gekoppeld aan een specifieke Azure AD-tenant, die impliciet wordt geïdentificeerd door de referenties die worden gebruikt tijdens de registratie.
 
 Het Active Directory-forest en alle geïmplementeerde proxyservices binnen een forest moeten worden geregistreerd bij dezelfde tenant. Een Active Directory-forest of proxyservices hebben in dat forest wordt geregistreerd bij andere Azure AD-tenants wordt niet ondersteund. Symptomen van een verkeerd geconfigureerde implementatie zijn de modeldatabase groter voor het downloaden van wachtwoordbeleid.
-
-## <a name="license-requirements"></a>Licentievereisten
-
-De voordelen van de lijst met uitgesloten wachtwoorden globale gelden voor alle gebruikers van Azure AD.
-
-De aangepaste lijst met uitgesloten-wachtwoorden vereist Azure AD Basic-licenties.
-
-Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory vereist Azure AD Premium-licenties.
-
-Voor extra licentie-informatie, Zie [prijzen van Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Downloaden
 

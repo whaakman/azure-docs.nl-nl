@@ -3,26 +3,26 @@ title: 'REST-API: Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 | Mic
 description: Azure Data Lake Storage Gen1 en WebHDFS REST-API gebruiken voor het uitvoeren van accountbeheerbewerkingen in de Gen1 van Data Lake Storage-account
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530115"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880165"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >

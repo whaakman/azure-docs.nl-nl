@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 03/29/2019
-ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5c9e11572bc142637066214e1a807a80ce711c48
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668488"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877683"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -46,8 +46,8 @@ Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQ
 | **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
 | --- | --- |
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
-|**Beveiliging en naleving** | **Beheer**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-principals (aanmeldingen)</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|**Beveiliging en compliance** | **Beheer**|
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-principals (aanmeldingen)</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[Controleren voor SQL](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 > [!IMPORTANT]
 > Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
@@ -149,7 +149,7 @@ Azure SQL Database biedt een set geavanceerde beveiligingsfuncties die kunnen wo
 - [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u om te bepalen de toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld door het groepslidmaatschap of uitvoeringscontext context groep). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, ervoor te zorgen dat werknemers alleen de rijen met gegevens die relevant voor hun afdeling zijn, of een gegevenstoegang beperken tot alleen de relevante gegevens.
 - [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) beheerd exemplaar van de gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in een beheerd exemplaar met transparante gegevensversleuteling beveiligen. TDE is van de SQL Server beproefde versleuteling-at-rest-technologie die is volgens veel nalevingsstandaarden vereist voor bescherming tegen diefstal van opslagmedia.
 
-Migratie van een versleutelde database naar een beheerd exemplaar wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van een versleutelde database met behulp van systeemeigen herstellen, is de migratie van de bestaande TDE certificaat van de SQL Server on-premises of SQL Server in een virtuele machine naar een beheerd exemplaar van een vereiste stap. Zie voor meer informatie over opties voor de migratie, [migratie van SQL Server-exemplaar naar beheerd exemplaar](sql-database-managed-instance-migrate.md).
+Migratie van een versleutelde database naar een beheerd exemplaar wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van een versleutelde database met behulp van systeemeigen herstellen, is de migratie van de bestaande TDE certificaat van de on-premises SQL Server of SQL Server in een virtuele machine naar een beheerd exemplaar van een vereiste stap. Zie voor meer informatie over opties voor de migratie, [migratie van SQL Server-exemplaar naar beheerd exemplaar](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 
@@ -231,7 +231,7 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Deze waarde identificatie unieke van een beheerd exemplaar.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`,  `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Volgende stappen
 

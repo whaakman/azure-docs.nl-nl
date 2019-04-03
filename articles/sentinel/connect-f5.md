@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 554b732791b4a319931de41d03cf16466f00bbf8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b78ed31fec3716e06f74d9c026ca2af2c48e0312
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576425"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883459"
 ---
 # <a name="connect-your-f5-appliance"></a>Verbinding maken met uw apparaat F5
 
@@ -115,7 +115,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 1. Zorg ervoor dat uw logboeken zijn ophalen met de juiste poort in de Syslog-agent. De computer van de Syslog-agent van deze opdracht uitvoeren: `tcpdump -A -ni any  port 514 -vv` Met deze opdracht ziet u de logboeken die gegevensstromen van het apparaat naar de Syslog-machine. Zorg ervoor dat Logboeken zijn ontvangen van de bron-apparaat op de juiste poort en de juiste faciliteit.
 2. Controleer of er communicatie tussen de Syslog-daemon en de agent. De computer van de Syslog-agent van deze opdracht uitvoeren: `tcpdump -A -ni any  port 25226 -vv` Met deze opdracht ziet u de logboeken die gegevensstromen van het apparaat naar de Syslog-machine. Zorg ervoor dat de logboeken ook op de agent ontvangen worden.
-3. Als beide van deze opdrachten geslaagde resultaten hebt opgegeven, controleert u Log Analytics om te zien als uw logboeken binnenkomen. Alle gebeurtenissen die worden gestreamd vanaf deze apparaten worden weergegeven in onbewerkte vorm in Log Analytics onder `CommonSecurityLog ` type.
+3. Als beide van deze opdrachten geslaagde resultaten hebt opgegeven, controleert u Log Analytics om te zien als uw logboeken binnenkomen. Alle gebeurtenissen die worden gestreamd vanaf deze apparaten worden weergegeven in onbewerkte vorm in Log Analytics onder `CommonSecurityLog` type.
 1. Als u wilt controleren als er fouten zijn of als de logboeken worden niet binnenkomen, zoeken in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Zorg ervoor dat de standaardgrootte van uw Syslog-bericht beperkt tot 2048 bytes (2KB is). Als u Logboeken zijn te lang, werkt u de security_events.conf met de volgende opdracht: `message_length_limit 4096`
 6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de F5-gebeurtenissen, **CommonSecurityLog**.

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438050"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885601"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -85,7 +85,7 @@ Het bovenstaande voorbeeld is de tilde (~), maar de hetzelfde geldt voor elke op
 
  Zorg ervoor dat alle onveilige en gereserveerde tekens in een URL zijn gecodeerd. Bijvoorbeeld, is '#' een onveilige teken omdat dit een fragement/anker-id in een URL is. Het teken moet worden gecodeerd naar `%23` als in een URL gebruikt. ' &' en '=' zijn voorbeelden van gereserveerde tekens zoals ook het scheiden van de parameters en geef waarden op in Azure Search. Raadpleeg [RFC1738: Uniform Resource Locator (URL)](https://www.ietf.org/rfc/rfc1738.txt) voor meer informatie.
 
- Onveilige tekens zijn ``" ` < > # % { } | \ ^ ~ [ ] ``. Gereserveerde tekens zijn `; / ? : @ = + &`.
+ Onveilige tekens zijn ``" ` < > # % { } | \ ^ ~ [ ]``. Gereserveerde tekens zijn `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Bewerkingsvolgorde: groeperen en groepering van veld  
  Subquery's, met inbegrip van operators binnen de tussen haakjes-instructie maken kunt u tussen haakjes. Bijvoorbeeld, `motel+(wifi||luxury)` wordt zoeken naar documenten met de term "motel" en "Wi-Fi" of 'luxe' (of beide).

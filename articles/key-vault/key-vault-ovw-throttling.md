@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404753"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884139"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault-beperkingsrichtlijnen
 
@@ -34,7 +34,7 @@ Als u een geldige zakelijke-aanvraag voor hogere beperkingslimieten hebt, neem d
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hoe u uw app in reactie op Servicelimieten beperken
 
-Hieronder vindt u **aanbevolen procedures** voor de beperking van uw app:
+Hieronder vindt u **aanbevolen procedures** moet u implementeren wanneer de service is beperkt:
 - Verminder het aantal bewerkingen per aanvraag.
 - Verminder de frequentie van aanvragen.
 - Vermijd direct nieuwe pogingen. 
@@ -115,7 +115,7 @@ Hieronder ziet u code die exponentieel uitstel implementeert.
 ```
 
 
-Met deze code in een client C\# toepassing (een andere Web-API-client microservices, een ASP.NET MVC-toepassing of zelfs een C\# Xamarin-toepassing) is eenvoudig. Het volgende voorbeeld wordt getoond hoe, met behulp van de klasse httpclient maakt.
+Met deze code in een client C\# toepassing is eenvoudig. Het volgende voorbeeld wordt getoond hoe, met behulp van de klasse httpclient maakt.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

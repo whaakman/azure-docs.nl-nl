@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483383"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848386"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -343,15 +343,15 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 | API | Description |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: SQL database failover-groepen met één en gepoolde databases beheren
 
-| API | Description |
+| API | Beschrijving |
 | --- | --- |
 | [Maken of bijwerken van de Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Hiermee maken of bijwerken van een failovergroep |
 | [Failover-groep verwijderen](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Hiermee verwijdert u de failovergroep van de server |

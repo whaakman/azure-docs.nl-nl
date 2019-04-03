@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: 6661ed7e8950c1658ef89858140e2d196999d543
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803082"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883561"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -111,8 +111,8 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
 
 4. Een HDInsight-cluster maken en selecteer het Azure-netwerk tijdens de configuratie. Gebruik de stappen in de volgende documenten om te begrijpen van het proces voor het maken van cluster:
 
-    * [HDInsight maken met Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [HDInsight maken met Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [HDInsight met behulp van de Azure portal maken](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Maken van HDInsight met behulp van Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
     * [Maken van HDInsight met behulp van de klassieke Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [HDInsight met behulp van een Azure Resource Manager-sjabloon maken](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
@@ -242,7 +242,7 @@ Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefin
 
 * [Netwerkbeveiligingsgroep](../virtual-network/security-overview.md)
 
-* [Gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md)
+* [Door de gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md)
 
 #### <a name="forced-tunneling-to-on-premise"></a>Geforceerde tunneling on-premises
 

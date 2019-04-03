@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472259"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849808"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 
 Met Azure Monitor worden metrische gegevens beschikbaar gemaakt voor veel Azure-resources. Deze metrische gegevens geven inzicht in de prestaties en de status van deze resources. In veel gevallen wijzen metrische gegevens erop dat er iets mis is met een resource. U kunt waarschuwingen voor metrische gegevens instellen om te controleren op abnormaal gedrag. Wanneer er iets voorvalt, ontvangt u een melding. In deze quickstart wordt stapsgewijs uitgelegd hoe u een logische app en een taak maakt, en hoe u de metrische gegevens voor de logische app visueel kunt weergegeven. Vervolgens wordt beschreven hoe u een waarschuwing instelt en meldingen voor metrische gegevens ontvangt voor de logische app.
 
-Zie [Azure Monitor metrics overview](../../azure-monitor/platform/data-collection.md) (Overzicht van metrische gegevens in Azure Monitor) en [Azure Monitor alerts overview](./alerts-overview.md) (Overzicht van Azure Monitor-waarschuwingen) voor meer informatie over metrische gegevens en waarschuwingen voor metrische gegevens. 
+Zie [Azure Monitor metrics overview](data-platform.md) (Overzicht van metrische gegevens in Azure Monitor) en [Azure Monitor alerts overview](alerts-overview.md) (Overzicht van Azure Monitor-waarschuwingen) voor meer informatie over metrische gegevens en waarschuwingen voor metrische gegevens. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

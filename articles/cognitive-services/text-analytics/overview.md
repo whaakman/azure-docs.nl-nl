@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f79700d3b57623693bf1d0d62dd9ab171df464fb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533235"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882508"
 ---
 # <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
 
@@ -77,7 +77,7 @@ Alle eindpunten van de Text Analytics-API accepteren onbewerkte tekstgegevens. D
 | Maximale grootte van de hele aanvraag | 1 MB |
 | Maximum aantal documenten in een aanvraag | 1000 documenten |
 
-De overdrachtslimiet is 100 aanroepen per minuut. U kunt een groot aantal documenten in één aanroep (maximaal 1000 documenten) indienen.
+De limiet is 100 aanroepen per seconde en 1000 aanroepen per minuut. U kunt een groot aantal documenten in één aanroep (maximaal 1000 documenten) indienen.
 
 ## <a name="unicode-encoding"></a>Unicode-codering
 

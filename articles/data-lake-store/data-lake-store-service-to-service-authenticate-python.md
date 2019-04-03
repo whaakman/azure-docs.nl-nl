@@ -3,27 +3,27 @@ title: 'Service-naar-serviceverificatie: Python met Azure Data Lake Storage Gen1
 description: Meer informatie over het bereiken van service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met behulp van Python
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 84b7fac10374c1c8f23d17ad775d522b4cb261e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537147"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877751"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Python
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-service-to-service-authenticate-java.md)
-> * [.NET-SDK gebruiken](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [.NET SDK gebruiken](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Python gebruiken](data-lake-store-service-to-service-authenticate-python.md)
-> * [REST-API gebruiken](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [REST API gebruiken](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 >  
 

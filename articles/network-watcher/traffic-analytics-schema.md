@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109117"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879332"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema en voor gegevensaggregatie in Traffic Analytics
 
@@ -120,7 +120,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 1. ExternalPublic - behoort een van de IP-adressen met Azure-netwerk terwijl de andere IP-adres een openbare IP-adres dat zich niet in Azure is, wordt niet gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke " FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
 1. MaliciousFlow - een van de IP-adressen deel uitmaken van azure-netwerk terwijl de andere IP-adres is een openbare IP-adres dat zich niet in Azure en wordt gerapporteerd als in de ASC-feeds die Traffic Analytics voor het verwerkingsinterval voor tussen verbruikt schadelijke" FlowIntervalStartTime_t' en 'FlowIntervalEndTime_t'. 
 1. UnknownPrivate - een van de IP-adressen deel uitmaken van Azure Virtual Network terwijl de andere IP-adres behoort tot de privé IP-adresbereik, zoals gedefinieerd in RFC 1918 en kan niet door Traffic Analytics worden toegewezen aan een site of Azure Virtual Network van klanten.
-1. Onbekend: kan geen om toe te wijzen op een van de IP-adressen in de stromen met de klant-topologie in zowel Azure als on-premises (site).
+1. Onbekend: kan geen om toe te wijzen op een van de IP-adressen in de stromen met de klant-topologie in Azure, evenals on-premises (site).
 
 ### <a name="next-steps"></a>Volgende stappen
 Vindt u antwoorden op veelgestelde vragen, [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md) Zie voor meer informatie over de functionaliteit van [Traffic analytics-documentatie](traffic-analytics.md)

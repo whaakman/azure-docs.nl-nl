@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856821"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885975"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Documentatie over de trigger en actie typen voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -231,7 +231,7 @@ Deze trigger een aanvraag verzendt naar een eindpunt met behulp van een [Microso
 
 *Optioneel*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*gedrag voor opnieuw proberen*> | JSON-Object | Hiermee past u het gedrag voor opnieuw proberen voor onregelmatige fouten, waarvoor de 408, 429, en 5XX-statuscode en eventuele verbindingsuitzonderingen. Zie voor meer informatie, [beleid voor opnieuw proberen](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON-Object | Alle queryparameters moeten worden opgenomen met de API-aanroep <p>Bijvoorbeeld, de `"queries": { "api-version": "2018-01-01" }` object toevoegen `?api-version=2018-01-01` bij de aanroep. | 
@@ -302,7 +302,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor het opvragen van configuratiegegevens bij het opgegeven eindpunt: 'OPHALEN', 'PLAATS', 'POST', "PATCH", "VERWIJDEREN" | 
 | <*endpoint-URL*> | String | De HTTP of HTTPS-URL voor het eindpunt te peilen <p>Maximale grootte van tekenreeks: 2 KB | 
@@ -337,7 +337,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 Als u wilt werken ook met uw logische app, moet het eindpunt in overeenstemming zijn met een specifieke triggerpatroon of het contract en herkent deze eigenschappen:  
   
-| Antwoord | Vereist | Description | 
+| Antwoord | Vereist | Beschrijving | 
 |----------|----------|-------------| 
 | Statuscode | Ja | De ' 200 OK ' statuscode wordt een uitvoering gestart. Een uitvoering elke andere statuscode niet wordt gestart. | 
 | De koptekst opnieuw proberen na | Nee | Het aantal seconden totdat de logische app het eindpunt opnieuw peilt | 
@@ -399,7 +399,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor de Abonnementaanvraag: 'Ophalen', 'PUT","POST","PATCH"of"Verwijderen" | 
 | <*endpoint-subscribe-URL*> | String | De eindpunt-URL waar de Abonnementaanvraag verzenden | 
@@ -407,7 +407,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Optioneel*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor de aanvraag voor annulering: 'Ophalen', 'PUT","POST","PATCH"of"Verwijderen" | 
 | <*endpoint-unsubscribe-URL*> | String | De eindpunt-URL waar de aanvraag voor annulering | 
@@ -602,7 +602,7 @@ Voor het aanroepen van deze trigger, moet u de `listCallbackUrl` API, die wordt 
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*property-name*> | String | De naam van een eigenschap in het JSON-schema, waarin wordt beschreven van de nettolading | 
 | <*property-type*> | String | Van de eigenschap type | 
@@ -820,15 +820,15 @@ Hier volgen enkele veelgebruikte actietypen:
 | Actietype | Description | 
 |-------------|-------------| 
 | [**Opstellen**](#compose-action) | Maakt een enkele van de uitvoer van de invoer, die verschillende typen kunnen hebben. | 
-| [**Functie**](#function-action) | Een Azure Function aanroept. | 
+| [**Function**](#function-action) | Een Azure Function aanroept. | 
 | [**HTTP**](#http-action) | Hiermee wordt een HTTP-eindpunt. | 
-| [**Join**](#join-action) | Een tekenreeks van de items in een matrix maakt en deze items worden gescheiden met een opgegeven scheidingsteken. | 
+| [**Koppelen**](#join-action) | Een tekenreeks van de items in een matrix maakt en deze items worden gescheiden met een opgegeven scheidingsteken. | 
 | [**JSON parseren**](#parse-json-action) | Maakt gebruiksvriendelijke tokens van eigenschappen in JSON-inhoud. U kunt vervolgens verwijzen naar deze eigenschappen door op te nemen van de tokens in uw logische app. | 
-| [**Query**](#query-action) | Hiermee maakt u een matrix van items in een andere matrix op basis van een voorwaarde of filteren. | 
+| [**Query’s uitvoeren**](#query-action) | Hiermee maakt u een matrix van items in een andere matrix op basis van een voorwaarde of filteren. | 
 | [**Antwoord**](#response-action) | Hiermee maakt u een reactie op een binnenkomende oproep of een aanvraag. | 
 | [**Selecteer**](#select-action) | Maakt een matrix met JSON-objecten met het transformeren van items uit een andere matrix op basis van de opgegeven map. | 
 | [**Tabel**](#table-action) | Hiermee maakt u een CSV of HTML-tabel uit een matrix. | 
-| [**Terminate**](#terminate-action) | Hiermee stopt u een actief actieve werkstroom. | 
+| [**Beëindigen**](#terminate-action) | Hiermee stopt u een actief actieve werkstroom. | 
 | [**Wait**](#wait-action) | Hiermee wordt de werkstroom onderbroken gedurende een opgegeven periode of totdat de opgegeven datum en tijd. | 
 | [**Werkstroom**](#workflow-action) | Genest in een werkstroom in een andere werkstroom. | 
 ||| 
@@ -852,10 +852,10 @@ Deze acties kunnen u bepalen de uitvoering en andere acties opnemen. Van buiten 
 | Actietype | Description | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Dezelfde acties worden uitgevoerd in een lus voor elk item in een matrix. | 
-| [**If**](#if-action) | Voer acties op basis van of de opgegeven voorwaarde is true of false. | 
-| [**Scope**](#scope-action) | Acties op basis van de groepsstatus van de van een set acties worden uitgevoerd. | 
+| [**Als**](#if-action) | Voer acties op basis van of de opgegeven voorwaarde is true of false. | 
+| [**Bereik**](#scope-action) | Acties op basis van de groepsstatus van de van een set acties worden uitgevoerd. | 
 | [**Switch**](#switch-action) | Uitvoeren van acties die zijn ingedeeld in gevallen wanneer de opgegeven waarden van elke aanvraag overeenkomen met de waarden van expressies, objecten of -tokens. | 
-| [**Tot en met**](#until-action) | Acties in een lus uitgevoerd totdat de opgegeven voorwaarde waar is. | 
+| [**Tot**](#until-action) | Acties in een lus uitgevoerd totdat de opgegeven voorwaarde waar is. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Acties - uitgebreide referentie
@@ -968,7 +968,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*naam van de actie*> | String | De naam van de actie die is opgegeven door de connector | 
 | <*type methode*> | String | De HTTP-methode moet worden gebruikt voor het abonnement of abonnement opzegt op een eindpunt: 'Ophalen', 'PUT","POST","PATCH"of"Verwijderen" | 
@@ -977,7 +977,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 *Optioneel*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | String | De URI moet worden gebruikt voor het abonnement opzegt op de API | 
 | <*header-content*> | JSON-Object | Kopteksten in de aanvraag verzenden <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1015,7 +1015,9 @@ U kunt vervolgens de uitvoer van de actie in andere acties.
 
 *Voorbeeld 1*
 
+<!-- markdownlint-disable MD038 -->
 De definitie van deze actie worden samengevoegd `abcdefg ` met een spatie en de waarde `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1140,7 +1142,7 @@ Met deze actie wordt een aanvraag verzonden naar het opgegeven eindpunt en contr
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*type methode*> | String | De methode die u wilt gebruiken voor het verzenden van de aanvraag: 'Ophalen', 'PUT","POST","PATCH"of"Verwijderen" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | String | De HTTP of HTTPS-eindpunt om aan te roepen. Maximale grootte van tekenreeks: 2 KB | 
@@ -1191,7 +1193,7 @@ Met deze actie wordt een tekenreeks van de items in een matrix gemaakt en deze i
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*Matrix*> | Matrix | De ingevoerde matrix of een expressie waarmee de bronitems. Als u een expressie opgeven, plaatst u deze expressie met dubbele aanhalingstekens. | 
 | <*delimiter*> | Eén tekenreeks | Het teken dat elk item in de tekenreeks worden gescheiden | 
@@ -1378,7 +1380,7 @@ Deze actie wordt de nettolading van het antwoord op een HTTP-aanvraag gemaakt.
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*response-status-code*> | Geheel getal | De HTTP-statuscode die wordt verzonden naar de inkomende aanvraag. De standaardwaarde is "200 OK ', maar de code kan geen geldige statuscode die met 2xx, 4xx of 5xx, maar niet met 3xxx begint. | 
 |||| 
@@ -1551,7 +1553,7 @@ Deze actie wordt een CSV of HTML-tabel gemaakt uit een matrix. Voor matrices met
 
 *Vereist* 
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | < CSV *of* HTML >| String | De indeling voor de tabel die u wilt maken | 
 | <*Matrix*> | Matrix | De ingevoerde matrix of een expressie waarmee de bronitems voor de tabel <p>**Opmerking**: Als de bronmatrix leeg is, wordt in de actie wordt gemaakt van een lege tabel. | 
@@ -1640,7 +1642,7 @@ Deze definitie actie maakt een HTML-tabel van de variabele 'myItemArray'. Echter
 
 Dit is de HTML-tabel die deze actie wordt gemaakt: 
 
-<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organische appels</td></tr><tr><td>1</td><td>Organische sinaasappels</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>Beschrijving</th></tr></thead><tbody><tr><td>0</td><td>Organische appels</td></tr><tr><td>1</td><td>Organische sinaasappels</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1673,7 +1675,7 @@ Deze actie stopt met het uitvoeren van de logische app werkstroomexemplaar, annu
 
 De eigenschappen voor het object "runStatus" gelden alleen wanneer de eigenschap 'runStatus' is ingesteld op de status 'Mislukt'.
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*Fout-code-of-naam*> | String | De code of de naam op voor de fout |
 | <*error-message*> | String | Het bericht of de tekst die de fout en acties die beschrijft de appgebruiker kan maken | 
@@ -1884,7 +1886,7 @@ Deze herhaling actie doorloopt een matrix en voert acties uit voor elk matrixite
 
 *Vereist* 
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*actie-1,... n*> | String | De namen van de acties die worden uitgevoerd voor elk matrixitem | 
 | <*action-definition-1...n*> | JSON-Object | De definities van de acties die worden uitgevoerd | 
@@ -1893,7 +1895,7 @@ Deze herhaling actie doorloopt een matrix en voert acties uit voor elk matrixite
 
 *Optioneel*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*count*> | Geheel getal | Standaard wordt de 'voor elke'-lus iteraties op hetzelfde moment of parallel tot uitvoeren de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Deze limiet wijzigen door in te stellen een nieuwe <*aantal*> waarde, Zie [wijzigen van de lus 'voor elke' gelijktijdigheid](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Om uit te voeren een lus 'voor elke' sequentieel worden verwerkt, in plaats van parallel, stel <*bewerkingsoptie*> naar `Sequential` of <*aantal*> naar `1`, maar niet beide. Zie voor meer informatie, [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](#sequential-for-each). | 
@@ -1957,7 +1959,7 @@ Deze actie wordt een *voorwaardelijke statement*, evalueert een expressie die ee
 }
 ```
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*voorwaarde*> | JSON-Object | De voorwaarde, dit kan een expressie om te evalueren | 
 | <*actie-1*> | JSON-Object | De actie om uit te voeren wanneer <*voorwaarde*> resulteert in waar | 
@@ -2047,7 +2049,7 @@ Deze actie acties in logisch groepen *scopes*, die hun eigen status ophalen nada
 
 *Vereist*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------|  
 | <*interne-actie-1... n*> | JSON-Object | Een of meer acties die worden uitgevoerd binnen het bereik |
 | <*action-inputs*> | JSON-Object | De invoer voor elke actie |
@@ -2098,7 +2100,7 @@ Deze actie, ook wel bekend als een *instructie switch*, organiseert van andere a
 
 *Optioneel*
 
-| Value | Type | Description | 
+| Value | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*Standaard actienaam*> | String | De naam van het standaardactie om uit te voeren wanneer er geen overeenkomende gevallen bestaat | 
 | <*default-action-definition*> | JSON-Object | De definitie voor de actie moet worden uitgevoerd wanneer er geen overeenkomende gevallen bestaat | 
@@ -2446,7 +2448,7 @@ Stel de `runtimeConfiguration.concurrency.runs` eigenschap `1`:
 }
 ```
 
-*- of -*
+*-of-*
 
 Stel de `operationOptions` eigenschap `SingleInstance`:
 
@@ -2498,7 +2500,7 @@ Stel de `runtimeConfiguration.concurrency.repetitions` eigenschap `1`:
 }
 ```
 
-*- of -*
+*-of-*
 
 Stel de `operationOptions` eigenschap `Sequential`:
 
@@ -2568,7 +2570,7 @@ HTTP-eindpunten ondersteunen verschillende soorten verificatie. U kunt verificat
 Dit zijn de soorten verificatie die u kunt instellen:
 
 * [Basisverificatie](#basic-authentication)
-* [Verificatie van clientcertificaten](#client-certificate-authentication)
+* [Clientverificatie via certificaat](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth-verificatie](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
@@ -2580,11 +2582,11 @@ Dit zijn de soorten verificatie die u kunt instellen:
 
 Voor [basisverificatie](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) met behulp van Azure Active Directory, de definitie van de trigger of actie kan bevatten een `authentication` JSON-object, dat de eigenschappen zijn opgegeven door de volgende tabel. Voor toegang tot de parameterwaarden tijdens runtime, kunt u de `@parameters('parameterName')` expressie die wordt geleverd door de [Werkstroomdefinitietaal](https://aka.ms/logicappsdocs). 
 
-| Eigenschap | Vereist | Value | Description | 
+| Eigenschap | Vereist | Value | Beschrijving | 
 |----------|----------|-------|-------------| 
 | **type** | Ja | "Basic" | Het verificatietype dat moet worden gebruikt, die hier 'Basic' | 
 | **gebruikersnaam** | Ja | "@parameters('userNameParam')" | De naam van de gebruiker voor het verifiëren van toegang tot het doel-service-eindpunt |
-| **Wachtwoord** | Ja | "@parameters(passwordParam)" | Het wachtwoord voor het verifiëren van toegang tot het doel-service-eindpunt |
+| **wachtwoord** | Ja | "@parameters(passwordParam)" | Het wachtwoord voor het verifiëren van toegang tot het doel-service-eindpunt |
 ||||| 
 
 In dit voorbeeld definitie van de HTTP-actie de `authentication` sectie geeft u `Basic` verificatie. Zie voor meer informatie over het gebruik en beveiliging van de parameters [beveiligen van uw logische app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2618,7 +2620,7 @@ Voor [certificaten gebaseerde verificatie](../active-directory/authentication/ac
 |----------|----------|-------|-------------|
 | **type** | Ja | "ClientCertificate" | Het verificatietype dat moet worden gebruikt voor clientcertificaten Secure Sockets Layer (SSL). Zelfondertekende certificaten worden ondersteund, worden niet zelfondertekende certificaten voor SSL ondersteund. |
 | **pfx** | Ja | "@parameters('pfxParam') | De met base64 gecodeerde inhoud uit een Personal Information Exchange (PFX)-bestand |
-| **Wachtwoord** | Ja | "@parameters(passwordParam)" | Het wachtwoord voor toegang tot het PFX-bestand |
+| **wachtwoord** | Ja | "@parameters(passwordParam)" | Het wachtwoord voor toegang tot het PFX-bestand |
 ||||| 
 
 In dit voorbeeld definitie van de HTTP-actie de `authentication` sectie geeft u `ClientCertificate` verificatie. Zie voor meer informatie over het gebruik en beveiliging van de parameters [beveiligen van uw logische app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2648,17 +2650,17 @@ In dit voorbeeld definitie van de HTTP-actie de `authentication` sectie geeft u 
 
 Voor [Azure AD OAuth-verificatie](../active-directory/develop/authentication-scenarios.md), kan de definitie van de trigger of actie bevatten een `authentication` JSON-object, dat de eigenschappen zijn opgegeven door de volgende tabel. Voor toegang tot de parameterwaarden tijdens runtime, kunt u de `@parameters('parameterName')` expressie die wordt geleverd door de [Werkstroomdefinitietaal](https://aka.ms/logicappsdocs).
 
-| Eigenschap | Vereist | Value | Description |
+| Eigenschap | Vereist | Value | Beschrijving |
 |----------|----------|-------|-------------|
 | **type** | Ja | `ActiveDirectoryOAuth` | Het verificatietype dat moet worden gebruikt, namelijk 'ActiveDirectoryOAuth' voor Azure AD OAuth |
 | **instantie** | Nee | <*URL-for-authority-token-issuer*> | De URL voor de instantie waarmee het verificatietoken |
 | **tenant** | Ja | <*tenant-ID*> | De tenant-ID voor de Azure AD-tenant |
 | **Doelgroep** | Ja | <*resource-tot-toestaan*> | De resource die u wilt gebruiken voor autorisatie, bijvoorbeeld: `https://management.core.windows.net/` |
-| **clientId** | Ja | <*client-ID*> | De client-ID voor de app toestemming vragen |
+| **ClientId** | Ja | <*client-ID*> | De client-ID voor de app toestemming vragen |
 | **credentialType** | Ja | 'Certificaat' of 'Geheim' | Het referentietype de client wordt gebruikt voor het aanvragen van autorisatie. Deze eigenschap en waarde worden niet weergegeven in het definitie van de onderliggende, maar de vereiste parameters voor het referentietype bepaalt. |
 | **pfx** | Ja, alleen voor het referentietype 'Certificaat' | "@parameters('pfxParam') | De met base64 gecodeerde inhoud uit een Personal Information Exchange (PFX)-bestand |
-| **Wachtwoord** | Ja, alleen voor het referentietype 'Certificaat' | "@parameters(passwordParam)" | Het wachtwoord voor toegang tot het PFX-bestand |
-| **secret** | Ja, alleen voor het "Geheim" referentietype | "@parameters('secretParam')" | Het clientgeheim voor het aanvragen van autorisatie |
+| **wachtwoord** | Ja, alleen voor het referentietype 'Certificaat' | "@parameters(passwordParam)" | Het wachtwoord voor toegang tot het PFX-bestand |
+| **geheim** | Ja, alleen voor het "Geheim" referentietype | "@parameters('secretParam')" | Het clientgeheim voor het aanvragen van autorisatie |
 |||||
 
 In dit voorbeeld definitie van de HTTP-actie de `authentication` sectie geeft u `ActiveDirectoryOAuth` verificatie en het "geheim" referentietype. Zie voor meer informatie over het gebruik en beveiliging van de parameters [beveiligen van uw logische app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).

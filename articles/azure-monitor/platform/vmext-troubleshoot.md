@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 17a52cf17c62c930dc3922ded48d659f56016688
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370496"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883665"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Het oplossen van de Log Analytics VM-extensie in Azure Monitor
 Dit artikel bevat informatie over het oplossen van fouten die u mogelijk ondervindt met de Log Analytics VM-extensie voor Windows en Linux virtuele machines die worden uitgevoerd op Microsoft Azure en duidt op mogelijke oplossingen om op te lossen.
@@ -53,7 +53,7 @@ Als de *Microsoft Monitoring Agent* VM-extensie is niet geïnstalleerd of rappor
 3. Bekijk de logboekbestanden van de Microsoft Monitoring Agent-VM-extensie in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Zorg ervoor dat de virtuele machine kunt u PowerShell-scripts uitvoeren
 5. Controleer of de machtigingen op C:\Windows\temp nog niet is gewijzigd
-6. De status van de Microsoft Monitoring Agent weergeven door het volgende te typen in een verhoogde PowerShell-venster op de virtuele machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. De status van de Microsoft Monitoring Agent weergeven door het volgende te typen in een verhoogde PowerShell-venster op de virtuele machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Bekijk de logboekbestanden voor setup van Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Zie voor meer informatie, [Windows-extensies oplossen](../../virtual-machines/extensions/oms-windows.md).

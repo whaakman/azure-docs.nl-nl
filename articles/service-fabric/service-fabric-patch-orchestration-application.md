@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762834"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847735"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -325,7 +325,7 @@ Als uw cluster uitgevoerd op het aantal upgradedomeinen N-1 tolereren kan tijden
 
 V. **Hoeveel tijd doet het allemaal voor toets maken voor het vullen van een knooppunt?**
 
-A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [Definitie-updates voor Windows Defender](https://www.microsoft.com/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
+A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [Definitie-updates voor Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
  - De grootte van updates
  - Aantal updates die moeten worden toegepast in een tijdvenster
  - De tijd die nodig is de updates worden geïnstalleerd, het knooppunt (indien nodig) opnieuw opstarten en stappen na opnieuw opstarten-installatie te voltooien.

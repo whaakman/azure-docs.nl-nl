@@ -1,25 +1,25 @@
 ---
 title: Azure Security Center te configureren voor de Preview-versie van de IoT-agent | Microsoft Docs
 description: Informatie over het configureren van agents voor gebruik met Azure Security Center voor IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757390"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862774"
 ---
 # <a name="tutorial-configure-security-agents"></a>Zelfstudie: Beveiligingsagents configureren
 
@@ -140,4 +140,4 @@ Standaardwaarden zijn beschikbaar in het juiste schema in [Github](https://aka.m
 
 - [Meer informatie over ASC voor IoT-aanbevelingen](concept-recommendations.md)
 - [Ontdek de ASC voor IoT-waarschuwingen](concept-security-alerts.md)
-- [Toegang tot onbewerkte security gegevens](how-to-security-data-access.md)
+- [Toegang tot onbewerkte beveiligingsgegevens](how-to-security-data-access.md)

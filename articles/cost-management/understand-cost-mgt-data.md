@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f0632b0d6e651ba6e0b43586e60d582e29c5ce00
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ca0d77ba2d1968d49e8ac556d42137cdc4c81e53
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500539"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879434"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -27,18 +27,18 @@ De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Az
 
 | Categorie  | **Naam van aanbieding** | **Quotum-ID** | **Nummer van de aanbieding** |
 | --- | --- | --- | --- |
-| **Azure Duitsland** | [Azure Duitsland-betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Duitsland** | [Azure Duitsland - betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
-| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
-| **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
-| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **Pay-As-You-Go** | [Gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
-| **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay-As-You-Go** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
+| **Betalen per gebruik** | [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **Betalen per gebruik** | [Dev/Test met betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **Betalen per gebruik** | [Microsoft Partner Network-leden.](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **Betalen per gebruik** | [Gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **Betalen per gebruik** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **Betalen per gebruik** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Betalen per gebruik** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
@@ -52,8 +52,8 @@ De volgende tabel ziet u niet-ondersteunde aanbiedingen.
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Duitsland in CSP voor Microsoft Cloud Duitsland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay-As-You-Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Betalen per gebruik**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Betalen per gebruik**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Ondersteuningsabonnementen** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Ondersteuningsabonnementen** | Professional Direct-ondersteuning         | Default_2014-09-01 | MS-AZR-0042P |
 | **Ondersteuningsabonnementen** | Developer-ondersteuning                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -71,11 +71,11 @@ Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement on
 
 ## <a name="costs-included-in-cost-management"></a>Kosten die zijn opgenomen in Cost Management
 
-De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Management.
+De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Management. Alle kosten worden geschat totdat een factuur wordt gegenereerd. Kosten weergegeven, omvatten geen voorafbetaalde en gratis tegoed.
 
 **Kosten en gebruiksgegevens**
 
-| **Opgenomen** | **Niet inbegrepen** |
+| **Inbegrepen** | **Niet inbegrepen** |
 | --- | --- |
 | Gebruik van Azure service<sup>1</sup> | Aankopen in de reservering: Zie voor meer informatie, [API's voor het automatiseren van Azure-reservering](../billing/billing-reservation-apis.md). |
 | Gebruik van Marketplace-aanbiedingen | Marketplace-aankopen: Zie voor meer informatie, [externe servicekosten](../billing/billing-understand-your-azure-marketplace-charges.md). |
@@ -85,9 +85,9 @@ De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Man
 
 <sup>1</sup> gebruik van de azure-service is gebaseerd op de reservering en heeft onderhandeld over prijzen.
 
-**Metadata**
+**Metagegevens**
 
-| **Opgenomen** | **Niet inbegrepen** |
+| **Inbegrepen** | **Niet inbegrepen** |
 | --- | --- |
 | Resourcetags<sup>2</sup> | groep resourcetags |
 

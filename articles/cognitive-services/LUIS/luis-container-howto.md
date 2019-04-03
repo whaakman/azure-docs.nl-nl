@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520153"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884564"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -24,7 +24,7 @@ De container Language Understanding (LUIS) uw Language Understanding getrainde o
 
 De volgende video ziet u met behulp van deze container.
 
-[![Demonstratie van de container voor Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Container demonstratie voor Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -166,7 +166,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | De toepassings-ID van de gepubliceerde LUIS-app. |
 |{APPLICATION_ENVIRONMENT} | De omgeving van de gepubliceerde LUIS-app. Gebruik een van de volgende waarden:<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal. |
-|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
+|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` - West Europe<br/>```australiaeast``` -Australië-Oost |
 
 Gebruik de volgende CURL-opdracht voor het downloaden van het gepubliceerde pakket, waarbij u uw eigen waarden vervangt:
 
@@ -194,7 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | De toepassings-ID van het getrainde LUIS-toepassing. |
 |{APPLICATION_VERSION} | De versie van de toepassing van het getrainde LUIS-toepassing. |
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal.  |
-|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
+|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` - West Europe<br/>```australiaeast``` -Australië-Oost |
 
 Gebruik de volgende CURL-opdracht het getrainde pakket te downloaden:
 
@@ -299,9 +299,9 @@ De naam van maximaal 10 tekens heeft en alleen de tekens die zijn toegestaan in 
 Als een output-koppelpunt is opgegeven voor de container LUIS, worden app-query-logboekbestanden opgeslagen in de uitvoermap, waar {INSTANCE_ID} is voor de container-ID. Het querylogboek app bevat de query, antwoord en tijdstempels voor elke voorspellingsquery verzonden naar de LUIS-container. 
 
 De volgende locatie ziet u de structuur van de geneste map voor de logboekbestanden van de container.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 Vanuit de portal LUIS, selecteert u uw app en vervolgens **eindpunt-logboeken importeren** om deze logboeken te uploaden. 
 

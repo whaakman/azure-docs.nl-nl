@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369782"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885074"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -75,7 +75,7 @@ Hebt u een probleem met Azure Active Directory (Azure AD) selfservice voor wacht
 | De gebruiker ziet een fout opgetreden bij het valideren van het telefoonnummer. | Deze fout treedt op wanneer het telefoonnummer hebt ingevoerd komt niet overeen met het telefoonnummer dat in het bestand. Controleer of dat de gebruiker de volledige telefoonnummer, met inbegrip van de oppervlakte en land-code, wanneer ze proberen om het gebruik van een telefonische methode die voor wachtwoord opnieuw instellen is ingevoerd. |
 | Er is een fout opgetreden bij het verwerken van de aanvraag. | Dit kan worden veroorzaakt door problemen met veel, maar doorgaans deze fout wordt veroorzaakt door een serviceonderbreking of een configuratieprobleem. Als deze fout wordt weergegeven en uw bedrijfsactiviteiten worden getroffen, neem dan contact op met de ondersteuning van Microsoft voor verdere ondersteuning. |
 | Schending van het on-premises beleid | Het wachtwoord voldoet niet aan het wachtwoordbeleid van on-premises Active Directory. |
-| Wachtwoord voldoet niet fuzzy beleid | Het wachtwoord dat is gebruikt, wordt weergegeven in de lijst met uitgesloten wachtwoorden en kan niet worden gebruikt. |
+| Wachtwoord voldoet niet fuzzy beleid | Het wachtwoord dat is gebruikt, wordt weergegeven in de [uitgesloten van de lijst met wachtwoorden](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) en kan niet worden gebruikt. |
 
 ## <a name="troubleshoot-password-writeback"></a>Problemen met wachtwoord terugschrijven oplossen
 
@@ -285,14 +285,14 @@ Goed om u te helpen, vragen we u om zoveel mogelijk details mogelijk te bieden b
 
 De volgende artikelen bevatten aanvullende informatie over wachtwoordherstel via Azure AD:
 
-* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md)
+* [Hoe ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
+* [Uw wachtwoord wijzigen of opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord](../user-help/active-directory-passwords-reset-register.md)
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
-* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
+* [Welke gegevens worden gebruikt door selfservice voor Wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)
-* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
-* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](howto-sspr-reporting.md)
-* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
-* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor Wachtwoordherstel?](concept-sspr-policy.md)
+* [Wat is wachtwoord terugschrijven en waarom dit van belang deze?](howto-sspr-writeback.md)
+* [Hoe rapporteer ik op activiteit in selfservice voor Wachtwoordherstel?](howto-sspr-reporting.md)
+* [Wat zijn alle van de opties in selfservice voor Wachtwoordherstel en wat die betekenen?](concept-sspr-howitworks.md)
+* [Ik heb een vraag die werd niet is beantwoord](active-directory-passwords-faq.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461766"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881729"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -57,7 +57,7 @@ Laten we kijken op verschillende manieren om te downloaden van blobs met behulp 
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Houd er rekening mee dat als de map `C:\myfolder` niet bestaat, AzCopy gemaakt en gedownload `abc.txt ` naar de nieuwe map.
+Houd er rekening mee dat als de map `C:\myfolder` niet bestaat, AzCopy gemaakt en gedownload `abc.txt` naar de nieuwe map.
 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Een enkele blob downloaden uit de secundaire regio
 
@@ -851,7 +851,7 @@ Beschikbare kenmerken zijn onder andere:
 
 Geeft aan dat het scheidingsteken dat wordt gebruikt voor het scheiden van de virtuele mappen in een blobnaam.
 
-Standaard maakt gebruik van AzCopy / als het scheidingsteken. Echter, AzCopy ondersteunt het gebruik van een algemene teken (zoals @, #, of %) als scheidingsteken. Als u een van deze speciale tekens op de opdrachtregel opnemen moet, plaatst u de naam van het bestand met dubbele aanhalingstekens.
+Standaard maakt gebruik van AzCopy / als het scheidingsteken. Echter, AzCopy ondersteunt het gebruik van een algemene teken (zoals @, #, of %) Als een scheidingsteken. Als u een van deze speciale tekens op de opdrachtregel opnemen moet, plaatst u de naam van het bestand met dubbele aanhalingstekens.
 
 Deze optie is alleen van toepassing voor het downloaden van blobs.
 

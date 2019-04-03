@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fddbcbea23226bef68f36369341afcf1b100b77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1f493120431481423892706fa2a9352b322c500
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847328"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Zelfstudie: Azure Active Directory-integratie met CylancePROTECT
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van CylancePROTECT in Azure AD, moet u CylancePROTECT vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u CylancePROTECT wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen CylancePROTECT uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met CylancePROTECT, moet
     
     | Regio | URL-waarde |
     |----------|---------|
-    | Azië en Stille Oceaan - noordoost (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Azië en Stille Oceaan - noordoost (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Azië en Stille Oceaan - zuidoost (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
     | Centraal-Europa (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Noord-Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -206,9 +206,9 @@ Wanneer u in het toegangsvenster op de tegel CylancePROTECT klikt, zou u automat
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b6481b490182b874161a79390cc61b140c58bec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872797"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Zelfstudie: Azure Active Directory-integratie met Skyward Qmlativ
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Skyward Qmlativ in Azure AD, moet u Skyward Qmlativ uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Skyward Qmlativ toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen Skyward Qmlativ uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -105,9 +105,9 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Skyward Qmlativ, moe
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Skyward Qmlativ](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<BASEURL>/customeridentifierSTS`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<BASEURL>/customeridentifierSTS`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Skyward Qmlativ](mailto:steveb@skyward.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -183,9 +183,9 @@ Wanneer u in het toegangsvenster op de tegel Skyward Qmlativ klikt, wordt u auto
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

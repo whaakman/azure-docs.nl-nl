@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084559"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883155"
 ---
 Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten of een virtuele machine vergroten of verkleinen, wijst Microsoft Azure compute-resources aan uw abonnement. We zijn voortdurend investeren in extra infrastructuur en onderdelen om ervoor te zorgen dat we alle VM-typen beschikbaar voor ondersteuning van de vraag van klanten altijd beschikken over. Echter kan van tijd tot tijd toewijzingsfouten resource optreden vanwege een ongekende groei in de vraag naar Azure-services in specifieke regio's. Dit probleem kan optreden wanneer u probeert te maken of virtuele machines in een regio te starten terwijl de virtuele machines de volgende foutcode en het bericht weergegeven:
 
 **Foutcode**: AllocationFailed of ZonalAllocationFailed
 
-**Foutbericht**: "Toewijzing is mislukt. We hebben niet voldoende capaciteit voor de aangevraagde VM-grootte in deze regio. Meer informatie over het verbeteren van de kans op succes bij http://aka.ms/allocation-guidance"
+**Foutbericht**: "Toewijzing is mislukt. We hebben niet voldoende capaciteit voor de aangevraagde VM-grootte in deze regio. Meer informatie over het verbeteren van de kans op succes bij https://aka.ms/allocation-guidance"
 
 Dit artikel worden de oorzaken van enkele van de algemene toewijzingsfouten en duidt op mogelijke oplossingen.
 
@@ -79,7 +79,7 @@ Als we Azure-infrastructuur uitbreiden, implementeren we nieuwere generatie hard
 
 |VM-reeks of grootte van de verouderde|Aanbevolen VM-reeks of grootte van de nieuwere|Meer informatie|
 |----------------------|----------------------------|--------------------|
-|Av1-serie|[Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Av1-serie|[Av2-serie](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 of DSv1-serie (D1 tot D5)|[Dv3 of Dsv3-serie](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 of DSv1-serie (D11 tot D14)|[Ev3 of Esv3-serie](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 of DS15v2|Als u theResource Manager-implementatiemodel gebruikt om te profiteren van de grotere VM-grootten, kunt u overwegen E16v3/E16sv3 of E32v3/E32sv3 te verplaatsen. Deze zijn ontworpen om uit te voeren op de nieuwste generatie hardware. Als u van het implementatiemodel van Resource Manager gebruikmaakt om ervoor te zorgen dat uw VM-exemplaar is geïsoleerd voor hardware toegewezen aan één klant, kunt u overwegen om naar de nieuwe geïsoleerde VM-grootten, E64i_v3 of E64is_v3, die zijn ontworpen om uit te voeren op de nieuwste generatie hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/

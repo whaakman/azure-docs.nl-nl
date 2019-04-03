@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 122234e164735270d5566dbaa5d3e8b2d49c141a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793999"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Zelfstudie: Azure Active Directory-integratie met SharePoint on-premises
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van SharePoint on-premises in Azure AD, moet u SharePoint on-premises uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om SharePoint on-premises uit de galerie toe te voegen:**
+**Als u wilt toevoegen SharePoint on-premises uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -106,9 +106,9 @@ Voor de configuratie van Azure AD-eenmalige aanmelding met SharePoint on-premise
 
     ![Informatie over eenmalige aanmelding bij het SharePoint on-premises-domein en -URL's](common/sp-identifier-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `urn:sharepoint:federation`
+    b. Typ in het vak **Id** een URL met het volgende patroon: `urn:sharepoint:federation`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -122,7 +122,7 @@ Voor de configuratie van Azure AD-eenmalige aanmelding met SharePoint on-premise
     > [!Note]
     > Noteer het bestandspad waarnaar u het certificaatbestand hebt gedownload. U hebt dit later nodig in het PowerShell-script voor de configuratie.
 
-6. Kopieer in de sectie **SharePoint on-premises instellen** de juiste URL('s) overeenkomstig wat u nodig hebt. Gebruik voor de **URL van de service Eenmalige aanmelding** een waarde met de volgende notatie: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. Kopieer in de sectie **SharePoint on-premises instellen** de juiste URL('s) overeenkomstig wat u nodig hebt. Voor **Single Sign-On Service URL**, gebruikt u een waarde van het volgende patroon: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ is de tenant-id van het Azure AD-abonnement.
@@ -142,7 +142,7 @@ Voor de configuratie van Azure AD-eenmalige aanmelding met SharePoint on-premise
 
 1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van SharePoint on-premises.
 
-2. **Een nieuwe vertrouwde id-provider in SharePoint Server 2016 configureren**
+2. **Een nieuwe vertrouwde id-provider configureren in SharePoint Server 2016**
 
     Meld u aan bij de server voor SharePoint Server 2016 en open de SharePoint 2016 Management Shell. Vul de waarden in voor $realm (de id-waarde in de sectie SharePoint on-premises-domein en -URL in Azure Portal), $wsfedurl (URL van de service Eenmalige aanmelding) en $filepath (bestandspad waarnaar u het certificaatbestand hebt gedownload) van Azure Portal en voer de volgende opdrachten uit om een nieuwe vertrouwde id-provider te configureren.
 
@@ -367,8 +367,8 @@ Als u op de tegel SharePoint on-premises in het toegangsvenster klikt, wordt u a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652039"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Zelfstudie: Azure Active Directory-integratie met Netop Portal
 
@@ -128,7 +128,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure Active Directory 
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. In de **Namespace** tekstvak, type https://secure.netop.com.
+    c. In de **Namespace** tekstvak, type https:\//secure.netop.com.
 
     d. Selecteer Bron bij **Kenmerk**.
 

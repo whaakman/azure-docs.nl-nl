@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 130dca5efdf39936fdf2a4dc4409f8b29d15bbcd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487682"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848289"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Voorbereiden van de Azure-infrastructuur voor SAP HA met behulp van een Windows-failovercluster en een gedeelde schijf voor SAP ASCS/SCS
 
@@ -236,14 +236,14 @@ Implementeren voor productie SAP-systemen, Azure virtual machines met [zakelijke
 3. Als u een lijst met alle Azure-netwerksubnetten, moet u deze PowerShell-opdracht uitvoeren:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    De **ID** veld ziet u de waarde voor de subnet-ID.
 4. Als u een lijst van alle waarden van de subnet-id's, moet u deze PowerShell-opdracht uitvoeren:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
    De subnet-ID ziet er zo uit:

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81e31a6e5fd1260ec844cc36f28a64e44334ebec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482764"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848761"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver
 
@@ -456,14 +456,14 @@ Implementeren voor productie SAP-systemen, Azure virtual machines met [zakelijke
 3. Als u een lijst met alle Azure-netwerksubnetten, moet u deze PowerShell-opdracht uitvoeren:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    De **ID** veld geeft de **SUBNETID**.
 4. Voor een lijst van alle **SUBNETID** waarden, deze PowerShell-opdracht uitvoeren:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
    De **SUBNETID** ziet er als volgt:

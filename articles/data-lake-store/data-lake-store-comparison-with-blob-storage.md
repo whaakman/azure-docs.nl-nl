@@ -3,21 +3,21 @@ title: Vergelijking van Azure Data Lake Storage Gen1 met Azure Storage-Blob | Mi
 description: Vergelijking van Azure Data Lake Storage Gen1 met Azure Storage-Blob
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: twooley
+ms.openlocfilehash: 478c261bb909cbc931a7dbbaa9cb6c61152970e4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877691"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885522"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Storage Gen1 en Azure Blob-opslag
 
@@ -32,7 +32,7 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | Belangrijkste concepten |Data Lake Storage Gen1-account bevat mappen die op zijn beurt gegevens die zijn opgeslagen als bestanden bevat |Storage-account heeft containers, die op zijn beurt de gegevens in de vorm van blobs |
 | structuur |Hiërarchisch bestandssysteem |Objectarchief met platte-naamruimte |
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
-| Server-side-API |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Server-side-API |[WebHDFS-compatible REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop-bestand System-Client |Ja |Ja |
 | Gegevensbewerkingen - verificatie |Op basis van [Azure Active Directory-identiteiten](../active-directory/develop/authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels](../storage/common/storage-account-manage.md#access-keys) en [gedeelde toegangssleutels handtekening](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Gegevensbewerkingen - verificatieprotocol |OAuth 2.0. Oproepen moeten bevatten een ongeldig JWT (JSON Web Token) dat is uitgegeven door Azure Active Directory |Hash-based Message Authentication Code (HMAC). Aanroepen, moeten een Base64-gecodeerd SHA-256-hash bevatten over een deel van de HTTP-aanvraag. |

@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877802"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Uw eerste Azure-functie maken met Java en IntelliJ (preview)
-
-> [!NOTE]
-> Java voor Azure Functions is momenteel in preview.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Uw eerste Azure-functie maken met Java en IntelliJ
 
 In dit artikel wordt beschreven:
 - Over het maken van een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) function-project met IntelliJ IDEA en Apache Maven
@@ -53,9 +50,9 @@ Voor het ontwikkelen van een functie met een Java- en IntelliJ, moet u de volgen
 1. In de **nieuw Project** venster **Maven** in het linkerdeelvenster.
 1. Selecteer de **maken archetype** selectievakje en selecteer vervolgens **toevoegen Archetype** voor de [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
 1. In de **Archetype toevoegen** venster, vul de velden als volgt:
-    - _Groeps-id_: com.microsoft.azure
+    - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Versie_: Gebruik de nieuwste versie van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Version_: Gebruik de nieuwste versie van [de centrale opslagplaats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![een Maven-project maken vanuit archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selecteer **OK**, en selecteer vervolgens **volgende**.
 1. Voer de details in voor de huidige project en selecteer **voltooien**.

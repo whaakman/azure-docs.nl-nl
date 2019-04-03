@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437102"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882426"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>De versie 1 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 
@@ -296,8 +296,7 @@ Enkele punten om te weten:
 
 1. Inschakelen is wanneer de opdracht wordt uitgevoerd.
 1. Downloaden is gekoppeld aan het downloaden van het pakket met de CustomScript-uitbreiding van Azure, niet de scriptbestanden in fileUris opgegeven.
-1. U kunt ook zien welke logboekbestand schrijven af`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. U kunt ook welke logboekbestand om te schrijven zien `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Volgende stap is om te gaan een controle van het logboekbestand, dit is de indeling:
 

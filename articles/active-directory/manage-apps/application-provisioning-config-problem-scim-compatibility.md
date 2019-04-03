@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124064"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880148"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Bekende problemen en oplossingen met SCIM 2.0-protocol naleving van de Azure AD-gebruiker Provisioning-service
 
@@ -82,13 +82,13 @@ Ja. Als u al een exemplaar van deze toepassing voor eenmalige aanmelding gebruik
 
 10. Voer de volgende opdracht om een nieuwe inrichting taak met de meest recente service-oplossingen te maken.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. Kopieer de volledige 'ID'-tekenreeks die met 'scim begint' in de resultaten van de laatste stap. Opnieuw toepassen (optioneel) uw oude kenmerktoewijzingen met de opdracht hieronder en vervang [nieuwe-taak-id] met de nieuwe taak-ID die u zojuist hebt gekopieerd en het invoeren van die de JSON-uitvoer van stap #7 als hoofdtekst van de aanvraag.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Ga terug naar het browservenster en selecteer de **Provisioning** tabblad voor uw toepassing.
 13. Controleer de configuratie en start de taak. 

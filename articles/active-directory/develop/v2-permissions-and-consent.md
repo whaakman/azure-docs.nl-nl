@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793455"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881644"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
@@ -82,7 +82,7 @@ Het v2.0-implementatie van OpenID Connect is een aantal goed gedefinieerde berei
 
 ### <a name="openid"></a>openid
 
-Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-v2-protocols.md), deze moet aanvragen de `openid` bereik. De `openid` bereik ziet op de pagina werken account toestemming als de machtiging 'Aanmelden' en op de persoonlijke toestemming pagina van een Microsoft-account als de machtiging 'Uw profiel bekijken en verbinding maken met apps en services met uw Microsoft-account'. Met deze machtiging kan een app een unieke id voor de gebruiker kan ontvangen in de vorm van de `sub` claim. Het geeft ook de apptoegang tot het eindpunt van de gebruikersgegevens. De `openid` bereik kan worden gebruikt bij het token v2.0-eindpunt aan te schaffen ID-tokens, die kunnen worden gebruikt voor het beveiligen van HTTP-aanroepen tussen de verschillende onderdelen van een app.
+Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-v2-protocols.md), deze moet aanvragen de `openid` bereik. De `openid` bereik ziet op de pagina werken account toestemming als de machtiging 'Aanmelden' en op de persoonlijke toestemming pagina van een Microsoft-account als de machtiging 'Uw profiel bekijken en verbinding maken met apps en services met uw Microsoft-account'. Met deze machtiging kan een app een unieke id voor de gebruiker kan ontvangen in de vorm van de `sub` claim. Het geeft ook de apptoegang tot het eindpunt van de gebruikersgegevens. De `openid` bereik kan worden gebruikt bij het token v2.0-eindpunt aan te schaffen ID-tokens die door de app kunnen worden gebruikt voor verificatie.
 
 ### <a name="email"></a>e-mail
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082157"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880777"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen.  Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's), netwerk-, SQL en gegevens en toepassingen.
@@ -64,17 +64,15 @@ Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder
 |Data lake store|5|Diagnostische logboeken in Azure Data Lake Store inschakelen|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
 |SQL|30|Beveiligingsproblemen in uw SQL-databases oplossen|Evaluatie van beveiligingsproblemen SQL scant uw database voor beveiligingsproblemen en wordt aangegeven dat eventuele afwijkingen van aanbevolen procedures, zoals onjuiste configuraties, overmatige machtigingen en niet-beveiligde gevoelige gegevens. Het omzetten van de beveiligingsproblemen gevonden, kan de status van uw database security aanzienlijk verbeteren.|
 |SQL|20|Een Azure AD-beheerder voor SQL Server inrichten|Inrichten van een Azure AD-beheerder voor uw SQL-server als Azure AD-verificatie wilt inschakelen. Azure AD-verificatie kunt u beheer van machtigingen vereenvoudigde en gecentraliseerde identiteitsbeheer van databasegebruikers en andere Microsoft-services.|
-|Storage-account|15|Onbeperkte netwerktoegang tot een opslagaccount uitschakelen|Audit onbeperkte toegang tot het netwerk in de firewall-instellingen van uw storage-account. In plaats daarvan network-regels configureren, zodat alleen toepassingen van toegestane netwerken toegang het opslagaccount tot hebben. Als u wilt toestaan verbindingen van specifieke Internet of on-premises clients, kan toegang worden verleend aan verkeer van specifieke Azure-netwerken of aan het openbare Internet-IP-adresbereiken.|
-|Storage-account|1|Opslagaccounts migreren naar nieuwe Azure RM-resources|Gebruik de nieuwe Azure Resource Manager-v2, voor uw storage-accounts voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer.|
-
-
+|Storage-account|15|Onbeperkte netwerktoegang tot een opslagaccount uitschakelen|Audit onbeperkte toegang tot het netwerk in de firewall-instellingen van uw storage-account. In plaats daarvan network-regels configureren, zodat alleen toepassingen van toegestane netwerken toegang het opslagaccount tot hebben. Als u wilt toestaan verbindingen met specifieke Internet- of on-premises clients, kunt u toegang tot het verkeer van specifieke Azure-netwerken of openbare Internet-IP-adresbereiken verlenen.|
+|Storage-account|1|Opslagaccounts migreren naar Azure Resource Manager-model-resources|Nieuwe Azure Resource Manager-v2 voor uw storage-accounts gebruiken voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, en Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer.|
 
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md) (Uw virtuele machines beveiligen in Azure Security Center)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Uw toepassingen beveiligen in Azure Security Center)
-* [Protecting your network in Azure Security Center](security-center-network-recommendations.md) (Uw netwerk beveiligen in Azure Security Center)
+* [Beveiligen van uw virtuele machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
+* [Beveiligen van uw toepassingen in Azure Security Center](security-center-application-recommendations.md)
+* [Beveiligen van uw netwerk in Azure Security Center](security-center-network-recommendations.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

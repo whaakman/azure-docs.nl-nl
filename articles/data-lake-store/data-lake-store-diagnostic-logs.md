@@ -3,21 +3,21 @@ title: Logboeken met diagnostische gegevens weergeven voor Azure Data Lake Stora
 description: 'Meer informatie over het instellen en toegang krijgen tot diagnostische logboeken voor Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: twooley
+ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959575"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877955"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Diagnostische logboeken openen voor Azure Data Lake Storage Gen1
 Leer hoe u Diagnostische logboekregistratie voor uw Azure Data Lake Storage Gen1-account en het weergeven van de logboeken die worden verzameld voor uw account inschakelen.
@@ -126,7 +126,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
 | properties |JSON |Zie hieronder voor meer informatie |
 
 #### <a name="request-log-properties-schema"></a>Schema voor eigenschappen van aanvraag-logboek
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | HttpMethod |String |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
 | Pad |String |Het pad naar de bewerking is uitgevoerd op |
@@ -160,7 +160,7 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
     }
 
 #### <a name="audit-log-schema"></a>Schema van auditlogboek
-| Name | Type | Description |
+| Name | Type | Beschrijving |
 | --- | --- | --- |
 | time |String |De tijdstempel (in UTC) van het logboek |
 | resourceId |String |De ID van de resource die bewerking duurde plaats op |
@@ -191,5 +191,5 @@ Azure Data Lake Storage Gen1 bevat een voorbeeld over het verwerken en analysere
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

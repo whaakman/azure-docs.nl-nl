@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805394"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862944"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -52,9 +52,9 @@ De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waar
 > [!NOTE]
 > Beheer van updates vereist voor het correct rapporteren aan de service, bepaalde URL's en poorten worden ingeschakeld. Zie voor meer informatie over deze vereisten, [netwerk planning voor Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
-U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik. 
+U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik.
 
-De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../azure-monitor/platform/computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
+De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../azure-monitor/platform/computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd. Deze periode wordt het onderhoudsvenster genoemd. Tien minuten van het onderhoudsvenster is gereserveerd voor opnieuw opstarten als een herstart nodig en u hebt geselecteerd de optie voor de juiste opnieuw opstarten. Opnieuw opstarten wordt niet uitgevoerd als patches langer duurt dan verwacht en er minder dan tien minuten binnen het onderhoudsvenster is.
 
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent om de vereiste updates te installeren.
 
@@ -269,7 +269,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="windows"></a>Windows
 
-|Classificatie  |Beschrijving  |
+|Classificatie  |Description  |
 |---------|---------|
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
@@ -628,7 +628,7 @@ Een virtuele machine verwijderen uit het beheer van de Update:
 Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
 
 > [!div class="nextstepaction"]
-> [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
+> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
 
 * Gebruik logboekzoekopdrachten in [logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Waarschuwingen maken](automation-tutorial-update-management.md#configure-alerts) voor de status van de implementatie.

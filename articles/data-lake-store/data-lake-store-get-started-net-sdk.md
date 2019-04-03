@@ -3,26 +3,26 @@ title: '.NET SDK: Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 | Mic
 description: Azure Data Lake Storage Gen1 .NET SDK gebruiken voor het uitvoeren van accountbeheerbewerkingen in Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123909"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879706"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
@@ -41,7 +41,7 @@ Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data La
 2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
 3. In **New Project** typt of selecteert u de volgende waarden:
 
-   | Eigenschap | Waarde |
+   | Eigenschap | Value |
    | --- | --- |
    | Categorie |Templates/Visual C#/Windows |
    | Template |Console Application |
@@ -53,8 +53,8 @@ Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data La
    2. Controleer op het tabblad **NuGet Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
    3. Zoek en installeer de volgende NuGet-pakketten:
 
-      * `Microsoft.Azure.Management.DataLake.Store`: in deze zelfstudie wordt gebruikgemaakt van v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` : In deze zelfstudie wordt gebruikgemaakt van v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` : In deze zelfstudie wordt gebruikgemaakt van v2.2.12.
 
         ![Een NuGet-bron toevoegen](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **NuGet Package Manager**.
@@ -99,7 +99,7 @@ Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data La
 
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 * Zie voor verificatie van eindgebruikers voor uw toepassing, [eindgebruikersverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Zie voor service-naar-serviceverificatie voor uw toepassing, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -146,4 +146,4 @@ Het volgende codefragment worden de Gen1 van Data Lake Storage-account dat u eer
 * [Naslaginformatie over Data Lake Storage Gen1 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)

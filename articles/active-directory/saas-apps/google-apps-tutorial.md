@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e395db2f8ccaf4fbe9fb64b0faf9ac70c1b21c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839031"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -43,7 +43,7 @@ Als u Azure AD-integratie wilt configureren met G Suite, hebt u de volgende item
 - Een Google Apps-abonnement of Google Cloud Platform-abonnement.
 
 > [!NOTE]
-> Als u de stappen in deze zelfstudie wilt testen, is het raadzaam om niet de productieomgeving te gebruiken. Dit document is gemaakt met behulp van de nieuwe ervaring voor eenmalige aanmelding. Als u nog steeds gebruikmaakt van de oude versie, ziet de installatie er anders uit. U kunt de nieuwe ervaring inschakelen in de instellingen voor eenmalige aanmelding van de G Suite-toepassing. Ga naar **Azure AD, bedrijfstoepassingen**, selecteer **G Suite**, selecteer **Eenmalige aanmelding** en klik vervolgens op **Nieuwe ervaring uitproberen**.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving. Dit document is gemaakt met behulp van de nieuwe ervaring voor eenmalige aanmelding. Als u nog steeds gebruikmaakt van de oude versie, ziet de installatie er anders uit. U kunt de nieuwe ervaring inschakelen in de instellingen voor eenmalige aanmelding van de G Suite-toepassing. Ga naar **Azure AD, bedrijfstoepassingen**, selecteer **G Suite**, selecteer **Eenmalige aanmelding** en klik vervolgens op **Nieuwe ervaring uitproberen**.
 
 Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
@@ -52,27 +52,27 @@ Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-1. **V: Biedt deze integratie ondersteuning voor Google Cloud Platform-integratie voor eenmalige aanmelding met Azure AD?**
+1. **V: Deze integratie biedt ondersteuning voor eenmalige aanmelding Google Cloud Platform-integratie met Azure AD?**
 
     A: Ja. Google Cloud Platform en Google Apps delen hetzelfde verificatieplatform. Voor de GCP-integratie moet u dus de eenmalige aanmelding met Google Apps configureren.
 
-2. **V: Zijn Chromebooks en andere Chrome-apparaten compatibel met eenmalige aanmelding in Azure AD?**
+2. **V: Chromebooks en andere apparaten Chrome compatibel zijn met Azure AD eenmalige aanmelding?**
   
     A: Ja, gebruikers kunnen zich met behulp van hun Azure AD-referenties aanmelden bij hun Chromebook-apparaten. Bekijk dit [G Suite-ondersteuningsartikel](https://support.google.com/chrome/a/answer/6060880) voor informatie over waarom gebruikers mogelijk tweemaal om hun referenties wordt gevraagd.
 
-3. **V: Kunnen gebruikers, als ik eenmalige aanmelding inschakel, hun Azure AD-referenties gebruiken om zich aan te melden bij Google-producten, zoals Google Classroom, GMail, Google Drive, YouTube, enzovoort?**
+3. **V: Als ik eenmalige aanmelding inschakelen, gebruikers zich met hun Azure AD-referenties aanmelden bij een Google-product, zoals Google Classroom, GMail, Google Drive, YouTube, enzovoort?**
 
     A: Ja, afhankelijk van [de G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) die u inschakelt of uitschakelt voor uw organisatie.
 
-4. **V: Kan ik eenmalige aanmelding voor alleen een subset G Suite-gebruikers inschakelen?**
+4. **V: Kan ik eenmalige aanmelding voor slechts een subset van mijn gebruikers G Suite inschakelen?**
 
     A: Nee, als u eenmalige aanmelding inschakelt, moeten onmiddellijk alle G Suite-gebruikers zich verifiëren met hun Azure AD-referenties. Omdat G Suite geen ondersteuning biedt voor meerdere id-providers, kan de id-provider voor uw G Suite-omgeving Azure AD of Google zijn, maar niet beide tegelijkertijd.
 
-5. **V: Wordt een gebruiker die is aangemeld via Windows, automatisch gevraagd om zich te verifiëren bij G Suite, zonder dat om een wachtwoord wordt gevraagd?**
+5. **V: Als een gebruiker is aangemeld via Windows, worden dat ze automatisch worden geverifieerd met G Suite zonder wordt gevraagd om een wachtwoord?**
 
     A: Er zijn twee opties waarbij dit scenario zich voordoet. Ten eerste kan een gebruiker zich via [Deelnemen aan Azure Active Directory](../device-management-introduction.md) aanmelden bij een Windows 10-apparaat. Gebruikers kunnen zich ook aanmelden bij Windows-apparaten die zijn toegevoegd aan een domein in on-premises Active Directory waarvoor eenmalige aanmelding bij Azure AD is ingeschakeld via een [AD FS-implementatie (Active Directory Federation Services)](../hybrid/plan-connect-user-signin.md). Voor beide opties moet u de stappen in de volgende zelfstudie uitvoeren om eenmalige aanmelding tussen Azure AD en G Suite in te schakelen.
 
-6. **V: Wat moet ik doen als ik een foutbericht over ongeldige e-mail krijg?**
+6. **V: Wat moet ik doen als ik krijg een foutbericht 'ongeldig e-mailadres'?**
 
     A: Voor deze installatie is het e-mailkenmerk vereist voor de gebruikers om zich te kunnen aanmelden. Dit kenmerk kan niet handmatig worden ingesteld.
 
@@ -93,7 +93,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Als u de integratie van G Suite in Azure AD wilt configureren, moet u G Suite vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om G Suite toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen G Suite uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -147,7 +147,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
     ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
 
@@ -165,7 +165,7 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
     ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. In het tekstvak **Id** typt u een URL met het volgende patroon:
     
@@ -320,9 +320,9 @@ Wanneer u op de tegel G Suite in het toegangsvenster klikt, wordt u automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Inrichten van gebruikers configureren](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)

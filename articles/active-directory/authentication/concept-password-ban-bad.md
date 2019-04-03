@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369068"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884343"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -106,8 +106,11 @@ Na normaliseren wordt dit wachtwoord "contosoblankf9!". Het overeenkomende proce
 
 |   | Azure AD-wachtwoordbeveiliging met de lijst met uitgesloten wachtwoorden globale | Azure AD-wachtwoordbeveiliging met de lijst met aangepaste uitgesloten wachtwoorden|
 | --- | --- | --- |
-| Cloudgebruikers | Azure AD Free | Azure AD Basic |
+| Cloudgebruikers | Azure AD Free | Azure AD Premium P1 of P2 |
 | Gebruikers die zijn gesynchroniseerd vanaf on-premises Windows Server Active Directory | Azure AD Premium P1 of P2 | Azure AD Premium P1 of P2 |
+
+> [!NOTE]
+> On-premises Windows Server Active Directory-gebruikers die niet zijn gesynchroniseerd met Azure Active Directory gebruik ook de voordelen van Azure AD-wachtwoordbeveiliging op basis van bestaande licentieverlening voor gesynchroniseerde gebruikers.
 
 Extra licentie-informatie, inclusief kosten, vindt u op de [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 

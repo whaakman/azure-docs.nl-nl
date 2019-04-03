@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113211"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846972"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Maken en beheren van meer replica's van de Azure-portal
 
 In dit artikel leert u hoe u maken en beheren van lezen-replica's in Azure Database for PostgreSQL via Azure portal. Zie voor meer informatie over meer replica's, de [overzicht](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> De functie lezen replica is beschikbaar als openbare preview.
 
 ## <a name="prerequisites"></a>Vereisten
 Een [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md) moet de hoofd-server.
 
 ## <a name="prepare-the-master-server"></a>De hoofd-server voorbereiden
-Deze stappen moeten worden gebruikt om voor te bereiden van een hoofd-server in de lagen algemeen gebruik en geoptimaliseerd voor geheugen.
-
-De `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op de hoofd-server. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren.
+Deze stappen moeten worden gebruikt om voor te bereiden van een hoofd-server in de lagen algemeen gebruik en geoptimaliseerd voor geheugen. De hoofd-server wordt voorbereid voor replicatie door de parameter azure.replication_support. Als de replicatie-parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. Deze twee stappen zijn in Azure portal, ingekapseld in één knop, **ondersteuning voor replicatie inschakelen**.
 
 1. Selecteer de bestaande Azure Database for PostgreSQL-server om te gebruiken als een model in de Azure-portal.
 
-2. Selecteer in het menu links **serverparameters**.
+2. Op de zijbalk server onder **instellingen**, selecteer **replicatie**.
 
-3. Zoek de `azure.replication_support` parameter.
+3. Selecteer **Replicatieondersteuning voor inschakelen**. 
 
-   ![Zoek naar de parameter azure.replication_support](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Replicatieondersteuning voor inschakelen](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Stel de `azure.replication_support` parameterwaarde **REPLICA**. Selecteer **opslaan** om uw wijzigingen te behouden.
+4. Controleer of dat u wilt inschakelen Replicatieondersteuning. Met deze bewerking wordt opnieuw opgestart de hoofd-server. 
 
-   ![Stel de parameter in op de REPLICA en sla de wijzigingen](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Ondersteuning voor replicatie inschakelen bevestigen](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. U ontvangt twee Azure portalmeldingen zodra de bewerking voltooid is. Er is een melding voor het bijwerken van de parameter-server. Er is een andere melding voor de server opnieuw is gestart, die meteen volgt.
 
-5. Nadat u uw wijzigingen hebt opgeslagen, kunt u een melding ontvangen:
+   ![Succes meldingen - inschakelen](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Melding opslaan](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Vernieuwen van de Azure portal-pagina voor het bijwerken van de replicatie-werkbalk. U kunt nu meer replica's voor deze server maken.
 
-6. Start opnieuw op de server om uw wijzigingen te laten. Als u wilt weten hoe u een server opnieuw opstarten, Zie [opnieuw starten van een Azure Database for PostgreSQL-server](howto-restart-server-portal.md).
+   ![Bijgewerkte werkbalk](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Replicatieondersteuning in te schakelen, is een eenmalige bewerking per hoofd-server. Een **Replicatieondersteuning uitschakelen** knop is opgegeven voor uw gemak. Wordt niet aanbevolen uitschakelen van de Replicatieondersteuning, tenzij u er zeker van te zijn dat u wordt nooit een replica maken op deze master-server. U kunt Replicatieondersteuning voor niet uitschakelen terwijl uw hoofd-server heeft de bestaande replica's.
 
 
 ## <a name="create-a-read-replica"></a>Maken van een replica lezen
@@ -52,9 +52,7 @@ Volg deze stappen voor het maken van een replica lezen:
 
 1. Selecteer de bestaande Azure Database for PostgreSQL-server om te gebruiken als de hoofd-server. 
 
-2. In het servermenu onder **instellingen**, selecteer **replicatie**.
-
-   Als u dit nog niet hebt ingesteld de `azure.replication_support` parameter **REPLICA** op een algemeen gebruik of geoptimaliseerd voor geheugen-master server en de server opnieuw opgestart, ontvangt u een melding. Deze stappen voltooien voordat u de replica maakt.
+2. Op de zijbalk server onder **instellingen**, selecteer **replicatie**.
 
 3. Selecteer **-Replica toevoegen**.
 

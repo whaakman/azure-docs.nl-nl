@@ -10,12 +10,12 @@ ms.reviewer: plarsen, LADocs
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: c46fd1791751ebf912670875f9c8e18e8b0c5c40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311302"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878397"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>IBM DB2-resources beheren met Azure Logic Apps
 
@@ -109,7 +109,7 @@ Voordat u de verbinding maakt, hebt u al uw on-premises gegevensgateway is geïn
 | **Verbindingsnaam** | Ja | De naam voor de verbinding, bijvoorbeeld 'MyLogicApp-DB2-verbinding' | 
 | **Server** | Ja | Het adres of de alias dubbele-poortnummer voor de DB2-server, bijvoorbeeld "myDB2server:50000" <p><p>**Opmerking**: Deze waarde is een tekenreeks met een TCP/IP-adres of alias, hetzij in IPv4 of IPv6-indeling, gevolgd door een dubbele punt en een TCP/IP-poortnummer. |
 | **Database** | Ja | De naam voor uw database <p><p>**Opmerking**: Deze waarde is een tekenreeks met een DRDA relationele Database de naam (RDBNAM): <p>-DB2 voor z/OS accepteert een 16-byte-tekenreeks waar de database op een locatie 'IBM DB2 voor z/OS' wordt genoemd. <br>-DB2 voor ik een 18-byte-tekenreeks waarin de database staat bekend accepteert als een ' IBM DB2 voor ik ' relationele database. <br>-DB2 voor LUW accepteert een 8-byte-tekenreeks. |
-| **Verificatie** | Ja | Het verificatietype voor de verbinding, bijvoorbeeld 'Basic' <p><p>**Opmerking**: Selecteer deze waarde in de lijst, waaronder het Basic- of Windows (Kerberos). |
+| **Authentication** | Ja | Het verificatietype voor de verbinding, bijvoorbeeld 'Basic' <p><p>**Opmerking**: Selecteer deze waarde in de lijst, waaronder het Basic- of Windows (Kerberos). |
 | **Gebruikersnaam** | Ja | De naam van de gebruiker voor de database <p><p>**Opmerking**: Deze waarde is een tekenreeks waarvan de lengte is gebaseerd op de specifieke database: <p><p>-DB2 voor z/OS accepteert een 8-byte-tekenreeks. <br>-DB2 voor ik een 10-byte-tekenreeks accepteert. <br>-DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. <br>-DB2 voor Windows accepteert een 30-byte-tekenreeks. |
 | **Wachtwoord** | Ja | Uw wachtwoord voor de database |
 | **Gateway** | Ja | De naam van uw geïnstalleerde on-premises gegevensgateway <p><p>**Opmerking**: Selecteer deze waarde in de lijst met alle geïnstalleerde gegevensgateways binnen uw Azure-abonnement en resourcegroep. |
@@ -234,7 +234,7 @@ Als u wilt één record toevoegen aan een DB2-database-tabel, gebruikt u de **ri
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Description |
+   | Eigenschap | Vereist | Beschrijving |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' toe te voegen |
    | **Gebied-ID** | Ja | De ID voor het gebied toe te voegen, zoals "99999" |
@@ -281,7 +281,7 @@ Als u wilt één record in een DB2-database-tabel bijwerken, gebruikt u de **rij
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Description |
+   | Eigenschap | Vereist | Beschrijving |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals "Gebied" bij te werken |
    | **Rij-ID** | Ja | De ID voor de record bij te werken, zoals "99999" |
@@ -329,7 +329,7 @@ Als u wilt één record verwijderen uit een DB2-database-tabel, gebruikt u de **
 
    Dit zijn de eigenschappen voor dit voorbeeld:
 
-   | Eigenschap | Vereist | Description |
+   | Eigenschap | Vereist | Beschrijving |
    |----------|----------|-------------|
    | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' verwijderen |
    | **Rij-ID** | Ja | De ID voor de record te verwijderen, zoals "99999" |

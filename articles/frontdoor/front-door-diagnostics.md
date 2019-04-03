@@ -1,6 +1,6 @@
 ---
-title: Azure voordeur Service - metrische gegevens en logboekregistratie | Microsoft Docs
-description: In dit artikel krijgt u inzicht in de verschillende metrische gegevens en Logboeken openen die ondersteuning biedt voor Azure voordeur Service
+title: Bewaking van metrische gegevens en Logboeken in Azure-Service voordeur | Microsoft Docs
+description: Dit artikel beschrijft de verschillende metrische gegevens en Logboeken openen die ondersteuning biedt voor Azure voordeur Service
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407025"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862103"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>Bewaking van metrische gegevens en logboeken voor de voordeur
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Metrische gegevens en Logboeken in Azure voordeur Service bewaken
 
 Met behulp van Azure voordeur Service, kunt u resources kunt controleren op de volgende manieren:
 
-* [Metrische gegevens](#metrics): Application Gateway biedt momenteel zeven metrische gegevens om prestatiemeteritems weer te geven.
-* [Logs](#diagnostic-logging): Logboeken toestaan voor prestaties, toegang en andere gegevens worden opgeslagen of gebruikt vanaf een resource voor bewakingsdoeleinden.
+- **Metrische gegevens**. Application Gateway biedt momenteel zeven metrische gegevens om prestatiemeteritems weer te geven.
+- **Logs**. Activiteit- en diagnostische logboeken kunnen prestaties, toegang en andere gegevens worden opgeslagen of gebruikt vanaf een resource voor bewakingsdoeleinden.
 
-## <a name="metrics"></a>Metrische gegevens
+### <a name="metrics"></a>Metrische gegevens
 
-Metrische gegevens zijn een functie voor bepaalde Azure-resources waar u prestatiemeteritems in de portal bekijken kunt. Voor de voordeur, zijn de volgende metrische gegevens zijn beschikbaar:
+Metrische gegevens zijn een functie voor bepaalde Azure-resources die u kunt prestatiemeteritems bekijken in de portal. Hier volgen de beschikbare voordeur metrische gegevens:
 
 | Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Dimensies | Description |
 | --- | --- | --- | --- | --- |
 | RequestCount | Aantal aanvragen | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal aanvragen van clients geleverd door de voordeur.  |
 | RequestSize | Aanvraaggrootte | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal bytes dat als aanvragen van clients naar de voordeur worden verzonden. |
 | ResponseSize | Antwoordgrootte | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Het aantal bytes dat als antwoorden vanaf de voordeur aan clients worden verzonden. |
-| TotalLatency | Totale latentie | Milliseconden | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | De tijd die wordt berekend op basis van wanneer de clientaanvraag is ontvangen door voordeur totdat de client de laatste byte van de reactie van de voordeur bevestigd. |
+| TotalLatency | Totale latentie | Milliseconden | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | De tijd berekend op basis van de aanvraag van de client ontvangen door de voordeur totdat de client de laatste byte van de reactie van de voordeur bevestigd. |
 | BackendRequestCount | Aantal back-end-aanvragen | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | Het aantal aanvragen dat is verzonden vanaf de voordeur back-ends. |
 | BackendRequestLatency | Latentie van aanvraag van de back-end | Milliseconden | Back-end | De tijd die wordt berekend op basis van wanneer de aanvraag is verzonden door de voordeur naar de back-end totdat de voordeur de laatste byte van de reactie ontvangen van de back-end. |
 | BackendHealthPercentage | Percentage van de back-Endstatus | Procent | Back-end</br>BackendPool | Het percentage van geslaagde statusrapporten tests vanaf de voordeur back-ends. |
@@ -42,35 +42,36 @@ Metrische gegevens zijn een functie voor bepaalde Azure-resources waar u prestat
 
 ## <a name="activity-log"></a>Activiteitenlogboeken
 
-Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw voordeur. Met activiteitenlogboeken kunt u bepalen de ' wat, wie, en wanneer ' voor (PUT, POST, DELETE schrijfbewerkingen) die wordt gemaakt op de voordeur.
+Activiteitenlogboeken bieden informatie over de bewerkingen uitgevoerd op de voordeur Service. Ze bepalen ook wat, wie, en wanneer u voor alle schrijfbewerkingen (put, post of delete) die wordt gemaakt op de voordeur Service.
 
-> [!NOTE]
-> Activiteitenlogboeken bevatten geen lees-bewerkingen (GET) of bewerkingen die zijn uitgevoerd in Azure Portal of met behulp van de oorspronkelijke beheer-API's.
+>[!NOTE]
+>Activiteitenlogboeken bevatten geen lees (get)-bewerkingen. Ze ook niet-bewerkingen bevatten die u uitvoert met behulp van de Azure-portal of de oorspronkelijke Management-API.
 
-U kunt activiteitenlogboeken in uw voordeur toegang of toegang tot logboeken van al uw Azure-resources in Azure Monitor. 
-
-Activiteitenlogboeken weergeven:
+Activiteitenlogboeken in uw Service voordeur of de logboeken van uw Azure-resources in Azure Monitor toegang. Activiteitenlogboeken weergeven:
 
 1. Selecteer uw exemplaar van de voordeur.
-2. Klik op **Activiteitenlogboek**.
+2. Selecteer **activiteitenlogboek**.
 
-    ![activiteitenlogboek](./media/front-door-diagnostics/activity-log.png)
+    ![Activiteitenlogboek](./media/front-door-diagnostics/activity-log.png)
 
-3. Selecteer het gewenste filterbereik en klik op **Toepassen**.
+3. Kies een filteren bereik, en selecteer vervolgens **toepassen**.
 
 ## <a name="diagnostic-logging"></a>Diagnostische logboeken
-Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd. Meer informatie over [diagnostische logboeken van Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor controle en probleemoplossing. Diagnoselogboeken verschillen van activiteitenlogboeken.
 
-Diagnostische logboeken configureren voor uw voordeur:
+Activiteitenlogboeken bieden inzicht in de bewerkingen uitgevoerd op Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die de resources zelf zijn uitgevoerd. Zie voor meer informatie, [diagnostische logboeken van Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-1. Selecteer uw exemplaar van de APIM-service.
-2. Klik op **Diagnostische instellingen**.
+![Diagnostische logboeken](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![diagnostische logboeken](./media/front-door-diagnostics/diagnostic-log.png)
+Diagnostische logboeken configureren voor uw Service voordeur:
 
-3. Klik op **Diagnostische gegevens inschakelen**. U kunt diagnostische logboeken samen met metrische gegevens naar een opslagaccount archiveren, ze naar een Event Hub streamen of ze naar Azure Monitor-logboeken verzenden. 
+1. Selecteer uw Azure API Management-service.
 
-Azure voordeur Service biedt momenteel diagnostische logboeken (ingedeeld in batches per uur) over afzonderlijke API-aanvragen waarbij elk item in het volgende schema:
+2. Kies **diagnostische instellingen**.
+
+3. Selecteer **diagnostische gegevens inschakelen**. Diagnostische logboeken samen met metrische gegevens naar een opslagaccount archiveren, ze naar een event hub streamen of ze verzenden naar Azure Monitor-Logboeken.
+
+Voordeur Service biedt momenteel diagnostische logboeken (ingedeeld in batches per uur). Diagnoselogboeken bieden afzonderlijke API-aanvragen waarbij elk item in het volgende schema:
 
 | Eigenschap  | Description |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Azure voordeur Service biedt momenteel diagnostische logboeken (ingedeeld in bat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
-- Lees [hoe Front Door werkt](front-door-routing-architecture.md).
+- [Maak een profiel van de voordeur](quickstart-create-front-door.md)
+- [De werking van de voordeur](front-door-routing-architecture.md)

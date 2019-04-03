@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4252b0f26ef3c02216a41dde5d2e1cb5ea0efd6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554999"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848058"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Diagnostische logboeken en metrische gegevens over Media Services controleren
 
 [Azure Monitor](../../azure-monitor/overview.md) kunt u metrische gegevens controleren en tot diagnostische logboeken waarmee u inzicht in hoe uw toepassingen worden uitgevoerd. Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, metrische gegevens en logboekbestanden past. U kunt diagnostische logboeken van Media Services controleren en maken van waarschuwingen en meldingen voor de verzamelde metrische gegevens en Logboeken. U kunt visualiseren en analyseren van de metrische gegevens via [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). U kunt Logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze te streamen [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [Log Analytics](https://azure.microsoft.com/services/log-analytics/), of 3rd party services gebruiken.
 
-Zie voor een gedetailleerd overzicht [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) en [Azure Monitor diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Zie voor een gedetailleerd overzicht [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) en [Azure Monitor diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 In dit onderwerp worden momenteel beschikbaar [Media Services-metrische gegevens](#media-services-metrics) en [Media Services diagnostische logboeken](#media-services-diagnostic-logs).
 

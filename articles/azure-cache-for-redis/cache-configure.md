@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817759"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849962"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure-Cache voor instanties van Redis. Dit onderwerp bevat ook de Redis-server standaardconfiguratie voor Azure Cache voor instanties van Redis.
@@ -356,7 +356,7 @@ Klik op **waarschuwingsregels** waarschuwingen op basis van Azure Cache voor Red
 
 ### <a name="diagnostics"></a>Diagnostiek
 
-Metrische cache-gegevens in Azure Monitor zijn standaard [30 dagen bewaard](../azure-monitor/platform/data-collection.md#metrics) en vervolgens verwijderd. Als u wilt uw cache metrische gegevens langer dan 30 dagen behouden, klikt u op **diagnostische gegevens** naar [configureren van het opslagaccount](cache-how-to-monitor.md#export-cache-metrics) gebruikt voor het opslaan van cache diagnostische gegevens.
+Metrische cache-gegevens in Azure Monitor zijn standaard [30 dagen bewaard](../azure-monitor/platform/data-platform-metrics.md) en vervolgens verwijderd. Als u wilt uw cache metrische gegevens langer dan 30 dagen behouden, klikt u op **diagnostische gegevens** naar [configureren van het opslagaccount](cache-how-to-monitor.md#export-cache-metrics) gebruikt voor het opslaan van cache diagnostische gegevens.
 
 >[!NOTE]
 >Naast het archiveren van uw cache metrische gegevens naar de opslag, kunt u ook [ze naar een Event hub streamen of ze verzenden naar de logboeken van Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
@@ -398,7 +398,7 @@ Nieuwe Azure-Cache voor Redis-exemplaren zijn geconfigureerd met de volgende waa
 > 
 > 
 
-| Instelling | Standaardwaarde | Description |
+| Instelling | Standaardwaarde | Beschrijving |
 | --- | --- | --- |
 | `databases` |16 |Het standaardnummer van databases is 16, maar u kunt een ander nummer op basis van de prijscategorie configureren. <sup>1</sup> de standaarddatabase DB 0 is, kunt u een ander account op een per verbinding uit te voeren met `connection.GetDatabase(dbid)` waar `dbid` is een getal tussen `0` en `databases - 1`. |
 | `maxclients` |Afhankelijk van de prijscategorie<sup>2</sup> |Deze waarde is het maximum aantal verbonden clients toegestaan op hetzelfde moment. Zodra de limiet is bereikt gesloten Redis alle nieuwe verbindingen, een 'maximum aantal clients bereikt'-fout. |

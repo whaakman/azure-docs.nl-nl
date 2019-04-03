@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0db28fb8016176bdd66e5406a6f1c0a18cc5c3e8
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529241"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847595"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi verbinden met Azure IoT Hub (Node.js)
 
@@ -24,7 +24,6 @@ ms.locfileid: "57529241"
 In deze zelfstudie maakt begint u door te leren van de basisbeginselen van het werken met Raspberry Pi met Raspbian. Vervolgens leert u hoe u uw apparaten naadloos verbinding naar de cloud met behulp van [Azure IoT Hub](about-iot-hub.md). Voor voorbeelden van Windows 10 IoT Core, gaat u naar de [Windows Dev Center](https://www.windowsondevices.com/).
 
 Heb je nog een kit? Probeer [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Een nieuwe kit kopen of [hier](https://azure.microsoft.com/develop/iot/starter-kits).
-
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
@@ -87,7 +86,7 @@ Bereid de microSD-kaart voor de installatie van de installatiekopie van het Rasp
 
    > [!WARNING]
    > Gebruik bovenstaande koppeling downloaden `raspbian-2017-07-5` zip-installatiekopie. De nieuwste versie van Raspbian installatiekopieën heeft enkele bekende problemen met bedrading-Pi-knooppunt, wat leiden fouten in de volgende stappen tot kan.
- 
+
    b. Pak de installatiekopie van het Raspbian naar een map op uw computer.
 
 2. Installeer Raspbian naar de microSD-kaart.
@@ -160,26 +159,26 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
 ### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Kloon de voorbeeldtoepassing en installeer de vereiste pakketten
 
 1. Verbinding maken met uw Raspberry Pi met een van de volgende SSH-clients vanaf uw hostcomputer:
-   
+
    **Windows-gebruikers**
   
    a. Download en installeer [PuTTY](https://www.putty.org/) voor Windows. 
 
    b. Kopieer het IP-adres van de sectie Pi in de Host-naam (of IP-adres) en SSH als het verbindingstype selecteren.
-   
+
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac- en Ubuntu-gebruikers**
-   
+
    Gebruik de ingebouwde SSH-client op Ubuntu- of Mac OS. Mogelijk moet u uitvoeren `ssh pi@<ip address of pi>` om Pi via SSH verbinding te maken.
 
    > [!NOTE] 
    > De standaardgebruikersnaam is `pi` en het wachtwoord is `raspberry`.
 
 2. Node.js en NPM installeren op uw Pi.
-   
+
    Controleer eerst uw Node.js-versie. 
-   
+
    ```bash
    node -v
    ```
@@ -203,6 +202,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
+
    > [!NOTE] 
    >Het duurt enkele minuten klaar bent met het installatieproces, afhankelijk van uw netwerkverbinding.
 
@@ -238,8 +238,14 @@ Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die wor
 
 ![Uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>De berichten ontvangen door uw hub lezen
+
+Een manier voor het bewaken van berichten ontvangen door uw IoT-hub van het apparaat is met de Azure IoT-hulpprogramma's voor Visual Studio Code. Zie voor meer informatie, [gebruik Azure IoT-Tools voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Ga verder met de volgende sectie voor meer manieren voor het verwerken van gegevens die worden verzonden door uw apparaat.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT-Tools voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

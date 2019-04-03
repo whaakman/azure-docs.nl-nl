@@ -3,21 +3,21 @@ title: Gegevens kopiëren naar en van WASB in Azure Data Lake Storage Gen1 met b
 description: Distcp gebruiken om gegevens te kopiëren naar en van Azure Storage-Blobs naar Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168704"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884462"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Distcp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen1 te kopiëren
 > [!div class="op_single_selector"]
@@ -112,6 +112,6 @@ Wanneer de grootte van de gegevensset worden verplaatst groot is (bijvoorbeeld >
 
 ## <a name="see-also"></a>Zie ook
 * [Gegevens kopiëren van Azure Storage-Blobs naar Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

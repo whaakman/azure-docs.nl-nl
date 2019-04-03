@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233256"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885483"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Controleren en beheren van SharePoint-resources met Azure Logic Apps
 
@@ -72,7 +72,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
    Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
    Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
-1. Wanneer u wordt gevraagd of u zich aanmeldt, bevatten de noodzakelijke verbindingsgegevens. Als u SharePoint Server, zorg ervoor dat u selecteert **verbinding maken via on-premises gegevensgateway**. Wanneer u klaar bent, kiest u **Maken**.
+1. Wanneer u wordt gevraagd of u zich aanmeldt, bevatten de noodzakelijke verbindingsgegevens. Als u SharePoint Server, zorg ervoor dat u selecteert **verbinding maken via een on-premises gegevensgateway**. Wanneer u klaar bent, kiest u **Maken**.
 
 1. Geef de benodigde informatie voor uw geselecteerde trigger of actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
 

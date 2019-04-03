@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989376"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879009"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-extensie voor virtuele machine voor Linux
 
@@ -38,12 +38,12 @@ De extensie voor Network Watcher-Agent kan worden geconfigureerd voor de volgend
 
 | Distributie | Versie |
 |---|---|
-| Ubuntu | 12 + |
+| Ubuntu | 12+ |
 | Debian | 7 en 8 |
 | Red Hat | 6 en 7 |
 | Oracle Linux | 6,8 + en 7 |
 | SUSE Linux Enterprise Server | 11 en 12 |
-| OpenSUSE Leap | 42,3 + |
+| OpenSUSE Leap | 42.3+ |
 | CentOS | 6.5 + en 7 |
 | CoreOS | 899.17.0+ |
 
@@ -76,7 +76,7 @@ De volgende JSON ziet u het schema voor de extensie voor Network Watcher-Agent. 
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld |
+| Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | Uitgever | Microsoft.Azure.NetworkWatcher |
@@ -118,9 +118,9 @@ azure vm extension get myVM1
 ```
 Extensie uitvoering uitvoer wordt vastgelegd op bestanden die zijn gevonden in de volgende map:
 
-`
+```
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-`
+```
 
 Het volgende voorbeeld ziet de status van de extensie NetworkWatcherAgentLinux voor een virtuele machine geïmplementeerd via Resource Manager met behulp van de Azure CLI:
 

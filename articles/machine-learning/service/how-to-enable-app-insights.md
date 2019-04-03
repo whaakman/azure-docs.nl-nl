@@ -1,7 +1,7 @@
 ---
-title: Monitor-modellen met Application Insights
+title: Azure Application Insights instellen voor de monitor ML-modellen
 titleSuffix: Azure Machine Learning service
-description: Application Insights gebruiken om de webservices die zijn geïmplementeerd via Azure Machine Learning-service controleren
+description: Webservices die zijn geïmplementeerd met Azure Machine Learning-service met behulp van Azure Application Insights bewaken
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847946"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885488"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
@@ -36,7 +36,7 @@ In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure 
 * Een getrainde machine learning-model worden toegepast op Azure Kubernetes Service (AKS) of Azure Container exemplaar (ACI). Als u niet hebt, raadpleegt u de [Train installatiekopie classificeringsmodel](tutorial-train-models-with-aml.md) zelfstudie.
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>In- en uitschakelen van de SDK
+## <a name="use-sdk-to-configure"></a>SDK gebruiken om te configureren 
 
 ### <a name="update-a-deployed-service"></a>Een geïmplementeerde service bijwerken
 1. Identificeren van de service in uw werkruimte. De waarde voor `ws` is de naam van uw werkruimte.
@@ -77,7 +77,7 @@ Als u wilt uitschakelen Application Insights, gebruik de volgende code:
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>In- of uitschakelen in de portal
+## <a name="use-portal-to-configure"></a>Portal gebruiken om te configureren
 
 U kunt in- en uitschakelen van Application Insights in Azure portal.
 
@@ -85,15 +85,15 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 
 1. Op de **implementaties** tabblad, selecteert u de service waar u Application Insights inschakelen.
 
-   [![Lijst met services op het tabblad implementaties](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lis van de services op het tabblad implementaties](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Selecteer **Bewerken**.
 
-   [![Knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Eknop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. In **geavanceerde instellingen**, selecteer de **diagnose van AppInsights inschakelen** selectievakje.
 
-   [![Het selectievakje is ingeschakeld voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Sgeselecteerd selectievakje in voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
 
@@ -101,11 +101,11 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 1. In de [Azure-portal](https://portal.azure.com), opent u uw werkruimte.
 1. Selecteer **implementaties**, selecteert u de service en selecteer **bewerken**.
 
-   [![Gebruik de knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Ude knop bewerken SE](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. In **geavanceerde instellingen**, schakel de **diagnose van AppInsights inschakelen** selectievakje. 
 
-   [![Het selectievakje is uitgeschakeld voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Cselectievakje hebt voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
  
@@ -119,12 +119,12 @@ Om dit te bekijken:
 
 1. Selecteer de **overzicht** tabblad om te bekijken van een set van metrische gegevens voor uw service.
 
-   [![Overzicht](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![OMigratieo](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Als u wilt zoeken in uw aangepaste traceringen, selecteer **Analytics**.
 4. Selecteer in de schemasectie **traceringen**. Selecteer vervolgens **uitvoeren** uw query uit te voeren. Gegevens moeten worden weergegeven in een tabelindeling en moet worden toegewezen aan uw aangepaste aanroepen in de scoring-bestand. 
 
-   [![Aangepaste traceringen](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Caangepaste traceringen](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Zie voor meer informatie over het gebruik van Application Insights, [wat is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
@@ -138,6 +138,4 @@ De [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enab
 ## <a name="next-steps"></a>Volgende stappen
 U kunt ook gegevens verzamelen over uw modellen in productie. Lees het artikel [verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md). 
 
-
-## <a name="other-references"></a>Verwijzingen naar andere
-* [Azure Monitor voor containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Lees ook [Azure Monitor voor containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

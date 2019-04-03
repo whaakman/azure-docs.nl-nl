@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a8aa00a3bc74c811d7c57db878df0758aa054bb9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978643"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879825"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Een gegeneraliseerde VHD uploaden naar Azure te maken van een nieuwe virtuele machine
 
@@ -51,7 +51,7 @@ Zorg ervoor dat de server-functies die worden uitgevoerd op de machine worden on
 > 
 
 1. Meld u aan de virtuele machine van Windows.
-2. Open het venster met de opdrachtprompt als beheerder. Wijzig de map in **%windir%\system32\sysprep**, en voer `sysprep.exe`.
+2. Open het venster met de opdrachtprompt als beheerder. Wijzig de directory in **%windir%\system32\sysprep** en voer dan `sysprep.exe`run uit.
 3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u **OOBE (Out-of-Box Experience) van systeem starten** en zorgt u dat het selectievakje **Generaliseren** is ingeschakeld.
 4. In **afsluitopties**, selecteer **afsluiten**.
 5. Klik op **OK**.
@@ -175,7 +175,7 @@ Maak de vNet en subnet van de [virtueel netwerk](../../virtual-network/virtual-n
 2. Maak het virtuele netwerk. Het volgende voorbeeld wordt een virtueel netwerk met de naam **myVnet** in de **VS-West** locatie met het adresvoorvoegsel van **10.0.0.0/16**.  
    
     ```powershell
-    $location = "West US"
+    $location = "WestUS"
     $vnetName = "myVnet"
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet

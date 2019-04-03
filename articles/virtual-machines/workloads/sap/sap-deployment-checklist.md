@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802793"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878720"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
 
@@ -39,7 +39,7 @@ In deze fase is een migratie van SAP-workload naar Azure openbare cloud gepland.
     2. Maken en werken via een verantwoordelijkheid toewijzing Matrix (RACI) waarin de verantwoordelijkheden en toewijzingen van de andere partijen die betrokken zijn. Start op het niveau Hoog en werken met meer gedetailleerde niveaus doorvoer van de eerste en het plannen van implementaties
     2. Een architectuur op hoog niveau oplossing
     3. Besluit op Azure-regio's voor de implementatie in. Voor een lijst van Azure-regio's, Controleer de [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/). Voor services die beschikbaar zijn in elk van de Azure-regio's, controleert u het artikel [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/)
-    4. Netwerken verbinding maken vanaf on-premises naar Azure-architectuur. Start om uzelf bekend zijn met de [blauwdruk voor Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/)
+    4. Netwerken verbinding van on-premises naar Azure-architectuur. Start om uzelf bekend zijn met de [blauwdruk voor Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/)
     5. Beveiligingsprincipes voor het uitvoeren van hbi-gegevens in Azure. Voor het lezen van materiaal beginnen met [documentatie over Azure-beveiliging](https://docs.microsoft.com/azure/security/)
 2.  Technisch ontwerpdocument – bevat:
     1.  Een diagram van de oplossing 
@@ -79,7 +79,7 @@ In deze fase is een migratie van SAP-workload naar Azure openbare cloud gepland.
 7.  Gegevensreductie en gegevensmigratie plannen voor SAP-gegevens migreren naar Azure. Voor SAP NetWeaver-systemen heeft SAP richtlijnen over het behouden van het volume van een groot aantal gegevens beperkt. SAP gepubliceerd [deze ingrijpende handleiding](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) over het gegevensbeheer van in SAP ERP-systemen. Echter bepaalde inhoud is van toepassing op NetWeaver en S/4HANA-systemen in het algemeen.
 8.  Definieer en geautomatiseerde implementatie bepalen. Doel van automation achter implementaties van een op Azure is om te implementeren in een deterministische wijze en deterministische resultaten krijgt. Veel klanten Power Shell of op basis van CLI-scripts gebruiken. Maar er zijn verschillende open-source-technologieën die kunnen worden gebruikt voor het implementeren van Azure-infrastructuur voor SAP en zelfs SAP-software te installeren. Voorbeelden vindt u in GitHub:
     1.  [Geautomatiseerde SAP-oplossingen in Azure-Cloud](https://github.com/Azure/sap-hana)
-    2.  [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
+    2.  [SAP HANA-installatie](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definieer een reguliere ontwerp en implementatie revisie uitgebracht tussen u als klant, systeemintegrator, Microsoft en andere betrokken partijen
 
  

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: 03cfecb2faaacbe1017fb4e7acfa3c475c18a9ab
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 79913fc300f2ca66a84cf47c0e5b650b9ea2cc59
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620017"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878771"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.Android-apps met behulp van Azure Notification Hubs
 
@@ -363,10 +363,10 @@ In deze zelfstudie hebt u meldingen uitgezonden naar al uw Android-apparaten die
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio met Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio voor Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
+[GitHub]: https://github.com/Azure/azure-notificationhubs-android

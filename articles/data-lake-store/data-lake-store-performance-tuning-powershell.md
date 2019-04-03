@@ -4,19 +4,19 @@ description: Tips over hoe u de prestaties verbeteren wanneer u Azure PowerShell
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235599"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885312"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Richtlijnen voor het gebruik van PowerShell met Azure Data Lake Storage Gen1 afstemmen van prestaties
 
@@ -26,7 +26,7 @@ In dit artikel worden de eigenschappen die kunnen worden afgestemd om op te hale
 
 ## <a name="performance-related-properties"></a>Eigenschappen met betrekking tot prestaties
 
-| Eigenschap            | Standaard | Description |
+| Eigenschap            | Standaard | Beschrijving |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Met deze parameter kunt u het aantal parallelle threads voor het uploaden of downloaden van elk bestand kiezen. Dit getal staat voor het maximumaantal threads dat per bestand kunnen worden toegewezen, maar krijgt u mogelijk minder threads, afhankelijk van uw scenario (bijvoorbeeld, als u een bestand van 1 KB uploadt, krijgt u één thread, ook als u om 20 threads vraagt).  |
 | ConcurrentFileCount | 10      | Deze parameter is specifiek bedoeld voor het uploaden en downloaden van mappen. De parameter bepaalt het aantal bestanden dat tegelijk kan worden geüpload of gedownload. Dit getal staat voor het maximum aantal bestanden dat kan worden geüpload of gedownload in één keer tegelijk, maar krijgt u mogelijk minder afhankelijk van uw scenario (bijvoorbeeld, als u twee bestanden uploadt, krijgt u twee bestanden tegelijk uploaden, zelfs als u vragen voor 15). |
@@ -96,7 +96,7 @@ U kunt deze instellingen blijven aanpassen door de **PerFileThreadCount** te ver
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Data Lake Storage Gen1 gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

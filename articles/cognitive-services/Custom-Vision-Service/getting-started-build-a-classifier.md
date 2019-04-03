@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088006"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886434"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -27,12 +27,12 @@ Voor het gebruik van de Custom Vision Service voor classificatie van afbeeldinge
 - Een set waarmee u uw classificatie trainen. Hieronder vindt u tips over het kiezen van afbeeldingen.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure Portal
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure portal
 Voor het gebruik van Custom Vision Service, moet u maken van aangepaste Vision trainen en voorspellen resources in de in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Hiermee maakt u een Training- en Voorspellingsgegevens resource. 
 
 ## <a name="create-a-new-project"></a>Een nieuw project maken
 
-Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision.ai) en selecteer __aanmelden__. Meld u aan met hetzelfde account waarmee u zich bij de Azure-Portal.
+Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision.ai) en selecteer __aanmelden__. Meld u aan met hetzelfde account waarmee u zich bij de Azure-portal.
 
 ![Afbeelding van de aanmeldingspagina opgeven](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision
 
 1. Voer een naam en een beschrijving op voor het project. Selecteer vervolgens een resourcegroep. Als uw aangemelde account gekoppeld aan een Azure-account is, worden alle van uw Azure-resourcegroepen die een Resource Custom Vision Service bevatten door de resourcegroep vervolgkeuzelijst weergegeven. 
 
-> [!NOTE]
-> Als er is geen resourcegroep beschikbaar is, Controleer of dat u hebt aangemeld bij [customvision.ai](https://customvision.ai) met hetzelfde account als u gebruikt voor aanmelding bij de [Azure Portal](https://portal.azure.com/). Ook het geval is, Controleer of dat u hebt dezelfde "map' in de portal voor Custom Vision geselecteerd als de map in de Azure-portal waar uw aangepaste Vision resources zich bevinden. Op beide locaties, kunt u uw directory selecteren in de vervolgkeuzelijst account in de rechterbovenhoek van het scherm. 
+   > [!NOTE]
+   > Als er is geen resourcegroep beschikbaar is, Controleer of dat u hebt aangemeld bij [customvision.ai](https://customvision.ai) met hetzelfde account als u gebruikt voor aanmelding bij de [Azure-portal](https://portal.azure.com/). Ook het geval is, Controleer of dat u hebt dezelfde "map' in de portal voor Custom Vision geselecteerd als de map in de Azure-portal waar uw aangepaste Vision resources zich bevinden. Op beide locaties, kunt u uw directory selecteren in de vervolgkeuzelijst account in de rechterbovenhoek van het scherm. 
 
 1. Selecteer __classificatie__ onder __projecttypen__. Klik vervolgens onder __Classificatietypen__, kiest u **Multilabel** of **Multiklasse**, afhankelijk van uw situatie. Multilabel classificatie geldt een willekeurig aantal uw tags op een installatiekopie (nul of meer), terwijl multiklassen classificatie afbeeldingen in enkele categorieën sorteert (elke afbeelding die u indient worden gesorteerd in de meest waarschijnlijke tag). U kunt zich later het type classificatie wijzigen als u wenst.
 
@@ -55,7 +55,7 @@ Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision
     |__Algemene__| Geoptimaliseerd voor een grote verscheidenheid aan taken voor bestandsclassificatie installatiekopie. Als geen van de andere domeinen geschikt zijn, of u niet zeker weet welk domein om te kiezen, selecteert u het algemene domein. |
     |__Voedsel__|Geoptimaliseerd voor foto's van maaltijden zoals u ze in een restaurant zou zien. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u het domein Food.|
     |__Oriëntatiepunten__|Geoptimaliseerd voor het herkennen van oriëntatiepunten, natuurlijke en kunstmatige. Dit domein werkt het beste als de oriëntatiepunt duidelijk zichtbaar zijn in de foto is. Dit domein werkt, zelfs als de oriëntatiepunt iets door mensen in het zicht van deze vorm.|
-    |__Detailhandel__|Geoptimaliseerd voor afbeeldingen die in een winkelwagen catalogus of webwinkels zijn gevonden. Als u classificeren van hoge precisie tussen japonnen, broeken en shirt wilt, gebruikt u dit domein.|
+    |__Retail__|Geoptimaliseerd voor afbeeldingen die in een winkelwagen catalogus of webwinkels zijn gevonden. Als u classificeren van hoge precisie tussen japonnen, broeken en shirt wilt, gebruikt u dit domein.|
     |__Volwassene__|Geoptimaliseerd voor de inhoud voor volwassenen en niet-volwassene inhoud beter definiëren. Bijvoorbeeld, als u blokkeren van installatiekopieën van mensen in bad kleuren wilt, kunt dit domein u een aangepaste classificatie om dit te doen maken.|
     |__Compact domeinen__| Geoptimaliseerd voor de beperkingen van realtime classificatie op mobiele apparaten. De modellen die worden gegenereerd door compact domeinen kunnen worden geëxporteerd als lokaal wilt uitvoeren.|
     
@@ -96,12 +96,7 @@ In deze sectie wordt u uploaden en afbeeldingen te trainen classificatie handmat
 
     ![De voortgangsbalk wordt aangegeven dat alle taken zijn voltooid.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Voor het uploaden van een andere set van installatiekopieën, Ga terug naar de bovenkant van deze sectie en Herhaal de stappen. Op een bepaald moment in uw project, moet u mogelijk toevoegen _voorbeelden negatieve_ om uw classificatie nauwkeurigere ervoor. Negatieve voorbeelden zijn die niet overeenkomen met een van de andere labels. Wanneer u deze installatiekopieën uploaden, van toepassing op de speciale **negatieve** naar hen te labelen.
-
-> [!NOTE]
-> De Custom Vision Service biedt ondersteuning voor de verwerking van sommige automatische negatieve afbeeldingen. Bijvoorbeeld, als u een gedeeltelijk versus bananen classificatie bouwen en verzenden van een installatiekopie van een schoen voor voorspelling, moet de classificatie die installatiekopie als dicht bij 0% score voor gedeeltelijk en bananen.
-> 
-> In gevallen waar de negatieve afbeeldingen slechts een variant van de afbeeldingen in training gebruikt zijn, is het aan de andere kant waarschijnlijk dat het model wordt het classificeren van de installatiekopieën van het negatieve als een gelabelde klasse vanwege de grote overeenkomsten. Bijvoorbeeld, als u een oranje versus pompelmoezen en pomelo's classificatie hebt en u in een afbeelding van een clementine feed, kan het beoordelen de clementine als een oranje omdat veel functies van de clementine lijken op die van de appels. Als uw negatieve installatiekopieën van deze aard zijn, het beste maken van een of meer extra labels (zoals **andere**) en de negatieve afbeeldingen met dit label te labelen tijdens de training om toe te staan van het model beter onderscheid maken tussen deze klassen .
+Voor het uploaden van een andere set van installatiekopieën, Ga terug naar de bovenkant van deze sectie en Herhaal de stappen.
 
 ## <a name="train-the-classifier"></a>De classificatie trainen
 
@@ -138,5 +133,5 @@ In het linkerdeelvenster vindt u ook de **verwijderen** knop, die u een iteratie
 
 In deze handleiding, hebt u geleerd over het maken en een afbeelding classificatie-model met behulp van de website van Custom Vision te trainen. Meer informatie over de iteratief proces van het verbeteren van uw model vervolgens ophalen
 
-[Een model testen en opnieuw trainen](test-your-model.md)
+[Testen en opnieuw trainen van een model](test-your-model.md)
 

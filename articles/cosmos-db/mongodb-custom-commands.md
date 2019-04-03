@@ -1,19 +1,19 @@
 ---
-title: Aangepaste opdrachten voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB
-description: In dit artikel wordt beschreven hoe u aangepaste opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB.
+title: MongoDB-extensie-opdrachten voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB
+description: In dit artikel wordt beschreven hoe u MongoDB extensie-opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 238ba2722fef52d4607a7832113c03c097ef90b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58806892"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876885"
 ---
-# <a name="use-custom-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Aangepaste opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB-extensie-opdrachten gebruiken voor het beheren van gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB 
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt communiceren met de Azure Cosmos DB-API voor MongoDB met behulp van de open-source [MongoDB-clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De Azure Cosmos DB-API voor MongoDB kunt u gebruikmaken van bestaande clientstuurprogramma door aan de [wire-protocol voor MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -21,7 +21,7 @@ U kunt profiteren van de voordelen Cosmos DB, zoals globale distributie, automat
 
 ## <a name="mongodb-protocol-support"></a>Protocolondersteuning voor MongoDB
 
-Standaard de Azure Cosmos DB-API voor MongoDB is compatibel met MongoDB-serverversie 3.2, voor meer informatie, Zie [ondersteunde functies en -syntaxis](mongodb-feature-support.md). De functies of de standaardoperators voor query's die worden toegevoegd in MongoDB versie 3.4 zijn momenteel beschikbaar als preview in de Azure Cosmos DB-API voor MongoDB. De volgende aangepaste opdrachten ondersteuning van specifieke functionaliteit van Azure Cosmos DB bij het uitvoeren van CRUD-bewerkingen op de gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB:
+Standaard de Azure Cosmos DB-API voor MongoDB is compatibel met MongoDB-serverversie 3.2, voor meer informatie, Zie [ondersteunde functies en -syntaxis](mongodb-feature-support.md). De functies of de standaardoperators voor query's die worden toegevoegd in MongoDB versie 3.4 zijn momenteel beschikbaar als preview in de Azure Cosmos DB-API voor MongoDB. De volgende opdrachten in de extensie voor ondersteuning van specifieke functionaliteit van Azure Cosmos DB bij het uitvoeren van CRUD-bewerkingen op de gegevens die zijn opgeslagen in Azure Cosmos DB-API voor MongoDB:
 
 * [Database maken](#create-database)
 * [Database bijwerken](#update-database)
@@ -32,7 +32,7 @@ Standaard de Azure Cosmos DB-API voor MongoDB is compatibel met MongoDB-serverve
 
 ## <a id="create-database"></a> Database maken
 
-De opdracht create database aangepaste maakt een nieuwe MongoDB-database. Naam van de database wordt gebruikt in de context van de databases op basis waarvan u de opdracht wordt uitgevoerd. De indeling van de opdracht CreateDatabase is als volgt:
+De opdracht create database extensie maakt een nieuwe MongoDB-database. Naam van de database wordt gebruikt in de context van de databases op basis waarvan u de opdracht wordt uitgevoerd. De indeling van de opdracht CreateDatabase is als volgt:
 
 ```
 {
@@ -43,7 +43,7 @@ De opdracht create database aangepaste maakt een nieuwe MongoDB-database. Naam v
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 | CustomAction   |  string  |   De naam van de aangepaste opdracht, moet deze 'CreateDatabase'.      |
 | offerThroughput | int  | Ingerichte doorvoer die u op de database instelt. Deze parameter is optioneel. |
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a id="update-database"></a> Database bijwerken
 
-De update database aangepaste opdracht werkt de eigenschappen die zijn gekoppeld aan de opgegeven database. U kunt op dit moment alleen de eigenschap 'offerThroughput' bijwerken.
+De opdracht voor gegevensextensies database update werkt de eigenschappen die zijn gekoppeld aan de opgegeven database. U kunt op dit moment alleen de eigenschap 'offerThroughput' bijwerken.
 
 ```
 {
@@ -107,7 +107,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 ## <a id="get-database"></a> Database ophalen
 
-De opdracht get-database aangepaste retourneert het databaseobject. Naam van de database wordt gebruikt in de databasecontext op basis waarvan u de opdracht wordt uitgevoerd.
+Met de opdracht get-database extension retourneert het databaseobject. Naam van de database wordt gebruikt in de databasecontext op basis waarvan u de opdracht wordt uitgevoerd.
 
 ```
 {
@@ -118,7 +118,7 @@ De opdracht get-database aangepaste retourneert het databaseobject. Naam van de 
 De volgende tabel beschrijft de parameters in de opdracht:
 
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Naam van de aangepaste opdracht. Moet "GetDatabase"|
         
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a id="create-collection"></a> Verzameling maken
 
-De opdracht create verzameling aangepaste maakt een nieuwe MongoDB-verzameling. Naam van de database wordt gebruikt in de context van de databases op basis waarvan u de opdracht wordt uitgevoerd. De indeling van de opdracht CreateCollection is als volgt:
+De opdracht voor gegevensextensies verzameling maken maakt een nieuwe MongoDB-verzameling. Naam van de database wordt gebruikt in de context van de databases op basis waarvan u de opdracht wordt uitgevoerd. De indeling van de opdracht CreateCollection is als volgt:
 
 ```
 {
@@ -160,7 +160,7 @@ De opdracht create verzameling aangepaste maakt een nieuwe MongoDB-verzameling. 
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 | CustomAction    | string | Naam van de aangepaste opdracht. 'CreateDatabase' moet zijn     |
 | verzameling      | string | Naam van de verzameling                                   |
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a id="update-collection"></a> Verzameling bijwerken
 
-De update verzameling aangepaste opdracht werkt de eigenschappen die zijn gekoppeld aan de opgegeven verzameling.
+De opdracht voor gegevensextensies verzameling update werkt de eigenschappen die zijn gekoppeld aan de opgegeven verzameling.
 
 ```
 {
@@ -205,7 +205,7 @@ De update verzameling aangepaste opdracht werkt de eigenschappen die zijn gekopp
 
 De volgende tabel beschrijft de parameters in de opdracht:
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 |  CustomAction   |   string      |   Naam van de aangepaste opdracht. Moet 'UpdateCollection'.      |
 |  verzameling   |   string      |   Naam van de verzameling.       |
@@ -240,7 +240,7 @@ De opdracht get-verzameling aangepaste retourneert het verzamelingsobject.
 De volgende tabel beschrijft de parameters in de opdracht:
 
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 | CustomAction    |   string      |   Naam van de aangepaste opdracht. Moet 'GetCollection'.      |
 | verzameling    |    string     |    Naam van de verzameling.     |
@@ -250,7 +250,7 @@ De volgende tabel beschrijft de parameters in de opdracht:
 Als de opdracht is geslaagd, bevat het antwoord een document met de volgende velden
 
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   De status van de reactie. 1 == geslaagd. 0 mislukte ==.      |
 | `database`    |    `string`     |   Naam van de database.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Als niet is opgegeven, bevat een aangepast antwoord een document met de volgende velden:
 
-|**Veld**|**Type** |**Beschrijving** |
+|**Veld**|**Type** |**Description** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   De status van de reactie. 1 == geslaagd. 0 mislukte ==.      |
 | `code`    |   `int`      |   Alleen geretourneerd wanneer de opdracht is mislukt (dat wil zeggen ok == 0). Bevat de MongoDB-foutcode. Dit is een optionele antwoord-parameter.      |
@@ -285,5 +285,5 @@ Als niet is opgegeven, bevat een aangepast antwoord een document met de volgende
 
 Vervolgens kunt u doorgaan met het leren van de volgende Azure Cosmos DB-concepten: 
 
-* [Indexering in Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Gegevens in Azure Cosmos DB automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
+* [Indexeren in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Gegevens in Azure Cosmos DB met time to live van automatisch laten verlopen](../cosmos-db/time-to-live.md)

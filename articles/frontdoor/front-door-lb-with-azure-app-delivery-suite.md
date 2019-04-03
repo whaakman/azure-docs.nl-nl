@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439023"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879656"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Taakverdeling realiseren met de Azure-suite voor toepassingslevering
 
@@ -26,7 +26,7 @@ Microsoft Azure biedt verschillende globale en regionale services voor het beher
 ![Application Delivery-Suite ][1]
  
 Deze services worden onderverdeeld in twee categorieën:
-1. **Globale taakverdeling services** zoals Traffic Manager en de voordeur distribueren van verkeer van uw eindgebruikers in uw regionale back-ends, voor clouds of zelfs uw hybride on-premises services. Globale taakverdeling uw verkeer routeert naar de dichtstbijzijnde back-end service en reageert op wijzigingen in de betrouwbaarheid van de service of de prestaties te onderhouden altijd beschikbaar en maximale prestaties voor uw gebruikers. 
+1. **Globale taakverdeling services** zoals Traffic Manager en de voordeur distribueren van verkeer van uw eindgebruikers in uw regionale back-ends, verschillende clouds of zelfs uw hybride on-premises services. Globale taakverdeling uw verkeer routeert naar de dichtstbijzijnde back-end service en reageert op wijzigingen in de betrouwbaarheid van de service of de prestaties te onderhouden altijd beschikbaar en maximale prestaties voor uw gebruikers. 
 2. **Regionale load balancing-services** zoals standaardversie van Load Balancer of Application Gateway bieden de mogelijkheid om te verdelen van verkeer in virtuele netwerken (VNETs) over uw virtuele machines (VM's) of de zonegebonden service-eindpunten in een regio.
 
 Globale en regionale services in uw toepassing combineren biedt een end-to-end betrouwbare, goed presterende en veilige manier om verkeer te routeren naar en van uw gebruikers aan uw IaaS, PaaS, of on-premises services. In de volgende sectie wordt beschreven elk van deze services.

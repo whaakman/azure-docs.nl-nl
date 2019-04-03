@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 3557aa4236904a3654d40337e391fbcaa5486894
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430771"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847995"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor-wijzigingen voor naamgeving en terminologie
 Belangrijke wijzigingen zijn aangebracht naar Azure Monitor onlangs met verschillende services worden geconsolideerd vereenvoudigt bewaking voor Azure-klanten. In dit artikel beschrijft de naam van de recente en terminologie wijzigingen in de documentatie bij Azure Monitor.
@@ -26,7 +26,7 @@ Belangrijke wijzigingen zijn aangebracht naar Azure Monitor onlangs met verschil
 Na de consolidatie van andere services onder Azure Monitor geleid we de volgende stap door het wijzigen van de belangrijkste termen in onze documentatie om te beschrijven beter de Azure Monitor-service en de verschillende onderdelen. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure Monitor-logboek nog steeds gegevens is die zijn opgeslagen in een Log Analytics-werkruimte en nog steeds worden verzameld en geanalyseerd door de dezelfde Log Analytics-service, maar we wijzigen de term _Log Analytics_ op talloze plaatsen op _Azure Monitor-Logboeken_ . Deze term beter de functie in Azure Monitor en biedt betere consistentie [metrische gegevens in Azure Monitor](platform/data-collection.md).
+Azure Monitor-logboek nog steeds gegevens is die zijn opgeslagen in een Log Analytics-werkruimte en nog steeds worden verzameld en geanalyseerd door de dezelfde Log Analytics-service, maar we wijzigen de term _Log Analytics_ op talloze plaatsen op _Azure Monitor-Logboeken_ . Deze term beter de functie in Azure Monitor en biedt betere consistentie [metrische gegevens in Azure Monitor](platform/data-platform-metrics.md).
 
 De term _melden analytics_ nu is voornamelijk van toepassing op de pagina in Azure portal gebruikt om te schrijven en query's uitvoeren en analyseren van logboekgegevens. Het is functioneel equivalent aan het [metrics explorer](platform/metrics-charts.md), dit is de pagina in Azure portal gebruikt om metrische gegevens te analyseren.
 

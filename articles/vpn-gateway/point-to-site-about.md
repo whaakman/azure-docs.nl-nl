@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8fc952af011231a9cc12f96e3db9ebb088c237a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413325"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878210"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -22,7 +22,7 @@ Met een point-to-site-VPN-gatewayverbinding (P2S) kunt u vanaf een afzonderlijke
 
 Punt-naar-site VPN kunt gebruiken dat een van de volgende protocollen:
 
-* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS (versie 11.0 en hoger), Linux en Mac-apparaten (OSX-versie 10.13 en hoger).
+* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS (versie 11.0 en hoger), Windows, Linux en Mac-apparaten (OSX-versie 10.13 en hoger).
 
 * Secure Socket Tunneling Protocol (SSTP), een eigen VPN op basis van een SSL-protocol. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. SSTP wordt alleen ondersteund op Windows-apparaten. Azure ondersteunt alle versies van Windows die SSTP (Windows 7 en hoger) hebben.
 

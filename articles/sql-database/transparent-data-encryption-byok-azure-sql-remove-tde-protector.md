@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a49c22a0597c34075de3e5fd7b9a324169e1da00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895168"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847807"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 
@@ -87,7 +87,7 @@ In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewen
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Verwijderen van de sleutel waarmee is geknoeid vanuit Key Vault met de [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
+5. Verwijderen van de sleutel waarmee is geknoeid vanuit Key Vault met de [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet. 
 
    ```powershell
    Remove-AzKeyVaultKey `

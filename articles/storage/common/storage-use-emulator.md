@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013574"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878584"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -169,10 +169,10 @@ Typ `/help` bij de opdrachtprompt om een lijst met opties te zien.
 
 | Optie | Description | Opdracht | Argumenten |
 | --- | --- | --- | --- |
-| **Beginnen** |De opslagemulator wordt gestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
+| **Starten** |De opslagemulator wordt gestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
 | **Stoppen** |Hiermee stopt u de opslagemulator. |`AzureStorageEmulator.exe stop` | |
 | **Status** |De status van de opslagemulator af te drukken. |`AzureStorageEmulator.exe status` | |
-| **Wissen** |Hiermee schakelt u de gegevens in alle services op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: Wist blob-gegevens. <br/>*wachtrij*: Hiermee schakelt u wachtrijgegevens. <br/>*tabel*: Wissen van tabelgegevens. <br/>*Alle*: Hiermee schakelt u alle gegevens in alle services. |
+| **Wissen** |Hiermee schakelt u de gegevens in alle services op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: Wist blob-gegevens. <br/>*wachtrij*: Hiermee schakelt u wachtrijgegevens. <br/>*tabel*: Wissen van tabelgegevens. <br/>*Alle*: Hiermee schakelt u alle gegevens in alle services. |
 | **Init** |Voert eenmalig initialisatie voor het instellen van de emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Servernaam\exemplaarnaam*: Hiermee geeft u de server die als host fungeert voor de SQL-exemplaar. <br/>*-sqlinstance instanceName*: Hiermee geeft u de naam van het SQL-exemplaar moet worden gebruikt in het standaardexemplaar van de server. <br/>*-forcecreate*: Hiermee wordt het maken van de SQL-database, zelfs als deze al bestaat. <br/>*-skipcreate*: Hiermee slaat u het maken van de SQL-database. Dit heeft voorrang op - forcecreate.<br/>*-reserveports*: Pogingen tot het reserveren van de HTTP-poorten die zijn gekoppeld aan de services.<br/>*-unreserveports*: Probeert te verwijderen van de reserveringen voor de HTTP-poorten die zijn gekoppeld aan de services. Dit heeft voorrang op - reserveports.<br/>*-inprocess*: Initialisatie in het huidige proces in plaats van bij het maken van een nieuw proces uitgevoerd. Het huidige proces moet worden gestart met verhoogde bevoegdheden als poort reserveringen wilt wijzigen. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Verschillen tussen de opslagemulator en Azure Storage

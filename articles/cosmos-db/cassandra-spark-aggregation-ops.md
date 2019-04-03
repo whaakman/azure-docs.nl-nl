@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037307"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877462"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Statistische bewerkingen op tabellen uit Spark Cassandra-API van Azure Cosmos DB 
 
@@ -76,7 +76,7 @@ booksDF.write
 sc.cassandraTable("books_ks", "books").count
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 res48: Long = 5
 ```
@@ -97,7 +97,7 @@ Kies een [opslagoptie]( https://spark.apache.org/docs/2.2.0/rdd-programming-guid
 
 * DISK_ONLY: Slaat de RDD-partities op de schijf alleen.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Hetzelfde als de bovenstaande niveaus repliceert, maar elke partitie op twee clusterknooppunten.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2…: Hetzelfde als de bovenstaande niveaus repliceert, maar elke partitie op twee clusterknooppunten.
 
 * OFF_HEAP (experimenteel): Net als bij MEMORY_ONLY_SER, maar de gegevens worden opgeslagen in off-heap-geheugen en hiervoor uit heap-geheugen moet vooraf worden ingeschakeld. 
 
@@ -142,7 +142,7 @@ select count(*) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Double) => c).mean
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 res24: Double = 16.016000175476073
 ```
@@ -159,7 +159,7 @@ spark
   .show
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 +------------------+
 |   avg(book_price)|
@@ -173,7 +173,7 @@ spark
 ```sql
 select avg(book_price) from books_vw;
 ```
-**De uitvoer:**
+**Uitvoer:**
 ```
 16.016000175476073
 ```
@@ -186,7 +186,7 @@ select avg(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).min
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 res31: Float = 11.33
 ```
@@ -203,7 +203,7 @@ spark
   .show
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 +---------------+
 |min(book_price)|
@@ -218,7 +218,7 @@ spark
 select min(book_price) from books_vw;
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 11.33
 ```
@@ -243,7 +243,7 @@ spark
   .show
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 +---------------+
 |max(book_price)|
@@ -257,8 +257,10 @@ spark
 ```sql
 select max(book_price) from books_vw;
 ```
-**De uitvoer:**
-```22.45 ```
+**Uitvoer:**
+```
+22.45
+```
 
 ## <a name="sum-operation"></a>Sum-bewerking
 
@@ -268,7 +270,7 @@ select max(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).sum
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 res46: Double = 80.08000087738037
 ```
@@ -284,7 +286,7 @@ spark
   .agg(sum("book_price"))
   .show
 ```
-**De uitvoer:**
+**Uitvoer:**
 ```
 +-----------------+
 |  sum(book_price)|
@@ -299,7 +301,7 @@ spark
 select sum(book_price) from books_vw;
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 80.08000087738037
 ```
@@ -313,7 +315,7 @@ val readCalcTopRDD = sc.cassandraTable("books_ks", "books").select("book_name","
 readCalcTopRDD.zipWithIndex.filter(_._2 < 3).collect.foreach(println)
 //delivers the first top n items without collecting the rdd to the driver.
 ```
-**De uitvoer:**
+**Uitvoer:**
 ```
 (CassandraRow{book_name: A sign of four, book_price: 22.45},0)
 (CassandraRow{book_name: The adventures of Sherlock Holmes, book_price: 19.83},1)
@@ -339,7 +341,7 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
-**De uitvoer:**
+**Uitvoer:**
 ```
 == Physical Plan ==
 TakeOrderedAndProject(limit=3, orderBy=[book_price#1840 DESC NULLS LAST], output=[book_name#1839,book_price#1840])

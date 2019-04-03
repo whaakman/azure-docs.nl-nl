@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001966"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848533"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Controlegegevens van Azure gebruiken
 
@@ -42,13 +42,13 @@ Over het complete Azure-platform brengen we controlegegevens op één plaats sam
 | Metrische waarschuwingen van Azure Monitor | Meldingen | [Bekijk hier de lijst](metrics-supported.md) | <ul><li>**Webhook:** [Azure metrische waarschuwingen](alerts-webhooks.md)</li></ul> |
 | Waarschuwingen van Azure Monitor Activity-Log | Meldingen | Alle Azure-services | <ul><li>**Webhook:** Waarschuwingen van Azure Activity Log</li></ul> |
 | Meldingen over automatisch schalen | Meldingen | [Bekijk hier de lijst](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisch schalen melding webhook-schema voor nettolading](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Zoekquery waarschuwingen voor activiteitenlogboeken | Meldingen | Logboeken in Azure Monitor | <ul><li>**Webhook:** [Webhookactie voor waarschuwingsregels](alerts-log-webhook.md)</li></ul> |
+| Zoekquery waarschuwingen voor activiteitenlogboeken | Meldingen | Azure Monitor-logboeken | <ul><li>**Webhook:** [Webhookactie voor waarschuwingsregels](alerts-log-webhook.md)</li></ul> |
 | Application Insights metrische waarschuwingen | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights-webtests | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../../azure-monitor/app/alerts.md)</li></ul> |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Azure Monitor metrics](data-collection.md)
+- Meer informatie over [Azure Monitor metrics](data-platform.md)
 - Meer informatie over [het Azure-activiteitenlogboek](activity-logs-overview.md)
 - Meer informatie over [diagnostische logboeken van Azure](diagnostic-logs-overview.md)
 

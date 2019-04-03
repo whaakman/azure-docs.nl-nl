@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805088"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849607"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Voor gegevensoverdracht voor grote gegevenssets met weinig of geen netwerkbandbreedte
  
@@ -59,7 +59,7 @@ De volgende tabel geeft een overzicht van de verschillen in de belangrijkste mog
 |    Partnerintegratie              |    Sommige                         |    [Hoog](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hoog](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Sommige                                |
 |    Verzenden                         |    Beheerd door Microsoft            |    Beheerd door Microsoft                             |    Beheerd door Microsoft                     |    Beheerd door de klant                    |
 | Gebruik deze sjabloon wanneer gegevens worden verplaatst         |Binnen een grens commerce|Binnen een grens commerce|Binnen een grens commerce|Over de geografische grenzen, bijvoorbeeld VS EU|
-|    Prijzen                          |    [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prijzen](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Prijzen                          |    [Prijzen](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prijzen](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>Volgende stappen

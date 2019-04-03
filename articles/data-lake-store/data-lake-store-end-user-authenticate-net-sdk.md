@@ -3,27 +3,27 @@ title: 'Verificatie van eindgebruikers: .NET-SDK met Azure Data Lake Storage Gen
 description: Meer informatie over het bereiken van eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met .NET SDK
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: twooley
+ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261531"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876765"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [.NET-SDK gebruiken](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [.NET SDK gebruiken](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Python gebruiken](data-lake-store-end-user-authenticate-python.md)
-> * [REST-API gebruiken](data-lake-store-end-user-authenticate-rest-api.md)
+> * [REST API gebruiken](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -41,7 +41,7 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
 2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
 3. In **New Project** typt of selecteert u de volgende waarden:
 
-   | Eigenschap | Waarde |
+   | Eigenschap | Value |
    | --- | --- |
    | Categorie |Templates/Visual C#/Windows |
    | Template |Console Application |
@@ -55,8 +55,8 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
    2. Controleer op het tabblad **NuGet Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
    3. Zoek en installeer de volgende NuGet-pakketten:
 
-      * `Microsoft.Azure.Management.DataLake.Store`: in deze zelfstudie wordt gebruikgemaakt van v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` : In deze zelfstudie wordt gebruikgemaakt van v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` : In deze zelfstudie wordt gebruikgemaakt van v2.2.12.
 
         ![Een NuGet-bron toevoegen](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **NuGet Package Manager**.

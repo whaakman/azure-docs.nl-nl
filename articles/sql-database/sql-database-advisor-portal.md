@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564235"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863199"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -78,6 +78,7 @@ U kunt bekijken en aanbevelingen één bewerking tegelijk accepteren.
 De geselecteerde aanbeveling worden toegepast op de database.
 
 ### <a name="removing-recommendations-from-the-list"></a>Aanbevelingen verwijderen in de lijst
+
 Als uw lijst met aanbevelingen items die u wilt verwijderen uit de lijst bevat, kunt u de aanbeveling negeren:
 
 1. Selecteer een aanbeveling in de lijst met **aanbevelingen** de details te openen.
@@ -110,21 +111,24 @@ U kunt de Azure SQL-Database voor het implementeren van aanbevelingen automatisc
 
 Nadat u de gewenste configuratie hebt geselecteerd, klikt u op toepassen.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Handmatig uitvoeren het aanbevolen T-SQL-script
+### <a name="manually-apply-recommendations-through-t-sql"></a>Handmatig toepassen van aanbevelingen via T-SQL
+
 Selecteer elke aanbeveling klikken en klik vervolgens op **script weergeven**. Voer dit script op basis van de database om handmatig de aanbeveling toepast.
 
-*Indexen die handmatig worden uitgevoerd worden niet gecontroleerd en gevalideerd voor prestatie-impact door de service* , zodat het wordt aangeraden dat u deze indexen na het maken om te controleren of ze leveren prestaties controleren en aanpassen of verwijder ze indien nodig. Zie voor meer informatie over het maken van indexen [INDEX maken (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Indexen die handmatig worden uitgevoerd worden niet gecontroleerd en gevalideerd voor prestatie-impact door de service* , zodat het wordt aangeraden dat u deze indexen na het maken om te controleren of ze leveren prestaties controleren en aanpassen of verwijder ze indien nodig. Zie voor meer informatie over het maken van indexen [INDEX maken (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Bovendien blijft handmatig toegepaste aanbevelingen actief en wordt weergegeven in de lijst met aanbevelingen voor 24 tot 48 uur. voordat het systeem automatisch ze intrekt. Als u wilt verwijderen van een aanbeveling sneller wilt, kunt u het handmatig verwijderen.
 
 ### <a name="canceling-recommendations"></a>Aanbevelingen annuleren
+
 Aanbevelingen die zich in een **in behandeling**, **Validating**, of **succes** status kan worden geannuleerd. Aanbevelingen met de status van **Executing** kan niet worden geannuleerd.
 
 1. Selecteer een aanbeveling in de **afstemmen geschiedenis** gebied te openen de **gegevens over de aanbevelingen** pagina.
 2. Klik op **annuleren** om af te breken van het proces van het toepassen van de aanbeveling.
 
 ## <a name="monitoring-operations"></a>Controlebewerkingen
+
 Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal bevat informatie over de status van de aanbeveling. Hier volgen de mogelijke statussen die een index, kan zich in:
 
-| Status | Description |
+| Status | Beschrijving |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
 | In uitvoering |De aanbeveling is toegepast. |

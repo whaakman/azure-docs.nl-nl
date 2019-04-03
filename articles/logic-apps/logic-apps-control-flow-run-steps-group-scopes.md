@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080451"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882409"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
 
@@ -79,13 +79,13 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
       | Instelling | Waarde | Description |
       | ------- | ----- | ----------- |
-      | **Routepunt 1** | <*Start*> | Voer beginpunt van uw route. | 
-      | **Routepunt 2** | <*end*> | Voer de bestemming van uw route. | 
-      | **Vermijden** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Beginpunt 1** | <*Start*> | Voer beginpunt van uw route. | 
+      | **Beginpunt 2** | <*end*> | Voer de bestemming van uw route. | 
+      | **Avoid** | Geen | Voer items om te voorkomen op uw route, zoals snelwegen, tolwegen, enzovoort. Zie voor mogelijke waarden [een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimaliseren** | timeWithTraffic | Selecteer een parameter voor het optimaliseren van uw route, zoals afstand, tijd met informatie over de huidige gegevensverkeer, enzovoort. In dit voorbeeld maakt gebruik van deze waarde: "timeWithTraffic" | 
       | **Afstandseenheid** | <*your-preference*> | Voer de Afstandseenheid die voor het berekenen van uw route. In dit voorbeeld maakt gebruik van deze waarde: "Mijl" | 
       | **Vervoermiddel** | Auto | Geef de vervoersoptie voor uw route. In dit voorbeeld wordt deze waarde "Aangedreven" | 
-      | **Datum/tijd openbaar vervoer** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
+      | **Datum / tijd-doorvoer** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
       | **Doorvoer datumtype Type** | Geen | Van toepassing op het vervoermiddel openbaar alleen. | 
       ||||  
 
@@ -119,7 +119,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. In de **hoofdtekst** veld, voert u deze tekst met een spatie: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       Terwijl de cursor wordt weergegeven in de **hoofdtekst** veld, de lijst met dynamische inhoud blijft geopend zodat u de parameters die beschikbaar op dit moment zijn kunt selecteren.
 
@@ -146,11 +146,13 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Als u klaar bent, kiest u **Done**.
 
+   <!-- markdownlint-disable MD038 -->
    1. Nadat de expressie wordt omgezet, deze tekst met een toonaangevende spatie toevoegen: ``` minutes```
   
        Uw **hoofdtekst** veld ziet er nu uit zoals in dit voorbeeld:
 
        ![Veld is voltooid 'Hoofdtekst'](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Sla uw logische app op.
 

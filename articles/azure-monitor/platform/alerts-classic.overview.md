@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993026"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847853"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -88,14 +88,14 @@ Webhooks maakt het mogelijk om automatisering en herstel, bijvoorbeeld:
 ## <a name="next-steps"></a>Volgende stappen
 Informatie ophalen over de regels voor waarschuwingen en ze te configureren met behulp van:
 
-* Meer informatie over [metrische gegevens](../../azure-monitor/platform/data-collection.md)
+* Meer informatie over [metrische gegevens](data-platform.md)
 * Configureer [klassieke metrische waarschuwingen via Azure portal](alerts-classic-portal.md)
 * Configureer [klassieke metrische waarschuwingen PowerShell](alerts-classic-portal.md)
 * Configureer [klassieke metrische waarschuwingen opdrachtregelinterface (CLI)](alerts-classic-portal.md)
 * Configureer [klassieke metrische waarschuwingen Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Meer informatie over [activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
+* Meer informatie over [activiteitenlogboek](activity-logs-overview.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](activity-log-alerts.md)
 * Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](alerts-activity-log.md)
-* Controleer de [activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md)
-* Configureer [nieuwere waarschuwingen](../../azure-monitor/platform/alerts-metric.md)
+* Controleer de [activiteit log waarschuwing webhook-schema](activity-log-alerts-webhook.md)
+* Meer informatie over [actiegroepen](action-groups.md)
+* Configureer [nieuwere waarschuwingen](alerts-metric.md)

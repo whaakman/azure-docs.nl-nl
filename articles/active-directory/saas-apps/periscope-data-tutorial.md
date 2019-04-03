@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403626"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Zelfstudie: Azure Active Directory-integratie met Periscope Data
 
@@ -50,7 +50,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Periscope Data met Microsoft Azure Active Directory moet u Periscope Data vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u Periscope Data wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Periscope gegevens uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -109,9 +109,9 @@ Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directo
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://app.periscopedata.com/<SITENAME>/sso`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > De waarde van de aanmeldings-URL is niet echt. Werk de waarden bij met de werkelijke aanmeldings-URL. Neem contact op met [clientondersteuningsteam bij Periscope Data](mailto:support@periscopedata.com) om deze waarde op te halen en de id-waarde die u ontvangt van de sectie **Configureren van eenmalige aanmelding bij Periscope Data** die later in de zelfstudie wordt uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -203,7 +203,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat gebruikers van Azure Active Directory zich kunnen aanmelden bij Periscope Data, moeten ze worden ingericht voor Periscope Data. In het geval van Periscope Data is dat een handmatige taak.
 
-**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
 
 1. Meld u aan bij Periscope Data als beheerder.
 
@@ -231,9 +231,9 @@ Wanneer u op de tegel Periscope Data in het toegangsvenster klikt, zou u automat
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

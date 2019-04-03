@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092647"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879689"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 
@@ -32,7 +32,7 @@ Afhankelijk van de doelstellingen van uw actieve tijdsduur u voor uw IoT-oplossi
 
 ## <a name="intra-region-ha"></a>HA intra-regio
 
-De IoT Hub-service biedt intra-regio HA door het implementeren van redundantie in bijna alle lagen van de service. De [SLA gepubliceerd door de IoT Hub-service](https://azure.microsoft.com/support/legal/sla/iot-hub) wordt bereikt door gebruik van deze redundantie. Er zijn geen extra werk is vereist voor de ontwikkelaars van een IoT-oplossing om te profiteren van deze HA-functies. Hoewel IoT-Hub een redelijk beschikbaarheidsgarantie biedt, kunnen nog steeds tijdelijke fouten worden verwacht net als bij elk platform voor gedistribueerde computing. Als u net aan de slag met uw oplossingen migreren naar de cloud van een on-premises-oplossing, uw focus moet wilt verschuiven van optimaliseren "gemiddelde tijd tussen storingen" 'gemiddelde tijd om te herstellen'. Met andere woorden, zijn tijdelijke fouten normale worden overwogen bij het werken met de cloud in de samenstelling. Juiste [beleid voor opnieuw proberen](iot-hub-reliability-features-in-sdks.md) moet zijn ingebouwd in de onderdelen die interactie met een cloudtoepassing te bekommeren om tijdelijke fouten.
+De IoT Hub-service biedt intra-regio HA door het implementeren van redundantie in bijna alle lagen van de service. De [SLA gepubliceerd door de IoT Hub-service](https://azure.microsoft.com/support/legal/sla/iot-hub) wordt bereikt door gebruik van deze redundantie. Er zijn geen extra werk is vereist voor de ontwikkelaars van een IoT-oplossing om te profiteren van deze HA-functies. Hoewel IoT-Hub een redelijk beschikbaarheidsgarantie biedt, kunnen nog steeds tijdelijke fouten worden verwacht net als bij elk platform voor gedistribueerde computing. Als u net aan de slag met uw oplossingen naar de cloud migreren van een on-premises-oplossing, uw focus moet wilt verschuiven van optimaliseren "gemiddelde tijd tussen storingen" 'gemiddelde tijd om te herstellen'. Met andere woorden, zijn tijdelijke fouten normale worden overwogen bij het werken met de cloud in de samenstelling. Juiste [beleid voor opnieuw proberen](iot-hub-reliability-features-in-sdks.md) moet zijn ingebouwd in de onderdelen die interactie met een cloudtoepassing te bekommeren om tijdelijke fouten.
 
 > [!NOTE]
 > Sommige Azure-services biedt ook extra beveiligingslagen beschikbaarheid binnen een regio door te integreren met [Beschikbaarheidszones (AZs)](../availability-zones/az-overview.md). AZs worden momenteel niet ondersteund door de IoT Hub-service.

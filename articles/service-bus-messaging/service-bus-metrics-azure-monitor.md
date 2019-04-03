@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213961"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849662"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -28,7 +28,7 @@ Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de vers
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals Azure Monitor-logboeken en Event Hubs. Zie voor meer informatie, [door gegevens te controleren die worden verzameld door Azure Monitor](../azure-monitor/platform/data-collection.md).
+Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals Azure Monitor-logboeken en Event Hubs. Zie voor meer informatie, [metrische gegevens in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
 Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Deze waarde is geconfigureerd in [diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
 
@@ -106,7 +106,7 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
 Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-|Dimensienaam|Description|
+|Dimensienaam|Beschrijving|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ondersteunt berichtentiteiten onder de naamruimte.|
 

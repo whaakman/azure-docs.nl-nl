@@ -1,25 +1,25 @@
 ---
 title: Toegang tot gegevens met behulp van Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over hoe u toegang tot uw beveiligingsgegevens voor waarschuwing en de aanbeveling bij het gebruik van Azure Security Center voor IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758529"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862587"
 ---
 # <a name="access-your-security-data"></a>Toegang tot uw beveiligingsgegevens 
 
@@ -149,7 +149,7 @@ SecurityRecommendation
 | take 2
 ```
     
-| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Beschrijving | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
 | 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |
 | 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < apparaatnaam > | Middelgroot | Actief | Strikte firewallregel in de invoer keten is gevonden | Er is een regel in de firewall aangetroffen die een patroon met veel machtigingen voor een groot aantal IP-adressen of poorten bevat. | {'Regels': ' [{\"bronadres\":\"\",\"bronpoort\":\"\",\"DestinationAddress\":\" \" \"DestinationPort\":\"1337\"}] "} |

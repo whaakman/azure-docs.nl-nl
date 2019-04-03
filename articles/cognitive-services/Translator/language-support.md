@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803114"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882461"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -109,7 +109,7 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Taal    | Taalcode | Script | Aan/uit | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabisch | `ar` | Arabisch `Arab` | <--> | Latijns `Latn` |
-|Bengalees  | `bn` | Bengali `Beng` | <--> | Latijns `Latn` |
+|Bengalees  | `bn` | Bengaals `Beng` | <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Traditioneel Chinees `Hant`|
 | Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Latijns `Latn` |
@@ -118,10 +118,10 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Hebreeuws | `he` | Hebreeuws `Hebr` | <--> | Latijns `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latijns `Latn` |
 | Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
-| Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
+| Kanarees | `kn` | Kanarees `Knda` | --> | Latijns `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latijns `Latn` |
 | Mahratti | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latijns `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
 | Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
 | Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|
@@ -268,7 +268,7 @@ U kunt een lijst met ondersteunde talen voor de Translator Text-API-v3.0 met beh
 
 ## <a name="customization"></a>Aanpassing
 
-De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van de Engelse [aangepaste Translator](http://aka.ms/CustomTranslator).
+De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van de Engelse [aangepaste Translator](https://aka.ms/CustomTranslator).
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|

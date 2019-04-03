@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2164969de4198d381a5c7a5f5ab73128a67ccbda
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576842"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883213"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Verbinding maken met uw apparaat Fortinet 
 
@@ -135,7 +135,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
    - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
       
      De Syslog-daemon opnieuw: `sudo service syslog-ng restart`
-1. Als beide van deze opdrachten geslaagde resultaten hebt opgegeven, controleert u Log Analytics om te zien als uw logboeken binnenkomen. Alle gebeurtenissen die worden gestreamd vanaf deze apparaten worden weergegeven in onbewerkte vorm in Log Analytics onder `CommonSecurityLog ` type.
+1. Als beide van deze opdrachten geslaagde resultaten hebt opgegeven, controleert u Log Analytics om te zien als uw logboeken binnenkomen. Alle gebeurtenissen die worden gestreamd vanaf deze apparaten worden weergegeven in onbewerkte vorm in Log Analytics onder `CommonSecurityLog` type.
 1. Als u wilt controleren als er fouten zijn of als de logboeken worden niet binnenkomen, zoeken in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. Zorg ervoor dat de standaardgrootte van uw Syslog-bericht beperkt tot 2048 bytes (2KB is). Als u Logboeken zijn te lang, werkt u de security_events.conf met de volgende opdracht: `message_length_limit 4096`
 6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de gebeurtenissen Fortinet, **CommonSecurityLog**.

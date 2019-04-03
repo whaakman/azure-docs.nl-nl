@@ -1,5 +1,5 @@
 ---
-title: Modellen als webservices implementeren
+title: Hoe en waar u kunt modellen implementeren
 titleSuffix: Azure Machine Learning service
 description: 'Meer informatie over hoe en waar uw Azure Machine Learning-service-modellen met inbegrip van implementeren: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge en Field-programmable gate arrays.'
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878295"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
-De SDK van Azure Machine Learning biedt verschillende manieren die kunt u het getrainde model implementeren. In dit document leert u hoe u uw model als een webservice in de Azure-cloud, of op IoT Edge-apparaten implementeren.
+In dit document leert u hoe u uw model als een webservice in de Azure-cloud, of op IoT Edge-apparaten implementeren. 
 
-U kunt modellen implementeren op de volgende compute-doelen:
+## <a name="compute-targets-for-deployment"></a>COMPUTE-doelen voor implementatie
+
+Gebruik de SDK van Azure Machine Learning voor het implementeren van het getrainde model op de volgende locaties:
 
 | COMPUTE-doel | Implementatietype | Description |
 | ----- | ----- | ----- |
@@ -30,7 +32,9 @@ U kunt modellen implementeren op de volgende compute-doelen:
 | [Azure Machine Learning-Computing (amlcompute)](#azuremlcompute) | Batch Deductie | Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
 | [Azure Container Instances (ACI)](#aci) | Testen | Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
-| [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
+| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
+
+## <a name="deployment-workflow"></a>Implementatiewerkstroom
 
 Het proces voor het implementeren van een model is vergelijkbaar voor alle compute-doelen:
 
@@ -46,7 +50,7 @@ De volgende video ziet u in Azure Container Instances implementeren:
 
 Zie voor meer informatie over de concepten die betrokken zijn bij de implementatiewerkstroom [beheren, implementeren en controleren van modellen met Azure Machine Learning-Service](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites-for-deployment"></a>Vereisten voor implementatie
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -210,13 +214,13 @@ Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://doc
 
 Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk van de compute-doel die u implementeert op. Gebruik de informatie in de volgende secties voor informatie over het implementeren op:
 
-| COMPUTE-doel | Implementatietype | Description |
+| COMPUTE-doel | Implementatietype | Beschrijving |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Webservice (realtime Deductie)| Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
 | [Azure ML Compute](#azuremlcompute) | Webservice (Batch Deductie)| Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
 | [Azure Container Instances (ACI)](#aci) | Webservice (Dev/test)| Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
-| [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
+| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) wordt momenteel niet ondersteund bij het implementeren van een model als een webservice.
@@ -585,7 +589,7 @@ Uw apparaat te registreren bij Azure IoT Hub en installeer vervolgens de IoT Edg
 
 Er zijn andere methoden voor het registreren van een apparaat:
 
-* [Azure-portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure-CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
@@ -613,7 +617,7 @@ Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.
 * [Het uitvoeren van voorspellingen van batch](how-to-run-batch-predictions.md)
 * [Uw Azure Machine Learning-modellen met Application Insights bewaken](how-to-enable-app-insights.md)
 * [Verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md)
-* [Azure Machine Learning-service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)
 * [Aanbevolen procedures voor het bouwen van aanbevelingssystemen](https://github.com/Microsoft/Recommenders)
 * [Een realtime aanbeveling API bouwen op Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

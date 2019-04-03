@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755797"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878142"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gebruik en kosten voor Log Analytics in Azure Monitor beheren
 
@@ -122,7 +122,7 @@ Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u [w
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Het oplossen van waarom Log Analytics is niet meer gegevens verzamelen
 Als u zich op de oude gratis-laag en meer dan 500 MB aan gegevens op een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet wordt bereikt, is een veelvoorkomende reden die Log Analytics stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  Log Analytics maakt een gebeurtenis van het type bewerking wanneer het verzamelen van gegevens wordt gestart en gestopt. Voer de volgende query in het zoekvak om te controleren als u de dagelijkse limiet is bereikt en er gegevens ontbreken: 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 Wanneer het verzamelen van gegevens stopt, wordt de OperationStatus waarschuwing. Wanneer het verzamelen van gegevens wordt gestart, wordt de OperationStatus is voltooid. De volgende tabel beschrijft de redenen die het verzamelen van gegevens gestopt en een voorgestelde actie voor het verzamelen van gegevens hervatten:  
 
@@ -186,9 +186,11 @@ U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoor
 
 Om te zien de **grootte** van factureerbare gebeurtenissen die per computer, gebruikt u de `_BilledSize` eigenschap ([log-standaard-properties #_billedsize.md](learn more)) waarmee u de grootte in bytes:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 De `_IsBillable` -eigenschap geeft op of de opgenomen gegevens kosten in rekening gebracht ([log-standaard-properties.md #_isbillable](Learn more).)
 
@@ -205,26 +207,32 @@ Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt
 
 Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te verzenden naar een specifieke computer wilt, gebruikt:
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Gegevensvolume per Azure-resource, resourcegroep of abonnement
 
 Voor gegevens van de knooppunten die worden gehost in Azure krijgt u de **grootte** factureerbare gebeurtenissen die zijn opgenomen __per computer__, gebruikt u de `_ResourceId` eigenschap waarmee u het volledige pad naar de resource ([ logboek-standaard-properties.md #_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 Voor gegevens van de knooppunten die worden gehost in Azure krijgt u de **grootte** factureerbare gebeurtenissen die zijn opgenomen __per Azure-abonnement__, parseren de `_ResourceId` eigenschap:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 Wijzigen van `subscriptionId` naar `resourceGroup` factureerbare opgenomen gegevensvolume per Azure resouurce groep wordt weergegeven. 
 
@@ -295,7 +303,8 @@ Als u wilt zien van het aantal afzonderlijke knooppunten voor beveiliging, kunt 
 
 Als u wilt zien van het aantal afzonderlijke knooppunten voor automatisering, gebruikt u de query:
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Als u wilt zien van het aantal afzonderlijke knooppunten voor automatisering, ge
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
 
@@ -330,7 +340,7 @@ Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan
 - **Waarschuwingsvoorwaarde definiëren** - geef uw Log Analytics-werkruimte op als het resourcedoel.
 - **Waarschuwingscriteria** - geef het volgende op:
    - **Signaalnaam** - selecteer **Aangepast zoeken in logboeken**
-   - **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Zoekquery** naar `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - **Waarschuwingslogica** is **Gebaseerd op** het *aantal resultaten*, en **Voorwaarde** is *Groter dan* een **Drempelwaarde** van *0*
    - **Tijdsperiode** van *1440* minuten en **Waarschuwingsfrequentie** van elke *60* minuten, omdat de gebruiksgegevens maar één keer per uur worden bijgewerkt.
 - **Waarschuwingsdetails definiëren** - geef het volgende op:
@@ -344,7 +354,7 @@ Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld
 - **Waarschuwingsvoorwaarde definiëren** - geef uw Log Analytics-werkruimte op als het resourcedoel.
 - **Waarschuwingscriteria** - geef het volgende op:
    - **Signaalnaam** - selecteer **Aangepast zoeken in logboeken**
-   - **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Zoekquery** naar `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - **Waarschuwingslogica** is **Gebaseerd op** het *aantal resultaten*, en **Voorwaarde** is *Groter dan* een **Drempelwaarde** van *0*
    - **Tijdsperiode** van *180* minuten en **Waarschuwingsfrequentie** van elke *60* minuten, omdat de gebruiksgegevens maar één keer per uur worden bijgewerkt.
 - **Waarschuwingsdetails definiëren** - geef het volgende op:

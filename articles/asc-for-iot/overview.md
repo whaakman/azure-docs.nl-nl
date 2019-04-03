@@ -1,25 +1,25 @@
 ---
 title: Wat is Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over Azure Security Center voor IoT-functies en -service.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757595"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863029"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Maak kennis met Azure Security Center voor IoT
 
@@ -56,7 +56,7 @@ Gebruik geavanceerde analyses en de Microsoft Intelligent Security Graph om een 
 In dit overzicht, hebt u geleerd over de functies en services van ASC voor IoT. Zie voor meer informatie over ASC voor IoT-architectuur, vereisten, en leer hoe u aan de slag, de volgende artikelen:
 
 - [Architectuur](architecture.md)
-- [Service-vereisten](service-prerequisites.md)
+- [Servicevereisten](service-prerequisites.md)
 - [Aan de slag](getting-started.md)
 - [Uw oplossing definiëren](quickstart-configure-your-solution.md)
 - [ASC voor veelgestelde vragen over IoT](resources-frequently-asked-questions.md)

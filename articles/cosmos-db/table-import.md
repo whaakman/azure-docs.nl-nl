@@ -1,6 +1,6 @@
 ---
 title: Bestaande gegevens migreren naar een Table-API-account in Azure Cosmos DB
-description: Informatie over het migreren of importeren van on-premises gegevens of gegevens in de cloud naar een Azure Table-API-account in Azure Cosmos DB.
+description: Informatie over hoe migreren of importeren van on-premises of gegevens naar Azure Table-API-account in Azure Cosmos DB in de cloud.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e709aa25a8fa0a8ff6c94bf2e813151e5ecbae65
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876814"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Table-API-account
 
@@ -39,11 +39,11 @@ Het opdrachtregelprogramma voor Azure Cosmos DB-gegevensmigratie (dt.exe) kan wo
 Als u tabelgegevens wilt migreren, moet u de volgende taken uitvoeren:
 
 1. Download het migratieprogramma op [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` wordt uitgevoerd met een opdracht in de volgende indeling:
+2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` heeft een opdracht in de volgende indeling:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 Opties voor de opdracht zijn:
 
@@ -76,7 +76,7 @@ Als u de verbindingsreeks voor de bron wilt ophalen bij het importeren uit een A
 
 [Voorbeeld van Azure Table Storage-opdracht](#azure-table-storage)
 
-[Voorbeeld van opdracht voor Azure Cosmos DB Table-API (preview)](#table-api-preview)
+[Voorbeeldopdracht in Azure Cosmos DB Table-API (preview)](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Doelinstellingen voor opdrachtregel
 
@@ -147,4 +147,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 U kunt nu verdergaan met de volgende zelfstudie om te leren hoe u query's uitvoert op gegevens met de Azure Cosmos DB Table-API. 
 
 > [!div class="nextstepaction"]
->[Hoe kan ik query’s uitvoeren op gegevens?](../cosmos-db/tutorial-query-table.md)
+>[Hoe kan ik gegevens op te vragen?](../cosmos-db/tutorial-query-table.md)

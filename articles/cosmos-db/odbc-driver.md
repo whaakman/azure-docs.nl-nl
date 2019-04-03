@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816625"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851052"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met behulp van analysehulpprogramma's voor BI met het ODBC-stuurprogramma
 
@@ -97,7 +97,7 @@ Er zijn twee soorten steekproeven methoden die u kunt gebruiken: **verzameling t
 
 1. Wanneer u klaar bent met het definiëren van het schema, klikt u op **bestand** | **opslaan**, Ga naar de map op te slaan van het schema en klik vervolgens op **opslaan**.
 
-    Als u in de toekomst gebruik van dit schema met een DSN wilt, open het venster Azure Cosmos DB ODBC-stuurprogramma voor instellen van de DSN (via de ODBC-gegevensbronbeheer), klikt u op Geavanceerde opties en vervolgens in het vak schemabestand Navigeer naar de opgeslagen schema. Opslaan van een schemabestand naar een bestaande DSN Hiermee wijzigt u de DSN-verbinding met bereik tot de gegevens en de definitie van schema-structuur.
+1. Voor het gebruik van dit schema met een DSN, opent u de **Azure Cosmos DB ODBC-stuurprogramma voor instellen van de DSN-venster** (via de ODBC-gegevensbronbeheer), klikt u op **geavanceerde opties**, en klik vervolgens in de **schemabestand** vak, gaat u naar de opgeslagen schema. Opslaan van een schemabestand naar een bestaande DSN Hiermee wijzigt u de DSN-verbinding met bereik tot de gegevens en de definitie van schema-structuur.
 
 ## <a id="table-mapping"></a>Stap 4: De schemadefinitie van een met behulp van de tabel-scheidingstekens maken toewijzingsmethode
 

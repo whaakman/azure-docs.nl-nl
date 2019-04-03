@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 64fd5c80f082ba05591fd6ab66d4a8787a75d74a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165904"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851906"
 ---
 > [!NOTE]
 > De Azure Storage Common Library voor .NET (preview) is vereist om deze zelfstudie te voltooien. U kunt de nieuwste versie downloaden op [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/).

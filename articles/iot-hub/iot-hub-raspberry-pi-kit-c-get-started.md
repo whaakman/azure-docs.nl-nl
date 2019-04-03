@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b23725a4bccf753bbe7231202133771e5aaa614
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103210"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847201"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -205,8 +205,14 @@ Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die wor
 
 ![Uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>De berichten ontvangen door uw hub lezen
+
+Een manier voor het bewaken van berichten ontvangen door uw IoT-hub van het apparaat is met de Azure IoT-hulpprogramma's voor Visual Studio Code. Zie voor meer informatie, [gebruik Azure IoT-Tools voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Ga verder met de volgende sectie voor meer manieren voor het verwerken van gegevens die worden verzonden door uw apparaat.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT-Tools voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

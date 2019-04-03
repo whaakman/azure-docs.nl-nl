@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4332b2b014e9720525e33654d4c5abe56cdd617d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6e60fdaa83bc05cbe5f95d63b564162e8b9e76ef
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577217"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Zelfstudie: Azure Active Directory-integratie met ProMaster (door Inlogik)
 
@@ -129,7 +129,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met ProMaster (door Inlo
 
     | |
     | - |-|
-    | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
+    | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
     | `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
     | |
 
@@ -206,9 +206,9 @@ Wanneer u op de tegel ProMaster (door Inlogik) in het toegangsvenster, moet u wo
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

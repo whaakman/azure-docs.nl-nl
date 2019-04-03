@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439820"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879145"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>De fabrieksinstellingen van een aangepaste installatiekopie maken in Azure DevTest Labs
 Dit artikel leest u over het instellen van de fabrieksinstellingen van een aangepaste installatiekopie met behulp van voorbeelden van scripts beschikbaar in de [Git-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
@@ -27,7 +27,7 @@ Een afbeelding factory is een configuratie als code-oplossing die u bouwt en dis
 
 De aanzienlijke accelerator om op te halen van een ontwikkelaar bureaublad naar een status gereed in DevTest Labs maakt gebruik van aangepaste installatiekopieën. Het nadeel van aangepaste installatiekopieën is dat er iets extra te houden in het lab. Bijvoorbeeld, proefversies van producten verlopen na verloop van tijd (of) nieuw uitgebrachte beveiligingsupdates worden niet toegepast, die we de aangepaste installatiekopie periodiek vernieuwen forceren. Met een installatiekopie fabriek hebt u een definitie van de installatiekopie van het code-besturingselement voor de gegevensbron en een geautomatiseerd proces voor het produceren van aangepaste installatiekopieën op basis van de definitie ingecheckt.
 
-De oplossing kunt de snelheid van het maken van virtuele machines vanuit aangepaste installatiekopieën geen kosten voor extra voortdurende onderhoud meer nodig. Met deze oplossing kunt u automatisch maken van aangepaste installatiekopieën, deze toewijzen aan andere DevTest Labs en buiten gebruik stellen van de oude afbeeldingen. In de volgende video leert u over de factory afbeelding, en hoe deze geïmplementeerd met DevTest Labs.  Alle Azure Powershell-scripts zijn vrij beschikbaar is en zich hier: [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory).
+De oplossing kunt de snelheid van het maken van virtuele machines vanuit aangepaste installatiekopieën geen kosten voor extra voortdurende onderhoud meer nodig. Met deze oplossing kunt u automatisch maken van aangepaste installatiekopieën, deze toewijzen aan andere DevTest Labs en buiten gebruik stellen van de oude afbeeldingen. In de volgende video leert u over de factory afbeelding, en hoe deze geïmplementeerd met DevTest Labs.  Alle Azure Powershell-scripts zijn vrij beschikbaar is en zich hier: [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory).
 
 <br/>
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563827"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880692"
 ---
 # <a name="onboarding-requirements"></a>Voorbereidingsvereisten
 
@@ -66,7 +66,7 @@ Raadpleeg voor de compatibiliteitsmatrix van het besturingssysteem en firmware-/
 
 - De licenties en software-installatie van onderdelen voor SAP HANA (platform- of enterprise edition).
 
-**Toepassingen**
+**Applicaties**
 
 - Licenties en software-installatie van onderdelen voor SAP-toepassingen die verbinding met SAP HANA en gerelateerde SAP maken ondersteuning voor opdrachten.
 - Licenties en software-installatie van onderdelen voor niet-SAP-toepassingen die worden gebruikt met SAP HANA op Azure (grote instanties)-omgevingen en ondersteuningscontracten die betrekking hebben.

@@ -3,21 +3,21 @@ title: Uploaden van grote hoeveelheden gegevens naar Azure Data Lake Storage Gen
 description: Het hulpprogramma AdlCopy gebruiken om gegevens uit Azure Storage-blobs kopiëren naar Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 98cad0873c4ba687948dc404abc19655319bdc36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.author: twooley
+ms.openlocfilehash: 4a8126d658f227d9eed372cd51cf06f8f12c99f9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232264"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885517"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Gebruik de Azure Import/Export-service voor het offline kopiëren van gegevens naar Azure Data Lake Storage Gen1
 In dit artikel leert u hoe u wilt kopiëren van grote gegevenssets (> 200 GB) in Azure Data Lake Storage Gen1 met behulp van methoden voor offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is specifiek, 339,420,860,416 bytes of ongeveer 319 GB op schijf. Noemen we deze 319GB.tsv bestand.
@@ -211,6 +211,6 @@ Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importedda
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

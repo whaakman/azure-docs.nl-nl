@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133056"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882484"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -38,7 +38,7 @@ Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase 
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 
-Cognitive search is een preview-functie van [Azure Search](search-what-is-azure-search.md), ondersteund in [deze regio's](#where-do-i-start). 
+Cognitive search is een preview-functie van [Azure Search](search-what-is-azure-search.md).
 
 De pijplijn cognitief zoeken is gebaseerd op [Azure Search *indexeerfuncties* ](search-indexer-overview.md) die gegevensbronnen verkennen en verwerking van de end-to-end-index. Vaardigheden zijn nu gekoppeld aan indexeerfuncties, onderscheppen en verrijkende documenten op basis van de vaardigheden die u definieert. Nadat geïndexeerd, u toegang tot inhoud via search-aanvragen via alle [query's uitvoeren die worden ondersteund door Azure Search](search-query-overview.md).  Als u niet bekend bent met indexeerfuncties, doorloopt in deze sectie u de stappen.
 
@@ -135,6 +135,6 @@ Zie voor meer informatie over specifieke vragen of problemen [tips voor probleem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Documentatie voor cognitief zoeken](cognitive-search-resources-documentation.md)
-+ [Snelstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
++ [Documentatie voor Cognitief zoeken](cognitive-search-resources-documentation.md)
++ [Quickstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)

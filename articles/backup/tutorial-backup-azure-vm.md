@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258374"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863012"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Back-up van virtuele Azure-machines met PowerShell
 
@@ -82,7 +82,7 @@ Maak de kluis als volgt:
 
 Back-ups uitgevoerd volgens de planning die is opgegeven in de back-upbeleid. Als u een Recovery Services-kluis maakt, gaat deze gepaard met standaardbeleid voor beveiliging en retentie.
 
-- Volgens het standaardbeveiligingsbeleid wordt geactiveerd voor een back-uptaak een per dag op een bepaald tijdstip.
+- Volgens het standaardbeveiligingsbeleid wordt een back-uptaak geactiveerd eenmaal per dag op een bepaald tijdstip.
 - Volgens het standaardbewaarbeleid wordt het dagelijkse herstelpunt gedurende dertig dagen bewaard. 
 
 Als u wilt inschakelen en back-up maken van de Azure-VM in deze zelfstudie, doen we het volgende:
@@ -123,4 +123,4 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 - [Beoordeling](backup-azure-vms-automation.md) een meer gedetailleerd overzicht van back-up en herstellen van virtuele Azure-machines met PowerShell. 
 - [Beheren en controleren van virtuele Azure-machines](backup-azure-manage-vms.md)
-- [Azure virtuele machines herstellen](backup-azure-arm-restore-vms.md)
+- [Azure-VM's herstellen](backup-azure-arm-restore-vms.md)

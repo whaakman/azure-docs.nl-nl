@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 0167665684bc4fc8b29dce70c53033dcbb007555
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3f8fbf571efafe22d7d0c5ccfd71dded381ba6fb
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113780"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847215"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi online simulator verbinden met Azure IoT Hub (Node.js)
 
@@ -96,6 +96,11 @@ Er zijn drie gebieden in de websimulator.
 
 Ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub ![uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>De berichten ontvangen door uw hub lezen
+
+Een manier voor het bewaken van berichten ontvangen door uw IoT-hub van het gesimuleerde apparaat is met de Azure IoT-hulpprogramma's voor Visual Studio Code. Zie voor meer informatie, [gebruik Azure IoT-Tools voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Ga verder met de volgende sectie voor meer manieren voor het verwerken van gegevens die worden verzonden door uw apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 

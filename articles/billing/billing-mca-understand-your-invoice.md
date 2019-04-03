@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839726"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883006"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Meer informatie over uw factuur KLANTOVEREENKOMST van Microsoft
 
@@ -49,7 +49,7 @@ De **factuuroverzicht** is boven aan de eerste pagina en bevat informatie over u
 | POSTBUS getal |Een optionele aankoop volgordenummer door u is toegewezen voor bijhouden |
 | Factuurnummer |Een unieke, Microsoft gegenereerde factuurnummer gebruikt voor het bij te houden |
 | Factuurdatum |Datum waarop de factuur is gegenereerd, doorgaans 5 tot en met 12 dagen na het einde van de factureringscyclus. U kunt uw factuurdatum in facturering profieleigenschappen controleren.|
-| Betalingsvoorwaarden |Hoe betaalt u voor uw Microsoft-factuur. *30 dagen NET* betekent dat u betaalt door het controleren of overschrijving binnen 30 dagen na de factuurdatum. |
+| Betalingsvoorwaarden |Hoe betaalt u voor uw Microsoft-factuur. *30 dagen NET* betekent dat u binnen 30 dagen na de factuurdatum betaalt. |
 
 ### <a name="billing-summary"></a>Factureringsoverzicht van
 
@@ -57,7 +57,7 @@ De **facturering samenvatting** ziet u de kosten in rekening gebracht tegen de f
 
 ![Samenvatting van facturering](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Termijn | Description |
+| Termijn | Beschrijving |
 | --- | --- |
 | Kosten|Totaal aantal kosten van Microsoft voor dit profiel facturering sinds de laatste factureringsperiode |
 | Credits |Tegoeden die u hebt ontvangen van retourneert |

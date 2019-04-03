@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480648"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876986"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe u:
@@ -36,7 +36,7 @@ Dit onderwerp gebruikmaken van de beschikbaarheidsgroepen zijn al geconfigureerd
 Verwante onderwerpen zijn onder andere:
 
 * [AlwaysOn-beschikbaarheidsgroepen in Azure VM (GUI) configureren](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Een VNet-naar-VNet-verbinding configureren met behulp van Azure Resource Manager en PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Een VNet-naar-VNet-verbinding configureren via Azure Resource Manager en PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -65,13 +65,13 @@ De huidige [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-ava
 De voorbeelden in dit artikel geeft een standaardversie van load balancer. In de voorbeelden wordt het script bevat `-sku Standard`.
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Voor het maken van een basic load balancer verwijderen `-sku Standard` vanaf de opdrachtregel die wordt gemaakt van de load balancer. Bijvoorbeeld:
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Voorbeeldscript: Een interne load balancer maken met PowerShell
@@ -79,7 +79,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 > [!NOTE]
 > Als u hebt gemaakt met de beschikbaarheidsgroep met de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), de interne load balancer is al gemaakt.
 
-De volgende PowerShell-script maakt u een interne load balancer, configureert u de load balancer-regels en stelt een IP-adres voor de load balancer. Voer het script, opent u Windows PowerShell ISE en plak het script in het scriptvenster. Gebruik `Connect-AzAccount` aanmelden bij PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzSubscription ` om in te stellen van het abonnement. 
+De volgende PowerShell-script maakt u een interne load balancer, configureert u de load balancer-regels en stelt een IP-adres voor de load balancer. Voer het script, opent u Windows PowerShell ISE en plak het script in het scriptvenster. Gebruik `Connect-AzAccount` aanmelden bij PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzSubscription` om in te stellen van het abonnement. 
 
 ```powershell
 # Connect-AzAccount

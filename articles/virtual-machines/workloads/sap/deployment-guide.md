@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 2d296281f6865030bcdfec33d8c69cc313a358a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011905"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850887"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 
@@ -178,7 +178,7 @@ ms.locfileid: "58011905"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
+[msdn-set-Azvmaemextension]:https://docs.microsoft.com/powershell/module/az.compute/set-azvmaemextension
 
 [planning-guide]:planning-guide.md (Azure virtuele Machines, planning en implementatie van SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
@@ -234,7 +234,6 @@ ms.locfileid: "58011905"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure-netwerken)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Opslag: Microsoft Azure Storage- en gegevensschijven)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -262,7 +261,7 @@ ms.locfileid: "58011905"
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Virtuele machines beheren met behulp van Azure Resource Manager en PowerShell)
@@ -318,6 +317,8 @@ Virtuele Machines van Azure is de oplossing voor organisaties die reken- en opsl
 In dit artikel gaan we de stappen voor het implementeren van SAP-toepassingen op virtuele machines (VM's) in Azure, met inbegrip van alternatieve implementatie-opties en probleemoplossing. Dit artikel is gebaseerd op de informatie in [Azure Virtual Machines planning en implementatie van SAP NetWeaver][planning-guide]. Deze ook is een aanvulling op documentatie voor installatie van SAP en SAP-opmerkingen, de primaire bronnen zijn voor het installeren en implementeren van SAP-software.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 Instellen van een virtuele machine van Azure voor SAP-software-implementatie bestaat uit meerdere stappen en bronnen. Voordat u begint, controleert u dat u voldoet aan de vereisten voor het SAP-software installeren op virtuele machines in Azure.
 
@@ -786,7 +787,7 @@ Controleer regelmatig op updates voor de PowerShell-cmdlets, die meestal elke ma
 
 Om te controleren of de versie van de Azure PowerShell-cmdlets die zijn geïnstalleerd op uw computer, moet u deze PowerShell-opdracht uitvoeren:
 ```powershell
-(Get-Module AzureRm.Compute).Version
+(Get-Module Az.Compute).Version
 ```
 Het resultaat ziet er zo uit:
 
@@ -937,22 +938,22 @@ De Azure uitgebreide controle-extensie voor SAP installeren met behulp van Power
 
 1. Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd. Zie voor meer informatie, [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].  
 1. Voer de volgende PowerShell-cmdlet uit.
-    Voor een lijst met beschikbare omgevingen, voert u `commandlet Get-AzureRmEnvironment`. Als u wilt het gebruik van global Azure, uw omgeving is **AzureCloud**. Selecteer voor Azure in China, **AzureChinaCloud**.
+    Voor een lijst met beschikbare omgevingen, voert u `commandlet Get-AzEnvironment`. Als u wilt het gebruik van global Azure, uw omgeving is **AzureCloud**. Selecteer voor Azure in China, **AzureChinaCloud**.
 
     ```powershell
-    $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Connect-AzureRmAccount -Environment $env
-    Set-AzureRmContext -SubscriptionName <subscription name>
+    $env = Get-AzEnvironment -Name <name of the environment>
+    Connect-AzAccount -Environment $env
+    Set-AzContext -SubscriptionName <subscription name>
 
-    Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
 Nadat u de accountgegevens van uw invoeren en identificeren van de virtuele machine van Azure, wordt het script implementeert u de vereiste extensies en schakelt u de vereiste functies. Dit kan enkele minuten duren.
-Voor meer informatie over `Set-AzureRmVMAEMExtension`, Zie [Set-AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
+Voor meer informatie over `Set-AzVMAEMExtension`, Zie [Set AzVMAEMExtension][msdn-set-Azvmaemextension].
 
-![Geslaagde uitvoering van SAP-specifieke Azure-cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
+![Successful execution of SAP-specific Azure cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
 
-De `Set-AzureRmVMAEMExtension` configuratie heeft alle de stappen voor het configureren van host bewaking voor SAP.
+De `Set-AzVMAEMExtension` configuratie heeft alle de stappen voor het configureren van host bewaking voor SAP.
 
 De uitvoer van het script bevat de volgende informatie:
 
@@ -1129,15 +1130,15 @@ Als een van deze controle mislukt, en Zie voor gedetailleerde informatie over he
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>De configuratie voor de Azure monitoring infrastructuur status controleren
 
-Als een deel van de bewaking correct zoals aangegeven door de test wordt beschreven in gegevens niet worden afgeleverd [gereedheidscontrole voor Azure uitgebreide bewaking voor SAP][deployment-guide-5.1], voert de `Test-AzureRmVMAEMExtension` cmdlet om te controleren of de Azure-infrastructuur en de controle-extensie bewaking voor SAP zijn correct geconfigureerd.
+Als een deel van de bewaking correct zoals aangegeven door de test wordt beschreven in gegevens niet worden afgeleverd [gereedheidscontrole voor Azure uitgebreide bewaking voor SAP][deployment-guide-5.1], voert de `Test-AzVMAEMExtension` cmdlet om te controleren of de Azure-infrastructuur en de controle-extensie bewaking voor SAP zijn correct geconfigureerd.
 
 1. Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd, zoals beschreven in [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].
-1. Voer de volgende PowerShell-cmdlet uit. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzureRmEnvironment`. Voor het gebruik van global Azure, selecteer de **AzureCloud** omgeving. Selecteer voor Azure in China, **AzureChinaCloud**.
+1. Voer de volgende PowerShell-cmdlet uit. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzEnvironment`. Voor het gebruik van global Azure, selecteer de **AzureCloud** omgeving. Selecteer voor Azure in China, **AzureChinaCloud**.
    ```powershell
-   $env = Get-AzureRmEnvironment -Name <name of the environment>
-   Connect-AzureRmAccount -Environment $env
-   Set-AzureRmContext -SubscriptionName <subscription name>
-   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   $env = Get-AzEnvironment -Name <name of the environment>
+   Connect-AzAccount -Environment $env
+   Set-AzContext -SubscriptionName <subscription name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
 1. Voer uw accountgegevens en identificeren van de virtuele machine van Azure.
@@ -1168,7 +1169,7 @@ De installatiemap C:\\pakketten\\invoegtoepassingen\\Microsoft.AzureCAT.AzureEnh
 
 ###### <a name="solution"></a>Oplossing
 
-De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy is (zoals eerder beschreven). U moet mogelijk de machine opnieuw starten of opnieuw uitvoeren de `Set-AzureRmVMAEMExtension` configuratiescript.
+De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy is (zoals eerder beschreven). U moet mogelijk de machine opnieuw starten of opnieuw uitvoeren de `Set-AzVMAEMExtension` configuratiescript.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Service voor Azure verbeterde controle bestaat niet
 
@@ -1201,7 +1202,7 @@ De configuratie is onjuist. Opnieuw opstarten van de controle-extensie voor de v
 
 De AzureEnhancedMonitoring Windows-service verzamelt metrische gegevens voor prestaties in Azure. Gegevens van de service worden opgehaald uit verschillende bronnen. Sommige configuratiegegevens lokaal worden verzameld, en sommige metrische gegevens voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag worden kunnen uw aanmelden op het abonnementsniveau opslag gebruikt.
 
-Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem, opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript. Mogelijk moet u wacht een uur omdat storage analytics of diagnostische gegevens van prestatiemeteritems kunnen niet worden gemaakt, onmiddellijk nadat deze zijn ingeschakeld. Als het probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op de component BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
+Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem, opnieuw de `Set-AzVMAEMExtension` configuratiescript. Mogelijk moet u wacht een uur omdat storage analytics of diagnostische gegevens van prestatiemeteritems kunnen niet worden gemaakt, onmiddellijk nadat deze zijn ingeschakeld. Als het probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op de component BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure-prestatiemeteritems, worden niet weergegeven op alle
 
@@ -1215,13 +1216,13 @@ De map \\var\\lib\\waagent\\ heeft geen een submap voor de extensie voor Azure v
 
 ###### <a name="solution"></a>Oplossing
 
-De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy is (zoals eerder beschreven). Mogelijk moet u start de computer opnieuw op en/of opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript.
+De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy is (zoals eerder beschreven). Mogelijk moet u start de computer opnieuw op en/of opnieuw de `Set-AzVMAEMExtension` configuratiescript.
 
-##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>De uitvoering van Set-AzureRmVMAEMExtension en Test-AzureRmVMAEMExtension waarschuwingsberichten Standard Managed Disks worden niet ondersteund met de mededeling weergeven
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>De uitvoering van Set-AzVMAEMExtension en Test-AzVMAEMExtension waarschuwingsberichten Standard Managed Disks worden niet ondersteund met de mededeling weergeven
 
 ###### <a name="issue"></a>Probleem
 
-Wanneer uitvoeren Set-AzureRmVMAEMExtension of Test-AzureRmVMAEMExtension zoals deze berichten worden weergegeven:
+Wanneer uitvoeren Set AzVMAEMExtension of Test-AzVMAEMExtension zoals deze berichten worden weergegeven:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
@@ -1242,4 +1243,4 @@ Metrische gegevens voor prestaties in Azure worden door een daemon Hiermee haalt
 
 Zie voor een volledige en bijgewerkte lijst van bekende problemen, SAP-notitie [1999351], die bevat aanvullende informatie over probleemoplossing voor uitgebreide Azure-bewaking voor SAP.
 
-Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem, opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript zoals beschreven in [configureren van de Azure uitgebreide controle-extensie voor SAP] [deployment-guide-4.5]. Mogelijk moet u wachten op een uur omdat storage analytics of diagnostische gegevens van prestatiemeteritems kunnen niet worden gemaakt, onmiddellijk nadat deze zijn ingeschakeld. Als het probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op de component BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
+Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem, opnieuw de `Set-AzVMAEMExtension` configuratiescript zoals beschreven in [configureren van de Azure uitgebreide controle-extensie voor SAP] [deployment-guide-4.5]. Mogelijk moet u wachten op een uur omdat storage analytics of diagnostische gegevens van prestatiemeteritems kunnen niet worden gemaakt, onmiddellijk nadat deze zijn ingeschakeld. Als het probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op de component BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.

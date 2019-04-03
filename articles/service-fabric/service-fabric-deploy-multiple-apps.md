@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 7fb4c68d10478a7c8af62262b3fa4633eaac9d2b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660405"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884717"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
 In dit artikel laat zien hoe verpakken en implementeren van meerdere gastbestanden Azure Service fabric. Lees hoe voor het bouwen en implementeren van een enkele Service Fabric-pakket naar [een door gasten uitvoerbare bestanden implementeren naar Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ U kunt Visual Studio gebruiken voor het produceren van het toepassingspakket met
 * [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming-service met behulp van REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Handmatig de meerdere door Gast uitvoerbare toepassing verpakken
-U kunt ook handmatig de Gast uitvoerbare verpakken. Voor de handmatige verpakking, in dit artikel wordt het hulpprogramma voor het verpakken van Service Fabric, dat beschikbaar is op [ http://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+U kunt ook handmatig de Gast uitvoerbare verpakken. Voor de handmatige verpakking, in dit artikel wordt het hulpprogramma voor het verpakken van Service Fabric, dat beschikbaar is op [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>De Node.js-toepassing Inpakken
 In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de knooppunten in het Service Fabric-cluster. Als gevolg hiervan moet u Node.exe naar de hoofdmap van uw knooppunttoepassing voorafgaand aan pakketten toevoegen. De mapstructuur van de Node.js-toepassing (met behulp van de Express-webstructuur en Jade sjabloon-engine) ziet er ongeveer zo uit:

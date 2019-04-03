@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118422"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884156"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler configureren
 
@@ -39,6 +39,9 @@ De **voor Application Insights Profiler configureren** deelvenster bevat vier on
 Afhankelijk van hoe uw Azure App Service-omgeving is geconfigureerd, kan de aanroep om te controleren op de agentstatus wordt geblokkeerd. Het deelvenster mogelijk een bericht dat de agent is niet actief, zelfs wanneer deze wordt uitgevoerd weergegeven. Om ervoor te zorgen dat het is, Controleer de webtaak op uw toepassing. Als alle waarden van de app-instellingen juist zijn en de Application Insights-site-extensie is geïnstalleerd op uw toepassing, wordt Profiler uitgevoerd. Als uw toepassing voldoende verkeer ontvangt, moeten in een lijst met recente profilering sessies weergegeven.
 
 ## <a id="profileondemand"></a> Profiler handmatig activeren
+
+### <a name="minimum-requirements"></a>Minimale vereisten 
+Voor een gebruiker handmatig activeren een profiler-sessie moeten ze ten minste "schrijftoegang' op hun rol voor de Application Insights-onderdeel. In de meeste gevallen krijgt u deze toegang automatisch en geen extra werk is vereist. Als u problemen ondervindt, zou de rol "Application Insights-Onderdeelinzender" zijn in het bereik abonnement de rol toe te voegen. [Zie voor meer informatie over rollen van toegangsbeheer met Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 Met één klik kunt u Profiler handmatig activeren. Stel dat u een webprestatietesten uitvoert. Hebt u traceringen om te begrijpen hoe uw web-app wordt uitgevoerd onder belasting nodig. Controle over wanneer traceringen worden vastgelegd met is cruciaal omdat u weet wanneer de belastingstest wordt uitgevoerd. Maar het interval van steekproeven mogelijk worden gemist.
 

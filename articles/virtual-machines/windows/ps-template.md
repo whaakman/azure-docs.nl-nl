@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bc578d931235623f6cfed45724ad408d3201c61
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c1ba96c76c51abcfe5bb5ef9bd66eb8a50afdfda
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367929"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846621"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Een Windows virtuele machine maken van een Resource Manager-sjabloon
 
@@ -59,7 +59,7 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Als u wilt installeren en gebruiken van de PowerShell lokaal in plaats van via de Azure Cloud shell, wordt in deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u wilt installeren en gebruiken van de PowerShell lokaal in plaats van via de Azure Cloud shell, wordt in deze zelfstudie de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 In het vorige voorbeeld, maar u hebt opgegeven een sjabloon die is opgeslagen in GitHub. U kunt ook downloaden of een sjabloon maken en geef het lokale pad op met de `--template-file` parameter.
 

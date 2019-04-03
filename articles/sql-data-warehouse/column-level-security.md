@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 06/15/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: f1452b1f15fe176107015957cdd1cd1cff5f4e55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58172849"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879179"
 ---
 # <a name="column-level-security"></a>Beveiliging op kolomniveau
 Beveiliging op kolomniveau (CLS) kunnen klanten voor het beheren van toegang tot database tabelkolommen op basis van de uitvoeringscontext van de gebruiker of hun groepslidmaatschap.

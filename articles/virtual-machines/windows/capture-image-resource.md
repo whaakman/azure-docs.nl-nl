@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341762"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847577"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maak een beheerde installatiekopie van een gegeneraliseerde VM in Azure
 
@@ -84,10 +84,11 @@ Als u wilt uw Windows-VM generaliseren, de volgende stappen uit:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Maken van een installatiekopie van een virtuele machine met behulp van Powershell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine zorgt ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, met inbegrip van de schijf met het besturingssysteem en eventuele gegevensschijven. In dit voorbeeld laat zien hoe een beheerde installatiekopie maken van een virtuele machine die maakt gebruik van schijven beheerde.
 
-
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzAccount` voor het maken van een verbinding met Azure.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de Azure PowerShell-module hebt. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable Az` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/azurerm/install-az-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzAccount` voor het maken van een verbinding met Azure.
 
 
 > [!NOTE]

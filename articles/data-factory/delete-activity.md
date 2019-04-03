@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404765"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881780"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activiteit in Azure Data Factory verwijderen
 
-U kunt de activiteit verwijderen in Azure Data Factory gebruiken om bestanden te verwijderen of mappen uit de on-premises opslag worden opgeslagen of in de cloud storage winkels. Gebruik deze activiteit op te schonen of voor het archiveren van bestanden wanneer ze niet langer nodig zijn.
+U kunt de activiteit verwijderen in Azure Data Factory gebruiken om bestanden te verwijderen of mappen van on-premises opslag worden opgeslagen of in de cloud storage winkels. Gebruik deze activiteit op te schonen of voor het archiveren van bestanden wanneer ze niet langer nodig zijn.
 
 > [!WARNING]
 > Verwijderde bestanden of mappen kunnen niet worden hersteld. Wees voorzichtig bij het gebruik van de activiteit verwijderen te verwijderen van bestanden of mappen.
@@ -37,7 +37,7 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
 
 -   Zorg ervoor dat u bent niet verwijderen van bestanden die op hetzelfde moment worden geschreven. 
 
--   Als u verwijderen van bestanden of mappen van een on-premises systeem wilt, zorg er dan voor dat u gebruikmaakt van een zelf-hostende integratieruntime met een versie die groter is dan 3,14.
+-   Als u verwijderen van bestanden of map uit een on-premises systeem wilt, zorg er dan voor dat u gebruikmaakt van een zelf-hostende integratieruntime met een versie die groter is dan 3,14.
 
 ## <a name="supported-data-stores"></a>Ondersteunde gegevensarchieven
 

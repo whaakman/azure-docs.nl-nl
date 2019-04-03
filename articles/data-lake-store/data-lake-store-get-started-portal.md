@@ -3,19 +3,19 @@ title: Gebruik Azure-portal aan de slag met Azure Data Lake Storage Gen1 | Micro
 description: Gebruik de Azure-portal een Azure Data Lake Storage Gen1-account maakt en basisbewerkingen uitvoert, in het Data Lake Storage Gen1-account.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005698"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883578"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure portal
 
@@ -124,7 +124,7 @@ Als een Gen1 van Data Lake Storage-account verwijderen uit de blade Data Lake St
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Data Lake Storage Gen1 gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 
-* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Bescherm uw gegevens in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

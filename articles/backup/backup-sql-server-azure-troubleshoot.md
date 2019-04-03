@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286009"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847456"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
@@ -35,7 +35,7 @@ Gebruik de informatie in de volgende tabellen om het oplossen van problemen en f
 
 ### <a name="backup-type-unsupported"></a>Type back-up wordt niet ondersteund
 
-| Severity | Description | Mogelijke oorzaken | Aanbevolen actie |
+| Severity | Beschrijving | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|---|
 | Waarschuwing | Huidige instellingen voor deze database bieden geen ondersteuning voor bepaalde soorten back-uptypen aanwezig zijn in het bijbehorende beleid. | <li>**DB-master**: Alleen een volledige database back-upbewerking kan worden uitgevoerd op de database master. geen van beide **differentiële** back-ups of transactie **logboeken** back-up is mogelijk. </li> <li>Elke database in **eenvoudige herstelmodel** is niet toegestaan voor de transactie **logboeken** back-up moeten worden uitgevoerd.</li> | De database-instellingen wijzigen zodat de back-typen in het beleid worden ondersteund. U kunt ook het huidige beleid zodanig dat alleen de ondersteunde back-uptypen wijzigen. Anders wordt de niet-ondersteunde back-uptypen overgeslagen tijdens de geplande back-up of de back-uptaak mislukt voor ad-hoc back-up.
 
@@ -98,12 +98,18 @@ De volgende foutcodes worden weergegeven bij het herstellen taken mislukken.
 |---|---|---|
 | Herstellen is mislukt omdat de database niet offline kan worden gebracht. | Bij het uitvoeren van een herstelpunt, moet de doeldatabase moet offline worden gezet. Azure Backup kan niet deze gegevens offline te brengen. | Aan de hand van de aanvullende gegevens in het menu van Azure portal fout om de belangrijkste oorzaken vast te stellen. Zie voor meer informatie de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Kan het certificaat van de server met de vingerafdruk niet vinden op de doelcomputer. | De Master-database op de doel-exemplaar beschikt niet over de vingerafdruk van een geldige versleuteling. | De vingerafdruk van het geldig certificaat gebruikt op het bronexemplaar, in de doelinstantie importeren. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
+|---|---|---|
+| De logboekback-up die is gebruikt voor herstel bevat bulksgewijs geregistreerde wijzigingen. Het kan niet worden gebruikt om te stoppen op een willekeurig tijdstip aan de hand van de SQL-richtlijnen. | Wanneer een database in de modus voor bulksgewijs geregistreerde herstel is, kan de gegevens tussen een bulksgewijs geregistreerde transactie en de volgende log-transactie kan niet worden hersteld. | Kies een ander punt in tijd voor herstel. [Meer informatie](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Registratiefouten
 

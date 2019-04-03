@@ -1,25 +1,25 @@
 ---
 title: Configureren van uw Azure Security Center voor IoT-oplossing Preview | Microsoft Docs
 description: Informatie over het configureren van uw end-to-end-IoT-oplossing met behulp van Azure Security Center voor IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0fc67f77e907bd0bc939bf95b34ed4daaab29a2d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 64a04861b14e48eaa14a369546dd9d54bf59f019
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756783"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861918"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Quickstart: Configureren van uw IoT-oplossing
 
