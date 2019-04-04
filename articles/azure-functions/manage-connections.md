@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893212"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Verbindingen beheren in Azure Functions
 
@@ -23,7 +23,7 @@ Functies in een functie-app resources delen. Zijn de verbindingen tussen deze ge
 
 Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in een [sandbox-omgeving](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen (dat zich momenteel in 600 actieve verbindingen en 1200 totaal aantal verbindingen)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per exemplaar. Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
 
-Deze limiet is per exemplaar.  Wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works) voor het afhandelen van meer aanvragen, heeft elk exemplaar een onafhankelijke verbindingslimiet. Dit betekent dat er is geen limiet globale verbinding, en u kunt veel meer dan 600 actieve verbindingen voor alle actieve exemplaren.
+Deze limiet is per exemplaar.  Wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-and-premium-plans-work) voor het afhandelen van meer aanvragen, heeft elk exemplaar een onafhankelijke verbindingslimiet. Dit betekent dat er is geen limiet globale verbinding, en u kunt veel meer dan 600 actieve verbindingen voor alle actieve exemplaren.
 
 ## <a name="static-clients"></a>Statische clients
 

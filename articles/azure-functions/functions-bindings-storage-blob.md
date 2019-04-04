@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437471"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895846"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
 In dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage-bindingen in Azure Functions. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor blobs. Dit artikel bevat een sectie voor elke binding:
 
-* [Blob trigger](#trigger)
+* [Blob-trigger](#trigger)
 * [BLOB-Invoerbinding](#input)
 * [BLOB-Uitvoerbinding](#output)
 
@@ -78,9 +78,9 @@ Naast het Event Grid, een ander alternatief voor het verwerken van BLOB's is de 
 Zie het voorbeeld taalspecifieke:
 
 * [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
+* [C#-script (.csx)](#trigger---c-script-example)
 * [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
+* [Javascript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
@@ -317,9 +317,9 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blobTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
-|**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. |
-|**path** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). |
+|**richting** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
+|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. |
+|**pad** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). |
 |**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [Blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -444,7 +444,7 @@ Als alle 5 pogingen mislukken, Azure Functions een bericht toevoegt aan een opsl
 
 De blobtrigger gebruikmaakt van een wachtrij intern, zodat het maximum aantal gelijktijdige functieaanroepen wordt bepaald door de [wachtrijen configuratie in host.json](functions-host-json.md#queues). De standaardinstellingen beperken gelijktijdigheid van taken naar 24 aanroepen. Deze limiet geldt afzonderlijk voor elke functie die gebruikmaakt van een blobtrigger.
 
-[Het verbruiksabonnement](functions-scale.md#how-the-consumption-plan-works) een functie-app op een virtuele machine (VM) tot 1,5 GB geheugen beperkt. Geheugen wordt gebruikt door elk gelijktijdig worden uitgevoerd exemplaar van de functie en de Functions-runtime zelf. Als een blob-geactiveerde functie wordt de hele blob in het geheugen geladen, de maximale hoeveelheid geheugen die wordt gebruikt door deze functie alleen voor blobs is 24 uur per dag * maximale blob-grootte. Een functie-app met drie blob geactiveerde functies en de standaardinstellingen zou bijvoorbeeld een maximum aantal VM-gelijktijdigheid van 3 * 24 uur per dag = 72 functie aanroepen.
+[Het verbruiksabonnement](functions-scale.md#how-the-consumption-and-premium-plans-work) een functie-app op een virtuele machine (VM) tot 1,5 GB geheugen beperkt. Geheugen wordt gebruikt door elk gelijktijdig worden uitgevoerd exemplaar van de functie en de Functions-runtime zelf. Als een blob-geactiveerde functie wordt de hele blob in het geheugen geladen, de maximale hoeveelheid geheugen die wordt gebruikt door deze functie alleen voor blobs is 24 uur per dag * maximale blob-grootte. Een functie-app met drie blob geactiveerde functies en de standaardinstellingen zou bijvoorbeeld een maximum aantal VM-gelijktijdigheid van 3 * 24 uur per dag = 72 functie aanroepen.
 
 JavaScript en Java-functies in het geheugen, de hele blob laden en C# functies dat doen als u met maken `string`, `Byte[]`, of POCO.
 
@@ -463,9 +463,9 @@ Een Invoerbinding van Blob storage gebruiken om te lezen van blobs.
 Zie het voorbeeld taalspecifieke:
 
 * [C#](#input---c-example)
-* [C# script (.csx)](#input---c-script-example)
+* [C#-script (.csx)](#input---c-script-example)
 * [Java](#input---java-examples)
-* [JavaScript](#input---javascript-example)
+* [Javascript](#input---javascript-example)
 * [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>Invoer - voorbeeld met C#
@@ -637,7 +637,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 Deze sectie bevat de volgende voorbeelden:
 
 * [HTTP-trigger, zoekt u naar blob-naam van de query-tekenreeks](#http-trigger-look-up-blob-name-from-query-string-java)
-* [Trigger in de wachtrij, blob-naam van de wachtrijbericht ontvangen](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP-trigger, zoekt u naar blob-naam van de query-tekenreeks (Java)
 
@@ -728,11 +728,11 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blob`. |
-|**direction** | N.v.t. | Moet worden ingesteld op `in`. Uitzonderingen worden vermeld in de [gebruik](#input---usage) sectie. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.|
-|**path** |**BlobPath** | Het pad naar de blob. |
+|**richting** | N.v.t. | Moet worden ingesteld op `in`. Uitzonderingen worden vermeld in de [gebruik](#input---usage) sectie. |
+|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.|
+|**pad** |**BlobPath** | Het pad naar de blob. |
 |**verbinding** |**Verbinding**| De naam van een app-instelling met de [opslagverbindingsreeks](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
+|N.v.t. | **Access** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -768,9 +768,9 @@ Gebruik Blob storage-uitvoerbindingen schrijven blobs.
 Zie het voorbeeld taalspecifieke:
 
 * [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
+* [C#-script (.csx)](#output---c-script-example)
 * [Java](#output---java-examples)
-* [JavaScript](#output---javascript-example)
+* [Javascript](#output---javascript-example)
 * [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Uitvoer - voorbeeld met C#
@@ -1062,11 +1062,11 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blob`. |
-|**direction** | N.v.t. | Moet worden ingesteld op `out` voor een Uitvoerbinding. Uitzonderingen worden vermeld in de [gebruik](#output---usage) sectie. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.  Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
-|**path** |**BlobPath** | Het pad naar de blobco. |
+|**richting** | N.v.t. | Moet worden ingesteld op `out` voor een Uitvoerbinding. Uitzonderingen worden vermeld in de [gebruik](#output---usage) sectie. |
+|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.  Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
+|**pad** |**BlobPath** | Het pad naar de blobco. |
 |**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
+|N.v.t. | **Access** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

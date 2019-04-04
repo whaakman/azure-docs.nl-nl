@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541278"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893058"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -96,7 +96,7 @@ Zie voor meer informatie:
 
 - [SERVERAUDIT MAKEN](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
 - [ALTER SERVERAUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Controle](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [Controleren](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certificaten
 
@@ -332,7 +332,7 @@ Een beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zo
 Een beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat de volgende beperkingen zijn van toepassing:
 
 - Alleen `CREATE ASSEMBLY FROM BINARY` wordt ondersteund. Zie [maken van de ASSEMBLY van binaire](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` is't ondersteund. Zie [ASSEMBLY maken vanuit bestand](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `CREATE ASSEMBLY FROM FILE` wordt niet ondersteund. Zie [ASSEMBLY maken vanuit bestand](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` kan niet verwijzen naar bestanden. Zie [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="dbcc"></a>DBCC
@@ -457,7 +457,7 @@ Cross-exemplaar van service broker wordt niet ondersteund:
   - `remote proc trans`
 - `sp_execute_external_scripts` wordt niet ondersteund. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` wordt niet ondersteund. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` worden niet ondersteund, met inbegrip van `sp_addextendedproc`  en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` worden niet ondersteund, met inbegrip van `sp_addextendedproc` en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ## <a name="Changes"></a> Gedragswijzigingen

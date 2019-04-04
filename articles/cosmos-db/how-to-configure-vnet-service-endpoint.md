@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101122"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904216"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>De toegang van virtuele netwerken (VNet) configureren
 
@@ -27,6 +27,8 @@ U kunt Azure Cosmos DB-accounts voor toegang van alleen een specifiek subnet van
 > Zie voor meer informatie, de stappen die worden beschreven de [migreren van een IP-firewallregel naar een virtueel netwerk access control list](#migrate-from-firewall-to-vnet) sectie van dit artikel. 
 
 De volgende secties wordt beschreven hoe u een service-eindpunt voor virtueel netwerk voor een Azure Cosmos DB-account configureren.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a id="configure-using-portal"></a>Een service-eindpunt configureren met behulp van de Azure-portal
 
@@ -90,7 +92,7 @@ Om ervoor te zorgen dat u toegang tot Azure Cosmos DB metrische gegevens van de 
 
 Gebruik de volgende stappen uit om te configureren van een service-eindpunt voor een Azure Cosmos DB-account met behulp van Azure PowerShell:  
 
-1. Installeer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) en [aanmelden](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Installeer [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) en [aanmelden](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Schakel de service-eindpunt voor een bestaand subnet van een virtueel netwerk.  
 
@@ -100,18 +102,18 @@ Gebruik de volgende stappen uit om te configureren van een service-eindpunt voor
    $sname = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
 
-   Get-AzureRmVirtualNetwork `
+   Get-AzVirtualNetwork `
     -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
     -Name $sname  `
     -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
    ```
 
 1. Ophalen van informatie over virtuele netwerken.
 
    ```powershell
-   $vnProp = Get-AzureRmVirtualNetwork `
+   $vnProp = Get-AzVirtualNetwork `
      -Name $vnName `
      -ResourceGroupName $rgName
    ```
@@ -122,7 +124,7 @@ Gebruik de volgende stappen uit om te configureren van een service-eindpunt voor
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -162,7 +164,7 @@ Gebruik de volgende stappen uit om te configureren van een service-eindpunt voor
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -173,7 +175,7 @@ Gebruik de volgende stappen uit om te configureren van een service-eindpunt voor
 1. Voer de volgende opdracht om te controleren of uw Azure Cosmos DB-account is bijgewerkt met de service-eindpunt voor virtueel netwerk die u hebt geconfigureerd in de vorige stap:
 
    ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
+   $UpdatedcosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -225,7 +227,7 @@ Nadat een service-eindpunt voor een Azure Cosmos DB-account is ingeschakeld voor
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -268,7 +270,7 @@ Nadat een service-eindpunt voor een Azure Cosmos DB-account is ingeschakeld voor
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
       -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
       -ApiVersion $apiVersion `
       -ResourceGroupName $rgName `
@@ -288,12 +290,12 @@ Nadat een service-eindpunt voor een Azure Cosmos DB-account is ingeschakeld voor
     $sname = "<Subnet name>"
     $subnetPrefix = "<Subnet address range>"
 
-    Get-AzureRmVirtualNetwork `
+    Get-AzVirtualNetwork `
        -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
        -Name $sname `
        -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
 1. Verwijder de IP-firewallregel voor het subnet.

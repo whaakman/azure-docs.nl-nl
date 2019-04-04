@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0d0b3b38fe39e32c6a3c7c39de5cbed4f7400d92
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d78b10edd005a593b4ebe4f34ca2280ccdfdaa04
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435889"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918906"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN-producteigenschappen vergelijken
 
@@ -28,7 +28,7 @@ Azure Content Delivery Network (CDN) bevat vier producten: **Azure CDN Standard 
 
 De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
 
-| **Prestatiefuncties en -optimalisatie** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
+| **Prestatiefuncties en -optimalisatie** | **Standaard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
 | [Dynamische siteversnelling](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | Die worden aangeboden via [Azure voordeur Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamische siteversnelling - adaptieve afbeeldingscompressie](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -46,31 +46,31 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
 | Instellingen voor cache/koptekst (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | Omleidings-URL/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | Regels voor mobiele apparaten (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| [Queryreeksen opslaan in cache](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Opslaan in cache van queryreeks](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ondersteuning voor HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Beveiliging** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+ **Beveiliging** | **Standaard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | HTTPS-ondersteuning met CDN-eindpunt | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTPS voor aangepaste domeinen](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ondersteuning voor aangepaste domeinnamen](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geofilters](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Geo-filteren](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Tokenverificatie](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
-| [DDOS-beveiliging](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Uw eigen certificaat gebruiken](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
+| [DDoS-beveiliging](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Uw eigen certificaat overbrengen](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
-| **Analytics and reporting** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| **Analyse en rapportage** | **Standaard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Diagnostische logboeken in Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Verizon-kernrapporten](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Aangepaste Verizon-rapporten](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Geavanceerde HTTP-rapporten](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [Realtime statistieken](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
-| [Prestaties van edge-knooppunt](cdn-edge-performance.md)  |  | | |**&#x2713;** |
+| [Prestaties van Edge-knooppunt](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Realtime waarschuwingen](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Gebruiksgemak** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| **Gebruiksgemak** | **Standaard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Beheer via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compressie MIME-typen](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Standaard alleen |Configureerbare |Configureerbare  |Configureerbare  |
 | Compressie coderingen  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ff1239093f7562bd314305ae3ea8a580fddb8326
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862272"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895829"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Trainen van uw actieve versie van de LUIS-app 
 
@@ -60,5 +60,5 @@ Als u wilt weten wanneer de training is voltooid, moet u de status te peilen tot
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Functies gebruiken om uw LUIS-app-prestaties te verbeteren](luis-how-to-add-features.md) 

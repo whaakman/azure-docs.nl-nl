@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121393"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903757"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Profielsjablonen van de gebruiker in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -30,7 +30,7 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 -   [Abonnementen](#Subscriptions)  
   
--   [Toepassingen](#Applications)  
+-   [Applicaties](#Applications)  
   
 -   [Accountgegevens bijwerken](#UpdateAccountInfo)  
   
@@ -106,17 +106,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 |Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|string|De voornaam van de huidige gebruiker.|  
-|lastName|string|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
-|isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|`firstName`|string|De voornaam van de huidige gebruiker.|  
+|`lastName`|string|De achternaam van de huidige gebruiker.|  
+|`companyName`|string|De naam van het bedrijf van de huidige gebruiker.|  
+|`addresserEmail`|string|E-mailadres van de huidige gebruiker.|  
+|`developersUsageStatisticsLink`|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|`subscriptions`|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
+|`applications`|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
+|`changePasswordUrl`|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|`changeNameOrEmailUrl`|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|`canChangePassword`|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
+|`isSystemUser`|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
@@ -327,17 +327,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 |Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|string|De voornaam van de huidige gebruiker.|  
-|lastName|string|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
-|isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|`firstName`|string|De voornaam van de huidige gebruiker.|  
+|`lastName`|string|De achternaam van de huidige gebruiker.|  
+|`companyName`|string|De naam van het bedrijf van de huidige gebruiker.|  
+|`addresserEmail`|string|E-mailadres van de huidige gebruiker.|  
+|`developersUsageStatisticsLink`|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|`subscriptions`|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
+|`applications`|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
+|`changePasswordUrl`|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|`changeNameOrEmailUrl`|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|`canChangePassword`|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
+|`isSystemUser`|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
@@ -490,17 +490,17 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 |Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
-|Voornaam|string|De voornaam van de huidige gebruiker.|  
-|lastName|string|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|string|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|string|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
-|isSystemUser|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|`firstName`|string|De voornaam van de huidige gebruiker.|  
+|`lastName`|string|De achternaam van de huidige gebruiker.|  
+|`companyName`|string|De naam van het bedrijf van de huidige gebruiker.|  
+|`addresserEmail`|string|E-mailadres van de huidige gebruiker.|  
+|`developersUsageStatisticsLink`|string|Relatieve URL analyses voor de huidige gebruiker weergeven.|  
+|`subscriptions`|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
+|`applications`|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
+|`changePasswordUrl`|string|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
+|`changeNameOrEmailUrl`|string|De relatieve URL naar de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
+|`canChangePassword`|booleaans|De huidige gebruiker kan of hun wachtwoord wijzigen.|  
+|`isSystemUser`|booleaans|Of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   

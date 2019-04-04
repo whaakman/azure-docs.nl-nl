@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418683"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895542"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -89,14 +89,14 @@ Nadat de entiteit is uitgepakt, kunt u de entiteitsgegevens weergegeven als éé
 |Machine geleerd|Can Mark|Zelfstudie|Voorbeeld<br>Antwoord|Entiteitstype|Doel|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Samengestelde**](#composite-entity)|Groepering van entiteiten, ongeacht het entiteitstype.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
+|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiërarchische**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lijst**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
 |Gemengd||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudige**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Vooraf gedefinieerde**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Gewone expressie**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudig**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
 
-Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen voor elke doel. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
+Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen voor elke doel. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endpoint-utterances.md). 
 
 Pattern.any entiteiten moeten worden gemarkeerd de [patroon](luis-how-to-model-intent-pattern.md) sjabloonvoorbeelden, niet de bedoeling gebruiker voorbeelden. 
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890779"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895965"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
@@ -23,15 +23,17 @@ Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure M
 ## <a name="video-insights"></a>Inzichten in video 's
 
 - **Gezichtsdetectie**: Detecteert en groepen gezichten worden weergegeven in de video.
-- **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actoren en actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
+- **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actors, actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
 - **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Gezichten in de video die op basis van het getrainde model vervolgens herkent. Zie voor meer informatie, [aanpassen van een persoon-model van de website Video Indexer](customize-person-model-with-website.md) en [aanpassen van een persoon-model met de Video Indexer-API](customize-person-model-with-api.md).
 - **Miniaturen extractie voor gezichten** ('beste face"): Automatisch de beste vastgelegde gezicht in elke groep van gezichten wordt uitgevoerd (gebaseerd op de kwaliteit, de grootte en positie van de voorzijde) identificeert en pak het uit als een afbeelding asset.
 - **Visual tekstherkenning** (OCR): Retourneert de tekst die visueel wordt weergegeven in de video.
 - **Visual inhoudstoezicht**: Detecteert volwassen en/of ongepaste visuele elementen.
 - **Identificatie van labels**: Hiermee geeft u visuele objecten en acties die worden weergegeven.
-- **Detectie van agenda**: Bepaalt wanneer een scène wordt gewijzigd in de video.
+- **Scène segmentering**: Hiermee bepaalt u wanneer een scène wijzigingen in de video op basis van visuele aanwijzingen. Een scène ziet u één gebeurtenis en het bestaat uit een reeks opeenvolgende slagen, die semantisch zijn gerelateerd. 
+- **Detectie van agenda**: Hiermee bepaalt u wanneer een opname in de video op basis van visuele aanwijzingen verandert. Een schermopname is een reeks frames die zijn overgenomen uit de dezelfde filmstudio camera. Zie voor meer informatie, [scènes, foto's en hoofdframes](scenes-shots-keyframes.md).
 - **Detectie van een zwarte**: Hiermee geeft u zwarte frames die zijn gepresenteerd in de video.
 - **Sleutelframes extractie**: Detecteert stabiel hoofdframes in een video.
+- **Rolling tegoed**: het begin en einde van de rolling-credits in het einde van tv-programma's en films identificeren.
 
 ## <a name="audio-insights"></a>Audio insights
 
@@ -69,15 +71,14 @@ U kunt zich registreren voor de service met behulp van een bestaand account van 
 Hieronder vindt u enkele scenario's waarin Video Indexer van pas kan komen:
 
 - Zoeken: inzichten die zijn geëxtraheerd uit de video kunnen worden gebruikt voor het verbeteren van de zoekervaring in een videobibliotheek. Zo is het bijvoorbeeld mogelijk om door het indexeren van gesproken woorden en gezichten momenten in een video te vinden waarop een bepaalde persoon bepaalde woorden heeft uitgesproken of waarop twee personen samen zijn te zien. Zoekopdrachten op basis van dergelijke inzichten uit video's zijn handig voor persbureaus, onderwijsinstellingen, omroepen, eigenaren van inhoud voor de entertainmentindustrie, LOB-apps voor ondernemingen, kortom voor elke bedrijfstak waarin videobibliotheken worden onderhouden die door gebruikers worden doorzocht.
-
+- Inhoud maken – inzichten uit video's geëxtraheerde en effectief maken van inhoud, zoals aanhangwagen, sociale media-inhoud, nieuws clips enzovoort van de bestaande inhoud in het archief van de organisatie 
 - Inkomsten genereren: Video Indexer kan helpen om de waarde van video's te verbeteren. Branches die bijvoorbeeld afhankelijk zijn van advertentie-inkomsten (via nieuwsmedia, social media, enzovoort), kunnen meer relevante advertenties aanbieden door de geëxtraheerde inzichten te gebruiken als aanvullende signalen voor de advertentieserver (het is relevanter om een advertentie voor sportschoenen weer te geven tijdens een voetbalwedstrijd dan tijdens een zwemwedstrijd).
-
 - Betrokkenheid van gebruikers: video-inzichten kunnen worden gebruikt om de betrokkenheid van gebruikers te verbeteren door het positioneren van de relevante videomomenten aan gebruikers. Laten we als voorbeeld een educatieve video nemen waarin de eerste 30 minuten gaan over bollen en de 30 minuten daarna over piramiden. Een leerling die informatie zoekt over piramiden, zal het dan prettig vinden als de video start vanaf de markering voor 30 minuten en niet vanaf het begin.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U kunt aan de slag met Video Indexer. Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Aan de slag met de Video Indexer-website](video-indexer-get-started.md)
-- [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md)
-- [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md)
+- [Aan de slag met de website Video Indexer](video-indexer-get-started.md)
+- [Verwerken met Video Indexer REST-API-inhoud](video-indexer-use-apis.md)
+- [Visual widgets insluiten in uw toepassing](video-indexer-embed-widgets.md)

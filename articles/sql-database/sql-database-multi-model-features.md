@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884520"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892463"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Multi-modeldatabase mogelijkheden van Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database is ontworpen voor gebruik met het relationele model dat de be
 Overweeg het gebruik van meerdere modellen mogelijkheden van Azure SQL Database in de volgende gevallen:
 - U hebt enkele gegevens of structuren die beter voor NoSQL-modellen en u geschikt zijn niet wilt gebruiken van afzonderlijke NoSQL-database.
 - Het merendeel van uw gegevens is geschikt voor relationele model en moet u bepaalde onderdelen van uw gegevens in NoSQL-stijl.
-- U wilt gebruikmaken van uitgebreide Transact-SQL-taal om te zoeken en analyseren van zowel relationele en NoSQL-gegevens en deze integreren met een verscheidenheid aan hulpprogramma's en toepassingsoplossingen die SQL-taal kunt gebruiken.
+- U wilt gebruikmaken van uitgebreide Transact-SQL-taal om te zoeken en analyseren van zowel relationele en NoSQL-gegevens en deze integreren met een verscheidenheid aan hulpprogramma's en toepassingen die de SQL-taal gebruiken.
 - U wilt toepassen van database-functies zoals [technologieën in het geheugen](sql-database-in-memory.md) te verbeteren de prestaties van uw analytische verwerking van uw strucutres NoSQL-gegevens gebruiken [transactionele replicatie](sql-database-managed-instance-transactional-replication.md) of [leesbare replica's](sql-database-read-scale-out.md) kopie van uw gegevens op de andere plaats maken en bepaalde analyseworkloads uit de primaire database-offload.
 
 ## <a name="overview"></a>Overzicht

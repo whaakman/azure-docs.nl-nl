@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d5f6a89d279f0e1b0babc98ed59a07fa1761707f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856441"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893687"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Concepten voor het inschakelen van actief leren aan de hand van de eindpunt-uitingen
 Actief leren is een van drie strategieën voor het verbeteren van nauwkeurigheid en het gemakkelijkst te implementeren. Met actief leren, uw uitingen controle-eindpunt voor de juiste intentie en entiteit. LUIS kiest eindpunt uitingen is het niet zeker weet.
 
 ## <a name="what-is-active-learning"></a>Wat is actief leren
-Actief leren is een proces in twee stappen. Eerst selecteert LUIS uitingen die wordt ontvangen op van de app-eindpunt waarvoor validatie. De tweede stap wordt uitgevoerd door de eigenaar van de app of medewerker voor het valideren van de geselecteerde uitingen voor [bekijken](luis-how-to-review-endoint-utt.md), met inbegrip van de juiste intentie en alle entiteiten in het doel. Bekijk de uitingen en trainen en publiceer de app opnieuw. 
+Actief leren is een proces in twee stappen. Eerst selecteert LUIS uitingen die wordt ontvangen op van de app-eindpunt waarvoor validatie. De tweede stap wordt uitgevoerd door de eigenaar van de app of medewerker voor het valideren van de geselecteerde uitingen voor [bekijken](luis-how-to-review-endpoint-utterances.md), met inbegrip van de juiste intentie en alle entiteiten in het doel. Bekijk de uitingen en trainen en publiceer de app opnieuw. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Welke uitingen zijn in de lijst met controleren
 Als de bovenkant activeren kunt u lezen wat een lage score heeft of de bovenste twee intenties scores te sluiten zijn, LUIS uitingen toegevoegd aan de beoordeling-lijst. 
@@ -41,4 +41,4 @@ Gebruik de **[verwijderen uitingen](https://westus.dev.cognitive.microsoft.com/d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [bekijken](luis-how-to-review-endoint-utt.md) uitingen van eindpunt
+* Meer informatie over het [bekijken](luis-how-to-review-endpoint-utterances.md) uitingen van eindpunt

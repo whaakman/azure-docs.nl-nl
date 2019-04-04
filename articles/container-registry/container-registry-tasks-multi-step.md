@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854319"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895444"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in de ACR-taken
 
@@ -32,8 +32,6 @@ U kunt bijvoorbeeld een taak uitvoeren met stappen die de volgende logica automa
 
 Alle stappen worden uitgevoerd in Azure, het offloaden van het werk van Azure compute-resources en u uit het beheer van vrij te maken. Naast uw Azure-containerregister betaalt u alleen voor de resources die u gebruikt. Zie voor meer informatie over prijzen voor de **Container bouwen** in sectie [prijzen voor Azure Container Registry][pricing].
 
-> [!IMPORTANT]
-> Deze functie is momenteel beschikbaar als preview-product. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
 ## <a name="common-task-scenarios"></a>Algemene scenario's voor taak
 
@@ -50,13 +48,13 @@ Taken met meerdere stappen inschakelen scenario's zoals de volgende logica:
 Een taak meerdere stappen in de ACR-taken is gedefinieerd als een reeks stappen binnen een YAML-bestand. Elke stap kunt afhankelijkheden opgeven op de voltooiing van een of meer van de vorige stappen. De volgende stap taaktypen zijn beschikbaar:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): Een of meer installatiekopieën met de vertrouwde compileren `docker build` syntaxis en voorbeelden, in de reeks of gelijktijdig.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Push gebouwd installatiekopieën naar een containerregister. Persoonlijke registers zoals Azure Container Registry worden ondersteund, omdat de openbare Docker Hub.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Het uitvoeren van een container, zodat deze als een functie binnen de context van de actieve taak werken kan. U kunt parameters doorgeven aan van de container `[ENTRYPOINT]`, en geef eigenschappen op, zoals env, loskoppelen, en andere vertrouwde `docker run` parameters. De `cmd` staptype kan eenheid en functionele tests, met gelijktijdige container kan worden uitgevoerd.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Ingebouwde installatiekopieën pushen naar een containerregister. Persoonlijke registers zoals Azure Container Registry worden ondersteund, omdat de openbare Docker Hub.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Uitvoeren van een container, zodat deze als een functie binnen de context van de actieve taak werken kan. U kunt parameters doorgeven aan van de container `[ENTRYPOINT]`, en geef eigenschappen op, zoals env, loskoppelen, en andere vertrouwde `docker run` parameters. De `cmd` staptype kan eenheid en functionele tests, met gelijktijdige container kan worden uitgevoerd.
 
 De volgende codefragmenten laten zien hoe u kunt deze stap taaktypen combineren. WebTest met meerdere stappen taken kunnen worden net zo eenvoudig als het opbouwen van een één installatiekopie van een docker-bestand en het pushen naar uw register met een YAML-bestand die vergelijkbaar is met:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 Of complexer worden, zoals deze fictieve definitie WebTest met meerdere stappen stappen voor het bouwen omvat, testen, helm-pakket en helm implementeren (containerregister en configuratie van de Helm-opslagplaats niet weergegeven):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 Zie voor meer informatie over geautomatiseerde builds bij Git doorvoeren of base-installatiekopie bijwerken, de [compileren van installatiekopieën automatiseren](container-registry-tutorial-build-task.md) en [baseren compileren van installatiekopieën update](container-registry-tutorial-base-image-update.md) zelfstudie-artikelen.
-
-## <a name="preview-feedback"></a>Feedback van de Preview-versie
-
-Terwijl de functie WebTest met meerdere stappen van de ACR-taken in preview is, nodigen we u om feedback te geven. Er zijn verschillende feedbackkanalen beschikbaar:
-
-* [Problemen met](https://aka.ms/acr/issues) - bestaande fouten en problemen weergeven en meld u nieuwe labels
-* [UserVoice](https://aka.ms/acr/uservoice) -stemmen op een bestaande functie aanvragen of nieuwe verzoeken om te maken
-* [Bespreek](https://aka.ms/acr/feedback) -via een bespreking van de Azure Container Registry met de Stack Overflow-community
 
 ## <a name="next-steps"></a>Volgende stappen
 

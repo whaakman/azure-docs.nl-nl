@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539629"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918158"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Inschakelen van de communicatie voor rolinstanties in azure
 Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** tijdens interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [servicedefinition](cloud-services-model-and-package.md#csdef) om eindpunten te maken.
 
 ## <a name="input-endpoint"></a>Invoereindpunt
-Het eindpunt van de invoer wordt gebruikt als u wilt om een poort voor de buitenwereld zichtbaar te maken. U geeft het protocoltype en de poort van het eindpunt dat wordt toegepast voor de interne en externe poorten voor het eindpunt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) kenmerk.
+Het eindpunt van de invoer wordt gebruikt als u wilt om een poort voor de buitenwereld zichtbaar te maken. U geeft het protocoltype en de poort van het eindpunt dat wordt toegepast voor de interne en externe poorten voor het eindpunt. Als u wilt, kunt u een andere interne poort voor het eindpunt met de [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) kenmerk.
 
 Het invoereindpunt kunt de volgende protocollen: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ De beheerde bibliotheek van Azure biedt methoden voor rolinstanties om te commun
 > 
 > 
 
-U kunt de [exemplaren](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) eigenschap voor het ophalen van exemplaren van een rol. Voor het eerst gebruiken de [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) retourneert een verwijzing naar het huidige exemplaar en gebruik daarna de [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) eigenschap als resultaat een verwijzing naar de rol zelf.
+U kunt de [exemplaren](/previous-versions/azure/reference/ee741904(v=azure.100)) eigenschap voor het ophalen van exemplaren van een rol. Voor het eerst gebruiken de [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) retourneert een verwijzing naar het huidige exemplaar en gebruik daarna de [rol](/previous-versions/azure/reference/ee741918(v=azure.100)) eigenschap als resultaat een verwijzing naar de rol zelf.
 
 Wanneer u verbinding met een rolinstantie programmatisch via de .NET SDK maakt, is het relatief eenvoudig toegang krijgen tot informatie over het eindpunt. Nadat u al hebt verbonden met een specifieke rol-omgeving, kunt u bijvoorbeeld de poort van een bepaald eindpunt met deze code krijgen:
 
@@ -111,7 +111,7 @@ De **exemplaren** eigenschap retourneert een verzameling **RoleInstance** object
 > 
 > 
 
-Om te bepalen het poortnummer voor een intern eindpunt op een rolinstantie, kunt u de [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) eigenschap om terug te keren een Dictionary-object met namen van eindpunten en hun bijbehorende IP-adressen en poorten. De [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) eigenschap retourneert de IP-adres en poort voor een opgegeven eindpunt. De **PublicIPEndpoint** eigenschap retourneert de poort voor een eindpunt met gelijke. Het gedeelte van de IP-adres van de **PublicIPEndpoint** eigenschap wordt niet gebruikt.
+Om te bepalen het poortnummer voor een intern eindpunt op een rolinstantie, kunt u de [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) eigenschap om terug te keren een Dictionary-object met namen van eindpunten en hun bijbehorende IP-adressen en poorten. De [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) eigenschap retourneert de IP-adres en poort voor een opgegeven eindpunt. De **PublicIPEndpoint** eigenschap retourneert de poort voor een eindpunt met gelijke. Het gedeelte van de IP-adres van de **PublicIPEndpoint** eigenschap wordt niet gebruikt.
 
 Hier volgt een voorbeeld van gegevensbrontabellen, rolinstanties loopt.
 
@@ -368,7 +368,7 @@ Kunt u alleen netwerkverkeer van **WebRole1** naar **WorkerRole1**, **WebRole1**
 </ServiceDefinition>
 ```
 
-Een XML-schema-referentie voor de elementen die hierboven hebt gebruikt, kan worden gevonden [hier](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Een XML-schema-referentie voor de elementen die hierboven hebt gebruikt, kan worden gevonden [hier](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de Cloudservice [model](cloud-services-model-and-package.md).

@@ -11,20 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879383"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916022"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
 Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. Om te streamen met Media Services uw live-evenementen, moet u het volgende:  
 
 - Een camera die wordt gebruikt om vast te leggen van de live-gebeurtenis.<br/>Bekijk voor setup ideeën [video versnelling met eenvoudige en draagbare gebeurtenisinstelling]( https://link.medium.com/KNTtiN6IeT).
+
+    Als u geen toegang tot een camera, hulpprogramma's zoals [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan worden gebruikt voor het genereren van een live feed uit een videobestand.
 - Een coderingsprogramma voor live video dat signalen vanaf een camera (of een ander apparaat, zoals een laptop) converteert naar een bijdrage feed die wordt verzonden naar Media Services. De feed bijdrage kan signalen met betrekking tot reclame, zoals SCTE 35 markeringen bevatten.<br/>Zie voor een lijst met aanbevolen live streaming-coderingsprogramma's, [live coderingsprogramma's streamen](recommended-on-premises-live-encoders.md). Controleer ook of deze blog bekijken: [Live streaming productie met IB](https://link.medium.com/ttuwHpaJeT).
 - Onderdelen in Media Services, waarmee u om op te nemen, preview, inpakken, registreren, versleutelen en uitzenden van de live-gebeurtenis aan uw klanten of aan een CDN voor verdere distributie.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112098"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895683"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
@@ -116,7 +116,7 @@ Hieronder vindt u opties en prestaties voor het inschakelen van verificatie in t
 **Optie 1**: [Multi-factor Authentication inschakelen door het veranderen van gebruikersstatus](../active-directory/authentication/howto-mfa-userstates.md).   
 **Voordeel**: Dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide [Azure multi-factor Authentication in de cloud en Azure multi-factor Authentication-Server](../active-directory/authentication/concept-mfa-whichversion.md). Met deze methode vereist dat gebruikers verificatie uitvoeren telkens wanneer ze zich aanmelden en vervangt beleid voor voorwaardelijke toegang.
 
-**Optie 2**: [Multi-factor Authentication met beleid voor voorwaardelijke toegang inschakelen](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Optie 2**: [Multi-factor Authentication met beleid voor voorwaardelijke toegang inschakelen](../active-directory/authentication/howto-mfa-getstarted.md).
 **Voordeel**: Deze optie kunt u te vragen om verificatie in twee stappen onder bepaalde omstandigheden, met behulp van [voorwaardelijke toegang](../active-directory/active-directory-conditional-access-azure-portal.md). Specifieke voorwaarden kunnen aanmelden van gebruikers vanuit verschillende locaties, niet-vertrouwde apparaten of toepassingen die u beschouwt als riskant zijn. Voor het definiëren van specifieke voorwaarden waar u verificatie in twee stappen vereist, kunt u voorkomen constante vragen om uw gebruikers, dit kunnen een onaangename gebruikerservaring.
 
 Dit is de meest flexibele manier om in te schakelen van verificatie in twee stappen voor uw gebruikers. Als u een beleid voor voorwaardelijke toegang werkt alleen voor Azure multi-factor Authentication in de cloud en is een premium-functie van Azure AD. U vindt meer informatie over deze methode in [implementeren van cloud-gebaseerde Azure multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).

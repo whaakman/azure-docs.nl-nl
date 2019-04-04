@@ -3,19 +3,19 @@ title: Translator Text-API BreakSentence methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Translator Text-API BreakSentence-methode.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8aa726d8a00e76c1b4311140a433e6c7e476dc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884899"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916288"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text-API 3.0: BreakSentence
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste queryparameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -45,7 +45,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Optionele queryparameter*.<br/>De taalcode voor het identificeren van de taal van de invoertekst. Als een code niet opgegeven is, wordt automatische taaldetectie worden toegepast.</td>
   </tr>
   <tr>
-    <td>script</td>
+    <td>Script</td>
     <td>*Optionele queryparameter*.<br/>Script-code voor het identificeren van het script dat wordt gebruikt door de invoertekst. Als een script niet opgegeven is, wordt aangenomen dat het standaardscript van de taal.</td>
   </tr>
 </table> 
@@ -56,7 +56,7 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_header_</td>
+    <td>_Een autorisatie_<br/>_koptekst_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -122,7 +122,7 @@ Een voorbeeld-JSON-antwoord is:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -135,7 +135,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -172,7 +172,7 @@ Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourner
 
 Het volgende voorbeeld ziet hoe u verkrijgt zin grenzen voor een enkele zin. De taal van de zin wordt automatisch gedetecteerd door de service.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

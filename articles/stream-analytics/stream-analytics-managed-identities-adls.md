@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570110"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895863"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Verifiëren van Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten (Preview)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten verifiëren
 
 Azure Stream Analytics biedt ondersteuning voor verificatie met Azure Data Lake Storage (ADLS) Gen1 uitvoer beheerde identiteit. De identiteit is een beheerde toepassing in Azure Active Directory die staat voor een bepaalde Stream Analytics-taak geregistreerd en kan worden gebruikt om een specifieke resource te verifiëren. Beheerde identiteiten elimineert u de beperkingen van methoden voor verificatie op basis van een gebruiker, zoals u dat u hoeft te verifiëren vanwege wachtwoord te wijzigen of token verlopen voor voor een gebruiker die zich na negentig dagen voordoen. Daarnaast beheerde identiteiten helpen bij de automatisering van Stream Analytics-taak implementaties die worden uitgevoerd naar Azure Data Lake Storage Gen1.
-
-Ga naar de [acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogbericht om u te registreren voor deze Preview-versie en lees meer over nieuwe functies.
 
 In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor een Azure Stream Analytics-taak die op een Azure Data Lake Storage Gen1 via de Azure portal, de sjabloonimplementatie van Azure Resource Manager-en de Azure Stream Analytics-hulpprogramma's voor Visual Studio uitvoert.
 
@@ -27,11 +25,11 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-1. Begin met het maken van een nieuwe Stream Analytics-taak of door het openen van een bestaande taak in Azure portal. Selecteer in de menubalk aan de linkerkant van het scherm bevindt, **beheerde identiteit (preview)** bevindt zich onder **configureren**.
+1. Begin met het maken van een nieuwe Stream Analytics-taak of door het openen van een bestaande taak in Azure portal. Selecteer in de menubalk aan de linkerkant van het scherm bevindt, **beheerde identiteit** bevindt zich onder **configureren**.
 
-   ![Configureren van de Preview-versie van Stream Analytics beheerde identiteit](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Stream Analytics beheerde identiteit configureren](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selecteer **gebruik door het systeem toegewezen beheerde identiteit (preview)** in het venster dat wordt weergegeven aan de rechterkant. Klik op **opslaan** aan een service-principal voor de identiteit van de Stream Analytics-taak in Azure Active Directory. De levenscyclus van de identiteit van de zojuist gemaakte worden beheerd door Azure. Wanneer de Stream Analytics-taak wordt verwijderd, wordt de identiteit van de bijbehorende (dat wil zeggen, de service-principal) wordt automatisch verwijderd door Azure.
+2. Selecteer **beheerde-gebruik door het systeem toegewezen identiteit** in het venster dat wordt weergegeven aan de rechterkant. Klik op **opslaan** aan een service-principal voor de identiteit van de Stream Analytics-taak in Azure Active Directory. De levenscyclus van de identiteit van de zojuist gemaakte worden beheerd door Azure. Wanneer de Stream Analytics-taak wordt verwijderd, wordt de identiteit van de bijbehorende (dat wil zeggen, de service-principal) wordt automatisch verwijderd door Azure.
 
    Wanneer de configuratie is opgeslagen, wordt de Object-ID (OID) van de service-principal wordt vermeld als de Principal-ID, zoals hieronder weergegeven:
 
@@ -39,7 +37,7 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
  
    De service-principal heeft dezelfde naam als de Stream Analytics-taak. Bijvoorbeeld, als de naam van uw taak is **MyASAJob**, de naam van de service-principal gemaakt is ook **MyASAJob**.
 
-3. Klik op de verificatiemodus vervolgkeuzelijst en selecteer in het venster van de eigenschappen van uitvoer van de uitvoerlocatie ADLS Gen1 **beheerde identiteit (preview)**.
+3. In het eigenschappenvenster van de uitvoer van het ADLS-Gen1 uitvoereindpunt worden verplaatst, klikt u op de verificatiemodus vervolgkeuzelijst en selecteer ** beheerde identiteit **.
 
 4. Vul de rest van de eigenschappen. Zie voor meer informatie over het maken van een ADLS-uitvoer, [de uitvoer van een Data lake Store maken met stream analytics](../data-lake-store/data-lake-store-stream-analytics.md). Wanneer u klaar bent, klikt u op **opslaan**.
 

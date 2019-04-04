@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089842"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894180"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
 Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
@@ -35,7 +35,7 @@ De eigenaar en alle deelnemers hebt toegang tot het ontwerpen van de app.
 |App openbaar maken|Wanneer een app openbaar is, kan iedereen met een sleutel ontwerpen of eindpunt query uitvoeren op de app.|
 |Model wijzigen|
 |Publiceren|
-|Bekijk eindpunt uitingen voor [actief leren](luis-how-to-review-endoint-utt.md)|
+|Bekijk eindpunt uitingen voor [actief leren](luis-how-to-review-endpoint-utterances.md)|
 |Trainen|
 
 ## <a name="access-to-endpoint"></a>Toegang tot het eindpunt
