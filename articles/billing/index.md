@@ -1,19 +1,24 @@
 ---
 layout: LandingPage
 title: Documentatie over facturering en kostenbeheer van Azure | Microsoft Docs
-description: 'Lees hier alles over Azure-facturering, het beheren en bewaken van gebruik en kosten, en het beheren van accounts en abonnementen.'
+description: Lees hier alles over Azure-facturering, het beheren en bewaken van gebruik en kosten, en het beheren van accounts en abonnementen.
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446712"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentatie over facturering en kostenbeheer van Azure
 
 Lees hier alles over Azure-facturering, het bewaken van gebruik en kosten, en het beheren van accounts en abonnementen.

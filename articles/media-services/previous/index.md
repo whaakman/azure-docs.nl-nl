@@ -1,19 +1,24 @@
 ---
-title: 'Documentatie voor Azure Media Services - zelfstudies, API-verwijzing | Microsoft Docs'
-description: 'Meer informatie over veilig streamen van video op aanvraag of live video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en meer.'
+title: Documentatie voor Azure Media Services - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over veilig streamen van video op aanvraag of live video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en meer.
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2019
 ms.author: carolz
+ms.openlocfilehash: 0630eb40990519cbe3b9d60df65a482c1cec4769
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517960"
 ---
-
 # <a name="media-services-documentation"></a>Documentatie voor Media Services  
 
 Meer informatie over het streamen van video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.

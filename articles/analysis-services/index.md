@@ -1,5 +1,5 @@
 ---
-title: 'Documentatie voor Azure Analysis Services - zelfstudies, API-verwijzing'
+title: Documentatie voor Azure Analysis Services - zelfstudies, API-verwijzing
 description: Meer informatie over het instellen van gegevensmodellering met Analysis Services in de cloud. Documentatie laat zien hoe u een zakelijke BI-oplossing maakt met behulp van tabelgegevens.
 services: analysis-services
 author: minewiskan
@@ -8,6 +8,12 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
+ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106964"
 ---
 # <a name="analysis-services-documentation"></a>Documentatie voor Analysis Services
 

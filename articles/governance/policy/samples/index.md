@@ -1,6 +1,6 @@
 ---
 title: Index van beleidsvoorbeelden
-description: 'Index van voorbeelden voor Azure Policy. Categorieën zijn onder andere naam geven, tags, Key Vault, netwerken, opslag en meer.'
+description: Index van voorbeelden voor Azure Policy. Categorieën zijn onder andere naam geven, tags, Key Vault, netwerken, opslag en meer.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,6 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
+ms.openlocfilehash: 14b61ffe96c6a75f6addf40ee411cd42b2532c55
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189730"
 ---
 # <a name="azure-policy-samples"></a>Voorbeelden van Azure Policy
 

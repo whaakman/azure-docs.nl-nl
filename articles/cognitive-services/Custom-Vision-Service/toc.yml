@@ -51,16 +51,12 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: De voorspellings-API gebruiken
     href: use-prediction-api.md
-  - name: Exportmodellen
-    items:
-    - name: Uw model exporteren naar mobiele apparaten
-      href: export-your-model.md
-    - name: ONNX-model gebruiken met Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: TensorFlow-model uitvoeren in Python
-      href: export-model-python.md
-  - name: Een model bouwen met behulp van de REST-API
-    href: rest-api-tutorial.md
+  - name: Uw model exporteren naar mobiele apparaten
+    href: export-your-model.md
+  - name: ONNX-model gebruiken met Windows ML
+    href: custom-vision-onnx-windows-ml.md
+  - name: TensorFlow-model uitvoeren in Python
+    href: export-model-python.md
   - name: Accountgegevens exporteren of verwijderen
     href: ./export-delete-data.md
   - name: Uw project vanuit een beperkte evaluatieversie verplaatsen naar Azure
@@ -101,9 +97,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Releaseopmerkingen
     href: release-notes.md
-ms.openlocfilehash: 98708f7c3ad2f9547e7dde9f4cf9fc7696ed7ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886706"
+ms.locfileid: "58893547"

@@ -1,6 +1,6 @@
 ---
 title: Documentatie voor Azure Data Box
-description: 'De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.'
+description: De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.
 services: databox
 author: alkohli
 manager: twooley
@@ -11,6 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
+ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417697"
 ---
 <div id="main" class="v2">
 <h1>Azure Data Box</h1>
