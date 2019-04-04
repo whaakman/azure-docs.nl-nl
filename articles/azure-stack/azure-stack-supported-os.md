@@ -16,12 +16,12 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a271edd710356ff612a4558034e9f7459a17ecaa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119000"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666287"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
@@ -53,11 +53,11 @@ Datacenter-edities zijn beschikbaar in de marketplace voor het downloaden van; k
 Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten de benodigde Windows Azure Linux Agent (WALA). Als u uw eigen installatiekopie met Azure Stack maken, volgt u de richtlijnen in [toevoegen Linux-installatiekopieën naar Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente versie voor openbare WALA of met versie 2.2.20. Versies ouder dan 2.2.20 en tussen 2.2.20 en 2.2.36 werkt mogelijk niet juist in Azure Stack. 
+> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente versie voor openbare WALA of met versie 2.2.20. Versies ouder dan 2.2.20 en tussen 2.2.20 en 2.2.35.1 (exclusieve) werkt mogelijk niet juist in Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
-| Distributie | Description | Uitgever | Marketplace |
+| Distributie | Beschrijving | Uitgever | Marketplace |
 | --- | --- | --- | --- |
 | Op basis van centOS 6,9 | 64-bits | Rogue Wave | Ja |
 | Op basis van centOS 7.4 | 64-bits | Rogue Wave | Ja |

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: c8900e639e6baba29067c50d4ac754d4dbda2dd6
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991078"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449225"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 4
 
@@ -64,6 +64,8 @@ Azure App Service onder Azure Stack Update 4 bevat de volgende verbeteringen en 
 - Er is ondersteuning toegevoegd voor App Service-2018-02-01-API-versie
 
 - Updates voor **App Service-Tenant, Admin, portals van functies en hulpprogramma's voor Kudu**. Consistent zijn met Azure Stack-Portal SDK-versie.
+
+- Updates **Azure Functions-runtime** naar **v1.0.11959**.
 
 - Updates voor core-service om de betrouwbaarheid en foutberichten eenvoudiger diagnose van algemene problemen waardoor te verbeteren.
 

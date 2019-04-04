@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848861"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916339"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -76,11 +76,33 @@ U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. B
 
 5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
+## <a name="multiple-metrics-and-charts"></a>Meerdere metrische gegevens en grafieken
+
+Ook kunt u diagrammen die meerdere metrische gegevens tekenen of meerdere grafieken met metrische gegevens tegelijk weergeven. Deze functie kunt u naar:
+
+- Koppel gerelateerde metrische gegevens over dezelfde grafiek om te zien hoe een waarde is gerelateerd aan een andere
+- metrische gegevens weergeven met verschillende eenheden in de nabijheid
+- visueel aggregeren en vergelijkt u metrische gegevens uit meerdere bronnen
+
+Als u 5 storage-accounts hebt en u wilt weten hoeveel totale ruimte tussen deze wordt gebruikt, kunt u bijvoorbeeld een (gestapeld) vlakdiagram waarin de afzonderlijke gebruiker en de som van alle waarden op bepaalde tijdstippen in-time maken.
+
+### <a name="multiple-metrics-on-a-chart"></a>Meerdere metrische gegevens in een grafiek
+
+Eerste, [maakt u een nieuwe grafiek](#create-a-new-chart). Klik op **metrische waarde toevoegen** en Herhaal de stappen om nog een metrische waarde toevoegen aan dezelfde grafiek.
+
+### <a name="multiple-charts"></a>Meerdere diagrammen
+
+Klik op de **toevoegen grafiek** en een andere grafiek maken met een andere meetwaarde.
+
+### <a name="order-or-delete-multiple-charts"></a>Volgorde of meerdere diagrammen verwijderen
+
+Als u wilt sorteren of meerdere diagrammen verwijderen, klikt u op het beletselteken ( **...**  ) symbool grafiektype in het menu openen en kies het juiste menu-item van **omhoog**, **omlaag**, of **verwijderen**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Splitsen op een grafiek van toepassing
 
-U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie. 
+U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie.
 
-### <a name="to-apply-splitting"></a>Om toe te passen splitsen
+### <a name="apply-splitting"></a>Splitsing toepassen
 
 1. Klik op **toepassen splitsen** boven de grafiek.
  

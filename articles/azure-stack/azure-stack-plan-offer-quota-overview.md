@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763449"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497854"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
@@ -47,11 +47,14 @@ Nadat u het aanbieding hebt gemaakt, worden uw gebruikers kunnen abonneren op de
 
 ## <a name="plans"></a>Abonnementen
 
-De abonnementen zijn groepen van een of meer services. Als Azure Stack-operators, u [plannen maken](azure-stack-create-plan.md) te bieden aan uw gebruikers. Uw gebruikers abonneren op zijn beurt op uw aanbiedingen te gebruiken van de abonnementen en services die ze bevatten. Bij het maken van abonnementen, zorg ervoor dat u uw quota instellen, uw basisplannen te definiëren en u kunt overwegen om optioneel aanvullende plannen.
+Plannen zijn pakketten van een of meer services. Als Azure Stack-operators, u [plannen maken](azure-stack-create-plan.md) te bieden aan uw gebruikers. Gebruikers kunnen zich op uw aanbiedingen abonneren om de plannen en bijbehorende services te gebruiken. Bij het maken van abonnementen, zorg ervoor dat u uw quota instellen, uw basisplannen te definiëren en u kunt overwegen om optioneel aanvullende plannen.
 
 ### <a name="quotas"></a>Quota
 
 Voor hulp bij het beheren van de cloudcapaciteit van de, kunt u vooraf geconfigureerde *quota*, of een nieuw quotum voor elke service in een plan maken. Quota's definiëren de bovenste limieten die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kan bijvoorbeeld toestaan dat een gebruiker te maken van maximaal vijf virtuele machines (VM's).
+
+> [!IMPORTANT]
+> Duurt maximaal twee uur nieuwe quota zijn beschikbaar in de gebruikersportal of voordat een gewijzigde quotum wordt afgedwongen.
 
 U kunt quota's per regio configureren. Een plan waarmee compute-services voor een regio kan bijvoorbeeld een quotum van twee virtuele machines hebben.
 

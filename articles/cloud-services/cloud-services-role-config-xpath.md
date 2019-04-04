@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2db63be6c6997840f7409a3ca79f1845f30e4ceb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008056"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918430"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Configuratie-rolinstellingen beschikbaar als een omgevingsvariabele met XPath
 U kunt in de cloud service werknemer of web rol servicedefinitiebestand runtime-configuratiewaarden weergeven als omgevingsvariabelen. De volgende waarden voor XPath worden ondersteund (die overeenkomen met de API-waarden).
 
-Deze XPath-waarden zijn ook beschikbaar via de [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) bibliotheek. 
+Deze XPath-waarden zijn ook beschikbaar via de [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) bibliotheek. 
 
 ## <a name="app-running-in-emulator"></a>App die wordt uitgevoerd in de emulator
 Geeft aan dat de app wordt uitgevoerd in de emulator.
@@ -79,7 +79,7 @@ Hiermee haalt de waarde van de opgegeven configuratie-instelling.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting [@name= 'Setting1']/@value" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Code |de instelling var = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
 ## <a name="local-storage-path"></a>Pad van de lokale opslag
@@ -87,7 +87,7 @@ Hiermee haalt u het pad van de lokale opslag voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@path" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Code |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1"). RootPath; |
 
 ## <a name="local-storage-size"></a>Grootte van de lokale opslag
@@ -95,7 +95,7 @@ Hiermee haalt u de grootte van de lokale opslag voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name= 'LocalStore1']/@sizeInMB" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Code |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1"). MaximumSizeInMegabytes; |
 
 ## <a name="endpoint-protocol"></a>Eindpunt-protocol
@@ -103,7 +103,7 @@ Hiermee haalt u de eindpunt-protocol voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@protocol" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Code |var b RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protocol. |
 
 ## <a name="endpoint-ip"></a>Eindpunt IP
@@ -111,7 +111,7 @@ Hiermee haalt u de IP-adres van het opgegeven eindpunt.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@address" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Code |var adres RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Address |
 
 ## <a name="endpoint-port"></a>Poort van het eindpunt
@@ -119,7 +119,7 @@ Hiermee haalt u de poort van het eindpunt voor het exemplaar.
 
 | Type | Voorbeeld |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/CurrentInstance/eindpunten/eindpunt [@name= '1']/@port" |
+| XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Code |var poort RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |
 
 ## <a name="example"></a>Voorbeeld
