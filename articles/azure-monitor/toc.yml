@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: Doorlopende bewaking
     href: continuous-monitoring.md
-  - name: Logboekgegevens analyseren
+  - name: Gegevensplatform
     items:
-    - name: Logboekquery's
-      href: log-query/log-query-overview.md
-    - name: Portals logboekquery's
-      href: log-query/portals.md
-  - name: Bewakingsgegevens
+    - name: Overzicht
+      href: platform/data-platform.md
+    - name: Metrische gegevens
+      href: platform/data-platform-metrics.md
+    - name: Logboeken
+      href: platform/data-platform-logs.md
+  - name: Gegevensbronnen
     items:
-    - name: Metrische gegevens en logboeken
-      href: platform/data-collection.md
-    - name: Gegevensbronnen
+    - name: Samenvatting gegevensbronnen
       href: platform/data-sources.md
     - name: Azure-gegevensbronnen
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: Aangepaste metrische gegevens naar opslag metrische gegevens
       href: platform/metrics-custom-overview.md
-    - name: Gegevensbeveiliging
-      items:
-      - name: Logboekgegevens
-        href: platform/data-security.md
-      - name: Verwerking van persoonlijke logboekgegevens
-        href: platform/personal-data-mgmt.md
-      - name: Verzameling, retentie en opslag van toepassingsgegevens
-        href: app/data-retention-privacy.md
+  - name: Logboekgegevens analyseren
+    items:
+    - name: Logboekquery's
+      href: log-query/log-query-overview.md
+    - name: Portals logboekquery's
+      href: log-query/portals.md
+  - name: Gegevensbeveiliging
+    items:
+    - name: Logboekgegevens
+      href: platform/data-security.md
+    - name: Verwerking van persoonlijke logboekgegevens
+      href: platform/personal-data-mgmt.md
+    - name: Verzameling, retentie en opslag van toepassingsgegevens
+      href: app/data-retention-privacy.md
   - name: Inzichten
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: Waarschuwingen voor activiteitenlogboeken
       href: platform/activity-log-alerts.md
+    - name: Algemeen waarschuwingsschema
+      href: platform/alerts-common-schema.md
   - name: Gegevens visualiseren
     href: visualizations.md
   - name: Partnerintegraties
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Een werkruimte verwijderen
         href: platform/delete-workspace.md
-      - name: Een werkruimte beheren
-        href: platform/manage-access.md
       - name: Ontwerp voor serviceproviders
         href: platform/service-providers.md
   - name: Gegevens verzamelen
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Snapshot Debugger
+          href: app/snapshot-debugger.md
       - name: Java-apps
         items:
         - name: Web-apps
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnose- of logboekgegevens van Azure Storage
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS-resources
+        href: platform/collect-azurepass-posh.md
       - name: Aangepaste gegevensbronnen correleren
         href: app/custom-data-correlation.md
     - name: Aangepaste gegevens verzamelen
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Diagnostische logboeken opslaan
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure-resourcegegevens naar Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Activiteitenlogboek streamen naar Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Logboeken en metrische gegevens naar Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostische logboeken naar Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Toepassingsgegevens naar Log Analytics
@@ -650,9 +660,8 @@ items:
   - name: Gegevens visualiseren
     items:
     - name: Weergaven
+      href: platform/view-designer.md
       items:
-      - name: Designer weergeven
-        href: platform/view-designer.md
       - name: Naslaginformatie voor tegels
         href: platform/view-designer-tiles.md
       - name: Naslaginformatie voor visualisatieonderdelen
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: Meer informatie over webhook-schema
           href: platform/activity-log-alerts-webhook.md
+        - name: Definities van algemeen waarschuwingsschema
+          href: platform/alerts-common-schema-definitions.md
         - name: Gedrag van sms-waarschuwingen
           href: platform/alerts-sms-behavior.md
         - name: Beperking waarschuwingsaantallen
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: Controleren
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Logboeken
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST-API
     items:
     - name: Controleren
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629420"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886638"

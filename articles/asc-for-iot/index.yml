@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757331"
 documentType: LandingData
 title: Documentatie voor Azure Security Center voor IoT Preview
 metadata:
-  title: Documentatie voor Azure Security Center voor IoT Preview - zelfstudies, quickstarts | Microsoft Docs
+  title: 'Documentatie voor Azure Security Center voor IoT Preview - zelfstudies, quickstarts | Microsoft Docs'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Azure Security Center (ASC) voor IoT Preview gebruiken om uw bestaande cyberbeveiligingsweergave uit te breiden naar uw volledige IoT-oplossing. Krijg een echt panorama-overzicht van de beveiliging van al uw Azure-gerelateerde resources. Door de mogelijkheden voor snelle implementatie en volledige integratie met IoT Hub-moduledubbels hebt u de beschikking over een breed scala aan aanpassingsopties en eenvoudige integratie met uw huidige hulpprogramma's voor apparaatbeheer. 
+  description: "Azure Security Center (ASC) voor IoT Preview gebruiken om uw bestaande cyberbeveiligingsweergave uit te breiden naar uw volledige IoT-oplossing. Krijg een echt panorama-overzicht van de beveiliging van al uw Azure-gerelateerde resources. Door de mogelijkheden voor snelle implementatie en volledige integratie met IoT Hub-moduledubbels hebt u de beschikking over een breed scala aan aanpassingsopties en eenvoudige integratie met uw huidige hulpprogramma's voor apparaatbeheer.\_"
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Leer hoe u uw IoT Hub geschikt kunt maken voor ASC voor IoT, ASC voor IoT-agents kunt installeren en inzicht kunt krijgen in uw gegevens en mogelijke bedreigingen.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: ASC voor IoT inschakelen
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: Aan de slag met ASC voor IoT
-      href: /azure/asc-for-iot/getting-started
-- title: Handleidingen
-  items:
-  - type: paragraph
-    text: Meer informatie over hoe u beveiligingsbeleid opstelt, uw apparaten beveiligt tegen schadelijke activiteit en adequaat reageert op beveiligingswaarschuwingen en incidenten.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Leer hoe u uw IoT Hub geschikt kunt maken voor ASC voor IoT, ASC voor IoT-agents kunt installeren en inzicht kunt krijgen in uw gegevens en mogelijke bedreigingen.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: ASC voor IoT inschakelen
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: Aan de slag met ASC voor IoT
+            href: /azure/asc-for-iot/getting-started
+  - title: Handleidingen
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Bedreigingen detecteren met ASC voor IoT</a>
-- title: Uw vaardigheden ontwikkelen met Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Meer informatie over hoe u beveiligingsbeleid opstelt, uw apparaten beveiligt tegen schadelijke activiteit en adequaat reageert op beveiligingswaarschuwingen en incidenten.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Bedreigingen detecteren met ASC voor IoT</a>
+  - title: Uw vaardigheden ontwikkelen met Microsoft Learn
     items:
-    - title: Inleiding tot beveiliging in Azure
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Meer interactief leren...</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Inleiding tot beveiliging in Azure
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Meer interactief leren...</a>
+  - title: Naslaginformatie
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Service-updates</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Service-updates</a>'

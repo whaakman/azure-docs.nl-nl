@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860470"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893704"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry-taken
 
@@ -30,7 +30,7 @@ In deze zelfstudie, deel één van een reeks:
 > * Een containerinstallatiekopie maken in Azure
 > * Een container implementeren in Azure Container Instances
 
-In volgende zelfstudies leert u hoe u ACR Tasks gebruikt voor geautomatiseerde builds van containerinstallatiekopieën bij codedoorvoer en updates van basisinstallatiekopieën. Met ACR-taken kunnen ook [Taken bestaande uit meerdere stappen](container-registry-tasks-multi-step.md) worden uitgevoerd (momenteel in preview). Hierbij wordt een YAML-bestand gebruikt om de stappen voor het bouwen, pushen en optioneel testen van meerdere containers te definiëren.
+In volgende zelfstudies leert u hoe u ACR Tasks gebruikt voor geautomatiseerde builds van containerinstallatiekopieën bij codedoorvoer en updates van basisinstallatiekopieën. ACR-taken kunnen ook uitgevoerd [taken meerdere stappen](container-registry-tasks-multi-step.md), met behulp van een YAML-bestand voor het definiëren van de stappen voor het bouwen, push en eventueel meerdere containers te testen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 U hebt een Azure Key Vault gemaakt en er twee geheimen in opgeslagen:
 
-* `$ACR_NAME-pull-usr`: De service-principal-id, voor gebruik als de **gebruikersnaam** van het containerregister.
-* `$ACR_NAME-pull-pwd`: Het service-principal-wachtwoord, voor gebruik als het **wachtwoord** van het containerregister.
+* `$ACR_NAME-pull-usr`: De service-principal-id, voor gebruik als de **gebruikersnaam van het containerregister.
+* `$ACR_NAME-pull-pwd`: Het service-principal-wachtwoord, voor gebruik als het **wachtwoord van het containerregister.
 
 U kunt nu op naam naar deze geheime gegevens verwijzen wanneer u of uw toepassingen en services installatiekopieën uit het register halen.
 
@@ -312,7 +312,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Nu u de binnenste lus hebt getest met een quick task, configureert u een **build-taak** om containerinstallatiekopieën te activeren wanneer u broncode doorvoert naar een Git-opslagplaats:
 
 > [!div class="nextstepaction"]
-> [Automatische builds activeren met taken](container-registry-tutorial-build-task.md)
+> [Automatische trigger bouwt met taken](container-registry-tutorial-build-task.md)
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip

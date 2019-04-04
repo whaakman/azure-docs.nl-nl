@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904148"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -46,7 +46,7 @@ De volgende tabel bevat de verschillende manieren dat u Logboeken in Azure Monit
 | Analyseren | Gebruik [Log Analytics](../log-query/get-started-portal.md) in Azure portal om te schrijven [query's bijgehouden](../log-query/log-query-overview.md) en interactief analyseren logboekgegevens met behulp van de krachtige analyse-engine van Data Explorer.<br>Gebruik de [Application Insights analytics-console](../app/analytics.md) in Azure portal om te schrijven logboeken-query's en analyseren van logboekgegevens van Application Insights. |
 | Visualiseren | Queryresultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Maak een [werkmap](../app/usage-workbooks.md) te combineren met meerdere sets met gegevens in een interactieve rapport. <br>De resultaten van een query voor het exporteren [Power BI](powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.<br>De resultaten van een query voor het exporteren [Grafana](grafana-plugin.md) gebruikmaken van de dashboarding en combineren met andere gegevensbronnen.|
 | Waarschuwing | Configureren van een [waarschuwingsregel](alerts-log.md) die duurt of verzendt een melding [automatische actie](action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.<br>Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric-logs.md) op bepaalde log gegevenslogboeken geëxtraheerd als metrische gegevens. |
-| Ophalen | Toegang tot log queryresultaten vanuit een opdrachtregel met [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Toegang tot log queryresultaten vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1).<br>Toegang tot log queryresultaten vanuit een aangepaste toepassing met [REST-API](https://dev.loganalytics.io/). |
+| Ophalen | Toegang tot log queryresultaten vanuit een opdrachtregel met [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Toegang tot log queryresultaten vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Toegang tot log queryresultaten vanuit een aangepaste toepassing met [REST-API](https://dev.loganalytics.io/). |
 | Exporteren | Een werkstroom voor het ophalen van logboekgegevens en kopieer deze naar een externe locatie met bouwen [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -92,7 +92,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 |  Agent-gegevensbronnen | Gegevensbronnen die worden verzameld van [Windows](agent-windows.md) en [Linux](../learn/quick-collect-linux-computer.md) agents zijn gebeurtenissen, prestatiegegevens en aangepaste logboeken. Zie [Agent gegevensbronnen in Azure Monitor](data-sources.md) voor een lijst van gegevensbronnen en gegevens over de configuratie. |
 | Bewakingsoplossingen | Bewakingsoplossingen schrijven gegevens dat ze verzamelen van agents aan de Log Analytics-werkruimte. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../insights/solutions-inventory.md) voor een overzicht van oplossingen. Zie [bewakingsoplossingen in Azure Monitor](../insights/solutions.md) voor meer informatie over het installeren en gebruiken van oplossingen. |
@@ -110,7 +110,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="insights"></a>Inzichten
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 | Azure Monitor voor Containers | Inventaris-en prestatiegegevens verzameld door [Azure Monitor voor containers](../insights/container-insights-overview.md). Zie [Container gegevensverzameling details](../insights/container-insights-analyze.md#container-data-collection-details) voor een lijst van de tabellen. |
 | Azure Monitor voor virtuele machines | Map-en prestatiegegevens verzameld door [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md). Zie [hoe u logboeken van Azure Monitor opvragen voor virtuele machines](../insights/vminsights-log-search.md) voor meer informatie over het opvragen van deze gegevens. |
@@ -124,7 +124,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="security"></a>Beveiliging
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) worden gegevens opgeslagen die worden verzameld in een Log Analytics-werkruimte waar deze kan worden geanalyseerd met andere logboekgegevens. Zie [verzamelen van gegevens in Azure Security Center](../../security-center/security-center-enable-data-collection.md) voor meer informatie over de configuratie van de standaardwerkruimte. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [](/sentinel/connect-data-sources.md)  |
