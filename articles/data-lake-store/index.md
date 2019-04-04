@@ -1,16 +1,22 @@
 ---
-title: 'Documentatie voor Azure Data Lake Storage Gen1 - zelfstudies, API-verwijzing | Microsoft Docs'
-description: 'Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.'
+title: Documentatie voor Azure Data Lake Storage Gen1 - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904658"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentatie voor Azure Data Lake Storage Gen1
 
@@ -175,7 +181,7 @@ Leer hoe u Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Sto
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure-CLI</a></p>
                     </div>
                 </div>
@@ -204,7 +210,7 @@ Leer hoe u Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Sto
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">REST API</a></p>
+                        <p><a href="/rest/api/datalakestore">REST-API</a></p>
                     </div>
                 </div>
             </div>
