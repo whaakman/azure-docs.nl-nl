@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369714"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894454"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -88,7 +88,7 @@ Zie [Azure Active Directory-resources](luis-how-to-collaborate.md#azure-active-d
 
 Onverwachte query voorspellingsresultaten zijn gebaseerd op de status van het gepubliceerde model. Om op te lossen het model, u mogelijk moet wijzigen van het model trainen en opnieuw publiceren. 
 
-Bezig met het herstellen van het model begint met [actief leren](luis-how-to-review-endoint-utt.md).
+Bezig met het herstellen van het model begint met [actief leren](luis-how-to-review-endpoint-utterances.md).
 
 U kunt niet-deterministisch training verwijderen door het bijwerken van de [toepassing versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) om te kunnen gebruiken alle trainingsgegevens.
 
@@ -296,9 +296,9 @@ De volgende functies zijn uitgebracht op de Build 2018-conferentie:
 Aanvullende ontwerpen [API-routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) zijn opgenomen.
 
 Video's:
-* [Azure Friday Build 2018: Cognitive Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday At Build 2018: Cognitive Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - wat is er nieuw met Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018-sessie - Bot-intelligentie, spraakmogelijkheden en aanbevolen NLU-procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018-sessie - Bot intelligentie, spraak-mogelijkheden en NLU aanbevolen procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 - LUIS-Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projecten:

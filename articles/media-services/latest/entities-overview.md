@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804867"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891953"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
@@ -47,7 +47,7 @@ Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-k
 
 De bewerkingen die zijn gemarkeerd met `x-ms-long-running-operation` in de Azure Media Services [swagger-bestanden](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) zijn lang bewerkingen. 
 
-Zie voor meer informatie over hoe u kunt Azure-asynchrone bewerkingen bijhouden [asynchrone bewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Zie voor meer informatie over hoe u kunt Azure-asynchrone bewerkingen bijhouden [asynchrone bewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Media Services heeft de volgende langlopende bewerkingen:
 
@@ -65,7 +65,6 @@ Media Services heeft de volgende langlopende bewerkingen:
 * Start StreamingEndpoint
 * Stop StreamingEndpoint
 * Schaal streamingendpoint zo
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
 
@@ -356,4 +355,4 @@ De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de [transfor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een bestand streamen](stream-files-dotnet-quickstart.md)
+[Een bestand Stream](stream-files-dotnet-quickstart.md)

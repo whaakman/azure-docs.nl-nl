@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456343"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894146"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
 Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschillende fasen: Bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
@@ -37,7 +37,7 @@ Ongeacht het scenario, hebt u alle artefacten die nodig zijn voor de sjabloonimp
 * Binaire waarden van toepassingen
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Geneste sjablonen en configuratiescripts
-Wanneer u de sjablonen die worden geleverd door Visual Studio gebruikt (of die zijn gebouwd met Visual Studio-fragmenten), het PowerShell-script bereidt niet alleen de artefacten, deze ook de URI voor de resources voor verschillende implementaties parameterizes. Het script en vervolgens de artefacten worden gekopieerd naar een beveiligde container in Azure, maakt u een SaS-token voor die container, en vervolgens worden doorgegeven die informatie u aan bij de sjabloonimplementatie. Zie [maken van een sjabloonimplementatie](https://msdn.microsoft.com/library/azure/dn790564.aspx) voor meer informatie over geneste sjablonen.  Wanneer u taken in Azure DevOps-Services, moet u de juiste taken selecteren voor de sjabloonimplementatie en indien nodig, parameterwaarden doorgeven in de staging stap om de sjabloonimplementatie van de.
+Wanneer u de sjablonen die worden geleverd door Visual Studio gebruikt (of die zijn gebouwd met Visual Studio-fragmenten), het PowerShell-script bereidt niet alleen de artefacten, deze ook de URI voor de resources voor verschillende implementaties parameterizes. Het script en vervolgens de artefacten worden gekopieerd naar een beveiligde container in Azure, maakt u een SaS-token voor die container, en vervolgens worden doorgegeven die informatie u aan bij de sjabloonimplementatie. Zie [maken van een sjabloonimplementatie](/previous-versions/azure/reference/dn790564(v=azure.100)) voor meer informatie over geneste sjablonen.  Wanneer u taken in Azure DevOps-Services, moet u de juiste taken selecteren voor de sjabloonimplementatie en indien nodig, parameterwaarden doorgeven in de staging stap om de sjabloonimplementatie van de.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Instellen van continue implementatie in Azure-pijplijnen
 Voor het aanroepen van het PowerShell-script in Azure pijplijnen, moet u bijwerken van uw build-pijplijn. In het kort zijn de stappen: 
@@ -107,7 +107,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
     ![Pad naar script bewerken][10]
 8. In de **scriptargumenten** voert u de volgende parameters (op één regel). Wanneer u het script in Visual Studio uitvoeren, kunt u zien hoe Visual Studio maakt gebruik van de parameters in de **uitvoer** venster. U kunt dit gebruiken als uitgangspunt voor het instellen van de parameterwaarden in uw build-stap.
    
-   | Parameter | Description |
+   | Parameter | Beschrijving |
    | --- | --- |
    | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die is gebruikt voor deze implementatie. |

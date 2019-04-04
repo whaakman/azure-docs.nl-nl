@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449356"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904845"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Zelfstudie: PowerShell gebruiken om HSM's te implementeren in een bestaand virtueel netwerk
 
@@ -34,6 +34,9 @@ Een typische implementatiearchitectuur met hoge beschikbaarheid in meerdere regi
 ![implementatie in meerdere regio's](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
 Deze zelfstudie richt zich op twee HSM's en de vereiste ExpressRoute-gateway (zie Subnet 1 hierboven), die worden geïntegreerd in een bestaand virtueel netwerk (zie VNET 1 hierboven).  Alle andere resources zijn standaard Azure-resources. Hetzelfde integratieproces kan worden gebruikt voor HSM's in subnet 4 op VNET 3 hierboven.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -56,13 +59,13 @@ De inrichting van de HSM's en integratie ervan in een bestaand virtueel netwerk 
 Zoals hierboven is uitgelegd, vereist elke inrichtingsactiviteit dat de Toegewezen HSM-service voor uw abonnement wordt geregistreerd. Om deze te valideren, voert u de volgende PowerShell-opdracht uit in de cloudshell van de Azure-portal. 
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
+Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
 Met de volgende opdracht worden de netwerkfuncties voor de Toegewezen HSM-service geverifieerd.
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
 ```
 
 Beide opdrachten moeten de status 'Geregistreerd' retourneren (zoals hieronder wordt weergegeven) voordat u een verder gaat.  Als u zich voor deze service moet registreren, neemt u contact op met de vertegenwoordiger van uw Microsoft-account.
@@ -75,12 +78,12 @@ Een HSM-apparaat is ingericht in het virtueel netwerk van een klant. Dit implice
 
 Wanneer u de bestanden hebt, moet u het parameterbestand bewerken om uw voorkeursnamen voor resources in te voegen. Dit betekent dat u de regels met 'waarde' moet bewerken.
 
-- `namingInfix` Voorvoegsel voor namen van HSM-resources
-- `ExistingVirtualNetworkName` Naam van het virtuele netwerk dat voor de HSM's wordt gebruikt
-- `DedicatedHsmResourceName1` Naam van de HSM-resource in datacenter stempel 1
-- `DedicatedHsmResourceName2` Naam van de HSM-resource in datacenter stempel 2
-- `hsmSubnetRange` IP-adresbereik van subnet voor HSM's
-- `ERSubnetRange` IP-adresbereik van subnet voor VNET-gateway
+- `namingInfix` Voorvoegsel voor namen van de HSM-resources
+- `ExistingVirtualNetworkName` Naam van het virtuele netwerk dat wordt gebruikt voor de HSM 's
+- `DedicatedHsmResourceName1` Naam van de HSM-resource in datacenterstempel 1
+- `DedicatedHsmResourceName2` Naam van de HSM-resource in datacenterstempel 2
+- `hsmSubnetRange` Subnet IP-adresbereik voor HSM 's
+- `ERSubnetRange` Subnet IP-adresbereik voor VNET-gateway
 
 Hier volgt een voorbeeld van deze wijzigingen:
 
@@ -130,20 +133,20 @@ Wanneer de bestanden zijn geüpload, bent u klaar om resources te maken.
 Voordat u nieuwe HSM-resources maakt, controleert u eerst of de volgende vereiste resources aanwezig zijn. U moet een virtueel netwerk hebben met subnetbereiken voor compute, HSM's en gateway. De volgende opdrachten zijn een voorbeeld van hoe een dergelijk virtueel netwerk wordt gemaakt.
 
 ```powershell
-$compute = New-AzureRmVirtualNetworkSubnetConfig `
+$compute = New-AzVirtualNetworkSubnetConfig `
   -Name compute `
   -AddressPrefix 10.2.0.0/24
 ```
 
 ```powershell
-$delegation = New-AzureRmDelegation `
+$delegation = New-AzDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 
 ```
 
 ```powershell
-$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+$hsmsubnet = New-AzVirtualNetworkSubnetConfig ` 
   -Name hsmsubnet ` 
   -AddressPrefix 10.2.1.0/24 ` 
   -Delegation $delegation 
@@ -152,7 +155,7 @@ $hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-$gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
+$gwsubnet= New-AzVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
   -AddressPrefix 10.2.255.0/26
 
@@ -160,7 +163,7 @@ $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -Name myHSM-vnet `
   -ResourceGroupName myRG `
   -Location westus `
@@ -176,7 +179,7 @@ Wanneer aan alle vereisten is voldaan, voert u de volgende opdracht uit om de Re
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
+New-AzResourceGroupDeployment -ResourceGroupName myRG `
      -TemplateFile .\Deploy-2HSM-toVNET-Template.json `
      -TemplateParameterFile .\Deploy-2HSM-toVNET-Params.json `
      -Name HSMdeploy -Verbose
@@ -195,10 +198,10 @@ Voer de volgende opdrachtenset uit om te controleren of de apparaten zijn ingeri
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG"
 $resourceName = "HSM1"  
-Get-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
 
 ```
 
@@ -218,7 +221,7 @@ Wanneer u bent aangemeld op de Linux-VM, kunt u zich bij de HSM aanmelden met be
 
 ```powershell
 
-(Get-AzureRmResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
+(Get-AzResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
 
 ```
 Wanneer u het IP-adres hebt, voert u de volgende opdracht uit:
@@ -262,10 +265,10 @@ Als u klaar bent met resources in deze resourcegroep, kunt u ze allemaal verwijd
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG" 
 $resourceName = "HSMdeploy"  
-Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
+Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
 
 ```
 
@@ -276,5 +279,5 @@ Wanneer u de stappen in de zelfstudie hebt voltooid, zijn toegewezen HSM-resourc
 * [Hoge beschikbaarheid](high-availability.md)
 * [Fysieke beveiliging](physical-security.md)
 * [Netwerken](networking.md)
-* [Controle](monitoring.md)
+* [Bewaking](monitoring.md)
 * [Ondersteuning](supportability.md)

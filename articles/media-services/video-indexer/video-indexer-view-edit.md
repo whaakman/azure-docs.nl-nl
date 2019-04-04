@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892786"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Video Indexer-inzichten weergeven en bewerken
 
@@ -34,17 +34,11 @@ Dit onderwerp ziet u hoe u kunt weergeven en bewerken van de Video Indexer-inzic
 
     De speler en de inzichten worden gesynchroniseerd. Bijvoorbeeld, als u een sleutelwoord of de regel transcript klikt, brengt de speler u op dat moment in de video. U kunt de weergave van de speler/inzichten en de synchronisatie in uw toepassing bereiken. Zie voor meer informatie, [widgets Azure Indexer insluiten in uw toepassing](video-indexer-embed-widgets.md). 
 
-3. Bewerk de Video Indexer-inzichten.
-
-    Druk op bewerken onder de video. De pagina u de volledige uitsplitsing van een video ziet wordt weergegeven. De uitsplitsing is onderverdeeld in blokken. Deze blokken maken het gemakkelijker om de gegevens te bekijken. Een blok kan bijvoorbeeld worden opgesplitst op basis van wanneer er tussen sprekers wordt gewisseld of als er een lange pauze plaatsvindt. U kunt uw eigen afspeellijst maken met alleen de regels die u wilt gebruiken. Om alleen specifieke onderdelen van de bronvideo weer te geven, kunt u filteren op onderwerpen/trefwoorden, gevoelens, personen, sprekers. U kunt ervoor kiezen alleen het transcript of de OCR van de video te bekijken.  
-
-    ![Inzichten](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 [Informatie over het maken van uw eigen Video Indexer-inzichten op basis van bepaalde andere video](video-indexer-create-new.md).
 
 ## <a name="see-also"></a>Zie ook
 
-[Overzicht van Video Indexer](video-indexer-overview.md)
+[Video Indexer-overzicht](video-indexer-overview.md)
 

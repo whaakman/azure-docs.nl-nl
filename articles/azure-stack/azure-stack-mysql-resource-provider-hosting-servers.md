@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101870"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499774"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
@@ -90,16 +90,19 @@ Als een best practice, moeten de host-servers in een SKU dezelfde resource- en k
 
 SKU's kunnen niet worden toegewezen aan specifieke gebruikers of groepen.
 
-SKU's kunnen een uur duren om te worden weergegeven in de portal. Gebruikers kunnen geen een database maken totdat de SKU is volledig gemaakt.
+Als u wilt een SKU bewerken, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. 
 
-Als u wilt een SKU bewerken, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
+Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
 
-> [!TIP]
-> U kunt bewerken of verwijderen van MySQL resourcequota-provider op dezelfde locatie.
+> [!IMPORTANT]
+> Het kan een uur duren voor de nieuwe SKU's worden weergegeven in de gebruikersportal.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>MySQL-database-servers beschikbaar maken voor uw gebruikers
 
 Maak plannen en aanbiedingen om MySQL-database-servers beschikbaar stellen aan gebruikers. De service Microsoft.MySqlAdapter toevoegen aan het plan en maak een nieuw quotum. MySQL is niet toegestaan voor het beperken van de grootte van databases.
+
+> [!IMPORTANT]
+> Duurt maximaal twee uur nieuwe quota zijn beschikbaar in de gebruikersportal of voordat een gewijzigde quotum wordt afgedwongen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

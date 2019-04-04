@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553749"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919204"
 ---
 >[!NOTE]
 >Open een ondersteuningsticket te vragen voor een verhoging van de quota voor resources die niet zijn opgelost. Maak geen aanvullende Azure Media Services-accounts in een poging om op te halen van hogere limieten.
@@ -39,7 +39,7 @@ ms.locfileid: "57553749"
 
 Vanaf 1 April 2017, is elke taakrecord in uw account die ouder is dan 90 dagen automatisch verwijderd, samen met de bijbehorende Taakrecords. Automatische verwijdering gebeurt zelfs als het totale aantal records lager dan het maximale quotum is. Als u wilt archiveren van de taak en gegevens, gebruikt u de code die wordt beschreven in [assets met Media Services .NET SDK beheren](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup>wanneer u een aanvraag voor lijst taak entiteiten indienen, maximaal 1000 taken per aanvraag wordt geretourneerd. Bijhouden van alle ingediende taken, de bovenkant of overslaan van query's, zoals beschreven in [OData-queryopties system](https://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup>wanneer u een aanvraag voor lijst taak entiteiten indienen, maximaal 1000 taken per aanvraag wordt geretourneerd. Bijhouden van alle ingediende taken, de bovenkant of overslaan van query's, zoals beschreven in [OData-queryopties system](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
 <sup>4</sup>locators zijn niet bedoeld voor het beheren van toegangsbeheer per gebruiker. Om afzonderlijke gebruikers verschillende toegangsrechten, digital rights management (DRM)-oplossingen te gebruiken. Zie voor meer informatie, [beveiligen van uw inhoud met Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 

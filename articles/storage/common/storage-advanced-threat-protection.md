@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850716"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904114"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -22,8 +22,8 @@ Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligi
 Beveiligingswaarschuwingen worden geactiveerd bij afwijkingen in de activiteit is uitgevoerd.  Deze waarschuwingen zijn geïntegreerd met [Azure Security Center](https://azure.microsoft.com/services/security-center/), en ook via e-mail worden verzonden naar alle abonnementsbeheerders met details van verdachte activiteiten en aanbevelingen voor het onderzoeken en bedreigingen verhelpen.
 
 > [!NOTE]
-> * Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor de Blob-opslag. 
-> * Meer informatie over de nieuwe prijzen is beschikbaar in de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) prijzenpagina, inclusief een optie voor een gratis proefperiode van de eerste 30 dagen zonder kosten in rekening gebracht. 
+> * Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor de Blob-opslag.
+> * Zie voor meer informatie, inclusief een gratis 30-daagse proefversie aan, prijzen de [pagina met prijzen van Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
 > * ATP voor Azure storage-functie is momenteel niet beschikbaar in Azure government en onafhankelijke cloud-regio's.
 
 Advanced Threat Protection voor Azure Storage neemt diagnostische logboeken van lees-, schrijf- en delete-aanvragen naar Blob-opslag voor detectie van bedreigingen. U kunt gerelateerde opslagactiviteit in Storage Analytics logboekregistratie weergeven voor het onderzoeken van de waarschuwingen van Advanced Threat Protection. Zie voor meer informatie over het [Opslaganalyse, logboekregistratie configureren](storage-monitor-storage-account.md#configure-logging).
@@ -80,7 +80,7 @@ Rest-API-opdrachten gebruiken voor het maken, bijwerken of de instelling van Adv
 
 Gebruik de volgende PowerShell-cmdlets:
 
-  * [Enable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Advanced Threat Protection inschakelen](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Ophalen van Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Advanced Threat Protection uitschakelen](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

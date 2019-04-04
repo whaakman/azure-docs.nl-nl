@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081505"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484845"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -69,7 +69,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - U hebt de volgende soorten informatie nodig:
 
-       | Value | Description |
+       | Value | Beschrijving |
        | ---   | ---         |
        | Wachtwoord | Een nieuw wachtwoord invoeren voor het certificaat. |
        | Pad naar het lokale certificaat | Voer het pad en de naam van het certificaat. Bijvoorbeeld: `c:\certfilename.pfx` |
@@ -78,7 +78,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
 2.  Noteer het nieuwe certificaat-ID weergegeven in uw PowerShell-sessie `1C2ED76081405F14747DC3B5F76BB1D83227D824`. De ID wordt gebruikt bij het maken van de service-principal.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -126,7 +126,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ De Kubernetes-item verwijderen:
 
 2. Het huidige item van de Kubernetes-Cluster niet vinden in de galerie.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ De Kubernetes-item verwijderen:
 
 4. Gebruik de volgende PowerShell-cmdlet om het item te verwijderen:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

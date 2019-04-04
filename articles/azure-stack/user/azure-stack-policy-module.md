@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 03/26/2019
 ms.author: sethm
-ms.lastreviewed: 11/29/2018
-ms.openlocfilehash: 2e1b7257e7ffc4460d86018a6318e33f95e01700
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/26/2019
+ms.openlocfilehash: 9fade97bbe783cf156f5b73523bc0834a34df926
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246261"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487444"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure policy met behulp van de Azure Stack-beleidsmodule beheren
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-De beleidsmodule van Azure Stack kunt u een Azure-abonnement configureren met de dezelfde versiebeheer en servicebeschikbaarheid als Azure Stack. Maakt gebruik van de module de [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet voor het maken van een Azure-beleid, zodat ze worden beperkt de resourcetypen en services die beschikbaar zijn in een abonnement. U maakt een beleidstoewijzing binnen het juiste bereik met behulp van de [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Na het configureren van het beleid, kunt u uw Azure-abonnement voor het ontwikkelen van apps is gericht op Azure Stack.
+De beleidsmodule van Azure Stack kunt u een Azure-abonnement configureren met de dezelfde versiebeheer en de beschikbaarheid van services als Azure Stack. Maakt gebruik van de module de [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell-cmdlet voor het maken van een Azure-beleid, zodat ze worden beperkt de resourcetypen en services die beschikbaar zijn in een abonnement. U maakt een beleidstoewijzing binnen het juiste bereik met behulp van de [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Na het configureren van het beleid, kunt u uw Azure-abonnement voor het ontwikkelen van apps is gericht op Azure Stack.
 
 ## <a name="install-the-module"></a>Installeer de module
 
@@ -35,31 +35,31 @@ De beleidsmodule van Azure Stack kunt u een Azure-abonnement configureren met de
 3. [PowerShell configureren voor gebruik met Azure Stack](azure-stack-powershell-configure-user.md).
 4. Importeer de module AzureStack.Policy.psm1:
 
-    ```PowerShell
-    Import-Module .\Policy\AzureStack.Policy.psm1
-    ```
+
+   ```powershell
+   Import-Module .\Policy\AzureStack.Policy.psm1
+   ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>Beleid toepassen op Azure-abonnement
 
-U kunt de volgende opdracht gebruiken om toe te passen een standaardbeleid voor Azure Stack op basis van uw Azure-abonnement. Voordat u deze opdracht uitvoert, vervangt `Azure Subscription Name` met de naam van uw Azure-abonnement.
+U kunt de volgende opdracht gebruiken om toe te passen een standaardbeleid voor Azure Stack op basis van uw Azure-abonnement. Voordat u deze opdracht uitvoert, vervangt `Azure subscription name` met de naam van uw Azure-abonnement:
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
-
 ```
 
 ## <a name="apply-policy-to-a-resource-group"></a>Beleid toepassen op een resourcegroep
 
-U wilt toepassen van beleid dat meer gedetailleerde is. Een voorbeeld: als u mogelijk andere resources die worden uitgevoerd in hetzelfde abonnement. U kunt het bereik van de toepassing van het beleid aan een specifieke resourcegroep, waarmee u uw apps testen voor Azure Stack met behulp van Azure-resources. Voordat u de volgende opdracht uitvoert, Vervang `Azure Subscription Name` met de naam van uw Azure-abonnement.
+Het is raadzaam om toe te passen van beleidsregels die gedetailleerdere zijn. Een voorbeeld: als u mogelijk andere resources die worden uitgevoerd in hetzelfde abonnement. U kunt het bereik van de toepassing van het beleid aan een specifieke resourcegroep, waarmee u uw apps testen voor Azure Stack met behulp van Azure-resources. Voordat u de volgende opdracht uitvoert, Vervang `Azure subscription name` met de naam van uw Azure-abonnement:
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
@@ -67,7 +67,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="policy-in-action"></a>Beleid in actie
 
-Nadat u de Azure-beleid hebt geïmplementeerd, ontvangt u een fout opgetreden tijdens het implementeren van een resource die niet is toegestaan door het beleid.
+Nadat u de Azure-beleid hebt geïmplementeerd, ontvangt u een foutbericht wanneer u probeert een resource die niet is toegestaan door het beleid implementeren:
 
 ![Resultaat van de resource-implementatie is mislukt, omdat beleidsbeperking](./media/azure-stack-policy-module/image1.png)
 

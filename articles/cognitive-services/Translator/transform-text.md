@@ -3,19 +3,19 @@ title: Transformeer tekst - Translator Text-API
 titlesuffix: Azure Cognitive Services
 description: Transformeer tekst met behulp van de Translator Text-API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 85e5f5bab6edff2a97f08f2d4df613c446039ee3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099396"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916220"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Het gebruik van de methode TransformText
 
@@ -28,7 +28,7 @@ De methode is een RESTful-service met behulp van GET via HTTP. Het ondersteunt e
 
 ## <a name="parameters"></a>Parameters
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 |:---|:---|
 | Autorisatieheader | **Vereiste** HTTP-header wordt gebruikt om de toepassing te identificeren. De sleutel gebruiken: 'Autorisatie' en de waarde: "Bearer" + "" + toegangstoken. Ga hier voor meer informatie.|
 | language | **Vereiste** een tekenreeks voor de taal. Deze parameter ondersteunt alleen Engels met **en** als naam van de taal.|

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007492"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892174"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
 
@@ -45,9 +45,9 @@ In deze zelfstudie wordt ervan uitgegaan dat u de stappen van de eerste twee zel
 
 Als u de eerste twee zelfstudies nog niet hebt afgerond, moet u dit doen voordat u verdergaat:
 
-[Zelfstudie: containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+[In de cloud met Azure Container Registry taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
 
-[Builds van containerinstallatiekopieën automatiseren met Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
+[Compileren van de container-installatiekopieën met Azure Container Registry taken automatiseren](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>De omgeving configureren
 
@@ -79,7 +79,7 @@ In deze zelfstudie wordt u door een bijwerkscenario van een basisinstallatiekopi
 
 In de volgende gedeeltes maakt u een taak, werkt u de waarde `NODE_VERSION` in het Docker-bestand van de basisinstallatiekopie bij en gebruikt u ACR Tasks om de basisinstallatiekopie te maken. Zodra de ACR-taak de nieuwe basisinstallatiekopie naar uw register pusht, wordt er automatisch een build van de toepassingsinstallatiekopie geactiveerd. Optioneel kunt u de containerinstallatiekopie van de toepassing lokaal uitvoeren om de verschillende versietekenreeksen in de ingebouwde installatiekopieën te bekijken.
 
-In deze zelfstudie wordt met een ACR-taak één container-installatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. Met ACR-taken kunnen ook [taken bestaande uit meerdere stappen](container-registry-tasks-multi-step.md) worden uitgevoerd (momenteel in preview). Hierbij wordt een YAML-bestand gebruikt om de stappen voor het bouwen, pushen en optioneel testen van meerdere containers te definiëren.
+In deze zelfstudie wordt met uw ACR-taak één containerinstallatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. ACR-taken kunnen ook uitgevoerd [taken meerdere stappen](container-registry-tasks-multi-step.md), met behulp van een YAML-bestand voor het definiëren van de stappen voor het bouwen, push en eventueel meerdere containers te testen.
 
 ## <a name="build-the-base-image"></a>De basisinstallatiekopie bouwen
 

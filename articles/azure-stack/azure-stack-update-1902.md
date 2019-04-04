@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 04/03/2019
+ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372366"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862077"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902-update
 
-*Van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op Geïntegreerde Azure Stack-systemen*
 
 Dit artikel wordt de inhoud van het updatepakket 1902 beschreven. De update bevat verbeteringen, oplossingen en nieuwe functies voor deze versie van Azure Stack. Dit artikel ook worden bekende problemen in deze release beschreven, en bevat een koppeling om de update te downloaden. Bekende problemen zijn onderverdeeld in problemen direct verband houden met het updateproces en problemen met de build (na de installatie).
 
@@ -57,12 +57,12 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 ## <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
-> - Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1901 (indien aanwezig) voordat u bijwerkt naar 1902.
+> U kunt 1902 installeren rechtstreeks vanuit de [1.1901.0.95 of 1.1901.0.99](azure-stack-update-1901.md#build-reference) loslaat, zonder dat eerst een hotfix 1901 wordt geïnstalleerd. Echter, als u de oudere hebt geïnstalleerd **1901.2.103** hotfix, moet u installeert de nieuwere [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) voordat u doorgaat met de 1902.
 
 - Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist:
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
 - Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), zorg ervoor dat u het bijwerken van de [Management Pack voor Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) naar versie 1.0.3.11 voordat u 1902 toepast.
@@ -77,6 +77,9 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 - De 1902-build introduceert een nieuwe gebruikersinterface van de beheerder van Azure Stack-portal voor het maken van plannen, aanbiedingen, quota's en aanvullende plannen. Zie voor meer informatie, waaronder schermafbeeldingen, [maken, plannen, aanbiedingen en quota's](azure-stack-create-plan.md).
 
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Verbeteringen in de betrouwbaarheid van capaciteitsuitbreiding tijdens toevoegen knooppunt wanneer u overschakelt van de status van de eenheid schaal van 'Expanding opslag' in de status actief.
+
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
 1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
@@ -84,23 +87,21 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Ter verbetering van pakket integriteit en beveiliging en eenvoudiger beheer voor offline opname, is Microsoft de indeling van het updatepakket uit .exe en .bin bestanden gewijzigd in een ZIP-bestand. De nieuwe indeling voegt extra betrouwbaarheid toe aan de unpacking proces dat soms kan leiden tot de voorbereiding van de update negatieve invloed op i/o. De indeling van hetzelfde pakket geldt ook voor het bijwerken van pakketten van uw OEM.
-
-- Voor het verbeteren van de ervaring van de Azure Stack-operator bij het uitvoeren van **Test AzureStack**, operators kunnen nu gewoon gebruiken `Test-AzureStack -Group UpdateReadiness` in plaats van het doorgeven van tien extra parameters na een `include` instructie. Bijvoorbeeld:
+- Ter verbetering van pakket integriteit en beveiliging, evenals eenvoudiger beheer voor offline opname, is Microsoft de indeling van het updatepakket uit .exe en .bin bestanden gewijzigd in een ZIP-bestand. De nieuwe indeling wordt toegevoegd voor aanvullende betrouwbaarheid van het unpacking proces dat soms kan leiden tot de voorbereiding van de update negatieve invloed op i/o. De indeling van hetzelfde pakket geldt ook voor het bijwerken van pakketten van uw OEM.
+- Om te verbeteren de ervaring van de Azure Stack-operator bij het uitvoeren van Test-AzureStack, operators kunnen nu gewoon gebruiken, ' Test-AzureStack-groep UpdateReadiness ' in plaats van tien extra parameters doorgeven na een Include-instructie.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
-- Ter verbetering van de algehele betrouwbaarheid en beschikbaarheid van core infrastructuurservices tijdens het updateproces, bijwerken de native-resourceprovider als onderdeel van de update-actieplan kan worden gedetecteerd en automatische globale herstelbewerkingen aanroepen naar behoefte. Globale herstel 'herstellen' werkstromen zijn onder andere:
-
-  - Controleer voor infrastructuur voor virtuele machines die zich in een niet-optimale status en proberen te herstellen ze indien nodig.
-  - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen ze indien nodig.
-  - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en proberen te herstellen ze indien nodig.
-  - Controleer de status van de netwerkcontroller (NC)-service en proberen te herstellen indien nodig.
-  - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en deze herstellen indien nodig.
-  - Controleer de status van de XRP service fabric-knooppunten en deze herstellen indien nodig.
-  - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en deze herstellen indien nodig.
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- Ter verbetering van op de algehele betrouwbaarheid en beschikbaarheid van core infrastructuurservices tijdens het bijwerken, de systeemeigen Update-resourceprovider als onderdeel van de update-actieplan detecteert en aanroepen van de automatische algemene herstelbewerkingen zo nodig. Globale herstel 'herstellen' werkstromen zijn onder andere:
+    - Controleren op infrastructuur-VM's die zich in een niet-optimale status en proberen te herstellen van deze zo nodig 
+    - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen van deze zo nodig
+    - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en probeert deze zo nodig herstellen
+    - Controleer de status van de netwerkcontroller (NC)-service en probeert te herstellen indien nodig
+    - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en ze herstellen indien nodig
+    - Controleer de status van de XRP service fabric-knooppunten en ze herstellen indien nodig
+    - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en ze herstellen indien nodig
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
 - Verbeteringen in de betrouwbaarheid van capaciteitsuitbreiding tijdens toevoegen knooppunt wanneer u overschakelt van de status van de eenheid schaal van 'Expanding opslag' in de status actief.    
@@ -115,13 +116,13 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 - Verbeteringen in Azure stack diagnostische hulpprogramma's voor het logboek verzameling betrouwbaarheid en prestaties verbeteren. Aanvullende logboekregistratie voor netwerk-en identiteitsservices. 
 
 <!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
-- Verbeteringen in de betrouwbaarheid van **Test AzureStack** geheime rotatie readiness te testen.
+- Verbeteringen in de betrouwbaarheid van Test-AzureStack voor gereedheid van de geheime rotatie testen.
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- Verbeteringen in AD Graph-betrouwbaarheid te vergroten bij het communiceren met de Active Directory-omgeving van een klant.
+- Verbeteringen in AD Graph-betrouwbaarheid te vergroten bij het communiceren met de Active Directory-omgeving van de klant
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
-- Verbeteringen voor hardware-inventaris verzameling in **Get-AzureStackStampInformation**.
+- Hardware-inventarisverzameling verbeteringen in Get-AzureStackStampInformation.
 
 - Als u wilt de betrouwbaarheid van bewerkingen die worden uitgevoerd op ERCS infrastructuur, wordt het geheugen voor elk exemplaar ERCS verhoogd van 8 GB tot 12 GB. De installatie van een geïntegreerde Azure Stack-systemen resulteert dit in een toename van 12 GB algemene.
 
@@ -219,19 +220,6 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    - Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.
-
-- Als u nog geen een Hardware Lifecycle Host (HLH): Voordat u build 1902, moest u het Groepsbeleid instellen **Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties** naar **verzenden LM en NTLM-gebruik NTLMv2-sessiebeveiliging als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is de standaardwaarde). Anders kan niet u een externe PowerShell-sessie tot stand brengen en u ontvangt een **toegang is geweigerd** fout:
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### <a name="networking"></a>Netwerken  
 

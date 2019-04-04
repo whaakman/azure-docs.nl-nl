@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: e6afea414ed632dead97a4b9adc7c623e48bd7ef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e93a8fbcd603e5c52141a2a883bd7371ee50221
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766696"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445369"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Quickstart: Een virtuele Linux-server-machine maken met behulp van PowerShell in Azure Stack
 
@@ -384,7 +384,7 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-Nadat de virtuele machine is geïmplementeerd, configureert u een SSH-verbinding voor de virtuele machine. Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) om het openbare IP-adres van de virtuele machine te retourneren.
+Nadat de virtuele machine is geïmplementeerd, configureert u een SSH-verbinding voor de virtuele machine. Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de virtuele machine te retourneren.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -420,7 +420,7 @@ Met NGINX is geïnstalleerd en poort 80 is geopend op uw virtuele machine, kunt 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Schoon de resources die u niet meer nodig. U kunt de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) opdracht om deze resources te verwijderen. Als u wilt verwijderen van de resourcegroep en alle bijbehorende resources, moet u de volgende opdracht uitvoeren:
+Schoon de resources die u niet meer nodig. U kunt de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht om deze resources te verwijderen. Als u wilt verwijderen van de resourcegroep en alle bijbehorende resources, moet u de volgende opdracht uitvoeren:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

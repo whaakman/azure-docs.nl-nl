@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c3086f0b68f8e2bf8bdd115e483d53ea94384f1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876306"
+ms.locfileid: "58906069"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Een back-up van een virtuele machine maken in Azure met PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 De [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. 
 
@@ -29,6 +27,7 @@ Deze quickstart is bedoeld voor een back-up van een bestaande VM in Azure. Als u
 
 In deze snelstartgids AZ moduleversie 1.0.0 van Azure PowerShell vereist of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>Aanmelden en registreren
 
@@ -77,7 +76,7 @@ Nu een kluis maken.
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > Opslagredundantie kan alleen worden gewijzigd als er geen back-up items naar de kluis wordt beveiligd zijn.

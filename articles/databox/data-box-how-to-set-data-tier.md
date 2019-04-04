@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517144"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905559"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box gebruiken om gegevens te verzenden naar de juiste Azure Storage blob-laag
 
 Azure Data Box worden grote hoeveelheden gegevens naar Azure verplaatst door het verzenden van een eigen opslagapparaat. U vult van het apparaat met gegevens en retourneren. De gegevens van Data Box is geüpload naar een standaardlaag die is gekoppeld aan de storage-account. U kunt de gegevens vervolgens verplaatsen naar een andere opslaglaag.
 
 Dit artikel wordt beschreven hoe de gegevens die door Data Box is geüpload kunnen worden verplaatst naar een blob-laag warm, koud of archief.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Kies de juiste opslaglaag voor uw gegevens
 
@@ -58,7 +61,7 @@ Volgende stappen wordt beschreven hoe u kunt instellen de blob-laag naar archief
 
 2. Meld u aan bij de Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Definieer de variabelen voor de storage-account, toegangssleutel, container en de opslagcontext.
 
@@ -66,12 +69,12 @@ Volgende stappen wordt beschreven hoe u kunt instellen de blob-laag naar archief
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Alle blobs in de container ophalen.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Stel de laag van alle blobs in de container naar archief.
 
@@ -91,7 +94,7 @@ Volgende stappen wordt beschreven hoe u kunt instellen de blob-laag naar archief
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Volgende stappen wordt beschreven hoe u kunt instellen de blob-laag naar archief
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

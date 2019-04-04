@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231169"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893636"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor vraagprognose in energie
-## <a name="overview"></a>**Overzicht**
+## **<a name="overview"></a>Overzicht**
 Sjablonen voor oplossingen zijn ontworpen om het proces van het bouwen van een demo E2E boven op Cortana Intelligence Suite te versnellen. Een geïmplementeerde sjabloon bepalingen van uw abonnement met de benodigde Cortana Intelligence-onderdeel en de relaties tussen bouwen. Deze ook de seeding van de gegevenspijplijn met voorbeeldgegevens ophalen gegenereerd op basis van een toepassing simuleren. De gegevenssimulator van de koppeling downloaden en installeren op uw lokale computer, Raadpleeg het Leesmij-bestand voor instructies over het gebruik van de simulator. Gegevens die zijn gegenereerd op basis van de simulator hydrates de gegevenspijplijn en start genereren voorspelling machine learning, die vervolgens kan worden gevisualiseerd in Power BI-dashboard.
 
 Sjabloon van de oplossing kan worden gevonden [hier](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,13 +27,13 @@ Het implementatieproces leidt u door de verschillende stappen voor het instellen
 
 Het doel van dit document is om uit te leggen van de referentie-architectuur en de verschillende onderdelen die zijn ingericht in uw abonnement als onderdeel van deze oplossingssjabloon. Het document ook vertelt hoe u de voorbeeldgegevens, vervangen door echte gegevens van uw eigen insights/voorspellingen op basis van u gewonnen gegevens zien. Bovendien de presentaties document over de onderdelen van de sjabloon van de oplossing die worden gewijzigd moet als u wilt aanpassen van de oplossing met uw eigen gegevens. Instructies voor het bouwen van de Power BI-dashboard voor deze oplossingssjabloon worden geleverd aan het einde.
 
-## <a name="details"></a>**Details**
+## **<a name="details"></a>Details**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>Architectuur uitgelegd
 Wanneer de oplossing wordt geïmplementeerd, verschillende Azure-services binnen de Cortana Analytics Suite worden geactiveerd (dat wil zeggen, Event Hub, Stream Analytics, HDInsight, de Data Factory, Machine Learning, *enzovoort*). Het architectuurdiagram ziet, op hoog niveau, hoe de vraagprognose voor energie-oplossingssjabloon is samengesteld uit de end-to-end. U kunt deze services onderzoeken door erop te klikken op het oplossingsdiagram van de sjabloon die zijn gemaakt met de implementatie van de oplossing. De volgende secties beschrijven elk gegeven.
 
-## <a name="data-source-and-ingestion"></a>**De gegevensbron en opnamesnelheid**
+## **<a name="data-source-and-ingestion"></a>De gegevensbron en opnamesnelheid**
 ### <a name="synthetic-data-source"></a>Synthetische gegevensbron
 De gegevensbron die wordt gebruikt wordt voor deze sjabloon wordt gegenereerd vanuit een bureaubladtoepassing die u downloaden en lokaal uitvoeren na een geslaagde implementatie. U vindt de instructies voor het downloaden en installeren van deze toepassing in de Eigenschappenbalk wanneer u het eerste knooppunt energie voorspellen Gegevenssimulator aangeroepen op het oplossingsdiagram van de sjabloon selecteert. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen die worden gebruikt in de rest van de oplossingsstroom.
 
@@ -42,7 +42,7 @@ De toepassing voor het genereren van gebeurtenis vult de Azure Event Hub alleen 
 ### <a name="azure-event-hub"></a>Azure Event Hub
 De [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) -service is de ontvanger van de invoer die is opgegeven door de synthetische gegevensbron beschreven.
 
-## <a name="data-preparation-and-analysis"></a>**Voorbereiden van gegevens en analyse**
+## **<a name="data-preparation-and-analysis"></a>Voorbereiden van gegevens en analyse**
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 De [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service wordt gebruikt voor bijna realtime analyses over de invoerstroom uit de [Azure Event Hub](#azure-event-hub) service en publiceren van resultaten op een [Power BI](https://powerbi.microsoft.com)dashboard, evenals het archiveren van alle ruwe inkomende gebeurtenissen naar de [Azure Storage](https://azure.microsoft.com/services/storage/) service later worden verwerkt door de [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
 
@@ -52,15 +52,15 @@ De Azure HDInsight-service wordt gebruikt om uit te voeren [Hive](https://blogs.
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) -service (gecoördineerd door Azure Data Factory) wordt gebruikt om te maken van prognoses op toekomstig energieverbruik van een bepaalde regio op basis van de ontvangen invoer.
 
-## <a name="data-publishing"></a>**Gegevens publiceren**
+## **<a name="data-publishing"></a>Gegevens publiceren**
 ### <a name="azure-sql-database-service"></a>Azure SQL Database Service
 De [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service wordt gebruikt om op te slaan (beheerd door Azure Data Factory) de voorspellingen ontvangen door de Azure Machine Learning-service die wordt gebruikt in de [Power BI](https://powerbi.microsoft.com) dashboard.
 
-## <a name="data-consumption"></a>**Gegevensverbruik**
+## **<a name="data-consumption"></a>Gegevensverbruik**
 ### <a name="power-bi"></a>Power BI
 De [Power BI](https://powerbi.microsoft.com) service wordt gebruikt om weer te geven van een dashboard met aggregaties geleverd door de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service, evenals vraag voorspellen resultaten die zijn opgeslagen in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) die zijn gemaakt met behulp van de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service. Raadpleeg de volgende sectie voor instructies over het bouwen van de Power BI-dashboard voor deze oplossingssjabloon.
 
-## <a name="how-to-bring-in-your-own-data"></a>**Hoe u uw eigen gegevens**
+## **<a name="how-to-bring-in-your-own-data"></a>Hoe u uw eigen gegevens**
 In deze sectie wordt beschreven hoe u uw eigen gegevens overbrengen naar Azure, en welke gebieden voor de gegevens die u in deze architectuur brengt wijzigingen nodig.
 
 Is het onwaarschijnlijk dat de gegevensset die wordt gebruikt voor deze oplossingssjabloon er naar een gegevensset die u levert gezocht wordt. Inzicht krijgen in uw gegevens en de vereisten zijn essentieel in hoe u deze sjabloon wilt werken met uw eigen gegevens wijzigen. Als nog niet bekend met Azure Machine Learning-service, krijgt u een inleiding tot het met behulp van het voorbeeld in [over het maken van uw eerste experiment](machine-learning/studio/create-experiment.md).
@@ -106,40 +106,40 @@ Vijf van de pijplijnen van deze factory bevat [Hive](https://blogs.msdn.com/b/bi
 
 Vergelijkbaar met de [Azure Stream Analytics](#azure-stream-analytics-1) query's, de [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts impliciete kennis op over de indeling van de binnenkomende, deze query's zou moeten worden gewijzigd op basis van uw gegevens formatteren en [functie-engineering](machine-learning/team-data-science-process/create-features.md) vereisten.
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) het script op geaggregeerde gestreamde in vraaggegevens elke 10 seconden in onderstation instellen op elk uur regioniveau en plaats in [Azure Storage](https://azure.microsoft.com/services/storage/) via de Azure Stream Analytics-taak.
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) die wordt uitgevoerd een [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) het script op geaggregeerde gestreamde in vraaggegevens elke 10 seconden in onderstation instellen op elk uur regioniveau en plaats in [Azure Storage](https://azure.microsoft.com/services/storage/) via de Azure Stream Analytics-taak.
 
 De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitioneren is ***AggregateDemandRegion1Hr.hql***
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat twee activiteiten:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die een Hive-script voor het per uur gegevens van geschiedenis van aanvraag in onderstation instellen op elk uur regioniveau aggregeren en plaatsen in Azure Storage tijdens de Azure Stream wordt uitgevoerd Analytics-taak
-* [Kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die de samengevoegde gegevens uit Azure Storage-blob verplaatst naar de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) die een Hive-script voor het per uur gegevens van geschiedenis van aanvraag in onderstation instellen op elk uur regioniveau aggregeren en plaatsen in Azure Storage tijdens de Azure Stream wordt uitgevoerd Analytics-taak
+* [Kopie](/previous-versions/azure/dn835035(v=azure.100)) activiteit die de samengevoegde gegevens uit Azure Storage-blob verplaatst naar de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
 
 De [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) voor deze taak is een script ***AggregateDemandHistoryRegion.hql***.
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 Deze [pijplijnen](data-factory/concepts-pipelines-activities.md) bevatten verschillende activiteiten en waarvan de beoordeelde voorspellingen op basis van de Azure Machine Learning-experiment die zijn gekoppeld aan deze oplossingssjabloon wordt. Ze zijn bijna identiek, behalve in elk van deze verwerkt alleen de andere regio, wordt die werd uitgevoerd door verschillende RegionID doorgegeven in de pijplijn ADF en het hive-script voor elke regio.  
 De activiteiten die zijn opgenomen in deze pijplijn zijn:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die een Hive-script uit te voeren aggregaties en functie-engineering die nodig zijn voor de Azure Machine Learning-experiment wordt uitgevoerd. Het Hive-scripts voor deze taak worden respectieve ***PrepareMLInputRegionX.hql***.
-* [Kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die wordt verplaatst van de resultaten van de [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit aan een enkele Azure Storage-blob die toegang door de [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activiteit.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activiteit die de Azure Machine Learning-experiment, wat resulteert in de resultaten worden opgeslagen in een enkele Azure Storage-blob worden aangeroepen.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) die een Hive-script uit te voeren aggregaties en functie-engineering die nodig zijn voor de Azure Machine Learning-experiment wordt uitgevoerd. Het Hive-scripts voor deze taak worden respectieve ***PrepareMLInputRegionX.hql***.
+* [Kopie](/previous-versions/azure/dn835035(v=azure.100)) activiteit die wordt verplaatst van de resultaten van de [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit aan een enkele Azure Storage-blob die toegang door de [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) activiteit.
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) activiteit die de Azure Machine Learning-experiment, wat resulteert in de resultaten worden opgeslagen in een enkele Azure Storage-blob worden aangeroepen.
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die de resultaten van de Azure Machine Learning-experiment van de desbetreffende verplaatst ***MLScoringRegionXPipeline***met de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](/previous-versions/azure/dn835035(v=azure.100)) activiteit die de resultaten van de Azure Machine Learning-experiment van de desbetreffende verplaatst ***MLScoringRegionXPipeline***met de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die de gegevens van de samengevoegde doorlopende aanvraag van verplaatst ***LoadHistoryDemandDataPipeline*** tot de Azure SQL De database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](/previous-versions/azure/dn835035(v=azure.100)) activiteit die de gegevens van de samengevoegde doorlopende aanvraag van verplaatst ***LoadHistoryDemandDataPipeline*** tot de Azure SQL De database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die wordt verplaatst van de referentiegegevens van regio/onderstation/Topologygeo die zijn geüpload naar Azure Storage-blob als onderdeel van de oplossingssjabloon installatie met de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat één activiteit: een [kopie](/previous-versions/azure/dn835035(v=azure.100)) activiteit die wordt verplaatst van de referentiegegevens van regio/onderstation/Topologygeo die zijn geüpload naar Azure Storage-blob als onderdeel van de oplossingssjabloon installatie met de Azure SQL-Database die is ingericht als onderdeel van de installatie van de sjabloon oplossing.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren gebruikt voor deze oplossingssjabloon de voorspelling van de vraag van de regio biedt. Het experiment is specifiek voor de gegevensset verbruikt en daarom vereist wijziging of vervanging die specifiek zijn voor de gegevens die wordt voorgelegd aan.
 
-## <a name="monitor-progress"></a>**De voortgang van de**
+## **<a name="monitor-progress"></a>De voortgang van de**
 Zodra de Gegevensgenerator wordt gestart, wordt de pijplijn wordt gehydrateerd ophalen en de verschillende onderdelen van uw oplossing start starten in actie volgende de opdrachten die zijn uitgegeven door de Data Factory. Er zijn twee manieren kunt u de pijplijn bewaken.
 
 1. Controleer de gegevens uit Azure Blob Storage.
@@ -154,7 +154,7 @@ Zodra de Gegevensgenerator wordt gestart, wordt de pijplijn wordt gehydrateerd o
 
     U kunt Power BI-dashboard voor snelpad instellen voor het bewaken van de onbewerkte binnenkomende gegevens. Volg de instructies in de sectie 'Power BI-Dashboard'.
 
-## <a name="power-bi-dashboard"></a>**Power BI-Dashboard**
+## **<a name="power-bi-dashboard"></a>Power BI Dashboard**
 ### <a name="overview"></a>Overzicht
 In deze sectie wordt beschreven hoe u Power BI-dashboard te visualiseren van uw realtime gegevens van Azure stream analytics (dynamisch pad), evenals resultaten van Azure machine learning-(koud pad) prognose instellen.
 
@@ -224,14 +224,14 @@ In pijplijn koude pad, wordt het essentiële doel is om op te halen van de vraag
    * Vouw de **vernieuwen plannen** sectie. Schakel 'uw gegevens actueel houden'.
    * Geen vernieuwing worden gepland op basis van uw behoeften. Meer informatie, Zie [gegevens vernieuwen in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
-## <a name="how-to-delete-your-solution"></a>**Uw oplossing verwijderen**
+## **<a name="how-to-delete-your-solution"></a>Uw oplossing verwijderen**
 Zorg ervoor dat u de gegevensgenerator stopt wanneer u de oplossing niet actief gebruikt als de gegevensgenerator leidt hogere kosten tot. De oplossing te verwijderen als u deze niet gebruikt. Uw oplossing verwijdert, worden de onderdelen die zijn ingericht in uw abonnement tijdens de implementatie van de oplossing. De oplossing klikt u op de oplossingsnaam van uw in het linkerdeelvenster van de oplossingssjabloon verwijderen en klik op verwijderen.
 
-## <a name="cost-estimation-tools"></a>**Schatting van de extra kosten**
+## **<a name="cost-estimation-tools"></a>Schatting van de extra kosten**
 De volgende twee hulpprogramma's zijn beschikbaar waarmee u meer informatie over de totale kosten die betrokken zijn bij het uitvoeren van de on-Demand prognose voor energie-oplossingssjabloon in uw abonnement:
 
 * [Microsoft Azure hulpprogramma Cost Estimator ontwikkeld (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure-hulpprogramma voor Cost Estimator ontwikkeld (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**Bevestigingen**
+## **<a name="acknowledgements"></a>Bevestigingen**
 In dit artikel is geschreven door gegevenswetenschapper Yijing Chen en software-engineer Qiu Min bij Microsoft.

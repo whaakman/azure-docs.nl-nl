@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee86b9aa2d920668cf036f3e8f8634e9289e8913
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230288"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916866"
 ---
-# <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: back-ups maken en herstellen
+# <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Back-up en herstel
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -34,7 +34,7 @@ Azure BizTalk Services omvat mogelijkheden voor back-up en herstel.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
-* Back-up en herstel mogelijk niet beschikbaar voor alle edities. Zie [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md).
+* Back-up en herstel mogelijk niet beschikbaar voor alle edities. See [BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md).
 * Back-inhoud kan worden hersteld naar dezelfde BizTalk Service of naar een nieuwe BizTalk Service. Als u wilt herstellen van de BizTalk-Service met dezelfde naam, de bestaande BizTalk-Service moeten worden verwijderd en de naam mag niet beschikbaar. Nadat u een BizTalk Service hebt verwijderd, duurt het langer dan wilde voor dezelfde naam beschikbaar is. Als u niet kunt op dezelfde naam wachten beschikbaar is, zet u een nieuwe BizTalk Service.
 * BizTalk Services kunnen worden hersteld naar dezelfde versie of een hogere editie. BizTalk Services is teruggezet naar een lagere versie, wordt uit wanneer de back-up is gemaakt, niet ondersteund.
   
@@ -46,10 +46,10 @@ Azure BizTalk Services omvat mogelijkheden voor back-up en herstel.
 * Optioneel: In de BizTalk Services-Portal, niet alle beheerbewerkingen.
 
 ## <a name="create-a-backup"></a>Een back-up maken
-Een back-up kan worden uitgevoerd op elk gewenst moment en volledig wordt beheerd door u. U kunt een back-up maken met de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Een back-up kan worden uitgevoerd op elk gewenst moment en volledig wordt beheerd door u. U kunt een back-up maken met de [REST-API voor het beheren van BizTalk Services op Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ## <a name="restore"></a>Herstellen
-Als u een back-up herstellen, gebruikt u de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Als u een back-up herstellen, gebruikt u de [REST-API voor het beheren van BizTalk Services op Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ### <a name="postrestore"></a>Na het herstellen van een back-up
 De BizTalk Service altijd hersteld in een **onderbroken** staat. In deze staat, kunt u eventuele wijzigingen in de configuratie voordat de nieuwe omgeving functioneel is, met inbegrip van:
@@ -69,7 +69,7 @@ Wanneer een back-up wordt gemaakt, de volgende items zijn back-up gemaakt:
 </tr> 
 <tr>
 <td colspan="2">
- <strong>Azure BizTalk Services-Portal</strong></td>
+ <strong>Azure BizTalk Services Portal</strong></td>
 </tr> 
 <tr>
 <td>Configuratie en Runtime</td> 
@@ -104,7 +104,7 @@ Wanneer een back-up wordt gemaakt, de volgende items zijn back-up gemaakt:
 </td>
 </tr> 
 <tr>
-<td>BizTalk Service-instellingen</td> 
+<td>BizTalk Service Settings</td> 
 <td>
 <ul>
 <li>Schaalaanpassingsaantal eenheid</li>
@@ -132,17 +132,17 @@ Als de Database bijhouden is verwijderd en de behoeften van de database is herst
 </table>
 
 ## <a name="next"></a>Volgende
-Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: Inrichting](https://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
-* [Back-up van BizTalk-Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk-Service te herstellen vanuit back-up](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: statusgrafiek voor de inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: naam en sleutel van verlener](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [BizTalk Services: Inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Diagram van de Status van inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Tabbladen dashboard, bewaken en schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Naam en sleutel van verlener](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png

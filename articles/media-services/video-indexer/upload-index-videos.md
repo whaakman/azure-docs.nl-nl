@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516958"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893449"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -22,7 +22,7 @@ Tijdens het uploaden van video's met Video Indexer-API, hebt u de volgende optie
 
 * uw video uploaden via een URL (aanbevolen),
 * het videobestand verzenden als een bytematrix in de aanvraagbody.
-* Gebruik bestaande Azure Media Services-assets door de [asset-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) op te geven (alleen ondersteund in betaalde accounts).
+* Gebruik van bestaande asset van Azure Media Services door te geven de [asset-ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (ondersteund in betaalde-accounts).
 
 In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt. <br/>In het artikel komen enkele van de parameters aan bod die u op de API kunt instellen om het proces en de uitvoer van de API te wijzigen.
 
@@ -61,7 +61,7 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
     
         |Name|Description|
         |---|---|
-        |id|De video-id|
+        |id|De video-ID|
         |state|De videostatus|  
     - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personen geïdentificeerd in de video:
@@ -69,7 +69,7 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
     
       |Name|Description|
       |---|---|
-      |id| De video-id|
+      |id| De video-ID|
       |faceId|De gezichts-id die wordt weergegeven in de video-index|
       |knownPersonId|De persoons-id die uniek is in een gezichtsmodel|
       |personName|De naam van de persoon|
@@ -85,9 +85,9 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
 
 Gebruik deze parameter als onbewerkte of externe opnamen achtergrondgeluiden bevatten. Deze parameter wordt gebruikt voor het configureren van het indexeringsproces. U kunt de volgende waarden opgeven:
 
-- `Default`: indexeren en inzichten extraheren met behulp van zowel audio als video
-- `AudioOnly`: indexeren en inzichten extraheren met behulp van alleen audio (video wordt genegeerd)
-- `DefaultWithNoiseReduction`: indexeren en inzichten extraheren met behulp van zowel audio als video, waarbij algoritmen voor ruisvermindering worden toegepast op de audiostroom
+- `Default` – Te indexeren en extraheren van inzichten met behulp van zowel audio en video
+- `AudioOnly` – Te indexeren en extraheren van inzichten met behulp van audio alleen (wordt genegeerd video)
+- `DefaultWithNoiseReduction` – Index en het inzicht van zowel audio en video, tijdens het toepassen van ruis vermindering algoritmen op audiostream
 
 De prijs is afhankelijk van de geselecteerde optie voor indexering.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ De statuscodes in de volgende tabel kunnen worden geretourneerd door de uploadbe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekijk de Azure Video Indexer-uitvoer geproduceerd door de v2-API](video-indexer-output-json-v2.md)
+[Bekijk de Azure-Video Indexer-uitvoer geproduceerd door de API](video-indexer-output-json-v2.md)

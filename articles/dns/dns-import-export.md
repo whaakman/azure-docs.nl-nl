@@ -2,25 +2,18 @@
 title: Importeren en exporteren van een domein zone-bestand naar Azure DNS met behulp van Azure CLI | Microsoft Docs
 description: Meer informatie over het importeren en exporteren van een DNS-zonebestand naar Azure DNS met behulp van Azure CLI
 services: dns
-documentationcenter: na
 author: vhorne
-manager: timlt
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312644"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905406"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI
 
 In dit artikel leert u hoe u om te importeren en exporteren van DNS-zonebestanden voor Azure DNS met behulp van de Azure CLI.
 
@@ -32,7 +25,6 @@ Azure DNS ondersteunt importeren en exporteren van zone-bestanden met behulp van
 
 De Azure-CLI is een platformoverschrijdende opdrachtregelprogramma dat wordt gebruikt voor het beheren van Azure-services. Het is beschikbaar voor Windows, Mac en Linux-platforms van de [pagina Azure downloads](https://azure.microsoft.com/downloads/). Ondersteuning voor meerdere platforms is belangrijk voor het importeren en exporteren van zonebestanden, omdat de meest voorkomende naam server-software, [BINDEN](https://www.isc.org/downloads/bind/), meestal op Linux wordt uitgevoerd.
 
-
 ## <a name="obtain-your-existing-dns-zone-file"></a>Uw bestaande DNS-zonebestand verkrijgen
 
 Voordat u een DNS-zonebestand in Azure DNS importeren, moet u een exemplaar van de zonebestand. De bron van dit bestand is afhankelijk van waar de DNS-zone dat momenteel wordt gehost.
@@ -40,14 +32,6 @@ Voordat u een DNS-zonebestand in Azure DNS importeren, moet u een exemplaar van 
 * Als uw DNS-zone wordt gehost door een partnerservice (zoals een domeinregistrar, toegewezen DNS-hostingprovider of andere cloudprovider), moet deze service de mogelijkheid voor het downloaden van de DNS-zonebestand bieden.
 * Als uw DNS-zone wordt gehost op Windows-DNS, de standaardmap voor de zonebestanden is **%systemroot%\system32\dns**. Het volledige pad naar elke zonebestand wordt ook weergegeven op de **algemene** tabblad van de DNS-console.
 * Als uw DNS-zone wordt gehost met behulp van BIND, de locatie van de zonebestand voor elke zone die is opgegeven in het configuratiebestand van de binding **named.conf**.
-
-> [!NOTE]
-> Zone-bestanden die zijn gedownload via godaddy is gekocht hebben een iets andere indeling. U moet deze corrigeren voordat u deze zonebestanden in Azure DNS importeren.
->
-> DNS-namen in de RDATA van elke DNS-record als FQDN-namen zijn opgegeven, maar ze niet beschikken over een afsluitende "." Dit betekent dat ze worden geïnterpreteerd door andere DNS-systemen als relatieve namen. U moet de zonebestand om toe te voegen de afsluitende bewerken '. ' in hun naam voordat u ze in Azure DNS importeren.
->
-> Bijvoorbeeld, moet de CNAME-record 'www 3600 IN CNAME contoso.com' worden gewijzigd in "www 3600 IN contoso.com CNAME."
-> (met een afsluitende '. ').
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Een DNS-zonebestand importeren in Azure DNS
 
@@ -89,8 +73,7 @@ Waarden:
 
 Als een zone met deze naam niet in de resourcegroep bestaat, wordt deze voor u gemaakt. Als de zone al bestaat, worden de geïmporteerde recordsets worden samengevoegd met bestaande recordsets. 
 
-
-### <a name="step-1-import-a-zone-file"></a>Stap 1. Een zonebestand importeren
+### <a name="step-1-import-a-zone-file"></a>Step 1. Een zonebestand importeren
 
 Voor het importeren van een zonebestand voor de zone **contoso.com**.
 
@@ -191,3 +174,9 @@ Voor het exporteren van de bestaande Azure DNS-zone **contoso.com** in resourceg
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over het [beheren recordsets en records](dns-getstarted-create-recordset-cli.md) in uw DNS-zone.
+
+* Meer informatie over het [uw domein delegeren naar Azure DNS](dns-domain-delegation.md).

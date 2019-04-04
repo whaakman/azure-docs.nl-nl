@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984200"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895812"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -122,12 +122,12 @@ Voor meer informatie:
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Gebruikmaken van de functie voor suggesties voor actief leren
 
-Gebruik [actief leren](luis-how-to-review-endoint-utt.md)van **bekijken eindpunt uitingen** regelmatig, in plaats van meer voorbeeld uitingen aan intents toe te voegen. Omdat de app voortdurend eindpunt uitingen ontvangt, wordt deze lijst groeit en wijzigen.
+Gebruik [actief leren](luis-how-to-review-endpoint-utterances.md)van **bekijken eindpunt uitingen** regelmatig, in plaats van meer voorbeeld uitingen aan intents toe te voegen. Omdat de app voortdurend eindpunt uitingen ontvangt, wordt deze lijst groeit en wijzigen.
 
 Voor meer informatie:
 * Concept: [Concepten voor het inschakelen van actief leren aan de hand van de eindpunt-uitingen](luis-concept-review-endpoint-utterances.md)
 * Zelfstudie: [Zelfstudie: Niet weet voorspellingen oplossen aan de hand van de eindpunt-uitingen](luis-tutorial-review-endpoint-utterances.md)
-* Uitleg: [Over het bekijken van de eindpunt-uitingen in LUIS-portal](luis-how-to-review-endoint-utt.md)
+* Uitleg: [Over het bekijken van de eindpunt-uitingen in LUIS-portal](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>De prestaties van uw app controleren
 

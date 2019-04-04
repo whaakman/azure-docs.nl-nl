@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537898"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918532"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Efficiënt query's naar de lijst met Batch-resources maken
 
@@ -89,7 +89,7 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * In dit voorbeeld Vouw tekenreeks geeft aan dat de statistische gegevens voor elk item in de lijst moet worden geretourneerd: `stats`.
 
 > [!NOTE]
-> Bij het maken van een van de typen van de drie query-tekenreeks (filteren, selecteren en uitvouwen), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomt met die van hun tegenhangers REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Zie de onderstaande tabellen voor de eigenschaptoewijzingen tussen de .NET en REST-API's.
+> Bij het maken van een van de typen van de drie query-tekenreeks (filteren, selecteren en uitvouwen), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomt met die van hun tegenhangers REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Zie de onderstaande tabellen voor de eigenschaptoewijzingen tussen de .NET en REST-API's.
 > 
 > 
 
@@ -106,11 +106,11 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 ## <a name="efficient-querying-in-batch-net"></a>Efficiënt uitvoeren van query's in Batch .NET
 Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, selecteren en uitvouwen tekenreeksen om weer te geven bewerkingen. De klasse ODataDetailLevel heeft drie openbare tekenreekseigenschappen die kunnen worden opgegeven in de constructor, of rechtstreeks op het object is ingesteld. U vervolgens de ODataDetailLevel-object doorgeven als een parameter aan de verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
-* [ODATADetailLevel][odata].[ SelectClause][odata_select]: Geef op welke waarden van eigenschappen voor elk item worden geretourneerd.
-* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Ophalen van gegevens voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
+* [ODATADetailLevel][odata].[FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
+* [ODATADetailLevel][odata].[SelectClause][odata_select]: Geef op welke waarden van eigenschappen voor elk item worden geretourneerd.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Ophalen van gegevens voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
 
-Het volgende codefragment maakt gebruik van de Batch .NET API efficiënt query uitvoeren op de Batch-service voor de statistische gegevens van een specifieke set van toepassingen. In dit scenario heeft de gebruiker Batch pools voor test- en productieomgevingen. De test-groep-id's worden voorafgegaan door 'test' en de productie-groep-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) klasse.
+Het volgende codefragment maakt gebruik van de Batch .NET API efficiënt query uitvoeren op de Batch-service voor de statistische gegevens van een specifieke set van toepassingen. In dit scenario heeft de gebruiker Batch pools voor test- en productieomgevingen. De test-groep-id's worden voorafgegaan door 'test' en de productie-groep-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) klasse.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met bepaalde en uitbreiden van de EU kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), beperken van de hoeveelheid gegevens die wordt geretourneerd.
+> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met bepaalde en uitbreiden van de EU kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), beperken van de hoeveelheid gegevens die wordt geretourneerd.
 > 
 > 
 
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Gebruik van Azure Batch compute-bronnen met gelijktijdige knooppunttaken maximaliseren](batch-parallel-node-tasks.md) is een ander artikel met betrekking tot de prestaties van de Batch-toepassingen. Bepaalde typen workloads kunnen profiteren van het uitvoeren van parallelle taken op groter, maar minder--rekenknooppunten. Bekijk de [voorbeeldscenario](batch-parallel-node-tasks.md#example-scenario) in het artikel voor meer informatie over dit scenario.
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

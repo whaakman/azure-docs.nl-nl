@@ -14,17 +14,17 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651237"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906103"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met behulp van Azure PowerShell beheren
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure-portal](dns-operations-recordsets-portal.md)
 > * [Klassieke versie van Azure CLI](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure-CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -33,9 +33,9 @@ In dit artikel wordt beschreven hoe u voor het beheren van DNS-records voor uw D
 
 De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [Azure PowerShell, aangemeld, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Inleiding
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Inleiding
 
 Voordat u DNS-records in DNS Azure maakt, leest u eerst hoe Azure DNS DNS-records organiseert in DNS-recordsets.
 
@@ -398,4 +398,4 @@ Meer informatie over [zones en -records in Azure DNS](dns-zones-records.md).
 <br>
 Meer informatie over het [uw zones en records beschermen](dns-protect-zones-recordsets.md) bij het gebruik van Azure DNS.
 <br>
-Controleer de [referentiedocumentatie voor PowerShell voor Azure DNS](/powershell/module/azurerm.dns).
+Controleer de [referentiedocumentatie voor PowerShell voor Azure DNS](/powershell/module/az.dns).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536845"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915354"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Diagnostics in Azure Cloudservices inschakelen
 Zie [overzicht van Azure Diagnostics](../azure-diagnostics.md) voor een achtergrond voor Azure Diagnostics.
@@ -191,7 +191,7 @@ In de Visual Studio **Server Explorer**, gaat u naar het opslagaccount wadexampl
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Schema van het netwerkconfiguratiebestand
-De diagnostische gegevens over configuratie-bestand definieert u waarden die worden gebruikt voor het initialiseren van diagnostische configuratie-instellingen wanneer de diagnostics-agent wordt gestart. Zie de [nieuwste schemaverwijzing](https://msdn.microsoft.com/library/azure/mt634524.aspx) voor geldige waarden en voorbeelden.
+De diagnostische gegevens over configuratie-bestand definieert u waarden die worden gebruikt voor het initialiseren van diagnostische configuratie-instellingen wanneer de diagnostics-agent wordt gestart. Zie de [nieuwste schemaverwijzing](/azure/azure-monitor/platform/diagnostics-extension-schema) voor geldige waarden en voorbeelden.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u problemen ondervindt, raadpleegt u [het oplossen van Azure Diagnostics](../azure-diagnostics-troubleshooting.md) voor hulp bij veelvoorkomende problemen.

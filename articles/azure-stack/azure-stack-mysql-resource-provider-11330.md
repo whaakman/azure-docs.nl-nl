@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252002"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882832"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL resource provider 1.1.33.0 release-opmerkingen
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en bekende problemen in MySQL resource provider-versie 1.1.33.0.
 
@@ -50,7 +50,8 @@ Deze versie van de Azure Stack-MySQL-resourceprovider bevat de volgende verbeter
 
 - **Vorige MySQL resource provider (1.1.30.0)-implementatie kan mislukken als TLS 1.2 is niet ingeschakeld**. De MySQL-resourceprovider 1.1.33.0 om in te schakelen van TLS 1.2 bij het implementeren van de resourceprovider gedraaid geheimen of bijwerken van de resourceprovider bijgewerkt. 
 
-- **MySQL resource provider geheime rotatie mislukt**. Dit resulteert in de volgende foutcode wanneer u geheimen probleem is opgelost: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **MySQL resource provider geheime rotatie mislukt**. Dit resulteert in de volgende foutcode wanneer u geheimen probleem is opgelost:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Bekende problemen 
 

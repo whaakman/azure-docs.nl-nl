@@ -14,16 +14,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774334"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905950"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Microsoft Azure Stack biedt een set met de storage-services voor schijven, blobs, tabellen, wachtrijen en account-beheerfuncties. U kunt een set hulpprogramma's van Azure storage gebruiken als u wilt beheren of gegevens te verplaatsen naar of van Azure Stack-opslag. Dit artikel bevat een overzicht van de beschikbare hulpprogramma's.
 
@@ -71,7 +71,7 @@ Er zijn twee versies van het hulpprogramma AzCopy: AzCopy in Windows en AzCopy i
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Voorbeelden van AzCopy-opdracht voor gegevensoverdracht
 
-De volgende voorbeelden volgen typische scenario's voor het kopiëren van gegevens naar en van Azure Stack-blobs. Zie voor meer informatie, [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) en [AzCopy in Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+De volgende voorbeelden volgen typische scenario's voor het kopiëren van gegevens naar en van Azure Stack-blobs. Zie voor meer informatie, [AzCopy in Windows](../../storage/common/storage-use-azcopy.md) en [AzCopy in Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Download alle blobs naar een lokale schijf
 
@@ -156,7 +156,7 @@ In dit voorbeeld wordt ervan uitgegaan dat u hebt [geïnstalleerd PowerShell voo
    > [!NOTE]
    > Met dit script moet worden uitgevoerd op de hoofdmap voor **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

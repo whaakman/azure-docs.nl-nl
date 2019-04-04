@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886434"
+ms.locfileid: "58891477"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -125,9 +125,7 @@ Voorspelling aanroepen met de drempelwaarde voor een hoge waarschijnlijkheid int
 
 ## <a name="manage-training-iterations"></a>Training iteraties beheren
 
-Elke keer dat u uw classificatie trainen, maakt u een nieuw _iteratie_ met een eigen bijgewerkte prestatiemetrieken. U kunt alle uw iteraties weergeven in het linkerdeelvenster van de **prestaties** tabblad. Wanneer u een selecteert, hebt u de optie zodat de _standaard iteratie_ door te klikken op de **standaard** bovenaan op de knop. De _standaard iteratie_ is het model die standaard worden gebruikt wanneer u een query via de API voor voorspellingen uitvoeren (vanuit een app, bijvoorbeeld). Als u niet akkoord gaat om bij te werken de _iteratie standaard_, kunt u doorgaan met het trainen van uw model zonder gevolgen voor de huidige gedrag van uw app; vervolgens, wanneer u tevreden met het verbeterde model bent, kunt u de standaard bijwerken.
-
-In het linkerdeelvenster vindt u ook de **verwijderen** knop, die u een iteratie verwijderen kunt als deze verouderd is. Als u een iteratie verwijdert, verwijdert u alle installatiekopieën die gekoppeld aan deze zijn.
+Elke keer dat u uw classificatie trainen, maakt u een nieuw _iteratie_ met een eigen bijgewerkte prestatiemetrieken. U kunt alle uw iteraties weergeven in het linkerdeelvenster van de **prestaties** tabblad. In het linkerdeelvenster vindt u ook de **verwijderen** knop, die u een iteratie verwijderen kunt als deze verouderd is. Als u een iteratie verwijdert, verwijdert u alle installatiekopieën die gekoppeld aan deze zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 

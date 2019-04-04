@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984525"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903100"
 ---
 # <a name="download-the-template-for-a-vm"></a>De sjabloon voor een VM downloaden
 Wanneer u een virtuele machine in Azure met behulp van de portal of PowerShell maakt, wordt een Resource Manager-sjabloon automatisch voor u gemaakt. U kunt deze sjabloon gebruiken voor het snel dupliceren van een implementatie. De sjabloon bevat informatie over alle resources in een resourcegroep. Voor een virtuele machine, betekent dit dat de sjabloon bevat alles wat u ter ondersteuning van de virtuele machine in die resourcegroep, met inbegrip van de netwerkbronnen wordt gemaakt.
@@ -29,7 +29,7 @@ Wanneer u een virtuele machine in Azure met behulp van de portal of PowerShell m
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Een menu aan de linkerkant selecteren **virtuele Machines**.
 3. Selecteer de virtuele machine in de lijst.
-4. Selecteer **automatiseringsscript**.
+4. Selecteer **sjabloon exporteren**.
 5. Selecteer **downloaden** in het menu aan de bovenkant en sla het ZIP-bestand naar uw lokale computer.
 6. Open het ZIP-bestand en pak de bestanden naar een map. Het ZIP-bestand bevat:
    

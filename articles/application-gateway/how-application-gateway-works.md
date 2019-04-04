@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881092"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905780"
 ---
 # <a name="how-application-gateway-works"></a>De werking van Application Gateway
 
@@ -36,7 +36,7 @@ Nadat u een back-endserver is bepaald, application-gateway wordt een nieuwe TCP-
 
 Een interne Application-Gateway heeft alleen privé IP-adres. De DNS-naam van een interne Application-Gateway is intern worden opgelost als de privé IP-adres. Interne load balancers kunnen daarom alleen aanvragen van clients die toegang heeft met het VNET versturen voor Application Gateway.
 
-Houd er rekening mee dat zowel internetgerichte en interne Toepassingsgateways routeren aanvragen naar uw back-endservers met behulp van privé IP-adressen, als uw back-end-pool resource bevat een privé IP-adres, VM NIC-configuratie of een intern omgezet adres, en als uw back endpool is een openbaar eindpunt, Application Gateway maakt gebruik van de front-end openbaar IP-adres om de server te bereiken. Als u een openbaar IP-adres voor front-end nog niet hebt ingericht, wordt een toegewezen voor de uitgaande externe connectiviteit.
+Als uw back-endgroep een intern omzetbare FQDN-naam of een privé IP-adres bevat, stuurt de aanvraag door Application Gateway naar de back endserver met behulp van de instantie privé IP-adressen. Als uw back-endgroep een extern eindpunt of een extern omzetbare FQDN-naam bevat, stuurt de aanvraag door Application Gateway naar de back endserver met behulp van de openbare IP-adres voor front-end. De DNS-omzetting is gebaseerd op een privé-DNS-zone of een aangepaste DNS-server als geconfigureerd of duurt het standaard Azure DNS. Als u een openbaar IP-adres voor front-end nog niet hebt ingericht, wordt een toegewezen voor de uitgaande externe connectiviteit.
 
 ### <a name="modifications-to-the-request"></a>Wijzigingen in de aanvraag
 

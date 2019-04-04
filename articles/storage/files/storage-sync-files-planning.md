@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480716"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918634"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -278,6 +278,8 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | Azië - oost           | Azië - zuidoost     |
 | US - oost             | US - west            |
 | US - oost 2           | US - centraal         |
+| Korea - centraal       | Korea - zuid        |
+| Korea - zuid         | Korea - centraal      |
 | Europa - noord        | Europa -west        |
 | US - noord-centraal    | US - zuid-centraal   |
 | India - zuid         | India - centraal      |
@@ -292,7 +294,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Houd rekening met firewall en proxy-instellingen](storage-sync-files-firewall-and-proxy.md)
-* [Implementatie van Azure Files plannen](storage-files-planning.md)
+* [Planning voor de implementatie van Azure Files](storage-files-planning.md)
 * [Azure Files implementeren](storage-files-deployment-guide.md)
-* [Azure Files Sync implementeren](storage-sync-files-deployment-guide.md)
-* [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
+* [Azure Files SYNC implementeren](storage-sync-files-deployment-guide.md)
+* [Azure File Sync bewaken](storage-sync-files-monitoring.md)

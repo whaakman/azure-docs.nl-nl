@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898853"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895780"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
@@ -98,7 +98,7 @@ De standaardwaarde is false. Bij inschakeling uw node-toepassing verbinding kan 
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-De standaardwaarde is 0, wat betekent dat deze functie is uitgeschakeld. Als de waarde naar een waarde groter dan 0, iisnode wordt de pagina uit alle onderliggende processen elke idlePageOutTimePeriod in milliseconden. Zie [documentatie](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) om te begrijpen wat pagina out betekent. Deze instelling is handig voor toepassingen die een grote hoeveelheid geheugen in beslag nemen en pagina uit het geheugen op schijf af en toe om het RAM-geheugen vrij wilt.
+De standaardwaarde is 0, wat betekent dat deze functie is uitgeschakeld. Als de waarde naar een waarde groter dan 0, iisnode wordt de pagina uit alle onderliggende processen elke idlePageOutTimePeriod in milliseconden. Zie [documentatie](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) om te begrijpen wat pagina out betekent. Deze instelling is handig voor toepassingen die een grote hoeveelheid geheugen in beslag nemen en pagina uit het geheugen op schijf af en toe om het RAM-geheugen vrij wilt.
 
 > [!WARNING]
 > Wees voorzichtig bij het inschakelen van de volgende configuratie-instellingen op de productie-Apps. De aanbeveling is het niet worden ingeschakeld op live productie-Apps.
@@ -283,6 +283,6 @@ Volg deze koppelingen voor meer informatie over de node.js-toepassingen in Azure
 * [Aan de slag met Node.js-web-apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [Fouten opsporen in een Node.js web-app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service WebApps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [De geheimen van de Kudu-console voor foutopsporing](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

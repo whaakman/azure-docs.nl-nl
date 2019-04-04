@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629635"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906120"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -21,6 +21,9 @@ Azure Application Gateway bestaat uit verschillende onderdelen die u op verschil
 ![Stroomdiagram voor Application Gateway-onderdelen](./media/configuration-overview/configuration-overview1.png)
 
 Deze afbeelding ziet u een toepassing met drie listeners. De eerste twee multi-site-listeners voor zijn `http://acme.com/*` en `http://fabrikam.com/*`, respectievelijk. Beide luisteren op poort 80. De derde is een basislistener waarvoor end-to-end Secure Sockets Layer (SSL) beëindigd.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -136,11 +139,11 @@ Zie [certificaten die worden ondersteund voor SSL-beëindiging](https://docs.mic
 Ondersteuning voor HTTP/2-protocol is beschikbaar voor clients die verbinding met application gateway alleen listeners maken. De communicatie met de back-endserver van toepassingen is via HTTP/1.1. Ondersteuning voor HTTP/2 is standaard uitgeschakeld. De volgende Azure PowerShell-codefragment laat zien hoe deze:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>Ondersteuning voor WebSocket

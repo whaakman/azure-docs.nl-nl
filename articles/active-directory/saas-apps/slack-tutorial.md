@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc27abf7dd21c4996cfd8cea0c2a478cb6dfb4fc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879366"
+ms.locfileid: "58905491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -119,7 +119,7 @@ Voer de volgende stappen uit om eenmalige aanmelding voor Azure Ad met Slack te 
     ![image](common/edit-attribute.png)
 
     > [!NOTE] 
-    > Als u gebruikers hebt met een **e-mailadres** zonder Office 365-licentie, wordt de claim **User.Email** niet weergegeven in het SAML-Token. In dergelijke gevallen adviseren we **user.userprincipalname** te gebruiken als waarde van het kenmerk **User.Email** en dit toe te wijzen als **unieke id**.
+    > Als u gebruikers hebt die is toegewezen **e-mailadres** zich niet op een Office 365-licentie, de **User.Email** claim wordt niet weergegeven in het SAML-Token. In dergelijke gevallen adviseren we **user.userprincipalname** te gebruiken als waarde van het kenmerk **User.Email** en dit toe te wijzen als **unieke id**.
 
 6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 

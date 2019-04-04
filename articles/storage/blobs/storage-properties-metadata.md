@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398171"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916577"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Eigenschappen en metagegevens instellen en ophalen
 
@@ -20,15 +20,14 @@ Objecten in Azure Storage ondersteuning Systeemeigenschappen en door gebruiker g
 
 * **Systeemeigenschappen**: Systeemeigenschappen aanwezig zijn op elke resource voor opslag. Enkele van deze kunnen worden gelezen of ingesteld, terwijl andere alleen-lezen zijn. Op de achtergrond, sommige Systeemeigenschappen komen overeen met bepaalde standaard HTTP-headers. Azure Storage-clientbibliotheken onderhouden deze eigenschappen voor u.
 
-* **Gebruiker gedefinieerde metagegevens**: gebruiker gedefinieerde metagegevens bestaat uit een of meer naam / waarde-paren die u voor een Azure Storage-resource opgeeft. U kunt de metagegevens voor het opslaan van aanvullende waarden met een resource. De metagegevens van waarden zijn voor alleen uw eigen doeleinden, en niet van invloed op het gedrag van de resource.
+* **Gebruiker gedefinieerde metagegevens**: Gebruiker gedefinieerde metagegevens bestaat uit een of meer naam / waarde-paren die u voor een Azure Storage-resource opgeeft. U kunt de metagegevens voor het opslaan van aanvullende waarden met een resource. De metagegevens van waarden zijn voor alleen uw eigen doeleinden, en niet van invloed op het gedrag van de resource.
 
 Bij het ophalen van waarden van eigenschappen en metagegevens voor een opslagresource is een proces in twee stappen. Voordat u deze waarden lezen kunt, u moet expliciet ophalen ze door het aanroepen van de **FetchAttributes** of **FetchAttributesAsync** methode. De uitzondering hierop is als u verbinding maakt met de **Exists** of **ExistsAsync** methode op een resource. Wanneer u een van deze methoden aanroepen, Azure Storage roept de juiste **FetchAttributes** methode op de achtergrond als onderdeel van de aanroep naar de **Exists** methode.
 
 > [!IMPORTANT]
 > Als u merkt dat de eigenschap of metagegevens waarden voor een opslagresource niet zijn ingevuld, controleert u dat uw code roept de **FetchAttributes** of **FetchAttributesAsync** methode.
 >
-> De metagegevens van de naam/waarde-paren mag alleen ASCII-tekens bevatten. De metagegevens van de naam/waarde-paren zijn geldige HTTP-headers en dus moeten voldoen aan alle beperkingen met betrekking tot HTTP-headers. Het verdient aanbeveling gebruik te maken van URL-codering of Base64-codering voor namen en waarden die niet-ASCII-tekens bevatten.
->
+> Metagegevens van de naam/waarde-paren zijn geldige HTTP-headers en dus moeten voldoen aan alle beperkingen met betrekking tot HTTP-headers. Namen van metagegevens moeten geldige naam van de HTTP-header, mag alleen ASCII-tekens bevatten en moeten worden behandeld als niet-hoofdlettergevoelig. Waarden voor metagegevens die niet-ASCII-tekens bevat die moeten worden met Base64 gecodeerde of gecodeerde URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Instellen en ophalen van eigenschappen
 Aanroepen om op te halen eigenschapswaarden, de **FetchAttributesAsync** methode voor uw blob of container voor het vullen van de eigenschappen, leest u de waarden.

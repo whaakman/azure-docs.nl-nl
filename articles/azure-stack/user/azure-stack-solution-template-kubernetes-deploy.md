@@ -1,6 +1,6 @@
 ---
-title: Kubernetes op Azure Stack implementeren | Microsoft Docs
-description: Informatie over het implementeren van Kubernetes op Azure Stack.
+title: Kubernetes voor het gebruik van Azure Stack-containers implementeren | Microsoft Docs
+description: Informatie over het implementeren van Kubernetes om containers te gebruiken met Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986240"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877190"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Kubernetes om containers te gebruiken met Azure Stack implementeren
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie.
+> Kubernetes in Azure Stack is in preview. Een niet-verbonden scenario van Azure Stack wordt momenteel niet ondersteund door de Preview-versie.
 
 U kunt de stappen in dit artikel om te implementeren en instellen van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. De stappen gebruikt een Azure Resource Manager-oplossingssjabloon. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. De Azure Stack-sjabloon gebruikt niet de dezelfde beheerde AKS-service aangeboden in de globale Azure.
 
@@ -43,7 +43,7 @@ U kunt Kubernetes te gebruiken:
 
 U wordt enkel gefactureerd voor de compute-gebruik door de ondersteuning van uw cluster knooppunten vereist. Zie voor meer informatie, [gebruik en facturering in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Implementeren van Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Implementeren van Kubernetes om containers te gebruiken
 
 De stappen voor het implementeren van een Kubernetes-cluster in Azure Stack is afhankelijk van uw identity management-service. Controleer of de oplossing voor identiteitsbeheer die worden gebruikt door de installatie van Azure Stack. Neem contact op met uw Azure Stack-beheerder om te controleren of uw identity management-service.
 

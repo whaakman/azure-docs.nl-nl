@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118588"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905304"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Maken en beheren van roltoewijzingen in Azure, digitale dubbels
 
 Azure van digitale dubbels maakt gebruik van op rollen gebaseerd toegangsbeheer ([RBAC](./security-role-based-access-control.md)) voor het beheren van toegang tot bronnen.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Overzicht van de rol toewijzingen
 
@@ -38,11 +41,11 @@ De onderstaande tabel wordt elk kenmerk beschreven:
 
 | Kenmerk | Name | Vereist | Type | Description |
 | --- | --- | --- | --- | --- |
-| Rol-id | Rol-id | Ja | Reeks | De unieke ID van de gewenste roltoewijzing. Definities van gebruikersrollen en hun-id vinden door de systeem-API uitvoeren van query's of controleren van de onderstaande tabel. |
-| object-id | Object-id | Ja | Reeks | Een Azure Active Directory-ID, service-principal-object-ID of domeinnaam. Wat of wie de toewijzing van rol is toegewezen aan. De roltoewijzing moet zijn geformatteerd volgens het bijbehorende type. Voor de `DomainName` objectIdType, object-id moet beginnen met de `“@”` teken. |
-| objectIdType | Object-id-type | Ja | Reeks | Het soort Object-id die wordt gebruikt. Zie **ObjectIdTypes ondersteund** hieronder. |
-| pad | Pad van de ruimte | Ja | Reeks | De volledige toegang tot het pad naar de `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek moet, geef `"/"`. Dit teken wordt aangegeven dat de hoofdmap, maar het gebruik ervan wordt afgeraden. Voer altijd het principe van minimale bevoegdheden. |
-| tenant-id | Tenant-id | Varieert | Reeks | In de meeste gevallen een Azure Active Directory-tenant-id. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Dit is optioneel voor de domeinnaam ObjectIdType. |
+| roleId | Rol-id | Ja | String | De unieke ID van de gewenste roltoewijzing. Definities van gebruikersrollen en hun-id vinden door de systeem-API uitvoeren van query's of controleren van de onderstaande tabel. |
+| object-id | Object-id | Ja | String | Een Azure Active Directory-ID, service-principal-object-ID of domeinnaam. Wat of wie de toewijzing van rol is toegewezen aan. De roltoewijzing moet zijn geformatteerd volgens het bijbehorende type. Voor de `DomainName` objectIdType, object-id moet beginnen met de `“@”` teken. |
+| objectIdType | Object-id-type | Ja | String | Het soort Object-id die wordt gebruikt. Zie **ObjectIdTypes ondersteund** hieronder. |
+| pad | Pad van de ruimte | Ja | String | De volledige toegang tot het pad naar de `Space` object. Een voorbeeld is `/{Guid}/{Guid}`. Als een id de roltoewijzing voor de hele grafiek moet, geef `"/"`. Dit teken wordt aangegeven dat de hoofdmap, maar het gebruik ervan wordt afgeraden. Voer altijd het principe van minimale bevoegdheden. |
+| tenantId | Tenant-id | Varieert | String | In de meeste gevallen een Azure Active Directory-tenant-id. Niet toegestaan voor `DeviceId` en `TenantId` ObjectIdTypes. Vereist voor `UserId` en `ServicePrincipalId` ObjectIdTypes. Dit is optioneel voor de domeinnaam ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Ondersteunde rol definitie-id 's
 
@@ -83,8 +86,8 @@ ID van uw toepassing wordt geleverd aan u in Azure Active Directory. Lees voor m
 Zodra u de toepassings-ID hebt, voert u de volgende PowerShell-opdrachten uit:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Een gebruiker met de **Admin** rol kunt vervolgens de ruimte-beheerdersrol aan een gebruiker toewijzen door het maken van een geverifieerde HTTP POST-aanvraag naar de URL:
@@ -162,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Parameterwaarde** | **Vereist** |  **Type** |  **Beschrijving** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Reeks |   De object-id voor de gebruikers-id objectIdType. |
-| YOUR_PATH | True | Reeks |   Het gekozen pad om te controleren of de toegang voor. |
-| YOUR_ACCESS_TYPE |  True | Reeks |   Het toegangstype om te controleren. |
-| YOUR_RESOURCE_TYPE | True | Reeks |  De bron om te controleren. |
+| YOUR_USER_ID |  True | String |   De object-id voor de gebruikers-id objectIdType. |
+| YOUR_PATH | True | String |   Het gekozen pad om te controleren of de toegang voor. |
+| YOUR_ACCESS_TYPE |  True | String |   Het toegangstype om te controleren. |
+| YOUR_RESOURCE_TYPE | True | String |  De bron om te controleren. |
 
 Een geslaagde aanvraag retourneert een Booleaanse waarde `true` of `false` om aan te geven of het toegangstype is toegewezen aan de gebruiker voor het opgegeven pad en de resource.
 
@@ -177,7 +180,7 @@ Als u alle roltoewijzingen voor een pad, moet u een geverifieerde HTTP GET-aanvr
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
 | YOUR_PATH | Het volledige pad naar de ruimte |
 

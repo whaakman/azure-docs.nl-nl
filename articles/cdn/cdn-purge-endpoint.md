@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093847"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916476"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt leegmaken
 ## <a name="overview"></a>Overzicht
@@ -52,14 +52,14 @@ In deze zelfstudie helpt u bij het opschonen van de activa van alle edge-knooppu
    > 
    > 
 4. Selecteer welke elementen die u wilt leegmaken van het edge-knooppunten.  Als u wissen van alle activa wilt, klikt u op de **Alles leegmaken** selectievakje.  Anders typt u het pad van de activa die u leegmaken wilt de **pad** tekstvak. Hieronder indelingen worden ondersteund in het pad.
-    1. **Opschonen van één URL**: individuele asset opschonen door de volledige URL op te geven met of zonder de bestandsextensie, bijvoorbeeld`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Leegmaken met jokertekens**: sterretje (\*) kan worden gebruikt als een jokerteken. Opschonen van alle mappen, submappen en bestanden in een eindpunt met `/*` in het pad of opschonen van alle submappen en bestanden in een specifieke map door te geven van de map gevolgd door `/*`, bijvoorbeeld`/pictures/*`.  Houd er rekening mee dat leegmaken met jokertekens wordt momenteel niet ondersteund door Azure CDN van Akamai. 
-    3. **Opschonen van domein hoofdmap**: leegmaken van de hoofdmap van het eindpunt met '/' in het pad.
+    1. **Opschonen van één URL**: Individuele asset opschonen door de volledige URL op te geven met of zonder de bestandsextensie, bijvoorbeeld`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Leegmaken met jokertekens**: Sterretje (\*) kan worden gebruikt als een jokerteken. Opschonen van alle mappen, submappen en bestanden in een eindpunt met `/*` in het pad of opschonen van alle submappen en bestanden in een specifieke map door te geven van de map gevolgd door `/*`, bijvoorbeeld`/pictures/*`.  Houd er rekening mee dat leegmaken met jokertekens wordt momenteel niet ondersteund door Azure CDN van Akamai. 
+    3. **Opschonen van domein hoofdmap**: Opschonen van de hoofdmap van het eindpunt met '/' in het pad.
    
    > [!TIP]
-   > Paden moeten worden opgegeven voor het opschonen van Logboeken en moet een relatieve URL die geschikt zijn voor de volgende [reguliere expressie](https://msdn.microsoft.com/library/az24scfc.aspx). **Alles leegmaken** en **leegmaken met jokertekens** niet wordt ondersteund door **Azure CDN van Akamai** op dit moment.
+   > Paden moeten worden opgegeven voor het opschonen van Logboeken en moet een relatieve URL die geschikt zijn voor de volgende [reguliere expressie](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Alles leegmaken** en **leegmaken met jokertekens** niet wordt ondersteund door **Azure CDN van Akamai** op dit moment.
    > > Opschonen van één URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Query-tekenreeks `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > Querytekenreeks `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Leegmaken met jokertekens `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
    > Meer **pad** tekstvakken worden weergegeven nadat voert u tekst kunt u een lijst met meerdere elementen te maken.  U kunt assets kan verwijderen uit de lijst door te klikken op de knop met het weglatingsteken (...).
@@ -75,5 +75,5 @@ In deze zelfstudie helpt u bij het opschonen van de activa van alle edge-knooppu
 
 ## <a name="see-also"></a>Zie ook
 * [Vooraf assets op een Azure CDN-eindpunt laden](cdn-preload-endpoint.md)
-* [Naslaginformatie over Azure CDN REST-API - opschonen of een eindpunt vooraf laden](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Naslaginformatie over Azure CDN REST-API - opschonen of een eindpunt vooraf laden](/rest/api/cdn/endpoints)
 

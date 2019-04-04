@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184186"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893109"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - gids problemen oplossen
 Dit artikel vindt tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of beheren van Azure Active Directory (AD) Domain Services.
@@ -30,17 +30,17 @@ In deze sectie helpt u fouten oplossen wanneer u probeert te Azure AD Domain Ser
 
 Kies de stappen voor probleemoplossing die overeenkomen met het foutbericht dat u ondervindt.
 
-| **Foutbericht** | **Resolutie** |
+| **Foutbericht** | **Oplossing** |
 | --- |:--- |
-| *De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.* |[Conflict met domein in het virtuele netwerk](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[Domain Services beschikt niet over voldoende machtigingen voor de Azure AD Domain Services Sync-toepassing](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Domain Services is niet juist geconfigureerd in uw tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassings-id 00000002-0000-0000-c000-000000000000 in en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Microsoft Graph is uitgeschakeld in uw Azure AD-tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *De naam contoso100.com is al in gebruik is op dit netwerk. Geef een naam op die niet wordt gebruikt.* |[Conflict met domein in het virtuele netwerk](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.* |[Domain Services beschikt niet over voldoende machtigingen voor de Azure AD Domain Services Sync-toepassing](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.* |[De toepassing Domain Services is niet juist geconfigureerd in uw tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassing-id 00000002-0000-0000-C000-000000000000 in en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.* |[De toepassing Microsoft Graph is uitgeschakeld in uw Azure AD-tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflict met domein
 **Foutbericht:**
 
-*De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.*
+*De naam contoso100.com is al in gebruik is op dit netwerk. Geef een naam op die niet wordt gebruikt.*
 
 **Herstel:**
 
@@ -51,7 +51,7 @@ Deze fout is ontstaan door naamconflicten voor de domeinnaam op dit virtuele net
 ### <a name="inadequate-permissions"></a>Onvoldoende machtigingen
 **Foutbericht:**
 
-*Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
+*Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.*
 
 **Herstel:**
 
@@ -67,7 +67,7 @@ Voer de volgende stappen uit om te controleren op de aanwezigheid van de toepass
 ### <a name="invalid-configuration"></a>Ongeldige configuratie
 **Foutbericht:**
 
-*Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
+*Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.*
 
 **Herstel:**
 
@@ -157,7 +157,7 @@ Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een g
 
 Het gebruikersaccount dat blijft in de status uitgeschakeld in uw beheerde domein, zelfs als u opnieuw een gebruikersaccount met dezelfde UPN in uw Azure AD-directory maakt. Als u wilt het gebruikersaccount verwijderen uit uw beheerde domein, moet u deze geforceerd verwijderen uit uw Azure AD-tenant.
 
-Als wilt verwijderen het gebruikersaccount dat volledig uit uw beheerde domein, verwijdert u de gebruiker permanent van uw Azure AD-tenant. Gebruik de `Remove-MsolUser` PowerShell-cmdlet met de `-RemoveFromRecycleBin` optie, zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Als wilt verwijderen het gebruikersaccount dat volledig uit uw beheerde domein, verwijdert u de gebruiker permanent van uw Azure AD-tenant. Gebruik de `Remove-MsolUser` PowerShell-cmdlet met de `-RemoveFromRecycleBin` optie, zoals beschreven in dit [MSDN-artikel](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Contact opnemen

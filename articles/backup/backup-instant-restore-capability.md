@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905967"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -28,6 +28,7 @@ Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 * Standard-SSD-schijven, samen met de standaard harde schijven en Premium-SSD-schijven ondersteunt.
 *   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
 
@@ -74,9 +75,9 @@ In de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade 
 > Via Az PowerShell versie 1.6.0 en hoger, kunt u de bewaarperiode voor direct herstel momentopname in met behulp van PowerShell-beleid bijwerken
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 De standaard momentopname bewaarperiode voor elk beleid is ingesteld op 2 dagen. Gebruiker kan de waarde minimaal 1 en maximaal 5 dagen wijzigen. Wekelijkse beleid voor is de bewaarperiode voor momentopname van 5 dagen opgelost.
 

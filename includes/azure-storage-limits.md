@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553408"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890923"
 ---
 De volgende tabel beschrijft de standaardlimieten voor Azure Storage. De *inkomend* limiet verwijst naar alle gegevens van aanvragen die worden verzonden naar een opslagaccount. De *uitgaande* limiet verwijst naar alle gegevens van antwoorden die worden ontvangen van een storage-account.
 
 | Resource | Standaardlimiet |
 | --- | --- |
-| Aantal storage-accounts per regio per abonnement, waaronder Standard en Premium-accounts | 250 |
+| Aantal storage-accounts per regio per abonnement, met inbegrip van zowel standard als premium-accounts | 250 |
 | Maximale opslagcapaciteit voor account | 2 PB voor de Verenigde Staten en Europa, 500 TB voor alle andere regio's, waaronder het Verenigd Koninkrijk |
 | Maximum aantal blob-containers, blobs, bestandsshares, tabellen, wachtrijen, entiteiten of berichten per opslagaccount | Geen limiet |
 | Maximale aantal aanvragen<sup>1</sup> per opslagaccount | 20.000 aanvragen per seconde |

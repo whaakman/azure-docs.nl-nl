@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998138"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918685"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Een taalmodel met de Video Indexer-website aanpassen
 
@@ -116,6 +116,34 @@ Als een taalmodel verwijderen uit uw account, klikt u op de **...**  aan de rech
 Hiermee wordt een nieuw venster aangegeven dat de verwijdering niet ongedaan worden gemaakt. Klik op de **verwijderen** optie in het nieuwe venster.
 
 Deze actie verwijdert het taalmodel volledig uit uw account. Een video die is met behulp van het verwijderde taalmodel blijft de dezelfde index totdat u de video opnieuw indexeren. Als u de video opnieuw indexeren, kunt u een nieuwe taalmodel toewijzen aan de video. Video Indexer wordt gebruik anders de standaardmodel opnieuw indexeren van de video. 
+
+## <a name="customize-language-models-by-correcting-transcripts"></a>Taal-modellen aanpassen door te corrigeren transcripties
+
+Video Indexer biedt ondersteuning voor automatische aanpassing van taal modellen op basis van de gebruikers van de werkelijke correcties in de transcripties van hun video's aanbrengen.
+
+1. Als u een transcript correcties, opent u de video die u wilt bewerken uit uw Account-video's. Selecteer de **tijdlijn** tabblad.
+
+    ![Taalmodel aanpassen](./media/customize-language-model/timeline.png)
+1. Klik op het potloodpictogram om te bewerken van het transcript van uw transcriptie. 
+
+    ![Taalmodel aanpassen](./media/customize-language-model/edits.png)
+
+    Video Indexer bevat alle regels die door u worden opgelost in de schrijffouten van uw video en automatisch naar een tekstbestand met de naam 'van transcript bewerkingen' toegevoegd. Deze wijzigingen worden gebruikt voor het specifieke taal-model dat is gebruikt in deze video kunt indexeren om opnieuw te trainen. 
+    
+    Als u een taalmodel opgeeft hebt bij het indexeren van deze video, worden alle bewerkingen voor deze video worden opgeslagen in een standaard taalmodel met de naam Account aanpassingen binnen de gedetecteerde taal van de video. 
+    
+    Als meerdere wijzigingen zijn aangebracht aan dezelfde regel, wordt alleen de laatste versie van de herstelde regel worden gebruikt voor het bijwerken van het taalmodel.  
+    
+    > [!NOTE]
+    > Alleen tekstuele correcties worden gebruikt voor het aanpassen. Dit betekent dat correcties die geen betrekking op werkelijke woorden (bijvoorbeeld leestekens of spaties) zijn niet opgenomen. 
+    
+1. Hier ziet u transcript correcties weergegeven in het tabblad van de taal van de pagina inhoudsmodel aanpassen.
+
+    ![Taalmodel aanpassen](./media/customize-language-model/customize.png)
+
+   Als u wilt zoeken in het bestand 'van transcript bewerkingen' voor elk van uw taalmodellen, klikt u op om dit te openen. 
+
+    ![Uit transcriptbewerkingen](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

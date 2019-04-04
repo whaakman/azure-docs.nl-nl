@@ -3,19 +3,19 @@ title: Translator Text-API talen methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de talen van Translator tekst-API-methode.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122400"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915761"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text-API 3.0: Languages
 
@@ -49,7 +49,7 @@ Aanvraagheaders zijn:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Optionele aanvraagheader*.<br/>De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Sommige van de velden in het antwoord zijn namen van talen of namen van de regio's. Gebruik deze parameter voor het definiëren van de taal waarin deze namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.<br/>Namen zijn opgegeven in de Engelse taal als een doeltaal is niet opgegeven of als de lokalisatie is niet beschikbaar.
@@ -93,7 +93,7 @@ Een geslaagde reactie is een JSON-object met één eigenschap voor elke aangevra
 
 De waarde voor elke eigenschap is als volgt.
 
-* `translation` De eigenschap
+* `translation` eigenschap
 
   De waarde van de `translation` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. Een sleutel identificeert een taal waarvoor tekst kan worden omgezet naar of van vertaald. De waarde die is gekoppeld aan de sleutel is een JSON-object met eigenschappen die de taal die wordt beschreven:
 
@@ -119,7 +119,7 @@ De waarde voor elke eigenschap is als volgt.
   }
   ```
 
-* `transliteration` De eigenschap
+* `transliteration` eigenschap
 
   De waarde van de `transliteration` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. Een sleutel identificeert een taal waarvoor tekst kan worden geconverteerd van een script naar een ander script. De waarde die is gekoppeld aan de sleutel is een JSON-object met eigenschappen die de taal en de bijbehorende ondersteunde scripts beschrijven:
 
@@ -184,7 +184,7 @@ De waarde voor elke eigenschap is als volgt.
   }
   ```
 
-* `dictionary` De eigenschap
+* `dictionary` eigenschap
 
   De waarde van de `dictionary` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. De sleutel identificeert een taal waarvoor alternatieve vertalingen en back-vertalingen beschikbaar zijn. De waarde is een JSON-object waarin de source-taal en de doel-talen met de beschikbare vertalingen worden beschreven:
 
@@ -281,7 +281,7 @@ Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourner
 
 Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

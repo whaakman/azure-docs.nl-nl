@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443416"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892752"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Duurzame functies patronen en technische concepten (Azure Functions)
 
@@ -415,7 +415,7 @@ Vanwege het gedrag van de herhaling van de verzender duurzame taak Framework, ku
 
 De extensie duurzame functies maakt gebruik van wachtrijen, tabellen en blobs in Azure Storage om vast te leggen van de uitvoering van geschiedenis van status en het activeren een functie wordt uitgevoerd. U kunt het standaardopslagaccount gebruiken voor de functie-app, of u een afzonderlijk opslagaccount kunt configureren. U kunt een afzonderlijk account op basis van de maximale doorvoer van opslag. De orchestrator-code die u schrijft communiceren niet met de entiteiten in deze storage-accounts. Het duurzame taak Framework beheert de entiteiten rechtstreeks als een implementatiedetail in.
 
-Orchestrator-functies activiteitsfuncties plannen en hun antwoorden via de interne Wachtrijberichten ontvangen. Als een functie-app wordt uitgevoerd in het verbruiksabonnement voor Azure Functions, de [Azure Functions schalen controller](../functions-scale.md#how-the-consumption-plan-works) controleert deze wachtrijen. Nieuwe compute-exemplaren naar behoefte worden toegevoegd. Wanneer geschaald naar meerdere virtuele machines, kan een orchestrator-functie uitvoeren op een virtuele machine, terwijl de activiteitsfuncties die het aanroepen van de orchestrator-functies mogelijk worden uitgevoerd op meerdere verschillende virtuele machines. Zie voor meer informatie over de werking van de schaal van duurzame functies [prestaties en schaal](durable-functions-perf-and-scale.md).
+Orchestrator-functies activiteitsfuncties plannen en hun antwoorden via de interne Wachtrijberichten ontvangen. Als een functie-app wordt uitgevoerd in het verbruiksabonnement voor Azure Functions, de [Azure Functions schalen controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) controleert deze wachtrijen. Nieuwe compute-exemplaren naar behoefte worden toegevoegd. Wanneer geschaald naar meerdere virtuele machines, kan een orchestrator-functie uitvoeren op een virtuele machine, terwijl de activiteitsfuncties die het aanroepen van de orchestrator-functies mogelijk worden uitgevoerd op meerdere verschillende virtuele machines. Zie voor meer informatie over de werking van de schaal van duurzame functies [prestaties en schaal](durable-functions-perf-and-scale.md).
 
 De uitvoeringsgeschiedenis voor orchestrator-accounts wordt opgeslagen in de tabelopslag. Wanneer een exemplaar rehydrates op een bepaalde virtuele machine, worden de orchestrator de uitvoeringsgeschiedenis opgehaald uit table storage, zodat deze de status van de lokale kunt herstellen. Een handig aspect van de geschiedenis beschikbaar in de tabelopslag met is dat u hulpprogramma's zoals kunt [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) om te zien van de geschiedenis van de indelingen.
 

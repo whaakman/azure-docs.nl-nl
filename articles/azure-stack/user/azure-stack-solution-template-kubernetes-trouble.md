@@ -1,6 +1,6 @@
 ---
-title: Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen | Microsoft Docs
-description: Informatie over het oplossen van uw Kubernetes-implementatie naar Azure Stack.
+title: Kubernetes-implementatie in Azure Stack oplossen | Microsoft Docs
+description: Informatie over het oplossen van Kubernetes-implementatie in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361537"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878125"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes-implementatie naar Azure Stack oplossen
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie.
 
 Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen van Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. Mogelijk moet u ook samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
 
-## <a name="overview-of-deployment"></a>Overzicht van de implementatie
+## <a name="overview-of-kubernetes-deployment"></a>Overzicht van Kubernetes-implementatie
 
 Voordat u het oplossen van uw cluster, is het raadzaam om te controleren van het implementatieproces van de Azure Stack Kubernetes-cluster. De implementatie maakt gebruik van een Azure Resource Manager-oplossingssjabloon te maken van de virtuele machines en de ACS-Engine voor uw cluster te installeren.
 
-### <a name="deployment-workflow"></a>Implementatiewerkstroom
+### <a name="kubernetes-deployment-workflow"></a>Werkstroom van de Kubernetes-implementatie
 
 Het volgende diagram ziet u het algemene proces voor het implementeren van het cluster.
 
@@ -85,7 +85,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 
 U kunt Logboeken verzamelen op de virtuele machines die ondersteuning bieden voor uw Kubernetes-cluster. U kunt ook het implementatielogbestand bekijken. U moet mogelijk om te communiceren met de Azure Stack-beheerder om te controleren of de versie van Azure-Stack die u nodig hebt om te gebruiken en logboeken ophalen uit de Azure-Stack die gerelateerd zijn aan uw implementatie.
 
-1. Controleer de [Implementatiestatus](#review-deployment-status) en [de logboeken kunt ophalen](#get-logs-from-a-vm) van het hoofdknooppunt in uw Kubernetes-cluster.
+1. Controleer de [Implementatiestatus](#review-deployment-status) en de logboeken kunt ophalen uit het hoofdknooppunt in uw Kubernetes-cluster.
 2. Zorg ervoor dat u de meest recente versie van Azure Stack. Als u niet zeker weet welke versie u gebruikt, moet u contact op met uw Azure Stack-beheerder.
 3.  Controleer uw virtuele machine maken van bestanden. U kunt de volgende problemen had:  
     - De openbare sleutel is mogelijk ongeldig. Bekijk de sleutel die u hebt gemaakt.  

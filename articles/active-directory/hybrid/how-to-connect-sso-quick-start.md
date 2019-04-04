@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086816"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894762"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -93,7 +93,10 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 ![Azure Portal: Deelvenster in de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) in uw on-premises Active Directory (AD) in elk AD-forest. Dit computeraccount is nodig voor de functie te gebruiken. Als u van Pass-the-Hash en Credential Theft Mitigation architecturen in uw on-premises-omgeving gebruikmaakt, zorg ervoor dat de `AZUREADSSOACC` computeraccount niet in de quarantaine-container terechtkomen. Breng de gewenste wijzigingen aan het computeraccount maken in de container Computers. Als u naadloze eenmalige aanmelding is ingeschakeld in de Azure AD Connect-wizard, verplaatst u de `AZUREADSSOACC` computeraccount aan een organisatie-eenheid (OE) waar de computeraccounts van andere om ervoor te zorgen dat deze is niet verwijderd per ongeluk worden beheerd.
+> Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` in uw on-premises Active Directory (AD) in elk AD-forest. De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld. Het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn Store.
+
+>[!NOTE]
+> Als u van Pass-the-Hash en Credential Theft Mitigation architecturen in uw on-premises-omgeving gebruikmaakt, moet u benodigde wijzigingen om ervoor te zorgen dat de `AZUREADSSOACC` computeraccount niet in de quarantaine-container terechtkomen. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Stap 3: Implementatie van de functie
 

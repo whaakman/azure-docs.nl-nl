@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77cfade382d2c2533b803412157a1d5268e89983
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b7a5aef76ec72b0de76fb4517ffda02808eab9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764316"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882480"
 ---
 # <a name="connect-to-azure-stack"></a>Verbinding maken met Azure Stack
 
@@ -55,7 +55,7 @@ U kunt een split-tunnel virtuele particuliere netwerk (VPN)-verbinding met een A
 
 Voor het maken van een VPN-verbinding met de development kit, een PowerShell-sessie met verhoogde bevoegdheden openen vanuit uw lokale Windows-computer en voer het volgende script (Zorg ervoor dat de waarden voor IP-adres en het wachtwoord voor uw omgeving):
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -92,9 +92,9 @@ Als de installatie is geslaagd, ziet u **azurestack** in uw lijst met VPN-verbin
 
 Maak verbinding met de Azure Stack-exemplaar met behulp van een van de volgende twee methoden:  
 
-* Met behulp van de `Connect-AzsVpn ` opdracht: 
+* Met behulp van de `Connect-AzsVpn` opdracht: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

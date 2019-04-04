@@ -1,6 +1,6 @@
 ---
-title: Logische apps maken met Azure Resource Manager-sjablonen - Azure Logic Apps | Microsoft Docs
-description: Maken en implementeren van werkstromen voor logische app met Azure Resource Manager-sjablonen in Azure Logic Apps
+title: Logische apps met Azure Resource Manager-sjablonen - Azure Logic Apps implementeren
+description: Logische apps implementeren met behulp van Azure Resource Manager-sjablonen
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,124 +10,116 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 7543859a916de97d471db2894887e640db51dfc2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652481"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893415"
 ---
-# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen maken en implementeren
+# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen implementeren
 
-Met Azure Logic Apps biedt Azure Resource Manager-sjablonen die u gebruiken kunt, niet alleen om logische apps voor het automatiseren van werkstromen te maken, maar ook om de resources en parameters die worden gebruikt voor de implementatie te definiëren.
-U kunt deze sjabloon gebruiken voor uw eigen zakelijke scenario's of de sjabloon om te voldoen aan uw behoeften aanpassen. Meer informatie over de [Resource Manager-sjabloon voor logische apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) en [structuur van Azure Resource Manager-sjabloon en de syntaxis](../azure-resource-manager/resource-group-authoring-templates.md). Zie voor JSON-syntaxis en eigenschappen [Microsoft.Logic resourcetypen](/azure/templates/microsoft.logic/allversions).
+Nadat u een Azure Resource Manager-sjabloon voor het implementeren van uw logische app maakt, kunt u de sjabloon op de volgende manieren implementeren:
 
-## <a name="define-the-logic-app"></a>De logische app definiëren
-De definitie van dit voorbeeld van de logische app eenmaal per uur wordt uitgevoerd en pingt de locatie die is opgegeven de `testUri` parameter.
-De sjabloon maakt gebruik van parameterwaarden voor de naam van de logische app (```logicAppName```) en de locatie op voor het testen van de opdracht ping (```testUri```). Meer informatie over [definiëren van deze parameters in uw sjabloon](#define-parameters).
-De sjabloon wordt de locatie voor de logische app ook ingesteld op dezelfde locatie als de Azure-resourcegroep.
+* [Azure Portal](#portal)
+* [Azure PowerShell](#powershell)
+* [Azure-CLI](#cli)
+* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure DevOps-Azure-pijplijnen](#azure-pipelines)
 
-```json
-{
-   "type": "Microsoft.Logic/workflows",
-   "apiVersion": "2016-06-01",
-   "name": "[parameters('logicAppName')]",
-   "location": "[resourceGroup().location]",
-   "tags": {
-      "displayName": "LogicApp"
-   },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-            "testURI": {
-               "type": "string",
-               "defaultValue": "[parameters('testUri')]"
-            }
-         },
-         "triggers": {
-            "Recurrence": {
-               "type": "Recurrence",
-               "recurrence": {
-                  "frequency": "Hour",
-                  "interval": 1
-               }
-            }
-         },
-         "actions": {
-            "Http": {
-              "type": "Http",
-              "inputs": {
-                  "method": "GET",
-                  "uri": "@parameters('testUri')"
-              },
-              "runAfter": {}
-           }
-         },
-         "outputs": {}
-      },
-      "parameters": {}
-   }
-}
-```
+<a name="portal"></a>
 
-<a name="define-parameters"></a>
+## <a name="deploy-through-azure-portal"></a>Implementeren via Azure portal
 
-### <a name="define-parameters"></a>De parameters definiëren
+Als u wilt implementeren automatisch een sjabloon voor logische app in Azure, kunt u de volgende **implementeren in Azure** knop, waarmee u zich aanmeldt bij Azure portal en wordt u gevraagd voor informatie over uw logische app. U Breng eventueel benodigde wijzigingen aan de sjabloon voor logische app of de parameters.
 
-[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+[![Deploy naar Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Hier volgen beschrijvingen voor de parameters in de sjabloon:
-
-| Parameter | Description | Voorbeeld van JSON-definitie |
-| --------- | ----------- | ----------------------- |
-| `logicAppName` | Hiermee definieert u de naam van de logische app die sjabloon wordt gemaakt. | "logicAppName": {"type": "string", "metagegevens": {'description': "myExampleLogicAppName"}} |
-| `testUri` | Definieert de locatie voor het testen van ping. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
-||||
-
-Meer informatie over [REST-API voor Logic Apps-werkstroom-definitie en eigenschappen](https://docs.microsoft.com/rest/api/logic/workflows) en [bouwen op definities voor logische Apps met JSON](logic-apps-author-definitions.md).
-
-## <a name="deploy-logic-apps-automatically"></a>Automatisch implementeren met logische apps
-
-Als u wilt maken en een logische app automatisch geïmplementeerd op Azure, kies **implementeren in Azure** hier:
-
-[![Implementeren in Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
-
-Deze actie zich aanmeldt bij Azure portal kunt u uw logische app details bieden en wijzigingen aanbrengen in de sjabloon of de parameters.
-Bijvoorbeeld, de Azure-portal wordt u gevraagd deze details:
+Bijvoorbeeld: u wordt gevraagd om deze gegevens nadat u zich aanmeldt bij Azure portal:
 
 * De naam van de Azure-abonnement
 * Resourcegroep die u wilt gebruiken
 * Logic app-locatie
-* Een naam voor uw logische app
+* De naam voor uw logische app
 * Een test-URI
 * Instemming met de opgegeven voorwaarden en bepalingen
 
-## <a name="deploy-logic-apps-with-commands"></a>Logische apps met opdrachten implementeren
+Zie voor meer informatie, [resources implementeren met Azure Resource Manager-sjablonen en Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+## <a name="authorize-oauth-connections"></a>OAuth-verbindingen toestaan
 
-### <a name="powershell"></a>PowerShell
+Na de implementatie werkt de logische app end-to-end met geldige parameters op. U moet echter nog steeds OAuth-verbindingen voor het genereren van een geldige toegangstoken autoriseren. Voor geautomatiseerde implementaties kunt u een script dat u met elke OAuth-verbinding, zoals dit instemt [voorbeeldscript in het project GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth). Ook kunt u OAuth-verbindingen via de Azure-portal of in Visual Studio autoriseren door het openen van uw logische app in de ontwerper van logische Apps.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<a name="powershell"></a>
+
+## <a name="deploy-with-azure-powershell"></a>Implementeren met Azure PowerShell
+
+Om te implementeren op een specifieke *Azure-resourcegroep*, gebruikt u deze opdracht:
 
 ```powershell
-New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-### <a name="azure-cli"></a>Azure-CLI
+Als u wilt implementeren op een specifieke Azure-abonnement, gebruikt u deze opdracht:
+
+```powershell
+New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
+```
+
+* [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azdeployment)
+
+<a name="cli"></a>
+
+## <a name="deploy-with-azure-cli"></a>Implementeren met Azure CLI
+
+Om te implementeren op een specifieke *Azure-resourcegroep*, gebruikt u deze opdracht:
 
 ```azurecli
-azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
+az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
+
+Als u wilt implementeren op een specifieke Azure-abonnement, gebruikt u deze opdracht:
+
+```azurecli
+az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+```
+
+Zie de volgende onderwerpen voor meer informatie: 
+
+* [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
+
+<a name="azure-pipelines"></a>
+
+## <a name="deploy-with-azure-devops"></a>Implementeren met Azure DevOps
+
+Sjablonen voor logische Apps implementeren en beheren van omgevingen, teams vaak gebruik een hulpprogramma zoals [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) in [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Azure pijplijnen biedt een [Azure Resource Group Deployment taak](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) dat u kunt aan een build toevoegen of release-pijplijn.
+Voor autorisatie om te implementeren en de release-pijplijn genereren, moet u ook een Azure Active Directory (AD) [service-principal](../active-directory/develop/app-objects-and-service-principals.md). Meer informatie over [met behulp van service-principals met Azure-pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+Hier volgen algemene hoofdstappen voor het gebruik van Azure-pijplijnen:
+
+1. Maak een lege pijplijn in Azure-pijplijnen.
+
+1. Kies de resources die u nodig hebt voor de pijplijn, zoals uw sjabloon voor logische app en de sjabloon parameters bestanden, die u handmatig of als onderdeel van het bouwproces genereren.
+
+1. Voor de agent-taak, zoeken en toevoegen de **Azure Resource Group Deployment** taak.
+
+   !['Azure Resource Group Deployment'-taak toevoegen](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
+
+1. Configureren met een [service-principal](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+1. Verwijzingen naar de sjabloon voor logische app en de parameters-sjabloonbestanden toevoegen.
+
+1. Doorgaan met het bouwen van de stappen in het uitgifteproces voor omgeving, geautomatiseerde test of goedkeurders indien nodig.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
+Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Logische apps controleren](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Logische apps bewaken](../logic-apps/logic-apps-monitor-your-logic-apps.md)

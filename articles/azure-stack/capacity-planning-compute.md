@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446321"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915678"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack-compute-capaciteitsplanning
 De [VM-grootten in Azure Stack ondersteund](./user/azure-stack-vm-sizes.md) vormen een subset van die worden ondersteund op Azure. Azure legt resourcebeperkingen langs veel vectoren om te voorkomen dat overmatig van resources (server-service op het niveau en lokale). Zonder enige beperkingen met betrekking tot tenantverbruik opleggen, afnemen de tenant-ervaringen wanneer andere tenants overconsume resources. Voor netwerken uitgaande verkeer van de virtuele machine zijn er bandbreedte limieten in plaats van Azure Stack die overeenkomen met de Azure-beperkingen. Storage-resources, opslag IOPs-limieten geïmplementeerd in Azure Stack om te voorkomen dat basic overmatig van resources door tenants voor toegang tot opslag.  
@@ -45,7 +45,7 @@ De volgende berekening resulteert in de totale beschikbare geheugen die kan word
 
   Beschikbaar geheugen voor VM-plaatsing = Totaal servergeheugen – tolerantie Reserve – geheugen dat wordt gebruikt door het uitvoeren van VM's - Azure Stack-infrastructuur Overhead <sup>1</sup>
 
-  Tolerantie reserve = H + R * (N-1) + V * (N-2)
+  Tolerantie reserve = H + R * ((N-1) * H) + V * (N-2)
 
 > Waar:
 > - H = grootte van één server-geheugen
@@ -53,7 +53,7 @@ De volgende berekening resulteert in de totale beschikbare geheugen die kan word
 > - R = besturingssysteem reserveren voor OS-overhead<sup>2</sup>
 > - V = grootste virtuele machine in de schaaleenheid
 
-  <sup>1</sup> azure Stack-infrastructuur Overhead = 208 GB
+  <sup>1</sup> azure Stack-infrastructuur Overhead = 230 GB
 
   <sup>2</sup> besturingssysteem reserveren voor overhead = 15% van het knooppunt geheugen. De reservewaarde besturingssysteem is een schatting en zijn afhankelijk van de capaciteit van het fysieke geheugen van de server en de overhead van algemene besturingssysteem.
 

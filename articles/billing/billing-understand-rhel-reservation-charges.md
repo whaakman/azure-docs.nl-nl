@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
-ms.openlocfilehash: 9eba59bcdc9974519fc1ed37078a205eff28f116
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653079"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917053"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Begrijpen hoe de Red Hat Linux Enterprise-hulpprogramma voor het abonnement van de software-reserveringskorting wordt toegepast voor Azure
 
@@ -160,7 +160,7 @@ Zie voor meer informatie over reserveringen, de volgende artikelen:
 
 - [Wat zijn de reserveringen voor Azure](billing-save-compute-costs-reservations.md)
 - [Betaal vooruit voor Red Hat software plannen met Azure-reserveringen](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Reserveringen voor Azure beheren](billing-manage-reserved-vm-instance.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)

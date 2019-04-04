@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306439"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916169"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4.5
 
@@ -43,11 +43,11 @@ De volgorde is als volgt:
 
 1. ADO.NET 4.5 (of hoger) initieert een korte interactie met de Azure-cloud, en ontvangt een dynamisch geïdentificeerde poortnummer.
 
-   * Het dynamisch geïdentificeerde poortnummer is in het bereik van 11000 11999 of 14000 14999.
+   * Het dynamisch geïdentificeerde poortnummer is in het bereik van 11000 11999.
 2. ADO.NET maakt vervolgens verbinding met de SQL Database-server rechtstreeks met geen middleware tussenin.
 3. Query's rechtstreeks naar de database worden verzonden en resultaten rechtstreeks naar de client worden geretourneerd.
 
-Zorg ervoor dat de poort bereik van 11000 11999 en 14000-14999 op uw Azure-client-computer beschikbaar voor ADO.NET 4.5 client interacties met SQL Database blijven.
+Zorg ervoor dat de poort bereik van 11000-11999 op uw Azure-client-computer beschikbaar voor ADO.NET 4.5 client interacties met SQL Database blijven.
 
 * Poorten in het bereik moet in het bijzonder vrij van andere uitgaande blokkeringen.
 * Op uw Azure-VM, de **Windows Firewall met geavanceerde beveiliging** Hiermee bepaalt u de poortinstellingen.
@@ -82,7 +82,7 @@ In deze sectie wordt uitleg gegeven over de monikers die naar versies van het pr
 * Verbinding maken met Azure SQL Database V12 via een omleiding https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [Lijst met de versie van de TDS-protocol](http://www.freetds.org/userguide/tdshistory.htm)
-* [Overzicht van de ontwikkeling van de SQL Database](sql-database-develop-overview.md)
+* [Overzicht van ontwikkeling van SQL Database](sql-database-develop-overview.md)
 * [Azure SQL Database-firewall](sql-database-firewall-configure.md)
 * [Procedure: Firewallinstellingen voor SQL Database configureren](sql-database-configure-firewall-settings.md)
 

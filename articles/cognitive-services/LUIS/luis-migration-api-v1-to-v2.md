@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087921"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894078"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -134,7 +134,7 @@ Verschillende API's die de metagegevens van LUIS retourneren hebben nieuwe namen
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Voorbeeld" gewijzigd in "voorstellen"
-LUIS stelt uitingen van bestaande [eindpunt uitingen](luis-how-to-review-endoint-utt.md) die het model kan verbeteren. In de vorige versie, is dit de naam **voorbeeld**. In de nieuwe versie, de naam wordt gewijzigd van voorbeeld **voorstellen**. Dit heet **[bekijken eindpunt uitingen](luis-how-to-review-endoint-utt.md)** in de LUIS-website.
+LUIS stelt uitingen van bestaande [eindpunt uitingen](luis-how-to-review-endpoint-utterances.md) die het model kan verbeteren. In de vorige versie, is dit de naam **voorbeeld**. In de nieuwe versie, de naam wordt gewijzigd van voorbeeld **voorstellen**. Dit heet **[bekijken eindpunt uitingen](luis-how-to-review-endpoint-utterances.md)** in de LUIS-website.
 
 | versie | route |
 |--|--|

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 03/29/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 976c05449704b0ecbc48ee5bd4799f300fcac0aa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817288"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651682"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
@@ -48,7 +48,7 @@ Het gebruik van dezelfde argumenten die worden beschreven door het script is ver
 ## <a name="update-script-parameters"></a>Scriptparameters bijwerken 
 U kunt de volgende parameters vanaf de opdrachtregel opgeven tijdens het uitvoeren van de **UpdateMySQLProvider.ps1** PowerShell-script. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven. 
 
-| Parameternaam | Description | Opmerking of de standaardwaarde | 
+| Parameternaam | Beschrijving | Opmerking of de standaardwaarde | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ | 
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
@@ -71,9 +71,10 @@ Hier volgt een voorbeeld van het gebruik van de *UpdateMySQLProvider.ps1* script
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Note that this might not be the most currently available version of Azure Stack PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976548"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904709"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure 
 
@@ -31,18 +31,18 @@ Deze procedure wordt beschreven hoe u een testfailover uitvoeren voor een herste
 
 1. In Site Recovery in Azure portal, klikt u op **herstelplannen** > *recoveryplan_name* > **Testfailover**.
 2. Selecteer een **herstelpunt** waarnaar u failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
-    - **Laatst verwerkte**: Deze optie wordt over alle virtuele machines in het plan naar het meest recente herstelpunt dat is verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
-    - **Laatste toepassingsconsistente**: Deze optie wordt op alle virtuele machines in het plan naar de meest recente toepassingsconsistente herstelpunt verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine.
-    - **Meest recente**: Deze optie worden eerst alle gegevens die is verzonden naar Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar het verwerkt. Deze optie biedt het laagste RPO (Recovery Point Objective), omdat de virtuele machine gemaakt nadat de failover heeft de gegevens die zijn gerepliceerd naar de Site Recovery wanneer de failover werd geactiveerd.
+    - **Laatst verwerkt**: Deze optie wordt over alle virtuele machines in het plan naar het meest recente herstelpunt dat is verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
+    - **Laatste toepassingsconsistente punt**: Deze optie wordt op alle virtuele machines in het plan naar de meest recente toepassingsconsistente herstelpunt verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine.
+    - **Laatste**: Deze optie worden eerst alle gegevens die is verzonden naar Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar het verwerkt. Deze optie biedt het laagste RPO (Recovery Point Objective), omdat de virtuele machine gemaakt nadat de failover heeft de gegevens die zijn gerepliceerd naar de Site Recovery wanneer de failover werd geactiveerd.
     - **Meest recente verwerkte multi-VM**: Deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines met de instelling is ingeschakeld, schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt uitgevoerd. Andere VM's een failover naar de meest recente verwerkte herstelpunt.  
     - **Nieuwste multi-VM-app-consistente**: Deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines die deel van een replicatiegroep uitmaken schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt. Andere VM's een failover naar de meest recente toepassingsconsistente herstelpunt.
-    - **Aangepaste**: Gebruik deze optie voor failover van een specifieke virtuele machine naar een bepaald herstelpunt.
+    - **Aangepast**: Gebruik deze optie voor failover van een specifieke virtuele machine naar een bepaald herstelpunt.
 3. Selecteer een Azure-netwerk waarin de test-VM's worden gemaakt.
 
     - Site Recovery probeert te maken van test-VM's in een subnet met dezelfde naam en hetzelfde IP-adres als die beschikbaar is in de **berekening en netwerk** instellingen van de virtuele machine.
     - Als een subnet met dezelfde naam is niet beschikbaar in de Azure-netwerk gebruikt voor test-failover, klikt u vervolgens de test virtuele machine wordt gemaakt in het eerste subnet op alfabetische volgorde.
     - Als hetzelfde IP-adres is niet beschikbaar in het subnet, ontvangt de virtuele machine nog een beschikbaar IP-adres in het subnet. [Meer informatie](#create-a-network-for-test-failover).
-4. Als u bent Failover-overschakeling uitvoeren naar Azure en gegevensversleuteling is ingeschakeld, in **versleutelingssleutel**, selecteer het certificaat dat is uitgegeven wanneer u versleuteling tijdens de installatie van de Provider ingeschakeld. U kunt deze stap overslaan versleuteling is niet ingeschakeld.
+4. Als u bent Failover-overschakeling uitvoeren naar Azure en gegevensversleuteling is ingeschakeld, in **versleutelingssleutel**, selecteer het certificaat dat is uitgegeven wanneer u versleuteling tijdens de installatie van de Provider ingeschakeld. U kunt deze stap overslaan als versleuteling is niet ingeschakeld.
 5. Voortgang van de failover volgen op de **taken** tabblad. U zou het mogelijk om te zien van de test replica-machine in Azure portal.
 6. Als u wilt een RDP-verbinding met de Azure-VM hebt gestart, moet u [een openbaar IP-adres toevoegen](https://aka.ms/addpublicip) op de netwerkinterface van de failover VM.
 7. Als alles werkt zoals verwacht, klikt u op **failovertest**. Hiermee verwijdert u de virtuele machines die zijn gemaakt tijdens de testfailover.
@@ -55,7 +55,7 @@ Wanneer een test-failover wordt geactiveerd, gebeurt het volgende:
 
 1. **Vereisten**: Een controle uitgevoerd om ervoor te zorgen dat alle vereiste voorwaarden voor failover wordt voldaan.
 2. **Failover**: De failover verwerkt en de gegevens voorbereid, zodat een Azure-VM kan worden gemaakt op basis van deze.
-3. **Meest recente**: Als u de meest recente herstelpunt hebt gekozen, wordt een herstelpunt wordt gemaakt van de gegevens die zijn verzonden naar de service.
+3. **Laatste**: Als u de meest recente herstelpunt hebt gekozen, wordt een herstelpunt wordt gemaakt van de gegevens die zijn verzonden naar de service.
 4. **Start**: Deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
 
 ### <a name="failover-timing"></a>Timing van failover
@@ -68,10 +68,10 @@ In de volgende scenario's vereist de failover een extra tussenstap die meestal o
 * Hyper-V-VM beveiligd als fysieke servers
 * VMware-VM waarbij opstartstuurprogramma's zijn niet in de volgende stuurprogramma's:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
-    * Intelide
-    * ATAPI
+    * intelide
+    * atapi
 * VMware-VM die geen DHCP ingeschakeld hebben, ongeacht of ze zijn gebruikmaakt van DHCP- of statische IP-adressen.
 
 In alle andere gevallen, geen tussenstap is niet vereist en failover aanzienlijk minder tijd in beslag neemt.

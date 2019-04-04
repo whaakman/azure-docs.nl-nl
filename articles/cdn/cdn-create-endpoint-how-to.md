@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093677"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916815"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt maken
-In dit artikel beschrijft alle instellingen voor het maken van een [Azure Content Delivery Network (CDN)](cdn-overview.md) -eindpunt in een bestaande CDN-profiel. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten. Zie voor een snelstartgids over het maken van een profiel en eindpunt, [Quickstart: maken van een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md).
+In dit artikel beschrijft alle instellingen voor het maken van een [Azure Content Delivery Network (CDN)](cdn-overview.md) -eindpunt in een bestaande CDN-profiel. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten. Zie voor een snelstartgids over het maken van een profiel en eindpunt, [Quick Start: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u een CDN-eindpunt maken kunt, moet hebt u ten minste één CDN-profiel, die een of meer CDN-eindpunten kan bevatten die zijn gemaakt. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. Omdat het CDN-prijzen op het niveau van het CDN-profiel wordt toegepast, moet u meerdere CDN-profielen maken als u gebruiken van een combinatie van Azure CDN wilt-Prijscategorieën. Voor het maken van een CDN-profiel, Zie [maken van een nieuw CDN-profiel](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
    > [!NOTE]
    > De **poort van oorsprong** waarde bepaalt alleen de poort die gebruikmaakt van het eindpunt van de gegevens ophalen uit de oorspronkelijke server. Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de waarde voor **Poort van oorsprong**.  
    > 
-   > Eindpunten in **Azure CDN van Akamai**-profielen staan niet het volledige TCP-poortbereik voor oorsprongpoorten toe. Zie [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
+   > Eindpunten in **Azure CDN van Akamai**-profielen staan niet het volledige TCP-poortbereik voor oorsprongpoorten toe. Zie [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
    > 
    > HTTPS-ondersteuning voor aangepaste domeinen voor Azure CDN wordt niet ondersteund op **Azure CDN van Akamai** producten. Zie [HTTPS op een aangepast Azure CDN-domein configureren](cdn-custom-ssl.md) voor meer informatie.
     
@@ -84,7 +84,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
     - **Azure CDN Standard van Akamai** profielen:
        - [**Algemene webweergave**](cdn-optimization-overview.md#general-web-delivery)
        - [**Algemene mediastreaming**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Video on-demandstreaming van media**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**VOD-mediastreaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Grote bestanden downloaden**](cdn-optimization-overview.md#large-file-download)
        - [**Dynamische siteversnelling**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

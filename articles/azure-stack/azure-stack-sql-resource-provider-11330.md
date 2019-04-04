@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243331"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879349"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Opmerkingen bij de SQL-resource provider 1.1.33.0 release
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en bekende problemen in SQL resource provider-versie 1.1.33.0.
 
@@ -50,7 +50,8 @@ Deze versie van de resourceprovider van Azure Stack SQL omvat de volgende verbet
 
 - **Vorige SQL resource provider (1.1.30.0)-implementatie kan mislukken als TLS 1.2 is niet ingeschakeld**. De SQL-resourceprovider 1.1.33.0 om in te schakelen van TLS 1.2 bij het implementeren van de resourceprovider gedraaid geheimen of bijwerken van de resourceprovider bijgewerkt. 
 
-- **SQL-resource provider geheime rotatie mislukt**. Dit resulteert in de volgende foutcode wanneer u geheimen probleem is opgelost: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **SQL-resource provider geheime rotatie mislukt**. Dit resulteert in de volgende foutcode wanneer u geheimen probleem is opgelost:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Bekende problemen 
 

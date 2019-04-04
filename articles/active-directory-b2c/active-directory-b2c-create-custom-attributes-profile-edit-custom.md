@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41c3db1c9a7295d939aa34a36f86c0dfa9fecd91
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094623"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891443"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken in een aangepast profiel bewerken beleid
 
@@ -296,7 +296,7 @@ De ID-token verzonden terug naar uw toepassing de nieuwe extensie-eigenschap bev
 
 ## <a name="reference"></a>Referentie
 
-Zie het artikel voor meer informatie over extensie-eigenschappen [Directory-schema-uitbreidingen | Graph API-concepten](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Zie het artikel voor meer informatie over extensie-eigenschappen [Directory-schema-uitbreidingen | Graph API-concepten](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
 > * Een **TechnicalProfile** is een elementtype of functie, die de naam, de metagegevens en het protocol van een eindpunt definieert. De **TechnicalProfile** details van de uitwisseling van claims waarmee de Identity-Ervaringsframework wordt uitgevoerd. Wanneer deze functie is aangeroepen in een orchestration-stap of vanuit een ander **TechnicalProfile**, wordt de **InputClaims** en **OutputClaims** als parameters worden geleverd door de oproepende functie .  

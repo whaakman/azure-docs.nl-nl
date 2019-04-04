@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172396"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882035"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Extra scale unit knooppunten toevoegen in Azure Stack
 
@@ -75,7 +75,7 @@ Gebruik de **New-AzsScaleUnitNodeObject** cmdlet een knooppunt wilt toevoegen.
 Voordat u een van de volgende PowerShell-voorbeeldscripts gebruikt, vervang de waarden *knooppuntnamen* en *IP-adressen* met waarden uit uw Azure Stack-omgeving.
 
   > [!Note]  
-  > Bij het benoemen van een knooppunt moet u de naam van de minder dan 15 tekens. U een naam die een spatie bevat of een van de volgende tekens bevat ook niet gebruiken: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Bij het benoemen van een knooppunt moet u de naam van de minder dan 15 tekens. U een naam die een spatie bevat of een van de volgende tekens bevat ook niet gebruiken: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Een knooppunt toevoegt:**
   ```powershell
@@ -115,7 +115,7 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 
 **Voor een scale unit-knooppunt:**
 
-|Status                |Description  |
+|Status                |Beschrijving  |
 |----------------------|---------|
 |In uitvoering               |Het knooppunt is actief deelnemer in de schaaleenheid.|
 |Gestopt               |Het knooppunt is niet beschikbaar.|

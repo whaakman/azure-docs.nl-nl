@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078808"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916254"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
@@ -70,7 +70,7 @@ Omdat de Service in de Cloud een Classic-resource die niet rechtstreeks compatib
  
 - Implementeren via REST-API.
 
-    Wanneer u via de Service Management REST-API implementeert, kan u de beperking omzeilen door een SAS-URL naar de blob-opslag, die is voor zowel klassieke als Azure Resource Manager-Storage-account geschikt op te geven. Meer informatie over de eigenschap 'PackageUrl' [hier](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    Wanneer u via de Service Management REST-API implementeert, kan u de beperking omzeilen door een SAS-URL naar de blob-opslag, die is voor zowel klassieke als Azure Resource Manager-Storage-account geschikt op te geven. Meer informatie over de eigenschap 'PackageUrl' [hier](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Implementeren via [Azure-portal](https://portal.azure.com).
 

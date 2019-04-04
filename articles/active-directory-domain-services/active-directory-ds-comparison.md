@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152152"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892293"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use-casescenario
 U kunt uw workloads in Azure Infrastructure Services, zonder te hoeven maken over het beheren van infrastructuur voor identiteiten in Azure implementeren met Azure AD Domain Services. Deze beheerde service wijkt af van een typische implementatie van Windows Server Active Directory die u implementeren en beheren op uw eigen. De service is eenvoudig te implementeren en biedt een geautomatiseerde statuscontrole en herstel. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene scenario's voor implementatie in ontwikkeling.
@@ -40,7 +40,7 @@ De volgende tabel kunt u kiezen tussen het gebruik van Azure AD Domain Services 
 | [**Beveiligde implementaties**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Er moet een beheerder voor het beveiligen van de implementatie. |
 | [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(beheerde service) |**&#x2713;** |
 | [**Domein- of administrator-bevoegdheden**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
-| [**Aan domein toevoegen**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Lid maken van domein**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Domeinverificatie met behulp van NTLM en Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos-beperkte overdracht**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|op basis van resource|op basis van een resource & op basis van een account|
 | [**Aangepaste OE-structuur**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
@@ -65,7 +65,7 @@ Een beheerd domein van Azure AD Domain Services bevat beheerde DNS-services. Led
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Domein- of Enterprise-beheerder-bevoegdheden
 Deze verhoogde bevoegdheden zijn niet beschikbaar op een beheerde AAD-DS-domein. Toepassingen waarvoor deze verhoogde bevoegdheden kunnen niet worden geïmplementeerd op basis van AAD-DS beheerde domeinen. Een kleinere subset van beheerdersbevoegdheden is beschikbaar voor leden van de gedelegeerd beheergroep 'AAD DC Administrators' genoemd. Deze bevoegdheden zijn rechten om te configureren van DNS, Groepsbeleid te configureren, administrator-bevoegdheden op domein machines enzovoort krijgen.
 
-#### <a name="domain-join"></a>Aan domein toevoegen
+#### <a name="domain-join"></a>Lid maken van domein
 U kunt virtuele machines toevoegen aan het beheerde domein vergelijkbaar met hoe u computers aan een AD-domein toevoegen.
 
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Domeinverificatie met behulp van NTLM en Kerberos
@@ -115,9 +115,9 @@ Mogelijk hebt u implementatie use cases waar u enkele van de mogelijkheden die d
 >
 >
 
-We hebben gepubliceerd [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) te vereenvoudigen en ZELFGEMAAKT installaties.
+We hebben gepubliceerd [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) te vereenvoudigen en ZELFGEMAAKT installaties.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Functies - Azure AD Domain Services](active-directory-ds-features.md)
 * [Implementatiescenario's - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a66217641c833061d4626b7d393fd3cdd0fd56cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734622"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483596"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Vervangen van een fysieke schijf in Azure Stack
 
@@ -55,20 +55,20 @@ Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedet
  Nadat u de schijf vervangt, kunt u de status van de virtuele schijf controleren en taakvoortgang herstellen met behulp van het eindpunt van de bevoegdheden. Volg deze stappen vanaf elke computer die een netwerkverbinding met het eindpunt van de bevoegdheden heeft.
 
 1. Open een Windows PowerShell-sessie en maak verbinding met het eindpunt van de bevoegdheden.
-    ```PowerShell
+    ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ``` 
   
 2. Voer de volgende opdracht om de status van virtuele schijf weer te geven:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
    ![PowerShell-uitvoer van de opdracht Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Voer de volgende opdracht om de huidige status van de opslag-taak weergeven:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
       ![PowerShell-uitvoer van de opdracht Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
@@ -76,6 +76,6 @@ Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedet
 ## <a name="troubleshoot-virtual-disk-repair"></a>Herstel van virtuele schijf oplossen
 
 Als de virtuele schijf herstellen weergegeven taak vastgelopen, uitvoeren van de volgende opdracht uit om de taak opnieuw starten:
-  ```PowerShell
+  ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ``` 

@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731916"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482178"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Voorbereiden voor de host van de extensie voor Azure Stack
 
@@ -47,13 +47,13 @@ Het hulpprogramma Azure Stack Readiness Checker biedt de mogelijkheid om te make
 1. Open PowerShell met verhoogde machtigingen op de host van de levenscyclus van hardware of het beheerwerkstation voor Azure Stack.
 2. Voer de volgende cmdlet voor het installeren van het hulpprogramma Azure Stack-gereedheid van de Registercontrole.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Voer het volgende script om de structuur van de vereiste map te maken:
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ Het hulpprogramma Azure Stack Readiness Checker biedt de mogelijkheid om te make
 4. Plaats de bestaande certificaten die u momenteel in Azure Stack gebruikt, in de juiste mappen. Bijvoorbeeld, de **Admin ARM** certificaat in de `Arm Admin` map. En stel vervolgens de zojuist gemaakte hosting certificaten de `Admin extension host` en `Public extension host` mappen.
 5. Voer de volgende cmdlet voor het starten van de certificaatcontrole:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Een computer die verbinding met het Azure Stack in beschermde modus-eindpunt voo
 2. Open PowerShell ISE voor het uitvoeren van de volgende scriptblokken
 3. Importeer het certificaat voor de beheerder die als host fungeert eindpunt.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Een computer die verbinding met het Azure Stack in beschermde modus-eindpunt voo
     }
     ```
 4. Importeer het certificaat voor de hosting-eindpunt.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ Het artikel [datacenter-integratie van Azure Stack - eindpunten publiceren](azur
 
 Er zijn twee nieuwe eindpunten moeten worden gepubliceerd door uw firewall. De toegewezen IP-adressen van de openbare VIP-groep kan worden opgehaald met de volgende code die moet worden uitgevoerd vanaf de Azure Stack [omgeving in de beschermde modus eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>Voorbeeld van uitvoer
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

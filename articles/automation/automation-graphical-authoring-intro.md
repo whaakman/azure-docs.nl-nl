@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918141"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 
@@ -48,7 +48,7 @@ Het besturingselement bibliotheek is waar u het selecteert [activiteiten](#activ
 |:--- |:--- |
 | Cmdlets |Bevat alle cmdlets die kunnen worden gebruikt in uw runbook. Cmdlets zijn ingedeeld door de module. Alle modules die u hebt geïnstalleerd in uw automation-account zijn beschikbaar. |
 | Runbooks |Bevat de runbooks in uw automation-account. Deze runbooks kunnen worden toegevoegd aan het canvas om te worden gebruikt als onderliggende runbooks. Alleen runbooks van hetzelfde type als het runbook wordt bewerkt core worden weergegeven; Grafische worden runbooks alleen op PowerShell gebaseerde runbooks weergegeven, terwijl voor grafische PowerShell Workflow-runbooks alleen PowerShell-werkstroom runbooks worden weergegeven. |
-| Assets |Bevat de [automation-assets](https://msdn.microsoft.com/library/dn939988.aspx) in uw automation-account die kan worden gebruikt in uw runbook. Wanneer u een asset aan een runbook toevoegt, wordt een workflow-activiteit die de geselecteerde asset wordt toegevoegd. In het geval van een variabele assets, kunt u selecteren of toevoegen van een activiteit als u wilt ophalen van de variabele of stelt u de variabele. |
+| Assets |Bevat de [automation-assets](/previous-versions/azure/dn939988(v=azure.100)) in uw automation-account die kan worden gebruikt in uw runbook. Wanneer u een asset aan een runbook toevoegt, wordt een workflow-activiteit die de geselecteerde asset wordt toegevoegd. In het geval van een variabele assets, kunt u selecteren of toevoegen van een activiteit als u wilt ophalen van de variabele of stelt u de variabele. |
 | Runbookbesturing |Runbook-controleactiviteiten die kunnen worden gebruikt bevat in uw huidige runbook. Een *koppelingspunten* neemt van meerdere invoergegevens en wacht totdat alle hebt voltooid voordat de werkstroom. Een *Code* activiteit wordt uitgevoerd voor een of meer regels met code van PowerShell of PowerShell-werkstroom, afhankelijk van het type grafisch runbook. U kunt deze activiteit gebruiken voor aangepaste code of functionaliteit die moeilijk te bereiken met andere activiteiten. |
 
 ### <a name="configuration-control"></a>Configuratiebeheer
@@ -139,7 +139,7 @@ De voorwaarde voor opnieuw proberen is een PowerShell-expressie die wordt geëva
 
 De voorwaarde opnieuw kunt gebruiken een variabele met de naam $RetryData die toegang tot informatie over de activiteit nieuwe pogingen biedt. Deze variabele heeft de eigenschappen in de volgende tabel:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | NumberOfAttempts |Het aantal keren dat de activiteit is uitgevoerd. |
 | Uitvoer |De uitvoer van de laatste uitvoering van de activiteit. |
@@ -191,7 +191,7 @@ Maak een koppeling tussen twee activiteiten op basis van de bronactiviteit selec
 
 Selecteer de koppeling naar de eigenschappen ervan configureren in de blade van de configuratie. Dit omvat het koppelingstype, die wordt beschreven in de volgende tabel:
 
-| Type koppeling | Description |
+| Type koppeling | Beschrijving |
 |:--- |:--- |
 | Pijplijn |De doelactiviteit wordt eenmaal uitgevoerd voor elk objectuitvoer van de bronactiviteit. De doelactiviteit wordt niet uitgevoerd als de bronactiviteit in geen uitvoer resulteert. Uitvoer van de bronactiviteit is beschikbaar als een object. |
 | Volgorde |De doelactiviteit wordt slechts één keer uitgevoerd. Ontvangt deze een matrix met objecten uit de bronactiviteit. Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
@@ -325,7 +325,7 @@ Elke invoerparameter wordt gedefinieerd door de eigenschappen in de volgende tab
 | Eigenschap | Description |
 |:--- |:--- |
 | Name |De unieke naam van de parameter. Dit mag alleen alfanumerieke tekens en mag geen spatie bevatten. |
-| Description |Een optionele beschrijving voor de invoerparameter. |
+| Beschrijving |Een optionele beschrijving voor de invoerparameter. |
 | Type |Het gegevenstype voor de parameterwaarde verwacht. De Azure portal biedt een juiste besturingselement voor het gegevenstype voor elke parameter tijdens het vragen om invoer. |
 | Verplicht |Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Het runbook kan niet worden gestart als u geen waarde opgeeft voor de verplichte parameter waarmee de heeft geen standaardwaarde gedefinieerd. |
 | Standaardwaarde |Hiermee geeft u op welke waarde voor de parameter wordt gebruikt als niet is opgegeven. Dit kan ofwel Null of een specifieke waarde zijn. |

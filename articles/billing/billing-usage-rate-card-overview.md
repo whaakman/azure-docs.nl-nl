@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351556"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918209"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure facturerings-API's gebruiken om via een programma inzicht uw gebruik van Azure
 Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw favoriete hulpprogramma's voor gegevensanalyse. De Azure Resource Usage- en RateCard-API’s kunnen u helpen uw kosten nauwkeurig te voorspellen en te beheren. De API's worden geïmplementeerd als een Resource Provider en een deel van de API's beschikbaar gemaakt door de Azure Resource Manager-familie.  
@@ -36,7 +36,7 @@ Zodra de [aanmelden is voltooid](billing-manage-access.md#opt-in), downloaden va
 > Deze functie is in eerste versie van de Preview-versie en zijn mogelijk onderhevig aan wijzigingen achterwaarts compatibel. Het is momenteel niet beschikbaar voor bepaalde abonnementaanbiedingen (EA, CSP, AIO niet ondersteund) en Azure Duitsland.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure Resourcegebruik-API (Preview)
-Gebruik de Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/mt219003) om uw geschatte Azure-verbruik-gegevens. De API omvat:
+Gebruik de Azure [Resource Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) om uw geschatte Azure-verbruik-gegevens. De API omvat:
 
 * **Azure Role-based Access Control** -configureren toegangsbeleid op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de gegevens over het gebruik van het abonnement. Aanroepers moeten standaard Azure Active Directory-tokens gebruiken voor verificatie. De oproepende functie toevoegen aan de factureren voor lezer, lezer, eigenaar, Inzender rol of toegang krijgen tot gegevens over gebruik voor een specifieke Azure-abonnement.
 * **Elk uur of dagelijks aggregaties** - aanroepers kunnen opgeven of ze hun gebruik van Azure-gegevens wilt per uur duurbuckets of dagelijks tijdsintervallen. De standaardwaarde is dagelijks.
@@ -45,7 +45,7 @@ Gebruik de Azure [Resource Usage API](https://msdn.microsoft.com/library/azure/m
 * **Gebruik voor andere typen** – gebruiksgegevens is beschikbaar voor de aanbiedingstypen zoals betalen per gebruik, MSDN, monetaire toezegging, financieel tegoed en EA, met uitzondering van [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure-Resource RateCard API (Preview)
-Gebruik de [RateCard API van Azure Resource](https://msdn.microsoft.com/library/azure/mt219005) om op te halen van de lijst met beschikbare Azure-resources en de geschatte informatie over de prijzen voor elk. De API omvat:
+Gebruik de [RateCard API van Azure Resource](/previous-versions/azure/reference/mt219005(v=azure.100)) om op te halen van de lijst met beschikbare Azure-resources en de geschatte informatie over de prijzen voor elk. De API omvat:
 
 * **Azure Role-based Access Control** -het-beleid configureren op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de RateCard-gegevens. Aanroepers moeten standaard Azure Active Directory-tokens gebruiken voor verificatie. De oproepende functie toevoegen aan de lezer, de eigenaar of Inzender rol toegang krijgen tot gegevens over gebruik voor een bepaald Azure-abonnement.
 * **Ondersteuning voor betalen per gebruik, MSDN, monetaire toezegging en monetaire creditaanbiedingen (EA en [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) niet ondersteund)** -deze API biedt Azure-aanbieding op serverniveau snelheid informatie.  De aanroeper van deze API moet doorgeven in de informatie over de aanbieding om details van de resource en tarieven te verkrijgen. We zijn momenteel niet voor EA-tarieven omdat EA-aanbiedingen tarieven per inschrijving hebt aangepast.
@@ -65,10 +65,10 @@ Hier volgen enkele van de scenario's die zijn aangebracht mogelijk is met de com
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk de codevoorbeelden op GitHub:
-  * [Codevoorbeeld Invoice API](https://go.microsoft.com/fwlink/?linkid=845124)
+  * [Codevoorbeeld voor de API voor facturen](https://go.microsoft.com/fwlink/?linkid=845124)
 
-  * [Codevoorbeeld Usage API](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+  * [Codevoorbeeld voor de API voor gebruik](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
-  * [Codevoorbeeld RateCard API](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+  * [Codevoorbeeld voor de RateCard API](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 * Zie voor meer informatie over de Azure Resource Manager, [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

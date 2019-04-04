@@ -3,19 +3,19 @@ title: Translator Text-API-woordenlijst Lookup methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Translator Text-API Dictionary Lookup-methode.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: e97d308bca585cdb26ccc2f20e125436707c481e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89b4058c384440b83f60fb6147cd373ecf893011
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876331"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917002"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Opzoeken in woordenlijst
 
@@ -56,7 +56,7 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_header_</td>
+    <td>_Een autorisatie_<br/>_koptekst_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -140,7 +140,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
 In dit voorbeeld laat zien hoe voor het opzoeken van alternatieve vertalingen in het Spaans van de Engelse term `fly` .
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ De hoofdtekst van antwoord (afgekort voor de duidelijkheid) is:
 
 Dit voorbeeld laat zien wat er gebeurt wanneer de term wordt opgezocht niet voor het paar geldig woordenlijst bestaat.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

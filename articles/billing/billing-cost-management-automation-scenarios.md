@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861992"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918515"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automation-scenario's voor het beheer van facturering en kosten
 
@@ -80,9 +80,9 @@ Web Direct- en Enterprise-klanten kunnen alle de volgende API's gebruiken, tenzi
 
 -   [Gebruik API Details](https://docs.microsoft.com/rest/api/consumption/usagedetails): Informatie over alle Azure-resources kosten in rekening gebracht en gebruik van Microsoft krijgen. Informatie is in de vorm van detail gebruiksrecords, die momenteel worden uitgezonden, één keer per meter per dag. U kunt de informatie toe te voegen van de kosten voor alle resources of onderzoeken kosten/gebruik op specifieke resources gebruiken.
 
--   [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx): Meter-tarieven krijgen als u een Web Direct-klant bent. U kunt de geretourneerde informatie vervolgens gebruiken met de informatie over het gebruik van de resource voor het berekenen van de verwachte factuur handmatig. 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Meter-tarieven krijgen als u een Web Direct-klant bent. U kunt de geretourneerde informatie vervolgens gebruiken met de informatie over het gebruik van de resource voor het berekenen van de verwachte factuur handmatig. 
 
--   [API voor gebruik zonder restricties](https://msdn.microsoft.com/library/azure/mt219003.aspx): Informatie over het gebruik van onbewerkte ophalen voordat Azure een meting/kosten in rekening gebracht heeft.
+-   [API voor gebruik zonder restricties](/previous-versions/azure/reference/mt219003(v=azure.100)): Informatie over het gebruik van onbewerkte ophalen voordat Azure een meting/kosten in rekening gebracht heeft.
 
 ### <a name="billing"></a>Billing
 -   [Facturering perioden API](https://docs.microsoft.com/rest/api/billing/billingperiods): Een factureringsperiode kunt analyseren, samen met de factuur id's voor die periode bepalen. Factuur-id's kunt u met de API voor facturen.
@@ -121,7 +121,7 @@ Deze API's bieden fundamentele verschillende gegevens:
    - Wijzigingen in rekening voor het gebruik van vooraf betaalde monetaire toezeggingen
    - Wijzigingen in voor gebruik discrepanties gedetecteerd door Azure-account
 
-- De [Usage API](https://msdn.microsoft.com/library/Mt219003.aspx) biedt informatie over het gebruik van onbewerkte Azure voordat deze wordt doorgegeven via de kosten voor het meten van systeem in Azure. Deze gegevens wellicht een correlatie met het gebruik of kosten in rekening gebracht bedrag dat wordt weergegeven nadat de door Azure kosten in rekening gebracht meetsysteem.
+- De [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) biedt informatie over het gebruik van onbewerkte Azure voordat deze wordt doorgegeven via de kosten voor het meten van systeem in Azure. Deze gegevens wellicht een correlatie met het gebruik of kosten in rekening gebracht bedrag dat wordt weergegeven nadat de door Azure kosten in rekening gebracht meetsysteem.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Wat is het verschil tussen de factuur-API en de Details Usage API?
 Deze API's bieden een andere weergave van dezelfde gegevens:
@@ -135,7 +135,7 @@ Deze API's bieden vergelijkbare gegevenssets, maar hebben verschillende doelgroe
 
 - De [prijs blad API](https://docs.microsoft.com/rest/api/consumption/pricesheet) biedt de aangepaste prijzen die is gebruikt voor een Enterprise-klant bent.
 
-- De [RateCard API](https://msdn.microsoft.com/library/mt219005.aspx) bevat de openbare prijzen die van toepassing is voor Web Direct-klanten.
+- De [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) bevat de openbare prijzen die van toepassing is voor Web Direct-klanten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

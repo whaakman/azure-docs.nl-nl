@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 845bd7a6ad690288585418a42e5706fdbebbf143
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505678"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890913"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Algemene fouten bij de migratie van klassiek naar Azure Resource Manager
 In dit artikel behandelen we de meest voorkomende fouten en oplossingen tijdens de migratie van IaaS-resources van het klassieke Azure-implementatiemodel naar de Azure Resource Manager-stack.
@@ -34,7 +34,7 @@ In dit artikel behandelen we de meest voorkomende fouten en oplossingen tijdens 
 | Implementatie {naam-implementatie} in HostedService {naam-gehoste-service} bevat een virtuele machine {vm-naam} met een gegevensschijf {naam-gegevens-schijf} waarvan de fysieke blobgrootte van {grootte-van-vhd-blob-achter-gegevensschijf} bytes niet overeenkomt met de logische grootte van {grootte-gegevensschijf-opgegeven-in-vm-api} bytes van de VM. De migratie wordt voortgezet zonder dat er een grootte wordt opgeven voor de gegevensschijf voor de Azure Resource Manager-VM. | Deze fout treedt op als u de grootte van de VHD-blob hebt gewijzigd zonder de grootte in het API-model van de VM te wijzigen. Gedetailleerde stappen worden [hieronder](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes) beschreven.|
 | Er is een opslaguitzondering opgetreden tijdens het valideren van de gegevensschijf {naam-gegevensschijf} met de medialink {Uri-gegevensschijf} voor de virtuele machine {VM-naam} in de cloudservice {naam-cloudservice}. Zorg ervoor dat de VHD-medialink toegankelijk is voor deze virtuele machine | Deze fout kan optreden als de schijven van de virtuele machine zijn verwijderd of niet meer toegankelijk zijn. Controleer of de schijven voor de virtuele machine bestaan.|
 | De VM {vm-naam} in HostedService {naam-cloudservice} bevat een schijf met MediaLink {vhd-uri} met blobnaam {vhd-blobnaam} die niet wordt ondersteund in Azure Resource Manager. | Deze fout treedt op wanneer de naam van de blob een '/' bevat. Dit wordt momenteel niet ondersteund in Compute Resource Provider. |
-| Migratie is niet toegestaan voor de implementatie {naam-implementatie} in HostedService {naam-cloudservice} omdat deze zich niet in het regionale bereik bevindt. Raadpleeg http:\//aka.ms/regionalscope voor het verplaatsen van deze implementatie naar een regionaal bereik. | In 2014 heeft Azure aangekondigd dat netwerkresources worden verplaatst van een clusterbereik naar een regionaal bereik. Zie [ http://aka.ms/regionalscope ](http://aka.ms/regionalscope) voor meer informatie. Deze fout treedt op wanneer de implementatie die wordt gemigreerd geen updatebewerking heeft gehad, waarmee de implementatie automatisch naar een regionaal bereik wordt verplaatst. De beste oplossing is om een eindpunt of gegevensschijf toe te voegen aan een virtuele machine en de migratie opnieuw proberen uit te voeren. <br> Zie [Eindpunten instellen op een klassieke virtuele Windows-machine in Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) of [Een gegevensschijf koppelen aan een virtuele Windows-machine die is gemaakt met het klassieke implementatiemodel](../articles/virtual-machines/windows/classic/attach-disk.md)|
+| Migratie is niet toegestaan voor de implementatie {naam-implementatie} in HostedService {naam-cloudservice} omdat deze zich niet in het regionale bereik bevindt. Raadpleeg https:\//aka.ms/regionalscope voor het verplaatsen van deze implementatie naar een regionaal bereik. | In 2014 heeft Azure aangekondigd dat netwerkresources worden verplaatst van een clusterbereik naar een regionaal bereik. Zie [ https://aka.ms/regionalscope ](https://aka.ms/regionalscope) voor meer informatie. Deze fout treedt op wanneer de implementatie die wordt gemigreerd geen updatebewerking heeft gehad, waarmee de implementatie automatisch naar een regionaal bereik wordt verplaatst. De beste oplossing is om een eindpunt of gegevensschijf toe te voegen aan een virtuele machine en de migratie opnieuw proberen uit te voeren. <br> Zie [Eindpunten instellen op een klassieke virtuele Windows-machine in Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) of [Een gegevensschijf koppelen aan een virtuele Windows-machine die is gemaakt met het klassieke implementatiemodel](../articles/virtual-machines/windows/classic/attach-disk.md)|
 | Migratie wordt niet ondersteund voor het Virtueelnetwerk {vnet-naam}, omdat er geen gateway PaaS-implementaties. | Deze fout treedt op wanneer u hebt geen gateway PaaS-implementaties, zoals Application Gateway of API Management-services die zijn verbonden met het Virtueelnetwerk.|
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Voorbeeld: Gebruik een voorspellingseindpunt om afbeeldingen programmatisch te testen met classificatie: Custom Vision'
+title: 'Gebruik een voorspellingseindpunt om afbeeldingen programmatisch te testen met classificatie: Custom Vision'
 titlesuffix: Azure Cognitive Services
 description: Lees hoe u de API gebruikt om afbeeldingen programmatisch te testen met uw Custom Vision Service-classificatie.
 services: cognitive-services
@@ -8,62 +8,52 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 715fa526c83608c9922315e3a0d89b67b31e0d16
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472719"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895610"
 ---
-#  <a name="use-your-model-with-the-prediction-api"></a>Het Model met de Voorspellings-API gebruiken
+# <a name="use-your-model-with-the-prediction-api"></a>Het Model met de Voorspellings-API gebruiken
 
-Nadat u uw model hebt getraind, kunt u afbeeldingen programmatisch testen door ze in te dienen bij de voorspellings-API.
+Nadat u hebt uw model te trainen, kunt u installatiekopieën programmatisch testen door indienen bij de voorspelling API-eindpunt.
 
 > [!NOTE]
-> In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie het document [Referentie voorspellings-API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15) voor meer informatie en voorbeelden van het gebruik van de API.
+> In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie voor meer informatie en voorbeelden, de [voorspelling API-verwijzing](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## <a name="publish-your-trained-iteration"></a>Uw getrainde iteratie publiceren
 
 Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project en vervolgens selecteert u het tabblad __Prestaties__.
 
-Om in te dienen afbeeldingen voor de voorspelling API, moet u eerst uw iteratie voor voorspelling, die kan worden uitgevoerd door het selecteren van publiceren __publiceren__ en een naam op voor de gepubliceerde iteratie op te geven. Hiermee schakelt u het model toegankelijk voor de voorspelling API van uw aangepaste Vision Azure-resource. 
+Om in te dienen afbeeldingen voor de voorspelling API, moet u eerst uw iteratie voor voorspelling, die kan worden uitgevoerd door het selecteren van publiceren __publiceren__ en een naam op voor de gepubliceerde iteratie op te geven. Dit maakt het model toegankelijk is voor de voorspelling API van uw aangepaste Vision Azure-resource.
 
 ![Het tabblad prestaties wordt weergegeven, met een rode rechthoek rond de knop publiceren.](./media/use-prediction-api/unpublished-iteration.png)
 
-Wanneer het model is gepubliceerd, ziet u een 'Gepubliceerd' label weergegeven naast uw iteratie in de zijbalk links, evenals de naam van de gepubliceerde iteratie in de beschrijving van de iteratie.
+Zodra het model is gepubliceerd, ziet u een 'Gepubliceerd' label weergegeven naast uw iteratie in de zijbalk links en de naam wordt weergegeven in de beschrijving van de iteratie.
 
 ![Het tabblad prestaties wordt weergegeven, met een rode rechthoek rond het label is gepubliceerd en de naam van de gepubliceerde iteratie.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>De URL en voorspellingssleutel ophalen
 
-Zodra het model is gepubliceerd, kunt u informatie over het gebruik van de Voorspellings-API door te selecteren ophalen __voorspelling URL__. Hiermee opent u een dialoogvenster zoals het voorbeeld hieronder met informatie voor het gebruik van de Voorspellings-API, met inbegrip van de __voorspelling URL__ en __voorspelling-sleutel__.
+Zodra het model is gepubliceerd, kunt u de vereiste gegevens ophalen door het selecteren van __voorspelling URL__. Hiermee opent u een dialoogvenster met informatie over het gebruik van de Voorspellings-API, met inbegrip van de __voorspelling URL__ en __voorspelling-sleutel__.
 
 ![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling van URL-knop.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling van URL-waarde voor het gebruik van een afbeeldingsbestand en de voorspelling-sleutel-waarde.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Uw __voorspelling-sleutel__ ook te vinden de [Azure Portal](https://portal.azure.com) pagina voor de aangepaste Vision Azure-Resource die is gekoppeld aan uw project, onder __sleutels__. 
+> Uw __voorspelling-sleutel__ ook te vinden de [Azure Portal](https://portal.azure.com) pagina voor de aangepaste Vision Azure-Resource die is gekoppeld aan uw project, onder de __sleutels__ blade.
 
-Kopieer de volgende informatie voor gebruik in de toepassing in het dialoogvenster:
-
-* __Voorspelling URL__ voor het gebruik van een __afbeeldingsbestand__.
-* __Voorspelling-sleutel__ waarde.
+In deze handleiding vindt u een lokale installatiekopie gebruiken, dus kopieer de URL onder **hebt u een afbeeldingsbestand** naar een tijdelijke locatie. Kopieer de bijbehorende __voorspelling-sleutel__ waarde ook.
 
 ## <a name="create-the-application"></a>De toepassing maken
 
-1. Maak in Visual Studio een nieuwe C#-consoletoepassing.
+1. In Visual Studio, maak een nieuwe C# consoletoepassing.
 
 1. Gebruik de volgende code als de hoofdtekst van het bestand __Program.cs__.
-
-    > [!IMPORTANT]
-    > Voer de volgende informatie in:
-    >
-    > * Stel de __naamruimte__ in op de naam van uw project.
-    > * Stel de __voorspelling-sleutel__ waarde die u eerder in de regel die met begint opgehaald `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Stel de __voorspelling URL__ waarde die u eerder in de regel die met begint opgehaald `string url =`.
 
     ```csharp
     using System;
@@ -92,10 +82,10 @@ Kopieer de volgende informatie voor gebruik in de toepassing in het dialoogvenst
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
+                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
 
                 // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
+                string url = "<Your prediction URL>";
 
                 HttpResponseMessage response;
 
@@ -120,9 +110,14 @@ Kopieer de volgende informatie voor gebruik in de toepassing in het dialoogvenst
     }
     ```
 
-## <a name="use-the-application"></a>De toepassing gebruiken
+1. Voer de volgende informatie in:
+   * Stel de `namespace` veld de naam van uw project.
+   * Vervang de tijdelijke aanduiding `<Your prediction key>` met de waarde van de sleutel die u eerder hebt opgehaald.
+   * Vervang de tijdelijke aanduiding `<Your prediction URL>` met de URL die u eerder hebt opgehaald.
 
-Wanneer de toepassing wordt uitgevoerd, voert u het pad naar een afbeelding in de console. De afbeelding wordt verzonden naar de Voorspellings-API en de voorspellingsresultaten worden geretourneerd als een JSON-document. De volgende JSON is een voorbeeld van het antwoord.
+## <a name="run-the-application"></a>De toepassing uitvoeren
+
+Wanneer u de toepassing uitvoert, wordt u gevraagd om in te voeren van een pad naar een afbeelding in de console. De afbeelding wordt vervolgens verzonden naar de Voorspellings-API en de voorspellingsresultaten worden geretourneerd als een tekenreeks in JSON-indeling. Hier volgt een voorbeeld van de reactie.
 
 ```json
 {
@@ -139,14 +134,10 @@ Wanneer de toepassing wordt uitgevoerd, voert u het pad naar een afbeelding in d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Het model voor mobiele gebruik](export-your-model.md)
+In deze handleiding, hebt u geleerd hoe u om in te dienen afbeeldingen aan uw aangepaste installatiekopie classificatie/detector en een antwoord via een programma met de C# SDK. Hierna leert hoe u end-to-end scenario's met C#, of aan de slag met een andere taal SDK.
 
-[Aan de slag met .NET SDK 's](csharp-tutorial.md)
-
-[Aan de slag met Python-SDK 's](python-tutorial.md)
-
-[Aan de slag met Java-SDK 's](java-tutorial.md)
-
-[Aan de slag met Node-SDK 's](node-tutorial.md)
-
-[Aan de slag met Go SDK 's](go-tutorial.md)
+* [Quickstart: .NET SDK](csharp-tutorial.md)
+* [Quickstart: Python-SDK](python-tutorial.md)
+* [Quickstart: Java-SDK](java-tutorial.md)
+* [Quickstart: Node SDK](node-tutorial.md)
+* [Quickstart: Go-SDK](go-tutorial.md)

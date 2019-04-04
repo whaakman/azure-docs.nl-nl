@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255418"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918413"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problemen oplossen van cloudservicerollen die niet worden gestart
 Hier volgen enkele veelvoorkomende problemen en oplossingen met betrekking tot Azure Cloud Services functies die niet worden gestart.
@@ -76,7 +76,7 @@ Navigeren naar de website retourneert gedetailleerde foutberichten nu:
 
 * Serverfout in '/' Application.
 * Beschrijving: Er is een onverwerkte uitzondering opgetreden tijdens het uitvoeren van de huidige webaanvraag. Controleer de stack-trace voor meer informatie over de fout en waar deze afkomstig is in de code.
-* Details van uitzondering: System.IO.FIleNotFoundException: kan niet worden geladen, bestand of de assembly ' Microsoft.WindowsAzure.StorageClient, versie 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' of een van de bijbehorende afhankelijkheden. Het systeem kan het opgegeven bestand niet vinden.
+* Details van uitzondering: System.IO.FIleNotFoundException: Kan bestand of de assembly niet laden ' Microsoft.WindowsAzure.StorageClient, versie 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 =' of een van de bijbehorende afhankelijkheden. Het systeem kan het opgegeven bestand niet vinden.
 
 Bijvoorbeeld:
 
@@ -96,7 +96,7 @@ Voor de beste resultaten bij het gebruik van deze methode van de diagnose van, m
 7. Wanneer de rol wordt gestart, ziet u de gedetailleerde foutgegevens in Internet Explorer. U kunt ook de standaard Windows hulpprogramma's voor probleemoplossing gebruiken bij nader onderzoek het probleem.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Problemen met behulp van IntelliTrace
-Voor werkrollen en webrollen die gebruikmaken van .NET Framework 4, kunt u [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), die beschikbaar is in Microsoft Visual Studio Enterprise.
+Voor werkrollen en webrollen die gebruikmaken van .NET Framework 4, kunt u [IntelliTrace](/visualstudio/debugger/intellitrace), die beschikbaar is in Microsoft Visual Studio Enterprise.
 
 Volg deze stappen voor het implementeren van de service met IntelliTrace ingeschakeld:
 

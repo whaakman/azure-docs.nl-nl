@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203467"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890927"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Authentication Library (MSAL) gebruiken om op te halen van een token voor de Microsoft Graph API
 
@@ -215,7 +215,7 @@ Met de methode `acquireTokenSilent` wordt het verkrijgen en vernieuwen van token
 
 Uiteindelijk `acquireTokenSilent` mislukken: bijv. de gebruiker heeft zich afgemeld, of het wachtwoord op een ander apparaat heeft gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MSALErrorCode.interactionRequired` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-1. Aanroepen op basis van `acquireToken` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen offline inhoud in de toepassing beschikbaar is voor de gebruiker. De voorbeeldtoepassing die is gegenereerd door deze Begeleide instelling maakt gebruik van dit patroon: u kunt deze zien in actie de eerste keer dat u de toepassing uitvoert. Omdat er geen gebruiker heeft het ooit de toepassing gebruikt `applicationContext.allAccounts().first` bevat een null-waarde en een ` MSALErrorCode.interactionRequired ` uitzondering gegenereerd. De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `acquireToken` leidt de gebruiker zich aanmeldt.
+1. Aanroepen op basis van `acquireToken` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen offline inhoud in de toepassing beschikbaar is voor de gebruiker. De voorbeeldtoepassing die is gegenereerd door deze Begeleide instelling maakt gebruik van dit patroon: u kunt deze zien in actie de eerste keer dat u de toepassing uitvoert. Omdat er geen gebruiker heeft het ooit de toepassing gebruikt `applicationContext.allAccounts().first` bevat een null-waarde en een `MSALErrorCode.interactionRequired` uitzondering gegenereerd. De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `acquireToken` leidt de gebruiker zich aanmeldt.
 
 2. Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker dat een interactief aanmelden is vereist, zodat de gebruiker kan het juiste moment aan te melden bij selecteren, of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functionaliteit van de toepassing gebruiken kunt zonder onderbroken - bijvoorbeeld: er offline inhoud beschikbaar in de toepassing is. In dit geval de gebruiker kunt bepalen wanneer ze willen Meld u aan voor toegang tot de beveiligde bron of om de verouderde gegevens te vernieuwen of uw toepassing kunt bepalen om opnieuw te proberen `acquireTokenSilent` wanneer het netwerk is hersteld na een tijdelijk niet beschikbaar.
 

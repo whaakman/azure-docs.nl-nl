@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530259"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894010"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
@@ -42,9 +42,9 @@ Configureer ACR-taken om toepassingsinstallatiekopieën automatisch opnieuw te b
 
 * **Opslagplaats**: een register bevat een of meer opslagplaatsen, waarin groepen containerinstallatiekopieën worden opgeslagen. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met naamruimten op meerdere niveaus kunt u installatiekopieën groeperen die gerelateerd zijn aan een specifieke app, of apps groeperen die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
 
-  * `myregistry.azurecr.io/aspnetcore:1.0.1` staat voor een bedrijfsbrede installatiekopie
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` staat voor een installatiekopie die wordt gebruikt om .NET-apps te maken die op de garantieafdeling worden gedeeld
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` staat voor een webinstallatiekopie, opgenomen in de app voor klantinzendingen die eigendom is van de garantieafdeling
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` Hiermee geeft u een bedrijfsbrede installatiekopie
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` Hiermee geeft u een installatiekopie die wordt gebruikt voor het bouwen van .NET-apps, verdeeld over de garantieafdeling
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` Hiermee geeft u een webinstallatiekopie, opgenomen in de app voor klantinzendingen die eigendom zijn van de garantieafdeling
 
 * **Installatiekopie**: installatiekopieën worden opgeslagen in een opslagplaats. Elke installatiekopie is een alleen-lezenmomentopname van een met Docker compatibele container. Azure-containerregisters kunnen zowel Windows- als Linux-installatiekopieën bevatten. U beheert de namen van de installatiekopieën voor al uw containerimplementaties. Gebruik standaard-[Docker-opdrachten](https://docs.docker.com/engine/reference/commandline/) om installatiekopieën naar een opslagplaats te pushen of een installatiekopie uit een opslagplaats op te halen. Naast containerinstallatiekopieën worden in Azure Container Registry [gerelateerde inhoudsindelingen](container-registry-image-formats.md), zoals [Helm-grafieken](container-registry-helm-repos.md), die worden gebruikt om toepassingen in Kubernetes te implementeren.
 
@@ -54,10 +54,10 @@ Configureer ACR-taken om toepassingsinstallatiekopieën automatisch opnieuw te b
 
 [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) is een reeks functies in Azure Container Registry om gestroomlijnde en efficiënte Docker-containerinstallatiekopiebuilds te maken in Azure. Gebruik ACR Tasks om uw interne ontwikkelingsactiviteiten uit te breiden naar de cloud door `docker build`-bewerkingen te offloaden naar Azure. Configureer buildtaken om uw container-OS- en frameworkpatchingpijplijn te automatiseren en automatisch installatiekopieën te maken wanneer uw team code met bronbeheer doorvoert.
 
-[Taken met meerdere stappen](container-registry-tasks-overview.md#multi-step-tasks-preview), een preview-functie van ACR Tasks, biedt een stapsgewijze taakdefinitie en -uitvoering voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
+[Taken met meerdere stappen](container-registry-tasks-overview.md#multi-step-tasks) bieden op basis van een stap taakdefinitie en kan worden uitgevoerd voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een containerregister maken met Azure Portal](container-registry-get-started-portal.md)
 * [Een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md)
-* [OS- en frameworkpatching automatiseren met ACR Tasks](container-registry-tasks-overview.md)
+* [OS- en framework patchen met ACR taken automatiseren](container-registry-tasks-overview.md)

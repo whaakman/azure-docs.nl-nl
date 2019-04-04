@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863237"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918243"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data Science Virtual Machine voor Linux en Windows
 
@@ -75,7 +75,7 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | J |
 | JupyterHub (notebookserver voor meerdere gebruikers)| N | J |
 | JupyterLab (notebookserver voor meerdere gebruikers) | N | Y (alleen Ubuntu) |
-| **Ontwikkelingsprogramma's, IDE en code-editors**| | |
+| **Ontwikkelingsprogramma's, IDE's en Code-editors**| | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) met Git-plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data-hulpprogramma's, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs), en [R-hulpprogramma's voor Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
@@ -87,9 +87,9 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git en GitBash | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | J | N |
-| PowerBI Desktop | J | N |
+| Power BI Desktop | J | N |
 | SDK's voor toegang tot Azure en services van de Cortana Intelligence Suite | J | J |
-| **Hulpprogramma's voor gegevensverplaatsing en -beheer** | | |
+| **Gegevensverplaatsing en -hulpprogramma's voor beheer** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Opslagverkenner | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | J | N |
@@ -100,7 +100,7 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): Gegevens verplaatsen tussen on-premises en de cloud | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix-/Linux-opdrachtregelprogramma’s | J | J |
 | [Apache Drill](https://drill.apache.org) voor dataonderzoek | J | J |
-| **Hulpprogramma's voor Machine Learning** |||
+| **Hulpprogramma's voor machine Learning** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Integratie met [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | J | J |
@@ -109,7 +109,7 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (alleen Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (alleen Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (alleen Ubuntu) |
-| **Hulpprogramma's voor Deep Learning** <br>Alle hulpprogramma's werken op een GPU of CPU |  |  |
+| **Hulpprogramma's voor deep Learning** <br>Alle hulpprogramma's werken op een GPU of CPU |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y (Windows 2016) | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
@@ -125,7 +125,7 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA-, cuDNN-, NVIDIA-stuurprogramma](https://developer.nvidia.com/cuda-toolkit) | J | J |
-| **Platform voor Big Data (alleen Devtest)**|||
+| **BIG Data-Platform (alleen Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokale [Spark](https://spark.apache.org/) Standalone | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokale [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) | N | J |
 
@@ -139,4 +139,4 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 * Zie [Datatechnologie op de Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) voor een overzicht waarin wordt getoond hoe u enkele algemene datatechnologietaken met de Linux-VM uitvoert (zowel CentOS en Ubuntu).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure-handleiding voor R-ontwikkelaars](../r-developers-guide.md)
+[R developer's guide voor Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

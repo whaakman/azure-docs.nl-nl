@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: c64bf11a5e0d95e2896bb717d4069f9b0d7ea721
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569991"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892225"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics op IoT Edge
  
@@ -44,12 +44,14 @@ ASA maakt gebruik van IoT-Hub aan het edge-taken implementeren naar apparaten. M
 
 ### <a name="installation-instructions"></a>Installatie-instructies
 De stappen op hoog niveau worden in de volgende tabel beschreven. Meer informatie krijgen in de volgende secties.
+
 |      |Stap   | Opmerkingen   |
 | ---   | ---   |  ---      |
 | 1   | **Maak een opslagcontainer**   | Storage-containers worden gebruikt voor het opslaan van de taakdefinitie van de waar ze kunnen worden geopend door uw IoT-apparaten. <br>  U kunt een bestaande storage-container opnieuw gebruiken.     |
 | 2   | **Een ASA edge-taak maken**   |  Maak een nieuw project, selecteer **Edge** als **hostomgeving**. <br> Deze taken zijn gemaakt of worden beheerd vanuit de cloud en uitvoeren op uw eigen IoT Edge-apparaten.     |
 | 3   | **Instellen van uw IoT Edge-omgeving op uw apparaat/apparaten**   | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **ASA implementeren op uw IoT Edge-apparaten**   |  De definitie van de ASA-taak wordt geëxporteerd naar de opslagcontainer eerder hebt gemaakt.       |
+
 U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) aan uw eerste taak ASA op IoT Edge kunt implementeren. De volgende video kunt u inzicht in het proces voor het uitvoeren van een Stream Analytics-taak op een IoT edge-apparaat:  
 
 
@@ -142,7 +144,7 @@ In dit voorbeeld definieert de volgende routes:
 
 ## <a name="technical-information"></a>Technische informatie
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Huidige beperkingen voor IoT Edge-taken in vergelijking met cloudtaken
-Het doel is dat pariteit tussen IoT Edge-taken en cloudtaken. De meeste SQL-query-taalfuncties worden al ondersteund.
+Het doel is dat pariteit tussen IoT Edge-taken en cloudtaken. De meeste SQL-query language-functies worden ondersteund, zodat dezelfde logica worden uitgevoerd op zowel de cloud als IoT Edge.
 Echter de volgende functies zijn nog niet ondersteund voor edge-taken:
 * Gebruiker gedefinieerde functies (UDF's) in JavaScript. UDF zijn beschikbaar in [ C# voor IoT Edge-taken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * De gebruiker gedefinieerde verzamelingen (UDA).
@@ -150,14 +152,6 @@ Echter de volgende functies zijn nog niet ondersteund voor edge-taken:
 * Met behulp van meer dan 14 combinaties in één stap.
 * AVRO-indeling voor invoer/uitvoer. Op dit moment worden alleen CSV en JSON ondersteund.
 * De volgende SQL-operators:
-    * Georuimtelijke operators:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * PARTITION BY
     * GetMetadataPropertyValue
 

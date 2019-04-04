@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e08e6ca4f6413b475bd8a0e5ff30b74921c2f0e6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890928"
 ---
 De Azure CLI kunt u maken en beheren van uw Azure-resources op macOS, Linux en Windows. Dit artikel worden enkele van de meest voorkomende opdrachten voor het maken en beheren van virtuele machines (VM's).
 
@@ -46,7 +46,7 @@ Voor meer informatie over specifieke opdrachtregelparameters en opties, kunt u d
 ## <a name="disks-and-images"></a>Schijven en installatiekopieën
 | Taak | Azure CLI-opdrachten |
 | --- | --- |
-| Een gegevensschijf toevoegen aan een VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Een gegevensschijf toevoegen aan een VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Een gegevensschijf verwijderen van een VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | De grootte van een schijf wijzigen | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Een momentopname maken van een schijf | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |

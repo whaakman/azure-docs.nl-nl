@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165825"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445248"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service op Azure Stack update 1 release-opmerkingen
 
@@ -56,6 +56,8 @@ Azure App Service op Azure Stack Update 1 omvat de volgende verbeteringen en opl
 - **Implementeren in een bestaand virtueel netwerk** -klanten kunnen nu App-Service in Azure Stack implementeren in een bestaand virtueel netwerk. Implementeren in een bestaand virtueel netwerk kan klanten verbinding maken met de SQL Server en File Server, die vereist zijn voor Azure App Service, via particuliere poorten. Tijdens de implementatie van klanten kunnen selecteren om te implementeren in een bestaand virtueel netwerk, maar [moet subnetten voor gebruik door App Service maken](azure-stack-app-service-before-you-get-started.md#virtual-network) voorafgaand aan de implementatie.
 
 - Updates voor **App Service-Tenant, Admin, portals van functies en hulpprogramma's voor Kudu**. Consistent zijn met Azure Stack-Portal SDK-versie.
+
+- Updates **Azure Functions-runtime** naar **v1.0.11388**.
 
 - **Updates voor de volgende App-frameworks en hulpmiddelen**:
     - Toegevoegd **.NET Core 2.0** ondersteunen

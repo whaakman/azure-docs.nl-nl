@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116895"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895729"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testen met een set van voorbeeld-uitingen batch
 
@@ -100,7 +100,7 @@ De twee secties van de grafiek in het groen komt overeen met de verwachte voorsp
 
 Als testen geeft aan dat uw LUIS-app niet wordt herkend door de juiste intenties en entiteiten, kunt u uw LUIS-app om prestaties te verbeteren door meer uitingen labels of het toevoegen van functies werken. 
 
-* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label van de voorgestelde uitingen van LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Functies gebruiken om uw LUIS-app-prestaties te verbeteren](luis-how-to-add-features.md) 
 * [Informatie over batch testen met deze zelfstudie](luis-tutorial-batch-testing.md)
 * [Informatie over batch testen van concepten](luis-concept-batch-test.md).

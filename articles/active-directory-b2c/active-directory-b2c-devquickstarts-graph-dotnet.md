@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075898"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895051"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
 >[!NOTE]
-> Moet u de [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) voor het beheren van gebruikers in een Azure AD B2C-directory. Dit wijkt af van de Microsoft Graph API. Klik [hier](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) voor meer informatie.
+> Moet u de [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) voor het beheren van gebruikers in een Azure AD B2C-directory. Dit wijkt af van de Microsoft Graph API. Klik [hier](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/) voor meer informatie.
 
 Azure Active Directory (Azure AD) B2C-tenants zijn meestal groot. Dit betekent dat veel algemene beheertaken voor tenant moeten worden uitgevoerd via een programma. Een goed voorbeeld is gebruikersbeheer. Mogelijk moet u een bestaande gebruiker store migreren naar een B2C-tenant. Of u wilt op de achtergrond gebruikersregistratie op uw eigen pagina hosten en gebruikersaccounts maken in uw Azure AD B2C-adreslijst. Voor dit soort taken moet u gebruikersaccounts kunnen maken, lezen, bijwerken en verwijderen. U kunt deze taken uitvoeren met behulp van de Azure AD Graph API.
 
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-De meeste van deze eigenschappen in deze aanvraag zijn vereist voor het maken van gebruikers van de consument. Voor meer informatie, klikt u op [hier](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Houd er rekening mee dat de `//` opmerkingen zijn opgenomen voor een afbeelding. Voegt deze toe aan een werkelijke-aanvraag.
+De meeste van deze eigenschappen in deze aanvraag zijn vereist voor het maken van gebruikers van de consument. Voor meer informatie, klikt u op [hier](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Houd er rekening mee dat de `//` opmerkingen zijn opgenomen voor een afbeelding. Voegt deze toe aan een werkelijke-aanvraag.
 
 Als u wilt zien van de aanvraag, voert u een van de volgende opdrachten:
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-De `Create-User` opdracht gebruikt u een .json-bestand als een invoerparameter. Dit bevat een JSON-weergave van een gebruikersobject. Er zijn twee voorbeeld .json-bestanden in de voorbeeldcode: `usertemplate-email.json` en `usertemplate-username.json`. U kunt deze bestanden om aan uw behoeften te wijzigen. Naast de bovenstaande vereiste velden zijn verschillende optionele velden die u kunt gebruiken in deze bestanden zijn opgenomen. Meer informatie over de optionele velden kunnen u vinden in de [verwijzing naar de Azure AD Graph API-entiteit](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+De `Create-User` opdracht gebruikt u een .json-bestand als een invoerparameter. Dit bevat een JSON-weergave van een gebruikersobject. Er zijn twee voorbeeld .json-bestanden in de voorbeeldcode: `usertemplate-email.json` en `usertemplate-username.json`. U kunt deze bestanden om aan uw behoeften te wijzigen. Naast de bovenstaande vereiste velden zijn verschillende optionele velden die u kunt gebruiken in deze bestanden zijn opgenomen. Meer informatie over de optionele velden kunnen u vinden in de [verwijzing naar de Azure AD Graph API-entiteit](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 U kunt zien hoe de POST-aanvraag is gebouwd `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -257,7 +257,7 @@ U kunt zien hoe de POST-aanvraag is gebouwd `B2CGraphClient.SendGraphPostRequest
 * Het bevat de JSON-gebruikersobject in de hoofdtekst van de aanvraag.
 
 > [!NOTE]
-> Als de accounts die u wilt migreren van een bestaande archief van de gebruiker heeft lagere Wachtwoordsterkte dan de [sterke Wachtwoordsterkte afgedwongen door Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), kunt u uitschakelen dat de sterk wachtwoord vereist met behulp van de `DisableStrongPassword` de waarde in de `passwordPolicies` eigenschap. Bijvoorbeeld, kunt u als volgt hierboven aanvraag voor de gebruiker van het maken: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Als de accounts die u wilt migreren van een bestaande archief van de gebruiker heeft lagere Wachtwoordsterkte dan de [sterke Wachtwoordsterkte afgedwongen door Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), kunt u uitschakelen dat de sterk wachtwoord vereist met behulp van de `DisableStrongPassword` de waarde in de `passwordPolicies` eigenschap. Bijvoorbeeld, kunt u als volgt hierboven aanvraag voor de gebruiker van het maken: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 Inspecteer de `B2CGraphClient.SendGraphDeleteRequest(...)` methode voor meer informatie over deze aanvraag te verzenden.
 
-U kunt veel andere acties met de Azure AD Graph API naast het beheer van gebruikers kunt uitvoeren. De [Azure AD Graph API-verwijzing](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) vindt u informatie over elke actie, samen met de voorbeeldaanvragen.
+U kunt veel andere acties met de Azure AD Graph API naast het beheer van gebruikers kunt uitvoeren. De [Azure AD Graph API-verwijzing](/previous-versions/azure/ad/graph/api/api-catalog) vindt u informatie over elke actie, samen met de voorbeeldaanvragen.
 
 ## <a name="use-custom-attributes"></a>Aangepaste kenmerken gebruiken
 De meeste klanttoepassingen moeten voor het opslaan van een type aangepaste gebruikersprofielgegevens. Er is een manier die u kunt dit doen voor het definiëren van een aangepast kenmerk in uw B2C-tenant. U kunt dit kenmerk vervolgens dezelfde manier als u een andere eigenschap van een gebruikersobject behandelen behandelen. U kunt het kenmerk bijwerken, verwijderen van het kenmerk, query's uitvoeren met het kenmerk, verzenden van het kenmerk als een claim in tokens-aanmelding en meer.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893738"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Zelfstudie: een cache-aside-leaderboard maken in ASP.NET
 
@@ -79,7 +79,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
     using System.Data.Entity.SqlServer;
     ```
 
-1. Vervang de definitie van klasse `Team` door het volgende codefragment. Dit fragment bevat een bijgewerkte definitie voor klasse `Team` en een aantal andere helperklassen van Entity Framework. In deze zelfstudie wordt de methode 'code eerst' gebruikt met Entity Framework. Met deze methode kan Entity Framework de database maken op basis van uw code. Zie [Code First naar een nieuwe database](https://msdn.microsoft.com/data/jj193542) voor meer informatie over de Code First-aanpak voor Entity Framework die in deze zelfstudie wordt gebruikt.
+1. Vervang de definitie van klasse `Team` door het volgende codefragment. Dit fragment bevat een bijgewerkte definitie voor klasse `Team` en een aantal andere helperklassen van Entity Framework. In deze zelfstudie wordt de methode 'code eerst' gebruikt met Entity Framework. Met deze methode kan Entity Framework de database maken op basis van uw code. Zie [Code First naar een nieuwe database](/ef/ef6/modeling/code-first/workflows/new-database) voor meer informatie over de Code First-aanpak voor Entity Framework die in deze zelfstudie wordt gebruikt.
 
     ```csharp
     public class Team
@@ -688,8 +688,8 @@ In deze sectie richt u een nieuwe SQL Azure-database in voor de app die moet wor
 
     | Tijdelijke aanduiding | Voorgestelde waarde |
     | --- | --- |
-    | *{uw_gebruikersnaam}* | Gebruik de **aanmeldgegevens van de serverbeheerder** voor de databaseserver die u net hebt gemaakt. |
-    | *{uw_wachtwoord}* | Gebruik het wachtwoord voor de databaseserver die u net hebt gemaakt. |
+    | *{your_username}* | Gebruik de **aanmeldgegevens van de serverbeheerder** voor de databaseserver die u net hebt gemaakt. |
+    | *{your_password}* | Gebruik het wachtwoord voor de databaseserver die u net hebt gemaakt. |
 
     Door de gebruikersnaam en het wachtwoord toe te voegen als een toepassingsinstelling, worden uw gebruikersnaam en wachtwoord niet opgenomen in de code. Met deze methode beschermt u deze referenties.
 
@@ -709,7 +709,7 @@ In deze stap van de zelfstudie publiceert u de toepassingsupdate in Azure om dez
 
     De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing:
 
-    | Bewerking | Beschrijving |
+    | Bewerking | Description |
     | --- | --- |
     | Create New |Een nieuw team maken |
     | Play Season |Speel een seizoen wedstrijden, werk de teamstatistieken bij en wis eventuele verouderde teamgegevens uit de cache. |

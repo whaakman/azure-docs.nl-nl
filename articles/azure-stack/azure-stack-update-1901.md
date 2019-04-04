@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226858"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649404"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -56,18 +56,20 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 ### <a name="azure-stack-hotfixes"></a>Hotfixes voor Azure Stack
 
+Als u al 1901 hebt en u niet de hotfixes hebt geïnstalleerd hebt, u kunt [1902 rechtstreeks installeren](azure-stack-update-1902.md), installeren zonder eerst de hotfix 1901.
+
 - **1809**: [KB 4481548 – Azure Stack-hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Er is geen huidige hotfix beschikbaar.
-- **1901**: [KB 4481548 – Azure Stack-hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – Azure Stack-hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
-> - Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1811 (indien aanwezig) voordat u bijwerkt naar 1901.
+> Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1811 (indien aanwezig) voordat u bijwerkt naar 1901. Als u al 1901 hebt en u geen hotfixes nog niet hebt geïnstalleerd, kunt u 1902 rechtstreeks installeren zonder eerst de hotfix 1901 installeren.
 
 - Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
    * **AzureRm.Insights**  
          Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.1.5 ondersteunen de **api-versie 2018-01-01** voor metrische gegevens, metrische definities van de resourcetypen.
 
-- **AzureStack 1.7.0** dit een belangrijke wijziging release. Raadpleeg voor meer informatie over de wijzigingen die fouten veroorzaken https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1** dit een belangrijke wijziging release. Raadpleeg voor meer informatie over de wijzigingen die fouten veroorzaken https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin-Module**  
          Belangrijke wijziging: Back-up gewijzigd zodat de versleutelingsmodus op basis van een certificaat wordt gebruikt. Ondersteuning voor symmetrische sleutels is afgeschaft.  
    * **Azs.Fabric.Admin-Module**  
@@ -117,9 +119,6 @@ De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](htt
 
 - <!-- 3235634 – IS, ASDK -->
   Een probleem opgelost in welke implementeren VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, vereiste op te geven het achtervoegsel als **Standard_A2_v2** () kleine letters v). Als met globale Azure, kunt u nu gebruiken **Standard_A2_V2** (V hoofdletters).
-
-<!-- 2869209 – IS, ASDK --> 
-- Er is een probleem opgelost bij het gebruik van de [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), in die u moest gebruiken de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. U kunt nu het lokale pad naar de schijf ook gebruiken.
 
 <!--  2795678 – IS, ASDK --> 
 - Er is een probleem dat een waarschuwing gegenereerd wanneer u de portal gebruikt voor het maken van virtuele machines (VM's) in een premium VM-grootte (DS, Ds_v2, FS, FSv2) opgelost. De virtuele machine is gemaakt in een standard storage-account. Hoewel dit heeft geen invloed op functioneel, IOP's of facturering, is de waarschuwing opgelost.

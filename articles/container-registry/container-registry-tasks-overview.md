@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660711"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915916"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
 
@@ -27,7 +27,7 @@ Bouwen en testen van containerinstallatiekopieën met ACR-taken in vier manieren
 * [Snelle taak](#quick-task): Bouw en push-container afbeeldingen op aanvraag, in Azure, zonder een lokale Docker-Engine-installatie. Denkt `docker build`, `docker push` in de cloud. Samengesteld op basis van de lokale broncode of een Git-opslagplaats.
 * [Bouwen op bron doorvoercode](#automatic-build-on-source-code-commit): Een build van container-installatiekopie automatisch wordt geactiveerd wanneer de code wordt doorgevoerd aan een Git-opslagplaats.
 * [Bouwen op updates van basisinstallatiekopieën](#automate-os-and-framework-patching): Een build van container-installatiekopie geactiveerd wanneer de basisinstallatiekopie van die installatiekopie is bijgewerkt.
-* [Taken met meerdere stappen](#multi-step-tasks-preview) (preview): WebTest met meerdere stappen taken die afbeeldingen bouwen, containers run as-opdrachten en installatiekopieën pushen naar een register definiëren. Uitvoering van de taak op aanvraag biedt ondersteuning voor deze preview-functie van de ACR-taken en parallelle installatiekopie bouwen, testen en push-bewerkingen.
+* [Taken met meerdere stappen](#multi-step-tasks): WebTest met meerdere stappen taken die afbeeldingen bouwen, containers run as-opdrachten en installatiekopieën pushen naar een register definiëren. Deze functie van de ACR-taken ondersteunt de uitvoering van de taak op aanvraag en parallelle installatiekopie bouwen, testen en push-bewerkingen.
 
 ## <a name="quick-task"></a>Snelle taken
 
@@ -36,6 +36,8 @@ De binnenste lus ontwikkelingscyclus, het iteratief proces van het schrijven van
 Voordat u uw eerste line-of-doorvoeren-code, van de taken van de ACR [snelle taak](container-registry-tutorial-quick-task.md) functie krijgt u een geïntegreerde ontwikkelervaring door het offloaden van uw containerinstallatiekopie is gebaseerd op Azure. Met snelle taken, kunt u uw geautomatiseerde definities bouwen en mogelijke problemen voordat het doorvoeren van uw code catch controleren.
 
 Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI gebruikt u een *context* (de set van bestanden om te bouwen), verzendt het ACR-taken en standaard de gemaakte installatiekopie naar het register na voltooiing gepusht.
+
+Zie voor een introductie, de Snelstartgids voor het [bouwen en uitvoeren van een containerinstallatiekopie](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
 
 De volgende tabel ziet u enkele voorbeelden van context ondersteunde locaties voor ACR taken:
 
@@ -76,9 +78,9 @@ Meer informatie over het besturingssysteem en framework patching uit handen in d
 > [!NOTE]
 > Basisinstallatiekopie builds van de trigger wordt alleen bijgewerkt wanneer zowel de basisklassen en toepassing afbeeldingen bevinden zich in dezelfde Azure container registry, of de base bevindt zich in een openbare Docker Hub-opslagplaats.
 
-## <a name="multi-step-tasks-preview"></a>Taken met meerdere stappen (preview)
+## <a name="multi-step-tasks"></a>Taken met meerdere stappen
 
-WebTest met meerdere stappen taken, een preview-functie van de ACR-taken, biedt op basis van een stap taakdefinitie en kan worden uitgevoerd voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
+WebTest met meerdere stappen taken bieden op basis van een stap taakdefinitie en kan worden uitgevoerd voor het bouwen, testen en toepassen van patches containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
 
 U kunt bijvoorbeeld een taak meerdere stappen waarmee de volgende maken:
 
@@ -93,15 +95,12 @@ Taken met meerdere stappen kunnen u het gebouw, uitvoeren en testen van een afbe
 
 Meer informatie over taken meerdere stappen in [WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in ACR taken](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> De mogelijkheid meerdere stappen taak van de ACR-taken is momenteel in preview. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat de algemene beschikbaarheid (GA)
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Wanneer u gereed bent voor het automatiseren van OS- en framework patchen met het bouwen van uw containerinstallatiekopieën in de cloud, controleert u de driedelige reeks zelfstudies ACR-taken.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+> [In de cloud met Azure Container Registry taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

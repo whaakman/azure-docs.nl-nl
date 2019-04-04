@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993193"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891681"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
@@ -26,7 +26,7 @@ Rolmachtigingen zijn onder andere:
 *  **Proces** -gebruikers kunnen verbinding maken met en proces bewerkingen op de database uitvoeren en analyseren van gegevens van de model-database.
 *  **Lezen** -gebruikers kunnen een clienttoepassing gebruiken verbinding maken met en analyseren van gegevens van de model-database.
 
-Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruikers of groepen toevoegen aan deze rollen met behulp van Role Manager in SSDT. Als de geïmplementeerd op een server, u SSMS, [Analysis Services PowerShell-cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), of [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) toevoegen of verwijderen van rollen en gebruikers die lid zijn.
+Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruikers of groepen toevoegen aan deze rollen met behulp van Role Manager in SSDT. Als de geïmplementeerd op een server, u SSMS, [Analysis Services PowerShell-cmdlets](/sql/analysis-services/powershell/analysis-services-powershell-reference), of [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) toevoegen of verwijderen van rollen en gebruikers die lid zijn.
 
 > [!NOTE]
 > Beveiligingsgroepen moeten hebben de `MailEnabled` eigenschap ingesteld op `True`.
@@ -43,13 +43,13 @@ Wanneer u een project voor tabellair model maakt, kunt u rollen maken en gebruik
   
 4.  Selecteer een van de volgende machtigingen:  
   
-    |Machtiging|Description|  
+    |Machtiging|Beschrijving|  
     |----------------|-----------------|  
     |**Geen**|Leden kunnen het modelschema niet wijzigen en kunnen geen gegevens op te vragen.|  
     |**Lezen**|Leden kunnen gegevens (op basis van rijfilters) op te vragen, maar kunnen het modelschema niet wijzigen.|  
     |**Lezen en verwerken**|Leden kunnen opvragen uitgevoerd proces en proces alle bewerkingen en gegevens (op basis van beveiliging op rijniveau filters), maar kunnen het modelschema niet wijzigen.|  
-    |**Proces**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
-    |**de beheerder**|Leden kunnen het modelschema wijzigen en alle gegevens op te vragen.|   
+    |**Verwerken**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
+    |**Beheerder**|Leden kunnen het modelschema wijzigen en alle gegevens op te vragen.|   
   
 5.  Als de rol die u niet maken is gelezen of de machtigingen lezen en verwerken, kunt u rijfilters toevoegen met behulp van een DAX-formule. Klik op de **Row Filters** tabblad, en vervolgens selecteert u een tabel en klik vervolgens op de **DAX Filter** veld en typ vervolgens een DAX-formule.
   
@@ -72,7 +72,7 @@ Rollen en gebruikers toevoegen aan een geïmplementeerd model-database, moet u w
 
 3. Selecteer een machtiging.
 
-   |Machtiging|Description|  
+   |Machtiging|Beschrijving|  
    |----------------|-----------------|  
    |**Volledige bevoegdheid (beheerder)**|Leden kunnen wijzigen van het modelschema verwerken, en kunnen alle gegevens op te vragen.| 
    |**Proces-database**|Leden kunnen verwerken en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kan geen gegevens op te vragen.|  
@@ -120,13 +120,13 @@ In dit voorbeeld wordt worden een externe B2B-gebruiker en een groep toegevoegd 
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Rollen en gebruikers toevoegen met behulp van PowerShell
 
-De [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module biedt taakspecifieke database management-cmdlets en de algemene Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets worden gebruikt voor het beheren van databaserollen en gebruikers.
+De [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) module biedt taakspecifieke database management-cmdlets en de algemene Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets worden gebruikt voor het beheren van databaserollen en gebruikers.
   
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lid toevoegen aan een databaserol.| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Voer een TMSL-script.|
+|[Voeg RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lid toevoegen aan een databaserol.| 
+|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Een lid verwijderen uit een databaserol.|   
+|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Voer een TMSL-script.|
 
 ## <a name="row-filters"></a>Rijfilters  
 

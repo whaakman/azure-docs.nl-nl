@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337473"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891426"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de portal LUIS
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -66,6 +66,17 @@ U kunt een nieuwe app maken met de authoring API's in een aantal manieren:
 Mogelijke fouten zijn: 
 
 * Er bestaat al een app met die naam. Importeer de app en stel de **optionele naam** naar een nieuwe naam. 
+
+## <a name="export-app"></a>App exporteren
+
+1. Op **mijn Apps** weergeeft, schakelt **importeren nieuwe app**.
+1. In de **importeren nieuwe app** dialoogvenster, selecteer het JSON-bestand definiëren van de LUIS-app.
+
+## <a name="delete-app"></a>App verwijderen
+
+1. Op **mijn Apps** pagina, selecteert u de drie puntjes (...) aan het einde van de rij met Apps.
+1. Selecteer **verwijderen** in het menu.
+1. Selecteer **Ok** in het bevestigingsvenster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

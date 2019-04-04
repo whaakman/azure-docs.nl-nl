@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182112"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895576"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Maken van werkstromen op basis van gebeurtenissen of acties worden uitgevoerd met behulp van webhooks en Azure Logic Apps
 
@@ -29,7 +29,7 @@ Meer informatie over [over het maken van aangepaste API's die ondersteuning bied
 
 ## <a name="use-the-webhook-trigger"></a>Gebruik de webhook-trigger
 
-Een [ *trigger* ](connectors-overview.md) is een gebeurtenis waarmee een werkstroom voor logische app wordt gestart. De webhook-trigger is op basis van gebeurtenissen die niet afhankelijk van het controleren op nieuwe items. Wanneer u uw logische app opslaan met een webhook-trigger, of wanneer u uw logische app gewijzigd van uitgeschakeld naar ingeschakeld, de webhook-trigger *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De trigger gebruikt vervolgens die URL om de logische app uitvoeren indien nodig. Net als de [aanvraagtrigger](connectors-native-reqres.md), de logische app wordt geactiveerd vlak wanneer de verwachte gebeurtenis plaatsvindt. De trigger *afmeldingen* als u de trigger verwijdert en sla uw logische app, of wanneer u uw logische app van ingeschakeld in uitgeschakeld.
+Een [ *trigger* ](../connectors/apis-list.md) is een gebeurtenis waarmee een werkstroom voor logische app wordt gestart. De webhook-trigger is op basis van gebeurtenissen die niet afhankelijk van het controleren op nieuwe items. Wanneer u uw logische app opslaan met een webhook-trigger, of wanneer u uw logische app gewijzigd van uitgeschakeld naar ingeschakeld, de webhook-trigger *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De trigger gebruikt vervolgens die URL om de logische app uitvoeren indien nodig. Net als de [aanvraagtrigger](connectors-native-reqres.md), de logische app wordt geactiveerd vlak wanneer de verwachte gebeurtenis plaatsvindt. De trigger *afmeldingen* als u de trigger verwijdert en sla uw logische app, of wanneer u uw logische app van ingeschakeld in uitgeschakeld.
 
 Hier volgt een voorbeeld waarin wordt weergegeven over het instellen van een HTTP-trigger in de Logic App Designer. De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd, of gebruikmaken van een API die volgt op de [webhook abonneren en u afmelden voor patroon in logische apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,7 +48,7 @@ Hier volgt een voorbeeld waarin wordt weergegeven over het instellen van een HTT
 
 ## <a name="use-the-webhook-action"></a>Gebruik de webhookactie
 
-Een [ *actie* ](connectors-overview.md) is een bewerking die gedefinieerd en uitgevoerd door de werkstroom van uw logische app. Wanneer een logische app wordt uitgevoerd met een webhookactie, die actie *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De webhookactie en wordt er gewacht totdat die service aanroepen van de URL voor de logische app hervat. De logische app afmeldingen van de service of het eindpunt in dergelijke gevallen: 
+Een [ *actie* ](../connectors/apis-list.md) is een bewerking die gedefinieerd en uitgevoerd door de werkstroom van uw logische app. Wanneer een logische app wordt uitgevoerd met een webhookactie, die actie *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De webhookactie en wordt er gewacht totdat die service aanroepen van de URL voor de logische app hervat. De logische app afmeldingen van de service of het eindpunt in dergelijke gevallen: 
 
 * Wanneer de webhookactie succes is voltooid
 * Als de uitvoering van de logische app is geannuleerd tijdens het wachten op reactie
@@ -82,7 +82,7 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 
 ## <a name="webhook-triggers"></a>Webhook-triggers
 
-| Bewerking | Description |
+| Bewerking | Beschrijving |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen. |
 
@@ -93,7 +93,7 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen.
 Een * betekent vereist veld.
 
-| Weergavenaam | Naam van eigenschap | Description |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
 | Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
 | Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
@@ -118,7 +118,7 @@ Webhook-aanvraag
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-| Bewerking | Description |
+| Bewerking | Beschrijving |
 | --- | --- |
 | HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen. |
 

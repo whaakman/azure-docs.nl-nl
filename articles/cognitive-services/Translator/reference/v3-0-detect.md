@@ -3,19 +3,19 @@ title: Translator Text-API detecteren methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de methode voor het detecteren van Translator Text-API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 57b82bf65ccf002173df90fe19db444d1c087905
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857886"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916651"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text-API 3.0: Detect
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -48,7 +48,7 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_header_</td>
+    <td>_Een autorisatie_<br/>_koptekst_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -176,7 +176,7 @@ Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourner
 
 Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

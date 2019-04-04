@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779246"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487750"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Een virtuele machine met behulp van een veilig wachtwoord opgeslagen in Azure Stack Key Vault maken
 
@@ -53,7 +53,7 @@ De volgende stappen beschrijven het proces dat is vereist voor het maken van een
 
 Het volgende script maakt een key vault en een wachtwoord wordt opgeslagen in de key vault als een geheim. Gebruik de `-EnabledForDeployment` parameter bij het maken van de key vault. Deze parameter zorgt ervoor dat de key vault kan worden verwezen vanuit Azure Resource Manager-sjablonen.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ Het bestand azuredeploy.parameters.json bijwerken met de KeyVault-URI, secretNam
 
 De sjabloon nu implementeren met behulp van de volgende PowerShell-script:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

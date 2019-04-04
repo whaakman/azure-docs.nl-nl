@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258731"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903995"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure Stack
 
@@ -79,15 +79,15 @@ De invoegtoepassing kan worden gebruikt met Nagios Enterprise en Nagios Core. U 
 
 De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende parameters:
 
-| Parameter | Description | Voorbeeld |
+| Parameter | Beschrijving | Voorbeeld |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Beheerder abonnements-ID | Ophalen via de beheerdersportal of PowerShell |
 | *User_name* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator abonnement wachtwoord | mijnwachtwoord |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure Stack voor de naam van de regio | lokaal |
+| *regio* |  Azure Stack voor de naam van de regio | lokaal |
 |  |  |
 
 * De PowerShell-GUID die wordt geleverd is universal. U kunt deze gebruiken voor elke implementatie.
@@ -96,35 +96,36 @@ De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende p
 
 Als u Operations Manager, Nagios of een oplossing op basis van Nagios niet gebruikt, kunt u PowerShell gebruiken om in te schakelen van een breed scala aan oplossingen voor integratie met Azure Stack voor de controle.
 
-1. Zorg ervoor dat u voor het gebruik van PowerShell, [PowerShell is geïnstalleerd en geconfigureerd](azure-stack-powershell-configure-quickstart.md) voor een Azure Stack-operator-omgeving. PowerShell installeren op een lokale computer die de Resource Manager (beheerder)-eindpunt kan bereiken (https:\//adminmanagement. [ de regio]. [External_FQDN]).
+1. Zorg ervoor dat u voor het gebruik van PowerShell, [PowerShell is geïnstalleerd en geconfigureerd](azure-stack-powershell-configure-quickstart.md) voor een Azure Stack-operator-omgeving. PowerShell installeren op een lokale computer die de Resource Manager (beheerder)-eindpunt kan bereiken (https://adminmanagement. [ de regio]. [External_FQDN]).
 
 2. Voer de volgende opdrachten om te verbinden met de Azure Stack-omgeving als Azure Stack-operators:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   ```powershell
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Gebruik de opdrachten, zoals de volgende voorbeelden om te werken met waarschuwingen:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## <a name="learn-more"></a>Meer informatie

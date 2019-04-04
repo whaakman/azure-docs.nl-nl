@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170391"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918549"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN gebruiken met SAS
 
@@ -89,7 +89,8 @@ Deze optie is alleen beschikbaar voor **Azure CDN Premium van Verizon** profiele
    ![CDN URL Rewrite regel - links](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![regel CDN URL Rewrite - rechts](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Nadat de nieuwe regel geactiveerd wordt, kan iedereen toegang krijgen tot de bestanden in de opgegeven container op het CDN-eindpunt, ongeacht of dat een SAS-token wordt gebruikt in de URL. Hier volgt de indeling: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Nadat de nieuwe regel geactiveerd wordt, kan iedereen toegang krijgen tot de bestanden in de opgegeven container op het CDN-eindpunt, ongeacht of dat een SAS-token wordt gebruikt in de URL. Hier volgt de indeling:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Bijvoorbeeld:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -133,17 +134,17 @@ Azure CDN security token om verificatie te gebruiken, hebt u een **Azure CDN Pre
 
 Omdat het SAS-parameters zijn niet zichtbaar voor Azure CDN, kan de van leveringsgedrag op basis van deze Azure CDN niet wijzigen. De gedefinieerde parameter beperkingen van toepassing alleen op aanvragen die naar de oorspronkelijke server, niet voor aanvragen van de client naar het Azure CDN kunt u Azure CDN. Dit verschil is het belangrijk om te overwegen bij het instellen van SAS-parameters. Als deze geavanceerde mogelijkheden vereist zijn en u [optie 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), de juiste beperkingen instellen voor het Azure CDN-beveiligingstoken.
 
-| Naam van de SAS | Description |
+| Naam van de SAS | Beschrijving |
 | --- | --- |
 | Starten | Het tijdstip waarop Azure CDN beginnen kunt met het toegang krijgen tot de blobbestand. Vanwege de klok scheeftrekken (wanneer een kloksignaal binnenkomt op verschillende tijdstippen voor verschillende onderdelen), kiest u een periode van 15 minuten eerder als u wilt dat de asset onmiddellijk beschikbaar zijn. |
 | Beëindigen | De tijd waarna Azure CDN geen toegang meer de blob-bestand tot kan. Eerder zijn de bestanden in de cache op Azure CDN nog steeds toegankelijk. Voor het beheren van de verlooptijd van het bestand, instellen van de juiste verlooptijd op het Azure CDN-beveiligingstoken of opschonen van de asset. |
-| Toegestane IP-adressen | Optioneel. Als u **Azure CDN van Verizon**, kunt u deze parameter instellen op de bereiken die zijn gedefinieerd [Azure CDN van Verizon Edge-Server IP-adresbereiken](https://msdn.microsoft.com/library/mt757330.aspx). Als u **Azure CDN van Akamai**, u kunt de IP-adresbereiken parameter niet instellen omdat de IP-adressen niet statisch zijn.|
+| Toegestane IP-adressen | Optioneel. Als u **Azure CDN van Verizon**, kunt u deze parameter instellen op de bereiken die zijn gedefinieerd [Azure CDN van Verizon Edge-Server IP-adresbereiken](/azure/cdn/cdn-pop-list-api). Als u **Azure CDN van Akamai**, u kunt de IP-adresbereiken parameter niet instellen omdat de IP-adressen niet statisch zijn.|
 | Toegestane protocollen | De netwerkprotocollen die zijn toegestaan voor een aanvraag voor de account-SAS. De HTTPS-instelling wordt aanbevolen.|
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende artikelen voor meer informatie over SAS:
-- [Shared Access Signatures (SAS) gebruiken](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Shared access signatures (SAS) gebruiken](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Shared Access Signatures, deel 2: Maken en een SAS gebruiken met Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Zie voor meer informatie over het instellen van tokenverificatie [Securing Azure Content Delivery Network assets met tokenverificatie](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

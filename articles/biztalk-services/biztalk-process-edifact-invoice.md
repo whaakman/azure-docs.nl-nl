@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550119"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918957"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Zelfstudie: EDIFACT-facturen verwerken met Azure BizTalk Services
 
@@ -55,9 +55,9 @@ Contoso maakt gebruik van de functies van Microsoft Azure BizTalk Services voor 
 Voor het voltooien van het scenario, we Service Bus-wachtrijen gebruiken om de factuur van Contoso Northwind verzenden of ontvangen van bevestiging van Northwind. Deze wachtrijen kunnen worden gemaakt met een clienttoepassing die is gedownload en is opgenomen in de Voorbeeldpakket dat beschikbaar is als onderdeel van deze zelfstudie.  
 
 ## <a name="prerequisites"></a>Vereisten
-* U moet een Service Bus-naamruimte hebben. Zie voor instructies over het maken van een naamruimte [How To: Maken of wijzigen van een Service Bus-Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Laat het ons wordt ervan uitgegaan dat u al een Service Bus-naamruimte hebt ingericht, met de naam **edifactbts**.
+* U moet een Service Bus-naamruimte hebben. Zie voor instructies over het maken van een naamruimte [How To: Maken of wijzigen van een Service Bus-Service Namespace](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Laat het ons wordt ervan uitgegaan dat u al een Service Bus-naamruimte hebt ingericht, met de naam **edifactbts**.
 * U moet een BizTalk Services-abonnement hebben. Voor deze zelfstudie laat het ons wordt ervan uitgegaan dat u hebt een abonnement van BizTalk Services, met de naam **contosowabs**.
-* Registreer uw BizTalk Services-abonnement op de BizTalk Services-Portal. Zie voor instructies [registreren van een BizTalk Service-implementatie op de BizTalk Services-Portal](https://msdn.microsoft.com/library/hh689837.aspx)
+* Registreer uw BizTalk Services-abonnement op de BizTalk Services-Portal. Zie voor instructies [registreren van een BizTalk Service-implementatie op de BizTalk Services-Portal](/previous-versions/azure/hh689837(v=azure.100))
 * Visual Studio is geïnstalleerd, moet u hebben.
 * BizTalk Services SDK is geïnstalleerd, moet u hebben. U kunt de SDK van downloaden [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

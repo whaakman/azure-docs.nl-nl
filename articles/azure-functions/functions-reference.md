@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339481"
+ms.locfileid: "58891885"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 In Azure Functions delen specifieke functies een paar core technische concepten en -onderdelen, ongeacht de taal of binding die u gebruikt. Voordat u verder met het leren werken met gegevens die specifiek zijn voor een bepaalde taal of binding, moet u lezen in dit overzicht wordt gegeven die van toepassing op alle hiervan.
@@ -75,7 +75,7 @@ Functie-apps kunnen worden gemaakt en gepubliceerd met behulp van verschillende 
 De Functions-editor die is ingebouwd in de Azure-portal kunt u uw code bijwerken en uw *function.json* bestand direct inline. Dit wordt alleen aanbevolen voor kleine wijzigingen of bewijzen van concept - aanbevolen procedure is het gebruik van een lokale ontwikkeling hulpprogramma zoals VS Code.
 
 ## <a name="parallel-execution"></a>Parallelle uitvoering
-Als er meerdere activerende gebeurtenissen optreedt sneller dan een single-threaded functieruntime ze kan verwerken, kan de functie meerdere keren parallel aanroepen in de runtime.  Als een functie-app gebruikt de [Verbruikshostingplan](functions-scale.md#how-the-consumption-plan-works), de functie-app kan automatisch uitschalen.  Elk exemplaar van de functie-app, of de app wordt uitgevoerd op het verbruik hosting plan of een normale [App Service-hostingabonnement](../app-service/overview-hosting-plans.md), gelijktijdige functieaanroepen parallel met meerdere threads mogelijk verwerkt.  Het maximum aantal gelijktijdige functieaanroepen in elke functie-app-exemplaar is afhankelijk van het type van de trigger wordt gebruikt, evenals de resources die worden gebruikt door andere functies in de functie-app.
+Als er meerdere activerende gebeurtenissen optreedt sneller dan een single-threaded functieruntime ze kan verwerken, kan de functie meerdere keren parallel aanroepen in de runtime.  Als een functie-app gebruikt de [Verbruikshostingplan](functions-scale.md#how-the-consumption-and-premium-plans-work), de functie-app kan automatisch uitschalen.  Elk exemplaar van de functie-app, of de app wordt uitgevoerd op het verbruik hosting plan of een normale [App Service-hostingabonnement](../app-service/overview-hosting-plans.md), gelijktijdige functieaanroepen parallel met meerdere threads mogelijk verwerkt.  Het maximum aantal gelijktijdige functieaanroepen in elke functie-app-exemplaar is afhankelijk van het type van de trigger wordt gebruikt, evenals de resources die worden gebruikt door andere functies in de functie-app.
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime versiebeheer
 

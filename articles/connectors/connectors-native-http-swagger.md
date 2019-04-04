@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551965"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893387"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aanroepen van REST-eindpunten met HTTP + Swagger-connector in Azure Logic Apps
 
@@ -28,7 +28,7 @@ Zie voor meer informatie over het maken van logische apps met connectors, [maken
 
 De HTTP + Swagger activeren en actie werken op dezelfde manier als de [HTTP-actie](connectors-native-http.md) maar een betere ervaring in Logic App Designer bieden bij het blootstellen van de structuur van de API en de uitvoer van de [Swagger-metagegevens](https://swagger.io). U kunt ook de HTTP + Swagger-connector als een trigger. Als u wilt voor het implementeren van een polling-trigger, volgt u de polling-patroon dat wordt beschreven in [maken van aangepaste API's voor andere API's, services en systemen aanroepen vanuit logic apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Meer informatie over [logic app-triggers en acties](connectors-overview.md).
+Meer informatie over [logic app-triggers en acties](../connectors/apis-list.md).
 
 Hier volgt een voorbeeld van hoe u moet gebruiken de HTTP + Swagger-bewerkings-als een actie in een werkstroom in een logische app.
 
@@ -72,14 +72,14 @@ Hier volgen de stappen voor het maken, configureren en Swagger documenten opslaa
 Hieronder vindt u de details voor de triggers en acties die deze HTTP + Swagger connector ondersteunt.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-triggers
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. [Meer informatie over triggers.](connectors-overview.md) HTTP + Swagger-connector heeft een trigger.
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. HTTP + Swagger-connector heeft een trigger. [Meer informatie over triggers](../connectors/apis-list.md).
 
 | Trigger | Description |
 | --- | --- |
 | HTTP + Swagger |Voert u een HTTP-aanroep en keert de inhoud van de reactie |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger-acties
-Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) HTTP + Swagger-connector heeft een mogelijke actie.
+Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. HTTP + Swagger-connector heeft een mogelijke actie. [Meer informatie over acties](../connectors/apis-list.md).
 
 | Bewerking | Description |
 | --- | --- |
@@ -123,7 +123,6 @@ U kunt bepaalde antwoorden krijgen bij het maken van aanroepen naar verschillend
 | 404 |Niet gevonden |
 | 500 |Er is een interne serverfout opgetreden. Er is een onbekende fout opgetreden. |
 
-- - -
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)

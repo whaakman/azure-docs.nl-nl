@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/28/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: ca9f25700622a8d8435a1b05bfc46d210038aeaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0c92ff11ba992170b7da89dbbfa9bf14f92a9d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895826"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541295"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -59,7 +59,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![SharePoint Server 2016 Trial](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016-evaluatieversie op Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 on Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
-| ![SQL Server 2016 SP2 Standard on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2016SP2StandardWindowsServer2016) | Database-platform voor intelligente, essentiële toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
+| ![SQL Server 2016 SP2 Standard on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Database-platform voor intelligente, essentiële toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![Gratis licentie: SQL Server 2016 SP2 Developer op WindowsServer 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2016 SP2 Developer op WindowsServer 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Gratis developer-versie van SQL Server 2016 SP2 voor transactionele gegevens datawarehousing, business intelligence en workloads voor analyse. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![Gratis licentie: SQL Server 2016 SP2 Express op WindowsServer 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2016 SP2 Express op WindowsServer 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Gratis versie van SQL Server 2016 SP2 express. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![SQL Server 2016 SP2 Enterprise on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Enterprise op WindowsServer 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Database-platform voor intelligente, essentiële toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
@@ -69,11 +69,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Gratis licentie: SQL Server 2017 Express on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2017 Express on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Snelle gratis versie van SQL Server 2017. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![SQL Server 2017 Enterprise on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Database-platform voor intelligente, essentiële toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![SQL Server 2017 Web on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web op WindowsServer 2016](https://azuremarketplace.microsoft.com/marketplace/apps/cognosys.sql-server-2007-web-win2016-debug-utilities) | Database-platform voor intelligente, essentiële toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
-| ![SQL Server 2017 Standard on Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 standaard op Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | Database-platform voor intelligente, essentiële toepassingen. | Microsoft + Canonical |
-| ![Gratis licentie: SQL Server 2017 Developer on Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2017 Developer on Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | Gratis developer-versie van SQL Server 2017 voor transactionele gegevens datawarehousing, business intelligence en workloads voor analyse. | Microsoft + Canonical |
-| ![Gratis licentie: SQL Server 2017 Express op Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2017 Express op Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) | Snelle gratis versie van SQL Server 2017. | Microsoft + Canonical |
-| ![SQL Server 2017 Enterprise on Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | Database-platform voor intelligente, essentiële toepassingen. | Microsoft + Canonical |
-| ![SQL Server 2017 Web op Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web op Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | Database-platform voor intelligente, essentiële toepassingen. | Microsoft + Canonical |
+| ![SQL Server 2017 voor Ubuntu Server 16.04 LTS](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on Ubuntu Server 16.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ubuntu1604) | Database-platform voor intelligente, essentiële toepassingen. | Microsoft + Canonical |
 | ![SQL Server 2017-norm voor SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017-norm voor SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | Database-platform voor intelligente, essentiële toepassingen. | Microsoft + SUSE |
 | ![Gratis licentie: SQL Server 2017 Developer op SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2017 Developer op SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | Gratis developer-versie van SQL Server 2017 voor transactionele gegevens datawarehousing, business intelligence en workloads voor analyse. | Microsoft + SUSE |
 | ![Gratis licentie: SQL Server 2017 Express op SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Gratis licentie: SQL Server 2017 Express op SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Snelle gratis versie van SQL Server 2017. | Microsoft + SUSE |
@@ -102,7 +98,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL van derden, gratis, evaluatieversie afbeeldingen en sjablonen voor oplossingen
 
-|  | Itemnaam | Description | Uitgever |
+|  | Itemnaam | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | De netwerken van A10-vThunder Application Delivery Controller voor Microsoft Azure is gebouwd om hoge prestaties, flexibiliteit en levering van toepassingen eenvoudig te implementeren en de server wordt de taakverdeling en geoptimaliseerd voor het systeemeigen uitvoeren binnen de Azure-cloud. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | De Arista vEOS Router is een kostenbeheeroplossing met meerdere Clouds uitgebreide, en multi-hypervisor virtual router waarmee ondernemingen en cloudproviders om op te bouwen consistente, zeer veilige en schaalbare hybride netwerken. | Arista Networks |

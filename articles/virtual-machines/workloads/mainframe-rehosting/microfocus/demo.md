@@ -1,21 +1,18 @@
 ---
-title: Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 in Azure | Microsoft Docs
-description: Voer de toepassing Micro Focus BankDemo op Azure voor meer informatie over het gebruik van Micro Focus Enterprise Server en Enterprise-ontwikkelaars.
-services: virtual-machines-linux
-documentationcenter: ''
-author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+title: Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 op Azure Virtual Machines
+description: Voer de toepassing Micro Focus BankDemo op Azure Virtual Machines (VM's) voor meer informatie over het gebruik van Micro Focus Enterprise Server en Enterprise-ontwikkelaars.
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099464"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892480"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 in Azure
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 op Azure
 
 Bij het instellen van Micro Focus Enterprise Server 4.0 en Enterprise Developer 4.0 op Azure, kunt u implementaties van IBM z/OS-werkbelastingen kunt testen. In dit artikel laat zien hoe het instellen van CICS BankDemo, een voorbeeldtoepassing die wordt geleverd met Enterprise-ontwikkelaars.
 
@@ -23,7 +20,7 @@ CICs staat voor het systeem voor klantinformatie, de transactie-platform dat doo
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een virtuele machine met [Enterprise Developer](set-up-micro-focus-on-azure.md). Houd er rekening mee dat ontwikkelaar een compleet exemplaar van de Enterprise-Server erop voor ontwikkelings- en testdoeleinden heeft. Dit is het exemplaar van de Enterprise-Server die wordt gebruikt voor de demo.
+- Een virtuele machine met [Enterprise Developer](set-up-micro-focus-azure.md). Houd er rekening mee dat ontwikkelaar een compleet exemplaar van de Enterprise-Server erop voor ontwikkelings- en testdoeleinden heeft. Dit is het exemplaar van de Enterprise-Server die wordt gebruikt voor de demo.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Download en installeer deze op de Enterprise Developer-VM. Enterprise-Server vereist een database voor het beheer van CICS regio's en de toepassing BankDemo gebruikt ook een SQL Server-database met de naam BANKDEMO. In deze demo wordt ervan uitgegaan dat u SQL Server Express gebruikt voor beide databases. Wanneer u installeert, selecteert u de standaardinstallatie.
 
@@ -269,9 +266,10 @@ Het laatste wat dat u moet doen is een 3270-sessie met behulp van Rumba, een emu
 
 Gefeliciteerd! U nu uitvoert een CICS toepassing in Azure met behulp van Micro Focus Enterprise-Server.
 
-## <a name="learn-more"></a>Meer informatie
+## <a name="next-steps"></a>Volgende stappen
 
+- [Enterprise-Server uitvoeren in Docker-containers op Azure](run-enterprise-server-container.md)
 - [Mainframe-migratie - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Virtuele machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Problemen oplossen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Mainframe ontrafelen aan Azure-migratie](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Duidelijke informatie over mainframe-migratie naar Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

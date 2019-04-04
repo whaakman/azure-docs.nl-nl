@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 53d9aec5a689babb637d2eff6b36ea3b8bd8d97f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 277a1d5df0e6eb828c4d3c6faed91d55defb4108
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173935"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894027"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Aangepaste kenmerken definiëren in Azure Active Directory B2C
 
  Elke toepassing klantgerichte heeft unieke vereisten van de gegevens die moeten worden opgehaald. Uw Azure Active Directory (Azure AD) B2C-tenant wordt geleverd met een ingebouwde groep die zijn opgeslagen in kenmerken, zoals de voornaam, achternaam, plaats en postcode. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke klantaccount uitbreiden. 
  
- Kunt u aangepaste kenmerken in de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw proefaccount gebruikersstromen, registreren of aanmelden gebruikersstromen of gebruikersstromen bewerken van profielen. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Aangepaste kenmerken in Azure AD B2C gebruikt [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Kunt u aangepaste kenmerken in de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw proefaccount gebruikersstromen, registreren of aanmelden gebruikersstromen of gebruikersstromen bewerken van profielen. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Aangepaste kenmerken in Azure AD B2C gebruikt [Azure AD Graph API Directory-Schemauitbreidingen](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Een aangepast kenmerk maken
 

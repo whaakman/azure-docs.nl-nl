@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768396"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487631"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -101,14 +101,14 @@ Er zijn twee onderdelen voor dit scenario:
 
 3. Als u meerdere abonnementen hebt, voert u de volgende opdracht uit om het abonnement dat u hebt gebruikt voor de registratie te selecteren:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. Download de nieuwste versie van het hulpprogramma voor marketplace-syndicatie met behulp van het volgende script:  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ Er zijn twee onderdelen voor dit scenario:
 
 5. Importeer de module syndicatie en start vervolgens het hulpprogramma door het uitvoeren van de volgende opdrachten. Vervang `Destination folder path` met een locatie voor het opslaan van de bestanden die u vanuit Azure Marketplace downloadt.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ Er zijn twee onderdelen voor dit scenario:
 
 3. Importeer de module syndicatie en start vervolgens het hulpprogramma voor marketplace-syndicatie het volgende script uit te voeren:
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ Er zijn twee onderdelen voor dit scenario:
 
    Als alternatief voor dit script kunt u de [procedure in dit artikel beschreven](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) voor het importeren van de. VHD-installatiekopie met behulp van de Azure portal.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ Er zijn twee onderdelen voor dit scenario:
 
 
 4.  PowerShell gebruiken voor de marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzsGalleryItem** cmdlet. Bijvoorbeeld:  
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ Er zijn twee onderdelen voor dit scenario:
 
 U kunt nu extensies voor virtuele machines met de versie van PowerShell voor Azure Stack 1.3.0 toevoegen. Bijvoorbeeld:
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

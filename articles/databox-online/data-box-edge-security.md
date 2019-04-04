@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403388"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891800"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Gegevens in het Edge-beveiliging en gegevensbescherming
 
@@ -35,6 +35,7 @@ De gegevensgateway in Edge/de Data Box-service is een management-service die wor
 
 - Toegang tot de gegevens in Edge/gegevens in het Gateway-service is vereist uw organisatie een Enterprise Agreement (EA) of een Cloud Solution Provider (CSP)-abonnement hebben. Ga voor meer informatie naar [zich aanmelden voor een Azure-abonnement](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Omdat uw management-service wordt gehost in Azure, wordt deze wordt beveiligd door de functies van Azure-beveiliging. Ga naar het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/) voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure.
+- Voor de SDK-beheerbewerkingen, versleutelingssleutel is beschikbaar voor uw Data Box-Edge / Data Box Gateway resource onder **apparaateigenschappen**. U vindt de versleutelingssleutel alleen als u machtigingen voor de Resource Graph-API hebt.
 
 ## <a name="data-box-edge-device-protection"></a>Bescherming van gegevens in het Edge-apparaat
 
@@ -44,7 +45,8 @@ De gegevens in het Edge-apparaat is een on-premises-apparaat waarmee de gegevens
 - Wordt beveiligd op altijd door het wachtwoord van een apparaat.
 - Een apparaat vergrendeld is. Het apparaat BMC en BIOS wachtwoord zijn beveiligd met beperkte gebruikerstoegang voor het BIOS.
 - Beveiligd opstarten is ingeschakeld.
-- Wordt uitgevoerd Windows Defender Device Guard. Device Guard kunt u alleen vertrouwde toepassingen die u in uw code-integriteitsbeleid definieert uit te voeren. 
+- Wordt uitgevoerd Windows Defender Device Guard. Device Guard kunt u alleen vertrouwde toepassingen die u in uw code-integriteitsbeleid definieert uit te voeren.
+- Heeft een sleutel in de omslag die kan worden gebruikt om het apparaat te vergrendelen. We aanbevelen die na het configureren van het apparaat, opent de dekking. Ga naar de sleutel en klikt u vervolgens de dekking om te voorkomen dat onbevoegde toegang om gegevensschijven zich aan de voorzijde van het apparaat te vergrendelen.
 
 ### <a name="protect-the-device-via-activation-key"></a>Het apparaat via de activeringscode beveiligen
 

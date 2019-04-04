@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3694425ac72d3b75d66d870e3746bc1738ba0138
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009474"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481906"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integratie van datacenter voor Azure Stack - syslog doorsturen
 
@@ -61,7 +61,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parameters voor *Set SyslogServer* cmdlet:
 
-| Parameter | Description | Type | Vereist |
+| Parameter | Beschrijving | Type | Vereist |
 |---------|---------|---------|---------|
 |*ServerName* | FQDN of IP-adres van de syslog-server | String | ja|
 |*ServerPort* | Poortnummer dat de syslog-server luistert | String | ja|
@@ -185,13 +185,13 @@ Verwijderen van de configuratie van de syslog-server kan worden overgeslagen en 
 
 **De configuratie van de syslog-server van de client verwijderen**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **Het certificaat van de client verwijderen**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -201,13 +201,13 @@ Als u de syslog-client is verbonden met uw syslog-server, moet u snel starten he
 
 **Controleer of de configuratie van de server in de syslog-client**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Controleer de instellingen van het certificaat in de syslog-client**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

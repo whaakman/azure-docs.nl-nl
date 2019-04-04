@@ -13,15 +13,15 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532997"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918498"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>De definitie van Schema (.csdef-bestand) voor Azure Cloud Services
-Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, Hiermee geeft u de service-eindpunten en configuratie-instellingen voor de service maakt. Configuratie-instellingswaarden zijn ingesteld in het configuratiebestand van de service, zoals is beschreven in de [configuratieschema voor Cloud-Service (klassiek)](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
+Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, Hiermee geeft u de service-eindpunten en configuratie-instellingen voor de service maakt. Configuratie-instellingswaarden zijn ingesteld in het configuratiebestand van de service, zoals is beschreven in de [configuratieschema voor Cloud-Service (klassiek)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
 Het hulpprogramma voor het schema van de Azure Diagnostics-configuratiebestand is standaard geïnstalleerd op de `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Vervang `<version>` met de geïnstalleerde versie van de [Azure SDK](https://www.windowsazure.com/develop/downloads/).
 
@@ -57,17 +57,17 @@ De basisindeling van het servicedefinitiebestand is als volgt.
 ## <a name="schema-definitions"></a>Schemadefinities
 De volgende onderwerpen wordt beschreven voor het schema:
 
-- [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
-- [WebRole Schema](schema-csdef-webrole.md)
-- [WorkerRole Schema](schema-csdef-workerrole.md)
-- [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
+- [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)
+- [WebRole-schema](schema-csdef-webrole.md)
+- [WorkerRole-schema](schema-csdef-workerrole.md)
+- [NetworkTrafficRules-schema](schema-csdef-networktrafficrules.md)
 
 ##  <a name="ServiceDefinition"></a> ServiceDefinition-Element
 De `ServiceDefinition` -element is het element op het hoogste niveau van het servicedefinitiebestand.
 
 De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
 
-| Kenmerk               | Description |
+| Kenmerk               | Beschrijving |
 | ----------------------- | ----------- |
 | naam                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
 | topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast` -De update zo snel mogelijk verzendt naar alle rolinstanties. Als u kiest, moet de rol van de update topologie zonder wordt opnieuw opgestart overweg kan met zijn.<br />-   `UpgradeDomainWalk` – Verzendt de update naar elke rolinstantie in een sequentiële wijze nadat het vorige exemplaar heeft de update is geaccepteerd.|

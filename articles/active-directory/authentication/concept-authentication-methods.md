@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894590"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
-Azure AD selfservice voor wachtwoordherstel (SSPR) en multi-factor Authentication (MFA) kunnen voor meer informatie, ook wel verificatiemethoden of -beveiligingsgegevens, om te bevestigen dat u die u zegt te zijn bij het gebruik van de bijbehorende functies vragen.
+Het is raadzaam dat u vereisen dat gebruikers meerdere verificatiemethoden registreren als een beheerder verificatiemethoden kiezen voor Azure multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen (SSPR). Wanneer een verificatiemethode niet beschikbaar voor een gebruiker is, kunnen ze kiezen voor verificatie met een andere methode.
 
-Beheerders kunnen definiëren in welke verificatiemethoden beschikbaar voor gebruikers van SSPR en MFA zijn-beleid. Sommige verificatiemethoden zijn mogelijk niet beschikbaar voor alle functies.
+Beheerders kunnen definiëren in welke verificatiemethoden beschikbaar voor gebruikers van SSPR en MFA zijn-beleid. Sommige verificatiemethoden zijn mogelijk niet beschikbaar voor alle functies. Uw beleid Zie voor meer informatie over het configureren van de artikelen [implementeren van selfservice voor wachtwoordherstel](howto-sspr-deployment.md) en [plannen van een cloud-gebaseerde Azure multi-factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aantal van de ondersteunde verificatiemethoden selecteren in het geval ze geen toegang tot één.
 

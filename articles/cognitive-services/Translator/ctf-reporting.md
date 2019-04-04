@@ -3,19 +3,19 @@ title: Collaborative Translation Framework (CTF) rapportage - Translator Text-AP
 titlesuffix: Azure Cognitive Services
 description: Het gebruik Collaborative Translation Framework (CTF) rapportage.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123416"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917393"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
@@ -74,7 +74,7 @@ Deze methode haalt de telling van vertalingen die zijn gemaakt door de gebruiker
 
 **Parameters**
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix | **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
@@ -145,7 +145,7 @@ Deze methode haalt de vertaling op die zijn gemaakt door de gebruiker. Het biedt
 
 **Parameters**
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix| **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|

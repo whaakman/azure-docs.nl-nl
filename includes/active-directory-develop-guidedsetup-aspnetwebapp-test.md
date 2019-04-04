@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203594"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919200"
 ---
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -45,10 +45,10 @@ Nadat u naar de weergave van de controller bladert, ziet u een tabel met de bela
 
 |Eigenschap |Waarde |Beschrijving |
 |---|---|---|
-|**Naam** |Volledige naam van gebruiker | En achternaam van eerst de gebruiker.
+|**Name** |Volledige naam van gebruiker | En achternaam van eerst de gebruiker.
 |**Gebruikersnaam** |Gebruiker<span>@domain.com</span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.
 |**Onderwerp** |Onderwerp |Een tekenreeks die een unieke identificatie van de gebruiker op het web.|
-|**Tenant ID** |Guid | Een **guid** die Azure AD-organisatie van de gebruiker een unieke vertegenwoordigt.|
+|**Tenant-id** |Guid | Een **guid** die Azure AD-organisatie van de gebruiker een unieke vertegenwoordigt.|
 
 Bovendien ziet u een tabel met alle claims die zich in de verificatieaanvraag. Zie voor meer informatie de [lijst met claims die zich in een Azure AD-ID-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -95,6 +95,6 @@ U kunt aanmelding toegang beperken tot alleen gebruikersaccounts die deel uitmaa
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Optie 3: Een aangepaste methode gebruiken om te valideren van uitgevers van certificaten
 
-U kunt implementeren om een aangepaste methode voor het valideren van uitgevers van certificaten met behulp van de **IssuerValidator** parameter. Lees voor meer informatie over het gebruik van deze parameter de [TokenValidationParameters klasse](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) op MSDN.
+U kunt implementeren om een aangepaste methode voor het valideren van uitgevers van certificaten met behulp van de **IssuerValidator** parameter. Lees voor meer informatie over het gebruik van deze parameter de [TokenValidationParameters klasse](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

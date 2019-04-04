@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449131"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905814"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
 Dit artikel worden veelvoorkomende problemen die u tegenkomen kunt wanneer u een domein of een SSL-certificaat voor uw web-apps in Azure App Service configureren. Ook wordt beschreven mogelijke oorzaken en oplossingen voor deze problemen.
 
 Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op [MSDN en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning voor Azure site](https://azure.microsoft.com/support/options/) en selecteer **ontvang ondersteuning**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Certificaatproblemen
 
@@ -314,7 +317,7 @@ Ja. Wanneer u de blade voor aangepaste domeinen en SSL in Azure portal opent, zi
 
 **Kan ik een domein in één abonnement overbrengen naar een ander abonnement?**
 
-U kunt een domein verplaatsen naar een ander abonnement/resource-groep met de [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell-cmdlet.
+U kunt een domein verplaatsen naar een ander abonnement/resource-groep met de [verplaatsen AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell-cmdlet.
 
 **Hoe kan ik mijn aangepaste domein beheren als ik een Azure App Service-app op dit moment geen?**
 

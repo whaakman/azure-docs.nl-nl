@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124998"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890922"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
@@ -80,7 +80,7 @@ DSC-configuraties definiëren wat u wilt installeren op een computer en het conf
 
 Leer hoe u het volgende doet:
 
-- [Maak een eenvoudige DSC-configuratie](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Maak een eenvoudige DSC-configuratie](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Een DSC-pull-server configureren voor](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Gebruik van DSC voor Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 

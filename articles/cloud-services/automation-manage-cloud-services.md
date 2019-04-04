@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328865"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918464"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services met Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure-cloud-services.
@@ -32,7 +32,7 @@ Azure Automation biedt een uiterst betrouwbare en maximaal beschikbare engine vo
 Lagere operationele overhead en vrij IT / DevOps-personeel te concentreren op werk dat wordt toegevoegd business value door te verplaatsen van uw cloud-beheertaken automatisch wordt uitgevoerd door Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hoe u kunt Azure Automation beheren Azure-cloudservices?
-Azure cloudservices kunnen worden beheerd in Azure Automation met behulp van de PowerShell-cmdlets die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation heeft deze cloud service PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw cloud service-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
+Azure cloudservices kunnen worden beheerd in Azure Automation met behulp van de PowerShell-cmdlets die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/). Azure Automation heeft deze cloud service PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw cloud service-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
 
 Enkele gebruikstoepassingen voorbeeld van Azure Automation voor het beheren van Azure Cloud Services zijn onder andere:
 

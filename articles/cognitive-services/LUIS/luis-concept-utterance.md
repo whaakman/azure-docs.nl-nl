@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984355"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895119"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Inzicht in wat goede uitingen zijn voor uw LUIS-app
 
@@ -72,7 +72,7 @@ In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utter
 
 LUIS bouwt effectieve modellen met uitingen die zorgvuldig worden geselecteerd door de auteur van de LUIS-model. Te veel uitingen toe te voegen is niet nuttig omdat het verwarring leidt.  
 
-Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endoint-utt.md) voor het juiste intentie voorspelling en entiteit ophalen.
+Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endpoint-utterances.md) voor het juiste intentie voorspelling en entiteit ophalen.
 
 ## <a name="punctuation-marks"></a>Leestekens
 
@@ -88,11 +88,11 @@ Training is in het algemeen niet-deterministisch: de voorspelling utterance kan 
 
 ## <a name="testing-utterances"></a>Uitingen testen 
 
-Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar de [voorspelling eindpunt](luis-how-to-azure-subscription.md) URL. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endoint-utt.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
+Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar de [voorspelling eindpunt](luis-how-to-azure-subscription.md) URL. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endpoint-utterances.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
 
 ## <a name="review-utterances"></a>Uitingen bekijken
 
-Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossary.md#endpoint) query's, [bekijken van de uitingen](luis-how-to-review-endoint-utt.md) LUIS worden voorgesteld. LUIS selecteert endpoint-uitingen waarvoor lage scores voor de doel- of entiteit. 
+Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossary.md#endpoint) query's, [bekijken van de uitingen](luis-how-to-review-endpoint-utterances.md) LUIS worden voorgesteld. LUIS selecteert endpoint-uitingen waarvoor lage scores voor de doel- of entiteit. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 

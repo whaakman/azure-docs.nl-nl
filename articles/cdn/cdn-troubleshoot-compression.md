@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531521"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918821"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Problemen met CDN-bestandscompressie oplossen
 Dit artikel helpt u problemen oplossen met [CDN-bestandscompressie](cdn-improve-performance.md).
@@ -116,6 +116,6 @@ Een bestand moet voldoen aan de volgende grootte vereisten om in aanmerking kome
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Controleer de aanvraag op de oorspronkelijke server voor een **Via** koptekst
 De **Via** HTTP-header geeft aan dat de webserver dat de aanvraag wordt doorgegeven via een proxyserver.  Microsoft IIS-webservers standaard antwoorden niet gecomprimeerd wanneer de aanvraag bevat een **Via** header.  Als u wilt dit gedrag negeren, voert u het volgende:
 
-* **IIS 6**: [Stel HcNoCompressionForProxies = "FALSE" in de IIS Metabase-eigenschappen](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 6**: [Stel HcNoCompressionForProxies = "FALSE" in de IIS Metabase-eigenschappen](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
 * **IIS 7 en hoger**: [Stel zowel **noCompressionForHttp10** en **noCompressionForProxies** op False in de configuratie van de server](http://www.iis.net/configreference/system.webserver/httpcompression)
 

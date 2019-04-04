@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098005"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482261"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -61,7 +61,7 @@ Gebruik het volgende script in de Key Vault maken en toevoegen de *clustercertif
 > [!TIP]  
 > Voordat het script slagen kan, is er moeten een openbare aanbieding met de services voor berekening, netwerk, opslag en Key Vault. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -129,7 +129,7 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
 
 1. Voor elke pagina, zoals *basisbeginselen*, vul het formulier in de implementatie. Standaardinstellingen gebruiken als u niet zeker van een waarde bent. Selecteer **OK** om door te gaan naar de volgende pagina:
 
-   ![Basisbeginselen](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![Basics](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
 1. Op de *netwerkinstellingen* pagina, kunt u specifieke poorten te openen voor uw toepassingen:
 
@@ -211,7 +211,7 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 
 1. Na het wijzigen van de volgorde van de omgevingsvariabelen, start PowerShell en voer de volgende PowerShell-script om toegang krijgen tot de Service Fabric-cluster:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486390"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906086"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -241,7 +241,7 @@ Elk opslagaccount biedt ondersteuning voor maximaal 100 IP-netwerkregels, die ku
 
 Om toegang te verlenen vanaf uw on-premises netwerken met uw opslagaccount met een regel voor IP-netwerk, moet u het internetgerichte IP-adressen die worden gebruikt door uw netwerk te identificeren. Neem contact op met de netwerkbeheerder voor hulp.
 
-U kunt [ExpressRoute](/azure/expressroute/expressroute-introduction) uw netwerk verbinden met het Azure-netwerk. Elk circuit is hier, geconfigureerd met twee openbare IP-adressen. Ze kan worden gevonden op de Microsoft Edge en gebruiken [openbare Azure-Peering](/azure/expressroute/expressroute-circuit-peerings) verbinding maken met Microsoft-Services zoals Azure Storage. Als u wilt toestaan dat communicatie met Azure Storage, IP-netwerkregels voor het openbare IP-adressen van uw circuits te maken. Om te vinden van openbare IP-adressen van uw ExpressRoute-circuit, [open een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+Als u [ExpressRoute](/azure/expressroute/expressroute-introduction) gebruikt vanuit uw on-premises netwerk voor openbare peering of Microsoft-peering, moet u de NAT IP-adressen opgeven die worden gebruikt. Voor openbare peering gebruikt elk ExpressRoute-circuit standaard twee NAT IP-adressen. Deze worden toegepast op Azure-serviceverkeer wanneer het verkeer het Microsoft Azure-backbone-netwerk binnenkomt. Voor Microsoft-peering worden de NAT IP-adressen die worden gebruikt opgegeven door de klant of de serviceprovider. Voor toegang tot uw serviceresources moet u deze openbare IP-adressen toestaan in de instelling voor IP-firewall voor de resource. Wanneer u op zoek bent naar de IP-adressen van uw ExpressRoute-circuit, opent u [een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via de Azure Portal. Meer informatie over [NAT voor openbare peering en Microsoft-peering met ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>IP-netwerkregels beheren
 

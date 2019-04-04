@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a192f5cbd0fb5a4dcb911f40753efcbd996a418
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793829"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892327"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -42,7 +42,7 @@ Schijven worden versleuteld met Microsoft BitLocker-stationsversleuteling en uw 
 A. Als u 40 TB (of minder) aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box Disks.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>V. Wat kosten Data Box-schijven?
-A. Ga naar de [pagina Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/disk/) voor informatie over de prijs van Data Box-schijven.
+A. Ga naar de [pagina Prijzen](https://azure.microsoft.com/pricing/details/databox/disk/) voor informatie over de prijs van Data Box-schijven.
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>V. Hoe verkrijg ik Data Box-schijven? 
 A.  Als u Azure Data Box-schijven wilt aanschaffen, meldt u zich aan bij Azure Portal en plaatst u een Data Box-bestelling voor schijven. Geef uw contactgegevens en overige informatie op. Zodra u een bestelling hebt geplaatst, worden de schijven op basis van beschikbaarheid binnen tien dagen verzonden.
@@ -129,8 +129,8 @@ A. Er zijn drie hulpprogramma's beschikbaar voor Data Box Disk:
  - **Het splits- en kopieerprogramma voor Data Box Disk**: U dit hulpprogramma gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Dit hulpprogramma is momenteel beschikbaar voor Windows. Dit hulpprogramma wordt niet ondersteund met beheerde schijven. Dit hulpprogramma ook gevalideerd als de gegevens worden gekopieerd, daarom kunt u de validatiestap overslaan bij het gebruik van dit hulpprogramma.
 
 De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de set hulpprogramma's hier downloaden:
-- [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
-- [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
+- [Data Box-schijf toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
+- [Data Box-schijf toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
  
   ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
   A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met Azure File Sync. Metagegevens worden niet bewaard als de gegevens uit een bestand wordt gebruikt met Azure File Sync.

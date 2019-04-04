@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187093"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892803"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services voor Azure Cloud Solution Providers (CSP)
 In dit artikel wordt uitgelegd hoe u Azure AD Domain Services kunt gebruiken in een Azure CSP-abonnement.
@@ -41,7 +41,7 @@ Zie voor meer informatie de [overzicht van Azure CSP](https://docs.microsoft.com
 ## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Voordelen van het gebruik van Azure AD Domain Services in een Azure CSP-abonnement
 Azure AD Domain Services biedt Windows Server AD compatibele services in Azure, zoals LDAP, Kerberos/NTLM-verificatie, domein, Groepsbeleid en DNS. In de decennia zijn veel toepassingen gebouwd om te werken aan de hand AD met behulp van deze mogelijkheden. Veel onafhankelijke softwareleveranciers (ISV's) zijn gebouwd en geïmplementeerde toepassingen bij hun klanten. Deze toepassingen zijn kostbare ter ondersteuning van omdat waarvoor vaak toegang tot de verschillende omgevingen waarin deze toepassingen worden geïmplementeerd. Met Azure CSP-abonnementen hebt u een alternatief eenvoudiger met de schaal en flexibiliteit van Azure.
 
-Azure AD Domain Services biedt nu ondersteuning voor Azure CSP-abonnementen. U kunt nu uw toepassing in een Azure CSP-abonnement dat is gekoppeld aan Azure AD-adreslijst van uw klant implementeren. Als gevolg hiervan uw werknemers (ondersteuningsmedewerkers) kunnen beheren, te beheren en onderhouden van de virtuele machines waarop uw toepassing is geïmplementeerd, met bedrijfsreferenties van uw organisatie. Bovendien kunt u een beheerd domein van Azure AD Domain Services voor Azure AD-adreslijst van uw klant inrichten. Uw toepassing is verbonden met het beheerde domein van uw klant. Daarom mogelijkheden binnen uw toepassing die afhankelijk van Kerberos/NTLM, LDAP zijn, of de [System.DirectoryServices API](https://msdn.microsoft.com/library/system.directoryservices) werken naadloos op basis van de directory van uw klant. Uw eindgebruikers merken aanzienlijk kunnen profiteren van uw toepassing als een service, zonder dat u hoeft zich geen zorgen over het onderhouden van de infrastructuur van die de toepassing wordt geïmplementeerd op te gebruiken.
+Azure AD Domain Services biedt nu ondersteuning voor Azure CSP-abonnementen. U kunt nu uw toepassing in een Azure CSP-abonnement dat is gekoppeld aan Azure AD-adreslijst van uw klant implementeren. Als gevolg hiervan uw werknemers (ondersteuningsmedewerkers) kunnen beheren, te beheren en onderhouden van de virtuele machines waarop uw toepassing is geïmplementeerd, met bedrijfsreferenties van uw organisatie. Bovendien kunt u een beheerd domein van Azure AD Domain Services voor Azure AD-adreslijst van uw klant inrichten. Uw toepassing is verbonden met het beheerde domein van uw klant. Daarom mogelijkheden binnen uw toepassing die afhankelijk van Kerberos/NTLM, LDAP zijn, of de [System.DirectoryServices API](/dotnet/api/system.directoryservices) werken naadloos op basis van de directory van uw klant. Uw eindgebruikers merken aanzienlijk kunnen profiteren van uw toepassing als een service, zonder dat u hoeft zich geen zorgen over het onderhouden van de infrastructuur van die de toepassing wordt geïmplementeerd op te gebruiken.
 
 Alle facturering voor Azure-resources die u in dat abonnement, met inbegrip van Azure AD Domain Services, in rekening voor u gebracht wordt verbruikt. U beheren volledige controle over de relatie met de klant als het gaat om verkopen, facturering en technische ondersteuning enzovoort. Dankzij de flexibiliteit van de CSP van de Azure-platform, een klein team van ondersteuning voor agents veel dergelijke klanten die instanties hebben kunt onderhouden van uw toepassing geïmplementeerd.
 

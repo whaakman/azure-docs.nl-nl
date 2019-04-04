@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091314"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918362"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Vooraf assets op een Azure CDN-eindpunt laden
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,7 +49,7 @@ Deze zelfstudie leert u het vooraf laden van inhoud in cache op alle Azure CDN e
    > [!TIP]
    > Nadat u bent begonnen met het invoeren van tekst, meer **Inhoudspad** tekstvakken weergegeven waarmee u kunt een lijst samenstellen van meerdere assets. Als u wilt verwijderen activa in de lijst, selecteert u de knop met het weglatingsteken (...) en vervolgens **verwijderen**.
    > 
-   > Elke Inhoudspad moet een relatieve URL die past bij de volgende [reguliere expressies](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Elke Inhoudspad moet een relatieve URL die past bij de volgende [reguliere expressies](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Pad naar een enkel bestand laden: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Laden van één bestand met query-tekenreeks: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
@@ -68,6 +68,6 @@ Deze zelfstudie leert u het vooraf laden van inhoud in cache op alle Azure CDN e
 
 ## <a name="see-also"></a>Zie ook
 * [Een Azure CDN-eindpunt leegmaken](cdn-purge-endpoint.md)
-* [Azure CDN REST API-naslaginformatie: vooraf laden van inhoud op een eindpunt](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API-naslaginformatie: inhoud van een eindpunt leegmaken](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Naslaginformatie over Azure CDN REST-API: Vooraf laden van inhoud op een eindpunt](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Naslaginformatie over Azure CDN REST-API: Inhoud van een eindpunt leegmaken](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

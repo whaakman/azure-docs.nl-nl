@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154606"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894853"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Afhankelijk van de toepassing verordening mogelijk ouderlijke toestemming worden
 
 Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toestemming:
 
-1. Een [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) bewerking, wordt de gebruiker als een minderjarige en de gebruikersgegevens voor de toepassing in de vorm van een niet-ondertekende JSON-token retourneert.
+1. Een [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) bewerking, wordt de gebruiker als een minderjarige en de gebruikersgegevens voor de toepassing in de vorm van een niet-ondertekende JSON-token retourneert.
 
 2. De toepassing verwerkt het JSON-token en ziet u een scherm naar de secundaire, hoogte hem of haar dat ouderlijke toestemming vereist is en de toestemming van een bovenliggende online aanvraagt. 
 

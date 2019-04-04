@@ -11,17 +11,17 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652090"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904573"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1:](v1/data-factory-use-custom-activities.md)
+> * [Versie 1](v1/data-factory-use-custom-activities.md)
 > * [Huidige versie](transform-data-using-dotnet-custom-activity.md)
 
 Er zijn twee soorten activiteiten die u in een Azure Data Factory-pijplijn gebruiken kunt.
@@ -356,7 +356,7 @@ Hebt u een bestaande .NET-code die zijn geschreven voor een versie 1 (aangepaste
   - Het Microsoft.Azure.Management.DataFactories NuGet-pakket is niet langer vereist.
   - Uw code te compileren, het uitvoerbare bestand en de bijbehorende afhankelijkheden te uploaden naar Azure Storage en definiëren van het pad in de `folderPath` eigenschap.
 
-Voor een compleet voorbeeld van hoe de end-to-end-voorbeeld voor dll-bestand en een pijplijn die worden beschreven in de Data Factory versie 1 artikel [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) worden herschreven als een aangepaste activiteit van Data Factory, raadpleegt u [ Voorbeeld van Data Factory aangepaste activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+Voor een compleet voorbeeld van hoe de end-to-end-voorbeeld voor dll-bestand en een pijplijn die worden beschreven in de Data Factory versie 1 artikel [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) worden herschreven als een aangepaste activiteit van Data Factory, raadpleegt u [ Voorbeeld van Data Factory aangepaste activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaalaanpassing van Azure Batch
 
@@ -382,7 +382,7 @@ Als de groep met behulp van de standaard [autoScaleEvaluationInterval](https://m
 Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren:
 
 * [U-SQL-activiteit](transform-data-using-data-lake-analytics.md)
-* [Hive-activiteit](transform-data-using-hadoop-hive.md)
+* [Componentactiviteit](transform-data-using-hadoop-hive.md)
 * [Pig-activiteit](transform-data-using-hadoop-pig.md)
 * [MapReduce-activiteit](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop-streamingactiviteit](transform-data-using-hadoop-streaming.md)

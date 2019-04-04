@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549065"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905916"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 [Deze oplossing](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is ontworpen om eenvoudiger te implementeren, configureren en beheren van een consortium voor meerdere leden Proof-of-authority Ethereum-netwerk met minimale kennis van Azure en Ethereum.
@@ -81,7 +83,7 @@ Deze oplossing wordt geleverd met Azure Monitor voor het bijhouden van statistie
 
 ### <a name="deployment-architecture"></a>Implementatie-architectuur
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beschrijving
 
 Deze oplossing kunt implementeren één of meerdere regio's op basis van meerdere leden Ethereum consortium network. Standaard zijn de RPC- en peering eindpunten toegankelijk via openbare IP-adres om eenvoudig verbindingen tussen abonnementen en clouds. Het is raadzaam gebruik te maken van [pariteit van rollen contracten](https://wiki.parity.io/Permissioning) niveau voor toepassing besturingselementen voor toegang. We ondersteunen ook netwerken die zijn geïmplementeerd achter VPN's, die gebruikmaken van VNet-gateways voor abonnementoverschrijdende connectiviteit. Deze implementaties zijn complexer worden, zodat het wordt aanbevolen om te beginnen met het openbare IP-model eerst.
 
@@ -200,19 +202,19 @@ Nadat een abonnement is beveiligd, gaat u naar Azure portal. Selecteer '+', Mark
 
 De volgende sectie helpen u bij het configureren van het eerste lid footprint in het netwerk. De stroom van de implementatie is onderverdeeld in vijf stappen: Basisbeginselen, regio's voor implementatie, netwerk-grootte en prestaties, Ethereum-instellingen, Azure Monitor.
 
-#### <a name="basics"></a>Basisbeginselen
+#### <a name="basics"></a>Basics
 
 Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke implementatie, zoals abonnement, resourcegroep en virtuele-eigenschappen.
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Description|Toegestane waarden|Standaardwaarden
+Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
 VM-gebruikersnaam|Gebruikersnaam voor de beheerder van elke geïmplementeerde VM (alleen alfanumerieke tekens)|1 tot 64 tekens|N.v.t.
-Verificatietype|De methode voor verificatie bij de virtuele machine.|Wachtwoord of SSH de openbare sleutel|Wachtwoord
-Wachtwoord (verificatietype = wachtwoord)|Het wachtwoord voor het beheerdersaccount voor elk van de virtuele machines die zijn geïmplementeerd.  Het wachtwoord moet 3 van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12-72 tekens|N.v.t.
+Verificatietype|De methode voor verificatie bij de virtuele machine.|Wachtwoord of openbare SSH-sleutel|Wachtwoord
+Wachtwoord (verificatietype = wachtwoord)|Het wachtwoord voor het beheerdersaccount voor elk van de geïmplementeerde virtuele machines.  Het wachtwoord moet 3 van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12-72 tekens|N.v.t.
 SSH-sleutel (verificatietype = openbare sleutel)|De veilige shell-sleutel die wordt gebruikt voor externe aanmelding.||N.v.t.
 Abonnement|Het abonnement waaraan het implementeren van het netwerk consortium||N.v.t.
 Resourcegroep|De resourcegroep waaraan de consortium network implementeren.||N.v.t.
@@ -270,7 +272,7 @@ Geef vervolgens onder Ethereum-instellingen, Ethereum-gerelateerde configuratie-
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Description|Toegestane waarden|Standaardwaarden
+  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat, moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.v.t.
 Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,10 +407,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### <a name="service-monitoring"></a>Servicecontrole

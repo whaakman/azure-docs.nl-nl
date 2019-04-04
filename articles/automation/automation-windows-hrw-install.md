@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842495"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916459"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -134,9 +134,9 @@ Voor het ontvangen van gedetailleerde informatie over de installatie, gebruikt u
 
 Runbooks kunt u elk van de activiteiten en gedefinieerd in de modules die zijn geïnstalleerd in uw omgeving Azure Automation-cmdlets. Deze modules worden niet automatisch geïmplementeerd naar on-premises computers, zodat u ze handmatig moet installeren. De uitzondering hierop is de Azure-module, dat wordt standaard geïnstalleerd en biedt toegang tot de cmdlets voor alle Azure-services en activiteiten voor Azure Automation.
 
-Omdat het primaire doel van de functie Hybrid Runbook Worker is om lokale resources te beheren, moet u waarschijnlijk voor het installeren van de modules die ondersteuning bieden voor deze resources. Zie voor meer informatie over het installeren van Windows PowerShell-modules [Modules installeren](https://msdn.microsoft.com/library/dd878350.aspx). 
+Omdat het primaire doel van de functie Hybrid Runbook Worker is om lokale resources te beheren, moet u waarschijnlijk voor het installeren van de modules die ondersteuning bieden voor deze resources. Zie voor meer informatie over het installeren van Windows PowerShell-modules [Modules installeren](/powershell/developer/windows-powershell). 
 
-Modules die zijn geïnstalleerd moeten zich op een locatie waarnaar wordt verwezen door de **PSModulePath** omgevingsvariabele zodat ze automatisch van de hybrid worker importeren kan. Zie voor meer informatie, [wijzigen van het installatiepad PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+Modules die zijn geïnstalleerd moeten zich op een locatie waarnaar wordt verwezen door de **PSModulePath** omgevingsvariabele zodat ze automatisch van de hybrid worker importeren kan. Zie voor meer informatie, [wijzigen van het installatiepad PSModulePath](/powershell/developer/windows-powershell).
 
 ## <a name="next-steps"></a>Volgende stappen
 

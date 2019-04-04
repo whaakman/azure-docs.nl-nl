@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838796"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905882"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 ![Overzicht](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. De ontwikkelaar van gegevens maakt een zelf-hostende integratieruntime binnen een Azure data factory met behulp van een PowerShell-cmdlet. De Azure-portal biedt momenteel geen ondersteuning voor deze functie.
-2. Een gekoppelde service voor een on-premises gegevensarchief maakt de ontwikkelaar van gegevens door het exemplaar van de zelf-hostende integration runtime die moet worden gebruikt verbinding maken met de opgeslagen gegevens op te geven. De ontwikkelaar van de gegevens gebruikt als onderdeel van het instellen van de gekoppelde service, de toepassing Referentiebeheer (momenteel niet ondersteund) voor het instellen van verificatietypen en -referenties. De toepassing Referentiebeheer communiceert met het gegevensarchief om de verbinding en de zelf-hostende integratieruntime voor het opslaan van referenties te testen.
+2. Een gekoppelde service voor een on-premises gegevensarchief maakt de ontwikkelaar van gegevens door het exemplaar van de zelf-hostende integration runtime die moet worden gebruikt verbinding maken met de opgeslagen gegevens op te geven.
 3. De zelf-hostende integration runtime-knooppunt versleutelt de referenties met behulp van Windows Data Protection Application Programming Interface (DPAPI) en de referenties die lokaal wordt opgeslagen. Als meerdere knooppunten voor hoge beschikbaarheid zijn ingesteld, worden de referenties verder gesynchroniseerd op andere knooppunten. Elk knooppunt versleutelt de referenties met behulp van DPAPI en slaat deze lokaal. Synchronisatie van referenties is transparant voor de ontwikkelaar van de gegevens en wordt verwerkt door de zelf-hostende IR    
 4. De Data Factory-service communiceert met de zelf-hostende integratieruntime voor planning en het beheer van taken via een *besturingskanaal* die gebruikmaakt van een gedeelde Azure Service Bus-wachtrij. Wanneer de activiteitstaak van een worden uitgevoerd moet, wordt in Data Factory de aanvraag, samen met een referentie-informatie wachtrijen (als referenties niet al in de zelf-hostende integratieruntime opgeslagen zijn). De zelf-hostende integratieruntime is serversysteemstatus van de taak na polling van de wachtrij.
 5. De zelf-hostende integratieruntime worden gegevens gekopieerd van een on-premises gegevensopslag naar een opslag in de cloud, of vice versa, afhankelijk van hoe de copy-activiteit is geconfigureerd in de pijplijn. Voor deze stap communiceert de zelf-hostende integratieruntime rechtstreeks met cloud-gebaseerde services zoals Azure Blob-opslag via een beveiligde (HTTPS)-kanaal.
@@ -329,7 +329,7 @@ Als u fouten die vergelijkbaar is met de volgende query optreden, is het waarsch
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Externe toegang via een intranet inschakelen  
-Als u PowerShell of de toepassing Referentiebeheer gebruiken voor het versleutelen van de referenties van een andere computer (in het netwerk) dan wanneer de zelf-hostende integratieruntime is geïnstalleerd, kunt u inschakelen de **externe toegang via Intranet**optie. Als u PowerShell of de toepassing Referentiebeheer voor het versleutelen van de referenties op dezelfde computer waarop de zelf-hostende integratieruntime is geïnstalleerd, u kunt niet inschakelen **externe toegang via Intranet**.
+Als u PowerShell gebruikt voor het versleutelen van de referenties van een andere computer (in het netwerk) dan wanneer de zelf-hostende integratieruntime is geïnstalleerd, kunt u inschakelen de **externe toegang via Intranet** optie. Als u PowerShell voor het versleutelen van de referenties op dezelfde computer waarop de zelf-hostende integratieruntime is geïnstalleerd uitvoeren, u kunt niet inschakelen **externe toegang via Intranet**.
 
 U moet inschakelen **externe toegang via Intranet** voordat u een ander knooppunt voor hoge beschikbaarheid en schaalbaarheid kunt toevoegen.  
 
@@ -339,9 +339,7 @@ Als u een firewall van derden gebruikt, kunt u handmatig openen poort 8060 (of d
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> De toepassing Referentiebeheer is nog niet beschikbaar voor het versleutelen van de referenties in Azure Data Factory V2.  
+``` 
 
 Als u ervoor geen open poort 8060 op de zelf-hostende integration runtime-machine kiest, kunt u methoden dan de instelling referenties toepassing gebruiken voor het configureren van de referenties van de gegevensopslag. Bijvoorbeeld, kunt u de **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 

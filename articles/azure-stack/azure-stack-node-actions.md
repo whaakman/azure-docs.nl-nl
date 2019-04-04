@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090964"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483145"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
@@ -85,7 +85,7 @@ Deze actie wordt doorgaans gebruikt wanneer een knooppunt vastgelopen is en niet
 
 De stopactie wilt uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ De **start** actie Hiermee schakelt u het knooppunt. Het is hetzelfde als wannee
  
 Als u wilt uitvoeren met de actie beginnen, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Deze actie wordt doorgaans gebruikt tijdens het veld vervanging van onderdelen, 
 
 De actie van het clusterbesturingssysteem wilt uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ De **hervatten** actie wordt een uitgeschakelde knooppunt hervat en wordt er aan
 
 Als u wilt uitvoeren met de actie hervatten, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ Wanneer u de herstelactie uitvoert, moet u het BMC IP-adres opgeven.
 
 Als u wilt de herstelactie uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Als het afsluiten is mislukt, probeert de [leegmaken](#drain) bewerking gevolgd 
 
 De afsluitactie wilt uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

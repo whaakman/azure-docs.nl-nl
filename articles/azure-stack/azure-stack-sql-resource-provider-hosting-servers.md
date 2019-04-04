@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210523"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499230"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -186,14 +186,19 @@ SKU's kunnen niet worden toegewezen aan specifieke gebruikers of groepen.
 
 SKU's kunnen een uur duren om te worden weergegeven in de portal. Gebruikers kunnen geen een database maken totdat de SKU is volledig gemaakt.
 
-Als u wilt een SKU bewerken, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
+Als u wilt een SKU bewerken, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. 
 
-> [!TIP]
-> U kunt bewerken of verwijderen van SQL resourcequota-provider op dezelfde locatie.
+Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
+
+> [!IMPORTANT]
+> Het kan een uur duren voor de nieuwe SKU's worden weergegeven in de gebruikersportal.
 
 ## <a name="make-sql-databases-available-to-users"></a>SQL-databases beschikbaar maken voor gebruikers
 
 Maak plannen en aanbiedingen om SQL-databases beschikbaar maken voor gebruikers. Voeg de **Microsoft.SqlAdapter** service aan het plan en maak een nieuw quotum.
+
+> [!IMPORTANT]
+> Duurt maximaal twee uur nieuwe quota zijn beschikbaar in de gebruikersportal of voordat een gewijzigde quotum wordt afgedwongen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

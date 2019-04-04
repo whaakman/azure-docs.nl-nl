@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762592"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917473"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
+Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), de [Azure Blob-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
 
 In de zelfstudie leert u hoe u de toepassing lokaal maakt en uitvoert, hoe u deze in Azure implementeert en uitvoert in de cloud, en hoe u deze van het begin af aan bouwt. Desgewenst kunt u de toepassing eerst van het begin af aan bouwen en vervolgens later de test doen en stappen implementeren.
 
@@ -81,7 +81,7 @@ Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitg
 6. Als u Visual Studio 2015 of hoger gebruikt, wijzigt u de SQL Server-verbindingsreeks in het *Web.config*-toepassingsbestand van het ContosoAdsWeb-project en in het *ServiceConfiguration.Local.cscfg*-bestand van het ContosoAdsCloudService-project. Wijzig in beide gevallen '(localdb)\v11.0' in '(localdb)\MSSQLLocalDB'.
 7. Druk op CTRL + F5 om de toepassing uit te voeren.
 
-    Wanneer u een cloudserviceproject lokaal uitvoert, roept Visual Studio automatisch de Azure-*rekenemulator* en de Azure-*opslagemulator* aan. De rekenemulator maakt gebruik van bronnen van de computer om de webrol- en werkrolomgeving te simuleren. De opslagemulator maakt gebruik van een [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)-database om Azure-cloudopslag te simuleren.
+    Wanneer u een cloudserviceproject lokaal uitvoert, roept Visual Studio automatisch de Azure-*rekenemulator* en de Azure-*opslagemulator* aan. De rekenemulator maakt gebruik van bronnen van de computer om de webrol- en werkrolomgeving te simuleren. De opslagemulator maakt gebruik van een [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb)-database om Azure-cloudopslag te simuleren.
 
     De eerste keer dat u een cloudserviceproject uitvoert, duurt het ongeveer een minuut voordat de emulator opstart. Nadat de emulator is opgestart, wordt de standaardbrowser geopend met de startpagina van de toepassing.
 
@@ -178,7 +178,7 @@ In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsg
 
     Wanneer de cloudservice en het opslagaccount zich in verschillende datacenters (verschillende regio's) bevinden, neemt de latentie toe en wordt de bandbreedte buiten het datacenter aan u in rekening gebracht. Bandbreedte binnen een datacenter is gratis.
 
-    Azure-affiniteitsgroepen bieden een mechanisme om de afstand tussen resources in een datacenter te minimaliseren, waardoor ze de latentie kunnen verminderen. In deze zelfstudie worden geen affiniteitsgroepen gebruikt. Zie [Een affiniteitsgroep maken in Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx) voor meer informatie.
+    Azure-affiniteitsgroepen bieden een mechanisme om de afstand tussen resources in een datacenter te minimaliseren, waardoor ze de latentie kunnen verminderen. In deze zelfstudie worden geen affiniteitsgroepen gebruikt. Zie [Een affiniteitsgroep maken in Azure](/previous-versions/azure/reference/gg715317(v=azure.100)) voor meer informatie.
 7. Klik op **Create**.
 
     ![Nieuw opslagaccount](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Het grootste deel van de controllercode is typerend voor het werken met een Entity Framework-gegevensmodel met behulp van een DbContext-klasse. Een uitzondering is de HttpPost `Create`-methode, waarmee een bestand wordt geüpload en opgeslagen in blobopslag. De modelbinder levert een [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-object aan de methode.
+Het grootste deel van de controllercode is typerend voor het werken met een Entity Framework-gegevensmodel met behulp van een DbContext-klasse. Een uitzondering is de HttpPost `Create`-methode, waarmee een bestand wordt geüpload en opgeslagen in blobopslag. De modelbinder levert een [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase)-object aan de methode.
 
 ```csharp
 [HttpPost]
@@ -775,7 +775,7 @@ Zie [Microsoft Azure Storage - nieuwe functies, aanbevolen procedures en patrone
 
 Zie de volgende bronnen voor meer informatie:
 
-* [Azure Cloud Services Part 1: Inleiding](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
+* [Azure Cloud Services deel 1: Inleiding](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Cloudservices beheren](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

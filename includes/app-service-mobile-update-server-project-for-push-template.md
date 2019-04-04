@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 0e7118ff6a2860351a7bfa38637f1d767b0f4a2d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817433"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890914"
 ---
 In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps-back-end project voor het verzenden van een pushmelding ontvangen wanneer een nieuw item wordt toegevoegd. Dit proces wordt aangestuurd door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs, waarmee platformoverschrijdende pushes. De verschillende clients zijn geregistreerd voor pushmeldingen te verzenden met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.
 
@@ -82,7 +82,7 @@ Kies een van de volgende procedures die overeenkomt met uw back-end-projecttype&
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs.
+    // see https://aka.ms/nodejshubs.
     logger.info('Running TodoItem.insert');
 
     // Define the template payload.

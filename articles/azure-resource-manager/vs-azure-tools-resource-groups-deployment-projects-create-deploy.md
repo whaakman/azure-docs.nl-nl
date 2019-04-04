@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097454"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905848"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 
 Met Visual Studio kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's. In dit artikel gaat u een web-app en SQL Database implementeren.  
 
 In dit artikel leest u hoe u [Visual Studio 2017 gebruikt met de workloads voor ontwikkeling en ASP.NET van Azure geïnstalleerd](/dotnet/azure/dotnet-tools). Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Een Azure-resourcegroepproject maken
 
@@ -148,7 +150,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
    > [!NOTE]
    > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. Installeer ze als dit gevraagd wordt. U hebt de Azure PowerShell-modules nodig om resourcegroepen te kunnen implementeren. Het PowerShell-script in het project werkt niet met de nieuwe [Azure PowerShell Az-module](/powershell/azure/new-azureps-module-az). 
    >
-   > Zie [Azure PowerShell-modules installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
+   > Zie [Azure PowerShell-modules installeren en configureren](/powershell/azure/install-Az-ps) voor meer informatie.
    > 
    > 
 6. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:

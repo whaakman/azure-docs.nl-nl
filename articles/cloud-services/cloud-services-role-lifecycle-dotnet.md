@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001555"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916305"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>De levenscyclus van een web- of werkrol in .NET aanpassen
-Wanneer u een werkrol maakt, u kunt uitbreiden de [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klasse biedt methoden voor u voor de onderdrukking waarmee u kunnen reageren op gebeurtenissen in de levensduur. Voor webrollen is deze klasse is optioneel, zodat u deze gebruiken moet om te reageren op gebeurtenissen in de levensduur.
+Wanneer u een werkrol maakt, u kunt uitbreiden de [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) klasse biedt methoden voor u voor de onderdrukking waarmee u kunnen reageren op gebeurtenissen in de levensduur. Voor webrollen is deze klasse is optioneel, zodat u deze gebruiken moet om te reageren op gebeurtenissen in de levensduur.
 
 ## <a name="extend-the-roleentrypoint-class"></a>De klasse RoleEntryPoint uitbreiden
-De [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klasse bevat de methoden die door Azure worden aangeroepen wanneer het **begint**, **wordt uitgevoerd**, of **stopt** een web- of worker-rol. Eventueel kunt u deze methoden voor het beheren van de initialisatie van de rol, rol afsluiten reeksen of de uitvoering van thread van de rol overschrijven. 
+De [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) klasse bevat de methoden die door Azure worden aangeroepen wanneer het **begint**, **wordt uitgevoerd**, of **stopt** een web- of worker-rol. Eventueel kunt u deze methoden voor het beheren van de initialisatie van de rol, rol afsluiten reeksen of de uitvoering van thread van de rol overschrijven. 
 
 Bij het uitbreiden van **RoleEntryPoint**, u moet rekening houden met het volgende gedrag van de methoden:
 
-* De [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) en [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) methoden retourneren een Booleaanse waarde, zodat het mogelijk om terug te keren **false** van deze methoden.
+* De [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) en [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) methoden retourneren een Booleaanse waarde, zodat het mogelijk om terug te keren **false** van deze methoden.
   
    Als uw code retourneert **false**, de rol-proces onverwacht is beëindigd, zonder dat een afsluitprocedure worden uitgevoerd dat u hebt in plaats. In het algemeen dient u te vermijden retourneren **false** uit de **OnStart** methode.
 * Een niet-onderschepte uitzondering binnen een overbelasting van een **RoleEntryPoint** methode wordt beschouwd als een onverwerkte uitzondering.
   
-   Als er een uitzondering optreedt in een van de levenscyclus van methoden, Azure verhoogt de [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) gebeurtenis, waarna het proces is beëindigd. Nadat uw rol offline genomen is, wordt deze opnieuw gestart door Azure. Wanneer er een niet-verwerkte uitzondering optreedt, de [stoppen](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) gebeurtenis niet wordt gegenereerd, en de **OnStop** methode is niet aangeroepen.
+   Als er een uitzondering optreedt in een van de levenscyclus van methoden, Azure verhoogt de [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) gebeurtenis, waarna het proces is beëindigd. Nadat uw rol offline genomen is, wordt deze opnieuw gestart door Azure. Wanneer er een niet-verwerkte uitzondering optreedt, de [stoppen](/previous-versions/azure/reference/ee758136(v=azure.100)) gebeurtenis niet wordt gegenereerd, en de **OnStop** methode is niet aangeroepen.
 
-Als uw rol niet wordt gestart, of tussen de initialiseren, bezet zijn, en moet worden gestopt Staten wordt gerecycled, kan uw code is een onverwerkte uitzondering in een van de van levenscyclusgebeurtenissen telkens wanneer de rol opnieuw wordt opgestart genereren. In dit geval gebruiken de [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) gebeurtenis om de oorzaak van de uitzondering en op de juiste manier verwerken. Uw rol kan ook worden geretourneerd van de [uitvoeren](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) methode, waardoor de rol opnieuw wordt gestart. Zie voor meer informatie over implementatiestatussen [algemene problemen die oorzaak rollen worden gerecycled](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Als uw rol niet wordt gestart, of tussen de initialiseren, bezet zijn, en moet worden gestopt Staten wordt gerecycled, kan uw code is een onverwerkte uitzondering in een van de van levenscyclusgebeurtenissen telkens wanneer de rol opnieuw wordt opgestart genereren. In dit geval gebruiken de [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) gebeurtenis om de oorzaak van de uitzondering en op de juiste manier verwerken. Uw rol kan ook worden geretourneerd van de [uitvoeren](/previous-versions/azure/reference/ee772746(v=azure.100)) methode, waardoor de rol opnieuw wordt gestart. Zie voor meer informatie over implementatiestatussen [algemene problemen die oorzaak rollen worden gerecycled](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Als u de **Azure-hulpprogramma's voor Microsoft Visual Studio** voor het ontwikkelen van uw toepassing, de rol projectsjablonen automatisch uitgebreid de **RoleEntryPoint** klasse voor u, in de  *WebRole.cs* en *WorkerRole.cs* bestanden.

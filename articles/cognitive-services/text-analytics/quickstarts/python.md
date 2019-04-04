@@ -1,53 +1,72 @@
 ---
 title: 'Quickstart: Python gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Krijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met behulp van de Text Analytics-API in Microsoft Cognitive Services in Azure.
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: 1219a5f43d8abd78c4840e824c2f4c69a6fa7939
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330134"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893075"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Python gebruiken om de Text Analytics Cognitive Service aan te roepen 
 <a name="HOLTop"></a>
 
 Hieronder ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met Python kunt gebruiken om [taal te detecteren](#Detect), [gevoel te analyseren](#SentimentAnalysis) en [sleuteltermen op te halen](#KeyPhraseExtraction).
 
-U kunt dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de badge launch binder: 
+U kunt dit voorbeeld vanaf de opdrachtregel of als een Jupyter-notebook uitvoert op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
+
+### <a name="command-line"></a>Opdrachtregel
+
+U moet mogelijk bijwerken [IPython](https://ipython.org/install.html), de kernel voor Jupyter:
+```bash
+pip install --upgrade IPython
+```
+
+U moet mogelijk bijwerken de [aanvragen](http://docs.python-requests.org/en/master/) bibliotheek:
+```bash
+pip install requests
+```
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie. 
+* De [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die voor u is gegenereerd tijdens de registratie.
 
-Als u wilt doorgaan met dit scenario, moet u `subscription_key` vervangen door een geldige abonnementssleutel die u eerder hebt opgehaald.
+* De volgende invoer, abonnementssleutel, en `text_analytics_base_url` worden gebruikt voor alle snelstartgidsen hieronder. Voeg de import toe.
 
-
-```python
-subscription_key = None
-assert subscription_key
-```
-
-Vervolgens controleert u of de regio in `text_analytics_base_url` overeenkomt met de regio die u hebt gebruikt bij het instellen van de service. Als u de sleutel van een gratis proefversie gebruikt, hoeft u niets te wijzigen.
-
-
-```python
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
-```
+    ```python
+    import requests
+    # pprint is pretty print (formats the JSON)
+    from pprint import pprint
+    from IPython.display import HTML
+    ```
+    
+    Voeg deze regels toe en vervang `subscription_key` met een geldig abonnement-sleutel die u eerder hebt verkregen.
+    
+    ```python
+    subscription_key = '<ADD KEY HERE>'
+    assert subscription_key
+    ```
+    
+    Vervolgens voegt u deze regel toe en vervolgens controleren of de regio in `text_analytics_base_url` komt overeen met de versie die u hebt gebruikt bij het instellen van de service. Als u een gratis proefversie sleutel gebruikt, moet u niet van belang.
+    
+    ```python
+    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+    ```
 
 <a name="Detect"></a>
 
@@ -55,19 +74,18 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd met behulp van de [methode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Het service-eindpunt van de taaldetectie-API voor uw regio is beschikbaar via de volgende URL:
 
-
 ```python
 language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-
+```url
+https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+```
 
 De payload voor de API bestaat uit een lijst met `documents`, waarvan elk een `id`- en een `text`-kenmerk bevat. Het `text`-kenmerk bevat de tekst die moet worden geanalyseerd. 
 
-Vervang de `documents`-woordenlijst door andere tekst voor taaldetectie. 
-
+Vervang de `documents`-woordenlijst door andere tekst voor taaldetectie.
 
 ```python
 documents = { 'documents': [
@@ -79,16 +97,27 @@ documents = { 'documents': [
 
 De volgende paar regels code roepen de taaldetectie-API aan met behulp van de `requests`-bibliotheek in Python om de taal in de documenten te bepalen.
 
-
 ```python
-import requests
-from pprint import pprint
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(language_api_url, headers=headers, json=documents)
 languages = response.json()
 pprint(languages)
 ```
 
+Met de volgende regels code worden de JSON-gegevens als een HTML-tabel weergegeven.
+
+```python
+table = []
+for document in languages["documents"]:
+    text  = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]
+    langs = ", ".join(["{0}({1})".format(lang["name"], lang["score"]) for lang in document["detectedLanguages"]])
+    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, langs))
+HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table>".format("\n".join(table)))
+```
+
+Geslaagde JSON-antwoord:
+
+```json
     {'documents': [{'detectedLanguages': [{'iso6391Name': 'en',
                                            'name': 'English',
                                            'score': 1.0}],
@@ -102,40 +131,23 @@ pprint(languages)
                                            'score': 1.0}],
                     'id': '3'}],
      'errors': []}
-
-
-Met de volgende regels code worden de JSON-gegevens als een HTML-tabel weergegeven.
-
-
-```python
-from IPython.display import HTML
-table = []
-for document in languages["documents"]:
-    text  = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]
-    langs = ", ".join(["{0}({1})".format(lang["name"], lang["score"]) for lang in document["detectedLanguages"]])
-    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, langs))
-HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-Met de Sentiment Analysis-API wordt het gevoel in een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
+De analyse-Gevoels-API detecteert het sentiment (bereik tussen positief of negatief) van een set tekstrecords, met behulp van de [Sentiment methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
 
 Het service-eindpunt voor sentimentanalyse is voor uw regio beschikbaar via de volgende URL:
-
 
 ```python
 sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
-
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
-
-Net zoals in het voorbeeld van taaldetectie wordt de service voorzien van een woordenlijst met een `documents`-sleutel die uit een lijst met documenten bestaat. Elk document is een tuple die bestaat uit de `id`, de te analyseren `text` en de `language` van de tekst. U kunt de taaldetectie-API uit de vorige sectie gebruiken om dit veld in te vullen. 
-
+Net zoals in het voorbeeld van taaldetectie wordt de service voorzien van een woordenlijst met een `documents`-sleutel die uit een lijst met documenten bestaat. Elk document is een tuple die bestaat uit de `id`, de te analyseren `text` en de `language` van de tekst. U kunt de taaldetectie-API uit de vorige sectie gebruiken om dit veld in te vullen.
 
 ```python
 documents = {'documents' : [
@@ -148,7 +160,6 @@ documents = {'documents' : [
 
 De sentiment-API kan nu worden gebruikt om de documenten te analyseren op de daarin opgenomen sentimenten.
 
-
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(sentiment_api_url, headers=headers, json=documents)
@@ -156,13 +167,16 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-    {'documents': [{'id': '1', 'score': 0.7673527002334595},
-                   {'id': '2', 'score': 0.18574094772338867},
-                   {'id': '3', 'score': 0.5}],
-     'errors': []}
+Geslaagde JSON-antwoord:
 
+```json
+{'documents': [{'id': '1', 'score': 0.7673527002334595},
+                {'id': '2', 'score': 0.18574094772338867},
+                {'id': '3', 'score': 0.5}],
+    'errors': []}
+```
 
-De gevoelsscore voor een document is tussen $0$ en $1$, waarbij een hogere score op een positiever gevoel wijst.
+De gevoelsscore voor een document is tussen 0,0 en 1,0, met een hogere score die wijzen op een positiever gevoel.
 
 <a name="KeyPhraseExtraction"></a>
 
@@ -172,17 +186,13 @@ Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdoc
 
 Het service-eindpunt voor de service voor het ophalen van sleuteltermen is toegankelijk via de volgende URL:
 
-
 ```python
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
-
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
-
 De verzameling documenten is dezelfde als die voor sentimentanalyse werd gebruikt.
-
 
 ```python
 documents = {'documents' : [
@@ -191,27 +201,11 @@ documents = {'documents' : [
   {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
   {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
 ]}
-headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
-response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
-key_phrases = response.json()
-pprint(key_phrases)
 ```
 
-
-    {'documents': [
-        {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
-        {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
-        {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
-        {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
-     'errors': []
-    }
-
-
-Het JSON-object kan opnieuw als een HTML-tabel worden weergegeven met behulp van de volgende regels code:
-
+Het JSON-object kan worden gerenderd als een HTML-tabel met behulp van de volgende regels code:
 
 ```python
-from IPython.display import HTML
 table = []
 for document in key_phrases["documents"]:
     text    = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]    
@@ -220,12 +214,30 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
+De volgende paar regels code roepen de taaldetectie-API aan met behulp van de `requests`-bibliotheek in Python om de taal in de documenten te bepalen.
+```python
+headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
+response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
+key_phrases = response.json()
+pprint(key_phrases)
+```
+
+Geslaagde JSON-antwoord:
+```json
+{'documents': [
+    {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
+    {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
+    {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
+    {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
+    'errors': []
+}
+```
+
 ## <a name="identify-entities"></a>Entiteiten identificeren
 
 De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
 Het service-eindpunt voor de service voor entiteitskoppeling is toegankelijk via de volgende URL:
-
 
 ```python
 entity_linking_api_url = text_analytics_base_url + "entities"
@@ -234,9 +246,7 @@ print(entity_linking_api_url)
 
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
-
 De verzameling documenten staat hieronder:
-
 
 ```python
 documents = {'documents' : [
@@ -244,7 +254,6 @@ documents = {'documents' : [
   {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
-
 De documenten kunnen nu worden verzonden naar de Text Analytics-API om het antwoord te ontvangen.
 
 ```python
@@ -253,6 +262,7 @@ response  = requests.post(entity_linking_api_url, headers=headers, json=document
 entities = response.json()
 ```
 
+Geslaagde JSON-antwoord:
 ```json
 {
     "Documents": [
@@ -416,5 +426,5 @@ entities = response.json()
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van Text Analytics](../overview.md)  
+ [Text Analytics-overzicht](../overview.md)  
  [Veelgestelde vragen](../text-analytics-resource-faq.md)

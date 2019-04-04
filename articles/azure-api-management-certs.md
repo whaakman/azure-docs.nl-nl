@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765795"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895682"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Een Azure Service Management-certificaat uploaden
 Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel verstrekt door Azure. Veel programma's en hulpprogramma's (zoals Visual Studio of de Azure SDK) kunt u deze certificaten gebruiken voor het automatiseren van configuratie en implementatie van verschillende Azure-services. 
@@ -56,4 +56,4 @@ Zodra u hebt een beheercertificaat gemaakt, (CER-bestand met alleen de openbare 
     ![Instellingen](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u een beheercertificaat dat is gekoppeld aan een abonnement hebt, u kunt (nadat u de overeenkomende certificaat lokaal hebt geïnstalleerd) via een programma verbinding maken met de [klassieke implementatiemodel REST-API](https://msdn.microsoft.com/library/azure/mt420159.aspx) en automatiseren van de verschillende Azure-resources die ook gekoppeld aan dat abonnement zijn.
+Nu dat u een beheercertificaat dat is gekoppeld aan een abonnement hebt, u kunt (nadat u de overeenkomende certificaat lokaal hebt geïnstalleerd) via een programma verbinding maken met de [klassieke implementatiemodel REST-API](/azure/#pivot=sdkstools) en automatiseren van de verschillende Azure-resources die ook gekoppeld aan dat abonnement zijn.

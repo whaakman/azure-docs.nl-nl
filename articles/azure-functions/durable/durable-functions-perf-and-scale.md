@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286377"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895746"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure Functions)
 
@@ -56,7 +56,7 @@ De extensie duurzame taak implementeert een willekeurig exponentieel uitstel alg
 De maximale polling vertraging kan worden geconfigureerd via de `maxQueuePollingInterval` eigenschap in de [host.json bestand](../functions-host-json.md#durabletask). Deze instelling op een hogere waarde kan leiden tot hogere latenties berichtverwerking. Hogere latenties zou worden verwacht na de periode van inactiviteit. Deze instelling op een lagere waarde kan leiden tot hogere kosten voor opslag vanwege toegenomen opslagtransacties.
 
 > [!NOTE]
-> Bij uitvoering in de Azure Functions-verbruik en Premium-abonnementen, de [Azure Functions schalen Controller](../functions-scale.md#how-the-consumption-plan-works) of elke wachtrij besturingselement en werkitem elke 10 seconden. Deze extra polling is nodig om te bepalen wanneer de functie-app-instanties activeren en om beslissingen te schalen. Op het moment van schrijven, wordt dit 10 tweede interval constant en kan niet worden geconfigureerd.
+> Bij uitvoering in de Azure Functions-verbruik en Premium-abonnementen, de [Azure Functions schalen Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) of elke wachtrij besturingselement en werkitem elke 10 seconden. Deze extra polling is nodig om te bepalen wanneer de functie-app-instanties activeren en om beslissingen te schalen. Op het moment van schrijven, wordt dit 10 tweede interval constant en kan niet worden geconfigureerd.
 
 ## <a name="storage-account-selection"></a>Storage-account selecteren
 
@@ -244,4 +244,4 @@ Als er niet de verwachte doorvoerwaarden en de CPU en geheugengebruik, in orde w
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Uw eerste Durable Function maken in C#](durable-functions-create-first-csharp.md)
+> [Uw eerste duurzame functie in makenC#](durable-functions-create-first-csharp.md)

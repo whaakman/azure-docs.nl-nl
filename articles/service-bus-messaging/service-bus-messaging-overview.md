@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579339"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918838"
 ---
 # <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
 
@@ -117,7 +117,7 @@ Service Bus kan volledig worden geïntegreerd met de volgende Azure-services:
 
 - [Event Grid](https://azure.microsoft.com/services/event-grid/) 
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Functies](https://azure.microsoft.com/services/functions/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
@@ -125,7 +125,7 @@ Service Bus kan volledig worden geïntegreerd met de volgende Azure-services:
 
 Zie de volgende artikelen om aan de slag te gaan met de Service Bus-berichtenservice:
 
-* [Kiezen tussen Azure-services die berichten bezorgen](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* [Azure berichtenservices vergelijken](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Meer informatie over de lagen [Standard en Premium](https://azure.microsoft.com/pricing/details/service-bus/) van Azure Service Bus en de bijbehorende tarieven
-* [Prestaties en latentie van Azure Service Bus Premium-laag](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/) (Engelstalig)
+* [Prestaties en de latentie van Azure Service Bus Premium-laag](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Probeer de snelstartgidsen voor [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) of [JMS](service-bus-java-how-to-use-jms-api-amqp.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007776"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917614"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Over het configureren en uitvoeren van opstarttaken voor een cloudservice
 U kunt opstarttaken gebruiken bewerkingen uit te voeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren zijn onder meer een onderdeel installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langlopende proces.
@@ -50,13 +50,13 @@ Hieronder vindt u de procedure voor het opstarten van rollen in Azure:
    * De **achtergrond** en **voorgrond** taken aan de opstarttaak asynchroon, parallel worden gestart.  
      
      > [!WARNING]
-     > IIS mogelijk niet volledig geconfigureerd tijdens de fase van de taak starten in het opstartproces zodat rolspecifieke gegevens mogelijk niet beschikbaar. Opstarttaken waarbij rolspecifieke gegevens moeten gebruiken [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > IIS mogelijk niet volledig geconfigureerd tijdens de fase van de taak starten in het opstartproces zodat rolspecifieke gegevens mogelijk niet beschikbaar. Opstarttaken waarbij rolspecifieke gegevens moeten gebruiken [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. Het hostproces van de rol wordt gestart en de site wordt gemaakt in IIS.
-4. De [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) methode wordt aangeroepen.
+4. De [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) methode wordt aangeroepen.
 5. Het exemplaar is gemarkeerd als **gereed** en verkeer wordt doorgestuurd naar het exemplaar.
-6. De [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) methode wordt aangeroepen.
+6. De [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) methode wordt aangeroepen.
 
 ## <a name="example-of-a-startup-task"></a>Voorbeeld van een opstarttaak
 Opstarttaken zijn gedefinieerd in de [ServiceDefinition.csdef] bestand, in de **taak** element. De **commandLine** kenmerk geeft de naam en de parameters van de batch-bestand of console opstartopdracht, de **executionContext** kenmerk Hiermee geeft u het niveau van de bevoegdheden van de taak starten en de **taskType** kenmerk geeft aan hoe de taak wordt uitgevoerd.
@@ -132,9 +132,9 @@ Er zijn twee soorten omgevingsvariabelen voor opstarttaken; statische omgevingsv
 
 Maakt gebruik van statische omgevingsvariabelen de **waarde** kenmerk van de [variabele] element. Het bovenstaande voorbeeld wordt de omgevingsvariabele **MyVersionNumber** heeft een statische waarde van "**1.0.0.0**'. Een ander voorbeeld zou zijn om te maken van een **StagingOrProduction** omgevingsvariabele die u handmatig met waarden van instellen kunt '**staging**'of'**productie**' om uit te voeren opstarten van de verschillende acties op basis van de waarde van de **StagingOrProduction** omgevingsvariabele.
 
-Omgevingsvariabelen op basis van de leden van de klasse RoleEnvironment gebruik niet de **waarde** kenmerk van de [variabele] element. In plaats daarvan de [RoleInstanceValue] onderliggend element met de juiste **XPath** waarde van het kenmerk, worden gebruikt voor het maken van een omgevingsvariabele op basis van een specifiek lid van de [RoleEnvironment] klasse. Waarden voor de **XPath** kenmerk voor toegang tot verschillende [RoleEnvironment] waarden vindt [hier](cloud-services-role-config-xpath.md).
+Omgevingsvariabelen op basis van de leden van de klasse RoleEnvironment gebruik niet de **waarde** kenmerk van de [variabele] element. In plaats daarvan de [RoleInstanceValue] onderliggend element met de juiste **XPath** waarde van het kenmerk, worden gebruikt voor het maken van een omgevingsvariabele op basis van een specifiek lid van de [ RoleEnvironment] klasse. Waarden voor de **XPath** kenmerk voor toegang tot verschillende [RoleEnvironment] waarden vindt [hier](cloud-services-role-config-xpath.md).
 
-Bijvoorbeeld, om te maken van een omgevingsvariabele die is '**waar**"wanneer het exemplaar wordt uitgevoerd in de rekenemulator en"**false**"bij het uitvoeren in de cloud, gebruikt u de volgende [Variabele] en [RoleInstanceValue] elementen:
+Bijvoorbeeld, om te maken van een omgevingsvariabele die is '**waar**"wanneer het exemplaar wordt uitgevoerd in de rekenemulator en"**false**"bij het uitvoeren in de cloud, gebruikt u de volgende [variabele ] en [RoleInstanceValue] elementen:
 
 ```xml
 <Startup>

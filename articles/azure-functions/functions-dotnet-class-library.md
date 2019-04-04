@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58111477"
+ms.locfileid: "58896156"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -131,7 +131,7 @@ public static class BindingExpressionsExample
 
 De buildproces maakt een *function.json* bestand in een functie in de build-map. Als u eerder hebt genoteerd, wordt dit bestand is niet bedoeld rechtstreeks worden bewerkt. Bindingsconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. 
 
-Het doel van dit bestand informatie wordt verstrekt aan de scale-controller moet worden gebruikt voor [beslissingen schalen op het abonnement consumption](functions-scale.md#how-the-consumption-plan-works). Om deze reden heeft het bestand alleen trigger info, geen invoer of uitvoerbindingen.
+Het doel van dit bestand informatie wordt verstrekt aan de scale-controller moet worden gebruikt voor [beslissingen schalen op het abonnement consumption](functions-scale.md#how-the-consumption-and-premium-plans-work). Om deze reden heeft het bestand alleen trigger info, geen invoer of uitvoerbindingen.
 
 Het gegenereerde *function.json* bestand bevat een `configurationSource` eigenschap waarin de runtime gebruikmaken van .NET-kenmerken voor bindingen, in plaats van *function.json* configuratie. Hier volgt een voorbeeld:
 
@@ -274,7 +274,7 @@ U kunt geen gebruiken `out` parameters in de asynchrone functies. Voor uitvoerbi
 
 ## <a name="cancellation-tokens"></a>Annuleringstokens
 
-Een functie accepteert een [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parameter waarmee het besturingssysteem op uw code op de hoogte gesteld wanneer de functie op het punt te worden beëindigd. U kunt deze melding kunt gebruiken om te controleren of dat de functie niet onverwacht wordt beëindigd op een manier die blijven de gegevens in een inconsistente status.
+Een functie accepteert een [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter waarmee het besturingssysteem op uw code op de hoogte gesteld wanneer de functie op het punt te worden beëindigd. U kunt deze melding kunt gebruiken om te controleren of dat de functie niet onverwacht wordt beëindigd op een manier die blijven de gegevens in een inconsistente status.
 
 Het volgende voorbeeld laat zien hoe om te controleren voor aanstaande beëindiging van een functie.
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definieert de [Storage-blob](functions-bindings-storage-blob.md) invoer of uitvoer verbinding maakt, en [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is een ondersteunde binding uitvoertype.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definieert de [Storage-blob](functions-bindings-storage-blob.md) invoer of uitvoer verbinding maakt, en [TextWriter](/dotnet/api/system.io.textwriter) is een ondersteunde binding uitvoertype.
 
 ### <a name="multiple-attribute-example"></a>Voorbeeld van meerdere kenmerk
 

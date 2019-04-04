@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975624"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487580"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -95,13 +95,13 @@ Hier ziet u de versie van Azure CLI en andere afhankelijke bibliotheken die zijn
 
 2. PIP upgraden. PIP is een pakketbeheerprogramma voor Python. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Installeer de **gecertificeerde** module. [Gecertificeerde](https://pypi.org/project/certifi/) een module en een verzameling van basiscertificaten voor het valideren van de betrouwbaarheid van SSL-certificaten tijdens het verifiëren van de identiteit van de TLS-hosts. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan
 
 1. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer ve
 
 1. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -327,7 +327,7 @@ Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer ve
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
 
-    | Value | Voorbeeld | Description |
+    | Value | Voorbeeld | Beschrijving |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
     | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
@@ -443,7 +443,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
 
-    | Value | Voorbeeld | Description |
+    | Value | Voorbeeld | Beschrijving |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
     | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |

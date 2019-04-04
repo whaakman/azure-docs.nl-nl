@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349702"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497173"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-[Quota](azure-stack-plan-offer-quota-overview.md#plans) bepalen de grenzen van de resources die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kunt bijvoorbeeld een gebruiker kan maximaal vijf virtuele machines maken. Elke resource kan een eigen typen quota's hebben.
+[Quota](azure-stack-plan-offer-quota-overview.md#plans) bepalen de grenzen van de resources die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kan een gebruiker bijvoorbeeld toestaan om maximaal vijf virtuele machines te maken. Elke resource kan eigen typen quota hebben.
+
+> [!IMPORTANT]
+> Duurt maximaal twee uur nieuwe quota zijn beschikbaar in de gebruikersportal of voordat een gewijzigde quotum wordt afgedwongen.
 
 ## <a name="compute-quota-types"></a>COMPUTE quotatypen
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349702"
 | Maximale capaciteit (in GB) van de premium-beheerde schijf | 2048 | De maximale capaciteit van premium beheerde schijven die kunnen worden gemaakt op deze locatie. |
 
 > [!NOTE]  
-> Maximum-capaciteit van niet-beheerde schijf (pagina-blobs) is gescheiden van beheerde schijfquotum, deze moet worden ingesteld in de opslaglimiet.
+> De maximale capaciteit van niet-beheerde schijf (pagina-blobs) staat los van het quotum voor de beheerde schijf. U kunt deze waarde instellen in **opslagquota**.
 
-## <a name="storage-quota-types"></a>Opslagtypen quotum 
+## <a name="storage-quota-types"></a>Opslagtypen quotum
 
 | **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ ms.locfileid: "58349702"
 | Totale aantal opslagaccounts |20 |Het maximale aantal opslagaccounts die een abonnement op deze locatie maken kunt. |
 
 > [!NOTE]  
-> Het kan maximaal twee uur duren voordat een opslaglimiet wordt afgedwongen. Maximum-capaciteit van beheerde schijf is gescheiden van het totale opslagquotum, deze moet worden ingesteld in het quotum voor Compute.
+> De maximale capaciteit van beheerde schijven is gescheiden van de totale opslag van inhoud. U kunt deze waarde instellen in **Compute quota**.
 
 ## <a name="network-quota-types"></a>Netwerk quotatypen
 
@@ -59,7 +62,7 @@ ms.locfileid: "58349702"
 | --- | --- | --- |
 | Maximum aantal openbare IP-adressen |50 |Het maximum aantal openbare IP-adressen die een abonnement op deze locatie maken kunt. |
 | Maximale virtuele netwerken |50 |Het maximum aantal virtuele netwerken die een abonnement op deze locatie maken kunt. |
-| Maximale virtuele netwerkgateways |1 |Het maximum aantal virtuele netwerkgateways (VPN-Gateways) die een abonnement op deze locatie maken kunt. |
+| Maximale virtuele netwerkgateways |1 |Het maximum aantal virtuele netwerkgateways (VPN-gateways) die een abonnement op deze locatie maken kunt. |
 | Maximale netwerkverbindingen |2 |Het maximale aantal netwerkverbindingen (point-to-point of site-naar-site) die een abonnement via alle gateways voor virtueel netwerk op deze locatie maken kunt. |
 | Maximale load balancers |50 |Het maximale aantal load balancers die een abonnement op deze locatie maken kunt. |
 | Maximum aantal NIC 's |100 |Het maximale aantal netwerkinterfaces die een abonnement op deze locatie maken kunt. |

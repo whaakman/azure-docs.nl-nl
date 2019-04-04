@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259768"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904862"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
 Nadat u begint met het gebruik van een of meer Azure Cosmos DB-databases, kunt u controleren hoe en wanneer uw databases zijn geraadpleegd. Dit artikel bevat een overzicht van de logboeken die beschikbaar op het Azure-platform zijn. Leert u hoe u Diagnostische logboekregistratie inschakelen voor bewakingsdoeleinden voor het verzenden van logboeken naar [Azure Storage](https://azure.microsoft.com/services/storage/), stream logboeken naar het [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en hoe u Logboeken om te exporteren [vanAzureMonitor-Logboeken](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Logboeken beschikbaar zijn in Azure
 
@@ -132,7 +135,7 @@ Als u Azure PowerShell al hebt geïnstalleerd en u niet welke versie van het typ
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Azure PowerShell haalt alle abonnementen die zijn gekoppeld aan dit account en standaard het eerste certificaat gebruikt.
@@ -140,13 +143,13 @@ Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw 
 Als u meer dan één abonnement hebt, hebt u mogelijk om op te geven van het specifieke abonnement dat is gebruikt voor het maken van uw Azure key vault. Als u wilt zien van de abonnementen voor uw account, typ de volgende opdracht:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Als u het abonnement dat is gekoppeld aan het Azure Cosmos DB-account dat u zich aanmeldt, typ de volgende opdracht uit:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Hoewel u een bestaand opslagaccount voor uw logboeken in deze zelfstudie gebruik
 Voor nog gemakkelijker te maken van beheer in deze zelfstudie gebruiken we dezelfde resourcegroep bevinden als het account dat die de Azure Cosmos DB-database bevat. Vervang de waarden voor de **ContosoResourceGroup**, **contosocosmosdblogs**, en **Noord-centraal VS** parameters, zoals van toepassing:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Stel de naam van het Azure Cosmos DB aan een variabele met de naam **account**, waarbij **ResourceName** is de naam van het Azure Cosmos DB-account.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Logboekregistratie inschakelen
-Als u wilt logboekregistratie inschakelen voor Azure Cosmos DB, gebruikt u de `Set-AzureRmDiagnosticSetting` cmdlet met variabelen voor de nieuwe storage-account, Azure Cosmos DB-account en de categorie voor logboekregistratie wilt inschakelen. Voer de volgende opdracht uit en stel de **-ingeschakeld** markering **$true**:
+Als u wilt logboekregistratie inschakelen voor Azure Cosmos DB, gebruikt u de `Set-AzDiagnosticSetting` cmdlet met variabelen voor de nieuwe storage-account, Azure Cosmos DB-account en de categorie voor logboekregistratie wilt inschakelen. Voer de volgende opdracht uit en stel de **-ingeschakeld** markering **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 De uitvoer voor de opdracht moet lijken op het volgende voorbeeld:
@@ -221,7 +224,7 @@ De uitvoer van de opdracht wordt bevestigd dat logboekregistratie nu is ingescha
 U kunt eventueel ook het bewaarbeleid instellen voor uw Logboeken, zodat oudere logboeken automatisch worden verwijderd. Bijvoorbeeld, stel het bewaarbeleid met de **- RetentionEnabled** vlag ingesteld op **$true**. Stel de **- RetentionInDays** parameter **90** zodat logboeken die ouder zijn dan 90 dagen automatisch worden verwijderd.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Maak eerst een variabele voor de containernaam. De variabele wordt gebruikt tijd
 Als alle blobs in deze container, typt u:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 De uitvoer voor de opdracht moet lijken op het volgende voorbeeld:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Haal vervolgens een lijst met alle van de blobs:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Sluis deze lijst via de `Get-AzureStorageBlobContent` opdracht voor het downloaden van de blobs in de doelmap:
+Sluis deze lijst via de `Get-AzStorageBlobContent` opdracht voor het downloaden van de blobs in de doelmap:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bij
 * Als u meerdere databases hebt en wilt downloaden van Logboeken voor slechts één database met de naam **CONTOSOCOSMOSDB3**, gebruikt u de opdracht:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Als u hebt meerdere resourcegroepen en logboeken voor slechts één resourcegroep downloaden die u wilt, gebruikt u de opdracht `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Als u alle logboeken voor de maand van juli 2017 downloaden wilt, gebruikt u de opdracht `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 U kunt ook de volgende opdrachten uitvoeren:
 
-* Als u wilt de status van diagnostische instellingen voor uw database opvragen, gebruikt u de opdracht `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Uitschakelen van logboekregistratie van het **DataPlaneRequests** categorie voor uw account, gebruikt u de opdracht `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Als u wilt de status van diagnostische instellingen voor uw database opvragen, gebruikt u de opdracht `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Uitschakelen van logboekregistratie van het **DataPlaneRequests** categorie voor uw account, gebruikt u de opdracht `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 De blobs die worden geretourneerd in elk van deze query's worden opgeslagen als tekst en opgemaakt als een JSON-blob, zoals wordt weergegeven in de volgende code:
@@ -437,20 +440,20 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 
 | Azure Storage-veld of eigenschap | Azure Monitor-eigenschap Logboeken | Description |
 | --- | --- | --- |
-| **tijd** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
-| **ResourceId** | **Resource** | Het Azure Cosmos DB-account waarvoor de logboeken zijn ingeschakeld.|
-| **Categorie** | **Categorie** | Voor Azure Cosmos DB-Logboeken is **DataPlaneRequests** is de enige beschikbare waarde. |
-| **OperationName** | **OperationName** | Naam van de bewerking. Deze waarde kan zijn dat een van de volgende bewerkingen: Maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, worden uitgevoerd, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
-| **Eigenschappen** | N.v.t. | De inhoud van dit veld worden beschreven in de rijen die volgen. |
-| **ActivityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
-| **UserAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
+| **time** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
+| **resourceId** | **Resource** | Het Azure Cosmos DB-account waarvoor de logboeken zijn ingeschakeld.|
+| **category** | **Categorie** | Voor Azure Cosmos DB-Logboeken is **DataPlaneRequests** is de enige beschikbare waarde. |
+| **operationName** | **OperationName** | Naam van de bewerking. Deze waarde kan zijn dat een van de volgende bewerkingen: Maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, worden uitgevoerd, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
+| **properties** | N.v.t. | De inhoud van dit veld worden beschreven in de rijen die volgen. |
+| **activityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
+| **userAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Het type van de toegang tot bronnen. Deze waarde kan een van de volgende resourcetypen zijn: Database, Container, Document, bijlage, gebruikers, machtigingen, StoredProcedure, Trigger, UserDefinedFunction of aanbieding. |
 | **statusCode** | **statusCode_s** | De reactiestatus van de bewerking. |
 | **requestResourceId** | **ResourceId** | De resourceId die betrekking hebben op de aanvraag. De waarde kan verwijzen naar databaseRid, collectionRid of documentRid, afhankelijk van de bewerking die wordt uitgevoerd.|
 | **clientIpAddress** | **clientIpAddress_s** | IP-adres van de client. |
 | **requestCharge** | **requestCharge_s** | Het aantal ru's die worden gebruikt door de bewerking |
 | **collectionRid** | **collectionId_s** | De unieke ID voor de verzameling.|
-| **Duur** | **duration_s** | De duur van de bewerking, in tikken. |
+| **duur** | **duration_s** | De duur van de bewerking, in tikken. |
 | **requestLength** | **requestLength_s** | De lengte van de aanvraag, in bytes. |
 | **responseLength** | **responseLength_s** | De lengte van het antwoord, in bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Deze waarde is niet leeg zijn wanneer [brontokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) worden gebruikt voor verificatie. De waarde verwijst naar de resource-ID van de gebruiker. |

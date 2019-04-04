@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884564"
+ms.locfileid: "58894675"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -81,7 +81,7 @@ Als de container op de [hostcomputer](#the-host-computer), de volgende procedure
 1. [Uitvoeren van de container](##run-the-container-with-docker-run), met de vereiste _invoer koppelpunt_ en instellingen voor facturering. Meer [voorbeelden](luis-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
 1. [Uitvoeren van query's van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
 1. Wanneer u klaar bent met de container [importeren van de eindpunt-logboeken](#import-the-endpoint-logs-for-active-learning) uit de uitvoer koppelen aan de LUIS-portal en [stoppen](#stop-the-container) de container.
-1. Gebruik LUIS portal [actief leren](luis-how-to-review-endoint-utt.md) op de **bekijken eindpunt uitingen** pagina voor het verbeteren van de app.
+1. Gebruik LUIS portal [actief leren](luis-how-to-review-endpoint-utterances.md) op de **bekijken eindpunt uitingen** pagina voor het verbeteren van de app.
 
 De app die wordt uitgevoerd in de container kan niet worden gewijzigd. In volgorde de wijziging van de app in de container, moet u instellen dat de app in de LUIS-service met de [LUIS](https://www.luis.ai) portal of gebruik de LUIS [API's ontwerpen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Vervolgens trainen en/of publiceren, klikt u vervolgens een nieuw pakket downloaden en voer de container opnieuw uit.
 
@@ -268,7 +268,7 @@ De queryparameters configureren hoe en wat wordt geretourneerd in antwoord op de
 |`timezoneOffset`|getal|U kunt de timezoneOffset [wijzigt de tijdzone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) die worden gebruikt door de vooraf gedefinieerde entiteit datetimeV2.|
 |`verbose`|booleaans|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
 |`staging`|booleaans|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
-|`log`|booleaans|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endoint-utt.md). De standaardinstelling is true.|
+|`log`|booleaans|Logboekregistratie van query's, die later kunnen worden gebruikt voor [actief leren](luis-how-to-review-endpoint-utterances.md). De standaardinstelling is true.|
 
 ### <a name="query-published-app"></a>Gepubliceerde app query
 

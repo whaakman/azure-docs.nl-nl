@@ -3,19 +3,19 @@ title: Naslaginformatie Translator Text-API-V3.0
 titlesuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de V3.0 Translator Text-API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194959"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918804"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -55,7 +55,7 @@ Abonneren op Translator Text-API of [meerdere Cognitive Services-service](https:
 
 Er zijn drie kopteksten die u gebruiken kunt om te verifiëren van uw abonnement. Deze tabel bevat wordt beschreven hoe deze worden gebruikt:
 
-|Headers|Description|
+|Headers|Beschrijving|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.|
 |Autorisatie|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
@@ -126,7 +126,7 @@ Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutberic
 ```
 De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes zijn:
 
-| Code | Description |
+| Code | Beschrijving |
 |:----|:-----|
 | 400000| Een van de invoer van de aanvraag is niet geldig.|
 | 400001| De bereikparameter '' is ongeldig.|

@@ -1,6 +1,6 @@
 ---
 title: IBM zD & T dev/test-omgeving installeren op Azure | Microsoft Docs
-description: Ddeploy IBM Z ontwikkelings- en testomgeving (zD & T) op Azure Virtual Machine (VM)-infrastructuur als een dienst (IaaS).
+description: IBM Z Development- en testomgeving (zD & T) implementeren op Azure Virtual Machine (VM)-infrastructuur als een dienst (IaaS).
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: fa3bf2b513ce7c5a0ea0210c66a9123ceaf1de37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015276"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894522"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T dev/test-omgeving op Azure installeren
 

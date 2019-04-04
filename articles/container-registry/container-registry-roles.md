@@ -3,16 +3,17 @@ title: Azure Container Registry - rollen en machtigingen
 description: Gebruik Azure op rollen gebaseerd toegangsbeheer (RBAC) en beheer van identiteits- en toegangsbeheer (IAM) voor gedetailleerdere machtigingen tot resources in een Azure container registry.
 services: container-registry
 author: dlepow
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593621"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894265"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry-rollen en machtigingen
 
@@ -23,8 +24,9 @@ De Azure Container Registry-service ondersteunt een aantal Azure-rollen die vers
 | Eigenaar | X | X | X | X | X | X |  |  
 | Inzender | X | X | X |  X | X | X |  |  
 | Lezer | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Onderscheid maken tussen gebruikers en services
@@ -61,7 +63,7 @@ De mogelijkheid om te `docker pull` een niet-quarantaine installatiekopie of een
 
 ## <a name="delete-image-data"></a>Image-gegevens verwijderen
 
-De mogelijkheid om te [containerinstallatiekopieën of opslagplaatsen verwijderen](container-registry-delete.md).
+De mogelijkheid om te [verwijderen containerinstallatiekopieën](container-registry-delete.md), of verwijder andere [ondersteund artefacten](container-registry-image-formats.md) zoals Helm-grafieken, vanuit een register.
 
 ## <a name="change-policies"></a>Beleid wijzigen
 

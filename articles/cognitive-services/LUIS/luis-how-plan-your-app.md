@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873187"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893422"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Uw LUIS-app met onderwerp domein, intenties en entiteiten plannen
 
@@ -49,7 +49,7 @@ Wanneer u welke entiteiten om te gebruiken in uw app bepaalt, houd er rekening m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat uw app wordt getraind, gepubliceerd, en haalt de eindpunt-uitingen, wilt implementeren voorspelling verbeteringen met [actief leren](luis-how-to-review-endoint-utt.md), [lijsten woordgroep](luis-concept-feature.md), en [patronen](luis-concept-patterns.md). 
+Nadat uw app wordt getraind, gepubliceerd, en haalt de eindpunt-uitingen, wilt implementeren voorspelling verbeteringen met [actief leren](luis-how-to-review-endpoint-utterances.md), [lijsten woordgroep](luis-concept-feature.md), en [patronen](luis-concept-patterns.md). 
 
 
 * Zie [Language Understanding Intelligent Services (LUIS)-app maken](luis-get-started-create-app.md) voor een snel overzicht van het maken van een LUIS-app.

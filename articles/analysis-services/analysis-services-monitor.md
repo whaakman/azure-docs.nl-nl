@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190814"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893177"
 ---
 # <a name="monitor-server-metrics"></a>Metrische servergegevens bewaken
 
@@ -51,14 +51,14 @@ Deze tabel gebruiken om te bepalen welke metrische gegevens voor uw bewaking sce
 |CleanerMemoryNonshrinkable|Geheugen: Schoner geheugen niet verkleinbaar|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes, niet kan worden leeggemaakt Opruimprogramma op de achtergrond.|
 |CleanerMemoryShrinkable|Geheugen: Schoner geheugen verkleinbaar|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes, leeggemaakt Opruimprogramma op de achtergrond.|
 |MemoryLimitHard|Geheugen: Vaste geheugenlimiet|Bytes|Gemiddeld|Vaste geheugenlimiet, van configuratiebestand.|
-|Toegepaste memorylimithigh-waarde|Geheugen: Hoge geheugenlimiet|Bytes|Gemiddeld|Hoge geheugenlimiet, van configuratiebestand.|
+|MemoryLimitHigh|Geheugen: Hoge geheugenlimiet|Bytes|Gemiddeld|Hoge geheugenlimiet, van configuratiebestand.|
 |MemoryLimitLow|Geheugen: Lage geheugenlimiet|Bytes|Gemiddeld|Lage geheugenlimiet, van configuratiebestand.|
-|MemoryLimitVertiPaq|Geheugen: VertiPaq-geheugenlimiet|Bytes|Gemiddeld|In-memory limiet, van configuratiebestand.|
+|MemoryLimitVertiPaq|Geheugen: Memory Limit VertiPaq|Bytes|Gemiddeld|In-memory limiet, van configuratiebestand.|
 |MemoryUsage|Geheugen: Geheugengebruik|Bytes|Gemiddeld|Het geheugengebruik van het serverproces zoals gebruikt bij het berekenen van de prijs van schoner geheugen. Gelijk aan de teller Process\PrivateBytes plus de grootte van het geheugen toegewezen gegevens, wordt een geheugen, dat is toegewezen of door de engine voor in-memory analyse (VertiPaq) boven de geheugenlimiet-engine genegeerd.|
 |Quota|Geheugen: Quota|Bytes|Gemiddeld|Het huidige geheugenquotum, in bytes. Geheugenquotum wordt ook wel bekend als een geheugenreservering grant of geheugen.|
 |QuotaBlocked|Geheugen: Geblokkeerd quotum|Count|Gemiddeld|Huidig aantal quotumaanvragen dat is geblokkeerd totdat andere geheugenquotums worden vrijgemaakt.|
-|VertiPaqNonpaged|Geheugen: VertiPaq niet verwisselbaar|Bytes|Gemiddeld|Bytes van het geheugen in de werkset voor gebruik door de in-memory engine vergrendeld.|
-|VertiPaqPaged|Geheugen: VertiPaq verwisselbaar|Bytes|Gemiddeld|Bytes wisselbaar geheugen in gebruik voor in-memory-gegevens.|
+|VertiPaqNonpaged|Geheugen: VertiPaq Nonpaged|Bytes|Gemiddeld|Bytes van het geheugen in de werkset voor gebruik door de in-memory engine vergrendeld.|
+|VertiPaqPaged|Geheugen: VertiPaq Paged|Bytes|Gemiddeld|Bytes wisselbaar geheugen in gebruik voor in-memory-gegevens.|
 |ProcessingPoolJobQueueLength|Lengte van taakwachtrij van toepassingen verwerken|Count|Gemiddeld|Aantal niet-I/O-taken in de wachtrij van de verwerkende ThreadPool.|
 |RowsConvertedPerSec|Verwerken: Rijen per seconde worden geconverteerd|CountPerSecond|Gemiddeld|Het aantal rijen dat tijdens verwerking is geconverteerd.|
 |RowsReadPerSec|Verwerken: Gelezen rijen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen lezen van alle relationele databases.|
@@ -87,4 +87,4 @@ Deze tabel gebruiken om te bepalen welke metrische gegevens voor uw bewaking sce
 ## <a name="next-steps"></a>Volgende stappen
 [Bewaking in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Metrische gegevens in Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Metrische gegevens in Azure Monitor REST-API](/rest/api/monitor/metrics)

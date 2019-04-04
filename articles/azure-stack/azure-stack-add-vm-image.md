@@ -1,6 +1,6 @@
 ---
-title: Toevoegen en verwijderen van een VM-installatiekopie naar Azure Stack | Microsoft Docs
-description: Toevoegen of verwijderen van uw organisatie aangepaste Windows of Linux-VM-installatiekopie voor tenants te gebruiken.
+title: Een VM-installatiekopie toevoegen aan Azure Stack | Microsoft Docs
+description: Een VM-installatiekopie toevoegen of verwijderen van een afbeelding van uw organisatie aangepaste Windows of Linux-VM-installatiekopie voor tenants te gebruiken.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109153"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881457"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Toevoegen van een VM-installatiekopie te bieden in Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-In Azure Stack, kunt u installatiekopieën van virtuele machines beschikbaar aan uw gebruikers. Deze installatiekopieën kunnen worden gebruikt door Azure Resource Manager-sjablonen. U kunt ze ook toevoegen aan de Azure Marketplace-UI als een Marketplace-item. Een afbeelding op formulier globale Azure Marketplace of uw eigen aangepaste installatiekopie gebruiken. De installatiekopie kan worden toegevoegd met behulp van de portal of Windows PowerShell.
+In Azure Stack, kunt u de installatiekopie van een virtuele machine (VM) toevoegen aan de marketplace beschikbaar maken voor uw gebruikers. U kunt VM-installatiekopieën toevoegen met behulp van Azure Resource Manager-sjablonen voor Azure Stack. U kunt ook VM-installatiekopieën in de Azure Marketplace-gebruikersinterface toevoegen als een Marketplace-item. Een installatiekopie van de globale Azure Marketplace of uw eigen aangepaste VM-installatiekopie gebruiken. U kunt VM-installatiekopie met de beheerportal of Windows PowerShell kunt toevoegen.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Toevoegen van een VM-installatiekopie via de portal
 
@@ -83,7 +83,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -93,19 +93,19 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
    ```
 
    De **toevoegen AzsPlatformimage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
-   - **publisher**  
+   - **Uitgever**  
      Bijvoorbeeld: `Canonical`  
      Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
-   - **offer**  
+   - **aanbieding**  
      Bijvoorbeeld: `UbuntuServer`  
      Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
    - **sku**  
      Bijvoorbeeld: `14.04.3-LTS`  
      De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
-   - **Versie**  
+   - **versie**  
      Bijvoorbeeld: `1.0.0`  
      De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
-   - **osType**  
+   - **besturingssysteemtype**  
      Bijvoorbeeld: `Linux`  
      Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**.  
    - **OSUri**  
@@ -118,7 +118,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
  
 1. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 2. Als u **Active Directory Federation Services**, gebruik de volgende cmdlet:
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 5. Voorbereiden van de installatiekopie voor een Windows of Linux-besturingssysteem in VHD-indeling (de VHDX niet), de installatiekopie uploaden naar uw storage-account en de URI waar de VM-installatiekopie kan worden opgehaald door PowerShell.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 6. (Optioneel) U kunt een matrix van gegevensschijven die als onderdeel van de VM-installatiekopie uploaden. De gegevensschijven van uw met behulp van de cmdlet New-DataDiskObject maken. Open PowerShell uit vanaf een opdrachtprompt en voer:
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. Open PowerShell met een opdrachtprompt en voer:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet 
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -197,16 +197,16 @@ Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet 
     -version "<version>" `
    ```
    De **Remove-AzsPlatformImage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
-   - **publisher**  
+   - **Uitgever**  
      Bijvoorbeeld: `Canonical`  
      Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Geen een spatie of andere speciale tekens in dit veld.  
-   - **offer**  
+   - **aanbieding**  
      Bijvoorbeeld: `UbuntuServer`  
      Het segment van de naam van aanbieding van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **WindowsServer**. Geen een spatie of andere speciale tekens in dit veld.  
    - **sku**  
      Bijvoorbeeld: `14.04.3-LTS`  
      De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Een voorbeeld is **Datacenter2016**. Geen een spatie of andere speciale tekens in dit veld.  
-   - **Versie**  
+   - **versie**  
      Bijvoorbeeld: `1.0.0`  
      De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeren. Deze versie is in de indeling  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Geen een spatie of andere speciale tekens in dit veld.  
     

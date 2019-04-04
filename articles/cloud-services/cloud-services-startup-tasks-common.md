@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181823"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916648"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Veelvoorkomende opstarttaken voor Cloud-Service
 Dit artikel bevat enkele voorbeelden van veelvoorkomende opstarttaken die u wilt uitvoeren in uw cloudservice. U kunt opstarttaken gebruiken bewerkingen uit te voeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren zijn onder meer een onderdeel installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langlopende proces. 
@@ -68,12 +68,12 @@ Er zijn echter enkele dingen Kijk uit voor het gebruik van *AppCmd.exe* als een 
 
 Het is raadzaam om te controleren of de **errorlevel** na het aanroepen *AppCmd.exe*, dit is eenvoudig te doen als u de aanroep van Inpakken *AppCmd.exe* met een *.cmd* bestand. Als u een bekende detecteren **errorlevel** antwoord, u kunt deze negeren of terug doorgeven.
 
-De errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand winerror.h en kunnen ook worden weergegeven op [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+De errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand winerror.h en kunnen ook worden weergegeven op [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Voorbeeld van het beheer van het foutniveau van de
 In dit voorbeeld voegt u een sectie compressie en een vermelding compressie voor JSON naar de *Web.config* bestand met de foutafhandeling en logboekregistratie.
 
-De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, waaronder instelling de [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
+De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, waaronder instelling de [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-U kunt toegang tot lokale opslagmap van de Azure-SDK met behulp van de [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
+U kunt toegang tot lokale opslagmap van de Azure-SDK met behulp van de [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) methode.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -306,7 +306,7 @@ U kunt de verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de cl
 
 Dit kunnen verschillende acties uitvoeren op de rekenemulator en de cloud kan worden bereikt door het maken van een omgevingsvariabele in de [ServiceDefinition.csdef] bestand. U test deze omgevingsvariabele voor een waarde in de opstarttaak.
 
-Voor het maken van de omgevingsvariabele toevoegen de [Variable]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
+Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -511,7 +511,7 @@ Meer informatie over hoe u [taken](cloud-services-startup-tasks.md) werken.
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Omgeving]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variabele]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [Eindpunten]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints

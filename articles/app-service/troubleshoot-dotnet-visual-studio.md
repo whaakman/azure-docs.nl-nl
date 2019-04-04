@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996775"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895010"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problemen met een app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -35,7 +35,7 @@ U leert het volgende:
 * Om weer te geven van webserverlogboeken, met inbegrip van gedetailleerde foutberichten en tracering van mislukte aanvragen.
 * Klik hier voor meer informatie over het verzenden van diagnostische logboeken naar een Azure Storage-account en ze er weergeven.
 
-Als u Visual Studio Ultimate hebben, kunt u ook gebruiken [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) voor foutopsporing. IntelliTrace wordt niet behandeld in deze zelfstudie.
+Als u Visual Studio Ultimate hebben, kunt u ook gebruiken [IntelliTrace](/visualstudio/debugger/intellitrace) voor foutopsporing. IntelliTrace wordt niet behandeld in deze zelfstudie.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze zelfstudie werkt met de ontwikkelomgeving, het webproject en de App Service-app die u hebt ingesteld in [een ASP.NET-app maken in Azure App Service](app-service-web-get-started-dotnet-framework.md). Voor de secties WebJobs, moet u de toepassing die u maakt in [aan de slag met de Azure WebJobs SDK][GetStartedWJ].
@@ -252,13 +252,13 @@ Als uw functie [Logboeken geschreven](https://github.com/Azure/azure-webjobs-sdk
 ```
 * Als u merkt dat het foutopsporingsprogramma niet stap in de code die u fouten wilt opsporen, is het mogelijk om de instelling alleen mijn Code te wijzigen.  Zie voor meer informatie, [opgeven of u alleen gebruikerscode met alleen mijn Code in Visual Studio fouten opsporen in](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Een timer wordt gestart op de server wanneer u de functie voor externe foutopsporing inschakelen, en na 48 uur de functie is automatisch uitgeschakeld. Deze limiet 48 uur is uitgevoerd voor beveiliging en prestaties. U kunt eenvoudig de functie weer inschakelen als vaak is als u wilt. Het is raadzaam dat wanneer u niet actief foutopsporing uitgeschakeld.
-* U kunt het foutopsporingsprogramma handmatig koppelen aan een proces, niet alleen de app-proces (w3wp.exe). Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* U kunt het foutopsporingsprogramma handmatig koppelen aan een proces, niet alleen de app-proces (w3wp.exe). Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="logsoverview"></a>Overzicht van diagnostische logboeken
 Een ASP.NET-toepassing die wordt uitgevoerd in een App Service-app kunt maken van de volgende soorten logboeken:
 
 * **Tracering van toepassingslogboeken**<br/>
-  De toepassing maakt deze logboeken door het aanroepen van methoden van de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) klasse.
+  De toepassing maakt deze logboeken door het aanroepen van methoden van de [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) klasse.
 * **Webserverlogboeken**<br/>
   De webserver wordt gemaakt van een logboekvermelding voor elke HTTP-aanvraag naar de app.
 * **Logboeken met details bericht**<br/>
@@ -633,7 +633,7 @@ Voor hulp bij een specifieke vraag voor het oplossen van problemen, een thread t
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Foutopsporing in Visual Studio
-Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) en [Tips voor fouten opsporen met Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) en [Tips voor fouten opsporen met Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Externe foutopsporing in Azure
 Zie de volgende bronnen voor meer informatie over foutopsporing op afstand voor App Service-apps en WebJobs:
@@ -650,14 +650,14 @@ Er zijn geen grondige en up-to-date introductie van ASP.NET-tracering beschikbaa
 
 * [Controle en telemetrie (Building Real-World Cloudapps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-book hoofdstuk met aanbevelingen voor tracering in Azure-cloud-toepassingen.
-* [ASP.NET-tracering](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET-tracering](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Oude maar nog steeds een goede bron voor een algemene inleiding tot aan het onderwerp.
-* [Traceer-Listeners](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Informatie over traceer-listeners, maar wordt niet vermeld de [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Walkthrough: Tracering van ASP.NET integreren met System.Diagnostics tracering](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Traceer-Listeners](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
+  Informatie over traceer-listeners, maar wordt niet vermeld de [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
+* [Walkthrough: Tracering van ASP.NET integreren met System.Diagnostics tracering](/previous-versions/b0ectfxd(v=vs.140))<br/>
   In dit artikel is ook oude, maar bevat aanvullende informatie die niet wordt behandeld in het inleidende artikel.
 * [Traceren in ASP.NET MVC Razor weergaven](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Naast de tracering in Razor weergaven, het bericht ook wordt uitgelegd hoe u een fout-filter maken om aan te melden van alle niet-verwerkte uitzonderingen in een MVC-toepassing. Zie voor informatie over hoe u zich aanmeldt alle niet-verwerkte uitzonderingen in een Web Forms-toepassing in het voorbeeld Global.asax in [compleet voorbeeld voor Foutenhandlers](https://msdn.microsoft.com/library/bb397417.aspx) op MSDN. In MVC of Web Forms, als u wilt vastleggen van bepaalde uitzonderingen, maar laat de standaard-framework verwerking wordt pas van kracht voor, kunt u variabel en foutparameters zoals in het volgende voorbeeld:
+  Naast de tracering in Razor weergaven, het bericht ook wordt uitgelegd hoe u een fout-filter maken om aan te melden van alle niet-verwerkte uitzonderingen in een MVC-toepassing. Zie voor informatie over hoe u zich aanmeldt alle niet-verwerkte uitzonderingen in een Web Forms-toepassing in het voorbeeld Global.asax in [compleet voorbeeld voor Foutenhandlers](/previous-versions/bb397417(v=vs.140)) op MSDN. In MVC of Web Forms, als u wilt vastleggen van bepaalde uitzonderingen, maar laat de standaard-framework verwerking wordt pas van kracht voor, kunt u variabel en foutparameters zoals in het volgende voorbeeld:
 
 ``` c#
 try

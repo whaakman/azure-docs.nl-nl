@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077119"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916271"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Oplossen van problemen met Azure CDN-eindpunten die 404-statuscode retourneren
 In dit artikel kunt u problemen oplossen met Azure Content Delivery Network (CDN)-eindpunten die 404 statuscodes voor HTTP-antwoord retourneren.
@@ -76,7 +76,7 @@ Controleer uw **HTTP** en **HTTPS-poorten**. In de meeste gevallen 80 en 443 jui
 Stel echter dat de URL voor de oorsprong-bestand dat u eerder hebt getest, http wordt:\//www.contoso.com:8080/file.txt. Houd er rekening mee de *: 8080* deel aan het einde van het segment hostnaam. Dat nummer Hiermee geeft u de browser gebruikmaakt van poort 8080 verbinding maken met de webserver op www\.contoso.com, dus u moet invoeren *8080* in de **HTTP-poort** veld. Het is belangrijk te weten dat deze poortinstellingen gelden alleen welke poort het eindpunt wordt gebruikt voor het ophalen van gegevens uit de oorsprong.
 
 > [!NOTE]
-> **Azure CDN Standard van Akamai** eindpunten staan niet het volledige TCP-poortbereik voor oorsprongen toe.  Zie [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
+> **Azure CDN Standard van Akamai** eindpunten staan niet het volledige TCP-poortbereik voor oorsprongen toe.  Zie [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
 > 
 > 
 

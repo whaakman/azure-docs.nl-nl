@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089349"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894898"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
 Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. Dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
@@ -63,7 +63,7 @@ De volgende lijst bevat de eigenschappen die vereist zijn wanneer u een gebruike
 * **userIdentities** -een of meer UserIdentity records die sociale opgeeft account type en de unieke gebruikers-id van de sociale id-provider.
 * [optioneel] **otherMails** - voor sociaal account alleen e-mailadressen van de gebruiker 
 
-Zie voor meer informatie: [Graph API-verwijzing](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Zie voor meer informatie: [Graph API-verwijzing](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Sociale account (alleen) migreren
 Sociale account alleen maken zonder referenties voor lokale accounts. HTTPS-POST-aanvraag naar Graph API verzenden. Hoofdtekst van de aanvraag bevat de eigenschappen van de gebruiker sociaal account te maken. U moet ten minste de vereiste eigenschappen opgeven. 

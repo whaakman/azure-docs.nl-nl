@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894033"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487512"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
@@ -29,7 +29,7 @@ Microsoft-updatepakketten vrij voor Azure Stack-systemen doorgaans geïntegreerd
 
 Elke versie van Microsoft-software-updates wordt geleverd als één update-pakket. Als Azure Stack-operators, u kunt importeren, installeren en de voortgang van installatie van de volgende pakketten uit de beheerdersportal bijwerken. 
 
-De leverancier van de oorspronkelijke leveranciers (OEM)-hardware brengt-updates, zoals stuurprogramma en firmware-updates ook. Terwijl deze updates worden geleverd als afzonderlijke pakketten door de leverancier van de OEM-hardware, ze worden geïmporteerd, geïnstalleerd en de dezelfde manier-updatepakketten beheerd van Microsoft-updatepakketten worden geïmporteerd, geïnstalleerd en beheerd.
+De leverancier van de oorspronkelijke leveranciers (OEM)-hardware brengt-updates, zoals stuurprogramma en firmware-updates ook. Deze updates worden door uw OEM-hardwareleverancier geleverd als afzonderlijke pakketten, maar ze worden op dezelfde manier geïmporteerd, geïnstalleerd en beheerd als updatepakketten van Microsoft.
 
 Om te voorkomen dat uw systeem onder ondersteuning, moet u Azure Stack is bijgewerkt naar een specifieke versie. Zorg ervoor dat u de [Azure Stack servicebeleid](azure-stack-servicing-policy.md).
 
@@ -48,7 +48,7 @@ Wordt aangeraden dat u op de hoogte stellen gebruikers van elke onderhoudsbewerk
 
 - Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 
@@ -71,7 +71,7 @@ De Update-tegel ziet u de huidige versie van Azure Stack. U kunt krijgen tot de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure Stack servicebeleid](azure-stack-servicing-policy.md) 
+- [Servicebeleid voor Azure Stack](azure-stack-servicing-policy.md) 
 - [Regiobeheer in Azure Stack](azure-stack-region-management.md)     
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552177"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892820"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Aan de slag met de aanvraag- en -onderdelen
 Met de aanvraag- en -onderdelen in een logische app, kunt u in realtime reageren op gebeurtenissen.
@@ -34,7 +34,8 @@ U kunt bijvoorbeeld:
 Om te beginnen met de aanvraag en antwoord-acties in een logische app, Zie [maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Gebruik de trigger HTTP-aanvraag
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](connectors-overview.md).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. 
+[Meer informatie over triggers](../connectors/apis-list.md).
 
 Hier volgt een van de voorbeeldreeks over het instellen van een HTTP-aanvraag in Logic App Designer.
 

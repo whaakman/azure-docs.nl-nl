@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863131"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905200"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -64,14 +64,14 @@ U kunt Azure SQL-databases en databases exemplaar instellen om de volgende diagn
 | :------------------- | ----- | ----- |
 | [Alle metrische gegevens](#all-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Bevat informatie over de query duur statistieken en de query-runtime-statistieken, zoals CPU-gebruik. | Ja | Ja |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Bevat informatie over de query-wait-statistieken (wat uw query's gewacht op), zoals CPU, het logboek en VERGRENDELEN. | Ja | Ja |
-| [Fouten](#errors-dataset): Bevat informatie over SQL-fouten op de database. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Bevat informatie over hoe lang de database besteed aan het wachten op andere wacht typen. | Ja | Nee |
-| [Time-outs](#time-outs-dataset): Bevat informatie over time-outs op de database. | Ja | Nee |
-| [Blokken](#blockings-dataset): Bevat informatie over het blokkeren van gebeurtenissen op de database. | Ja | Nee |
-| [Deadlocks](#deadlocks-dataset): Bevat informatie over impasse gebeurtenissen op de database. | Ja | Nee |
-| [AutomaticTuning](#automatic-tuning-dataset): Bevat informatie over aanbevelingen voor automatische afstemming op de database. | Ja | Nee |
-| [SQLInsights](#intelligent-insights-dataset): Intelligent Insights in prestaties bevat. Zie voor meer informatie, [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Bevat informatie over de query-wait-statistieken (wat uw query's gewacht op) zoals CPU, het logboek en VERGRENDELEN zijn. | Ja | Ja |
+| [Fouten](#errors-dataset): Bevat informatie over SQL-fouten op een database. | Ja | Ja |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Bevat informatie over hoe lang een database besteed aan het wachten op andere wacht typen. | Ja | Nee |
+| [Time-outs](#time-outs-dataset): Bevat informatie over time-outs voor een database. | Ja | Nee |
+| [Blokken](#blockings-dataset): Bevat informatie over het blokkeren van gebeurtenissen voor een database. | Ja | Nee |
+| [Deadlocks](#deadlocks-dataset): Bevat informatie over gebeurtenissen impasse op een database. | Ja | Nee |
+| [AutomaticTuning](#automatic-tuning-dataset): Bevat informatie over aanbevelingen voor automatische afstemming voor een database. | Ja | Nee |
+| [SQLInsights](#intelligent-insights-dataset): Intelligent Insights in de prestaties voor een database bevat. Zie voor meer informatie, [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
 > Elastische pools en beheerde exemplaren hebben een eigen afzonderlijke diagnostische gegevens telemetrie van databases die ze bevatten. Dit is belangrijk te weten als diagnostische gegevens telemetrie wordt afzonderlijk geconfigureerd voor elk van deze resources, zoals hieronder beschreven.
@@ -431,7 +431,7 @@ Details van telemetrie beschikbaar voor alle logboeken worden vermeld in de onde
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Statistieken voor het gebruik van resource voor het beheerde exemplaar
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure|
@@ -574,7 +574,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 
 ### <a name="database-wait-statistics-dataset"></a>Database wacht statistieken gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -603,7 +603,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="time-outs-dataset"></a>Time-outs gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |

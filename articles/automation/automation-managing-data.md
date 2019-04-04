@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817453"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916832"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -45,17 +45,17 @@ Echter, als u behouden van gegevens voor een langere periode wilt, kunt u doorst
 Wanneer u een automation-account in Microsoft Azure verwijdert, worden alle objecten in het account verwijderd inclusief runbooks, modules, configuraties, instellingen, jobs en activa. De objecten kunnen niet worden hersteld nadat het account is verwijderd.  Gebruik de volgende informatie kunt u back-up van de inhoud van uw automation-account voordat deze worden verwijderd. 
 
 ### <a name="runbooks"></a>Runbooks
-U kunt uw runbooks exporteren naar scriptbestanden met behulp van de Azure portal of de [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell.  Deze scriptbestanden kunnen worden geïmporteerd in een ander automation-account, zoals beschreven in [maken of importeren van een Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+U kunt uw runbooks exporteren naar scriptbestanden met behulp van de Azure portal of de [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell.  Deze scriptbestanden kunnen worden geïmporteerd in een ander automation-account, zoals beschreven in [maken of importeren van een Runbook](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### <a name="integration-modules"></a>Integratiemodules
 U kunt integratiemodules exporteren vanuit Azure Automation.  U moet ervoor zorgen dat deze beschikbaar is buiten het automation-account zijn.
 
 ### <a name="assets"></a>Assets
-U kunt niet exporteren [activa](https://msdn.microsoft.com/library/dn939988.aspx) van Azure Automation.  Met behulp van de Azure-portal, moet u de details van variabelen, -referenties, certificaten, verbindingen en schema's opmerking.  U moet alle activa die worden gebruikt door runbooks die u in een ander automation importeert vervolgens handmatig maken.
+U kunt niet exporteren [activa](/previous-versions/azure/dn939988(v=azure.100)) van Azure Automation.  Met behulp van de Azure-portal, moet u de details van variabelen, -referenties, certificaten, verbindingen en schema's opmerking.  U moet alle activa die worden gebruikt door runbooks die u in een ander automation importeert vervolgens handmatig maken.
 
 U kunt [Azure-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) ophalen van details van activa op niet-versleutelde en een opslaan voor toekomstig gebruik of gelijkwaardige activa in een ander automation-account maken.
 
-U kunt de waarde voor gecodeerde variabelen of het wachtwoordveld van referenties met behulp van cmdlets niet ophalen.  Als u deze waarden niet weet en u ze wel vanuit een runbook met ophalen kunt de [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) en [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) activiteiten.
+U kunt de waarde voor gecodeerde variabelen of het wachtwoordveld van referenties met behulp van cmdlets niet ophalen.  Als u deze waarden niet weet en u ze wel vanuit een runbook met ophalen kunt de [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) en [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) activiteiten.
 
 U kunt certificaten exporteren vanuit Azure Automation.  U moet ervoor zorgen dat er geen certificaten beschikbaar buiten Azure zijn.
 

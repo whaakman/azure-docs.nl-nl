@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337102"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905712"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -80,7 +80,7 @@ De functie DNSSEC wordt bijgehouden in de achterstand van Azure DNS. Gebruik van
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS biedt ondersteuning voor zoneoverdracht (AXFR/IXFR)?
 
-Nee. Azure DNS ondersteunt momenteel geen zone-overdrachten. DNS-zones kunnen worden [geïmporteerd in Azure DNS met behulp van de Azure CLI](dns-import-export.md). DNS-records worden beheerd via de [Azure DNS-beheerportal](dns-operations-recordsets-portal.md), [REST-API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdlets](dns-operations-recordsets.md), of de [ CLI-hulpprogramma](dns-operations-recordsets-cli.md).
+Nee. Azure DNS ondersteunt momenteel geen zone-overdrachten. DNS-zones kunnen worden [geïmporteerd in Azure DNS met behulp van de Azure CLI](dns-import-export.md). DNS-records worden beheerd via de [Azure DNS-beheerportal](dns-operations-recordsets-portal.md), [REST-API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdlets](dns-operations-recordsets.md), of de [ CLI-hulpprogramma](dns-operations-recordsets-cli.md).
 
 De functie zone-overdracht wordt bijgehouden in de achterstand van Azure DNS. Gebruik van de site voor gebruikersfeedback van naar [registreren van het ondersteuningsteam van het voor deze functie](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -149,7 +149,7 @@ Ja. Azure DNS ondersteunt CO hosting-domeinen met een andere DNS-services.
 
 Als u CO hosting instelt, wijzig de NS-records voor het domein om te verwijzen naar de naamservers van beide providers. De naamserver (NS) vastgelegd besturingselement welke providers DNS-query's voor het domein ontvangen. U kunt deze NS-records in Azure DNS, in de andere provider en in de bovenliggende zone wijzigen. De bovenliggende zone is standaard geconfigureerd via de domeinnaamregistrar. Zie voor meer informatie over DNS-delegering [domein-DNS-delegering](dns-domain-delegation.md).
 
-Zorg er ook voor zorgen dat de DNS-records voor het domein gesynchroniseerd tussen beide DNS-providers zijn. Azure DNS ondersteunt momenteel geen DNS-zone-overdrachten. DNS-records moeten worden gesynchroniseerd met behulp van de [Azure DNS-beheerportal](dns-operations-recordsets-portal.md), [REST-API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdlets](dns-operations-recordsets.md), of de [CLI-hulpprogramma](dns-operations-recordsets-cli.md).
+Zorg er ook voor zorgen dat de DNS-records voor het domein gesynchroniseerd tussen beide DNS-providers zijn. Azure DNS ondersteunt momenteel geen DNS-zone-overdrachten. DNS-records moeten worden gesynchroniseerd met behulp van de [Azure DNS-beheerportal](dns-operations-recordsets-portal.md), [REST-API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdlets](dns-operations-recordsets.md), of de [CLI-hulpprogramma](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Heb ik mijn domein delegeren naar alle vier Azure DNS-naamservers?
 

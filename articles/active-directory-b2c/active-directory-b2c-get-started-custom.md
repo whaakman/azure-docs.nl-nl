@@ -1,21 +1,21 @@
 ---
-title: Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
-description: Hoe u aan de slag met Azure Active Directory B2C aangepast beleid.
+title: Aan de slag met aangepaste beleidsregels - Azure Active Directory B2C | Microsoft Docs
+description: Leer hoe u aan de slag met aangepaste beleidsregels in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298735"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916747"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -25,12 +25,13 @@ ms.locfileid: "55298735"
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u er nog geen hebt, moet u [maken van een Azure AD B2C-tenant](tutorial-create-tenant.md) dat is gekoppeld aan uw Azure-abonnement.
+- Als u er nog geen hebt, moet u [maken van een Azure AD B2C-tenant](tutorial-create-tenant.md) dat is gekoppeld aan uw Azure-abonnement.
+- [Uw toepassing registreren](tutorial-register-applications.md) in de tenant die u hebt gemaakt, zodat deze met Azure AD B2C communiceren kan.
 
 ## <a name="add-signing-and-encryption-keys"></a>Ondertekening en versleuteling sleutels toevoegen
 
 1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Klik op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 
@@ -59,11 +60,11 @@ Als u al een [Facebook toepassingsgeheim](active-directory-b2c-setup-fb-app.md),
 1. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 2. Voor **opties**, kiest u `Manual`.
 3. Voor **naam**, voer `FacebookSecret`. Het voorvoegsel `B2C_1A_` mogelijk automatisch worden toegevoegd.
-4. In **geheim**, Geef uw Facebook-geheim van developers.facebook.com of `0` als tijdelijke aanduiding. Dit is het geheim, niet de toepassings-ID.
+4. In **geheim**, Geef uw Facebook-geheim van developers.facebook.com of `0` als tijdelijke aanduiding. Deze waarde is het geheim, niet de toepassings-ID.
 5. Voor **sleutelgebruik**, selecteer **handtekening**.
 6. Klik op **Create**.
 
-## <a name="register-applications"></a>Toepassingen registreren
+## <a name="register-identity-experience-framework-applications"></a>Identiteitservaring-Framework-toepassingen registreren
 
 Azure AD B2C, moet u twee toepassingen die worden gebruikt voor aanmelden en meld u aan gebruikers registreren: IdentityExperienceFramework (een web-app) en ProxyIdentityExperienceFramework (een systeemeigen app) met gedelegeerde machtigingen van de app IdentityExperienceFramework. Lokale accounts bestaat alleen in uw tenant. Uw gebruikers zich aanmelden met een combinatie van unieke e-mailadres en wachtwoord voor toegang tot uw toepassingen tenant is geregistreerd.
 
@@ -85,8 +86,7 @@ Azure AD B2C, moet u twee toepassingen die worden gebruikt voor aanmelden en mel
 4. Voor **omleidings-URI**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.
 5. Klik op **Create**. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
 6. Selecteer op de pagina instellingen **vereiste machtigingen**, en selecteer vervolgens **toevoegen**.
-7. Selecteer **Een API selecteren**.
-8. Zoek en selecteer **IdentityExperienceFramework**, en klik vervolgens op **Selecteer**.
+7. Kies **Select an API**, zoek en selecteer **IdentityExperienceFramework**, en klik vervolgens op **Selecteer**.
 9. Schakel het selectievakje in naast **toegang IdentityExperienceFramework**, klikt u op **Selecteer**, en klik vervolgens op **gedaan**.
 10. Selecteer **machtigingen verlenen**, en klik vervolgens om te bevestigen **Ja**.
 
@@ -131,12 +131,11 @@ De toepassings-id's toevoegen aan het extensiebestand *TrustFrameworkExtensions.
 
 ## <a name="test-the-custom-policy"></a>Het aangepaste beleid testen
 
-1. Selecteer op de pagina aangepast beleid **B2C_1A_signup_signin**. 
-2. Selecteer **nu uitvoeren**.
-
-3. U zou het mogelijk om u te registreren met behulp van een e-mailadres.
-
-4. Meld u aan met hetzelfde account om te bevestigen dat u de juiste configuratie hebt.
+1. Selecteer op de pagina aangepast beleid **B2C_1A_signup_signin**.
+2. Voor **toepassing selecteren** op de overzichtspagina van het aangepaste beleid, selecteert u de web-App met de naam *webapp1* die u eerder hebt geregistreerd. Zorg ervoor dat de **antwoord-URL** is `https://jwt.ms`.
+3. Selecteer **nu uitvoeren**.
+4. U zou het mogelijk om u te registreren met behulp van een e-mailadres.
+5. Meld u aan met hetzelfde account om te bevestigen dat u de juiste configuratie hebt.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook toevoegen als een id-provider
 

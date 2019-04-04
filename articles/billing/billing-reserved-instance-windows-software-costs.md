@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648517"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918719"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Kosten van de software niet zijn opgenomen in Azure Reserved VM Instances
 
-Als u geen een Azure Hybrid Use Benefit op uw gereserveerde VM-instanties, zijn er kosten berekend voor de software-meters die worden vermeld in de volgende secties.
+Als u geen een Azure Hybrid Benefit voor uw gereserveerde VM-instanties hebt, klikt u in rekening gebracht voor de software-meters die worden vermeld in de volgende sectie.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows software meter is niet opgenomen in de reserveringskosten voor
 
@@ -66,13 +66,13 @@ Als u geen een Azure Hybrid Use Benefit op uw gereserveerde VM-instanties, zijn 
 
 ## <a name="rates-for-azure-meters"></a>Tarieven voor Azure-meters
 
-U kunt de kosten van elk van deze meter ophalen via Azure RateCard API. Zie voor meer informatie over het ophalen van de tarieven voor een azure-meterkenmerken [prijs en de metagegevens ophalen voor resources die worden gebruikt in een Azure-abonnement](https://msdn.microsoft.com/library/azure/mt219004).
+U kunt de kosten van elk van deze meter ophalen via Azure RateCard API. Zie voor meer informatie over het ophalen van de tarieven voor een azure-meterkenmerken [prijs en de metagegevens ophalen voor resources die worden gebruikt in een Azure-abonnement](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over reserveringen voor Azure, de volgende artikelen:
 
 - [Wat zijn de reserveringen voor Azure?](billing-save-compute-costs-reservations.md)
-- [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Reserveringen voor Azure beheren](billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)

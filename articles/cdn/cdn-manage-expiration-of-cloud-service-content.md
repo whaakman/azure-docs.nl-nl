@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540221"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917954"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Vervaldatum van webinhoud in Azure CDN beheren
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ De volgende XML-configuratie-bestand-voorbeeld laat zien hoe om in te stellen de
 Gebruik de **cacheControlMaxAge** kenmerk, moet u de waarde van instellen de **cacheControlMode** kenmerk `UseMaxAge`. Deze instelling veroorzaakt de HTTP-header en Richtlijn `Cache-Control: max-age=<nnn>`, moeten worden toegevoegd aan het antwoord. De indeling van de timespan-waarde voor de **cacheControlMaxAge** kenmerk is `<days>.<hours>:<min>:<sec>`. De waarde wordt geconverteerd naar seconden en wordt gebruikt als de waarde van de `Cache-Control` `max-age` richtlijn. Voor meer informatie over de `<clientCache>` -element, Zie [clientcache <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control-koppen die instellen via een programma
-Voor ASP.NET-toepassingen die u beheert de CDN-cachinggedrag via een programma door in te stellen de **HttpResponse.Cache** eigenschap van de .NET API. Voor informatie over de **HttpResponse.Cache** eigenschap, Zie [HttpResponse.Cache eigenschap](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) en [HttpCachePolicy klasse](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Voor ASP.NET-toepassingen die u beheert de CDN-cachinggedrag via een programma door in te stellen de **HttpResponse.Cache** eigenschap van de .NET API. Voor informatie over de **HttpResponse.Cache** eigenschap, Zie [HttpResponse.Cache eigenschap](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) en [HttpCachePolicy klasse](/dotnet/api/system.web.httpcachepolicy).  
 
 Voor het programmatisch cache toepassingsinhoud in ASP.NET, de volgende stappen uit:
    1. Controleer of dat de inhoud is gemarkeerd als gecachet kan worden door in te stellen `HttpCacheability` naar `Public`. 
@@ -132,6 +132,6 @@ U kunt eenvoudig de TTL-instellingen van de inhoud van uw website controleren. M
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Lees meer informatie over de **clientCache** element](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Raadpleeg de documentatie bij de **HttpResponse.Cache** eigenschap](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Raadpleeg de documentatie bij de **HttpCachePolicy klasse**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Raadpleeg de documentatie bij de **HttpResponse.Cache** eigenschap](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Raadpleeg de documentatie bij de **HttpCachePolicy klasse**](/dotnet/api/system.web.httpcachepolicy)  
 * [Meer informatie over concepten opslaan in cache](cdn-how-caching-works.md)

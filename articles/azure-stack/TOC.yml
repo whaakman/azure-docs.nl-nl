@@ -4,21 +4,21 @@ items:
 - name: Overzicht
   items:
   - name: Wat is Azure Stack?
-    href: azure-stack-poc.md
-  - name: Belangrijke functies en concepten
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Vergelijking van de Azure-ecosysteem
+    href: compare-azure-azure-stack.md
   - name: Releaseopmerkingen
     items:
     - name: Recente updates
       href: azure-stack-servicing-policy.md
+    - name: 1903 update
+      href: azure-stack-update-1903.md
     - name: 1902-update
       href: azure-stack-update-1902.md
     - name: 1901 update
       href: azure-stack-update-1901.md
     - name: 1811 update
       href: azure-stack-update-1811.md
-    - name: 1809 update
-      href: azure-stack-update-1809.md
 - name: Snelstartgidsen
   items:
   - name: Gebruik de beheerportal
@@ -115,12 +115,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: Controle van apparaat
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Basisprincipes van beheer
-    href: azure-stack-manage-basics.md
 - name: Handleidingen
   items:
   - name: Beheren van Azure Stack
     items:
+    - name: Basisprincipes van beheer
+      href: azure-stack-manage-basics.md
     - name: Verzamelen van telemetrie configureren
       href: azure-stack-telemetry.md
     - name: Azure Stack registreren
@@ -233,6 +233,8 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Bieden van een Kubernetes-Cluster
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Maken van een site-naar-site VPN-verbinding
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Services aanbieden
     href: azure-stack-offer-services-overview.md
   - name: SQL als PaaS aanbieden
@@ -403,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training en certificering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a0c5682428d740bd109411333f13849c0e74d88e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906307"

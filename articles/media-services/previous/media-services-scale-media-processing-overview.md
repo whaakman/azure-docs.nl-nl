@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294226"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918345"
 ---
 # <a name="scaling-media-processing-overview"></a>Verwerking van Media schalingsoverzicht 
 Deze pagina geeft een overzicht van hoe en waarom mediaverwerking schalen. 
@@ -48,7 +48,7 @@ De volgende tabel kunt u een beslissing te nemen bij de keuze tussen verschillen
 
 ## <a name="billing"></a>Billing
 
-Er worden kosten in rekening gebracht op basis van het werkelijke aantal minuten dat gereserveerde media-eenheden worden gebruikt. Voor een gedetailleerde uitleg, Zie de sectie Veelgestelde vragen over van de [prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/) pagina.   
+In rekening gebracht op basis van aantal minuten dat gereserveerde Media-eenheden zijn ingericht in uw account. Dit gebeurt onafhankelijk van of er zijn geen taken die worden uitgevoerd in uw account. Voor een gedetailleerde uitleg, Zie de sectie Veelgestelde vragen over van de [prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/) pagina.   
 
 ## <a name="quotas-and-limitations"></a>Quota en beperkingen
 Zie voor meer informatie over quota en beperkingen en hoe u een ondersteuningsticket [quota en beperkingen](media-services-quotas-and-limitations.md).

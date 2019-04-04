@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517592"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895559"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -46,11 +46,11 @@ Wanneer u een nieuw beleid maakt, zijn er geen gebruikers, groepen, apps of best
 Als u uw beleid wilt werken, moet u het volgende configureren:
 
 
-|Wat           | Hoe                                  | Waarom|
-|:--            | :--                                  | :-- |
-|**Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om te bepalen hoe gemachtigde gebruikers hebben toegang tot cloudapps.|
+| Wat           | Hoe                                  | Waarom |
+| :--            | :--                                  | :-- |
+| **Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om te bepalen hoe gemachtigde gebruikers hebben toegang tot cloudapps.|
 | **Gebruikers en groepen** | Selecteer ten minste één gebruiker of groep die is gemachtigd voor toegang tot uw geselecteerde cloud-apps. | Beleid voor voorwaardelijke toegang dat er geen gebruikers en groepen die zijn toegewezen, wordt nooit geactiveerd. |
-| **Besturingselementen voor toegang** | Selecteer ten minste één toegangsbeheer. | Als uw voorwaarden wordt voldaan, moet de processor van uw beleid weten wat te doen.|
+| **Besturingselementen voor toegang** | Selecteer ten minste één toegangsbeheer. | Als uw voorwaarden wordt voldaan, moet de processor van uw beleid weten wat te doen. |
 
 
 
@@ -111,6 +111,13 @@ Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zor
 
 Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hoe moet u voorwaardelijke toegang configureren met Office 365-apps?
+
+Omdat Office 365-apps met elkaar zijn verbonden, wordt u aangeraden vaak toewijzen apps samen gebruikt bij het maken van beleid.
+
+Algemene onderling verbonden toepassingen bevatten Microsoft Flow, Microsoft Planner Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online en Office 365 Yammer.
+
+Het is belangrijk voor beleidsregels die interactie van gebruikers, zoals meervoudige verificatie, vereisen wanneer toegang wordt geregeld aan het begin van een sessie of de taak. Als u dit niet doet, kunnen gebruikers om sommige taken in een app te voltooien niet mogelijk. Bijvoorbeeld, als u multi-factor authentication op niet-beheerde apparaten toegang tot SharePoint, maar niet naar e-mailadres nodig hebt, gebruikers die werken in hun e-mailbericht niet mogelijk SharePoint-bestanden koppelen aan een bericht. Meer informatie vindt u in het artikel [wat serviceafhankelijkheden zijn in Azure Active Directory voor voorwaardelijke toegang?](service-dependencies.md).
 
 
 
