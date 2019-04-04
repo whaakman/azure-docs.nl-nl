@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: e8888a0505a3a38d2844f82c0f7fff255d05353d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 4f061dc66829c49fba6722215dc36ed2ce6464ee
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261555"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919211"
 ---
 In de Azure Cloud Shell, configureert u referenties voor implementatie met de [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) opdracht. Deze implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Ze verschillen van de referenties van uw Azure-abonnement._
 
@@ -23,7 +23,7 @@ Vervang in het volgende voorbeeld  *\<gebruikersnaam >* en  *\<wachtwoord >*, me
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-U krijgt een JSON-uitvoer met het wachtwoord wordt weergegeven als `null`. Als er een `'Conflict'. Details: 409`-fout optreedt, wijzigt u de gebruikersnaam. Als er een ` 'Bad Request'. Details: 400`-fout optreedt, kiest u een sterker wachtwoord.
+U krijgt een JSON-uitvoer met het wachtwoord wordt weergegeven als `null`. Als er een `'Conflict'. Details: 409`-fout optreedt, wijzigt u de gebruikersnaam. Als er een ` 'Bad Request'. Details: 400`-fout optreedt, kiest u een sterker wachtwoord. Gebruikersnaam van de implementatie mag geen ' @' symbool voor lokale Git-pushes.
 
 U configureren deze implementatiegebruiker maar één keer. U kunt deze gebruiken voor al uw Azure-implementaties.
 

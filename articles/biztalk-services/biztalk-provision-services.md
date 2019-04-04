@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097437"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918770"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
 
@@ -68,7 +68,7 @@ De Access Control Service-identiteit is een set referenties waarmee toepassingen
 > 
 > 
 
-[Uw ACS-naamruimte beheren](https://msdn.microsoft.com/library/azure/hh674478.aspx) geeft een lijst weer met de volgende richtlijnen en aanbevelingen.
+[Uw ACS-naamruimte beheren](/previous-versions/azure/azure-services/hh674478(v=azure.100)) geeft een lijst weer met de volgende richtlijnen en aanbevelingen.
 
 ## <a name="requirements-explained"></a>Uitleg van de vereisten
 Deze vereisten zijn niet van toepassing op de editie Free.
@@ -76,7 +76,7 @@ Deze vereisten zijn niet van toepassing op de editie Free.
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Wat u nodig hebt</strong></td>
-        <td><strong>Waarom u dit nodig hebt</strong></td>
+        <td><strong>Waarom u het nodig hebt</strong></td>
 </tr>
 <tr>
 <td>Azure-abonnement</td>
@@ -93,7 +93,7 @@ Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedere
 <br/><br/>
 Wanneer u een BizTalk Service maakt, kunt u een bestaande Azure SQL Server of Azure SQL Database gebruiken. U kunt ook automatisch een nieuwe server of database maken.
 <br/><br/>
-De schaal van de SQL Database wordt automatisch geconfigureerd. Meestal is de standaardschaal voldoende voor een BizTalk Service. Als u de schaal wijzigt, heeft dit invloed op de prijzen. Zie <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts en facturering in Azure SQL Database</a>
+De schaal van de SQL Database wordt automatisch geconfigureerd. Meestal is de standaardschaal voldoende voor een BizTalk Service. Als u de schaal wijzigt, heeft dit invloed op de prijzen. Zie <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts en facturering in Azure SQL-Database</a>
 <br/><br/>
 <strong>Opmerkingen</strong>
 <br/>
@@ -168,7 +168,7 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
 Nu er een BizTalk Service is gemaakt, raken met de verschillende [BizTalk Services: Tabbladen dashboard, bewaken en schalen](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
-* [BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Tabel met edities](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Statusgrafiek](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Back-up en herstel](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Beperking](biztalk-throttling-thresholds.md)<br/>

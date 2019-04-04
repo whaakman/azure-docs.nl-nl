@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650071"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892572"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
 
-Wanneer u aanroepen de **Video-Index ophalen** API en de status van het antwoord is OK, kunt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. De JSON-inhoud bevat details van de opgegeven inzichten in video's. De inzichten dimensies zoals bevatten: transcripties, optisch, gezichten, onderwerpen, blokken, enzovoort. De afmetingen zijn instanties van tijd bereiken die worden weergegeven wanneer elke dimensie wordt weergegeven in de video.  
+Wanneer u aanroepen de **Video-Index ophalen** API en de status van het antwoord is OK, kunt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. De JSON-inhoud bevat details van de opgegeven inzichten in video's. De inzichten dimensies zoals bevatten: transscripts, optisch, gezichten, onderwerpen, blokken, enzovoort. De afmetingen zijn instanties van tijd bereiken die worden weergegeven wanneer elke dimensie wordt weergegeven in de video.  
 
 U kunt ook visueel overzicht van de video-inzichten bekijken door te drukken de **afspelen** knop op de video op de [Video Indexer](https://www.videoindexer.ai/) website. Zie voor meer informatie, [weergeven en bewerken inzichten in video's](video-indexer-view-edit.md).
 
@@ -32,7 +32,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 ## <a name="root-elements"></a>Basis-elementen
 
-|Name|Description|
+|Name|Beschrijving|
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
@@ -83,7 +83,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |faces|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |stemmingen|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
-|audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioeffects).|
+|audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioEffects).|
 |labels| Kan nul of meer labels bevatten. Zie voor meer informatie, [labels](#labels).|
 |merken| Kan nul of meer merken bevatten. Zie voor meer informatie, [merken](#brands).|
 |statistieken | Zie voor meer informatie, [statistieken](#statistics).|
@@ -92,7 +92,7 @@ In deze sectie bevat een overzicht van de inzichten.
 
 ## <a name="videos"></a>video's
 
-|Name|Description|
+|Name|Beschrijving|
 |---|---|
 |accountId|Van de video VI account-ID.|
 |id|Van de video-ID.|
@@ -153,14 +153,14 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |sourceLanguage|Van de video source-taal (ervan uitgaande dat één master taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |language|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |transcript|De [transcript](#transcript) dimensie.|
-|OCR|De [ocr](#ocr) dimensie.|
+|OCR|De [OCR](#ocr) dimensie.|
 |trefwoorden|De [trefwoorden](#keywords) dimensie.|
 |blokken|Kan bevatten een of meer [blokken](#blocks)|
 |faces|De [gezichten](#faces) dimensie.|
 |labels|De [labels](#labels) dimensie.|
 |foto 's|De [opnamen](#shots) dimensie.|
 |merken|De [merken](#brands) dimensie.|
-|audioEffects|De [audioEffects](#audioeffects) dimensie.|
+|audioEffects|De [audioEffects](#audioEffects) dimensie.|
 |stemmingen|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
 |textualContentModeration|De [textualContentModeration](#textualcontentmoderation) dimensie.|
@@ -190,7 +190,7 @@ Voorbeeld:
 
 #### <a name="blocks"></a>blokken
 
-Kenmerk | Description
+Kenmerk | Beschrijving
 ---|---
 id|ID van het blok.|
 instanties|Een lijst met tijdsbereiken van dit blok.|
@@ -419,61 +419,85 @@ Voorbeeld:
   ] 
 ```
 
+#### <a name="scenes"></a>scenes
+
+|Name|Description|
+|---|---|
+|id|De id van de scène.|
+|instanties|Een lijst met tijdsbereiken van deze scène (een scène kan slechts 1 exemplaar hebben).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### <a name="shots"></a>foto 's
 
 |Name|Description|
 |---|---|
 |id|Id van de schermopname.|
-|keyFrames|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
-|instanties|Een lijst met tijdsbereiken van deze schermopname (opnamen hebben slechts 1 exemplaar).|
+|keyFrames|Een lijst met hoofdframes in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Elk exemplaar sleutelframes heeft een veld thumbnailId, waarin de miniatuur van het sleutelframes-id.|
+|instanties|Een lijst met tijdsbereiken van deze schermopname (een opname kan slechts 1 exemplaar hebben).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### <a name="brands"></a>merken
@@ -539,7 +563,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 
 #### <a name="statistics"></a>statistieken
 
-|Name|Description|
+|Name|Beschrijving|
 |---|---|
 |CorrespondenceCount|Het aantal berichten in de video.|
 |SpeakerWordCount|Het aantal woorden per spreker.|

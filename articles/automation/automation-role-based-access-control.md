@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621376"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918787"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -25,7 +25,7 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voo
 
 In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen aan gebruikers, groepen en toepassingen bij het Automation-accountbereik. Hieronder vindt u de ingebouwde rollen die worden ondersteund met een Automation-account:
 
-| **Rol** | **Beschrijving** |
+| **Rol** | **Description** |
 |:--- |:--- |
 | Eigenaar |De rol eigenaar geeft toegang tot alle resources en acties binnen een Automation-account, inclusief het bieden van toegang aan andere gebruikers, groepen en toepassingen voor het beheren van het Automation-account. |
 | Inzender |De rol van Bijdrager maakt het mogelijk om alles te beheren, behalve de toegangsrechten van andere gebruikers te wijzigen naar een Automation-account. |
@@ -47,7 +47,7 @@ De volgende tabellen beschrijven de specifieke machtigingen die aan elke rol. Di
 
 Een eigenaar kan alles beheren, inclusief toegang. De volgende tabel ziet u de machtigingen voor de rol:
 
-|Acties|Description|
+|Acties|Beschrijving|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Maken en beheren van resources van alle typen.|
 
@@ -55,7 +55,7 @@ Een eigenaar kan alles beheren, inclusief toegang. De volgende tabel ziet u de m
 
 Een medewerker kan alles beheren behalve toegang. De volgende tabel ziet u de machtigingen verleend en wordt geweigerd voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Maken en beheren van resources van alle typen|
 |**Geen acties**||
@@ -67,7 +67,7 @@ Een medewerker kan alles beheren behalve toegang. De volgende tabel ziet u de ma
 
 Een lezer kunt alle resources weergeven in een Automation-account, maar geen wijzigingen kunt aanbrengen.
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Alle resources in een Automation-account weergeven. |
 
@@ -75,7 +75,7 @@ Een lezer kunt alle resources weergeven in een Automation-account, maar geen wij
 
 Er is een Automation-Operator kunt maken en beheren van taken en runbooknamen en de eigenschappen voor alle runbooks in een Automation-account lezen.  Opmerking: Als u wilt voor het beheren van beheerderstoegang tot afzonderlijke runbooks en vervolgens niet instellen van deze rol, en in plaats daarvan de rollen 'Operator voor Automation-taak' en 'Operator voor Automation-Runbook' gebruiken in combinatie. De volgende tabel ziet u de machtigingen voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorisatie worden gelezen.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Resources voor de Hybrid Runbook Worker gelezen.|
@@ -102,7 +102,7 @@ Er is een Automation-Operator kunt maken en beheren van taken en runbooknamen en
 
 Een rol Operator voor Automation krijgt bij het Automation-accountbereik. Hiermee wordt de operatormachtigingen voor het maken en beheren van taken voor alle runbooks in het account. De volgende tabel ziet u de machtigingen voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorisatie worden gelezen.|
 |Microsoft.Automation/automationAccounts/jobs/read|Lijst met taken van het runbook.|
@@ -133,7 +133,7 @@ Een Operator voor Automation-Runbook-rol wordt verleend op het bereik van het Ru
 
 Een inzender van Log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. De volgende tabel ziet u de machtigingen voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.Automation/automationAccounts/*|Automation-accounts beheren.|
@@ -153,7 +153,7 @@ Een inzender van Log Analytics kan alle controlegegevens lezen en bewerken van i
 
 Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens en de controle-instellingen, inclusief het weergeven van de configuratie van Azure diagnostics op alle Azure-resources weergeven. De volgende tabel ziet u de machtigingen verleend of geweigerd voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in Azure Monitor-logboeken beheren.|
@@ -166,7 +166,7 @@ Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens e
 
 Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen bijwerken. De volgende tabel ziet u de machtigingen voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.AlertsManagement/alerts/*|Waarschuwingen beheren.|
@@ -192,7 +192,7 @@ Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen 
 
 Een lezer bewaking kan alle controlegegevens lezen. De volgende tabel ziet u de machtigingen voor de rol:
 
-|**Acties**  |**Beschrijving**  |
+|**Acties**  |**Description**  |
 |---------|---------|
 |* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-werkruimten.|
@@ -214,7 +214,7 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Onboarding van een virtuele machine
 
-|**Actie**  |**Machtiging**  |**Minimale bereik**  |
+|**Bewerking**  |**Machtiging**  |**Minimale bereik**  |
 |---------|---------|---------|
 |Schrijven van nieuwe implementatie      | Microsoft.Resources/deployments/*          |Abonnement          |
 |Schrijven van nieuwe resourcegroep      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
@@ -237,7 +237,7 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding van Automation-account
 
-|**Actie**  |**Machtiging** |**Minimale bereik**  |
+|**Bewerking**  |**Machtiging** |**Minimale bereik**  |
 |---------|---------|---------|
 |Nieuwe implementatie maken     | Microsoft.Resources/deployments/*        | Abonnement         |
 |Nieuwe resourcegroep maken     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
@@ -317,7 +317,7 @@ De toegangsmachtigingen voor een gebruiker die het Automation-account niet behee
 
 Rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-account met behulp van de volgende [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) geeft een lijst van alle RBAC-rollen die beschikbaar in Azure Active Directory zijn. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) geeft een lijst van alle RBAC-rollen die beschikbaar in Azure Active Directory zijn. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -336,7 +336,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) worden Azure AD RBAC-roltoewijzingen bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) worden Azure AD RBAC-roltoewijzingen bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.
     **Voorbeeld:** Gebruik de volgende opdracht om alle gebruikers en de bijbehorende rollen binnen een automation-account weer te geven.
 
 ```azurepowershell-interactive
@@ -357,7 +357,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[Nieuwe-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) toegang toewijzen aan gebruikers, groepen en toepassingen naar een bepaald bereik.
+[Nieuwe-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) toegang toewijzen aan gebruikers, groepen en toepassingen naar een bepaald bereik.
     **Voorbeeld:** Gebruik de volgende opdracht om toe te wijzen de rol 'Automation-Operator' voor een gebruiker in het Automation-accountbereik.
 
 ```azurepowershell-interactive
@@ -378,7 +378,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Gebruik [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) toegang van een opgegeven gebruiker, groep of toepassing verwijderen uit een bepaald bereik.
+Gebruik [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) toegang van een opgegeven gebruiker, groep of toepassing verwijderen uit een bepaald bereik.
     **Voorbeeld:** Gebruik de volgende opdracht om de gebruiker verwijderen uit de rol 'Automation-Operator' in het Automation-accountbereik.
 
 ```azurepowershell-interactive

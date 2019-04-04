@@ -3,19 +3,15 @@ title: Een toepassingsgateway maken met een omleiding op basis van een URL-pad -
 description: Informatie over het maken van een toepassingsgateway met op een URL-pad gebaseerd, omgeleid verkeer met behulp van Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 23541543daaf1a354da370178f82b222acfebe72
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876630"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918379"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met een omleiding op basis van een URL-pad met Azure PowerShell
 
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Basis-URL testen in de toepassingsgateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Wijzig de URL in http://&lt;IP-adres&gt;: 8080/video/test.htm, waarbij u &lt;IP-adres&gt; vervangt door uw IP-adres. U ziet dan iets als het volgende voorbeeld:
+Wijzig de URL in http://&lt;IP-adres&gt;: 8080/images/test.htm, waarbij u &lt;IP-adres&gt; vervangt door uw IP-adres. U ziet dan iets als het volgende voorbeeld:
 
 ![Afbeeldingen-URL in toepassingsgateway testen](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 

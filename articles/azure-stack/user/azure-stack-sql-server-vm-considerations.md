@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor prestaties voor SQL Server op virtuele Machines van Azure Stack
-description: Bevat de aanbevolen procedures voor het optimaliseren van prestaties van SQL Server in Microsoft Azure Stack Virtual Machines.
+title: Aanbevolen procedures voor SQL Server gebruiken en voor betere prestaties op virtuele machines van Azure Stack | Microsoft Docs
+description: Dit artikel bevat aanbevolen procedures voor SQL server om te helpen de prestaties verbeteren en optimaliseren van SQL Server in Azure Stack-VM's.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123399"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879061"
 ---
-# <a name="optimize-sql-server-performance"></a>SQL Server-prestaties optimaliseren
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Aanbevolen procedures voor SQL server optimaliseren in Azure Stack
 
-Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Server in virtuele machines van Microsoft Azure Stack. Wanneer SQL Server wordt uitgevoerd in virtuele machines van Azure Stack, gebruikt u dezelfde database-prestaties optimaliseren opties van toepassing op SQL Server in een on-premises server-omgeving. De prestaties van een relationele database in een Azure Stack-cloud, is afhankelijk van veel factoren. Factoren zijn de familie grootte van een virtuele machine en de configuratie van de gegevensschijven.
+Dit artikel bevat aanbevolen procedures voor SQL server voor het optimaliseren van SQL Server en de prestaties van Microsoft Azure Stack virtuele machines verbeteren. Wanneer SQL Server wordt uitgevoerd in virtuele machines van Azure Stack, gebruikt u dezelfde database-prestaties optimaliseren opties van toepassing op SQL Server in een on-premises server-omgeving. De prestaties van een relationele database in een Azure Stack-cloud, is afhankelijk van veel factoren. Factoren zijn de familie grootte van een virtuele machine en de configuratie van de gegevensschijven.
 
 Bij het maken van SQL Server-installatiekopieën, [Houd rekening met het inrichten van uw virtuele machines in de Azure Stack-portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). De SQL IaaS-extensie downloaden uit het beheer van de Marketplace in de Azure Stack-beheerportal en downloaden van uw eigen keuze aan SQL virtuele machine virtuele harde schijven (VHD's). Hieronder vallen SQL2014SP2, SQL2016SP1 en SQL2017.
 
@@ -37,7 +37,8 @@ Aan de *aanbevolen* prestaties voor SQL Server op virtuele machines van Azure St
 > [!NOTE]  
 > Raadpleeg voor prestatierichtlijnen voor SQL Server in virtuele machines van Azure, [in dit artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="checklist-for-sql-server-best-practices"></a>Controlelijst voor aanbevolen procedures voor SQL server
+
 De volgende controlelijst is voor optimale prestaties van SQL Server op virtuele machines van Azure Stack:
 
 
@@ -112,7 +113,7 @@ U wordt aangeraden TempDB opslaan op een gegevensschijf, omdat elke gegevensschi
 
        De volgende PowerShell wordt bijvoorbeeld een nieuwe opslaggroep gemaakt met de interleave-grootte die is ingesteld op 64 KB en het aantal kolommen in 2:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

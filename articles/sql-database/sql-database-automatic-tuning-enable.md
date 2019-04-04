@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726954"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904352"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Automatisch instellen voor het bewaken van query's en verbeteren de prestaties van de werkbelastingen inschakelen
 
 Azure SQL Database is een automatisch beheerde service waarmee voortdurend uw query's worden gecontroleerd en geeft de actie die u uitvoeren kunt voor betere prestaties van uw workload. U kunt Bekijk aanbevelingen en handmatig toepassen of laat Azure SQL Database automatisch corrigerende maatregelen treffen: dit staat bekend als **modus voor automatisch afstemmen**.
 
-Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de via de [Azure-portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST-API](sql-database-automatic-tuning-enable.md#rest-api) aanroepen en [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) opdrachten.
+Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de via de [Azure-portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST-API](sql-database-automatic-tuning-enable.md#rest-api) aanroepen en [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opdrachten.
 
 > [!NOTE]
-> Voor beheerd exemplaar, de ondersteunde optie FORCE_LAST_GOOD_PLAN kan worden geconfigureerd via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) alleen. Portal op basis van de configuratie en opties voor automatische index afstemmen die worden beschreven in dit artikel niet van toepassing op Managed Instance.
+> Voor beheerd exemplaar, de ondersteunde optie FORCE_LAST_GOOD_PLAN kan worden geconfigureerd via [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) alleen. Portal op basis van de configuratie en opties voor automatische index afstemmen die worden beschreven in dit artikel niet van toepassing op Managed Instance.
 
 > [!NOTE]
 > Configureren van opties voor automatisch afstemmen via (Azure Resource Manager) voor ARM-sjabloon wordt niet ondersteund op dit moment.

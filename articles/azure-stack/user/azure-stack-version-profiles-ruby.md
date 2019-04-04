@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 226416688fe4f2c48981718e7a2f40b0ba5b0685
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095361"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649608"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>API-versieprofielen gebruiken met Ruby in Azure Stack
 
@@ -91,7 +91,7 @@ Als u wilt gebruiken de Ruby-SDK van Azure met Azure Stack, moet u de volgende w
 | Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  |
 | Abonnements-id | AZURE_SUBSCRIPTION_ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
 | Clientgeheim | AZURE_CLIENT_SECRET | De service-principal toepassing geheim opgeslagen bij het service-principal is gemaakt. |
-| Resource Manager-eindpunt | ARM_ENDPOINT | Zie [de Azure Stack resource manager-eindpunt](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager-eindpunt | ARM_ENDPOINT | Zie [de Azure Stack resource manager-eindpunt](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>De Azure Stack resource manager-eindpunt
 

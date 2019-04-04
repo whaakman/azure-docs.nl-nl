@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905508"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van & beperkingen van Azure Cloud Shell
 
 Bekende oplossingen voor het oplossen van problemen in Azure Cloud Shell zijn onder andere:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Algemene probleemoplossing
 
@@ -74,7 +76,7 @@ Bekende oplossingen voor het oplossen van problemen in Azure Cloud Shell zijn on
 > Azure VM's beschikken over een openbaar IP-adres gericht.
 
 - **Details**: Vanwege de standaard Windows Firewall-instellingen voor WinRM ziet de gebruiker mogelijk de volgende fout: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Oplossing**:  Voer `Enable-AzureRmVMPSRemoting` om in te schakelen van alle aspecten van PowerShell voor externe toegang op de doelcomputer.
+- **Oplossing**:  Voer `Enable-AzVMPSRemoting` om in te schakelen van alle aspecten van PowerShell voor externe toegang op de doelcomputer.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` het resultaat in de Azure-station niet bijgewerkt
 

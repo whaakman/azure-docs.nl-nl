@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 487f70e4055f16c56092f2f970d2a34238e7febe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851840"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905032"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metrische gegevens in Azure Monitor
 
@@ -39,7 +39,7 @@ De volgende tabel bevat de verschillende manieren die u kunt metrische gegevens 
 | Waarschuwing | Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric.md) die duurt of verzendt een melding [automatische actie](action-groups.md) wanneer de metrische waarde een drempel overschrijden. |
 | Automatiseren |  Gebruik [voor automatisch schalen](autoscale-overview.md) vergroten of verkleinen van resources op basis van een metrische waarde een drempelwaarde overschrijden. |
 | Exporteren | [Metrische gegevens routeren naar Logboeken](diagnostic-logs-stream-log-store.md) voor het analyseren van gegevens in Azure Monitor metrische gegevens en de gegevens in Azure Monitor-logboeken en voor het opslaan van de metrische waarden voor langer dan 93 dagen.<br>Metrische gegevens naar Stream een [Event Hub](stream-monitoring-data-event-hubs.md) voor het routeren ze met externe systemen. |
-| Ophalen | Toegang tot metrische waarden vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>Toegang tot metrische waarden van het gebruik van aangepaste toepassing [REST-API](rest-api-walkthrough.md).<br>Toegang tot metrische waarden vanuit een opdrachtregel met [CLI](/azure/monitor/metrics). |
+| Ophalen | Toegang tot metrische waarden vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Toegang tot metrische waarden van het gebruik van aangepaste toepassing [REST-API](rest-api-walkthrough.md).<br>Toegang tot metrische waarden vanuit een opdrachtregel met [CLI](/azure/monitor/metrics). |
 | Archiveren | [Archief](..//learn/tutorial-archive-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden. |
 
 

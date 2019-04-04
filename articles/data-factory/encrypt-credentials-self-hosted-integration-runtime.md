@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453164"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903791"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Referenties voor on-premises gegevensarchieven in Azure Data Factory coderen
 U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de zelf-hostende integratieruntime. 
@@ -51,7 +51,7 @@ Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waar
 ```
 
 ## <a name="encrypt-credentials"></a>Referenties versleutelen
-Voer voor het versleutelen van de gevoelige gegevens uit de JSON-nettolading in een on-premises zelf-hostende integratieruntime **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, en de JSON-nettolading doorgeven. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op het zelf-hostende integration runtime-knooppunt lokaal opgeslagen. De uitvoerpayload kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), die bevat de versleutelde referenties.
+Voer voor het versleutelen van de gevoelige gegevens uit de JSON-nettolading in een on-premises zelf-hostende integratieruntime **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, en de JSON-nettolading doorgeven. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op het zelf-hostende integration runtime-knooppunt lokaal opgeslagen. De nettolading van de uitvoer met de versleutelde verwijzing naar de referentie op die kan worden omgeleid naar een ander JSON-bestand (in dit geval 'encryptedLinkedService.json').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc543218678b63d9c101f6cc3a1b65dd5c23a881
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442458"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895170"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hoe u E-mail verzenden via SendGrid van Java in een Azure-implementatie
 Het volgende voorbeeld ziet u hoe u SendGrid kunt gebruiken voor het verzenden van e-mailberichten van een webpagina die wordt gehost in Azure. De resulterende toepassing krijgt de gebruiker voor e-waarden, zoals wordt weergegeven in de volgende schermafbeelding.
@@ -38,7 +38,7 @@ U moet het volgende voor het gebruik van de code in dit onderwerp doen:
 
 Ook moet u uw eigen SendGrid-gebruikersnaam en wachtwoord, kunnen het e-mailbericht verzenden. Als u wilt beginnen met SendGrid, Zie [e-mail via SendGrid van Java verzenden](store-sendgrid-java-how-to-send-email.md).
 
-Bovendien vertrouwd zijn met de informatie op [een Hello World-toepassing voor Azure maken in Eclipse](https://msdn.microsoft.com/library/windowsazure/hh690944), of met andere technieken voor het hosten van Java-toepassingen in Azure als u niet met behulp van Eclipse, wordt ten zeerste aangeraden.
+Bovendien vertrouwd zijn met de informatie op [een Hello World-toepassing voor Azure maken in Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app), of met andere technieken voor het hosten van Java-toepassingen in Azure als u niet met behulp van Eclipse, wordt ten zeerste aangeraden.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Maken van een webformulier voor het verzenden van e-mailadres
 De volgende code toont het maken van een webformulier om op te halen gebruikersgegevens voor het verzenden van e-mailbericht. Voor de doeleinden van deze inhoud, de JSP-bestand met de naam **emailform.jsp**.
@@ -214,7 +214,7 @@ Uw toepassing in de rekenemulator implementeert en uitvoert in een browser email
 Deze code is opgegeven leert u hoe u SendGrid in Java op Azure gebruiken. Voordat u implementeert naar Azure in de productieomgeving, kunt u meer foutafhandeling of andere functies toe te voegen. Bijvoorbeeld: 
 
 * U kunt Azure storage-blobs of SQL-Database gebruiken voor het opslaan van e-mailadressen en e-mailberichten, in plaats van een webformulier. Zie voor meer informatie over het gebruik van Azure storage-blobs in Java [over het gebruik van de Blob Storage-Service met Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Zie voor meer informatie over het gebruik van SQL-Database in Java [SQL-Database in Java met behulp van](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
-* U kunt `RoleEnvironment.getConfigurationSettings` om op te halen van de SendGrid-gebruikersnaam en het wachtwoord van uw implementatie van configuratie-instellingen, in plaats van het webformulier om op te halen die waarden. Voor informatie over de `RoleEnvironment` klasse, Zie [met behulp van de Azure Service Runtime Library in JSP](https://msdn.microsoft.com/library/windowsazure/hh690948) en de documentatie van het pakket Azure Service Runtime op <http://dl.windowsazure.com/javadoc>.
+* U kunt `RoleEnvironment.getConfigurationSettings` om op te halen van de SendGrid-gebruikersnaam en het wachtwoord van uw implementatie van configuratie-instellingen, in plaats van het webformulier om op te halen die waarden. Voor informatie over de `RoleEnvironment` klasse, Zie [met behulp van de Azure Service Runtime Library in JSP](/previous-versions/azure/hh690948(v=azure.100)) en de documentatie van het pakket Azure Service Runtime op <http://dl.windowsazure.com/javadoc>.
 * Zie voor meer informatie over het gebruik van SendGrid in Java [e-mail via SendGrid van Java verzenden](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

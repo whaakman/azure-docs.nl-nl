@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35c30ec97d4c033a687204b926d2f686c52be069
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108253"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916017"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Problemen oplossen met bewerkingslogboeken
 
@@ -31,8 +31,8 @@ ms.locfileid: "58108253"
 Logboeken voor bewerkingen is een Management Services-functie waarmee u om historische logboeken van de bewerkingen die worden uitgevoerd op uw Azure-services, inclusief BizTalk Services weer te geven. Hiermee kunt u historische gegevens met betrekking tot bewerkingen op uw BizTalk Service-abonnement tot 180 dagen geleden bekijken.
 
 > [!NOTE]
-> Deze functie bevat alleen logboeken voor beheerbewerkingen op BizTalk Services, zoals wanneer de service is gestart, een back-maximaal, enzovoort gemaakt. Deze bewerkingen worden bijgehouden met behulp van de [BizTalk Service REST-API's](https://msdn.microsoft.com/library/azure/dn232347.aspx). Zie voor een volledige lijst met bewerkingen die zijn getraceerd door Management Services, [bewerkingen bijgehouden met behulp van Azure Management Services](#bizops).<br/><br/>
-> De logboeken voor activiteiten met betrekking tot de BizTalk Service runtime (zoals bericht verwerkt door bruggen, enzovoort.), wordt dit niet vastgelegd. Als u deze logboeken, gebruikt u de weergave bijhouden in de BizTalk Services-portal. Zie voor meer informatie, [berichten traceren](https://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Deze functie bevat alleen logboeken voor beheerbewerkingen op BizTalk Services, zoals wanneer de service is gestart, een back-maximaal, enzovoort gemaakt. Deze bewerkingen worden bijgehouden met behulp van de [BizTalk Service REST-API's](/previous-versions/azure/reference/dn232347(v=azure.100)). Zie voor een volledige lijst met bewerkingen die zijn getraceerd door Management Services, [bewerkingen bijgehouden met behulp van Azure Management Services](#bizops).<br/><br/>
+> De logboeken voor activiteiten met betrekking tot de BizTalk Service runtime (zoals bericht verwerkt door bruggen, enzovoort.), wordt dit niet vastgelegd. Als u deze logboeken, gebruikt u de weergave bijhouden in de BizTalk Services-portal. Zie voor meer informatie, [berichten traceren](/previous-versions/azure/hh949805(v=azure.100)).
 > 
 > 
 
@@ -67,7 +67,7 @@ De volgende tabel bevat de bewerkingen die worden bijgehouden met behulp van de 
 * [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk-Service te herstellen vanuit back-up](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Inrichting](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Diagram van de Status van inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Tabbladen dashboard, bewaken en schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)

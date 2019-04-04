@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093538"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918872"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Opmerkingen bij de release voor Azure BizTalk Services
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093538"
 De opmerkingen bij de release voor Microsoft Azure BizTalk Services bevatten de bekende problemen in deze release.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Wat is er nieuw in de update van November van BizTalk Services
-* Versleuteling-at-Rest kan worden ingeschakeld in de BizTalk Services-Portal. Zie [inschakelen van versleuteling-at-Rest in BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* Versleuteling-at-Rest kan worden ingeschakeld in de BizTalk Services-Portal. Zie [inschakelen van versleuteling-at-Rest in BizTalk Services-Portal](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## <a name="update-history"></a>Historie van updates
 ### <a name="october-update"></a>Update van oktober
@@ -39,14 +39,14 @@ De opmerkingen bij de release voor Microsoft Azure BizTalk Services bevatten de 
   * **Scenario**: U een BizTalk Service-implementatie met behulp van een organisatie-account in een Azure Active Directory geregistreerd (zoals user@fabrikam.com of user@contoso.com). In dit scenario beheren alleen Azure Active Directory-gebruikers binnen dezelfde organisatie de BizTalk Service met behulp van de BizTalk Services-portal. Een Microsoft-account kan niet worden gebruikt.  
 * Wanneer u een BizTalk Service maakt, wordt u automatisch geregistreerd in de BizTalk Services-Portal.
   * **Scenario**: U zich aanmeldt bij Azure, een BizTalk Service maken en selecteer vervolgens **beheren** voor de eerste keer. Wanneer de BizTalk Services-portal wordt geopend, wordt de BizTalk Service automatisch wordt geregistreerd en gereed is voor uw implementaties.  
-    Zie [registreren en bijwerken van een BizTalk Service-implementatie op de BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    Zie [registreren en bijwerken van een BizTalk Service-implementatie op de BizTalk Services-Portal](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### <a name="august-14-update"></a>14 augustus Update
-* Overeenkomst en bridge ontkoppeling – Trading partner-overeenkomsten en bruggen worden nu in de BizTalk Services-Portal ontkoppeld. Nu u overeenkomsten en bruggen afzonderlijk en tijdens runtime bruggen worden omgezet naar een overeenkomst op basis van de waarden in de EDI-bericht. Zie [overeenkomsten maken in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689908.aspx), [een EDI-brug met behulp van BizTalk Services-Portal maken](https://msdn.microsoft.com/library/azure/dn793986.aspx), [maken van een AS2-brug met behulp van BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/dn793993.aspx), en [ Hoe kunnen bruggen overeenkomsten tijdens runtime oplossen?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Overeenkomst en bridge ontkoppeling – Trading partner-overeenkomsten en bruggen worden nu in de BizTalk Services-Portal ontkoppeld. Nu u overeenkomsten en bruggen afzonderlijk en tijdens runtime bruggen worden omgezet naar een overeenkomst op basis van de waarden in de EDI-bericht. Zie [overeenkomsten maken in Azure BizTalk Services](/previous-versions/azure/hh689908(v=azure.100)), [een EDI-brug met behulp van BizTalk Services-Portal maken](/previous-versions/azure/dn793986(v=azure.100)), [maken van een AS2-brug met behulp van BizTalk Services-Portal](/previous-versions/azure/dn793993(v=azure.100)), en [ Hoe kunnen bruggen overeenkomsten tijdens runtime oplossen?](/previous-versions/azure/dn794001(v=azure.100))  
 * De optie voor het maken van sjablonen voor overeenkomsten wordt stopgezet.  
-* U kunt nu verschillende scheidingsteken ingesteld voor elk schema opgeven voor de overeenkomst verzenden aan clientzijde. Deze configuratie is opgegeven onder protocolinstellingen voor verzenden aan clientzijde overeenkomst. Zie voor meer informatie, [maken een X12 overeenkomst in de Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) en [een EDIFACT-overeenkomst Maak in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Twee nieuwe entiteiten worden ook toegevoegd aan de TPM-Operations Manager-API voor hetzelfde doel. Zie [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) en [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Standard XSD-constructs, met inbegrip van afgeleide typen, worden nu ondersteund. Zie [Gebruik standaard XSD constructs kaarten](https://msdn.microsoft.com/library/azure/dn793987.aspx) en [gebruik afgeleide typen in de toewijzing van scenario's en voorbeelden](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 biedt ondersteuning voor nieuwe MIC-algoritmen voor het ondertekenen van berichten en nieuwe versleutelingsalgoritmen. Zie [een AS2-overeenkomst Maak in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* U kunt nu verschillende scheidingsteken ingesteld voor elk schema opgeven voor de overeenkomst verzenden aan clientzijde. Deze configuratie is opgegeven onder protocolinstellingen voor verzenden aan clientzijde overeenkomst. Zie voor meer informatie, [maken een X12 overeenkomst in de Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100)) en [een EDIFACT-overeenkomst Maak in Azure BizTalk Services](/previous-versions/azure/dn606267(v=azure.100)). Twee nieuwe entiteiten worden ook toegevoegd aan de TPM-Operations Manager-API voor hetzelfde doel. Zie [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) en [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* Standard XSD-constructs, met inbegrip van afgeleide typen, worden nu ondersteund. Zie [Gebruik standaard XSD constructs kaarten](/previous-versions/azure/dn793987(v=azure.100)) en [gebruik afgeleide typen in de toewijzing van scenario's en voorbeelden](/previous-versions/azure/).  
+* AS2 biedt ondersteuning voor nieuwe MIC-algoritmen voor het ondertekenen van berichten en nieuwe versleutelingsalgoritmen. Zie [een AS2-overeenkomst Maak in Azure BizTalk Services](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## <a name="known-issues"></a>Bekende problemen
 
@@ -85,7 +85,7 @@ Als er alleen uit spaties bestaan naast een segment IEA, wordt de disassembler w
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Bijhouden van BizTalk Services-Portal
 Traceringsgebeurtenissen worden vastgelegd maximaal de EDI-berichtverwerking en een correlatie. Als een bericht buiten de fase Protocol is mislukt, wordt tracering als geslaagd weergegeven. In dit geval verwijzen naar de sectie logboek onder de **Details** kolom in **bijhouden** foutdetails.
-De X12 ontvangen en verzenden van instellingen ([maken een X12 overeenkomst in de Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) bevatten informatie over de Protocol-fase.  
+De X12 ontvangen en verzenden van instellingen ([maken een X12 overeenkomst in de Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100))) bevatten informatie over de Protocol-fase.  
 
 ### <a name="update-agreement"></a>Overeenkomst bijwerken
 De BizTalk Services-Portal kunt u de kwalificatie van een identiteit wijzigen wanneer een overeenkomst is geconfigureerd. Dit kan leiden tot inconsistent eigenschappen. Er is bijvoorbeeld een overeenkomst met behulp van ZZ:1234567 en ZZ:7654321 de kwalificatie. In de profielinstellingen van BizTalk Services-Portal wijzigt u ZZ:1234567 01:ChangedValue worden. Opent u de overeenkomst en 01:ChangedValue wordt weergegeven in plaats van ZZ:1234567.
@@ -109,7 +109,8 @@ U hebt een scenario in de volgende volgorde:
 * Sluit het bestand .bcs (op het tabblad in Visual Studio sluiten) zonder de wijzigingen worden opgeslagen.  
 * Open het bestand .bcs opnieuw vanuit de Solution Explorer.  
   U ziet dat tijdens het bijbehorende .bridgeconfig-bestand de nieuwe naam die u hebt opgegeven heeft, de naam van de entiteit op het ontwerpoppervlak nog steeds de oude naam. Als u probeert te openen van de brugconfiguratie door te dubbelklikken op het onderdeel bridge, krijgt u de volgende fout:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Om te voorkomen die wordt uitgevoerd in dit scenario, zorg ervoor dat u wijzigingen opslaat, nadat u de naam van de entiteiten in een BizTalk Service-project.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  Om te voorkomen die wordt uitgevoerd in dit scenario, zorg ervoor dat u wijzigingen opslaat, nadat u de naam van de entiteiten in een BizTalk Service-project.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>BizTalk Service-project met succes wordt gemaakt, zelfs als een artefact is uitgesloten van een Visual Studio-project
 U hebt een scenario waarin u een artefact (bijvoorbeeld een XSD-bestand) toevoegen aan een BizTalk Service-project, die artefact opnemen in de configuratie van de brug (bijvoorbeeld door te geven deze als een berichttype aanvraag) en deze vervolgens wordt uitgesloten van het Visual Studio-project. In dat geval krijgt het bouwen van het project niet een fout, zolang de verwijderde artefact beschikbaar op de schijf op dezelfde locatie is vanaf waar het is opgenomen in de Visual Studio-project.
@@ -224,5 +225,5 @@ Wordt ervan uitgegaan dat u een scenario waarin u werkt met een XML-brug geïmpl
 In dit document worden de term 'pijplijnen' en 'bruggen' door elkaar gebruikt. Beide betekent in principe hetzelfde te doen, die is, een verwerkingseenheid bericht is geïmplementeerd op BizTalk Services.  
 
 ### <a name="concepts"></a>Concepten
-[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk Services](/previous-versions/azure/hh689864(v=azure.100))   
 

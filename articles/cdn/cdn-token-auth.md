@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123722"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918889"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Beveiligen van Azure CDN-assets met tokenverificatie
 
@@ -33,7 +33,7 @@ Tokenverificatie is een mechanisme waarmee u om te voorkomen dat het Azure Conte
 
 Tokenverificatie controleert u of aanvragen worden gegenereerd door een vertrouwde site doordat aanvragen naar de waarde voor een token dat bevat informatie over de aanvrager kan gecodeerde bevatten. Content wordt geleverd voor een aanvrager alleen als de gecodeerde gegevens voldoet aan de vereisten; anders worden aanvragen geweigerd. U kunt de vereisten instellen met behulp van een of meer van de volgende parameters:
 
-- Land/regio: Toestaan of weigeren van aanvragen die afkomstig van de landen die is opgegeven zijn door hun [landcode](https://msdn.microsoft.com/library/mt761717.aspx).
+- Land/regio: Toestaan of weigeren van aanvragen die afkomstig van de landen die is opgegeven zijn door hun [landcode](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Alleen aanvragen die overeenkomen met de opgegeven asset of het pad toestaan.
 - Host: Toestaan of weigeren van aanvragen die gebruikmaken van de opgegeven hosts in de aanvraagheader.
 - Verwijzende site: Toestaan of weigeren van aanvraag van de opgegeven verwijzende site.
@@ -120,7 +120,7 @@ Het volgende stroomdiagram wordt beschreven hoe een clientaanvraag door Azure CD
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>U kunt alleen aanvragen die afkomstig uit een of meer opgegeven landen zijn. Aanvragen die afkomstig uit alle overige landen zijn worden geweigerd. Gebruik van twee letters [3166 ISO-landcode](https://msdn.microsoft.com/library/mt761717.aspx) voor elk land en gescheiden van elkaar met een door komma's, Voeg een spatie. Bijvoorbeeld, als u toegang toestaan van alleen de Verenigde Staten en Frankrijk wilt, voert u `US,FR`.</td>
+      >    <td>U kunt alleen aanvragen die afkomstig uit een of meer opgegeven landen zijn. Aanvragen die afkomstig uit alle overige landen zijn worden geweigerd. Gebruik van twee letters [3166 ISO-landcode](/previous-versions/azure/mt761717(v=azure.100)) voor elk land en gescheiden van elkaar met een door komma's, Voeg een spatie. Bijvoorbeeld, als u toegang toestaan van alleen de Verenigde Staten en Frankrijk wilt, voert u `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247303"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484038"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Neem contact op uw sjablonen voor Azure Stack met het hulpprogramma voor het valideren van sjabloon
 
@@ -47,13 +47,13 @@ Voordat u de validatie van de sjabloon gebruikt, voert u de **AzureRM.CloudCapab
 1. Zorg ervoor dat u verbinding hebt met Azure Stack. Deze stappen kunnen worden uitgevoerd vanuit de Azure Stack development kit host, of kunt u een [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) verbinding maken vanaf uw werkstation.
 2. Importeren van de **AzureRM.CloudCapabilities** PowerShell-module:
 
-    ```PowerShell
+    ```powershell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
 3. Gebruik de `Get-CloudCapabilities` cmdlet Serviceversies ophalen en maken van een JSON-bestand van de cloud-mogelijkheden. Als u geen opgeeft **- OutputPath**, het bestand AzureCloudCapabilities.Json in de huidige map wordt gemaakt. Gebruik uw werkelijke locatie:
 
-    ```PowerShell
+    ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
@@ -63,14 +63,14 @@ Volg deze stappen voor het valideren van sjablonen met behulp van de **AzureRM.T
 
 1. Importeren van de **AzureRM.TemplateValidator.psm1** PowerShell-module:
 
-    ```PowerShell
+    ```powershell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
 2. Voer de validatie van de sjabloon:
 
-    ```PowerShell
+    ```powershell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
@@ -98,7 +98,7 @@ De validatie van de sjabloon ondersteunt de volgende parameters.
 
 In dit voorbeeld alle valideert de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) gedownload naar de lokale opslag. Het voorbeeld valideert ook grootten van virtuele machines en -extensies op basis van Azure Stack Development Kit mogelijkheden:
 
-```PowerShell
+```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `

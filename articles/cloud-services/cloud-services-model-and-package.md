@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917308"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het servicemodel van Cloud en hoe ik een pakket?
 Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de configuratie van de service *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn gebaseerd op XML en beschrijven de structuur van de cloudservice en hoe deze geconfigureerd, samen met de naam het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en bevat onder andere alle vereiste binaire bestanden op basis van afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
@@ -39,7 +39,7 @@ Zodra de service in de cloud wordt uitgevoerd in Azure, kunt u het configureren 
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-De **ServiceDefinition.csdef** bestand Hiermee geeft u de instellingen die worden gebruikt door Azure voor een cloudservice configureren. De [Definitieschema voor Azure-Service (.csdef-bestand)](https://msdn.microsoft.com/library/azure/ee758711.aspx) biedt de toegestane indeling voor een service-definitiebestand. Het volgende voorbeeld ziet u de instellingen die kunnen worden gedefinieerd voor de Web- en werknemersrollen:
+De **ServiceDefinition.csdef** bestand Hiermee geeft u de instellingen die worden gebruikt door Azure voor een cloudservice configureren. De [Definitieschema voor Azure-Service (.csdef-bestand)](/previous-versions/azure/reference/ee758711(v=azure.100)) biedt de toegestane indeling voor een service-definitiebestand. Het volgende voorbeeld ziet u de instellingen die kunnen worden gedefinieerd voor de Web- en werknemersrollen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ De **ServiceDefinition.csdef** bestand Hiermee geeft u de instellingen die worde
 </ServiceDefinition>
 ```
 
-U kunt verwijzen naar de [Definitieschema voor Service](https://msdn.microsoft.com/library/azure/ee758711.aspx) voor een beter begrip van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van enkele van de elementen:
+U kunt verwijzen naar de [Definitieschema voor Service](/previous-versions/azure/reference/ee758711(v=azure.100)) voor een beter begrip van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van enkele van de elementen:
 
 **Sites**  
 Bevat de definities voor websites of webtoepassingen toepassingen die worden gehost in IIS7.
@@ -110,7 +110,7 @@ Bevat de definities voor certificaten die nodig zijn voor een rol. Het vorige co
 **LocalResources**  
 Bevat de definities voor de resources voor lokale opslag. Een lokale opslag-resource is een gereserveerde map op het bestandssysteem van de virtuele machine waarop een exemplaar van een rol wordt uitgevoerd.
 
-**Invoer**  
+**Importeren**  
 Bevat de definities voor de geïmporteerde modules. Het vorige codevoorbeeld ziet u de modules voor verbinding met extern bureaublad en Azure-verbinding.
 
 **Opstarten**  
@@ -119,7 +119,7 @@ Bevat taken die worden uitgevoerd wanneer de rol wordt gestart. De taken zijn ge
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-De configuratie van de instellingen voor uw cloudservice wordt bepaald door de waarden in de **ServiceConfiguration.cscfg** bestand. U geeft het aantal exemplaren dat u voor elke rol in dit bestand wilt implementeren. De waarden voor de configuratie-instellingen die u hebt gedefinieerd in het servicedefinitiebestand worden toegevoegd aan het configuratiebestand van de service. De vingerafdrukken instellen voor van beheercertificaten die gekoppeld aan de cloudservice zijn worden ook toegevoegd aan het bestand. De [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx) biedt de toegestane indeling voor een service-configuratiebestand.
+De configuratie van de instellingen voor uw cloudservice wordt bepaald door de waarden in de **ServiceConfiguration.cscfg** bestand. U geeft het aantal exemplaren dat u voor elke rol in dit bestand wilt implementeren. De waarden voor de configuratie-instellingen die u hebt gedefinieerd in het servicedefinitiebestand worden toegevoegd aan het configuratiebestand van de service. De vingerafdrukken instellen voor van beheercertificaten die gekoppeld aan de cloudservice zijn worden ook toegevoegd aan het bestand. De [configuratieschema voor Azure-Service (.cscfg-bestand)](/previous-versions/azure/reference/ee758710(v=azure.100)) biedt de toegestane indeling voor een service-configuratiebestand.
 
 Het configuratiebestand van de service wordt niet geleverd met de toepassing, maar wordt geüpload naar Azure als een afzonderlijk bestand en wordt gebruikt voor het configureren van de cloudservice. U kunt een nieuwe service-configuratiebestand uploaden zonder uw cloudservice opnieuw te implementeren. De configuratiewaarden voor de cloudservice kunnen worden gewijzigd terwijl de service in de cloud wordt uitgevoerd. Het volgende voorbeeld ziet u de configuratie-instellingen die kunnen worden gedefinieerd voor de Web- en werknemersrollen:
 
@@ -141,9 +141,9 @@ Het configuratiebestand van de service wordt niet geleverd met de toepassing, ma
 </ServiceConfiguration>
 ```
 
-U kunt verwijzen naar de [configuratieschema Service](https://msdn.microsoft.com/library/azure/ee758710.aspx) voor een beter beeld van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
+U kunt verwijzen naar de [configuratieschema Service](/previous-versions/azure/reference/ee758710(v=azure.100)) voor een beter beeld van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
 
-**exemplaren**  
+**Exemplaren**  
 Hiermee configureert u het aantal actieve instanties voor de rol. Om te voorkomen dat uw cloudservice mogelijk niet langer beschikbaar is tijdens upgrades, is het raadzaam dat u meer dan één exemplaar van uw web gerichte rollen implementeren. Meer dan één exemplaar implementeert, u voldoet aan de richtlijnen in de [Azure Compute-Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), die garandeert dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties geïmplementeerd voor een service.
 
 **ConfigurationSettings**  
@@ -208,11 +208,11 @@ U kunt de configuratie van uw cloudservice bijwerken terwijl deze wordt uitgevoe
   U kunt alleen een certificaat bijwerken wanneer een rolinstantie offline is. Als een certificaat is toegevoegd, verwijderd of gewijzigd terwijl een rolinstantie online is, wordt Azure zonder problemen het exemplaar offline voor het bijwerken van het certificaat en weer online brengen nadat de wijziging voltooid is.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Wijzigingen in de configuratie met de Service Runtime-gebeurtenissen verwerken
-De [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.aspx) bevat de [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) naamruimte, waarmee u klassen voor interactie met de Azure-omgeving van een rol. De [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) klasse definieert de volgende gebeurtenissen die worden gegenereerd voor en na een wijziging in de configuratie:
+De [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.100)) bevat de [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) naamruimte, waarmee u klassen voor interactie met de Azure-omgeving van een rol. De [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) klasse definieert de volgende gebeurtenissen die worden gegenereerd voor en na een wijziging in de configuratie:
 
-* **[Wijzigen van](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) gebeurtenis**  
+* **[Wijzigen van](/previous-versions/azure/reference/ee758134(v=azure.100)) gebeurtenis**  
   Dit gebeurt voordat de wijziging wordt toegepast op een opgegeven exemplaar van een rol zodat u een kans om de rolinstanties indien nodig.
-* **[Gewijzigd](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) gebeurtenis**  
+* **[Gewijzigd](/previous-versions/azure/reference/ee758129(v=azure.100)) gebeurtenis**  
   Treedt op nadat de wijziging in de configuratie is toegepast op een opgegeven exemplaar van een rol.
 
 > [!NOTE]
@@ -266,7 +266,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Waar de variabelen worden als volgt gedefinieerd:
 
-| Variabele | Waarde |
+| Variabele | Value |
 | --- | --- |
 | \[DirectoryName\] |De submap onder de hoofdmap van het project die het .csdef-bestand van de Azure-project bevat. |
 | \[ServiceDefinition\] |De naam van het servicedefinitiebestand. Standaard is dit bestand de naam ServiceDefinition.csdef. |

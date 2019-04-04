@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443586"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895661"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
-
-> [!Note]
-> De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 
 
 Video Indexer integreert een aantal audiovisuele technologieën voor kunstmatige intelligentie (AI) die Microsoft in een enkele geïntegreerde service aanbiedt, wat de ontwikkeling eenvoudiger maakt. De API's zijn ontworpen om het ontwikkelaars mogelijk te maken zich te concentreren op het verbruik van Media AI-technologieën, zonder zich druk te hoeven maken over schaal, wereldwijd bereik, beschikbaarheid en betrouwbaarheid van cloud-platforms. U kunt de API gebruiken om uw bestanden te uploaden, gedetailleerde video-inzichten te krijgen, URL's van inzicht- en spelerwidgets te krijgen om deze in te sluiten in uw toepassing of voor andere taken.
 
@@ -211,7 +208,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="see-also"></a>Zie ook
 
-- [Overzicht van Video Indexer](video-indexer-overview.md)
+- [Video Indexer-overzicht](video-indexer-overview.md)
 - [Regio's](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Volgende stappen

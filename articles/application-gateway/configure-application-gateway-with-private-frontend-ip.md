@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100169"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905534"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Een toepassingsgateway configureren met een interne load balancer (ILB)-eindpunt
 
@@ -25,9 +25,12 @@ In dit artikel leert u hoe u:
 - Een privé front-end-IP-configuratie voor een toepassingsgateway maken
 - Een toepassingsgateway maken met een privé front-end-IP-configuratie
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij Azure Portal op <https://portal.azure.com>
+Meld u aan bij Azure portal op <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
@@ -78,11 +81,11 @@ De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-ends
 ### <a name="install-iis"></a>IIS installeren
 
 1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![privé-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren:
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-ends
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 67bf0499b6dcf4257380f601c802723b2993a092
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771477"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893347"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -37,7 +37,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Apps-z
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Een actief Azure-account. Als u geen account hebt, meld u zich aan voor een proefversie van Azure en ontvangt u maximaal 10 gratis mobiele apps. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
+* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 Volg deze stappen voor het maken van een back-end voor mobiele apps.
@@ -71,7 +71,7 @@ Als u er problemen zijn met het bouwen van de oplossing, voert u NuGet Package M
 Alle ondersteuningspakketten waarnaar wordt verwezen in uw project, moeten dezelfde versie hebben. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Voeg offlinesynchronisatie toe aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-users.md)
 * [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)

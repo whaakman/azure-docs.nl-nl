@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251347"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917557"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -102,7 +102,7 @@ Geheime rotatie met behulp van de onderstaande instructies uitgevoerd, wordt dez
     > [!Note] 
     > U hoeft voor pre-1811 versies niet geheimen om toe te voegen host uitbreidingscertificaten draaien. U moet de instructies in het artikel [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md) extensie host certificaten toevoegen.
 
-2. Operators mogelijk waarschuwingen openen en sluiten van automatisch tijdens het draaien van geheimen met Azure Stack.  Dit is verwacht gedrag en de waarschuwingen kunnen worden genegeerd.  Operators kunnen de geldigheid van deze waarschuwingen controleren door te voeren **Test AzureStack**.  Voor operators SCOM gebruiken voor het bewaken van Azure Stack-systemen, plaatsen van een systeem in de onderhoudsmodus wordt voorkomen dat deze waarschuwingen hun ITSM-systemen is bereikt, maar blijft het een waarschuwing als door het Azure Stack-systeem niet meer bereikbaar is.
+2. Het is mogelijk dat operators tijdens het roteren van Azure Stack-geheimen waarschuwingen zijn verschijnen die automatisch weer worden gesloten.  Dit is verwacht gedrag en de waarschuwingen kunnen worden genegeerd.  Operators kunnen de geldigheid van deze waarschuwingen controleren door te voeren **Test AzureStack**.  Voor operators SCOM gebruiken voor het bewaken van Azure Stack-systemen, plaatsen van een systeem in de onderhoudsmodus wordt voorkomen dat deze waarschuwingen hun ITSM-systemen is bereikt, maar blijft het een waarschuwing als door het Azure Stack-systeem niet meer bereikbaar is.
 
 3. Informeer de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters, zo veel mogelijk tijdens de kantooruren plannen. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
 
@@ -122,7 +122,7 @@ Geheime rotatie met behulp van de onderstaande instructies uitgevoerd, wordt dez
 > **.\Certificates\AAD** of ***.\Certificates\ADFS*** , afhankelijk van uw id-Provider die wordt gebruikt voor Azure Stack
 >
 > Het is van het grootste belang dat eindigt op de mapstructuur van uw **AAD** of **ADFS** mappen en alle submappen zijn binnen deze structuur; anders **Start-SecretRotation**komen met:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Externe geheimen draaien:
 1. In het zojuist gemaakte **\Certificates\\\<IdentityProvider >** directory hebt gemaakt in de stappen vóór de nieuwe set van externe certificaten vervanging plaatsen in de mapstructuur volgens de indeling die worden beschreven in de sectie verplichte certificaten van de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Voorbeeld van de mappenstructuur voor de AAD-id-Provider:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Externe geheimen draaien:
     > [!Note]
     > Als de geheime rotatie is mislukt, volg de instructies in het foutbericht en opnieuw uitvoeren **Start SecretRotation** met de **-opnieuw uitvoeren** Parameter.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Neem contact op met ondersteuning als u ondervindt herhaald geheime rotatie fouten.
@@ -220,7 +220,7 @@ Externe geheimen draaien:
 
 De volgende PowerShell-voorbeeld ziet u de cmdlets en -parameters om uit te voeren om uw geheimen draaien.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene acti
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,39 +270,39 @@ De geheimen van een Azure Stack-systeem draait. Alleen uitgevoerd voor de bevoeg
 
 #### <a name="for-external-secret-rotation"></a>Voor externe geheime rotatie
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>Voor interne geheime rotatie
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Voor externe geheime rotatie opnieuw uitvoeren
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>Voor interne geheime rotatie opnieuw uitvoeren
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>Beschrijving
+### <a name="description"></a>Description
 
 De **Start SecretRotation** cmdlet draait de geheimen van de infrastructuur van een Azure Stack-systeem. Standaard worden deze alleen de certificaten van alle externe network-infrastructuur-eindpunten. Als u gebruikt met de - interne vlag interne worden infrastructuur geheimen gedraaid. Wanneer u externe network-infrastructuur-eindpunten, **Start SecretRotation** moet worden uitgevoerd met een **Invoke-Command** scriptblok met de Azure Stack-omgeving in de beschermde modus eindpunt sessie doorgegeven als de **sessie** parameter.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Type | Vereist | Positie | Standaard | Beschrijving |
+| Parameter | Type | Vereist | Positie | Standaard | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Reeks  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
+| PfxFilesPath | String  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
 | CertificatePassword | SecureString | False  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als externe geheimen worden gedraaid. |
-| Intern | Reeks | False | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
+| Intern | String | False | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
 | PathAccessCredential | PSCredential | False  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen.  |
 | ReRun | SwitchParameter | False  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie is nieuwe na een mislukte poging. |
 
@@ -312,7 +312,7 @@ De **Start SecretRotation** cmdlet draait de geheimen van de infrastructuur van 
 
 Dit moet worden uitgevoerd via uw Azure Stack [omgeving in de beschermde modus eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ Met deze opdracht worden alle van de infrastructuur-geheimen blootgesteld aan in
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>Alleen externe infrastructuur geheimen draaien  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Met deze opdracht worden de TLS-certificaten gebruikt voor het externe netwerk i
 >
 > **Van *1811 +* zowel interne kan niet worden gedraaid en externe certificaten meer.**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Met deze opdracht worden alle van de infrastructuur-geheimen blootgesteld aan in
 
 De BMC (baseboard management controller) wordt de fysieke status van uw servers. De specificaties en instructies over het bijwerken van de accountnaam en het wachtwoord van de BMC variëren op basis van de leverancier van de oorspronkelijke leveranciers (OEM)-hardware. U moet uw wachtwoorden voor Azure Stack-onderdelen op gezette tijden bijwerken.
 
-1. De BMC op de Azure Stack fysieke servers bijwerken door de OEM-instructies te volgen. De accountnaam en het wachtwoord voor elke BMC in uw omgeving moeten hetzelfde zijn.
+1. De BMC op de Azure Stack fysieke servers bijwerken door de OEM-instructies te volgen. De gebruikersnaam en het wachtwoord voor elke BMC in uw omgeving moeten hetzelfde zijn. Houd er rekening mee dat de gebruikersnamen BMC mag niet meer dan 16 tekens.
 2. Een bevoegde eindpunt geopend in Azure Stack-sessies. Zie voor instructies [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md).
 3. Nadat uw PowerShell-prompt is gewijzigd in **[IP-adres of ERCS VM name]: PS >** of **[azs-ercs01]: PS >**, afhankelijk van de omgeving, voeren `Set-BmcCredential` door uit te voeren `Invoke-Command`. Uw sessievariabele bevoegde eindpunt als een parameter doorgeven. Bijvoorbeeld:
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ De BMC (baseboard management controller) wordt de fysieke status van uw servers.
 
     U kunt ook de statische PowerShell-versie met de wachtwoorden gebruiken als coderegels:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

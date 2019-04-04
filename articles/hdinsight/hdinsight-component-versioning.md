@@ -2,20 +2,19 @@
 title: Apache Hadoop-onderdelen en versies - Azure HDInsight
 description: Informatie over de Apache Hadoop-onderdelen en versies in HDInsight en het niveau van de service beschikbaar is in deze cloud-distributie van Hortonworks Data Platform.
 keywords: hadoop-versies, onderdelen van hadoop-ecosysteem, hadoop-onderdelen, het controleren van hadoop-versie
-services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1783bf51c33a1dec84572b76149771a9723fe209
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1c8977090fe0ea0dfd5822c7bb448d313de7cf14
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519643"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917920"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -120,7 +119,7 @@ Beveiliging voor bedrijven is een optioneel pakket die u als onderdeel van de cl
 
     - [Een inleiding tot Apache Hadoop-beveiliging met aan domein gekoppelde HDInsight-clusters](./domain-joined/apache-domain-joined-introduction.md)
     - [Azure domein Apache Hadoop-clusters in HDInsight plannen](./domain-joined/apache-domain-joined-architecture.md)
-    - [Aan domein gekoppelde sandbox-omgeving configureren](./domain-joined/apache-domain-joined-configure.md)
+    - [Een aan een domein gekoppelde sandbox-omgeving configureren](./domain-joined/apache-domain-joined-configure.md)
     - [Aan domein gekoppelde HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 - Autorisatie voor gegevens

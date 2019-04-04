@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339632"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894915"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -36,10 +36,10 @@ U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 
 * **Gedetailleerde fout logboekregistratie** -gedetailleerde informatie weer voor elke aanvraag die in HTTP-statuscode 400 of hoger resulteert. Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten. Een HTML-bestand is gegenereerd voor elke fout in het bestandssysteem van de app, en tot wel 50 fouten (bestanden) worden bewaard. Wanneer het aantal HTML-bestanden groter zijn dan 50, wordt de oudste 26 bestanden worden automatisch verwijderd.
 * **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u wilt verbeteren de prestaties van de site of een specifieke HTTP-fout isoleren. Een map wordt gegenereerd voor elke fout in het bestandssysteem van de app. Beleid voor het bewaren van bestand zijn hetzelfde als de gedetailleerde fout bij het aanmelden hierboven.
-* **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
+* **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](/windows/desktop/Http/w3c-logging). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
-Application diagnostics kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. Bijvoorbeeld:
+Application diagnostics kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. Bijvoorbeeld:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -61,7 +61,7 @@ Als u activeert **toepassingsdiagnose**, u er ook voor kiezen de **niveau**. De 
 |**Fout** | Kritieke fout |
 |**Waarschuwing** | Waarschuwing, fout, kritiek|
 |**Informatie** | Info, waarschuwing, fout, kritiek|
-|**uitgebreide** | Tracering, foutopsporing, Info, waarschuwing, fout, kritiek (alle categorieën) |
+|**Uitgebreid** | Tracering, foutopsporing, Info, waarschuwing, fout, kritiek (alle categorieën) |
 |-|-|
 
 Voor **toepassingslogboeken**, kunt u de optie voor het systeem van bestand tijdelijk voor foutopsporing inschakelen. Deze optie nu schakelt automatisch in 12 uur. U kunt ook inschakelen op de optie blob storage een blobcontainer om te schrijven Logboeken om te selecteren.
@@ -101,7 +101,7 @@ De mapstructuur die de logboeken worden opgeslagen in is als volgt:
 * **Toepassingslogboeken** -/LogFiles/toepassing /. Deze map bevat een of meer tekstbestanden met gegevens die worden geproduceerd door logboekregistratie van toepassingen.
 * **Kan geen aanvraag traceringen** -/ logboekbestanden/W3SVC ### /. Deze map bevat een XSL-bestand en een of meer XML-bestanden. Zorg ervoor dat u de XSL-bestand in dezelfde map downloaden als het XML-bestand bestand(en) omdat het XSL-bestand functionaliteit biedt voor het formatteren en filteren van de inhoud van de XML-bestanden wanneer deze wordt bekeken in Internet Explorer.
 * **Gedetailleerde foutenlogboeken** -/LogFiles/DetailedErrors /. Deze map bevat een of meer htm-bestanden met uitgebreide informatie voor HTTP-fouten die zich hebben voorgedaan.
-* **Web Server-logboeken** -/LogFiles/http/RawLogs. Deze map bevat een of meer tekstbestanden geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server-logboeken** -/LogFiles/http/RawLogs. Deze map bevat een of meer tekstbestanden geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](/windows/desktop/Http/w3c-logging).
 * **Implementatielogboeken** -/ logboekbestanden/Git. Deze map bevat de logboeken die worden gegenereerd door de interne implementatieprocessen die worden gebruikt door Azure App Service, evenals de logboeken voor Git-implementaties. U vindt hier ook Logboeken onder D:\home\site\deployments-implementatie.
 
 ### <a name="ftp"></a>FTP
@@ -222,7 +222,7 @@ Traceringen van mislukte aanvragen worden opgeslagen in de XML-bestanden met de 
 Logboeken met details zijn HTML-documenten die bieden meer gedetailleerde informatie over HTTP-fouten die zijn opgetreden. Omdat ze gewoon HTML-documenten, kunnen ze worden weergegeven via een webbrowser.
 
 ### <a name="web-server-logs"></a>Webserverlogboeken
-De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Deze informatie kan worden gelezen met behulp van een teksteditor of met behulp van hulpprogramma's zoals geparseerd [Logboekparser](https://go.microsoft.com/fwlink/?LinkId=246619).
+De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](/windows/desktop/Http/w3c-logging). Deze informatie kan worden gelezen met behulp van een teksteditor of met behulp van hulpprogramma's zoals geparseerd [Logboekparser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > De logboeken die worden geproduceerd door Azure App Service bieden geen ondersteuning voor de **s-computername**, **s-IP-**, of **cs-version** velden.

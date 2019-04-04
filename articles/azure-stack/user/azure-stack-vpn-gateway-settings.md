@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ff5aeddbf05011f7c7d105e6c48552bca81580c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770183"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483280"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gatewayconfiguratie-instellingen voor Azure Stack
 
@@ -38,7 +38,7 @@ Elk virtueel netwerk van Azure Stack biedt ondersteuning voor een enkele virtuel
 
 Wanneer u een virtuele netwerkgateway maakt, moet u ervoor zorgen dat de gateway van het type voor de configuratie juist is. Een VPN-gateway vereist de `-GatewayType Vpn`vlag; bijvoorbeeld:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
 -VpnType RouteBased
@@ -72,7 +72,7 @@ Als u de Azure Stack-portal gebruiken om u te maken van een virtuele netwerkgate
 
 Hiermee geeft u op de volgende PowerShell-voorbeeld de **- GatewaySku** als `VpnGw1`:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
 -GatewayType Vpn -VpnType RouteBased
@@ -86,7 +86,7 @@ Elke configuratie vereist in het Resource Manager-implementatiemodel, een specif
 
    In het volgende PowerShell-voorbeeld wordt een S2S-verbinding gemaakt die het verbindingstype IPsec vereist:
 
-   ```PowerShell
+   ```powershell
    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
    -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -110,7 +110,7 @@ Wanneer u de virtuele netwerkgateway voor de configuratie van een VPN-gateway ma
 
 Hiermee geeft u op de volgende PowerShell-voorbeeld de **- VpnType** als **RouteBased**. Wanneer u een gateway maakt, moet u ervoor zorgen dat de **- VpnType** juist is voor uw configuratie.
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig
 -GatewayType Vpn -VpnType RouteBased
@@ -140,7 +140,7 @@ Bovendien moet u ervoor zorgen dat uw gatewaysubnet voldoende IP-adressen voor h
 
 De volgende Resource Manager PowerShell-voorbeeld ziet u een gateway-subnet met de naam **GatewaySubnet**. U ziet dat de CIDR-notatie een/27, geeft dit biedt voldoende IP-adressen voor de meeste configuraties die momenteel aanwezig zijn.
 
-```PowerShell
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -155,7 +155,7 @@ U geeft de lokale netwerkgateway een naam, het openbare IP-adres van de VPN-appa
 
 Het volgende PowerShell-voorbeeld maakt u een nieuwe lokale netwerkgateway:
 
-```PowerShell
+```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

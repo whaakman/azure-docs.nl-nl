@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999971"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894966"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -103,6 +103,12 @@ Nadat u de on-premises machines hebt beoordeeld, kunt u een aantal hulpprogramma
 
 - **Azure Site Recovery**: U kunt Azure Site Recovery gebruiken om te migreren naar Azure. Hiervoor moet u [de Azure-onderdelen voorbereiden](../site-recovery/tutorial-prepare-azure.md) die u nodig hebt, met inbegrip van een opslagaccount en een virtueel netwerk. On-premises moet u [uw VMware-omgeving voorbereiden](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Als alles voorbereid is, stelt en schakelt u replicatie naar Azure in en migreert u de virtuele machines. [Meer informatie](../site-recovery/vmware-azure-tutorial.md).
 - **Databasemigratie in Azure**: Als op uw on-premises machines een database zoals SQL Server, MySQL of Oracle wordt uitgevoerd, kunt u de [Azure Database Migration Service](../dms/dms-overview.md) gebruiken om ze te migreren naar Azure.
+
+## <a name="want-to-learn-more-from-community-experts"></a>Wilt u meer informatie van experts in de community?
+Ga naar de [migreren MSDN-forum Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) of [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.  
+Als u vragen hebt of hulp nodig hebt, maakt u een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Als uw ondersteuningsaanvraag uitgebreide technische richtlijnen vereist, gaat u naar [Azure-ondersteuningsplannen](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>Volgende stappen

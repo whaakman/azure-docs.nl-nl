@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199241"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905757"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen (beperkte openbare preview-versie)
 
@@ -21,6 +21,8 @@ In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd 
 
 > [!NOTE]
 > Als u wilt een Recovery Services-kluis en alle bijbehorende resources verplaatsen naar andere resourcegroep, moet u eerst [registreren van het bronabonnement](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Vereisten voor het verplaatsen van een kluis
 
@@ -50,24 +52,24 @@ Voor het registreren van het abonnement van bron naar **verplaatsen** uw Recover
 1. Aanmelden bij uw Azure-account
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Selecteer het abonnement dat u wilt registreren
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Dit abonnement registreren
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. De opdracht uitvoeren
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Wacht 30 minuten voor het abonnement om te worden goedgekeurd voordat u begint met de bewerking voor verplaatsen met behulp van de Azure portal of PowerShell.
@@ -137,18 +139,18 @@ U kunt een Recovery Services-kluis en alle bijbehorende resources verplaatsen na
 
 ## <a name="use-powershell-to-move-a-vault"></a>PowerShell gebruiken voor het verplaatsen van een kluis
 
-Als u een Recovery Services-kluis naar een andere resourcegroep, gebruikt u de `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` vereist de resourcenaam en het type resource. U krijgt van de `Get-AzureRmRecoveryServicesVault` cmdlet.
+Als u een Recovery Services-kluis naar een andere resourcegroep, gebruikt u de `Move-AzResource` cmdlet. `Move-AzResource` vereist de resourcenaam en het type resource. U krijgt van de `Get-AzRecoveryServicesVault` cmdlet.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Om de resources verplaatsen naar een ander abonnement, bevatten de `-DestinationSubscriptionId` parameter.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Na het uitvoeren van de bovenstaande cmdlets, wordt u gevraagd om te bevestigen dat u wilt verplaatsen van de opgegeven resources. Type **Y** om te bevestigen. Na een validatie is geslaagd, is de resource worden verplaatst.

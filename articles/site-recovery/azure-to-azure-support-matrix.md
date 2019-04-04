@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 4ce4cdbaf49fb743a14c7a5285ed29b9ad49faf5
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652651"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904998"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
@@ -24,9 +24,9 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 **Implementatie** |  **Ondersteuning**
 --- | ---
-**Azure-portal** | Ondersteund.
+**Azure Portal** | Ondersteund.
 **PowerShell** | Ondersteund. [Meer informatie](azure-to-azure-powershell.md)
-**REST API** | Ondersteund.
+**REST-API** | Ondersteund.
 **CLI** | Momenteel niet ondersteund
 
 
@@ -113,8 +113,11 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 14.04 TNS | 9.22 | 3.13.0-24-Generic naar 3.13.0-164-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1036-azure |
 14.04 TNS | 9.21 | 3.13.0-24-Generic naar 3.13.0-163-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1035-azure |
 14.04 TNS | 9.20 | 3.13.0-24-Generic naar 3.13.0-161-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-138-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1030-azure |
-
-||| 16.04 LTS | 9.23 | 4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-45-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1037-azure| 16.04 LTS | 9.22 | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-43-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1036-azure| 16.04 LTS | 9.21 | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-42-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1035-azure| 16.04 LTS | 9.20 | 4.4.0-21-Generic naar 4.4.0-138-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-38-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1030-azure|
+|||
+16.04 LTS | 9.23 | 4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-45-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1037-azure|
+16.04 LTS | 9.22 | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-43-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1036-azure|
+16.04 LTS | 9.21 | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-42-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1035-azure|
+16.04 LTS | 9.20 | 4.4.0-21-Generic naar 4.4.0-138-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-38-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1030-azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Ondersteunde kernelversies van Debian voor virtuele machines van Azure
 
@@ -155,10 +158,11 @@ Installatiekopieën van Azure-galerie - Microsoft gepubliceerd | Ondersteund | A
 Installatiekopieën van Azure-galerie - van derden gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
 Aangepaste installatiekopieën - van derden gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
 Virtuele machines gemigreerd met behulp van Site Recovery | Ondersteund | Als een VM met VMware of fysieke machine is gemigreerd naar Azure met Site Recovery, moet u de oudere versie van mobiliteitsservice wordt uitgevoerd op de computer verwijderen en start de machine opnieuw voordat u naar een andere Azure-regio te repliceren.
+RBAC-beleidsregels | Niet ondersteund | Access control (RBAC)-beleidsregels op virtuele machines worden niet gerepliceerd naar de failover-VM in de doelregio op basis van rollen.
 
 ## <a name="replicated-machines---disk-actions"></a>Gerepliceerde machines - schijf-acties
 
-**Actie** | **Details**
+**Bewerking** | **Details**
 -- | ---
 Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund
 Een schijf toevoegen aan een gerepliceerde virtuele machine | Wordt niet ondersteund.<br/><br/> U moet aan het uitschakelen van replicatie voor de virtuele machine, de schijf toevoegen en schakelt u de replicatie opnieuw.
@@ -213,7 +217,7 @@ De volgende tabel geeft een overzicht van Site Recovery-limieten.
 - Er zijn twee beperkingen rekening houden met per schijf gegevens verloop en verloop per gegevens van virtuele machines.
 - Een voorbeeld: als we een P20 Premium-schijf gebruiken, zoals beschreven in de onderstaande tabel, Site Recovery kan verwerken 5 MB/s van het verloop per schijf, met op maximaal vijf dergelijke schijven per virtuele machine, vanwege de limiet van 25 MB/s totale verloop per virtuele machine.
 
-**Doelopslag** | **Gemiddelde bronschijf i/o** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+**Doelopslag** | **Gemiddelde bronschijf i/o** |**Gemiddeld gegevensverloop van schijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
 Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf

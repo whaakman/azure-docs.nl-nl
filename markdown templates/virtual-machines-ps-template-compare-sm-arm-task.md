@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: aec6282daadc61b4e1bcf6bbaf1266d9bc98cdac
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895797"
+---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
 Info to help you use the template are enclosed in the Markdown comments using the caret, hyphen, dash syntax. Delete these from your file.
@@ -13,7 +21,7 @@ Pay attention to spacing and indents. They affect formatting.
 # <a name="use-azure-powershell-to-task"></a>Azure PowerShell gebruiken voor het [taak]
 In dit artikel wordt beschreven hoe u aan [taak], met behulp van opdrachten van zowel de Azure-module en de Azure Resource Manager-module. Dit is bedoeld voor meer informatie over de nieuwe CLI-opdrachten, evenals het migreren van bestaande scripts voor de nieuwe opdrachten.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Voorwaarde: Installeer een recente versie van Azure PowerShell
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Voorwaarde: Een recente versie van Azure PowerShell installeren
 Als u dit nog niet hebt gedaan, ten minste de [versienummer] versie van Azure PowerShell installeren op uw lokale computer. Als u een eerdere versie gebruikt, geen deze de Azure Resource Manager-cmdlets in dit artikel beschreven. Zie deze artikelen voor meer informatie:
 
 * [Hoe u Azure PowerShell installeren en configureren](install-configure-powershell.md) voor instructies over het instellen van Azure PowerShell.
@@ -53,13 +61,13 @@ $FriendlyName"<Describe value>"
 ## <a name="script-examples"></a>Voorbeelden van scripts
 Hier volgt een voorbeeld waarin [namen van de cmdlets)] naar [taak]. Het bevat opdrachten die:
 
-* [korte term wordt gebruikt, heeft, is, enzovoort]
-* [de volgende korte bewerking] 
+* [short verb, uses, has, is, etc]
+* [next short verb] 
 
 <!--include this statement if it uses variables that weren't introduced earlier--> Het bevat de volgende variabelen:
 
-* [variabele 1]
-* [variabele 2]
+* [variable 1]
+* [variable 2]
 
 <!--This shows you how a recent example was presented as well as how it was formatted. Preceding each line with one tab or four spaces to format in a code block-->
 
@@ -97,5 +105,5 @@ Hier volgt een voorbeeld waarin [namen van de cmdlets)] naar [taak]. Het bevat o
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Documentatie voor virtuele machines](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Documentatie voor virtuele machines](/previous-versions/azure/jj156003(v=azure.100))
 

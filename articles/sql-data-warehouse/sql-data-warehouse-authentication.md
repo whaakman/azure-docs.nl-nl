@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183795"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917903"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Verifiëren bij Azure SQL datawarehouse
 Ontdek hoe u verifieert met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.
@@ -56,7 +56,7 @@ Azure Active Directory-voordelen zijn:
 * Voorkomen dat wachtwoorden moet opslaan te maken met geïntegreerde Windows-verificatie en andere vormen van authenticatie wordt ondersteund door Azure Active Directory.
 * Maakt gebruik van ingesloten databasegebruikers om identiteiten op databaseniveau te verifiëren.
 * Biedt ondersteuning voor verificatie op basis van tokens voor toepassingen die verbinding maken met SQL Data Warehouse.
-* Biedt ondersteuning voor multi-factor authentication via universele authenticatie van Active Directory voor SQL Server Management Studio. Zie voor een beschrijving van multi-factor Authentication, [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+* Ondersteunt multi-factor authentication via universele authenticatie van Active Directory voor verschillende hulpprogramma's waaronder [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) en [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
 > Azure Active Directory nog relatief nieuw is en heeft bepaalde beperkingen. Om ervoor te zorgen dat Azure Active Directory geschikt is voor uw omgeving, Zie [Azure AD-functies en beperkingen][Azure AD features and limitations], specifiek de aanvullende overwegingen.

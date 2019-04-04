@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 730d32fd5b9451c2b4edfe0fb1e50c06c2156815
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159468"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916764"
 ---
-# <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -73,7 +73,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-id van de id-provider. |
 | IdTokenAudience | Nee | De doelgroep van het id_token. Als u opgeeft, wordt Azure AD B2C controleert of het token in een claim die wordt geretourneerd door de id-provider is en gelijk aan de versie die is opgegeven is. |
@@ -92,7 +92,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 De **CryptographicKeys** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Het clientgeheim van de toepassing van id-provider. De cryptografische sleutel is alleen vereist als de **response_types** metagegevens is ingesteld op `code`. In dit geval wordt Azure AD B2C een aanroep voor het uitwisselen van de autorisatiecode voor een toegangstoken. Als de metagegevens is ingesteld op `id_token` kunt u de cryptografische sleutel weglaten.  |  
 

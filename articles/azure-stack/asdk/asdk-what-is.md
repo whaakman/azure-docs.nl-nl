@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 54eb2ff43a5f36999294b8d0c580bc425ab65b28
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983369"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629075"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Wat is Azure Stack Development Kit?
 [Microsoft Azure Stack-geïntegreerde systemen](../azure-stack-poc.md) in grootte variëren van 4-16 knooppunten en gezamenlijk worden ondersteund door een hardware-partner en Microsoft. Gebruik Azure Stack-geïntegreerde systemen om in te schakelen van nieuwe scenario's voor uw productieworkloads. Als u Azure Stack-operators die u beheert de infrastructuur geïntegreerde systemen en services biedt, raadpleegt u onze [operator documentatie](https://docs.microsoft.com/azure/azure-stack).
@@ -46,10 +46,10 @@ Bekijk deze korte video voor meer informatie over de ASDK:
 ## <a name="asdk-and-multi-node-azure-stack-differences"></a>Azure Stack verschillen in ASDK en meerdere knooppunten
 Implementaties van één knooppunt ASDK verschillen van de Azure Stack implementaties met meerdere knooppunten in een aantal belangrijke manieren die u moet rekening houden met.
 
-|Description|ASDK|Azure Stack met meerdere knooppunten|
+|Beschrijving|ASDK|Azure Stack met meerdere knooppunten|
 |-----|-----|-----|
 |**Schalen**|Alle onderdelen zijn geïnstalleerd op een computer met één knooppunt-server.|De grootte van 4-16 knooppunten kan variëren.|
-|**Flexibiliteit**|Configuratie met één knooppunt biedt geen hoge beschikbaarheid|[Hoge beschikbaarheid](../azure-stack-key-features.md#high-availability-for-azure-stack) mogelijkheden worden ondersteund.|
+|**Flexibiliteit**|Configuratie met één knooppunt biedt geen hoge beschikbaarheid|[Hoge beschikbaarheid](../azure-stack-overview.md#providing-high-availability) mogelijkheden worden ondersteund.|
 |**Netwerken**|De host ASDK stuurt alle ASDK netwerkverkeer. Er zijn geen extra switch-vereisten.|Complexere [routering netwerkinfrastructuur](../azure-stack-network.md#network-infrastructure) in implementaties met meerdere knooppunten is het nodig met inbegrip van Top Of Rack (TOR), Baseboard Management Controller (BMC) en switches van de rand (netwerk van datacenters).|
 |**Patch- en bijwerkproces**|Als u wilt verplaatsen naar een nieuwe versie van de ASDK, moet u de ASDK op de hostcomputer development kit opnieuw implementeren.|[Patch en bij te werken](../azure-stack-updates.md) proces gebruikt voor het bijwerken van de geïnstalleerde versie van Azure Stack.|
 |**Ondersteuning**|Azure Stack voor MSDN-forum. Ondersteuning voor klantenservice van Microsoft en ondersteuning (CSS) is *niet* beschikbaar voor niet-productieomgevingen.|[MSDN Azure Stack-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) en ondersteuning voor volledige CSS.|

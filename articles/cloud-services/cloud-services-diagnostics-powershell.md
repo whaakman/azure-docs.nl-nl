@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054240"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918328"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen
 U kunt diagnostische gegevens, zoals toepassingslogboeken, verzamelen prestatiemeteritems enzovoort uit een Cloudservice met de Azure Diagnostics-extensie. In dit artikel wordt beschreven hoe u de Azure Diagnostics-extensie inschakelen voor een Cloudservice met behulp van PowerShell.  Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor de vereisten voor dit artikel.
@@ -136,5 +136,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over het gebruik van Azure diagnostics en andere technieken voor het oplossen van problemen [diagnostische gegevens inschakelen in Azure Cloud Services en Virtual Machines](cloud-services-dotnet-diagnostics.md).
-* De [configuratieschema van Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) worden de verschillende XML-configuratie-opties voor de extensie voor diagnostische gegevens.
+* De [configuratieschema van Diagnostics](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2) worden de verschillende XML-configuratie-opties voor de extensie voor diagnostische gegevens.
 * Zie voor informatie over het inschakelen van de extensie voor diagnostische gegevens voor virtuele Machines, [maken van een virtuele Windows-machine met controle en diagnostiek met behulp van Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md)

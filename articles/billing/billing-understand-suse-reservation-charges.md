@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649253"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917784"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Begrijpen hoe de SUSE Linux Enterprise-hulpprogramma voor het abonnement van de software-reserveringskorting wordt toegepast voor Azure
 
@@ -128,7 +128,7 @@ Zie voor meer informatie over reserveringen, de volgende artikelen:
 
 - [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Betaal vooruit voor SUSE-software plannen met Azure-reserveringen](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)

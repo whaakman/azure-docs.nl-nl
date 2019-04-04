@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7699c9279138aedfdcfe63fb42e65ad102ac92c9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102431"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652464"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Na de installatie van de ASDK configuratietaken
 
@@ -48,14 +48,14 @@ U kunt de meest recente PowerShell voor Azure Stack-module installeren met of zo
 
 - Azure Stack 1901 of hoger:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > De Azure Stack-moduleversie 1.7.0 is een belangrijke wijziging. Voor het migreren van Azure Stack 1.6.0 raadpleegt u de [Migratiehandleiding](https://aka.ms/azspshmigration170).
+    > De Azure Stack-moduleversie 1.7.1 is een belangrijke wijziging. Voor het migreren van Azure Stack 1.6.0 raadpleegt u de [Migratiehandleiding](https://aka.ms/azspshmigration171).
 
   - Azure Stack 1811:
 
@@ -87,7 +87,7 @@ U kunt de meest recente PowerShell voor Azure Stack-module installeren met of zo
 
 - **Zonder internetverbinding** van de hostcomputer ASDK. In een niet-verbonden scenario, moet u eerst de PowerShell-modules downloaden op een computer die verbinding heeft met internet met behulp van de volgende PowerShell-opdrachten:
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -99,7 +99,7 @@ U kunt de meest recente PowerShell voor Azure Stack-module installeren met of zo
 
   Vervolgens kopieert u de gedownloade pakketten op de computer ASDK en meld u aan de locatie als de standaard-opslagplaats en de azurerm-module en AzureStack-modules installeren vanaf deze opslagplaats:
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -114,7 +114,7 @@ U kunt de meest recente PowerShell voor Azure Stack-module installeren met of zo
 
 [AzureStack-hulpprogramma's](https://github.com/Azure/AzureStack-Tools) is een GitHub-opslagplaats die als host fungeert voor PowerShell-modules voor het beheren en implementeren van resources met Azure Stack. Als u deze hulpprogramma's, de GitHub-opslagplaats klonen of downloaden van de map AzureStack-hulpprogramma's voor het volgende script uit te voeren:
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 

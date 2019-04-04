@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082106"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892412"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-script (.csx) referentie voor ontwikkelaars
 
@@ -274,7 +274,7 @@ U kunt geen gebruiken `out` parameters in de asynchrone functies. Voor uitvoerbi
 
 ## <a name="cancellation-tokens"></a>Annuleringstokens
 
-Een functie accepteert een [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parameter waarmee het besturingssysteem op uw code op de hoogte gesteld wanneer de functie op het punt te worden beëindigd. U kunt deze melding kunt gebruiken om te controleren of dat de functie niet onverwacht wordt beëindigd op een manier die blijven de gegevens in een inconsistente status.
+Een functie accepteert een [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter waarmee het besturingssysteem op uw code op de hoogte gesteld wanneer de functie op het punt te worden beëindigd. U kunt deze melding kunt gebruiken om te controleren of dat de functie niet onverwacht wordt beëindigd op een manier die blijven de gegevens in een inconsistente status.
 
 Het volgende voorbeeld laat zien hoe om te controleren voor aanstaande beëindiging van een functie.
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definieert de [Storage-blob](functions-bindings-storage-blob.md) invoer of uitvoer verbinding maakt, en [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is een ondersteunde binding uitvoertype.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definieert de [Storage-blob](functions-bindings-storage-blob.md) invoer of uitvoer verbinding maakt, en [TextWriter](/dotnet/api/system.io.textwriter) is een ondersteunde binding uitvoertype.
 
 ### <a name="multiple-attribute-example"></a>Voorbeeld van meerdere kenmerk
 

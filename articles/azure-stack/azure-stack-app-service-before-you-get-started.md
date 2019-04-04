@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088431"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485747"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -61,13 +61,13 @@ Voer de *Get-AzureStackRootCert.ps1* script uit de map waar u de helperscripts h
 
 Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van de bevoegdheden en de referenties voor de AzureStack\CloudAdmin.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoegde eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Referenties van het domein account voor Azure Stack-cloud-beheerders |
@@ -92,7 +92,7 @@ Volg deze stappen voor het maken van de certificaten:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
 | Domeinnaam | Vereist | local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
@@ -353,7 +353,7 @@ Volg deze stappen:
 13. Selecteer **instellingen**.
 14. Selecteer **vereiste machtigingen** > **machtigingen verlenen** > **Ja**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ Volg deze stappen:
 5. In de **referentie** venster, Geef uw AD FS cloud-beheerdersaccount en het wachtwoord. Selecteer **OK**.
 6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

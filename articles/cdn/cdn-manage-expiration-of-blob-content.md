@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531926"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916798"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Vervaldatum van Azure Blob-opslag in Azure CDN beheren
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Cache-Control-headers instellen met behulp van .NET
-Om op te geven van een blob `Cache-Control` koptekst met behulp van .NET-code, gebruik de [Azure Storage-clientbibliotheek voor .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) om in te stellen de [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) eigenschap.
+Om op te geven van een blob `Cache-Control` koptekst met behulp van .NET-code, gebruik de [Azure Storage-clientbibliotheek voor .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) om in te stellen de [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl) eigenschap.
 
 Bijvoorbeeld:
 
@@ -163,18 +163,18 @@ Om bij te werken de *CacheControl* eigenschap van een blob met Azure Storage Exp
 ![Azure Storage Explorer-eigenschappen](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
-Met de [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), kunt u Azure blob-resources beheren vanaf de opdrachtregel. Om in te stellen de cache-control-header tijdens het uploaden van een blob met de Azure CLI, de *cacheControl* eigenschap met behulp van de `-p` overschakelen. Het volgende voorbeeld laat zien hoe de TTL-waarde instellen op één uur (3600 seconden):
+Met de [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure) (CLI), kunt u Azure blob-resources beheren vanaf de opdrachtregel. Om in te stellen de cache-control-header tijdens het uploaden van een blob met de Azure CLI, de *cacheControl* eigenschap met behulp van de `-p` overschakelen. Het volgende voorbeeld laat zien hoe de TTL-waarde instellen op één uur (3600 seconden):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>REST-API van Azure-opslagservices
-U kunt de [REST-API van Azure-opslagservices](https://msdn.microsoft.com/library/azure/dd179355.aspx) expliciet in te stellen de *x-ms-blob-cache-control* eigenschap met behulp van de volgende bewerkingen voor een aanvraag:
+U kunt de [REST-API van Azure-opslagservices](/rest/api/storageservices/) expliciet in te stellen de *x-ms-blob-cache-control* eigenschap met behulp van de volgende bewerkingen voor een aanvraag:
   
-   - [Blob plaatsen](https://msdn.microsoft.com/library/azure/dd179451.aspx)
-   - [Lijst met geblokkeerde websites plaatsen](https://msdn.microsoft.com/library/azure/dd179467.aspx)
-   - [Blobeigenschappen instellen](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Blob plaatsen](/rest/api/storageservices/Put-Blob)
+   - [Lijst met geblokkeerde websites plaatsen](/rest/api/storageservices/Put-Block-List)
+   - [Blobeigenschappen instellen](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Testen van de Cache-Control-header
 U kunt eenvoudig de TTL-instellingen van uw blobs controleren. Met van uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test uw blob met de `Cache-Control` response-header. U kunt ook een hulpprogramma zoals gebruiken [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), of [Fiddler](https://www.telerik.com/fiddler) om te controleren van de antwoordheaders.

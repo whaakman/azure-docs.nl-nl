@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
-ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234353"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895593"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -35,7 +35,7 @@ Als uw vraag hier niet wordt weergegeven, laat het ons weten en wij helpen u een
 ## <a name="azure-cache-for-redis-basics"></a>Azure Cache voor Redis-basisbeginselen
 De veelgestelde vragen over de in deze sectie betrekking hebben op sommige van de basisprincipes van Azure Cache voor Redis.
 
-* [Wat is Azure voor Redis-Cache?](#what-is-azure-cache-for-redis)
+* [Wat is Azure Cache voor Redis?](#what-is-azure-cache-for-redis)
 * [Hoe kan ik aan de slag met Azure Cache voor Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 De volgende veelgestelde vragen gaan over basisconcepten en vragen over Azure Cache voor Redis en in een van de andere secties van de veelgestelde vragen worden beantwoord.
@@ -392,7 +392,7 @@ Hoe u deze instelling wilt configureren:
   > De waarde die is opgegeven in deze configuratie-element is een *per kern* instelling. Bijvoorbeeld, als u wilt dat uw instelling minIOThreads 200 tijdens runtime en een 4-core-machine hebt, gebruikt u `<processModel minIoThreads="50"/>`.
   >
 
-* Buiten ASP.NET en Azure WebSites global.asax, gebruikt u de [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) DE API.
+* Buiten ASP.NET en Azure WebSites global.asax, gebruikt u de [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) DE API.
 
   > [!NOTE]
   > De waarde gespecificeerd door deze API is een algemene instelling, die betrekking hebben op het hele AppDomain. Als u een 4-core-machine hebt en wilt minWorkerThreads en minIOThreads ingesteld op 50 per CPU tijdens runtime, zou u ThreadPool.SetMinThreads (200, 200).
@@ -402,9 +402,9 @@ Hoe u deze instelling wilt configureren:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Inschakelen van de server GC meer om doorvoer te krijgen op de client bij het gebruik van StackExchange.Redis
 Inschakelen van server GC kunt optimaliseren van de client en bieden een betere prestaties en doorvoer bij het gebruik van StackExchange.Redis. Zie de volgende artikelen voor meer informatie over de GC-server en het inschakelen ervan:
 
-* [GC server inschakelen](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Grondbeginselen van garbagecollection](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Garbagecollection en prestaties](https://msdn.microsoft.com/library/ee851764.aspx)
+* [GC server inschakelen](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Grondbeginselen van garbagecollection](/dotnet/standard/garbage-collection/fundamentals)
+* [Garbagecollection en prestaties](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Prestatie-overwegingen over verbindingen
@@ -469,11 +469,11 @@ Zie voor meer informatie over aan de slag met Azure Cache voor Redis [hoe u met 
 ### <a name="managed-cache-service"></a>Beheerde cacheservice
 [Managed Cache service en met 30 November 2016 buiten gebruik is gesteld.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Als u gearchiveerde documentatie, Zie [gearchiveerde Managed Cache servicedocumentatie](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+Als u gearchiveerde documentatie, Zie [gearchiveerde Managed Cache servicedocumentatie](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>In-Role Cache
 [In-Role Cache en met 30 November 2016 buiten gebruik is gesteld.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Als u gearchiveerde documentatie, Zie [gearchiveerde In-Role Cache documentatie](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+Als u gearchiveerde documentatie, Zie [gearchiveerde In-Role Cache documentatie](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182843"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893092"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Beheren van gebruikersgegevens in Azure Active Directory B2C
 
- Dit artikel wordt beschreven hoe u de gegevens van de gebruiker in Azure Active Directory (Azure AD) B2C kunt beheren met behulp van de bewerkingen die worden geleverd door de [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). Gebruikersgegevens beheren omvat het verwijderen van of het exporteren van gegevens uit auditlogboeken.
+ Dit artikel wordt beschreven hoe u de gegevens van de gebruiker in Azure Active Directory (Azure AD) B2C kunt beheren met behulp van de bewerkingen die worden geleverd door de [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog). Gebruikersgegevens beheren omvat het verwijderen van of het exporteren van gegevens uit auditlogboeken.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Gebruikersgegevens verwijderen
 
-Gebruikersgegevens zijn opgeslagen in de Azure AD B2C-directory en in de auditlogboeken. Alle gebruiker audit-gegevens worden bewaard gedurende 30 dagen in Azure AD B2C. Als u verwijderen van gebruikersgegevens in die periode van 30 dagen wilt, kunt u de [verwijderen van een gebruiker](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser) bewerking. Een DELETE-bewerking is vereist voor elk van de Azure AD B2C-tenants waar de gegevens zich kan bevinden. 
+Gebruikersgegevens zijn opgeslagen in de Azure AD B2C-directory en in de auditlogboeken. Alle gebruiker audit-gegevens worden bewaard gedurende 30 dagen in Azure AD B2C. Als u verwijderen van gebruikersgegevens in die periode van 30 dagen wilt, kunt u de [verwijderen van een gebruiker](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) bewerking. Een DELETE-bewerking is vereist voor elk van de Azure AD B2C-tenants waar de gegevens zich kan bevinden. 
 
 Elke gebruiker in Azure AD B2C wordt toegewezen een object-ID. De object-ID biedt een unieke id voor u kunt gebruiken om gebruikersgegevens in Azure AD B2C te verwijderen. Afhankelijk van uw architectuur, de object-ID mag een handig correlatie-id voor andere services, zoals financiële, marketing, en klant relatie management databases. 
 

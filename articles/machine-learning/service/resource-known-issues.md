@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791742"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892735"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -24,7 +24,7 @@ Dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten opgetreden b
 
 ## <a name="sdk-installation-issues"></a>Problemen met de SDK-installatie
 
-**Foutbericht: Cannot uninstall 'PyYAML'**
+**Foutbericht: 'PyYAML' verwijderen niet**
 
 Azure Machine Learning-SDK voor Python: PyYAML is een geïnstalleerde distutils-project. We kan geen nauwkeurig bepalen welke bestanden behoren toe als er een gedeeltelijke verwijderen. Gebruik het volgende om door te gaan met het installeren van de SDK tijdens deze fout negeren:
 
@@ -50,7 +50,7 @@ Niet mogelijk om te implementeren van modellen op FPGA's totdat u hebt aangevraa
 
 ## <a name="automated-machine-learning"></a>Geautomatiseerde Machine Learning
 
-Tensor Flow geautomatiseerde machine learning biedt momenteel geen ondersteuning voor tensor flow versie 1.13. Installatie van dit zorgt ervoor dat pakketafhankelijkheden niet meer werken. Er wordt gewerkt om op te lossen dit in een toekomstige release. 
+Tensor Flow geautomatiseerde machine learning biedt momenteel geen ondersteuning voor tensor flow versie 1.13. Installatie van deze versie zorgt ervoor dat pakketafhankelijkheden niet meer werken. Er wordt gewerkt om dit probleem opgelost in een toekomstige release. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Als deze fout wordt weergegeven wanneer u gebruikt machine learning geautomatise
 
 1. Loskoppelen en vervolgens weer aan het cluster op uw laptop. 
 
-Als dit niet het probleem is opgelost, probeer het opnieuw opstarten van het cluster.
+Als deze stappen het probleem niet oplossen, probeert u het cluster opnieuw op te starten.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -104,7 +104,7 @@ Als u rechtstreeks naar het weergeven van uw werkruimte van een koppeling voor h
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Sommige Logboeken vindt u [Azure-portal](https://portal.azure.com) en Ga naar uw workpsace en selecteer **werkruimte > Experiment > uitvoeren > Logboeken**.
+Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Sommige Logboeken vindt u [Azure-portal](https://portal.azure.com) en Ga naar uw werkruimte en selecteer **werkruimte > Experiment > uitvoeren > Logboeken**.
 
 ## <a name="resource-quotas"></a>Resourcequota
 
@@ -123,7 +123,3 @@ Als u een bewerking voor het beheer van een compute-doel van een externe taak ui
 ```
 
 Bijvoorbeeld, ontvangt u een foutmelding als u probeert te maken of koppelen van een compute-doel van een ML-pijplijn die wordt verzonden voor uitvoering op afstand.
-
-## <a name="get-more-support"></a>Meer ondersteuning krijgen
-
-U kunt aanvragen verzenden voor ondersteuning en hulp krijgen van de technische ondersteuning, forums en meer. [Meer informatie...](support-for-aml-services.md)

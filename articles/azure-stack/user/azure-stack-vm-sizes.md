@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176256"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886468"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Grootten van virtuele machines worden ondersteund in Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-In dit artikel geeft een lijst van de virtuele machine (VM)-grootten die beschikbaar in Azure Stack zijn.
+In dit artikel geeft een lijst van de VM-grootten die beschikbaar in Azure Stack zijn.
 
-Schijf-IOPS (invoer/uitvoer-bewerkingen Per seconde) in Azure Stack is een functie van de VM-grootte in plaats van het schijftype. Dit betekent dat de IOPS-limiet voor de schijf van een enkele aanvullende gegevens voor een reeks Standard_Fs VM, ongeacht of u SSD of HDD voor het schijftype kiest 2300 IOPS is. De IOPS-limieten die zijn opgelegd is een limiet (maximum mogelijk) om te voorkomen dat luidruchtige buren. Het is niet een zekerheid dat er IOP's die u op een specifieke VM-grootte ontvangt.
+Schijf-IOPS (invoer/uitvoer-bewerkingen Per seconde) in Azure Stack is een functie van de grootte van de virtuele machine (VM) in plaats van het schijftype. Dit betekent dat de IOPS-limiet voor de schijf van een enkele aanvullende gegevens voor een reeks Standard_Fs VM, ongeacht of u SSD of HDD voor het schijftype kiest 2300 IOPS is. De IOPS-limieten die zijn opgelegd is een limiet (maximum mogelijk) om te voorkomen dat luidruchtige buren. Het is niet een zekerheid dat er IOP's die u op een specifieke VM-grootte ontvangt.
 
-## <a name="general-purpose"></a>Algemeen doel
+## <a name="virtual-machine-general-purpose"></a>Algemeen gebruik van virtuele machine
 
 VM-grootten voor algemeen gebruik bieden een evenwichtige CPU-geheugenverhouding. Ze worden gebruikt voor testen en ontwikkelen, kleine tot middelgrote databases en met weinig of gemiddeld verkeer webservers. Elke gegevensschijf is 2300 IOP's voor de premium VM-grootten, met uitzondering van de Basic A-serie. Basic a is de grootte van de gegevensschijf 500 IOPS.
 

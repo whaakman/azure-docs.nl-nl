@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a3032ee96accdbafb32c96f4e9f3c89a0b3458
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d30a5ca0910c5ceebb38dec7b4cdbffd9b3cf27e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539493"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916781"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET
 
@@ -110,7 +110,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-De `kind` parameter van de [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) methode de persistente bestanden worden gecategoriseerd. Er zijn vier vooraf gedefinieerde [TaskOutputKind] [ net_taskoutputkind] typen: `TaskOutput`, `TaskPreview`, `TaskLog`, en `TaskIntermediate.` ook kunt u aangepaste categorieën van uitvoer.
+De `kind` parameter van de [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) methode de persistente bestanden worden gecategoriseerd. Er zijn vier vooraf gedefinieerde [TaskOutputKind] [ net_taskoutputkind] typen: `TaskOutput`, `TaskPreview`, `TaskLog`, en `TaskIntermediate.` ook kunt u aangepaste categorieën van uitvoer.
 
 Deze uitvoertypen kunnen u opgeven welk type uitvoer om wanneer u later Batch een query voor de persistente uitvoer van een bepaalde taak weer te geven. Wanneer u de uitvoer voor een taak, kunt u met andere woorden, de lijst op een van de uitvoertypen filteren. Bijvoorbeeld, "Ik wil de *preview* uitvoer voor de taak *109*." Meer informatie over de aanbieding en het ophalen van de uitvoer wordt weergegeven in de uitvoer ophalen later in dit artikel.
 

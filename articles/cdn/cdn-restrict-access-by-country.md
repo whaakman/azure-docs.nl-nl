@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093303"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917750"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN-inhoud per land beperken
 
@@ -47,23 +47,23 @@ U geografisch filteren kunt toepassen voor alle bestanden met een zone voor forw
 Bijvoorbeeld, zijn alle van de volgende directory pad filters geldig:   
 */*                                 
 */Photos/*     
-*/Photos/Straatsburg /*     
-*/Photos/Strasbourg/City.PNG*
+*/Photos/Strasbourg/*     
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Het type actie definiëren
 
 Uit de **actie** in de lijst met **toestaan** of **blok**: 
 
-- **Toestaan dat**: alleen gebruikers van de opgegeven landen toegang tot activa die worden aangevraagd bij de recursieve pad zijn toegestaan.
+- **Toestaan dat**: Alleen gebruikers van de opgegeven landen zijn de toegang tot activa die worden aangevraagd bij de recursieve-pad toegestaan.
 
-- **Blok**: gebruikers van de opgegeven landen toegang wordt geweigerd aan de activa aangevraagd bij de recursieve-pad. Als er geen andere land-filteropties voor die locatie zijn geconfigureerd, klikt u vervolgens alle andere gebruikers mogen toegang.
+- **Blok**: Gebruikers uit de opgegeven landen zijn de toegang geweigerd aan de activa aangevraagd bij de recursieve-pad. Als er geen andere land-filteropties voor die locatie zijn geconfigureerd, klikt u vervolgens alle andere gebruikers mogen toegang.
 
 Bijvoorbeeld, een filterfunctie voor geografische regel voor het blokkeren van het pad */foto's /Straatsburg/* filters van de volgende bestanden:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>De landen definiëren
-Uit de **LANDCODES** , selecteert u de landen/regio's die u wilt blokkeren of toestaan voor het pad. 
+Uit de **LANDCODES** , selecteert u de landen die u wilt blokkeren of toestaan voor het pad. 
 
 Nadat u klaar bent met het selecteren van de landen, selecteert u **opslaan** activeren van de nieuwe filterfunctie voor geografische regel. 
 
@@ -110,5 +110,5 @@ Selecteer in de regels van land filteren tabel, het verwijderingspictogram naast
 
 * Slechts één regel kan worden toegepast op hetzelfde relatieve pad. U kunt meerdere land filters die naar hetzelfde relatieve pad verwijzen dat wil zeggen, niet maken. Omdat land filters recursieve zijn, kan een map echter meerdere filters van het land/regio hebben. Met andere woorden, kan dat een submap van een eerder geconfigureerde map een ander land filter worden toegewezen.
 
-* De functie voor geo-filteren gebruikt landcodes voor het definiëren van de landen van waaruit een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Hoewel Akamai en Verizon profielen de meeste van de dezelfde landcodes ondersteunen, zijn er enkele verschillen. Zie voor meer informatie, [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx). 
+* De functie voor geo-filteren gebruikt landcodes voor het definiëren van de landen van waaruit een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Hoewel Akamai en Verizon profielen de meeste van de dezelfde landcodes ondersteunen, zijn er enkele verschillen. Zie voor meer informatie, [Azure CDN landcodes](/previous-versions/azure/mt761717(v=azure.100)). 
 

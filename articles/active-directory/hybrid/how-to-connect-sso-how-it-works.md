@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083934"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896122"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: Technische details
 
@@ -39,15 +39,12 @@ Dit gedeelte bevat drie onderdelen:
 
 Naadloze eenmalige aanmelding is ingeschakeld met behulp van Azure AD Connect, zoals [hier](how-to-connect-sso-quick-start.md). Tijdens het inschakelen van de functie, gebeuren de volgende stappen uit:
 
-- Een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) is gemaakt in uw on-premises Active Directory (AD) in elk AD-forest.
-- Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD. Als er meerdere AD-forests, hebben elk een eigen ontsleutelingssleutel Kerberos.
-- Bovendien zijn twee Kerberos-SPN-namen (SPN's) gemaakt voor twee URL's die worden gebruikt tijdens de aanmelding bij Azure AD.
-
->[!NOTE]
-> Het computeraccount en de Kerberos-SPN's worden gemaakt in elk AD-forest u synchroniseren met Azure AD (met behulp van Azure AD Connect) en gebruikers voor wie u wilt dat naadloze eenmalige aanmelding. Verplaats de `AZUREADSSOACC` computeraccount aan een organisatie-eenheid (OE) waar de computeraccounts van andere worden opgeslagen om ervoor te zorgen dat deze op dezelfde manier wordt beheerd en is niet verwijderd.
+- Een computeraccount (`AZUREADSSOACC`) wordt gemaakt in uw on-premises Active Directory (AD) in elk AD-forest die u synchroniseert met Azure AD (met behulp van Azure AD Connect).
+- Bovendien worden een aantal Kerberos service principal names (SPN's) gemaakt om te worden gebruikt tijdens het aanmeldingsproces van Azure AD.
+- Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD. Als er meerdere AD-forests, is elke computeraccount heeft een eigen unieke ontsleutelingssleutel van Kerberos.
 
 >[!IMPORTANT]
->Is het raadzaam dat u [Beweeg de muis over de ontsleutelingssleutel Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) van de `AZUREADSSOACC` computeraccount ten minste elke 30 dagen.
+> De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld. Het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn Store. De Kerberos-ontsleutelingssleutel op het computeraccount moet ook worden behandeld als gevoelig. Is het raadzaam dat u [Beweeg de muis over de ontsleutelingssleutel Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) van de `AZUREADSSOACC` computeraccount ten minste elke 30 dagen.
 
 Nadat de installatie voltooid is, wordt met naadloze eenmalige aanmelding als een andere aanmelding die gebruikmaakt van geïntegreerde Windows-verificatie (IWA) op dezelfde manier werkt.
 

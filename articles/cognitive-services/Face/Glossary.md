@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d627c3c4419affa0d71cdb23df945c96d9fd7585
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652430"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904794"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -233,13 +233,13 @@ Zie de documentatie voor meer informatie: [LargePersonGroup - Create](https://we
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace is een gegevensstructuur in Face-API. PersistedFace wordt geleverd met een ID PersistedFace, evenals andere kenmerken, zoals naam en de gebruikersgegevens.
+PersistedFace is een gegevensstructuur in Face-API. PersistedFace wordt geleverd met een [PersistedFace ID](#persisted-face-id), en andere kenmerken, zoals naam en de gebruikersgegevens.
 
 Zie de documentatie voor meer informatie: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="person-id"></a>ID van de persoon
+#### <a name="persisted-face-id"></a>Persistente gezichts-ID
 
-ID van de persoon wordt gegenereerd wanneer een [PersistedFace](#persistedface) is gemaakt. Een tekenreeks is gemaakt voor deze gezicht in [Face-API](#face-api).
+Face ID persistent wordt gegenereerd wanneer een [PersistedFace](#persistedface) is gemaakt. Een tekenreeks is gemaakt voor deze gezicht in [Face-API](#face-api).
 
 Zie de documentatie voor meer informatie: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 

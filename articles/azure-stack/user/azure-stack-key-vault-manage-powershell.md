@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d2324f9538ce8079be5e660a1613c1c093ecc85a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258748"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484593"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Key Vault in Azure Stack met behulp van PowerShell beheren
 
@@ -45,7 +45,7 @@ U kunt Key Vault in Azure Stack met behulp van PowerShell beheren. Meer informat
 
 Voordat u kunt de opdracht alle bewerkingen op basis van een key vault, moet u ervoor zorgen dat uw tenant-abonnement is ingeschakeld voor vault-bewerkingen. Om te controleren dat vault-bewerkingen zijn ingeschakeld, moet u de volgende opdracht uitvoeren:
 
-```PowerShell  
+```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
@@ -57,7 +57,7 @@ Als uw abonnement is ingeschakeld voor vault-bewerkingen, wordt de uitvoer toont
 
 Als vault-bewerkingen zijn niet ingeschakeld, aanroepen van de volgende opdracht om het registreren van de service Key Vault in uw abonnement:
 
-```PowerShell
+```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
@@ -71,7 +71,7 @@ Als de registratie geslaagd is, wordt de volgende uitvoer geretourneerd:
 
 Voordat u een sleutelkluis maakt, een resourcegroep maken zodat alle resources met betrekking tot de key vault zich in een resourcegroep. Gebruik de volgende opdracht om een nieuwe resourcegroep te maken:
 
-```PowerShell
+```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ```
@@ -84,7 +84,7 @@ Gebruik nu de **New-AzureRMKeyVault** opdracht voor het maken van een key vault 
 
 Voer de volgende opdracht om een sleutelkluis te maken:
 
-```PowerShell
+```powershell
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
@@ -98,7 +98,7 @@ De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u h
 
 U kunt deze waarschuwing te krijgen in een AD FS-implementatie: "Toegangsbeleid is niet ingesteld. Er is geen gebruiker of toepassing heeft toegangsmachtigingen voor het gebruik van deze kluis." U lost dit probleem, stelt u een toegangsbeleid voor de kluis met behulp van de [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) opdracht:
 
-```PowerShell
+```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
@@ -115,7 +115,7 @@ Nadat u een kluis hebt gemaakt, gebruikt u de volgende stappen uit om te maken e
 
 Gebruik de **Add-AzureKeyVaultKey** opdracht uit om te maken of importeren van een softwarematig beveiligde sleutel in een key vault.
 
-```PowerShell
+```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
@@ -134,7 +134,7 @@ U kunt nu verwijzen naar de sleutel gemaakt met behulp van de URI. Als u maken o
 
 Gebruik de **Get-AzureKeyVaultKey** opdracht om een sleutel en de details ervan te lezen.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
@@ -142,7 +142,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 Gebruik de **Set-AzureKeyVaultSecret** opdracht uit om te maken of bijwerken van een geheim in een kluis. Een geheim is gemaakt als een nog niet bestaat. Een nieuwe versie van het geheim is gemaakt als deze al bestaat.
 
-```PowerShell
+```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 Gebruik de **Get-AzureKeyVaultSecret** opdracht voor het lezen van een geheim in een key vault. Met deze opdracht kan al retourneren of een specifieke versie van een geheim.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
@@ -166,13 +166,13 @@ Nadat u de sleutels en geheimen hebt gemaakt, geeft u toestemming externe toepas
 Gebruik de **Set-AzureRmKeyVaultAccessPolicy** opdracht om een toepassing voor toegang tot een sleutel of geheim in de key vault.
 In het volgende voorbeeld wordt de kluisnaam van de is *ContosoKeyVault* en de toepassing die u wilt toestaan dat een client-ID van *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Voer de volgende opdracht voor het autoriseren van de toepassing. Desgewenst kunt u de **PermissionsToKeys** parameter machtigingen instellen voor een gebruiker, toepassing of een beveiligingsgroep.
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 Als u dat dezelfde toepassing machtigen voor het lezen van geheimen in uw kluis wilt, voert u de volgende cmdlet uit:
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 

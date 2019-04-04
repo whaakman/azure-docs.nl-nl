@@ -1,6 +1,6 @@
 ---
 title: Beheren voor de opslagcapaciteit in Azure Stack | Microsoft Docs
-description: Controleren en beheren van beschikbare opslagruimte voor Azure Stack.
+description: Controleren en beheren van Azure Stack-opslag capaciteit en de beschikbaarheid van opslagruimte voor Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: e5188a7f7a1ce889c8f4340f100cfe767ff2dff8
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225702"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629398"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
@@ -53,7 +53,6 @@ Shares op volumes bevatten gegevens van de tenant. Gegevens van de tenant bevat 
 
 Wanneer een share is onvoldoende vrije ruimte en acties voor [vrijmaken](#reclaim-capacity) ruimte niet geslaagd, of beschikbaar zijn, de Azure Stack-cloud-operator de blob-containers kunt migreren van een share naar een andere.
 
-- Zie voor meer informatie over containers en blobs [Blob storage](azure-stack-key-features.md#blob-storage) in sleutel-functies en concepten in Azure Stack.
 - Zie voor meer informatie over de werking van tenantgebruikers met blob storage in Azure Stack [Azure Stack-opslagservices](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
@@ -142,14 +141,14 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
 1. Bevestigen dat u hebt [Azure PowerShell is geïnstalleerd en geconfigureerd](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Zie [Azure PowerShell gebruiken met Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767) voor meer informatie.
 2. Controleer de container voor meer informatie over welke gegevens staan op de share die u wilt migreren. Voor het identificeren van de beste kandidaat containers voor migratie in een volume, gebruikt u de **Get-AzsStorageContainer** cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name
    $shares = Get-AzsStorageShare -FarmName $farm_name
    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
    ```
    Controleer $containers:
 
-   ```PowerShell
+   ```powershell
    $containers
    ```
 
@@ -157,14 +156,14 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
 
 3. Identificeert de beste bestemming shares voor het opslaan van de container die u migreert:
 
-   ```PowerShell
+   ```powershell
    $destinationshares = Get-AzsStorageShare -SourceShareName
    $shares[0].ShareName -Intent ContainerMigration
    ```
 
    Controleer $destinationshares:
 
-   ```PowerShell 
+   ```powershell 
    $destinationshares
    ```
 
@@ -172,20 +171,20 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
 
 4. De migratie voor een container starten. Migratie is asynchroon. Als u de migratie van andere containers starten voordat de eerste migratie is voltooid, gebruikt u de taak-ID voor het bijhouden van de status van elk.
 
-   ```PowerShell
+   ```powershell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
    Vervolgens $jobId te onderzoeken. Vervang in het volgende voorbeeld *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* met de taak-ID die u wilt bekijken:
 
-   ```PowerShell
+   ```powershell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
 5. De taak-ID gebruiken om te controleren op de status van de migratietaak. Als de container-migratie voltooid is, **MigrationStatus** is ingesteld op **voltooid**.
 
-   ```PowerShell 
+   ```powershell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
@@ -193,7 +192,7 @@ Migratie consolideert alle een blob van containers op de nieuwe share.
 
 6. U kunt een migratietaak in uitvoering annuleren. Geannuleerd migratie taken asynchroon worden verwerkt. U kunt de annulering bijhouden met behulp van $jobid:
 
-   ```PowerShell
+   ```powershell
    Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
    ```
 

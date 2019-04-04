@@ -1,19 +1,17 @@
 ---
 title: Micro Focus dev/test-omgevingen op Azure | Microsoft Docs
 description: Rehost uw IBM z/OS mainframe-workloads met Focus Micro-oplossingen op Azure virtual machines (VM's).
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739544"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893772"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Micro Focus dev/test-omgevingen op Azure
 
@@ -25,5 +23,6 @@ Micro Focus biedt ontwikkeling opnieuw hosten en test oplossingen die een uitbre
 
 **Volgende stappen**
 
-- [Micro Focus Enterprise Server 4.0 en Enterprise Developer 4.0 installeren op Azure](./set-up-micro-focus-on-azure.md)
+- [Micro Focus Enterprise Server 4.0 en Enterprise Developer 4.0 installeren op Azure](./set-up-micro-focus-azure.md)
 - [Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 in Azure](./demo.md)
+- [Enterprise-Server uitvoeren in Docker-containers op Azure](./run-enterprise-server-container.md)

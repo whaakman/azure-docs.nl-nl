@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106403"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905066"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snelstartgids voor PowerShell in Azure Cloudshell
 
@@ -267,7 +267,7 @@ Als u wilt verifiëren op servers of virtuele machines met behulp van SSH, het o
 
 ### <a name="using-ssh"></a>Met behulp van SSH
 
-Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) te maken van een nieuwe VM-configuratie met behulp van de AzureRM-cmdlets.
+Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) te maken van een nieuwe VM-configuratie met behulp van Azure PowerShell-cmdlets.
 Voordat aanroepen in `New-AzVM` als u wilt een vliegende start de implementatie, openbare SSH-sleutel aan de VM-configuratie toevoegen.
 De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u SSH-sessie referentie gratis aan de virtuele machine.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Onder `Azure` station, typt u `Get-AzCommand` om op te halen van context-specifieke Azure-opdrachten.
 
-U kunt ook altijd gebruiken `Get-Command *azurerm* -Module AzureRM.*` om erachter te komen de beschikbare Azure-opdrachten.
+U kunt ook altijd gebruiken `Get-Command *az* -Module Az.*` om erachter te komen de beschikbare Azure-opdrachten.
 
 ## <a name="install-custom-modules"></a>Aangepaste modules installeren
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763364"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622005"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage explorer verbinden met een Azure Stack-abonnement of een storage-account
 
@@ -49,25 +49,27 @@ Exporteren en vervolgens Azure Stack-certificaat voor de ASDK importeren. Het ce
 
 1. Open `mmc.exe` op een Azure Stack-hostmachine of een lokale computer met een VPN-verbinding met Azure Stack. 
 
-2. In **bestand**, selecteer **module toevoegen/verwijderen**, en voeg deze **certificaten** voor het beheren van **Mijn gebruikersaccount**.
+2. In **bestand**, selecteer **module toevoegen/verwijderen**. Selecteer **certificaten** in beschikbare modules. 
 
-3.  Onder **Console Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates**. Zoek **AzureStackSelfSignedRootCert**.
+3. Selecteer **computeraccount**, en selecteer vervolgens **volgende**. Selecteer **lokale computer**, en selecteer vervolgens **voltooien**.
+
+4.  Onder **Console Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates**. Zoek **AzureStackSelfSignedRootCert**.
 
     ![Laad het Azure Stack-basiscertificaat via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Met de rechtermuisknop op het certificaat, selecteert u **alle taken** > **exporteren**, en volg de instructies voor het exporteren van het certificaat met **Base-64 gecodeerde X.509 (. CER)**.
+5. Met de rechtermuisknop op het certificaat, selecteert u **alle taken** > **exporteren**, en volg de instructies voor het exporteren van het certificaat met **Base-64 gecodeerde X.509 (. CER)**.
 
     Het geëxporteerde certificaat zal worden gebruikt in de volgende stap.
 
-5. Open Opslagverkenner, en als u ziet de **verbinding maken met Azure Storage** dialoogvenster vak, te annuleren.
+6. Open Opslagverkenner, en als u ziet de **verbinding maken met Azure Storage** dialoogvenster vak, te annuleren.
 
-6. Op de **bewerken** in het menu **SSL-certificaten**, en selecteer vervolgens **certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen.
+7. Op de **bewerken** in het menu **SSL-certificaten**, en selecteer vervolgens **certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen.
 
     Na het importeren van het certificaat wordt gevraagd of u Opslagverkenner opnieuw starten.
 
     ![Importeer het certificaat in Opslagverkenner](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Nadat Opslagverkenner opnieuw is opgestart, selecteert u de **bewerken** menu en controleert u of **Azure Stack als doel** is geselecteerd. Als dit niet, selecteer **Azure Stack als doel**, en start u Opslagverkenner om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
+8. Nadat Opslagverkenner opnieuw is opgestart, selecteert u de **bewerken** menu en controleert u of **doel Azure Stack-API's** is geselecteerd. Als dit niet, selecteer **Azure Stack als doel**, en start u Opslagverkenner om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
 
     ![Zorg dat de optie Azure Stack als doel is geselecteerd](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Gebruik de volgende stappen in storage explorer verbinden met een Azure Stack-ab
 
     ![Een Azure Stack-account toevoegen](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In het dialoogvenster verbinding maken met Azure Storage, onder **Azure-omgeving**, selecteer **Azure** of **Azure China**, die afhankelijk is van de Azure Stack-account dat wordt gebruikt, selecteer **Aanmelden** zich aanmelden met de Azure Stack-account dat is gekoppeld aan ten minste één actief Azure Stack-abonnement.
+3. In het dialoogvenster verbinding maken met Azure Storage, onder **Azure-omgeving**, selecteer **Azure**, **Azure China**, **Azure Duitsland**,  **Azure US Government**, of **nieuwe omgeving toevoegen**, die afhankelijk is van de Azure Stack-account dat wordt gebruikt. Selecteer **aanmelden** zich aanmelden met de Azure Stack-account dat is gekoppeld aan ten minste één actief Azure Stack-abonnement.
 
     ![Verbinding maken met Azure Storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

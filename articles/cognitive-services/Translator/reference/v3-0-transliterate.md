@@ -3,19 +3,19 @@ title: Translator Text-API transliteratie methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de methode transliteratie van Translator Text-API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a0fcd7159be075f0e311e9a242d389dca62f4a37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859607"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918617"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
 
@@ -60,7 +60,7 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_header_</td>
+    <td>_Een autorisatie_<br/>_koptekst_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -115,7 +115,7 @@ Een voorbeeld-JSON-antwoord is:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -128,7 +128,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -165,7 +165,7 @@ Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourner
 
 Het volgende voorbeeld ziet hoe u twee Japanse tekenreeksen omzetten in Japanse Romanized.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 De JSON-nettolading voor de aanvraag in dit voorbeeld:
 

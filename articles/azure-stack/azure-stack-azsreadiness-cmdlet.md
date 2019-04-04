@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/30/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f920059f97f43a2ac3c48dad1c8f999833f6add1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992322"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757773"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-verwijzing
 
-Module: Microsoft.AzureStack.ReadinessChecker
+Module: **Microsoft.AzureStack.ReadinessChecker**
 
-Deze module bevat alleen een één-cmdlet.  Deze cmdlet voert een of meer vóór de implementatie of vooraf servicing-functies voor Azure Stack.
+Deze module bevat alleen een één-cmdlet. De cmdlet voert een of meer vóór de implementatie of vooraf servicing-functies voor Azure Stack.
 
 ## <a name="syntax"></a>Syntaxis
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -45,7 +45,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -57,7 +57,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -DeploymentDataJSONPath <String>
@@ -67,7 +67,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -RegionName <String>
@@ -79,7 +79,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegionName <String>
        -FQDN <String>
@@ -94,7 +94,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PfxPassword <SecureString>
        -PfxPath <String>
@@ -105,7 +105,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -AADDirectoryTenantName <String>
@@ -118,7 +118,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -DeploymentDataJSONPath <String>
@@ -129,7 +129,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -141,7 +141,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -153,7 +153,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -ReportPath <String>
        [-ReportSections <String>]
@@ -166,42 +166,42 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Description
 
-De **Start AzsReadinessChecker** cmdlet valideert certificaten, Azure-accounts, Azure-abonnementen en Azure Active Directory's. Validatie voordat u implementeert Azure Stack, of voor Azure Stack bewerkingen zoals het geheim rotatie onderhoud worden uitgevoerd. De cmdlet kan ook worden gebruikt voor het ondertekenen van certificaataanvragen genereren voor infrastructuur en eventueel PaaS certificaten.  Ten slotte de cmdlet opnieuw verpakken PFX-certificaten voor het oplossen van veelvoorkomende problemen met verpakking.
+De **Start AzsReadinessChecker** cmdlet valideert certificaten, Azure-accounts, Azure-abonnementen en Azure Active Directory's. Validatie voordat u implementeert Azure Stack, of voor Azure Stack acties zoals het geheim rotatie onderhoud worden uitgevoerd. De cmdlet kan ook worden gebruikt voor het genereren van aanvragen voor certificaten van de infrastructuur voor Certificaatondertekening en, optioneel, PaaS-certificaten. Ten slotte de cmdlet opnieuw verpakken PFX-certificaten voor het oplossen van veelvoorkomende problemen met verpakking.
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="example-generate-certificate-signing-request"></a>Voorbeeld: Aanvraag voor Certificaatondertekening genereren
+### <a name="example-generate-certificate-signing-request"></a>Voorbeeld: een aanvraag voor Certificaatondertekening genereren
 
-```PowerShell
+```powershell
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-In dit voorbeeld Start AzsReadinessChecker genereert meerdere Certificate Signing-aanvragen (CSR) voor certificaten die geschikt zijn voor een AD FS Azure Stack-implementatie met de naam van een gebied van 'Oost' en een externe FQDN-naam van "azurestack.contoso.com"
+In dit voorbeeld `Start-AzsReadinessChecker` meerdere Certificaatondertekening aanvragen (CSR) genereert voor certificaten die geschikt zijn voor de implementatie van een AD FS Azure Stack met de naam van een gebied van **Oost** en een externe FQDN-naam van  **azurestack.contoso.com**.
 
-### <a name="example-validate-certificates"></a>Voorbeeld: Certificaten valideren
+### <a name="example-validate-certificates"></a>Voorbeeld: certificaten valideren
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-In dit voorbeeld wordt het PFX-wachtwoord wordt gevraagd om veilig en Start AzsReadinessChecker controleert de relatieve map 'Certificaten' voor certificaten geldig zijn voor een AAD-implementatie met de naam van een gebied van 'Oost' en een externe FQDN-naam van "azurestack.contoso.com"
+In dit voorbeeld wordt het PFX-wachtwoord is vereist voor beveiliging, en `Start-AzsReadinessChecker` controleert de relatieve map **certificaten** voor certificaten geldig voor een AAD-implementatie met de naam van een gebied van **Oost** en een externe FQDN-naam van **azurestack.contoso.com**.
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Voorbeeld: Valideren van certificaten met de implementatiegegevens (implementatie en ondersteuning)
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Voorbeeld: certificaten met de implementatiegegevens (implementatie en ondersteuning) valideren
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-In dit voorbeeld implementatie en ondersteuning voor het PFX-wachtwoord wordt gevraagd om veilig en Start AzsReadinessChecker controleert de relatieve map 'Certificaten' voor certificaten geldig zijn voor een implementatie waarbij identiteit, regio en externe FQDN-naam worden gelezen uit de implementatie gegevens JSON-bestand is gegenereerd voor de implementatie. 
+In dit voorbeeld implementatie en ondersteuning voor het PFX-wachtwoord is vereist voor beveiliging, en `Start-AzsReadinessChecker` controleert de relatieve map **certificaten** voor certificaten geldig zijn voor een implementatie waarbij identiteit, regio en externe FQDN-naam zijn lezen van het implementatiebestand-JSON gegenereerd voor de implementatie.
 
-### <a name="example-validate-paas-certificates"></a>Voorbeeld: PaaS-certificaten valideren
+### <a name="example-validate-paas-certificates"></a>Voorbeeld: PaaS certificaten valideren
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -212,11 +212,11 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
 ```
 
-In dit voorbeeld wordt een hashtabel geconstrueerd met paden en wachtwoorden voor elk certificaat PaaS. Certificaten kunnen worden weggelaten. Start-AzsReadinessChecker controleert elke PFX-pad bestaat en wordt gevalideerd met behulp van de regio Oost' en externe FQDN-naam 'azurestack.contoso.com'.
+In dit voorbeeld wordt een hashtabel geconstrueerd met paden en wachtwoorden voor elk certificaat PaaS. Certificaten kunnen worden weggelaten. `Start-AzsReadinessChecker` controleert of elk PFX-pad bestaat en wordt gevalideerd met behulp van de regio **Oost** en externe FQDN **azurestack.contoso.com**.
 
 ### <a name="example-validate-paas-certificates-with-deployment-data"></a>Voorbeeld: PaaS-certificaten met implementatiegegevens valideren
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -227,78 +227,78 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-In dit voorbeeld wordt een hashtabel geconstrueerd met paden en wachtwoorden voor elk certificaat PaaS. Certificaten kunnen worden weggelaten. Start-AzsReadinessChecker controleert of elk PFX-pad bestaat en wordt gevalideerd met behulp van de regio en externe FQDN lezen van het implementatiebestand-JSON gegenereerd voor de implementatie. 
+In dit voorbeeld wordt een hashtabel geconstrueerd met paden en wachtwoorden voor elk certificaat PaaS. Certificaten kunnen worden weggelaten. `Start-AzsReadinessChecker` controleert of elk PFX-pad bestaat en wordt gevalideerd met behulp van de regio en externe FQDN van het implementatiebestand-JSON gegenereerd voor de implementatie lezen.
 
-### <a name="example-validate-azure-identity"></a>Voorbeeld: Valideren van de Azure-identiteit
+### <a name="example-validate-azure-identity"></a>Voorbeeld: Azure identiteit verifiëren
 
-```PowerShell
+```powershell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-In dit voorbeeld wordt de accountreferenties van de servicebeheerder wordt gevraagd om veilig en Start AzsReadinessChecker controleert of dat de Azure-account en Azure Active Directory zijn geldig voor een AAD-implementatie met de naam van een tenant-map van "azurestack.contoso.com"
+In dit voorbeeld wordt het hulpprogramma voor het account van de service-beheerdersreferenties zijn vereist voor beveiliging, en `Start-AzsReadinessChecker` controleert dat de Azure-account en Azure Active Directory geldig voor de implementatie van een AAD met de naam van een tenant-map van zijn  **azurestack.contoso.com**.
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Voorbeeld: Valideren van de Azure-identiteit met implementatiegegevens (ondersteuning voor implementatie)
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Voorbeeld: Azure identiteit met implementatiegegevens (ondersteuning voor implementatie) valideren
 
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
 ```
 
-In dit voorbeeld wordt de accountreferenties van de servicebeheerder wordt gevraagd om veilig en Start AzsReadinessChecker controleert dat de Azure-account en Azure Active Directory zijn geldig voor een AAD-implementatie waarbij AzureCloud en TenantName worden gelezen uit de implementatiegegevens JSON-bestand gegenereerd voor de implementatie.
+In dit voorbeeld wordt het hulpprogramma voor het account van de service-beheerdersreferenties zijn vereist voor beveiliging, en `Start-AzsReadinessChecker` controleert of de Azure-account en Azure Active Directory geldig voor een AAD-implementatie hebben waar **AzureCloud** en **TenantName** van het implementatiebestand-JSON gegenereerd voor de implementatie worden gelezen.
 
-### <a name="example-validate-azure-registration"></a>Voorbeeld: Valideren van de registratie van Azure
+### <a name="example-validate-azure-registration"></a>Voorbeeld: Azure registratie valideert
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-In dit voorbeeld wordt de Abonnementhouder referenties wordt gevraagd om veilig en Start AzsReadinessChecker vervolgens worden gevalideerd tegen het opgegeven account en abonnement om ervoor te zorgen dat deze kan worden gebruikt voor registratie in Azure Stack. 
+In dit voorbeeld wordt de referenties van de abonnement-eigenaar zijn vereist voor beveiliging en `Start-AzsReadinessChecker` vervolgens worden gevalideerd tegen het opgegeven account en het abonnement om te controleren of deze kan worden gebruikt voor registratie in Azure Stack.
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Voorbeeld: Registratie van Azure met implementatiegegevens (implementatieteam) valideren
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Voorbeeld: Azure registratie bij de implementatiegegevens (implementatieteam) valideren
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-In dit voorbeeld wordt de Abonnementhouder referenties wordt gevraagd om veilig en Start AzsReadinessChecker vervolgens worden gevalideerd tegen het opgegeven account en abonnement om ervoor te zorgen dat deze kan worden gebruikt voor registratie in Azure Stack waar extra details zijn lezen van het implementatiebestand-JSON gegenereerd voor de implementatie.
+In dit voorbeeld wordt de referenties van de abonnement-eigenaar zijn vereist voor beveiliging en `Start-AzsReadinessChecker` vervolgens worden gevalideerd tegen het opgegeven account en het abonnement om te controleren of deze kan worden gebruikt voor registratie in Azure Stack, waarbij aanvullende gegevens worden gelezen uit de implementatie gegevens JSON-bestand is gegenereerd voor de implementatie.
 
-### <a name="example-importexport-pfx-package"></a>Voorbeeld: Import/Export-PFX-pakket
+### <a name="example-importexport-pfx-package"></a>Voorbeeld: importeren/exporteren PFX-pakket
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-In dit voorbeeld wordt wordt het PFX-wachtwoord gevraagd om veilig. Het bestand ssl.pfx worden geïmporteerd in het certificaatarchief van lokale computer en opnieuw met hetzelfde wachtwoord wordt geëxporteerd en opgeslagen als ssl_new.pfx.  Deze procedure is voor gebruik wanneer certificaatvalidatie gemarkeerd dat geen persoonlijke sleutel niet de lokale computer kenmerk is ingesteld heeft, de certificaatketen verbroken is, niet van belang certificaten aanwezig zijn in de PFX zijn of de certificaatketen in de verkeerde volgorde is.
+In dit voorbeeld is het PFX-wachtwoord vereist voor beveiliging. Het bestand Ssl.pfx is geïmporteerd in het certificaatarchief van lokale computer, met hetzelfde wachtwoord opnieuw hebt geëxporteerd en opgeslagen als Ssl_new.pfx. Deze procedure wordt gebruikt wanneer certificaatvalidatie gemarkeerd als een persoonlijke sleutel heeft geen de **lokale Machine** kenmerk is ingesteld, de certificaatketen is verbroken, niet van belang certificaten aanwezig zijn in de PFX zijn of de certificaatketen is in de verkeerde volgorde.
 
-### <a name="example-view-validation-report-deployment-support"></a>Voorbeeld: Validatierapport weergeven (ondersteuning voor implementatie)
+### <a name="example-view-validation-report-deployment-support"></a>Voorbeeld: Bekijk validatierapport (ondersteuning voor implementatie)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-In dit voorbeeld wordt met het team implementatie of ondersteuning ontvangen van het rapport over de gereedheid van de klant (Contoso) en Start AzsReadinessChecker gebruiken om de status van de validatie-uitvoeringen die Contoso uitgevoerd weer te geven.
+In dit voorbeeld wordt het team implementatie of ondersteuning ontvangt van het rapport over de gereedheid van de klant (Contoso) en maakt gebruik van `Start-AzsReadinessChecker` om de status van de validatie-uitvoeringen Contoso uitgevoerd weer te geven.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Voorbeeld: Validatierapport weergeven samenvatting voor het certificaat validatie alleen (implementatie en ondersteuning)
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Voorbeeld: Bekijk validatierapport samenvatting voor het certificaat validatie alleen (implementatie en ondersteuning)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-In dit voorbeeld wordt met het team implementatie of ondersteuning voor het rapport over de gereedheid van de klant Contoso ontvangt en Start AzsReadinessChecker gebruiken om een samengevatte status van de certificaat-validatie uitvoeringen die Contoso uitgevoerd weer te geven.
+In dit voorbeeld wordt het team implementatie of ondersteuning ontvangt van het rapport over de gereedheid van de klant (Contoso) en maakt gebruik van `Start-AzsReadinessChecker` om weer te geven een overzicht status van de certificaat-validatie uitvoeringen Contoso uitgevoerd.
 
 ## <a name="required-parameters"></a>Vereiste parameters
 
-> -RegionName
+### <a name="-regionname"></a>-RegionName
 
-Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
+Hiermee geeft u de naam van het Azure Stack-implementatie-regio.
 
 |  |  |
 |----------------------------|--------------|
@@ -308,9 +308,9 @@ Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
 |Pijpleidinginvoer accepteren:      |False         |
 |Jokertekens accepteren: |False         |
 
-> -FQDN
+### <a name="-fqdn"></a>-FQDN
 
-Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als ExternalFQDN en ExternalDomainName.
+Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als **ExternalFQDN** en **ExternalDomainName**.
 
 |  |  |
 |----------------------------|--------------|
@@ -320,9 +320,9 @@ Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als Exte
 |Pijpleidinginvoer accepteren:      |False         |
 |Jokertekens accepteren: |False         |
 
-> -IdentitySystem
+### <a name="-identitysystem"></a>-IdentitySystem
 
-Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden, AAD of ADFS, voor Azure Active Directory en Active Directory Federated Services respectievelijk.
+Hiermee geeft u de Azure Stack-implementatie identiteit system geldige waarden, AAD of ADFS, voor Azure Active Directory en Active Directory Federated Services respectievelijk.
 
 |  |  |
 |----------------------------|--------------|
@@ -333,7 +333,7 @@ Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden,
 |Pijpleidinginvoer accepteren:      |False         |
 |Jokertekens accepteren: |False         |
 
-> -PfxPassword
+### <a name="-pfxpassword"></a>-PfxPassword
 
 Hiermee geeft u het wachtwoord dat is gekoppeld aan de certificaat-PFX-bestanden.
 
@@ -345,7 +345,7 @@ Hiermee geeft u het wachtwoord dat is gekoppeld aan de certificaat-PFX-bestanden
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -PaaSCertificates
+### <a name="-paascertificates"></a>-PaaSCertificates
 
 Hiermee geeft u de hash-tabel met paden en wachtwoorden voor PaaS-certificaten.
 
@@ -357,7 +357,7 @@ Hiermee geeft u de hash-tabel met paden en wachtwoorden voor PaaS-certificaten.
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -DeploymentDataJSONPath
+### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
 Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. Dit bestand is gegenereerd voor de implementatie.
 
@@ -369,21 +369,9 @@ Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. 
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -PfxPath
+### <a name="-pfxpath"></a>-PfxPath
 
-Hiermee geeft u het pad naar een problematische certificaat dat is vereist voor importeren/exporteren routine om op te lossen, zoals aangegeven door de certificaatvalidatie van het in dit hulpprogramma.
-
-|  |  |
-|----------------------------|---------|
-|Type:                       |String   |
-|Positie:                   |met de naam    |
-|Standaardwaarde:              |Geen     |
-|Pijpleidinginvoer accepteren:      |False    |
-|Jokertekens accepteren: |False    |
-
-> -ExportPFXPath  
-
-Hiermee geeft u het doelpad voor het resulterende PFX-bestand van import/export-routine.  
+Hiermee geeft u het pad naar een problematische certificaat waarvoor een import/export-routine om op te lossen, zoals aangegeven door de certificaatvalidatie van het in dit hulpprogramma.
 
 |  |  |
 |----------------------------|---------|
@@ -393,7 +381,19 @@ Hiermee geeft u het doelpad voor het resulterende PFX-bestand van import/export-
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -Onderwerp
+### <a name="-exportpfxpath"></a>-ExportPFXPath  
+
+Hiermee geeft u het doelpad voor het resulterende PFX-bestand van de import/export-routine.  
+
+|  |  |
+|----------------------------|---------|
+|Type:                       |String   |
+|Positie:                   |met de naam    |
+|Standaardwaarde:              |Geen     |
+|Pijpleidinginvoer accepteren:      |False    |
+|Jokertekens accepteren: |False    |
+
+### <a name="-subject"></a>-Onderwerp
 
 Hiermee geeft u een geordende woordenlijst van het onderwerp voor het genereren van de aanvraag van het certificaat.
 
@@ -405,12 +405,12 @@ Hiermee geeft u een geordende woordenlijst van het onderwerp voor het genereren 
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -RequestType
+### <a name="-requesttype"></a>-RequestType
 
-Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden MultipleCSR, SingleCSR.
+Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden zijn **MultipleCSR**, **SingleCSR**.
 
-- *MultipleCSR* genereert meerdere certificaataanvragen, één voor elke service.
-- *SingleCSR* genereert een certificaataanvraag voor alle services.
+- **MultipleCSR** genereert meerdere certificaataanvragen, één voor elke service.
+- **SingleCSR** genereert een certificaataanvraag voor alle services.
 
 |  |  |
 |----------------------------|---------|
@@ -421,9 +421,9 @@ Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden Multiple
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -OutputRequestPath
+### <a name="-outputrequestpath"></a>-OutputRequestPath
 
-Hiermee geeft u het doelpad voor aanvraag certificaatbestanden, map moet bestaan.
+Hiermee geeft u het doelpad voor certificate request-bestanden. Map moet al bestaan.
 
 |  |  |
 |----------------------------|---------|
@@ -433,9 +433,9 @@ Hiermee geeft u het doelpad voor aanvraag certificaatbestanden, map moet bestaan
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -AADServiceAdministrator
+### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Hiermee geeft u een beheerder van Azure Active Directory Service moet worden gebruikt voor Azure Stack-implementatie.
+Hiermee geeft u de Azure Active Directory-service-beheerder moet worden gebruikt voor Azure Stack-implementatie.
 
 |  |  |
 |----------------------------|---------|
@@ -445,7 +445,7 @@ Hiermee geeft u een beheerder van Azure Active Directory Service moet worden geb
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -AADDirectoryTenantName
+### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
 Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure Stack-implementatie.
 
@@ -457,7 +457,7 @@ Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure S
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -AzureEnvironment
+### <a name="-azureenvironment"></a>-AzureEnvironment
 
 Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abonnementen worden gebruikt voor Azure Stack-implementatie en de registratie.
 
@@ -470,9 +470,9 @@ Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abon
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -RegistrationAccount
+### <a name="-registrationaccount"></a>-RegistrationAccount
 
-Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in Azure Stack.
+Hiermee geeft u de registratie-account moet worden gebruikt voor registratie in Azure Stack.
 
 |  |  |
 |----------------------------|---------|
@@ -482,7 +482,7 @@ Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in 
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -RegistrationSubscriptionID
+### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
 Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registratie in Azure Stack.
 
@@ -494,9 +494,9 @@ Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registra
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -ReportPath
+### <a name="-reportpath"></a>-ReportPath
 
-Hiermee geeft u pad voor gereedheid rapport, standaard ingesteld op de huidige map en de standaard rapportnaam.
+Hiermee geeft u het pad voor gereedheid rapport, standaard ingesteld op de huidige map en de standaard rapportnaam.
 
 |  |  |
 |----------------------------|---------|
@@ -508,7 +508,7 @@ Hiermee geeft u pad voor gereedheid rapport, standaard ingesteld op de huidige m
 
 ## <a name="optional-parameters"></a>Optionele parameters
 
-> -CertificatePath
+### <a name="-certificatepath"></a>-CertificatePath
 
 Hiermee geeft u het pad waarin alleen het certificaat is vereist certificaat mappen aanwezig zijn.
 
@@ -528,9 +528,9 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -IncludePaaS  
+### <a name="-includepaas"></a>-IncludePaaS  
 
-Hiermee geeft u als PaaS-services/hostnamen moeten worden toegevoegd aan het certificaat aanvragen.
+Hiermee geeft u op of PaaS-services/hostnamen moeten worden toegevoegd aan het certificaat aanvragen.
 
 |  |  |
 |----------------------------|------------------|
@@ -540,7 +540,7 @@ Hiermee geeft u als PaaS-services/hostnamen moeten worden toegevoegd aan het cer
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
-> -ReportSections
+### <a name="-reportsections"></a>-ReportSections
 
 Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelaten.
 
@@ -553,7 +553,7 @@ Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelat
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -Overzicht
+### <a name="-summary"></a>-Overzicht
 
 Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelaten.
 
@@ -565,7 +565,7 @@ Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelat
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
-> -CleanReport
+### <a name="-cleanreport"></a>-CleanReport
 
 Hiermee verwijdert u de vorige uitvoering en validatie geschiedenis en validaties schrijft naar een nieuw rapport.
 
@@ -578,9 +578,9 @@ Hiermee verwijdert u de vorige uitvoering en validatie geschiedenis en validatie
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
-> -OutputPath
+### <a name="-outputpath"></a>-OutputPath
 
-Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-rapport en uitgebreide logboekbestand.  Als het pad niet al bestaat, probeert het hulpprogramma te maken van de map.
+Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-rapport en uitgebreide logboekbestand. Als het pad niet al bestaat, de opdracht wordt geprobeerd om de map te maken.
 
 |  |  |
 |----------------------------|------------------|
@@ -590,7 +590,7 @@ Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-r
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
-> -Controleer of
+### <a name="-confirm"></a>-Controleer of
 
 Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert.
 
@@ -603,7 +603,7 @@ Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert.
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
-> -WhatIf
+### <a name="-whatif"></a>-WhatIf
 
 Geeft aan wat er gebeuren zou als de cmdlet wordt uitgevoerd. De cmdlet wordt niet uitgevoerd.
 
@@ -615,4 +615,3 @@ Geeft aan wat er gebeuren zou als de cmdlet wordt uitgevoerd. De cmdlet wordt ni
 |Standaardwaarde:              |False             |
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
-
