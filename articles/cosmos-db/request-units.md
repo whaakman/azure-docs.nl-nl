@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762970"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047314"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Terwijl u een schatting maken van het aantal ru's per seconde om in te richten, 
 * Meer informatie over het [wereldwijd schalen ingerichte doorvoer](scaling-throughput.md).
 * Meer informatie over het [inrichten doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
 * Meer informatie over het [doorvoer voor een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md).
+* Meer informatie over het [vinden van de kosten van de aanvraag-eenheden voor een bewerking](find-request-unit-charge.md).
 * Meer informatie over het [optimaliseert u kosten van de ingerichte doorvoer in Azure Cosmos DB](optimize-cost-throughput.md).
 * Meer informatie over het [lees- en schrijfbewerkingen in Azure Cosmos DB kosten optimaliseren](optimize-cost-reads-writes.md).
 * Meer informatie over het [optimaliseert query kosten in Azure Cosmos DB](optimize-cost-queries.md).

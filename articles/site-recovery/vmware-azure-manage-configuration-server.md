@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877224"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049694"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>De configuratieserver voor VMware-VM-noodherstel beheren
 
 Instellen van een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen on-premises VMware- en Azure en beheert de gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="access-configuration-server"></a>Configuratieserver voor toegang
 
@@ -234,28 +237,28 @@ ProxyPassword="Password"
 
 U kunt eventueel de configuratieserver verwijderen met behulp van PowerShell.
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) de Azure PowerShell-module.
+1. [Installeer](https://docs.microsoft.com/powershell/azure/install-Az-ps) de Azure PowerShell-module.
 2. Meld u aan uw Azure-account met de volgende opdracht:
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Selecteer het kluisabonnement.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Stel de context van de kluis.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. De configuratieserver worden opgehaald.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. De configuratieserver verwijderen.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> U kunt de **-Force** optie in Remove-AzureRmSiteRecoveryFabric voor geforceerde verwijdering van de configuratieserver.
+> U kunt de **-Force** optie in Remove-AzSiteRecoveryFabric voor geforceerde verwijdering van de configuratieserver.
 
 ## <a name="generate-configuration-server-passphrase"></a>Configuratieserver wachtwoordzin genereren
 

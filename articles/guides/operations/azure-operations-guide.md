@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077153"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051167"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -169,7 +169,7 @@ Naast het maken, beheren en -resources verwijderen met behulp van Azure portal, 
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell is een set van modules die cmdlets voor het beheren van Azure. U kunt de cmdlets gebruiken om te maken, beheren en verwijderen van Azure-services. De cmdlets kunt u consistente, herhaalbare en zonder implementaties kunt bereiken. Zie [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
+Azure PowerShell is een set van modules die cmdlets voor het beheren van Azure. U kunt de cmdlets gebruiken om te maken, beheren en verwijderen van Azure-services. De cmdlets kunt u consistente, herhaalbare en zonder implementaties kunt bereiken. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps) voor meer informatie.
 
 #### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
 
@@ -491,5 +491,5 @@ U kunt beveiligde Azure-netwerken met behulp van een netwerkbeveiligingsgroep. N
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een Windows VM maken](../../virtual-machines/windows/quick-create-portal.md)
+- [Een Windows-VM maken](../../virtual-machines/windows/quick-create-portal.md)
 - [Een Linux-VM maken](../../virtual-machines/linux/quick-create-portal.md)

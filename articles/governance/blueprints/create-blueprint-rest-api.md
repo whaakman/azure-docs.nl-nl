@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bbba3eb717658459b4bf6f61d61455d13844a333
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885958"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045812"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -29,6 +29,9 @@ Als u leert hoe u blauwdrukken in Azure maakt en toewijst, kunnen er algemene pa
 > - Een blauwdruk verwijderen die aan een abonnement is toegewezen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Aan de slag met REST API
 

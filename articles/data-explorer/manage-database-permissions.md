@@ -1,19 +1,18 @@
 ---
-title: Azure Data Explorer databasemachtigingen beheren
+title: Databasemachtigingen in Azure Data Explorer beheren
 description: Dit artikel wordt beschreven op rollen gebaseerd toegangsbeheer voor databases en tabellen in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3f5f174f5f5e8aa122ab9c280cc812dd64b0b425
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756476"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045661"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure Data Explorer databasemachtigingen beheren
 

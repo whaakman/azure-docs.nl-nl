@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805054"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051883"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -28,6 +28,9 @@ Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruik
 - Beveiligingsrisico's te identificeren en Beveilig uw netwerk, met informatie zoals open-poorten, toepassingen die toegang tot internet en virtuele machines (VM) maken van verbinding met netwerken rogue proberen.
 - Patronen van verkeersstromen begrijpen tussen Azure-regio's en het internet naar het optimaliseren van uw netwerkimplementatie voor de prestaties en capaciteit.
 - Identificeer netwerk configuratiefouten leiden tot mislukte verbindingen in uw netwerk.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>Waarom traffic analytics?
 
@@ -133,7 +136,7 @@ Voor het analyseren van netwerkverkeer, moet u beschikken over een bestaande net
 Voordat u traffic analytics gebruiken kunt, moet u uw netwerkresourceprovider opnieuw registreren. Klik op **uitproberen** in de volgende code in de Azure Cloud Shell openen. De Cloud Shell legt u in automatisch in uw Azure-abonnement. Nadat de Cloud Shell geopend is, voert u de volgende opdracht om de netwerkresourceprovider opnieuw te registreren:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>Selecteer een netwerkbeveiligingsgroep
@@ -153,13 +156,13 @@ Voordat u de instellingen van het flow inschakelt, moet u de volgende taken uitv
 Registreer de provider Azure Insights als deze nog niet geregistreerd voor uw abonnement:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 Als u nog niet hebt een Azure Storage-account voor het opslaan van NSG-stroom zich aanmeldt, moet u een opslagaccount maken. U kunt een storage-account maken met de opdracht die volgt. Voordat u de opdracht uitvoert, Vervang `<replace-with-your-unique-storage-account-name>` met een naam die uniek is voor alle Azure locaties, tussen 3 en 24 tekens lang, met behulp van alleen cijfers en kleine letters. U kunt ook de naam van de resourcegroep, indien nodig wijzigen.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 
 Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van traffic analytics voor. Gegevens uit logboeken van de stroom wordt verzonden naar de werkruimte, dus zorg ervoor dat de lokale wetten en regelgeving in uw land/regio toestaan dat de opslag van gegevens in de regio waar de werkruimte zich bevindt.
 
-U kunt ook configureren voor traffic analytics met behulp van de [Set AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell-cmdlet in AzureRm PowerShell-moduleversie 6.2.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` te vinden van de geïnstalleerde versie. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
+U kunt ook configureren voor traffic analytics met behulp van de [Set AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdlet in Azure PowerShell. Voer `Get-Module -ListAvailable Az` te vinden van de geïnstalleerde versie. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Verkeersanalyse weergeven
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482127"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048840"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -40,6 +40,9 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten 
 * **Naam van opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
 
@@ -47,13 +50,13 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 * **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. U kunt meer informatie over [kunt op verschillende manieren tijdelijke oplossing geblokkeerd poort 445 hier](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+    Zie de volgende PowerShell code wordt ervan uitgegaan dat u hebt de Azure PowerShell-module is geïnstalleerd, [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -222,7 +225,7 @@ U kunt **Openen** selecteren om een bepaalde momentopname te openen.
 
 #### <a name="restore-from-a-previous-version"></a>Terugzetten op basis van een vorige versie
 Selecteer **Terugzetten** om de inhoud van de gehele map op de aanmaaktijd van de momentopname van de share recursief naar de oorspronkelijke locatie te kopiëren.
- ![Knop Terugzetten in waarschuwingsbericht](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![De knop Terugzetten in een waarschuwingsbericht](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server beveiligen
 Als u een Azure-bestandsshare in Windows wilt koppelen, moet poort 445 toegankelijk zijn. Veel organisaties blokkeren poort 445 vanwege de beveiligingsrisico's die bij SMB 1 horen. SMB 1, ook wel bekend als CIFS (Common Internet File System), is een oud bestandssysteemprotocol in Windows en Windows Server. SMB 1 is een verouderd, inefficiënt en bovenal onveilig protocol. Het goede nieuws is dat Azure Files SMB 1 niet ondersteunt en dat alle ondersteunde versies van Windows en Windows Server het mogelijk maken om SMB 1 te verwijderen of uit te schakelen. We raden altijd [ten zeerste](https://aka.ms/stopusingsmb1) aan om de SMB 1-client en -server in Windows te verwijderen of uit te schakelen voordat u Azure-bestandsshares in een productieomgeving gebruikt.
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Nadat u deze registersleutel hebt gemaakt, moet u uw server opnieuw opstarten om SMB 1 uit te schakelen.
 
 ### <a name="smb-resources"></a>SMB-resources
-- [Stoppen met SMB 1 gebruiken](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [SMB 1 detecteren in uw omgeving met DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [SMB 1 uitschakelen via groepsbeleid](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Stoppen met het gebruik van SMB-1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB-1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [SMB-1 detecteren in uw omgeving met DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Uitschakelen van SMB 1 via Groepsbeleid](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure Files:
-- [Implementatie van Azure Files plannen](storage-files-planning.md)
+- [Planning voor de implementatie van Azure Files](storage-files-planning.md)
 - [Veelgestelde vragen](../storage-files-faq.md)
 - [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

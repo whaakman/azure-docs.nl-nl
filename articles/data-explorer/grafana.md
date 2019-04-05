@@ -1,19 +1,18 @@
 ---
-title: Visualiseer gegevens uit Azure Data Explorer in Grafana
+title: Visualiseer gegevens uit Azure Data Explorer met behulp van Grafana
 description: In deze instructies leert u hoe u Azure Data Explorer instellen als een gegevensbron voor Grafana en visualiseren van gegevens uit een voorbeeld-cluster.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: c77475c052ab3ce74563aba6e4c75a50c7e41bcc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758268"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048313"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiseer gegevens uit Azure Data Explorer in Grafana
 
@@ -209,6 +208,6 @@ Nu u klaar bent met het Azure Data Explorer configureren als een gegevensbron vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Query's schrijven voor Azure Data Explorer](write-queries.md)
+[Schrijven van query's voor Azure Data Explorer](write-queries.md)
 
 [Zelfstudie: Visualiseer gegevens uit Azure Data Explorer in Power BI](visualize-power-bi.md)

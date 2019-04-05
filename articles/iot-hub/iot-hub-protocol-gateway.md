@@ -3,17 +3,17 @@ title: Azure IoT-protocolgateway | Microsoft Docs
 description: Het gebruik van een Azure-IoT-protocol-gateway om uit te breiden van IoT Hub mogelijkheden en protocolondersteuning waarmee apparaten verbinding maken met uw hub met behulp van protocollen die worden niet ondersteund door IoT Hub.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009848"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046424"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Aanvullende protocollen ondersteunen voor IoT-Hub
 Azure IoT Hub biedt systeemeigen ondersteuning voor communicatie via het MQTT-, AMQP- en HTTPS-protocollen. In sommige gevallen, apparaten of veldgateways niet mogelijk gebruikt u een van de volgende standaardprotocollen en vereisen dat protocol aanpassing. In dergelijke gevallen kunt u een aangepaste gateway. Een aangepaste gateway zorgt voor protocol-aanpassing voor IoT Hub-eindpunten door het verkeer van en naar IoT Hub-bridging. U kunt de [protocolgateway van Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) als een aangepaste gateway om in te schakelen protocol-aanpassing voor IoT-Hub.

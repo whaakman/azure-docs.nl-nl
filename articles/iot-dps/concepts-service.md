@@ -3,17 +3,17 @@ title: Service-concepten in Azure IoT Hub Device Provisioning Service | Microsof
 description: Beschrijving van service inrichten concepten specifiek zijn voor apparaten met de Device Provisioning Service en IoT-Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059443"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047480"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concepten van IoT Hub Device Provisioning Service
 
@@ -45,7 +45,7 @@ Het serviceniveau-instelling waarmee wordt bepaald hoe Device Provisioning Servi
 
 * **Statische configuratie via de registratielijst**: specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid serviceniveau.
 
-## <a name="enrollment"></a>Inschrijving
+## <a name="enrollment"></a>Registratie
 
 Een inschrijving is de registratie van apparaten of groepen van apparaten dat kunnen worden geregistreerd via automatische inrichting. De inschrijvingsrecord bevat informatie over het apparaat of een groep apparaten, waaronder:
 - de [attestation-mechanisme](concepts-security.md#attestation-mechanism) wordt gebruikt door het apparaat

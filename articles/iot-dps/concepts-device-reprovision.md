@@ -3,29 +3,29 @@ title: Apparaatconcepten voor beëindiging van de Azure IoT Hub Device Provision
 description: Beschrijving apparaat beëindiging van concepten voor de Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712276"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050846"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concepten van IoT Hub Device beëindiging
 
 Tijdens de levenscyclus van een IoT-oplossing is het gebruikelijk dat apparaten verplaatsen tussen IoT-hubs. De redenen voor deze overstap, kunnen de volgende scenario's omvatten:
 
-* **Geolocatie / GeoLatency**: als een apparaat worden verplaatst tussen locaties, netwerklatentie is verbeterd doordat het apparaat gemigreerd naar een dichter bij IoT-hub.
+* **Geolocatie / GeoLatency**: Als u een apparaat verplaatst tussen locaties, netwerklatentie is verbeterd doordat het apparaat gemigreerd naar een dichter bij IoT-hub.
 
-* **Multitenancy**: een apparaat kan worden gebruikt binnen de dezelfde IoT-oplossing en opnieuw toegewezen aan een nieuwe klant of de klant. Deze nieuwe klanten kan worden verwerkt met behulp van een andere IoT-hub.
+* **Multitenancy**: Een apparaat kan worden gebruikt binnen de dezelfde IoT-oplossing en opnieuw toegewezen aan een nieuwe klant of de klant. Deze nieuwe klanten kan worden verwerkt met behulp van een andere IoT-hub.
 
-* **Wijzigen van de oplossing**: een apparaat kan worden verplaatst naar een nieuwe of bijgewerkte IoT-oplossing. Het opnieuw toewijzen is mogelijk het apparaat om te communiceren met een nieuwe IoT-hub die verbonden met andere back-end-onderdelen.
+* **Wijzigen van de oplossing**: Een apparaat kan worden verplaatst naar een nieuwe of bijgewerkte IoT-oplossing. Het opnieuw toewijzen is mogelijk het apparaat om te communiceren met een nieuwe IoT-hub die verbonden met andere back-end-onderdelen.
 
-* **In quarantaine plaatsen**: die vergelijkbaar is met het wijzigen van een oplossing. Een apparaat dat functioneert, aangetast of verouderde mogelijk opnieuw worden toegewezen aan een IoT-hub die alleen kan worden bijgewerkt en weer toegang te krijgen in acht genomen. Zodra het apparaat goed werkt, is deze vervolgens terug naar de belangrijkste hub gemigreerd.
+* **In quarantaine plaatsen**: Dit is vergelijkbaar met het wijzigen van een oplossing. Een apparaat dat functioneert, aangetast of verouderde mogelijk opnieuw worden toegewezen aan een IoT-hub die alleen kan worden bijgewerkt en weer toegang te krijgen in acht genomen. Zodra het apparaat goed werkt, is deze vervolgens terug naar de belangrijkste hub gemigreerd.
 
 Deze vereisten voor ondersteuning van de Device Provisioning Service-adressen voor ingebruikname beëindiging. Apparaten kunnen automatisch worden toegewezen aan nieuwe IoT-hubs op basis van de reprovisioning beleid dat geconfigureerd op de vermelding van de inschrijving van het apparaat.
 
@@ -51,17 +51,17 @@ Afhankelijk van het scenario, als een apparaat worden verplaatst tussen IoT-hubs
 
 Afhankelijk van het scenario verzendt een apparaat meestal een aanvraag naar een provisioning service-exemplaar bij opnieuw opstarten. Het ondersteunt ook een methode voor het handmatig activeren inrichting op aanvraag. Het reprovisioning beleid op een vermelding voor apparaatinschrijving bepaalt hoe de device provisioning service-exemplaar worden verwerkt door deze aanvragen wordt ingericht. Het beleid bepaalt ook of de statusgegevens van het apparaat tijdens de beëindiging moeten worden gemigreerd. Dezelfde beleidsregels zijn beschikbaar voor afzonderlijke inschrijvingen en Registratiegroepen:
 
-* **Opnieuw inrichten en migreren van gegevens**: dit beleid is de standaardinstelling voor nieuwe inschrijving vermeldingen. Dit beleid onderneemt actie wanneer de apparaten die zijn gekoppeld aan de vermelding voor apparaatinschrijving een nieuwe aanvraag (1) te verzenden. Afhankelijk van de configuratie van de vermelding voor inschrijving het apparaat wordt mogelijk opnieuw toegewezen aan een andere IoT-hub. Als het apparaat IoT-hubs wijzigt is, wordt de apparaatregistratie bij de eerste IoT-hub worden verwijderd. De informatie over de status van bijgewerkte apparaten van die eerste IoT-hub worden gemigreerd naar de nieuwe IoT hub (2). Tijdens de migratie van het apparaat de status wordt gerapporteerd als **toewijzen**.
+* **Opnieuw inrichten en migreren van gegevens**: Dit beleid is de standaardinstelling voor nieuwe inschrijving vermeldingen. Dit beleid onderneemt actie wanneer de apparaten die zijn gekoppeld aan de vermelding voor apparaatinschrijving een nieuwe aanvraag (1) te verzenden. Afhankelijk van de configuratie van de vermelding voor inschrijving het apparaat wordt mogelijk opnieuw toegewezen aan een andere IoT-hub. Als het apparaat IoT-hubs wijzigt is, wordt de apparaatregistratie bij de eerste IoT-hub worden verwijderd. De informatie over de status van bijgewerkte apparaten van die eerste IoT-hub worden gemigreerd naar de nieuwe IoT hub (2). Tijdens de migratie van het apparaat de status wordt gerapporteerd als **toewijzen**.
 
     ![Met de Device Provisioning Service inrichten](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Opnieuw inrichten en opnieuw ingesteld op initiële configuratie**: dit beleid actie onderneemt wanneer apparaten die zijn gekoppeld aan de vermelding voor apparaatinschrijving een nieuwe aanvraag voor inrichting (1 verzendt). Afhankelijk van de configuratie van de vermelding voor inschrijving het apparaat wordt mogelijk opnieuw toegewezen aan een andere IoT-hub. Als het apparaat IoT-hubs wijzigt is, wordt de apparaatregistratie bij de eerste IoT-hub worden verwijderd. De oorspronkelijke configuratiegegevens die het provisioning service-exemplaar dat is ontvangen tijdens het inrichten van het apparaat is opgegeven voor de nieuwe IoT hub (2). Tijdens de migratie van het apparaat de status wordt gerapporteerd als **toewijzen**.
+* **Opnieuw inrichten en opnieuw ingesteld op initiële configuratie**: Dit beleid onderneemt actie wanneer apparaten die zijn gekoppeld aan de vermelding voor apparaatinschrijving een nieuwe aanvraag voor inrichting (1 verzendt). Afhankelijk van de configuratie van de vermelding voor inschrijving het apparaat wordt mogelijk opnieuw toegewezen aan een andere IoT-hub. Als het apparaat IoT-hubs wijzigt is, wordt de apparaatregistratie bij de eerste IoT-hub worden verwijderd. De oorspronkelijke configuratiegegevens die het provisioning service-exemplaar dat is ontvangen tijdens het inrichten van het apparaat is opgegeven voor de nieuwe IoT hub (2). Tijdens de migratie van het apparaat de status wordt gerapporteerd als **toewijzen**.
 
     Dit beleid wordt vaak gebruikt voor een Fabrieksinstellingen terugzetten zonder te hoeven wijzigen van IoT-hubs.
 
     ![Met de Device Provisioning Service inrichten](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Nooit herprovisioning**: het apparaat is nooit opnieuw worden toegewezen aan een andere hub. Dit beleid is opgegeven voor het beheren van achterwaartse compatibiliteit.
+* **Nooit herprovisioning**: Het apparaat is nooit opnieuw toegewezen aan een andere hub. Dit beleid is opgegeven voor het beheren van achterwaartse compatibiliteit.
 
 ### <a name="managing-backwards-compatibility"></a>Beheren van achterwaartse compatibiliteit
 
@@ -81,7 +81,7 @@ Het volgende stroomdiagram helpt om weer te geven wanneer het gedrag aanwezig is
 
 De volgende tabel ziet u de API-versies voor de beschikbaarheid van systeemeigen ondersteuning voor beëindiging in de Device Provisioning Service:
 
-| REST-API | C-SDK | Python-SDK |  Node SDK | Java-SDK | .NET SDK |
+| REST-API | C SDK | Python-SDK |  Node SDK | Java-SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
 | [2018-04-01 en oudere versies](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 en lager](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 en lager](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 of eerder](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 of eerder](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 of eerder](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 

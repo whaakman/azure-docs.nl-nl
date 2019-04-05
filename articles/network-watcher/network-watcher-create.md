@@ -14,19 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615197"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051560"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Maak een instantie van Azure Network Watcher
 
 Network Watcher is een regionale service waarmee u kunt bewaken en diagnoses uitvoeren omstandigheden op netwerkscenarioniveau in, en naar Azure. Scenario niveau bewaking, kunt u vaststellen op een weergave voor het niveau van end-to-netwerk. Diagnose en visualisatie hulpprogramma's die beschikbaar zijn met Network Watcher kunnen u begrijpen, diagnosticeren en inzicht verkrijgen in uw netwerk in Azure. Network Watcher is ingeschakeld via het maken van een Network Watcher-resource. Deze bron kunt u gebruikmaken van Network Watcher-mogelijkheden.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher is automatisch ingeschakeld.
-Wanneer u maken of bijwerken van een virtueel netwerk in uw abonnement, wordt Network Watcher automatisch ingeschakeld in de regio van uw virtuele netwerk. Er zijn geen gevolgen voor uw resources of de bijbehorende kosten in rekening gebracht voor het automatisch inschakelen van Network Watcher.
+Wanneer u een virtueel netwerk in uw abonnement maakt of bijwerkt, wordt Network Watcher automatisch ingeschakeld in de regio van uw virtuele netwerk. Het automatisch inschakelen van Network Watcher heeft geen invloed op uw resources en er worden geen kosten in rekening gebracht.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Opt-out van de automatische activering van Network Watcher
 Als u afmelden voor automatische activering van Network Watcher wilt, kunt u dit doen door het uitvoeren van de volgende opdrachten:
@@ -35,8 +38,8 @@ Als u afmelden voor automatische activering van Network Watcher wilt, kunt u dit
 > Wanneer-out van de automatische activering van Network Watcher is een permanente wijziging. Zodra u zich afmelden u kan niet aanmelden zonder [contact opnemen met ondersteuning](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Als u wilt aanpassen van de naam van een Network Watcher-exemplaar en de resourc
 Voer het volgende voorbeeld voor het maken van een exemplaar van Network Watcher:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Een Network Watcher maken met de Azure CLI
@@ -108,7 +111,7 @@ Nu dat u een exemplaar van Network Watcher hebt, kunt u informatie over de besch
 * [Pakketopname](network-watcher-packet-capture-overview.md)
 * [IP-stroomverificatie](network-watcher-ip-flow-verify-overview.md)
 * [Volgende hop](network-watcher-next-hop-overview.md)
-* [Beveiligingsgroepweergave](network-watcher-security-group-view-overview.md)
+* [Weergave van de beveiligingsgroep](network-watcher-security-group-view-overview.md)
 * [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md)
 * [Virtuele netwerkgateway oplossen](network-watcher-troubleshoot-overview.md)
 

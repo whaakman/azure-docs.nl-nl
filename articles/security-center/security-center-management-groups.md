@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871059"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045761"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
 Dit artikel helpt u aan de slag met het uitvoeren van verschillende acties die de Azure Security Center biedt voordelen maximaliseren. Deze acties worden uitgevoerd, kunt u inzicht op alle Azure-abonnementen die zijn gekoppeld aan uw Azure Active Directory-tenant en effectief beheren van de beveiligingsstatus van uw organisatie op schaal door het toepassen van beveiligingsbeleid voor meerdere krijgen abonnementen op een aggregative manier.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Beheergroepen
 Azure-beheergroepen bieden de mogelijkheid om efficiënt te beheren van toegang, beleidsregels en rapporteren van groepen van abonnementen, evenals de gehele Azure-omgeving effectief te beheren door het uitvoeren van acties op de root management-groep. Elke Azure AD-tenant krijgt een enkele op het hoogste niveau beheergroep met de naam van de root management-groep. Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Deze groep kan globaal beleid en RBAC-toewijzingen moet worden toegepast op het niveau van de map. 

@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917557"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050251"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -63,13 +63,13 @@ Azure Stack ondersteunt geheime rotatie van externe certificaten van een nieuwe 
 
 |Geïnstalleerde certificaat CA|Certificeringsinstantie voor het draaien|Ondersteund|Ondersteunde versies van Azure Stack|
 |-----|-----|-----|-----|
-|Van zelf-ondertekend|To Enterprise|Niet ondersteund||
+|Van zelf-ondertekend|To Enterprise|Ondersteund|1903 en hoger|
 |Van zelf-ondertekend|Voor zelf-ondertekend|Niet ondersteund||
 |Van zelf-ondertekend|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
-|Van onderneming|To Enterprise|Als klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie wordt ondersteund|1803 en hoger|
+|Van onderneming|To Enterprise|Ondersteund. Van 1803 1903: ondersteund, zolang klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie|1803 en hoger|
 |Van onderneming|Voor zelf-ondertekend|Niet ondersteund||
 |Van onderneming|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
-|Van openbare<sup>*</sup>|To Enterprise|Niet ondersteund|1803 en hoger|
+|Van openbare<sup>*</sup>|To Enterprise|Ondersteund|1903 en hoger|
 |Van openbare<sup>*</sup>|Voor zelf-ondertekend|Niet ondersteund||
 |Van openbare<sup>*</sup>|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
 

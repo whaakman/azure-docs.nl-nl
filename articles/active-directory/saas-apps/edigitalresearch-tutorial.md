@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190888"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Zelfstudie: Azure Active Directory-integratie met eDigitalResearch
 
@@ -89,7 +89,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met eDigitalResea
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker eDigitalResearch](#create-a-edigitalresearch-test-user)**  : als u wilt een equivalent van Britta Simon in eDigitalResearch die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Maak een testgebruiker eDigitalResearch](#create-an-edigitalresearch-test-user)**  : als u wilt een equivalent van Britta Simon in eDigitalResearch die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
@@ -111,9 +111,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![eDigitalResearch domein en URL's één aanmeldings-informatie](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<company-name>.edigitalresearch.com`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<company-name>.edigitalresearch.com`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<company-name>.edigitalresearch.com/login/consume`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met [eDigitalResearch ondersteuningsteam](https://www.maruedr.com/contact) om deze waarden te verkrijgen.
@@ -141,7 +141,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Maak een testgebruiker Azure AD][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
@@ -169,14 +169,14 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     d. Klik op **Create**.
   
-### <a name="create-a-edigitalresearch-test-user"></a>Maak een testgebruiker eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Maak een testgebruiker eDigitalResearch
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in eDigitalResearch. 
 
 Werken met de [eDigitalResearch ondersteuningsteam](https://www.maruedr.com/contact) om op te halen van gebruikers die zijn gemaakt.        
     
  > [!NOTE]
- > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+ > De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -218,7 +218,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

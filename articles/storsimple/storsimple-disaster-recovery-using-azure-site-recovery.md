@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084875"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051934"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Overzicht
 Microsoft Azure StorSimple is een oplossing voor hybride cloudopslag die de complexiteit van niet-gestructureerde gegevens die betrekking hebben op bestandsshares. StorSimple maakt gebruik van cloudopslag als een uitbreiding van de on-premises oplossing en automatisch lagen gegevens in on-premises opslag en opslag in de cloud. Gegevensbescherming, geïntegreerd met lokale en cloud-momentopnamen, elimineert de noodzaak voor een veelzijdig opslaginfrastructuur.
 
@@ -167,7 +170,7 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
    
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
-   - **BaseUrl**: De Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzureRmEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: De Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
    - * RecoveryPlanName ***- ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
    - * RecoveryPlanName ***- DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.

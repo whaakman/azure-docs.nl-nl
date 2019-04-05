@@ -1,19 +1,18 @@
 ---
 title: 'Snelstart: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer'
 description: In deze snelstart leert u hoe u gegevens opneemt (laadt) in Azure Data Explorer met behulp van Node.js.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: 0a23c171d99d46eb29dd589867ce70ca2739ff29
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756450"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047650"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snelstart: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
 
@@ -25,7 +24,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](htt
 
 Naast een Azure-abonnement hebt u het volgende nodig om deze snelstart te voltooien:
 
-* [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
+* [Een testcluster en de database](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) geïnstalleerd op uw ontwikkelcomputer
 

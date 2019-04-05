@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639691"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050098"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Technische assets voor een virtuele machine-aanbieding maken
 
@@ -37,6 +37,7 @@ U moet het besturingssysteem van de virtuele machine, de VM-grootte, de poorten 
 > [!IMPORTANT]
 > *Het aantal schijven in een nieuwe Afbeeldingversie niet wijzigen.* Als u moet de configuratie van gegevensschijven in de afbeelding, definieert u een nieuwe SKU. Publiceren van een nieuwe installatiekopieversie met een andere schijf telt, heeft het potentieel van belangrijke nieuwe implementatie op basis van de versie van de nieuwe installatiekopie in geval van automatisch schalen, automatische implementaties van oplossingen via Azure Resource Manager-sjablonen en andere scenario's.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Fundamentele technische kennis
 
@@ -56,11 +57,11 @@ Kies een of beide van de volgende scripts omgevingen voor het beheer van VHD's e
 
 Bovendien is het raadzaam de volgende hulpprogramma's toe te voegen aan uw ontwikkelomgeving: 
 
--   [Azure-opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extensie: [Azure Resource Manager-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Extensie: [Maak](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Extensie: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Toestel: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Toestel: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Toestel: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 We raden ook controleren van de beschikbare hulpprogramma's in de [Azure-ontwikkelhulpprogramma's](https://azure.microsoft.com/tools/) pagina en, als u Visual Studio, de [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

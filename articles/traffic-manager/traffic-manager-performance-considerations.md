@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007942"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048296"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestatieoverwegingen voor Traffic Manager
 
@@ -70,7 +70,7 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
     Deze site heeft een DNS-zoekopdracht vanuit 20 verschillende locaties en de resultaten worden weergegeven op een kaart.
 
-* [Dig Web Interface](https://www.digwebinterface.com)
+* [Webinterface graven](https://www.digwebinterface.com)
 
     Deze site bevat dat meer gedetailleerde DNS-informatie, met inbegrip van CNAME-records en A-records. Zorg ervoor dat u de 'Vullen met kleur uitvoer' en 'Statistieken' onder opties controleren, en selecteer 'All' onder naamservers.
 
@@ -82,5 +82,5 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
 [Bewerkingen op Traffic Manager (REST API-referentiemateriaal)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager-Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Azure Traffic Manager-Cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

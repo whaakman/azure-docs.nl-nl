@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d685b06b95af42f07449cc84e70220dd1a4afa9f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338425"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051781"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-uitvoer naar Azure SQL Database
 
@@ -29,7 +29,7 @@ Hier volgen enkele configuraties binnen elke service die u kan helpen verbeteren
 - **Partitioneren overnemen** : deze SQL-uitvoer configuratie optie kunnen overnemen van het partitieschema van de vorige querystap of invoer van. Met deze optie is ingeschakeld, schrijven naar een op schijf gebaseerde tabel en hebben een [volledig parallelle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) topologie voor uw project, verwacht te zien van betere doorvoer. Deze partitioneren al automatisch gebeurt voor tal van andere [levert](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Bulksgewijs invoegen is gemaakt met deze optie is ook vergrendeling (TABLOCK) van de tabel uitgeschakeld.
 
 > [!NOTE] 
-> Wanneer er meer dan 8 invoer partities, overgenomen van de invoer partitieschema mogelijk niet de juiste keuze. Deze limiet is waargenomen in een tabel met een kolom met één identiteit en een geclusterde index. Op basis van uw schema en de keuze van indexen, kunnen uw opmerkingen variëren.
+> Wanneer er meer dan 8 invoer partities, overgenomen van de invoer partitieschema mogelijk niet de juiste keuze. Deze limiet is waargenomen in een tabel met een kolom met één identiteit en een geclusterde index. In dit geval kunt u overwegen [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 in de query, het aantal uitvoer schrijvers expliciet opgeven. Op basis van uw schema en de keuze van indexen, kunnen uw opmerkingen variëren.
 
 - **Batchgrootte** -SQL output-configuratie kunt u de maximale batchgrootte opgeven in de uitvoer van een Azure Stream Analytics SQL op basis van de aard van de doel-tabel/werkbelasting. Batchgrootte is het maximum aantal records dat met elke bulksgewijs verzonden invoegen transactie. In de geclusterde columnstore-indexen, batch-grootten rond [100 KB](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) toestaan voor meer parallelle uitvoering, minimale logboekregistratie en optimalisaties vergrendelen. In schijfgebaseerde tabellen, 10K (standaard) of een lagere mogelijk optimaal is voor uw oplossing, zoals hogere batch grootten vergrendelingsescalatie tijdens bulksgewijs invoegen kunnen activeren.
 

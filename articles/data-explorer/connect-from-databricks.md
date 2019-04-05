@@ -1,19 +1,18 @@
 ---
 title: Verbinding maken met Azure Data Explorer in Azure Databricks met behulp van Python
 description: Dit onderwerp ziet u hoe u een Python-bibliotheek in Azure Databricks voor toegang tot gegevens uit Azure Data Explorer met behulp van een van de twee ondersteunde verificatiemethoden.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 7e91aa0707b1ae8ac4b9b6ddd9ee7142a04a0f37
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 55257d441916971b505432247f28033d6222c3be
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756930"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047752"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Verbinding maken met Azure Data Explorer in Azure Databricks met behulp van Python
 

@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Event Hub kunt opnemen (laden) in Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/2/2018
-ms.openlocfilehash: fcc4a50cb57e15021a3be1266d660c33501dbe82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/02/2018
+ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758677"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048384"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
@@ -23,7 +22,7 @@ Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logb
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-* [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
+* [Een testcluster en de database](create-cluster-database-portal.md)
 
 * [Een voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die gegevens genereert en deze verzendt naar een event hub. Download de voorbeeld-app naar uw systeem.
 
@@ -39,7 +38,7 @@ In deze quickstart genereert u voorbeeldgegevens en verzendt u deze naar een Eve
 
 1. Als u een Event Hub wilt maken, gebruikt u de volgende knop om de implementatie te starten. Klik met de rechtermuisknop en selecteer **In nieuw venster openen**, zodat u de rest van de stappen in dit artikel kunt volgen.
 
-    [![Implementeren in Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy naar Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Als u op de knop **Implementeren in Azure** klikt, wordt u naar de Azure-portal geleid om een implementatieformulier in te vullen.
 
@@ -111,7 +110,7 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Naam van gegevensverbinding | *test-hub-connection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
+    | Naam van gegevensverbinding | *Test-hubverbinding* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
     | Event hub-naamruimte | Een unieke naam voor de naamruimte | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
     | Event Hub | *test-hub* | De Event Hub die u hebt gemaakt. |
     | Consumentengroep | *test-group* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
@@ -204,4 +203,4 @@ Als u niet van plan bent de Event Hub opnieuw te gebruiken, wist u de **test-hub
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+> [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

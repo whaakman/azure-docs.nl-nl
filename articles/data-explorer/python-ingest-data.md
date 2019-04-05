@@ -1,19 +1,18 @@
 ---
 title: 'Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer'
 description: In deze snelstart leert u hoe u gegevens opneemt (laadt) in Azure Data Explorer met behulp van Python.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757713"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046458"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
 
@@ -25,7 +24,7 @@ Deze snelstart is ook beschikbaar als een [Azure Notebook](https://notebooks.azu
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-* [Een cluster en een database](create-cluster-database-portal.md)
+* [Een cluster en de database](create-cluster-database-portal.md)
 
 * [Python](https://www.python.org/downloads/) geïnstalleerd op uw ontwikkelcomputer
 
@@ -180,4 +179,4 @@ Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte r
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Gegevens opvragen met Python](python-query-data.md)
+> [Gegevens opvragen met behulp van Python](python-query-data.md)

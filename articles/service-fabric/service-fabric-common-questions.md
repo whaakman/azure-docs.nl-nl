@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665318"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045795"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
 Er zijn veel Veelgestelde vragen over Service Fabric kunt doen en hoe deze moet worden gebruikt. In dit document bevat informatie over veel van deze Veelgestelde vragen en antwoorden.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>Installatie en beheer
 
@@ -133,7 +136,7 @@ Nee. Virtuele machines met lage prioriteit worden niet ondersteund.
 Hier volgen betekent voor uw toepassing om op te halen van referenties voor verificatie bij de KeyVault:
 
 A. Tijdens uw toepassingen bouwen/verpakking taak, kunt u een certificaat in het gegevenspakket van uw app SF ophalen en dit gebruiken om te verifiëren bij de KeyVault.
-B. Voor virtuele-ingeschakelde MSI-hosts machineschaalset, kunt u een eenvoudige PowerShell SetupEntryPoint voor uw app SF om op te halen ontwikkelen [een toegangstoken van het MSI-eindpunt](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), en vervolgens [uw geheimen ophalen uit Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. Voor virtuele-ingeschakelde MSI-hosts machineschaalset, kunt u een eenvoudige PowerShell SetupEntryPoint voor uw app SF om op te halen ontwikkelen [een toegangstoken van het MSI-eindpunt](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), en vervolgens [uw geheimen ophalen uit Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>Het ontwerp van toepassing
 
@@ -189,4 +192,4 @@ Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureserv
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [core-Service Fabric-concepten](service-fabric-technical-overview.md) en [aanbevolen procedures](service-fabric-best-practices-overview.md)
+Meer informatie over [core-Service Fabric-concepten](service-fabric-technical-overview.md) en [aanbevolen procedures](service-fabric-best-practices-overview.md) ijs Fabric concepts](service-fabric-technical-overview.md) en [aanbevolen procedures](service-fabric-best-practices-overview.md)

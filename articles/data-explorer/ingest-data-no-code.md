@@ -1,19 +1,18 @@
 ---
 title: 'Zelfstudie: Diagnostische gegevens en activiteitenlogboekgegevens in Azure Data Explorer opnemen zonder één regel code'
 description: In deze zelfstudie leert u hoe u zonder één regel code gegevens kunt opnemen in Azure Data Explorer en query's op die gegevens kunt uitvoeren.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
-ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/14/2019
+ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756848"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051900"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Zelfstudie: Gegevens opnemen in Azure Data Explorer zonder één regel code
 
@@ -269,7 +268,7 @@ Diagnostische logboeken in Azure maken het exporteren van metrische gegevens naa
 
 1. Maak een event hub met behulp van een Azure Resource Manager-sjabloon in de Microsoft Azure-portal. Klik met de rechtermuisknop op **Implementeren in Azure** en selecteer **In nieuw venster openen** om de rest van de stappen in dit artikel te volgen. Klik op de knop **Implementeren in Azure** om de Azure-portal te openen.
 
-    [![De knop Implementeren in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy op Azure-knop](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Maak een Event Hubs-naamruimte en een event hub voor de diagnostische logboeken.
 
@@ -277,13 +276,13 @@ Diagnostische logboeken in Azure maken het exporteren van metrische gegevens naa
 
 1. Vul het formulier in met de volgende gegevens. Gebruik de standaardwaarden voor alle instellingen die niet worden vermeld in de volgende tabel.
 
-    **Instelling** | **Voorgestelde waarde** | **Beschrijving**
+    **Instelling** | **Voorgestelde waarde** | **Description**
     |---|---|---|
     | **Abonnement** | *Uw abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken voor de Event Hub.|
     | **Resourcegroep** | *test-resource-group* | Maak een nieuwe resourcegroep. |
     | **Locatie** | Selecteer de regio die het beste voldoet aan uw behoeften. | Maak de Event Hubs-naamruimte op dezelfde locatie als andere resources.
     | **Naam van naamruimte** | *AzureMonitoringData* | Kies een unieke naam waarmee de naamruimte kan worden geïdentificeerd.
-    | **Event hub-naam** | *DiagnosticLogsData* | De Event Hub bevindt zich onder de naamruimte, wat een unieke bereikcontainer biedt. |
+    | **Naam van Event Hub** | *DiagnosticLogsData* | De Event Hub bevindt zich onder de naamruimte, wat een unieke bereikcontainer biedt. |
     | **Naam van consumentengroep** | *adxpipeline* | Maak een naam voor een consumentengroep. Met consumentengroepen kunnen meerdere gebruikstoepassingen elk een afzonderlijke weergave van de gebeurtenisstroom hebben. |
     | | |
 
@@ -369,7 +368,7 @@ Nu moet u de gegevensverbindingen voor uw diagnostische logboeken en activiteite
     |---|---|---|
     | **Naam van gegevensverbinding** | *DiagnosticsLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
     | **Event hub-naamruimte** | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
-    | **Event hub** | *diagnosticlogsdata* | De Event Hub die u hebt gemaakt. |
+    | **Event Hub** | *diagnosticlogsdata* | De Event Hub die u hebt gemaakt. |
     | **Consumentengroep** | *adxpipeline* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
     | | |
 
@@ -398,8 +397,8 @@ Herhaal de stappen in de sectie De gegevensverbinding maken voor diagnostische l
     |---|---|---|
     | **Naam van gegevensverbinding** | *ActivityLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
     | **Event hub-naamruimte** | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
-    | **Event hub** | *insights-operational-logs* | De Event Hub die u hebt gemaakt. |
-    | **Consumentengroep** | *$Default* | De standaard consumentengroep. Zo nodig kunt u een andere consumentengroep maken. |
+    | **Event Hub** | *insights-operational-logs* | De Event Hub die u hebt gemaakt. |
+    | **Consumentengroep** | *Standaar$d* | De standaard consumentengroep. Zo nodig kunt u een andere consumentengroep maken. |
     | | |
 
     Doeltabel:
@@ -461,4 +460,4 @@ Queryresultaten:
 Leer met behulp van het volgende artikel veel meer query's te schrijven voor de gegevens die u hebt opgehaald uit Azure Data Explorer:
 
 > [!div class="nextstepaction"]
-> [Query's schrijven voor Azure Data Explorer](write-queries.md)
+> [Schrijven van query's voor Azure Data Explorer](write-queries.md)

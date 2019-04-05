@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878703"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050132"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
 Instellen van een on-premises configuratieserver wanneer u de [Azure Site Recovery](site-recovery-overview.md) service voor herstel na noodgeval voor fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen on-premises machines en Azure, en beheert de gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -265,28 +267,28 @@ De server als volgt bijwerken:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Verwijderen of de registratie van een configuratieserver (PowerShell)
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell-module
+1. [Installeer](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell-module
 2. Meld u aan bij uw Azure-account met de opdracht
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Selecteer het abonnement waarin de kluis aanwezig is
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Nu de context van uw kluis instellen
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Selecteer uw configuratieserver ophalen
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. De configuratieserver verwijderen
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> De **-forceren** optie in de Remove-AzureRmSiteRecoveryFabric kan worden gebruikt om af te dwingen de verwijdering/verwijdering van de configuratieserver.
+> De **-forceren** optie in de Remove-AzSiteRecoveryFabric kan worden gebruikt om af te dwingen de verwijdering/verwijdering van de configuratieserver.
 
 ## <a name="renew-ssl-certificates"></a>SSL-certificaten vernieuwen
 De configuratieserver heeft een ingebouwde webserver, die regelt de activiteiten van de Mobility-service, processervers en hoofddoelservers die zijn verbonden. De webserver wordt een SSL-certificaat gebruikt om clients te verifiëren. Het certificaat verloopt na drie jaar en kan op elk gewenst moment worden vernieuwd.

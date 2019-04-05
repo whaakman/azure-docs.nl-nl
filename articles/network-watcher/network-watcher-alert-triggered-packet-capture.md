@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876643"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048755"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Pakketopname gebruiken voor proactieve netwerkbewaking met waarschuwingen en Azure Functions
 
@@ -33,9 +33,12 @@ Met behulp van Network Watcher, waarschuwingen en functies van binnen het Azure-
 
 ![Scenario][scenario]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
-* De nieuwste versie van [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* De nieuwste versie van [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Een bestaand exemplaar van Network Watcher. Als u er nog geen hebt, [Maak een instantie van Network Watcher](network-watcher-create.md).
 * Een bestaande virtuele machine in dezelfde regio als Network Watcher met de [Windows extensie](../virtual-machines/windows/extensions-nwa.md) of [Linux virtuele machine-extensie](../virtual-machines/linux/extensions-nwa.md).
 
@@ -72,7 +75,7 @@ De eerste stap is het maken van een Azure-functie voor het verwerken van de waar
 
 2. Op de **functie-App** blade, voer de volgende waarden in en selecteer vervolgens **OK** om de app te maken:
 
-    |**Instelling** | **Waarde** | **Details** |
+    |**Instelling** | **Value** | **Details** |
     |---|---|---|
     |**Naam van app**|PacketCaptureExample|De naam van de functie-app.|
     |**Abonnement**|[Uw abonnement] Het abonnement waarvoor u wilt maken van de functie-app.||
@@ -85,11 +88,11 @@ De eerste stap is het maken van een Azure-functie voor het verwerken van de waar
 
 4. Selecteer **HttpTrigger-Powershell**, en voer vervolgens de resterende gegevens. Selecteer ten slotte voor het maken van de functie **maken**.
 
-    |**Instelling** | **Waarde** | **Details** |
+    |**Instelling** | **Value** | **Details** |
     |---|---|---|
     |**Scenario**|Experimenteel|Type scenario|
     |**Een naam voor de functie opgeven**|AlertPacketCapturePowerShell|Naam van de functie|
-    |**Verificatieniveau**|Function|Machtigingsniveau voor de functie|
+    |**Autorisatieniveau**|Function|Machtigingsniveau voor de functie|
 
 ![Voorbeeld van de functies][functions1]
 
@@ -105,16 +108,16 @@ Network Watcher PowerShell-cmdlets wilt gebruiken, de meest recente PowerShell-m
 1. Voer de volgende PowerShell-opdracht op uw lokale computer met de nieuwste Azure PowerShell-modules geïnstalleerd:
 
     ```powershell
-    (Get-Module AzureRM.Network).Path
+    (Get-Module Az.Network).Path
     ```
 
     In dit voorbeeld geeft u het lokale pad van de Azure PowerShell-modules. Deze mappen worden gebruikt in een latere stap. De modules die worden gebruikt in dit scenario zijn:
 
-   * AzureRM.Network
+   * Az.Network
 
-   * AzureRM.Profile
+   * Az.Accounts
 
-   * AzureRM.Resources
+   * Az.Resources
 
      ![PowerShell-mappen][functions5]
 
@@ -128,17 +131,17 @@ Network Watcher PowerShell-cmdlets wilt gebruiken, de meest recente PowerShell-m
 
     ![Map en submappen][functions3]
 
-    * AzureRM.Network
+    * Az.Network
 
-    * AzureRM.Profile
+    * Az.Accounts
 
-    * AzureRM.Resources
+    * Az.Resources
 
-1. Met de rechtermuisknop op de **AzureRM.Network** submap en selecteer vervolgens **bestanden uploaden**. 
+1. Met de rechtermuisknop op de **Az.Network** submap en selecteer vervolgens **bestanden uploaden**. 
 
-6. Ga naar uw Azure-modules. In de lokale **AzureRM.Network** map, selecteert u alle bestanden in de map. Selecteer vervolgens **OK**. 
+6. Ga naar uw Azure-modules. In de lokale **Az.Network** map, selecteert u alle bestanden in de map. Selecteer vervolgens **OK**. 
 
-7. Herhaal deze stappen voor **AzureRM.Profile** en **AzureRM.Resources**.
+7. Herhaal deze stappen voor **Az.Accounts** en **Az.Resources**.
 
     ![Bestanden uploaden][functions6]
 
@@ -196,10 +199,10 @@ De client-ID is de toepassings-ID van een toepassing in Azure Active Directory.
 1. Als u geen al een toepassing te gebruiken, moet u het volgende voorbeeld voor het maken van een toepassing uitvoert.
 
     ```powershell
-    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
-    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzADServicePrincipal -ApplicationId $app.ApplicationId
     Start-Sleep 15
-    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
    > [!NOTE]
@@ -218,7 +221,7 @@ De client-ID is de toepassings-ID van een toepassing in Azure Active Directory.
 De tenant-ID ophalen door het uitvoeren van de volgende PowerShell-voorbeeld:
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+(Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
 ```
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
@@ -266,9 +269,9 @@ Het volgende voorbeeld wordt PowerShell-code die kan worden gebruikt in de funct
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
             #Process alert request body
             $requestBody = Get-Content $req -Raw | ConvertFrom-Json
@@ -290,7 +293,7 @@ Het volgende voorbeeld wordt PowerShell-code die kan worden gebruikt in de funct
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -302,22 +305,22 @@ Het volgende voorbeeld wordt PowerShell-code die kan worden gebruikt in de funct
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
                 #Get existing packetCaptures
-                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
                 #Remove existing packet capture created by the function (if it exists)
                 $packetCaptures | %{if($_.Name -eq $packetCaptureName)
                 { 
-                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
                 }}
 
                 #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
                     echo "Initiating Packet Capture"
-                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
                     Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
                 }
             } 
@@ -341,14 +344,14 @@ Waarschuwingen kunnen worden geconfigureerd om te melden personen wanneer een sp
 
 Ga naar een bestaande virtuele machine en vervolgens een waarschuwingsregel toevoegen. Meer gedetailleerde informatie over het configureren van waarschuwingen kan worden gevonden op [waarschuwingen maken in Azure Monitor voor Azure-services - Azure-portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Voer de volgende waarden in de **waarschuwingsregel** blade, en selecteer vervolgens **OK**.
 
-  |**Instelling** | **Waarde** | **Details** |
+  |**Instelling** | **Value** | **Details** |
   |---|---|---|
-  |**Naam**|TCP_Segments_Sent_Exceeded|De naam van de waarschuwingsregel.|
-  |**Beschrijving**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.|
+  |**Name**|TCP_Segments_Sent_Exceeded|De naam van de waarschuwingsregel.|
+  |**Description**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.|
   |**Gegevens**|TCP-segmenten verzonden| De metrische gegevens te gebruiken om de waarschuwing te activeren. |
-  |**voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
+  |**Voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
   |**Drempelwaarde**|100| De waarde van de metrische gegevens die de waarschuwing wordt geactiveerd. Deze waarde moet worden ingesteld op een geldige waarde voor uw omgeving.|
-  |**Period**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
+  |**Periode**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
   |**Webhook**|[webhook-URL van de functie-app]| De webhook-URL van de functie-app die in de vorige stappen is gemaakt.|
 
 > [!NOTE]

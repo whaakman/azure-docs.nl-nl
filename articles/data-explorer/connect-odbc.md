@@ -1,19 +1,18 @@
 ---
 title: Verbinding maken met Azure Data Explorer met behulp van ODBC
 description: In deze procedures leert u hoe u een ODBC-verbinding met Azure Data Explorer instellen en vervolgens die verbinding gebruiken om gegevens met Tableau te visualiseren.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757628"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043878"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Verbinding maken met Azure Data Explorer met behulp van ODBC
 
@@ -101,6 +100,6 @@ Nu u klaar bent met het configureren van ODBC, kunt u voorbeeldgegevens in Table
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Query's schrijven voor Azure Data Explorer](write-queries.md)
+[Schrijven van query's voor Azure Data Explorer](write-queries.md)
 
 [Zelfstudie: Visualiseer gegevens uit Azure Data Explorer in Power BI](visualize-power-bi.md)

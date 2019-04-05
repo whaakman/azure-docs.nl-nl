@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112735"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044325"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>De topologie van een Azure-netwerk weergeven
 
 In dit artikel leert u hoe u resources weergeven in een virtueel netwerk van Microsoft Azure, en de relaties tussen de resources. Bijvoorbeeld, bevat een virtueel netwerk subnetten. Subnetten bevatten resources, zoals Azure Virtual Machines (VM). Virtuele machines hebben een of meer netwerkinterfaces. Elk subnet kan zijn voor een netwerkbeveiligingsgroep en een routetabel die zijn gekoppeld. De mogelijkheid van de topologie van Azure Network Watcher kunt u alle resources in een virtueel netwerk, de resources weergeven die zijn gekoppeld aan resources in een virtueel netwerk en de relaties tussen de resources.
 
 U kunt de [Azure-portal](#azure-portal), wordt de [Azure CLI](#azure-cli), of [PowerShell](#powershell) om een topologie weer te geven.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>Topologie weergeven - Azure portal
 
@@ -85,38 +87,38 @@ Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](requir
 
 U kunt de opdrachten in de volgende stappen uitvoeren:
 - In de Azure Cloud Shell, door te selecteren **uitproberen** aan de bovenkant van elke opdracht. De Azure Cloud Shell is een gratis interactieve shell die algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account heeft.
-- Door te voeren PowerShell vanaf uw computer. Als u PowerShell vanaf uw computer uitvoeren, de stappen in dit artikel is versie 5.7.0 vereist of hoger van de AzureRm-module. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Door te voeren PowerShell vanaf uw computer. Als u PowerShell vanaf uw computer uitvoeren, in dit artikel Azure PowerShell vereist `Az` module. Voer `Get-Module -ListAvailable Az` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](required-rbac-permissions.md).
 
-1. Als u al een network watcher in dezelfde regio als het virtuele netwerk dat u wilt maken van een topologie voor hebt, gaat u naar stap 3. Maak een resourcegroep om een network watcher met [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Het volgende voorbeeld wordt de resourcegroep in de *eastus* regio:
+1. Als u al een network watcher in dezelfde regio als het virtuele netwerk dat u wilt maken van een topologie voor hebt, gaat u naar stap 3. Maak een resourcegroep om een network watcher met [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Het volgende voorbeeld wordt de resourcegroep in de *eastus* regio:
 
     ```azurepowershell-interactive
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
+    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Maken van een network watcher met [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). Het volgende voorbeeld wordt een network watcher in de regio VS-Oost:
+2. Maken van een network watcher met [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). Het volgende voorbeeld wordt een network watcher in de regio VS-Oost:
 
     ```azurepowershell-interactive
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_eastus `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Ophalen van een Network Watcher-exemplaar met [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). Het volgende voorbeeld wordt een network watcher in de regio VS-Oost:
+3. Ophalen van een Network Watcher-exemplaar met [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). Het volgende voorbeeld wordt een network watcher in de regio VS-Oost:
 
     ```azurepowershell-interactive
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Ophalen van een topologie met [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). Het volgende voorbeeld wordt een topologie voor een virtueel netwerk in de resourcegroep met de naam *MyResourceGroup*:
+4. Ophalen van een topologie met [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). Het volgende voorbeeld wordt een topologie voor een virtueel netwerk in de resourcegroep met de naam *MyResourceGroup*:
 
     ```azurepowershell-interactive
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

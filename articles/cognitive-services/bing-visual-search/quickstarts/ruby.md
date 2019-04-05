@@ -8,18 +8,18 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544713"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049283"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Inzichten in afbeeldingen met behulp van de Bing Visual Search REST-API en Ruby ophalen
 
-Deze snelstart gebruikt de Ruby-programmeertaal aanroepen van Bing visuele zoekopdrachten en resultaten weer te geven. Een Post-aanvraag wordt een installatiekopie geüpload naar de API-eindpunt. De resultaten bevatten de URL's en beschrijvende informatie over installatiekopieën die vergelijkbaar is met de geüploade installatiekopie.
+Deze snelstart gebruikt de Ruby-programmeertaal aanroepen van Bing visuele zoekopdrachten en resultaten weer te geven. Een POST-aanvraag wordt een installatiekopie geüpload naar de API-eindpunt. De resultaten bevatten de URL's en beschrijvende informatie over installatiekopieën die vergelijkbaar is met de geüploade installatiekopie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,7 +32,7 @@ Om uit te voeren in deze Quick Start:
 
 ## <a name="project-and-required-modules"></a>Project en de vereiste modules
 
-Maak een nieuwe Ruby-project in uw IDE of editor. Importeren `net/http`, `uri` , en `json` voor het afhandelen van de JSON-tekst van de resultaten. De `base64` bibliotheek wordt gebruikt voor het coderen van de tekenreeks met de bestandsnaam. 
+Maak een nieuwe Ruby-project in uw IDE of editor. Importeren `net/http`, `uri` , en `json` voor het afhandelen van de JSON-tekst van de resultaten. De `base64` bibliotheek wordt gebruikt voor het coderen van de tekenreeks met de bestandsnaam: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-De volgende code wordt toegewezen vereist variabelen. Controleer of het eindpunt juist en vervang de `accessKey` waarde met een abonnementssleutel van uw Azure-account.  De `batchNumber` is een guid die is vereist voor voorloopspaties en afsluitende grenzen van de Post-gegevens.  De `fileName` variabele identificeert het afbeeldingsbestand voor het bericht.  De `if` blokkeren van de tests voor de sleutel van een geldig abonnement.
+De volgende code wordt toegewezen vereist variabelen. Controleer of het eindpunt juist en vervang de `accessKey` waarde met een abonnementssleutel van uw Azure-account.  De `batchNumber` is een GUID die is vereist voor voorloopspaties en afsluitende grenzen van de POST-gegevens.  De `fileName` variabele identificeert het afbeeldingsbestand voor het bericht.  De `if` blokkeren van de tests voor de sleutel van een geldig abonnement.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Formuliergegevens voor Post-aanvraag
+## <a name="form-data-for-post-request"></a>Formuliergegevens voor POST-aanvraag
 
-De image-gegevens naar bericht hekjes voorloopspaties en afsluitende grenzen.  De volgende functies stelt de grenzen.
+De image-gegevens naar bericht hekjes voorloopspaties en afsluitende grenzen. De volgende functies instellen de grenzen:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-De URI van het eindpunt en een matrix te bevatten de hoofdtekst van het bericht vervolgens samenstellen.  De vorige functie gebruiken om het laden van de grens start in de matrix. Het afbeeldingsbestand dat in de matrix gelezen. Lees vervolgens de end-grens bij de matrix. 
+De URI van het eindpunt en een matrix te bevatten de hoofdtekst van het bericht vervolgens samenstellen.  De vorige functie gebruiken om het laden van de grens start in de matrix. Het afbeeldingsbestand dat in de matrix gelezen. Lees vervolgens de end-grens bij de matrix:
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>De HTTP-aanvraag maken
 
-Stel de `Ocp-Apim-Subscription-Key` header.  Maak de aanvraag.  Vervolgens de kop- en type inhoud toewijzen.  Neem deel aan de hoofdtekst van de boeken die eerder zijn gemaakt op de aanvraag.
+Stel de `Ocp-Apim-Subscription-Key` header.  Maak de aanvraag. Vervolgens de kop- en type inhoud toewijzen. Deelnemen aan de hoofdtekst van de boeken die eerder zijn gemaakt op de aanvraag:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Aanvragen en reacties
 
-Ruby stuurt de aanvraag en het-antwoord met de volgende regel code opgehaald.
+Ruby stuurt de aanvraag en het-antwoord met de volgende regel code opgehaald:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>De resultaten afdrukken
 
-De kopteksten van het antwoord afdrukken. Gebruik vervolgens de JSON-bibliotheek om uitvoer te delen.
+De kopteksten van het antwoord af en gebruik van de JSON-bibliotheek om uitvoer te delen:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Resultaten
 
-De volgende JSON wordt een segment van de uitvoer.
+De volgende JSON wordt een segment van de uitvoer:
 
 ```
 Relevant Headers:
@@ -287,4 +285,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Overzicht van de Bing visuele zoekopdrachten](../overview.md)
-> [een aangepast zoeken voor web-app bouwen](../tutorial-bing-visual-search-single-page-app.md)
+> [een visuele zoekopdrachten één pagina web-app bouwen](../tutorial-bing-visual-search-single-page-app.md)

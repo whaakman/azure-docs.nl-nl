@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c19d41cee55a309b5345af4f811c60b82a613
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178971"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046492"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samenwerking uitnodiging inwisselen
 
@@ -56,13 +56,13 @@ Zie voor meer informatie over hoe u als tenantbeheerder aan de privacyverklaring
 
 ## <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
-U kunt gebruiksvoorwaarden presenteren aan de gastgebruiker tijdens de initiële inschrijving met behulp van de Azure AD-voorwaarden van functie gebruiken. In Azure Active Directory, opent u deze functie onder **beheren** > **organisatie relaties** > **gebruiksvoorwaarden** of onder **Security** > **voorwaardelijke toegang** > **gebruiksvoorwaarden**. Zie voor meer informatie, [Azure AD gebruiksrechtovereenkomst gebruik functie](../governance/active-directory-tou.md).
+U kunt gebruiksvoorwaarden presenteren aan de gastgebruiker tijdens de initiële inschrijving met behulp van de Azure AD-voorwaarden van functie gebruiken. In Azure Active Directory, opent u deze functie onder **beheren** > **organisatie relaties** > **gebruiksvoorwaarden** of onder **Security** > **voorwaardelijke toegang** > **gebruiksvoorwaarden**. Zie voor meer informatie, [Azure AD gebruiksrechtovereenkomst gebruik functie](../conditional-access/terms-of-use.md).
 
 ![Schermafbeelding van de nieuwe gebruiksvoorwaarden](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
+- [Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)](what-is-b2b.md)
 - [Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal](add-users-administrator.md)
 - [Hoe voeg informatiemedewerkers gebruikers van B2B-samenwerking toe aan Azure Active Directory?](add-users-information-worker.md)
 - [Gebruikers van Azure Active Directory B2B-samenwerking toevoegen met behulp van PowerShell](customize-invitation-api.md#powershell)

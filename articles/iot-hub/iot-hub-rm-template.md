@@ -3,18 +3,18 @@ title: Maken van een Azure-IoT-Hub met behulp van een sjabloon (.NET) | Microsof
 description: Het gebruik van een Azure Resource Manager-sjabloon een IoT-Hub maken met een C#-programma.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4acf7a8bbc02a10468004092152b1d7c5c4d621f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 186767bc9b8bc6d0b6ca8910e2c918c1f6d841fe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075915"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044875"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Een IoT-hub maken met Azure Resource Manager-sjabloon (.NET)
 

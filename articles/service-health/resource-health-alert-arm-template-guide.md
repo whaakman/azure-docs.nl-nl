@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663431"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047514"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource health waarschuwingen configureren met Resource Manager-sjablonen
 
@@ -22,30 +22,32 @@ Azure Resource Health houdt die u geïnformeerd over de huidige en historische s
 > [!NOTE]
 > Resource Health waarschuwingen zijn momenteel in preview.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Volg de instructies op deze pagina, moet u van tevoren een aantal dingen instellen:
 
-1. U moet installeren de [Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. U moet installeren de [Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. U moet [maken of een actiegroep hergebruiken](../azure-monitor/platform/action-groups.md) geconfigureerd om u te waarschuwen
 
 ## <a name="instructions"></a>Instructies
 1. Met behulp van PowerShell, meld u aan bij Azure met behulp van uw account en selecteer het abonnement dat u wilt communiceren
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > U kunt `Get-AzureRmSubscription` om de abonnementen weer te geven die u hebt toegang tot.
+    > U kunt `Get-AzSubscription` om de abonnementen weer te geven die u hebt toegang tot.
 
 2. Zoeken en opslaan van de volledige Azure Resource Manager-ID voor de actiegroep
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Maken en opslaan van een Resource Manager-sjabloon voor Resource Health waarschuwingen als `resourcehealthalert.json` ([hieronder voor meer informatie Zie](#resource-manager-template-for-resource-health-alerts))
 
 4. Maak een nieuwe Azure Resource Manager-implementatie met behulp van deze sjabloon
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. U wordt gevraagd naar het type in de naam van de waarschuwing en de actie groep Resource-ID die u eerder hebt gekopieerd:
 

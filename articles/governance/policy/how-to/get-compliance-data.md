@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802947"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048706"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Nalevingsgegevens van Azure-resources ophalen
 
@@ -30,7 +30,7 @@ Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken
 > [!WARNING]
 > Als de nalevingsstatus wordt gerapporteerd als **niet geregistreerd**, Controleer de **Microsoft.PolicyInsights** Resourceprovider is geregistreerd en dat de gebruiker de juiste toegang op basis van rollen heeft beheren () Machtigingen voor RBAC) zoals beschreven in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Evaluatie-triggers
 
@@ -57,7 +57,7 @@ Een evaluatiescan voor een abonnement of resourcegroep kan worden gestart met ee
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
 - `{YourRG}` -Vervangen door de naam van de resourcegroep
-- Vervang `{subscriptionId}` door uw abonnements-ID
+- `{subscriptionId}` -Vervangen door uw abonnements-ID
 
 De scan biedt ondersteuning voor evaluatie van de resources in een abonnement of in een resourcegroep. Start een scan door een bereik met een REST-API **POST** opdracht met behulp van de volgende URI structuren:
 

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 79b118c0a4fd28eacf24dc63f04f36314807b41a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2fe4e9dad0b198fe54e06ce07100d231f1f7d157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531083"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046441"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Quickstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search REST-API en Java
 
-Gebruik deze quickstart om voor het eerst de Bing Visual Search-API aan te roepen en de zoekresultaten te bekijken. Met deze eenvoudige C# toepassing wordt er een afbeelding naar de API geüpload, waarna de geretourneerde gegevens van de afbeelding worden weergegeven. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Met deze Quick Start kunt u uw eerste aanroep naar de Bing visuele zoekopdrachten-API en de resultaten te bekijken. Deze Java-toepassing wordt een installatiekopie geüpload naar de API en de informatie die wordt weergegeven. Hoewel deze toepassing is geschreven in Java, de API is een RESTful-Web-compatibel is met de meeste moderne programmeertalen.
 
-Bij het uploaden van een lokale afbeelding, moeten de formuliergegevens de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op "image" en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden is 1 MB.
+Wanneer u een lokale installatiekopie uploadt, de gegevens moet bevatten de `Content-Disposition` header. U moet instellen de `name` parameter 'afbeelding', en u kunt instellen de `filename` parameter een tekenreeks. De inhoud van het formulier omvat de binaire gegevens van de installatiekopie. De grootte van de maximale installatiekopie die u kunt uploaden is 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -34,16 +34,15 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De [Java Development Kit(JDK) 7 of 8](https://aka.ms/azure-jdks)
-* De [Gson-bibliotheek](https://github.com/google/gson)
+* De [Java Development Kit (JDK) 7 of 8](https://aka.ms/azure-jdks)
+* De [Gson Java-bibliotheek](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
-
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken.
+1. Maak een nieuwe Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken:
 
     ```java
     import java.util.*;
@@ -64,7 +63,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Maak variabelen voor uw API-eindpunt, abonnementssleutel en het pad naar uw afbeelding. 
+2. Variabelen voor uw API-eindpunt, de abonnementssleutel en het pad naar uw installatiekopie maken:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -74,7 +73,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="create-the-json-parser"></a>De JSON-parser maken
 
-Maak een methode om het JSON-antwoord van de API beter leesbaar te maken met behulp van `JsonParser`.
+Een methode voor het maken van de JSON-antwoord van de API meer maken met behulp van leesbare `JsonParser`:
 
     ```java
     public static String prettify(String json_text) {
@@ -87,13 +86,13 @@ Maak een methode om het JSON-antwoord van de API beter leesbaar te maken met beh
 
 ## <a name="construct-the-search-request-and-query"></a>De zoekopdracht en query compileren
 
-1. Maak in de Main-methode van uw toepassing een Http-client met behulp van `HttpClientBuilder.create().build();`.
+1. In de belangrijkste methode van uw toepassing, maakt u een HTTP-client met behulp van `HttpClientBuilder.create().build();`:
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Maak een `HttpEntity` om uw afbeelding te uploaden naar de API.
+2. Maak een `HttpEntity` uw installatiekopie uploaden naar de API-object:
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +101,7 @@ Maak een methode om het JSON-antwoord van de API beter leesbaar te maken met beh
         .build();
     ```
 
-3. Maak een `httpPost`-object met het eindpunt toe en stel de header in voor gebruik van uw abonnementssleutel.
+3. Maak een `httpPost` object met het eindpunt toe en stel de koptekst van uw abonnementssleutel te gebruiken:
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,14 +111,14 @@ Maak een methode om het JSON-antwoord van de API beter leesbaar te maken met beh
 
 ## <a name="receive-and-process-the-json-response"></a>Het JSON-antwoord ontvangen en verwerken
 
-1. Gebruik `HttpClient.execute()` om een aanvraag te verzenden naar de API en sla het antwoord op in een `InputStream`-object.
+1. Gebruik de `HttpClient.execute()` methode voor het verzenden van een aanvraag naar de API en opslaan van het antwoord in een `InputStream` object:
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Sla de JSON-tekenreeks op en geef het antwoord weer.
+2. De JSON-tekenreeks Store en het antwoord afdrukken:
 
 ```java
 String json = new Scanner(stream).useDelimiter("\\A").next();
@@ -130,4 +129,4 @@ System.out.println(prettify(json));
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een web-app voor aangepaste zoekopdrachten bouwen](../tutorial-bing-visual-search-single-page-app.md)
+> [Een visuele zoekopdrachten één pagina web-app bouwen](../tutorial-bing-visual-search-single-page-app.md)

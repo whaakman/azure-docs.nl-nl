@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578574"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045454"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources
 
@@ -37,7 +37,7 @@ De volgende Azure-services bieden ondersteuning voor beheerde identiteiten voor 
 
 Raadpleeg de volgende lijst voor het configureren van beheerde identiteit voor Azure Virtual Machines (in regio's indien beschikbaar):
 
-- [Azure-portal](qs-configure-portal-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure-CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjablonen](qs-configure-template-windows-vm.md)
@@ -52,7 +52,7 @@ Raadpleeg de volgende lijst voor het configureren van beheerde identiteit voor A
 
 Raadpleeg de volgende lijst om de beheerde identiteit configureren voor Azure Virtual Machine Scale Sets (in regio's indien beschikbaar):
 
-- [Azure-portal](qs-configure-portal-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure-CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjablonen](qs-configure-template-windows-vm.md)
@@ -67,7 +67,7 @@ Raadpleeg de volgende lijst om de beheerde identiteit configureren voor Azure Vi
 
 Raadpleeg de volgende lijst voor het configureren van beheerde identiteit voor Azure App Service (in regio's indien beschikbaar):
 
-- [Azure-portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure-CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-sjabloon](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -93,7 +93,7 @@ ID-type beheerd |Algemeen beschikbaar<br>Globale Azure-regio 's | Azure Governme
 
 Raadpleeg de volgende lijst voor het configureren van beheerde identiteit voor Azure Functions (in regio's indien beschikbaar):
 
-- [Azure-portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure-CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-sjabloon](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -107,7 +107,7 @@ ID-type beheerd | Algemeen beschikbaar<br>Globale Azure-regio 's | Azure Governm
 
 Raadpleeg de volgende lijst om de beheerde identiteit configureren voor Azure Logic Apps (in regio's indien beschikbaar):
 
-- [Azure-portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
 - [Azure Resource Manager-sjabloon](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
@@ -119,7 +119,7 @@ ID-type beheerd | Algemeen beschikbaar<br>Globale Azure-regio 's | Azure Governm
 
 Raadpleeg de volgende lijst om de beheerde identiteit configureren voor Azure Data Factory V2 (in regio's indien beschikbaar):
 
-- [Azure-portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
@@ -177,7 +177,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 | Azure Duitsland |  `https://vault.microsoftazure.de` | Beschikbaar |
 | Azure China 21Vianet | `https://vault.azure.cn` | Beschikbaar |
 
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake 
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 | Azure Duitsland |   | Niet beschikbaar |
 | Azure China 21Vianet |  | Niet beschikbaar |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL 
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|
@@ -195,7 +195,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 | Azure Duitsland | `https://database.cloudapi.de/` | Beschikbaar |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Beschikbaar |
 
-## <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|
@@ -204,7 +204,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 | Azure Duitsland |   | Niet beschikbaar |
 | Azure China 21Vianet |  | Niet beschikbaar |
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|
@@ -213,7 +213,7 @@ Raadpleeg de volgende lijst voor het configureren van toegang tot Azure Resource
 | Azure Duitsland |   | Niet beschikbaar |
 | Azure China 21Vianet |  | Niet beschikbaar |
 
-## <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Storage
 
 | Cloud | Resource-id | Status |
 |--------|------------|--------|

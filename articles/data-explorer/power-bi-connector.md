@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI'
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: de Power BI-connector voor Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: ca3e68f3ef039f86957e47e22df48922498c292f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1be13090244a94c1bf3f731c8b6d73fa0848c393
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754731"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047599"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
@@ -49,7 +48,7 @@ Eerst maakt u verbinding met het Azure Data Explorer-helpcluster en daarna haalt
 
     ![Cluster-, database-, tabelopties](media/power-bi-connector/cluster-database-table.png)
 
-    **Instelling** | **Waarde** | **Beschrijving van veld**
+    **Instelling** | **Value** | **Beschrijving van veld**
     |---|---|---|
     | Cluster | *https://help.kusto.windows.net* | De URL voor het helpcluster. Voor andere clusters heeft de URL de notatie *https://\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
     | Database | Leeg laten | Een database die wordt gehost op het cluster waarmee u verbinding maakt. Deze selecteren we in een latere stap. |
@@ -91,4 +90,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)
+> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-imported-query.md)

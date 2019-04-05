@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: a620563be9ffe18ae0f7fa4a78df83ea5b35a5d2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488228"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050439"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Schijfversleuteling voor service fabric Windows-clusterknooppunten inschakelen 
 > [!div class="op_single_selector"]
@@ -35,33 +35,34 @@ De handleiding wordt ingegaan op de volgende procedures:
 * Vereisten stappen worden gevolgd voordat u inschakelt schijfversleuteling voor de virtuele-machineschaalset van Service Fabric Windows-Cluster.
 * Stappen worden gevolgd om in te schakelen schijfversleuteling voor de virtuele-machineschaalset voor Service Fabric Windows-Cluster ingesteld.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 * **Zelfregistratie** : als u wilt gebruiken, VM scale set schijf versleuteling preview zelfregistratie is vereist
 * U kunt uw abonnement zelf registreren door het uitvoeren van de volgende stappen uit: 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * Wacht ongeveer 10 minuten totdat de status als 'Registered'. U kunt de status controleren door de volgende opdracht uit: 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 * **Azure Key Vault** -een Key Vault maakt in hetzelfde abonnement en dezelfde regio als de schaal ingesteld en het toegangsbeleid 'EnabledForDiskEncryption' voor de Sleutelkluis met behulp van de PS-cmdlet. U kunt ook het beleid met de KeyVault-UI in Azure portal instellen: 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) , heeft de nieuwe opdrachten voor versleuteling.
-* Installeer de nieuwste versie van [Azure-SDK van Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Hieronder vindt u de virtuele-machineschaalset ade-cmdlets om in te schakelen ([instellen](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) codering ophalen ([ophalen](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) status voor schijfversleuteling en verwijderen ([uitschakelen](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) codering in de schaalset het exemplaar.
+* Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) , heeft de nieuwe opdrachten voor versleuteling.
+* Installeer de nieuwste versie van [Azure-SDK van Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Hieronder vindt u de virtuele-machineschaalset ade-cmdlets om in te schakelen ([instellen](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) codering ophalen ([ophalen](/powershell/module/az.compute/get-azvmssvmdiskencryption)) status voor schijfversleuteling en verwijderen ([uitschakelen](/powershell/module/az.compute/disable-azvmssdiskencryption)) codering in de schaalset het exemplaar.
 
 | Opdracht | Versie |  Bron  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 of hoger | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 of hoger | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 of hoger | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 of hoger | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 of hoger | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 of hoger | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 of hoger | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 of hoger | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 of hoger | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 of hoger | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 of hoger | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 of hoger | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Ondersteunde scenario's voor schijfversleuteling
@@ -77,8 +78,8 @@ De volgende opdrachten gebruiken voor het cluster maken en inschakelen van versl
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
 ```powershell
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -119,7 +120,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -153,11 +154,11 @@ Volg de stappen en richtlijnen voor het [toepassing implementeren in uw cluster]
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -176,9 +177,9 @@ Daarnaast kan gebruiker zich aanmelden bij de virtuele machine in de schaalset e
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -196,7 +197,7 @@ Uitschakelen schijfversleuteling geldt voor de hele virtuele-machineschaalset en
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

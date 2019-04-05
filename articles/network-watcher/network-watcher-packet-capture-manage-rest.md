@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480699"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049793"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Pakketopname beheren met Azure Network Watcher met behulp van REST-API van Azure
 
 > [!div class="op_single_selector"]
-> - [Azure-portal](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure-CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
@@ -39,6 +39,9 @@ In dit artikel doorloopt u de verschillende beheertaken die momenteel beschikbaa
 - [**Een pakketopname starten**](#start-packet-capture)
 - [**Een pakketopname stoppen**](#stop-packet-capture)
 - [**Een pakketopname verwijderen**](#delete-packet-capture)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -60,7 +63,7 @@ Voer het volgende script om te retourneren van een virtuele machine. Deze inform
 
 De volgende code moet variabelen:
 
-- **subscriptionId** -de abonnements-id kan ook worden opgehaald met de **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** -de abonnements-id kan ook worden opgehaald met de **Get-AzSubscription** cmdlet.
 - **resourceGroupName** -de naam van een resourcegroep met virtuele machines.
 
 ```powershell

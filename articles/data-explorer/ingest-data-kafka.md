@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Gegevens uit Kafka opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Kafka opneemt (laadt) in Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 5c7d533cbd8a69b8fd9dcc704e7b83b0e476e499
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756630"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047104"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Quickstart: Gegevens uit Kafka opnemen in Azure Data Explorer
  
@@ -23,7 +22,7 @@ Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logb
  
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint. 
  
-* [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
+* [Een testcluster en de database](create-cluster-database-portal.md)
  
 * [Een voorbeeld-app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) die gegevens genereert en deze verzendt naar Kafka
 
@@ -164,4 +163,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>Volgende stappen
  
 > [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+> [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

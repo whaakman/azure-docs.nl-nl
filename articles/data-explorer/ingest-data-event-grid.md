@@ -1,20 +1,18 @@
 ---
 title: 'Quickstart: Azure-blobs opnemen in Azure Data Explorer'
 description: In deze snelstartgids leert u hoe u storage-account om gegevens te verzenden naar Azure Data Explorer met behulp van een Event Grid-abonnement.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756440"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051849"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Quickstart: Blobs worden opgenomen in Azure Data Explorer door u te abonneren op meldingen voor Event Grid
 
@@ -41,12 +39,12 @@ In deze snelstartgids leert u hoe u om in te stellen een [Azure Event Grid](/azu
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Name | *test-grid-connection* | De naam van de event grid dat u wilt maken.|
-    | Gebeurtenisschema | *Gebeurtenisschema in het raster* | Het schema dat moet worden gebruikt voor het event grid. |
-    | Onderwerptype | *Opslagaccount* | Het type Event Grid-onderwerp. |
+    | Gebeurtenisschema | *Event Grid-schema* | Het schema dat moet worden gebruikt voor het event grid. |
+    | Onderwerptype | *Storage-account* | Het type Event Grid-onderwerp. |
     | Onderwerpresource | *gridteststorage* | De naam van uw opslagaccount. |
-    | Abonneren op alle gebeurtenistypen | *Wissen* | Geen meldingen ontvangen voor alle gebeurtenissen. |
-    | Gedefinieerde gebeurtenistypen | *Blobcreated* | Voor welke specifieke gebeurtenissen u een melding ontvangt. |
-    | Eindpunttype | *Eventhubs* | Het type eindpunt waarnaar u de gebeurtenissen verzendt. |
+    | Abonneren op alle gebeurtenistypen | *wissen* | Geen meldingen ontvangen voor alle gebeurtenissen. |
+    | Gedefinieerde gebeurtenistypen | *BlobCreated* | Voor welke specifieke gebeurtenissen u een melding ontvangt. |
+    | Eindpunttype | *Event Hubs* | Het type eindpunt waarnaar u de gebeurtenissen verzendt. |
     | Eindpunt | *test-hub* | De Event Hub die u hebt gemaakt. |
     | | |
 
@@ -101,7 +99,7 @@ Nu verbinding maken met event grid van Azure Data Explorer, zodat de gegevens di
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Naam van gegevensverbinding | *test-hub-connection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
+    | Naam van gegevensverbinding | *Test-hubverbinding* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
     | Abonnement van opslagaccount | Uw abonnements-id | Het abonnements-id waarin uw opslagaccount zich bevindt.|
     | Storage-account | *gridteststorage* | De naam van het opslagaccount dat u eerder hebt gemaakt.|
     | Event Grid | *test-grid-connection* | De naam van de event grid die u hebt gemaakt. |
@@ -199,4 +197,4 @@ Als u niet van plan bent de Event Grid opnieuw te gebruiken, wist u de **test-hu
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+> [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

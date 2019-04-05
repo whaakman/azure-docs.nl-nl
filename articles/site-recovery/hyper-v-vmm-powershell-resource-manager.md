@@ -8,16 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462553"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045625"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Instellen van herstel na noodgevallen van Hyper-V-machines naar een secundaire site met behulp van PowerShell (Resource Manager)
 
 Dit artikel wordt beschreven hoe u de stappen te automatiseren voor replicatie van Hyper-V virtuele machines in System Center Virtual Machine Manager-clouds naar een cloud Virtual Machine Manager in een secundaire on-premises site met behulp van [Azure Site Recovery](site-recovery-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,31 +61,31 @@ Zorg ervoor dat u Azure PowerShell kunt aan de slag:
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Connect-AzureRmAccount #-Credential $Cred
+        Connect-AzAccount #-Credential $Cred
 2. Een lijst van uw abonnementen, met de abonnement-id's ophalen. Houd er rekening mee de ID van het abonnement waarin u wilt maken van de Recovery Services-kluis. 
 
-        Get-AzureRmSubscription
+        Get-AzSubscription
 3. Het abonnement voor de kluis instellen.
 
-        Set-AzureRmContext –SubscriptionID <subscriptionId>
+        Set-AzContext –SubscriptionID <subscriptionId>
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Maak een Azure Resource Manager-resourcegroep als u dit niet hebt.
 
-        New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
+        New-AzResourceGroup -Name #ResourceGroupName -Location #location
 2. Maak een nieuwe Recovery Services-kluis. Sla de object-kluis in een variabele moet later worden gebruikt. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Nadat u dit met behulp van de cmdlet Get-AzureRMRecoveryServicesVault hebt gemaakt, kunt u het object kluis ophalen.
+    Nadat u dit met behulp van de cmdlet Get-AzRecoveryServicesVault hebt gemaakt, kunt u het object kluis ophalen.
 
 ## <a name="set-the-vault-context"></a>De kluiscontext instellen
 1. Een bestaande kluis ophalen.
 
-       $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
+       $vault = Get-AzRecoveryServicesVault -Name #vaultname
 2. Stel de context van de kluis.
 
-       Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+       Set-AzSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="install-the-site-recovery-provider"></a>De Site Recovery-provider installeren
 1. Maak een map met de volgende opdracht op de Virtual Machine Manager-machine:
@@ -124,7 +126,7 @@ Zorg ervoor dat u Azure PowerShell kunt aan de slag:
         $AuthPort = "8083"  #specify the port number that will be used for replication traffic on Hyper-V hosts
         $InitialRepMethod = "Online" #options are "Online" or "Offline"
 
-        $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
+        $policyresult = New-AzSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
     > De cloud Virtual Machine Manager kan Hyper-V-hosts met verschillende versies van Windows Server bevatten, maar het replicatiebeleid is voor een specifieke versie van een besturingssysteem. Als u verschillende hosts die worden uitgevoerd op verschillende besturingssystemen hebt, maakt u afzonderlijke beleidsregels voor elk systeem. Als u vijf hosts die worden uitgevoerd op Windows Server 2012 en drie hosts die worden uitgevoerd op Windows Server 2012 R2 hebt, maakt u bijvoorbeeld twee replicatiebeleidsregels voor. U maakt een voor elk type besturingssysteem.
@@ -132,19 +134,19 @@ Zorg ervoor dat u Azure PowerShell kunt aan de slag:
 2. Het ophalen van de primaire beveiligingscontainer (primaire Virtual Machine Manager cloud) en de beveiligingscontainer recovery (herstel cloud Virtual Machine Manager).
 
        $PrimaryCloud = "testprimarycloud"
-       $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
+       $primaryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 
        $RecoveryCloud = "testrecoverycloud"
-       $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
+       $recoveryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
 3. Het replicatiebeleid dat u hebt gemaakt met behulp van de beschrijvende naam worden opgehaald.
 
-       $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
+       $policy = Get-AzSiteRecoveryPolicy -FriendlyName $policyname
 4. Start de koppeling van de beveiligingscontainer (Virtual Machine Manager-cloud) met het replicatiebeleid.
 
-       $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
+       $associationJob  = Start-AzSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
 5. Wachten op de koppeling beleid taak is voltooid. Als u wilt controleren als de taak is voltooid, gebruikt u het volgende PowerShell-codefragment:
 
-       $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
+       $job = Get-AzSiteRecoveryJob -Job $associationJob
 
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
@@ -164,12 +166,12 @@ Volg de stappen in om te controleren of de bewerking is voltooid, [activiteiten]
 ##  <a name="configure-network-mapping"></a>Netwerktoewijzing configureren
 1. Deze opdracht gebruiken om op te halen servers voor de huidige kluis. De opdracht slaat de Site Recovery-servers in de variabele van de matrix $Servers.
 
-        $Servers = Get-AzureRmSiteRecoveryServer
+        $Servers = Get-AzSiteRecoveryServer
 2. Voer deze opdracht uit om op te halen van de netwerken voor de bron-Virtual Machine Manager-server en de doelserver van de Virtual Machine Manager.
 
-        $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
+        $PrimaryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[0]        
 
-        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+        $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
     > [!NOTE]
     > De bronserver van de Virtual Machine Manager kan het eerste of tweede item in de matrix van de server zijn. Controleer de namen van Virtual Machine Manager en de netwerken op de juiste wijze opgehaald.
@@ -177,7 +179,7 @@ Volg de stappen in om te controleren of de bewerking is voltooid, [activiteiten]
 
 3. Met deze cmdlet maakt een toewijzing tussen het primaire netwerk en het herstelnetwerk. Deze geeft het primaire netwerk als het eerste element van $PrimaryNetworks. Deze geeft het herstelnetwerk als het eerste element van $RecoveryNetworks.
 
-        New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
+        New-AzSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
 
 ## <a name="enable-protection-for-vms"></a>Schakel de beveiliging voor virtuele machines
@@ -185,13 +187,13 @@ Nadat de servers, clouds en netwerken correct zijn geconfigureerd, schakel de be
 
 1. Als u wilt beveiliging inschakelt, voer de volgende opdracht om op te halen van de beveiligingscontainer:
 
-          $PrimaryProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
+          $PrimaryProtectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
 2. Haal de bescherming van entiteit (VM), als volgt:
 
-           $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
+           $protectionEntity = Get-AzSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
 3. Schakel replicatie voor de virtuele machine.
 
-          $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+          $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
@@ -199,24 +201,24 @@ Als u wilt testen van uw implementatie, moet u een testfailover voor één virtu
 
 1. Ophalen van de virtuele machine waarin virtuele machines een failover uitgevoerd.
 
-       $Servers = Get-AzureRmSiteRecoveryServer
-       $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+       $Servers = Get-AzSiteRecoveryServer
+       $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
 2. Een testfailover uitvoeren.
 
    Voor een enkele virtuele machine:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
     
    Voor een plan voor herstel:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
 
 Volg de stappen in om te controleren of de bewerking is voltooid, [activiteiten](#monitor-activity).
 
@@ -226,33 +228,33 @@ Volg de stappen in om te controleren of de bewerking is voltooid, [activiteiten]
 
    Voor een enkele virtuele machine:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Voor een plan voor herstel:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
 2. Een niet-geplande failover uitvoeren.
 
    Voor een enkele virtuele machine:
         
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Voor een plan voor herstel:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## <a name="monitor-activity"></a>Activiteit controleren
 Gebruik de volgende opdrachten voor het bewaken van failover-activiteit. Wacht tot de verwerking tussen taken zijn voltooid.
@@ -276,4 +278,4 @@ Gebruik de volgende opdrachten voor het bewaken van failover-activiteit. Wacht t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie](/powershell/module/azurerm.recoveryservices.backup/) over Site Recovery met Resource Manager PowerShell-cmdlets.
+[Meer informatie](/powershell/module/az.recoveryservices) over Site Recovery met Resource Manager PowerShell-cmdlets.

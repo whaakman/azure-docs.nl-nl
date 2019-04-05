@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485052"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048434"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -103,8 +103,8 @@ U kunt ook serverregistratie via PowerShell uitvoeren. Dit is de enige ondersteu
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Registratie van de server met de Opslagsynchronisatieservice
@@ -142,10 +142,10 @@ Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -Tenant
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```
@@ -193,7 +193,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Wanneer Azure File Sync wordt gehost in een virtuele machine wordt uitgevoerd op een Windows Server virtualization host, kunt u QoS voor opslag (quality of service voor opslag) om te regelen opslag i/o-gebruik. Het beleid voor QoS voor opslag kan worden ingesteld als een maximum (of een limiet, zoals hoe StorageSyncNetwork limiet hierboven wordt afgedwongen) of als een minimum (of een reservering). Minimaal in plaats van een maximum in te stellen, kunt Azure File Sync om uit te breiden naar beschikbare opslag bandbreedte gebruiken als andere werkbelastingen worden niet gebruikt. Zie voor meer informatie, [opslag Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Zie ook
-- [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)
-- [Azure Files Sync implementeren](storage-sync-files-deployment-guide.md)
-- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
-- [Azure Files Sync oplossen](storage-sync-files-troubleshoot.md)
+- [Planning voor de implementatie van Azure Files Sync](storage-sync-files-planning.md)
+- [Azure Files SYNC implementeren](storage-sync-files-deployment-guide.md)
+- [Azure File Sync bewaken](storage-sync-files-monitoring.md)
+- [Problemen met Azure Files Sync oplossen](storage-sync-files-troubleshoot.md)

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803205"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046976"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
 In dit artikel verzamelt op één plek veel van de meest gestelde vragen over traffic analytics in Azure Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Wat zijn de vereisten voor het gebruik van traffic analytics?
 
@@ -51,11 +54,11 @@ Uw account moet voldoen aan een van de volgende verkeersanalyse inschakelen:
         
 Om te controleren of de rol is toegewezen aan een gebruiker voor een abonnement:
 
-1. Aanmelden bij Azure met behulp van **Login-AzureRmAccount**. 
+1. Aanmelden bij Azure met behulp van **aanmelding AzAccount**. 
 
-2. Selecteer het abonnement dat vereist met behulp van **Select-AzureRmSubscription**. 
+2. Selecteer het abonnement dat vereist met behulp van **Selecteer AzSubscription**. 
 
-3. U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker gebruiken **Get-AzureRmRoleAssignment - SignInName [e-mailadres gebruiker] - IncludeClassicAdministrators**. 
+3. U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker gebruiken **Get-AzRoleAssignment - SignInName [e-mailadres gebruiker] - IncludeClassicAdministrators**. 
 
 Als u geen uitvoer niet ziet, moet u contact op met de beheerder van het betreffende abonnement voor toegang tot de opdrachten worden uitgevoerd. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Neem contact op met ondersteuning als het probleem zich blijft voordoen.
 De Microsoft.Insights-provider moet worden geregistreerd voor flow logboekregistratie voor een goede werking. Als u niet zeker weet of de Microsoft.Insights-provider is geregistreerd voor uw abonnement, Vervang *xxxxx-xxxxx-xxxxxx-xxxx* in de volgende opdracht uit en voer de volgende opdrachten vanuit PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Heb ik hebt de oplossing geconfigureerd. Waarom zie ik iets op het dashboard?
@@ -170,7 +173,7 @@ U ziet de gegevens van resources op het dashboard; Er zijn echter geen statistie
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kan ik traffic analytics met behulp van PowerShell configureren of een Azure Resource Manager-sjabloon of de client?
 
-U kunt traffic analytics configureren met behulp van Windows PowerShell versie 6.2.1 en hoger. Zie configureren van stroomlogboeken en verkeersanalyse voor een specifieke NSG met behulp van de cmdlet Set [Set AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Als u de stroomlogboeken en de status van traffic analytics voor een specifieke NSG, Zie [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+U kunt traffic analytics configureren met behulp van Windows PowerShell versie 6.2.1 en hoger. Zie configureren van stroomlogboeken en verkeersanalyse voor een specifieke NSG met behulp van de cmdlet Set [Set AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Als u de stroomlogboeken en de status van traffic analytics voor een specifieke NSG, Zie [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Op dit moment niet u een Azure Resource Manager-sjabloon gebruiken voor het configureren van traffic analytics.
 

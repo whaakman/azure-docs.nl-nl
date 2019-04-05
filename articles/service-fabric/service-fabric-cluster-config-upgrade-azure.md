@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 818136f24eb063e2bd7217d5441bda19bf141317
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666593"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047004"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Upgrade van de configuratie van een cluster in Azure 
 
@@ -28,6 +28,9 @@ In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpa
 > [!NOTE]
 > Niet alle instellingen zijn beschikbaar in de portal en is een [best practice om aan te passen met behulp van een Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Er is een portal voor Service Fabric Dev\Test alleen voor het scenario van.
 > 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Instellingen van het cluster met behulp van Resource Manager-sjablonen aanpassen
 Azure-clusters kunnen worden geconfigureerd via de JSON-Resource Manager-sjabloon. Zie voor meer informatie over de verschillende instellingen, [configuratie-instellingen voor clusters](service-fabric-cluster-fabric-settings.md). Bijvoorbeeld de volgende stappen laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie met behulp van Azure Resource Explorer.
@@ -54,7 +57,7 @@ U kunt ook de instellingen aanpassen in een van de volgende manieren met Azure R
 - Gebruik de [Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
 - Gebruik [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
 - Gebruik de [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
-- Gebruik van Azure DB PowerShell [Set AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) en [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) opdrachten om de instelling te wijzigen rechtstreeks.
+- Gebruik van Azure PowerShell [Set AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) en [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) opdrachten om de instelling te wijzigen rechtstreeks.
 - De Azure CLI gebruiken [az sf cluster instelling](https://docs.microsoft.com/cli/azure/sf/cluster/setting) opdrachten om de instelling te wijzigen rechtstreeks.
 
 ## <a name="next-steps"></a>Volgende stappen

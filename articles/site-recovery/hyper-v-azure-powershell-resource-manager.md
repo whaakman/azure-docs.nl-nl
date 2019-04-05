@@ -7,18 +7,21 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 9039c1fd94bbc62f48ca5a6869f455aa41b740c9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673928"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047718"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
 [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw zakelijke continuïteit en noodherstelplan (BCDR) door het coördineren van replicatie, failover en herstel van virtuele Azure-machines (VM's) en on-premises machines en fysieke servers.
 
 In dit artikel wordt beschreven hoe u Windows PowerShell, samen met Azure Resource Manager gebruiken voor het Hyper-V-machines repliceren naar Azure. Het voorbeeld dat wordt gebruikt in dit artikel ziet u hoe u kunt een enkele virtuele machine die wordt uitgevoerd op een Hyper-V-host naar Azure repliceren.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -35,8 +38,7 @@ U hoeft te worden van een deskundige PowerShell te gebruiken in dit artikel, maa
 Zorg ervoor dat u deze vereisten hebt voldaan:
 
 * Een [Microsoft Azure](https://azure.microsoft.com/) account. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). Bovendien meer over [prijzen voor Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell 1.0. Zie voor meer informatie over deze release en hoe u deze installeert [Azure PowerShell 1.0.](https://azure.microsoft.com/)
-* De [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) en [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. Krijgt u de nieuwste versies van deze modules uit de [PowerShell gallery](https://www.powershellgallery.com/)
+* Azure PowerShell. Zie voor meer informatie over deze release en hoe u deze installeert [Azure PowerShell installeren](/powershell/azure/install-az-ps).
 
 Het specifieke voorbeeld in dit artikel beschreven heeft bovendien de volgende vereisten:
 
@@ -45,37 +47,37 @@ Het specifieke voorbeeld in dit artikel beschreven heeft bovendien de volgende v
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Stap 1: Aanmelden bij uw Azure-account
 
-1. Open een PowerShell-console en voer deze opdracht uit om aan te melden bij uw Azure-account. De cmdlet wordt een webpagina vraagt u om referenties voor uw account: **Connect-AzureRmAccount**.
-    - U kunt ook uw accountreferenties opnemen als een parameter in de **Connect-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
-    - Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+1. Open een PowerShell-console en voer deze opdracht uit om aan te melden bij uw Azure-account. De cmdlet wordt een webpagina vraagt u om referenties voor uw account: **Connect-AzAccount**.
+    - U kunt ook uw accountreferenties opnemen als een parameter in de **Connect AzAccount** cmdlet, met behulp van de **-referentie** parameter.
+    - Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzAccount -Tenant "fabrikam.com"**
 2. Koppel het abonnement dat u gebruiken met het account wilt, omdat een account kan meerdere abonnementen hebben:
 
-    `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
+    `Select-AzSubscription -SubscriptionName $SubscriptionName`
 
 3. Controleer of uw abonnement is geregistreerd voor het gebruik van de Azure-providers voor de Recovery Services- en Site Recovery, met behulp van deze opdrachten:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 4. Controleer in de uitvoer van de opdracht, de **RegistrationState** is ingesteld op **geregistreerde**, kunt u doorgaan met stap 2. Als dat niet het geval is, moet u de ontbrekende provider registreren in uw abonnement, door het uitvoeren van deze opdrachten:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Controleer of de Providers geregistreerd is, met de volgende opdrachten:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>Stap 2: De kluis instellen
 
 1. Maak een Azure Resource Manager-resourcegroep waarin u wilt maken van de kluis of gebruik een bestaande resourcegroep. Als volgt te werk om een nieuwe resourcegroep te maken. De variabele $ResourceGroupName bevat de naam van de resourcegroep die u wilt maken en de variabele $Geo bevat de Azure-regio waarin u wilt maken van de resourcegroep (bijvoorbeeld ' Brazilië-Zuid").
 
-    `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo`
+    `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. Om op te halen een lijst met resourcegroepen in uw abonnement uitvoeren de **Get-AzureRmResourceGroup** cmdlet.
+2. Om op te halen een lijst met resourcegroepen in uw abonnement uitvoeren de **Get-AzResourceGroup** cmdlet.
 2. Maak een nieuwe Azure Recovery Services-kluis als volgt:
 
-        $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
+        $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    U kunt een lijst met bestaande kluizen met ophalen van de **Get-AzureRmRecoveryServicesVault** cmdlet.
+    U kunt een lijst met bestaande kluizen met ophalen van de **Get-AzRecoveryServicesVault** cmdlet.
 
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Stap 3: De context van de Recovery Services-kluis instellen
@@ -97,7 +99,7 @@ De context van de kluis als volgt instellen:
 
     ```
     $SiteIdentifier = Get-AsrFabric -Name $sitename | Select -ExpandProperty SiteIdentifier
-    $path = Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
+    $path = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
     ```
 
 5. De gedownloade sleutel kopiëren naar de Hyper-V-host. U moet de sleutel voor het registreren van de Hyper-V-host naar de site.
@@ -121,7 +123,7 @@ Houd er rekening mee dat het opgegeven opslagaccount moet zich in dezelfde Azure
         $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
         $PolicyName = “replicapolicy”
         $Recoverypoints = 6                    #specify the number of recovery points
-        $storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
+        $storageaccountID = Get-AzStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
 
         $PolicyResult = New-AsrPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
@@ -158,7 +160,7 @@ Houd er rekening mee dat het opgegeven opslagaccount moet zich in dezelfde Azure
         Completed
 4. Eigenschappen van de recovery-(zoals de VM-rolgrootte) en het Azure-netwerk waarmee de VM NIC koppelen na een failover.
 
-        PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
+        PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
 
         PS C:\> $VMFriendlyName = "Fabrikam-App"
 
@@ -178,7 +180,7 @@ Houd er rekening mee dat het opgegeven opslagaccount moet zich in dezelfde Azure
 ## <a name="step-8-run-a-test-failover"></a>Stap 8: Een testfailover uitvoeren
 1. Voer een testfailover als volgt uit:
 
-        $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
+        $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
         $rpi = Get-AsrReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 
@@ -189,4 +191,4 @@ Houd er rekening mee dat het opgegeven opslagaccount moet zich in dezelfde Azure
         $TFjob = Start-AsrTestFailoverCleanupJob -ReplicationProtectedItem $rpi -Comment "TFO done"
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) over Azure Site Recovery met Azure Resource Manager PowerShell-cmdlets.
+[Meer informatie](https://docs.microsoft.com/powershell/module/az.recoveryservices) over Azure Site Recovery met Azure Resource Manager PowerShell-cmdlets.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665505"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046174"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Een Service Fabric-cluster Resource Manager-sjabloon maken
 
@@ -28,6 +28,9 @@ Een [Azure Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een net
 Clusterbeveiliging is geconfigureerd als een cluster eerst is ingesteld en kan later worden gewijzigd. Lees voordat u een cluster instelt, [Service Fabric-clusterbeveiligingsscenario's][service-fabric-cluster-security]. In Azure, Service Fabric gebruikt x509-certificaat voor het beveiligen van uw cluster en de eindpunten, verifiëren van clients en -gegevens versleutelen. Azure Active Directory wordt ook aanbevolen voor beveiligde toegang tot eindpunten voor beheer. Azure AD-tenants en gebruikers moeten worden gemaakt voordat het cluster te maken.  Lees voor meer informatie, [instellen van Azure AD om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
 
 Voordat u een productiecluster voor het uitvoeren van productieworkloads implementeert, moet u eerst lezen de [productie gereedheid controlelijst](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
 Voorbeeld van Resource Manager-sjablonen zijn beschikbaar in de [Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Deze sjablonen kunnen worden gebruikt als uitgangspunt voor de clustersjabloon voor het.
@@ -242,13 +245,13 @@ De RM-modules hebt niet de mogelijkheid voor het genereren van de configuratie v
 Gebruik de volgende PowerShell-opdracht voor het testen van uw Resource Manager-sjabloon met een parameterbestand:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Als u problemen ondervindt en cryptisch berichten ophalen, gebruikt u '-fouten opsporen in ' als een optie.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 Het volgende diagram illustreert waar uw key vault en Azure AD-configuratie in de Resource Manager-sjabloon aanpassen.

@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579713"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045481"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD identity governance?
 
@@ -56,7 +56,7 @@ Normaal gesproken IT delegeert toegang tot zakelijke beleidsmakers goedkeuring b
 
 Organisaties kunnen het proces van de levenscyclus van toegang tot en met technologieën zoals automatiseren [dynamische groepen](../users-groups-roles/groups-dynamic-membership.md), verbonden met het inrichten van gebruikers naar [SaaS-apps](../saas-apps/tutorial-list.md) of [apps worden geïntegreerd met SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organisaties kunnen ook bepalen welke [gastgebruikers hebben toegang tot on-premises toepassingen](../b2b/hybrid-cloud-to-on-premises.md).  Deze toegang krijgen tot rechten kan vervolgens worden regelmatig gecontroleerd met behulp van terugkerende [Azure AD-toegangsbeoordelingen](access-reviews-overview.md).
 
-Wanneer een gebruiker probeert toegang tot toepassingen, Azure AD afgedwongen [voorwaardelijke toegang](/azure/active-directory/conditional-access/) beleid. Beleid voor voorwaardelijke toegang kunnen bijvoorbeeld weergeven van een [gebruiksvoorwaarden](active-directory-tou.md) en [ervoor te zorgen dat de gebruiker heeft ingestemd met deze voorwaarden](../conditional-access/require-tou.md) voordat hij er toegang tot een toepassing.
+Wanneer een gebruiker probeert toegang tot toepassingen, Azure AD afgedwongen [voorwaardelijke toegang](/azure/active-directory/conditional-access/) beleid. Beleid voor voorwaardelijke toegang kunnen bijvoorbeeld weergeven van een [gebruiksvoorwaarden](../conditional-access/terms-of-use.md) en [ervoor te zorgen dat de gebruiker heeft ingestemd met deze voorwaarden](../conditional-access/require-tou.md) voordat hij er toegang tot een toepassing.
 
 ## <a name="privileged-access-lifecycle"></a>Levenscyclus van bevoorrechte toegang
 
@@ -69,19 +69,19 @@ Azure AD Privileged Identity Management (PIM) biedt extra besturingselementen di
 Hoewel er geen perfecte oplossing of de aanbeveling voor elke klant, bieden de volgende configuraties een handleiding voor welk Microsoft raadt aan om te controleren of een veilige en productieve personeelsbestand basislijn-beleid.
 
 - [Configuraties voor identiteit en Apparaattoegang](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Uitgebreide toegang beveiligen](../users-groups-roles/directory-admin-roles-secure.md)
+- [Bevoegde toegang beveiligen](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Toegangsbeoordelingen
 
 - [Wat is een toegangsbeoordeling?](access-reviews-overview.md)
 - [Gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
-- [Gastentoegang beheren met toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
+- [Toegang voor gasten met toegangsbeoordelingen beheren](manage-guest-access-with-access-reviews.md)
 - [Een toegangscontrole van Azure AD-rollen starten](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
-- [Wat kan ik doen met Gebruiksvoorwaarden?](active-directory-tou.md)
+- [Wat kan ik doen met Gebruiksrechtovereenkomst?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged identity management
 

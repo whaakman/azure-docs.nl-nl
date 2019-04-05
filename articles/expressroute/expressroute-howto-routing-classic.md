@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103822"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045710"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Peering voor een ExpressRoute-circuit (klassiek) maken en wijzigen
 > [!div class="op_single_selector"]
-> * [Azure-portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure-CLI](howto-routing-cli.md)
 > * [Video - Privépeering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -35,6 +35,9 @@ Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met ser
 **Over Azure-implementatiemodellen**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
@@ -59,17 +62,17 @@ Als u wilt aanmelden bij uw Azure-account, moet u de volgende voorbeelden gebrui
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Controleer de abonnementen voor het account.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Gebruik vervolgens de volgende cmdlet uit uw Azure-abonnement toevoegen aan PowerShell voor het klassieke implementatiemodel.

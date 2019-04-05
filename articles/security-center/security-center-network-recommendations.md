@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863148"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046201"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
 Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
@@ -30,9 +30,10 @@ In dit artikel biedt aanbevelingen die betrekking hebben op uw Azure-resources v
 > De **netwerken** pagina kunt u dieper ingaan op de status van uw Azure-resource vanuit het netwerkperspectief van een. De netwerk-kaart en besturingselementen voor adaptieve netwerk zijn beschikbaar voor alleen de standaardlaag van Azure Security Center. [Als u de gratis laag, kunt u op de knop **verouderde netwerken weergeven** en netwerkaanbevelingen resource ontvangen](#legacy-networking).
 >
 
-De **netwerken** blade bevat een overzicht van de secties u diep kunt duiken, voor meer informatie over de status van uw netwerkresources:
+De **netwerken** pagina bevat een overzicht van de secties u diep kunt duiken, voor meer informatie over de status van uw netwerkresources:
 
 - Netwerk-kaart (alleen in de Azure Security Center Standard laag)
+- Adaptieve netwerkbeveiliging
 - Aanbevelingen voor beveiliging van netwerken.
 - Verouderde **netwerken** blade (de vorige netwerken blade) 
  

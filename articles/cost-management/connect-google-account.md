@@ -5,24 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b22d98c079a87943d3078fbe41e76074543c260a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f63293900e116fd3175b0ea6d704993a2dcf591
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002623"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051390"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Verbinding maken met een account van Google Cloud Platform
 
 U kunt uw bestaande Google Cloud Platform-account verbinding maken met Cloudyn. Nadat u uw account met Cloudyn verbonden, is kosten en gebruiksgegevens beschikbaar in Cloudyn-rapporten. In dit artikel helpt u bij het configureren en verbinden van uw Google-account met Cloudyn.
 
-> [!NOTE]
-> Google is gewijzigd door hun accountbeveiliging, waarmee wordt voorkomen dat nieuwe verbindingen tot stand brengen tussen Cloudyn en Google. Cloudyn, blijft het verzamelen van gegevens voor gebruikers die al verbonden met Google Cloudyn hebt Google. Echter, u kan niet aan nieuwe Google-accounts Cloudyn op dit moment. De Cloudyn-team weten niet wanneer ondersteuning voor het toevoegen van nieuwe Google-accounts aan Cloudyn wordt hervat. We verwijderen deze opmerking als ondersteuning wordt gehaald.
 
 ## <a name="collect-project-information"></a>Gegevens verzamelen
 

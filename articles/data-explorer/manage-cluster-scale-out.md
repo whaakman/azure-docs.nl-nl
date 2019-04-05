@@ -1,19 +1,18 @@
 ---
-title: Azure Data Explorer-cluster vergroten/verkleinen om te voldoen aan de veranderende vraag
+title: Een Azure Data Explorer-cluster om te voldoen aan de veranderende vraag uitschalen
 description: Dit artikel wordt beschreven stappen voor het uitbreiden en schalen in een Azure Data Explorer-cluster op basis van veranderende vraag.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755075"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044231"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster uitbreiden om te voldoen aan veranderende vraag beheren
 
@@ -51,12 +50,12 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
     | **Duur (in minuten)** | Kies een passende hoeveelheid tijd voor het systeem om te controleren of terug bij het berekenen van metrische gegevens. Beginnen met de standaardwaarde van 10 minuten. |
     |  |  |
 
-    **Actie**
+    **Bewerking**
 
     | Instelling | Beschrijving en waarde |
     | --- | --- |
     | **Bewerking** | Kies de gewenste optie om te schalen of uitschalen. |
-    | **Aantal exemplaren** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
+    | **Aantal instanties** | Kies het aantal knooppunten of exemplaren die u wilt toevoegen of verwijderen wanneer een metrische voorwaarde wordt voldaan. |
     | **Afkoelen (minuten)** | Kies een passende tijdsinterval moet worden gewacht tussen schaalbewerkingen. Beginnen met de standaardwaarde van vijf minuten. |
     |  |  |
 

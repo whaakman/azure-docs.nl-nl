@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 8c33418a8de4510bd8e45487c2f97bd204750dec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485096"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049843"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus met Azure Event Grid
 
@@ -34,6 +34,9 @@ Als u deze functie wilt inschakelen, hebt u het volgende nodig:
 * Bovendien moet u een abonnement op Event Grid voor de Service Bus-naamruimte hebben. Het abonnement ontvangt de melding van Event Grid dat er berichten klaarstaan. Typische abonnees zijn mogelijk de functie Logic Apps van Azure App Service, Azure Functions of een webhook die contact opneemt met een web-app. De abonnee verwerkt vervolgens de berichten. 
 
 ![19][]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Controleren of u toegang op Inzender-niveau hebt
 Ga naar uw Service Bus-naamruimte, selecteer **Toegangsbeheer (IAM)** en ga naar het tabblad **Roltoewijzingen**. Controleer of u inzenderstoegang hebt tot de naamruimte. 
@@ -152,20 +155,20 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instructies voor PowerShell
 
-Controleer of u Azure PowerShell hebt geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
+Controleer of u Azure PowerShell hebt geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/powershell/azure/install-Az-ps). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
 
 ```powershell-interactive
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
+Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
 # This might be installed already
-Install-Module AzureRM.ServiceBus
+Install-Module Az.ServiceBus
 
-$NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
+$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
 U kunt nu kennismaken met de andere instelopties of testen of er gebeurtenissen stromen.

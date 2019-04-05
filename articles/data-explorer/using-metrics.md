@@ -1,19 +1,18 @@
 ---
 title: De prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer controleren
 description: Informatie over het gebruik van Azure Data Explorer metrische gegevens voor het bewaken van de prestaties, de status en het gebruik van het cluster.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851731"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050601"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>De prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer controleren
 
@@ -43,15 +42,15 @@ In het deelvenster met metrische gegevens:
 
     **Gegevens** | **Eenheid** | **Aggregatie** | **Beschrijving van metrische gegevens**
     |---|---|---|---|
-    | Cache-gebruik | Procent | Avg, Max, Min | Verhouding tussen de vereiste cachegrootte (op basis van het beleid gedefinieerde cache) en de grootte van de totale cache van het cluster (totale grootte van SSD voor gebruikersactiviteit gegeven). Een gemiddelde cache gebruik van 80% of minder is een duurzame status voor een cluster. Als de gemiddelde cache-gebruik hoger is dan 80%, het cluster moet [opgeschaald](manage-cluster-scale-up.md) naar een opslag geoptimaliseerd prijscategorie of [uitgeschaalde](manage-cluster-scale-out.md) meer exemplaren. U kunt ook aan te passen de cache-beleid (minder dagen in de cache). Als cache gebruik meer dan 100% is, de grootte van gegevens in de cache opgeslagen, op basis van het cachebeleid groter is dat de totale grootte van de cache op het cluster. |
-    | CPU | Procent | Avg, Max, Min | Verhouding tussen de totale CPU-gebruik en de CPU beschikbaar is op het hele cluster. Er is een gemiddelde CPU van 80% of minder duurzame voor een cluster. De maximumwaarde van CPU is 100%, wat betekent dat er zijn geen extra rekenresources om gegevens te verwerken. Wanneer een cluster is niet goed presteert, controleert u de maximale waarde van de CPU om te bepalen of er specifieke CPU's die zijn geblokkeerd. |
-    | Gebeurtenissen die worden verwerkt (voor Event Hubs) | Count | Max, Min, Sum | Totaal aantal gebeurtenissen die door Event Hubs worden verzonden en ontvangen door het cluster. De gebeurtenissen worden onderverdeeld in geweigerd en gebeurtenissen die worden geaccepteerd door de engine voor het cluster. |
-    | Opnamelatentie | Seconden | Avg, Max, Min | Latentie van gegevens die zijn opgenomen vanaf het moment dat de gegevens in het cluster is ontvangen totdat deze klaar voor de query is. Opnamelatentie wordt gemeten in seconden. De opname latentieperiode is afhankelijk van het scenario voor gegevensopname. |
-    | Opname-resultaat | Count | Count | Totaal aantal opname-bewerkingen die zijn mislukt en is voltooid. Gebruik **toepassen splitsen** maken buckets van slagen en mislukken resultaten.|
-    | Opname-gebruik | Procent | Avg, Max, Min | Verhouding tussen de werkelijke hoeveelheid resources die wordt gebruikt voor opname van gegevens en het totaal aan resources toegewezen in het beleid van de capaciteit wilt opnemen. Het standaardbeleid voor capaciteit is niet meer dan 512 gelijktijdige opname bewerkingen of 75% van de clusterbronnen geïnvesteerd in de opname. Gem. opname gebruik van 80% of minder is een duurzame status voor een cluster. Max-waarde van het gebruik van de opname is 100%, wat betekent dat alle cluster opname-mogelijkheid wordt gebruikt en kan leiden tot een opname-wachtrij. |
-    | Opname-volume (in MB) | Count | Max, Min, Sum | De totale grootte van de gegevens die worden opgenomen in het cluster (in MB). De eenheden zijn het aantal MB's opgenomen gegevens vóór compressie. |
+    | Cache-gebruik | Procent | Avg, Max, Min | Percentage van de resources toegewezen cache die momenteel in gebruik door het cluster. Cache verwijst naar de grootte van SSD voor gebruikersactiviteit op basis van het beleid gedefinieerde cache toegewezen. Een gemiddelde cache gebruik van 80% of minder is een duurzame status voor een cluster. Als de gemiddelde cache-gebruik hoger is dan 80%, het cluster moet [opgeschaald](manage-cluster-scale-up.md) naar een opslag geoptimaliseerd prijscategorie of [uitgeschaalde](manage-cluster-scale-out.md) meer exemplaren. U kunt ook aan te passen de cache-beleid (minder dagen in de cache). Als cache gebruik meer dan 100% is, de grootte van gegevens in de cache opgeslagen, op basis van het cachebeleid groter is dat de totale grootte van de cache op het cluster. |
+    | CPU | Procent | Avg, Max, Min | Percentage van de toegewezen rekenresources die momenteel in gebruik door machines in het cluster. Er is een gemiddelde CPU van 80% of minder duurzame voor een cluster. De maximumwaarde van CPU is 100%, wat betekent dat er zijn geen extra rekenresources om gegevens te verwerken. Wanneer een cluster is niet goed presteert, controleert u de maximale waarde van de CPU om te bepalen of er specifieke CPU's die zijn geblokkeerd. |
+    | Gebeurtenissen die worden verwerkt (voor Event Hubs) | Count | Max, Min, Sum | Totaal aantal gebeurtenissen van eventhubs gelezen en verwerkt door het cluster. De gebeurtenissen worden onderverdeeld in geweigerd en gebeurtenissen die worden geaccepteerd door de engine voor het cluster. |
+    | Opnamelatentie | Seconden | Avg, Max, Min | Latentie van gegevens die zijn opgenomen, vanaf het moment dat de gegevens in het cluster is ontvangen totdat deze klaar voor de query is. De opname latentieperiode is afhankelijk van het scenario voor gegevensopname. |
+    | Opname-resultaat | Count | Count | Totaal aantal opname-bewerkingen die zijn mislukt en is voltooid. Gebruik **toepassen splitsen** maken van buckets van slagen en mislukken van de resultaten en analyseren van de dimensies (**waarde** > **Status**).|
+    | Opname-gebruik | Procent | Avg, Max, Min | Percentage van de werkelijke hoeveelheid resources die worden gebruikt voor opname van gegevens van het totaal aan resources in het beleid van de capaciteit, om uit te voeren van gegevensopname toegewezen. Het standaardbeleid voor capaciteit is niet meer dan 512 gelijktijdige opname bewerkingen of 75% van de clusterbronnen geïnvesteerd in de opname. Gemiddelde opname gebruik van 80% of minder is een duurzame status voor een cluster. Maximale waarde van het gebruik van gegevensopname is 100%, wat betekent dat alle cluster opname-mogelijkheid wordt gebruikt en kan leiden tot een opname-wachtrij. |
+    | Opname-volume (in MB) | Count | Max, Min, Sum | De totale grootte van de gegevens die worden opgenomen in het cluster (in MB) voor compressie. |
     | Actief houden | Count | Gem | Houdt de reactiesnelheid van het cluster. Een cluster met heel snel reageert, retourneert de waarde 1 en een cluster geblokkeerd of niet-verbonden retourneert 0. |
-    | Queryduur | Seconden | Count, Avg, Min, Max, Sum | Totale tijd totdat de queryresultaten worden ontvangen. |
+    | Queryduur | Seconden | Count, Avg, Min, Max, Sum | Totale tijd totdat de queryresultaten worden ontvangen (niet de netwerklatentie bevatten). |
     | | | |
 
     Aanvullende informatie met betrekking tot [ondersteunde metrische gegevens van Azure Data Explorer-cluster](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
@@ -69,4 +68,4 @@ Als u meer informatie over het gebruik van de [Metrics Explorer](/azure/azure-mo
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+> [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

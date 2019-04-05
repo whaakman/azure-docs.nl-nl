@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b25ebeadff46ea04c2adf5add6aeb86b751681ad
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889485"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047208"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Problemen oplossen met de Gateway van virtueel netwerk en verbindingen met behulp van Azure Network Watcher-PowerShell
 
@@ -27,9 +27,12 @@ ms.locfileid: "57889485"
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure-CLI](network-watcher-troubleshoot-manage-cli.md)
-> - [REST API](network-watcher-troubleshoot-manage-rest.md)
+> - [REST-API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher biedt veel mogelijkheden met betrekking tot het begrijpen van de netwerkresources van uw in Azure. Een van deze mogelijkheden is resource-oplossen van problemen. Het oplossen van resource kan worden aangeroepen via de portal, PowerShell, CLI of REST-API. Indien aangeroepen, wordt Network Watcher inspecteert de status van de Gateway van een virtueel netwerk of een verbinding en retourneert de bevindingen.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -43,11 +46,11 @@ Het oplossen van resource biedt de mogelijkheid voor het oplossen van problemen 
 
 ## <a name="retrieve-network-watcher"></a>Retrieve Network Watcher
 
-De eerste stap is om op te halen van de Network Watcher-exemplaar. De `$networkWatcher` variabele wordt doorgegeven aan de `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet in stap 4.
+De eerste stap is om op te halen van de Network Watcher-exemplaar. De `$networkWatcher` variabele wordt doorgegeven aan de `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet in stap 4.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Een virtuele Netwerkgatewayverbinding ophalen
@@ -55,7 +58,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 In dit voorbeeld is het oplossen van resource wordt uitgevoerd op een verbinding. U kunt ook deze doorgeven een virtuele netwerkgateway.
 
 ```powershell
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
 ## <a name="create-a-storage-account"></a>Create a storage account
@@ -63,20 +66,20 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 Het oplossen van resource geeft gegevens over de status van de resource, Bovendien bespaart u logboeken naar een opslagaccount om te worden gecontroleerd. In deze stap maken we een storage-account, als een bestaand opslagaccount bestaat kunt u deze kunt gebruiken.
 
 ```powershell
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzureStorageContainer -Name logs
+$sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
+$sc = New-AzStorageContainer -Name logs
 ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Network Watcher-resource voor probleemoplossing uitvoert
 
-Oplossen van problemen met resources met de `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. De netwerk-Watcher-object, de Id van de verbinding of de Gateway van het virtuele netwerk, de storage-account-id en het pad voor het opslaan van de resultaten geven we de cmdlet.
+Oplossen van problemen met resources met de `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. De netwerk-Watcher-object, de Id van de verbinding of de Gateway van het virtuele netwerk, de storage-account-id en het pad voor het opslaan van de resultaten geven we de cmdlet.
 
 > [!NOTE]
-> De `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet wordt de uitvoering lang duurt, en kan een paar minuten duren.
+> De `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet wordt de uitvoering lang duurt, en kan een paar minuten duren.
 
 ```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
+Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
 Zodra u de cmdlet uitvoert, beoordelingen Network Watcher van de resource om te controleren of de status. Deze retourneert de resultaten naar de shell en logboeken van de resultaten opgeslagen in het opslagaccount dat is opgegeven.

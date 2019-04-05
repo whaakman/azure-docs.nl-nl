@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695894"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045574"
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
 In dit artikel worden enkele veelgestelde vragen over [Azure Relay](https://azure.microsoft.com/services/service-bus/). Voor algemene Azure-prijzen en ondersteunende informatie, Zie de [ondersteuning voor veelgestelde vragen over Azure](https://azure.microsoft.com/support/faq/).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Algemene vragen
 ### <a name="what-is-azure-relay"></a>Wat is Azure Relay?
@@ -77,7 +80,7 @@ Een bericht verzenden naar een Service Bus relay wordt behandeld als een 'volled
 Relays die worden geopend met behulp van de **netTCPRelay** WCF binding behandelen berichten niet als afzonderlijke berichten, maar als een stroom van gegevens die binnenkomen via het systeem. Wanneer u deze binding gebruikt, hebben alleen de afzender en de listener inzicht in de verwoording van de afzonderlijke berichten verzonden en ontvangen. Voor doorgeeft die gebruikmaken van de **netTCPRelay** verbinding maakt, alle gegevens worden vervolgens beschouwd als een stroom voor het berekenen van factureerbare berichten. In dit geval, berekent Service Bus de totale hoeveelheid gegevens verzonden of ontvangen via een afzonderlijke relay op basis van 5 minuten. Vervolgens wordt dat totale hoeveelheid gegevens verdeeld met 64 KB om te bepalen het aantal factureerbare berichten voor de desbetreffende relay in die periode.
 
 ## <a name="quotas"></a>Quota
-| Quotumnaam | Bereik |  Opmerkingen | Waarde |
+| Quotumnaam | Bereik |  Opmerkingen | Value |
 | --- | --- | --- | --- |
 | Gelijktijdige listeners op een relay |Entiteit |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |25 |
 | Gelijktijdige relay-verbindingen per alle relay-eindpunten in een service-naamruimte |Naamruimte |- |5.000 |
@@ -111,13 +114,13 @@ Als u PowerShell wilt verplaatsen van een naamruimte van één Azure-abonnement 
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
@@ -133,7 +136,7 @@ Ja. De relay-client maakt verbinding met de Azure Relay-service met behulp van d
 ## <a name="next-steps"></a>Volgende stappen
 * [Een naamruimte maken](relay-create-namespace-portal.md)
 * [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)
+* [Aan de slag met het knooppunt](relay-hybrid-connections-node-get-started.md)
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md

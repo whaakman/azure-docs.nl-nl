@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ec66a4fdffcff2d2ff7c11c969900c8b12dda755
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669692"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049452"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatiebewaking met de Windows Azure Diagnostics-extensie
 
@@ -27,6 +27,9 @@ In dit document bevat informatie over de stappen die nodig zijn voor het instell
 
  > [!NOTE]
 > De extensie WAD moet worden geïmplementeerd in uw cluster voor deze stappen voor het werk voor u. Als deze is niet ingesteld, Ga naar [gebeurtenis aggregatie en verzameling met Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Prestatiemeteritems verzamelen via de WadCfg
 
@@ -192,10 +195,10 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
  >[!NOTE]
  >Hoewel u kunt `*` als u groepen van prestatiemeteritems die op dezelfde manier worden genoemd, geen prestatiemeteritems verzenden via een sink (naar Application Insights) vereist dat ze afzonderlijk worden gedeclareerd. 
 
-1. Nadat u de juiste prestatiemeteritems die moeten worden verzameld hebt toegevoegd, moet u uw cluster-bron upgraden zodat deze wijzigingen worden doorgevoerd in uw cluster wordt uitgevoerd. Sla uw gewijzigde `template.json` en open PowerShell. U kunt upgraden uw cluster met `New-AzureRmResourceGroupDeployment`. De aanroep van de naam van de resourcegroep, de bijgewerkte sjabloon-bestand en het parameterbestand vereist en wordt gevraagd om Resource Manager kan de benodigde wijzigingen aanbrengen in de resources die u hebt bijgewerkt. Zodra u zich hebt aangemeld bij uw account en het juiste abonnement, gebruikt u de volgende opdracht om uit te voeren van de upgrade:
+1. Nadat u de juiste prestatiemeteritems die moeten worden verzameld hebt toegevoegd, moet u uw cluster-bron upgraden zodat deze wijzigingen worden doorgevoerd in uw cluster wordt uitgevoerd. Sla uw gewijzigde `template.json` en open PowerShell. U kunt upgraden uw cluster met `New-AzResourceGroupDeployment`. De aanroep van de naam van de resourcegroep, de bijgewerkte sjabloon-bestand en het parameterbestand vereist en wordt gevraagd om Resource Manager kan de benodigde wijzigingen aanbrengen in de resources die u hebt bijgewerkt. Zodra u zich hebt aangemeld bij uw account en het juiste abonnement, gebruikt u de volgende opdracht om uit te voeren van de upgrade:
 
     ```sh
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
+    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
 1. Zodra de upgrade is voltooid moet (duurt tussen 15 tot 45 minuten afhankelijk van of het de eerste implementatie en de grootte van uw resourcegroep), uitrollen met WAD de prestatiemeteritems verzamelen en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
@@ -203,4 +206,4 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
 ## <a name="next-steps"></a>Volgende stappen
 * Verzamelen van meer prestatiemeteritems voor uw cluster. Zie [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met items die u moet verzamelen.
 * [Gebruik controle en diagnostische gegevens met een Windows-VM en Azure Resource Manager-sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) naar verdere wijzigingen aanbrengen in uw `WadCfg`, inclusief het configureren van extra opslagaccounts voor het verzenden van diagnostische gegevens.
-* Ga naar de [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.
+* Ga naar de [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is. () https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.

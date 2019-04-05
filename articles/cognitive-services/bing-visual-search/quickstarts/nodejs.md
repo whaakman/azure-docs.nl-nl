@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7a0103e21b4c287526e53b9f886e98027f49c392
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9414bac220d928618b403aa2f7df7748772e0e9a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863989"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047565"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search REST-API en Node.js
 
 Gebruik deze quickstart om voor het eerst de Bing Visual Search-API aan te roepen en de zoekresultaten te bekijken. Met deze eenvoudige JavaScript-toepassing wordt er een afbeelding naar de API geüpload, waarna de geretourneerde gegevens van de afbeelding worden weergegeven. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
-Bij het uploaden van een lokale afbeelding, moeten de formuliergegevens de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op "image" en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden is 1 MB.
+Tijdens het uploaden van een lokale installatiekopie, de gegevens moet bevatten de `Content-Disposition` header. U moet instellen de `name` parameter 'afbeelding', en de `filename` parameter kan worden ingesteld op een willekeurige tekenreeks. De inhoud van het formulier omvat de binaire gegevens van de installatiekopie. De maximale afbeeldingsgrootte die u kunt uploaden is 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -35,18 +35,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="prerequisites"></a>Vereisten
 
 * [Node.js](https://nodejs.org/en/download/)
-* De Request-module voor JavaScript
-    * U kunt deze module installeren met behulp van `npm install request`
-* De form-data-module
-    * U kunt deze module installeren met behulp van `npm install form-data`
-
+* De aanvraag-module voor JavaScript. U kunt `npm install request` opdracht om de module te installeren.
+* De module gegevens. U kunt de `npm install form-data` opdracht om de module te installeren. 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-
 ## <a name="initialize-the-application"></a>De toepassing initialiseren
 
-1. Maak een nieuw JavaScript-bestand in uw favoriete IDE of editor en stel de volgende vereisten in:
+1. Maak een JavaScript-bestand in uw favoriete IDE of editor en stel de volgende vereisten:
 
     ```javascript
     var request = require('request');
@@ -54,7 +50,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. Maak variabelen voor uw API-eindpunt, abonnementssleutel en het pad naar uw afbeelding.
+2. Variabelen voor uw API-eindpunt, de abonnementssleutel en het pad naar uw installatiekopie maken:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -62,7 +58,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var imagePath = "path-to-your-image";
     ```
 
-3. Maak een functie met de naam `requestCallback()` om het antwoord van de API weer te geven.
+3. Maak een functie met de naam `requestCallback()` om het antwoord van de API af te drukken:
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -72,14 +68,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="construct-and-send-the-search-request"></a>De zoekaanvraag samenstellen en verzenden
 
-1. Maak een nieuwe form-data met behulp van `FormData()` en voeg het pad naar de afbeelding eraan toe met behulp van `fs.createReadStream()`.
+1. Maak een nieuwe **FormData** object met `FormData()`, en het pad van de installatiekopie toevoegen, met behulp van `fs.createReadStream()`:
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Gebruik de aanvraagbibliotheek om de afbeelding te uploaden en roep `requestCallback()` aan om het antwoord weer te geven. Vergeet niet om de abonnementssleutel toe te voegen aan de aanvraagheader. 
+2. De aanvraag-clientbibliotheek gebruiken om de afbeelding te uploaden en roep `requestCallback()` afdrukken van het antwoord. Zorg ervoor dat de abonnementssleutel van uw toevoegen aan de aanvraagheader:
 
     ```javascript
     form.getLength(function(err, length){
@@ -95,4 +91,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een web-app voor aangepaste zoekopdrachten bouwen](../tutorial-bing-visual-search-single-page-app.md)
+> [Een visuele zoekopdrachten één pagina web-app bouwen](../tutorial-bing-visual-search-single-page-app.md)

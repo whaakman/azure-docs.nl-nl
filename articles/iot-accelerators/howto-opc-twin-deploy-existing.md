@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759439"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047259"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC-Twin implementeren op een bestaand project
 
@@ -30,10 +30,7 @@ De kern van de module is de identiteit van de Supervisor. De supervisor beheert 
 
 ## <a name="prerequisites"></a>Vereisten
 
-> [!NOTE]
-> Opmerking: Vanwege de afhankelijkheid van de AzureRM-module, wordt implementatie momenteel alleen ondersteund voor Windows.
-
-Zorg ervoor dat u hebt PowerShell en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensies geïnstalleerd.   Als u niet hebt gedaan, nog, kloon de GitHub-opslagplaats.  Open een opdrachtprompt of terminal en voer:
+Zorg ervoor dat u hebt PowerShell en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensies geïnstalleerd.   Als u niet hebt gedaan, nog, kloon de GitHub-opslagplaats.  Open een opdrachtprompt of terminal en voer:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ AAD-tenant te gebruiken.
 U hebt geleerd over het implementeren van OPC dubbele aan een bestaand project, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Beveiligde communicatie van OPC-Client en de OPC-PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Communicatie van OPC Client en OPC PLC beveiligen ](howto-opc-vault-deploy-existing-client-plc-communication.md)

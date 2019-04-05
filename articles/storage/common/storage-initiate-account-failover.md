@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668561"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044960"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initieer een failover van storage-account (preview)
 
@@ -23,6 +23,8 @@ In dit artikel laat zien hoe de failover van een account voor uw opslagaccount m
 
 > [!WARNING]
 > De failover van een account leidt doorgaans er gegevens verloren gaan. Om de gevolgen van de failover van een account te begrijpen en om voor te bereiden voor verlies van gegevens, Bekijk [informatie over het failoverproces account](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -35,7 +37,7 @@ Controleer voordat u de failover van een account op uw storage-account uitvoeren
 
 Wanneer u de failover van een account voor uw opslagaccount hebt gestart, wordt de DNS-records voor het secundaire eindpunt worden bijgewerkt zodat het secundaire eindpunt het primaire eindpunt wordt. Zorg ervoor dat u de potentiële impact op uw storage-account begrijpt voordat u een failover starten.
 
-Voor een schatting van de omvang van gegevensverlies waarschijnlijk voordat u een failover starten, Controleer de **tijd van laatste synchronisatie** met behulp van de eigenschap de `Get-AzureRmStorageAccount` PowerShell-cmdlet en bevatten de `-IncludeGeoReplicationStats` parameter. Controleer vervolgens de `GeoReplicationStats` eigenschap voor uw account. 
+Voor een schatting van de omvang van gegevensverlies waarschijnlijk voordat u een failover starten, Controleer de **tijd van laatste synchronisatie** met behulp van de eigenschap de `Get-AzStorageAccount` PowerShell-cmdlet en bevatten de `-IncludeGeoReplicationStats` parameter. Controleer vervolgens de `GeoReplicationStats` eigenschap voor uw account. 
 
 Het opslagaccounttype wordt na de failover automatisch geconverteerd naar lokaal redundante opslag (LRS) in de nieuwe primaire regio. U kunt de geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS) voor het account opnieuw inschakelen. Houd er rekening mee dat converteren van LRS naar GRS of RA-GRS worden er gelden aanvullende kosten in rekening gebracht. Zie voor meer informatie, [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -106,4 +108,4 @@ az storage account failover \ --name accountName
 
 - [Disaster recovery en account-failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md)
 - [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](storage-designing-ha-apps-with-ragrs.md)
-- [Zelfstudie: Een maximaal beschikbare toepassing met Blob-opslag maken](../blobs/storage-create-geo-redundant-storage.md) 
+- [Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag](../blobs/storage-create-geo-redundant-storage.md) 

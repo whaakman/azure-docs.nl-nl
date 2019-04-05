@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4223f9ec3bfaeacf7843508b13b5b5d81474311f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196824"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045693"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Certificaten voor Azure Key Vault maken
 
@@ -32,11 +32,14 @@ In dit artikel wordt uitgelegd hoe u de zelfondertekende certificaten vereist om
 U kunt een nieuwe of een bestaande resourcegroep gebruiken voor dit werk.  De eerste benadering wordt gebruikt in de volgende uitleg.
 
 
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+
 ## <a name="create-the-certificate"></a>Maken van het certificaat
 
 Bewerken en voer de volgende Azure Powershell-script voor het maken van het certificaatbestand (.pfx) in een lokale map.  U moet vervangen door de waarden voor de volgende parameters:
 
-|  **Parameter**        |   **Beschrijving**                                                               |
+|  **Parameter**        |   **Description**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Lokale map op te slaan van het pfx-bestand op  |
 | `$location`    | Een van de Azure standaard geografische locaties  |
@@ -82,7 +85,7 @@ Bewerken en voer de volgende Azure Powershell-script voor het maken van het cert
 
 Kopieer de inhoud van de [sleutelkluis implementatiesjabloon](./cpp-key-vault-deploy-template.md) naar een bestand op uw lokale computer. (in het onderstaande voorbeeldscript van deze resource is `C:\certLocation\keyvault.json`.)  Bewerken en voer de volgende Azure Powershell-script om een Azure Key Vault-instantie en de bijbehorende resourcegroep te maken.  U moet vervangen door de waarden voor de volgende parameters:
 
-|  **Parameter**        |   **Beschrijving**                                                               |
+|  **Parameter**        |   **Description**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Willekeurige numerieke tekenreeks toegevoegd aan de implementatie-id 's                     |
 | `$rgName`             | Azure (RG) de naam van resourcegroep maken                                        |
@@ -130,7 +133,7 @@ Kopieer de inhoud van de [sleutelkluis implementatiesjabloon](./cpp-key-vault-de
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -181,9 +184,9 @@ Kopieer de inhoud van de [sleutelkluis implementatiesjabloon](./cpp-key-vault-de
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 

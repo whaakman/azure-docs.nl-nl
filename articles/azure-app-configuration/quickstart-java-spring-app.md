@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648466"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050506"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Quickstart: een Java Spring-app maken met App Configuration
 
@@ -54,11 +54,7 @@ Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development
 
 4. Selecteer **Maken**. De implementatie kan een paar minuten langer duren.
 
-5. Nadat de implementatie is voltooid, selecteert u **instellingen** > **toegangssleutels**. Maak een notitie van een van beide de alleen-lezen of een primaire Lees-/ verbindingsreeks primaire sleutel. Met deze verbindingsreeks later kunt u uw toepassing configureren voor het communiceren met de app-configuratie-store die u hebt gemaakt. Deze verbindingsreeks heeft de volgende indeling:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Gebruik de gehele tekenreeks in uw toepassing.
+5. Nadat de implementatie is voltooid, selecteert u **instellingen** > **toegangssleutels**. Maak een notitie van een van beide de alleen-lezen of een primaire Lees-/ verbindingsreeks primaire sleutel. Met deze verbindingsreeks later kunt u uw toepassing configureren voor het communiceren met de app-configuratie-store die u hebt gemaakt.
 
 6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670928"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051951"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -466,7 +466,7 @@ Zie voor meer informatie over Azure AD-wachtwoord Protection [onjuiste wachtwoor
 
 Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe beleidssjabloon van voorwaardelijke toegang gemaakt voor 'alle gasten' en 'alle apps'. Deze nieuwe beleidssjabloon is van toepassing de zojuist gemaakte gebruiksvoorwaarden, stroomlijnen het maken en het afdwingen van proces voor gasten.
 
-Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -478,7 +478,7 @@ Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie geb
 
 Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe sjabloon voor 'aangepaste' voorwaardelijk beleid gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
 
-Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -590,7 +590,7 @@ Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in SaaS-
 
 - [BlueJeans](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
 
-- [Hoeksteen OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+- [Cornerstone OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
 
 - [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
@@ -726,8 +726,8 @@ Bij het configureren van SAML gebaseerde SSO-toepassingen, u kunt de integratie 
 
 Zie voor meer informatie:
 
-- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
-- [Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [Foutopsporing uitvoeren in op SAML gebaseerde eenmalige aanmelding bij toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 ---
  
@@ -739,7 +739,7 @@ Zie voor meer informatie:
  
 Beheerders kunnen nu selecteert u een bepaalde gebruiksvoorwaarden en zien alle gebruikers die hebben ingestemd met de gebruiksvoorwaarden en wat datum/tijd het heeft plaatsgevonden.
 
-Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
  
@@ -782,7 +782,7 @@ Zie voor meer informatie, [configureren van eenmalige aanmelding voor toepassing
 
 Azure AD gebruiksrechtovereenkomst hebt verplaatst van de openbare preview-versie naar algemeen beschikbaar.
 
-Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -884,7 +884,7 @@ Sommige gebruikers is niet ontvangen van meldingen voor bedrijfstoepassingen die
 Zie voor meer informatie:
 
 - [Certificaten beheren voor federatieve eenmalige aanmelding in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
-- [Controleactiviteitenrapporten in de Azure Active Directory-portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+- [Controleactiviteitenrapporten in Azure Active Directory Portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
  
@@ -1215,7 +1215,7 @@ Azure AD Connect is de gewenste hulpprogramma voor het synchroniseren van gegeve
 
 Deze release bevat de volgende updates en wijzigingen:
 
-**Opgeloste problemen**
+**Problemen opgelost**
 
 - Los tijdvenster op achtergrondtaken voor pagina partities filteren wanneer u overschakelt naar de volgende pagina.
 
@@ -1414,7 +1414,7 @@ Volg deze stappen:
 
 4. Nu kunt u de gebruiksvoorwaarden bekijken die u hebt geaccepteerd. 
 
-Zie voor meer informatie de [Azure AD gebruiksrechtovereenkomst functie gebruiken (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie de [Azure AD gebruiksrechtovereenkomst functie gebruiken (preview)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1454,7 +1454,7 @@ Een optie voor beheerders moeten hun gebruikers om uit te breiden de gebruiksvoo
 
 Selecteer een **op** of **uit** gebruikers moeten de gebruiksvoorwaarden uitbreiden. De **op** instelling verplicht gebruikers om weer te geven van de gebruiksvoorwaarden alvorens deze te accepteren.
 
-Zie voor meer informatie de [Azure AD gebruiksrechtovereenkomst functie gebruiken (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie de [Azure AD gebruiksrechtovereenkomst functie gebruiken (preview)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1665,7 +1665,7 @@ U kunt nu opnemen of uitsluiten macOS als een voorwaarde voor het platform van a
 
 Zie voor meer informatie:
 
-- [Een apparaatnalevingsbeleid maken voor macOS-apparaten in Intune](https://aka.ms/macoscompliancepolicy)
+- [Maken van een nalevingsbeleid voor macOS-apparaten met Intune](https://aka.ms/macoscompliancepolicy)
 - [Voorwaardelijke toegang in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
@@ -1807,7 +1807,7 @@ U kunt Azure AD gebruiksrechtovereenkomst gebruiken in de volgende scenario's:
 - Specifieke gebruiksrechtovereenkomst op basis van kenmerken van een gebruiker (bijvoorbeeld artsen versus verpleegkundigen) of binnenlandse versus werknemers, uitgevoerd door dynamische groepen
 - Specifieke gebruiksrechtovereenkomst gebruiken voor toegang tot indrukwekkende business-apps, zoals Salesforce
 
-Zie voor meer informatie, [Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Zie voor meer informatie, [Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200187"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045301"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-statistieken en -waarschuwingen
 
@@ -58,7 +58,7 @@ Deze metrische gegevens kan worden weergegeven als een cumulatieve waarde verteg
 
 *Afbeelding 4: Weergave van de status van metrische gegevens over endpoint splitsen*
 
-U kunt deze metrische gegevens via verbruiken [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)van portal [REST-API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), en [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), of via het gedeelte van de metrische gegevens van Traffic Manager van portal-ervaring.
+U kunt deze metrische gegevens via verbruiken [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)van portal [REST-API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), en [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), of via het gedeelte van de metrische gegevens van Traffic Manager van portal-ervaring.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Waarschuwingen over metrische gegevens voor Traffic Manager
 Naast de verwerking en weergeven van metrische gegevens van Traffic Manager, kunnen Azure Monitor klanten configureren en waarschuwingen die zijn gekoppeld aan deze metrische gegevens ontvangen. U kunt voorwaarden moeten worden voldaan in deze metrische gegevens voor een waarschuwing plaatsvindt, hoe vaak deze voorwaarden hoeven te worden bewaakt en hoe u de waarschuwingen moeten worden verzonden. Zie voor meer informatie, [documentatie van Azure Monitor-waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

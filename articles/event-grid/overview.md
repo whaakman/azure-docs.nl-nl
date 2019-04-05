@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770473"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045402"
 ---
 # <a name="what-is-azure-event-grid"></a>Wat is Azure Event Grid?
 
@@ -114,13 +114,13 @@ Azure Event Grid maakt gebruik van een prijsmodel voor betalen per gebeurtenis, 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Storage Blob-gebeurtenissen routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Gebeurtenissen van Blob Storage routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Reageer op Storage Blob-gebeurtenissen met Event Grid.
-* [Aangepaste gebeurtenissen maken en u er op abonneren](custom-event-quickstart.md)  
+* [Maken en zich abonneren op aangepaste gebeurtenissen](custom-event-quickstart.md)  
   Begin meteen met het verzenden van uw eigen aangepaste gebeurtenissen naar een willekeurig eindpunt met behulp van de Azure Event Grid-quickstart.
-* [Logic Apps als een gebeurtenis-handler gebruiken](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Met Logic Apps als een gebeurtenis-Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Een zelfstudie over het bouwen van een app met Logic Apps om te reageren op gebeurtenissen die door Event Grid zijn gepusht.
 * [Big data streamen naar een datawarehouse](event-grid-event-hubs-integration.md)  
   Een zelfstudie die gebruikmaakt van Azure Functions om gegevens uit Event Hubs te streamen naar SQL Data Warehouse.
-* [Naslaginformatie over de REST-API voor Event Grid](/rest/api/eventgrid)  
+* [Event Grid REST API-verwijzing](/rest/api/eventgrid)  
   Bevat naslaginformatie voor het beheren van gebeurtenisabonnementen, routering en filters.

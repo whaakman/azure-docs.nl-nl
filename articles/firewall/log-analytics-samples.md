@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534000"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051815"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure log analytics-voorbeelden van Firewall
 
@@ -40,7 +40,7 @@ En voor de logboekgegevens van de netwerk-regel:
 
 ![Logboekgegevens voor netwerk-regel]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Firewall van Azure-Logboeken gegevens eronder AzureDiagnostics met categorie als **AzureFirewallApplicationRule** of **AzureFirewallApplicationRule**. De gegevens met de gegevens worden opgeslagen in het veld msg_s. Met behulp van de [parseren](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we de verschillende interessante eigenschappen van het veld msg_s kan extraheren. De onderstaande query's extraheren de gegevens voor beide categorieën.
+Firewall van Azure-Logboeken gegevens eronder AzureDiagnostics met categorie als **AzureFirewallApplicationRule** of **AzureFirewallNetworkRule**. De gegevens met de gegevens worden opgeslagen in het veld msg_s. Met behulp van de [parseren](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we de verschillende interessante eigenschappen van het veld msg_s kan extraheren. De onderstaande query's extraheren de gegevens voor beide categorieën.
 
 ## <a name="application-rules-log-data-query"></a>Toepassing regels query voor gegevens
 

@@ -3,17 +3,17 @@ title: Overzicht van Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u in Azure apparaten inricht met Device Provisioning Service en IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316411"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051461"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub Device Provisioning Service
 Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloudservices om tegemoet te komen aan al uw IoT-vragen. IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
@@ -110,7 +110,7 @@ Voor elk Azure-abonnement gelden standaardquotalimieten. Deze limieten kunnen in
 
 Meer informatie over quotalimieten vindt u hier:
 
-* [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
+* [Azure-abonnement en Servicelimieten](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
 Device Provisioning Service maakt het mogelijk om het inrichten van apparaten met Azure IoT Hub te automatiseren. Lees hier meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

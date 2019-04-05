@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436745"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047344"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Onderbreken en opnieuw activeren messaging-entiteiten (uitschakelen)
 
@@ -34,6 +34,8 @@ In de portal, de **eigenschappen** sectie voor de desbetreffende entiteit kunt w
 
 De portal kan alleen volledig uitgeschakeld wachtrijen. U kunt ook de verzenden uitschakelen en ontvangstbewerkingen afzonderlijk via Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's in de .NET Framework SDK, of met een Azure Resource Manager-sjabloon via Azure CLI of Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="suspension-states"></a>Onderbreking Staten
 
 De statussen die kunnen worden ingesteld voor een wachtrij zijn:
@@ -48,11 +50,11 @@ Voor abonnementen en -onderwerpen, alleen **Active** en **uitgeschakelde** kan w
 De [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) opsomming bepaalt ook een set overgangs statussen die kan alleen worden ingesteld door het systeem. De PowerShell-opdracht om uit te schakelen van een wachtrij wordt weergegeven in het volgende voorbeeld. De opdracht opnieuw activeren is gelijkwaardig instelling `Status` naar **Active**.
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

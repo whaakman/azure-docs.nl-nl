@@ -1,21 +1,20 @@
 ---
-title: Dubbele gegevens aanpakken
-description: Dit onderwerp wordt beschreven u verschillende manieren om op te lossen met dubbele gegevens
-services: data-explorer
+title: De verwerking van dubbele gegevens in Azure Data Explorer
+description: In dit onderwerp ziet u verschillende methoden voor het omgaan met dubbele gegevens bij het gebruik van Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756360"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045778"
 ---
-# <a name="deal-with-duplicate-data"></a>Dubbele gegevens aanpakken
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>De verwerking van dubbele gegevens in Azure Data Explorer
 
 Apparaten die gegevens verzenden naar de Cloud behouden een lokale cache van de gegevens. Afhankelijk van de gegevensgrootte kan kan de lokale cache worden opslag van gegevens voor dagen of zelfs maanden. Wilt u uw analytische databases van niet-functionerende apparaten die opnieuw verzenden van gegevens in de cache en ervoor zorgen dat gegevensontdubbeling in de analytische database beveiligen. In dit onderwerp worden aanbevolen procedures voor het verwerken van dubbele gegevens voor dit soort scenario's.
 
@@ -123,4 +122,4 @@ Gegevensontdubbeling kan op verschillende manieren worden verwerkt. Evalueren va
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Query's schrijven voor Azure Data Explorer](write-queries.md)
+> [Schrijven van query's voor Azure Data Explorer](write-queries.md)

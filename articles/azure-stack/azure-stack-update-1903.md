@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917682"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048806"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -64,6 +64,12 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 - Verbeteringen voor de detectie en herstel van weinig schijfruimte ruimte voorwaarden.
 
+### <a name="secret-management"></a>Geheimenbeheer
+
+- Rotatie van het basiscertificaat dat wordt gebruikt door certificaten voor externe geheime rotatie biedt nu ondersteuning voor Azure Stack. Voor meer informatie, [Raadpleeg dit artikel](azure-stack-rotate-secrets.md).
+
+- 1903 bevat prestatieverbeteringen voor geheime rotatie die de tijd die nodig is voor het uitvoeren van interne geheime rotatie te beperken.
+
 ## <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
@@ -91,7 +97,7 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md), een waarschuwingsbericht wordt weergegeven van de Baseboard Management Controller (BMC) wordt weergegeven. U kunt deze waarschuwing negeren.
 
-- <!-- 2468613 - IS --> Tijdens de installatie van deze update, ziet u mogelijk waarschuwingen met de titel `Error – Template for FaultType UserAccounts.New is missing.` u deze waarschuwingen kan negeren. De waarschuwingen worden automatisch gesloten na de installatie van deze update is voltooid.
+- <!-- 2468613 - IS --> Tijdens de installatie van deze update, ziet u mogelijk waarschuwingen met de titel **fout: sjabloon voor FaultType UserAccounts.New ontbreekt.** U kunt deze waarschuwingen negeren. De waarschuwingen worden automatisch gesloten na de installatie van deze update is voltooid.
 
 ## <a name="post-update-steps"></a>Stappen na het bijwerken
 
@@ -151,9 +157,9 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken voor aanmelding bij. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.
 
-- Als u nog geen een Hardware Lifecycle Host (HLH): Voordat u build 1902, moest u Groepsbeleid instellen *Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties* naar **verzenden LM en NTLM-gebruik NTLMv2-sessiebeveiliging als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is een standaardwaarde). Anders kunt u zich niet tot stand brengen van een externe PowerShell-sessie en ontvangt u een *toegang is geweigerd* fout:
+- Als u geen een Hardware Lifecycle Host (HLH): voordat build 1902, moest u Groepsbeleid instellen **Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties** naar **verzenden LM en NTLM: NTLMv2-sessiebeveiliging gebruiken als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is de standaardwaarde). Anders kunt u zich niet tot stand brengen van een externe PowerShell-sessie en ziet u een **toegang is geweigerd** fout:
 
-   ```PowerShell
+   ```shell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
@@ -169,7 +175,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 3239127 - IS, ASDK -->
 - In de Azure Stack-portal, wanneer u een statisch IP-adres voor een IP-configuratie die is gekoppeld aan een netwerkadapter die is gekoppeld aan een VM-exemplaar, ziet u een waarschuwingsbericht wordt weergegeven waarin wordt aangegeven 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     U kunt dit bericht; negeren. het IP-adres wordt gewijzigd, zelfs als het VM-exemplaar niet opnieuw wordt opgestart.
 
@@ -193,7 +199,6 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 <!-- 2352906 - IS ASDK --> 
 - U moet de storage resourceprovider registreren voordat u uw eerste Azure-functie in het abonnement maakt.
-
 
 <!-- ### Usage -->
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758589"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051543"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Quickstart: Windows-containers implementeren in Service Fabric
 
@@ -36,6 +36,9 @@ In deze snelstart leert u de volgende zaken:
 * Communicatie configureren
 * De Service Fabric-toepassing bouwen en inpakken
 * De containertoepassing implementeren naar Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -95,7 +98,7 @@ Met het volgende voorbeeldscript wordt een Service Fabric-cluster met vijf knoop
 
 Installeer zo nodig Azure PowerShell met behulp van de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview).
 
-Voer voordat u het volgende script in PowerShell uitvoert `Connect-AzureRmAccount` uit om een verbinding met Azure te maken.
+Voer voordat u het volgende script in PowerShell uitvoert `Connect-AzAccount` uit om een verbinding met Azure te maken.
 
 Kopieer het volgende script naar het Klembord en open **Windows PowerShell ISE**.  Plak de inhoud in het lege venster Untitled1.ps1. Geef vervolgens waarden op voor de variabelen in het script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, enzovoort.  De map die u opgeeft voor `certfolder` moet bestaan voordat u het script uitvoert.
 
@@ -169,7 +172,7 @@ In deze snelstartgids hebt u de volgende zaken geleerd:
 Meer informatie over het werken met Windows-containers in Service Fabric vindt u in de zelfstudie voor Windows-containerapps.
 
 > [!div class="nextstepaction"]
-> [Een Windows-containerapp maken](./service-fabric-host-app-in-a-container.md)
+> [Een Windows-container-app maken](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

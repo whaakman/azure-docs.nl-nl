@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486044"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051186"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
 
@@ -22,6 +22,9 @@ Microsoft streeft ernaar om ervoor te zorgen dat Azure-services altijd beschikba
 Azure Storage ondersteunt account failover (preview) voor geo-redundant storage-accounts. Met failover van de account, kunt u het failoverproces initiëren voor uw opslagaccount als het primaire eindpunt niet beschikbaar is. De failover werkt het secundaire eindpunt als u wilt worden van het primaire eindpunt voor uw opslagaccount. Nadat de failover voltooid is, kunnen clients begint te schrijven naar de nieuwe primaire eindpunt.
 
 In dit artikel beschrijft de concepten en proces betrokken bij een failover van het account en wordt beschreven hoe u uw opslagaccount voorbereiden op herstel met zo min mogelijk gevolgen van de klant. Zie voor meer informatie over de failover van een account in de Azure portal of PowerShell starten, [Start de failover van een account (preview)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Kies de juiste redundantieoptie
 
@@ -122,14 +125,14 @@ De Preview-versie is bedoeld voor gebruik in alleen niet-productieomgevingen. Pr
 Als u wilt registreren voor de Preview-versie, moet u de volgende opdrachten uitvoeren in PowerShell. Zorg ervoor dat de tijdelijke aanduiding tussen vierkante haken vervangen door uw eigen abonnement-ID:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 1-2 dagen voor het ontvangen van goedkeuring voor de Preview-versie kan duren. Om te controleren dat de registratie is goedgekeurd, voert u de volgende opdracht uit:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen 
@@ -178,4 +181,4 @@ In extreme omstandigheden waarin een regio verbroken vanwege een grote ramp is, 
 
 * [Start de failover van een account (preview)](storage-initiate-account-failover.md)
 * [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](storage-designing-ha-apps-with-ragrs.md)
-* [Zelfstudie: Een maximaal beschikbare toepassing met Blob-opslag maken](../blobs/storage-create-geo-redundant-storage.md) 
+* [Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag](../blobs/storage-create-geo-redundant-storage.md) 

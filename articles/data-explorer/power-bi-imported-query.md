@@ -1,19 +1,18 @@
 ---
-title: 'Quickstart: Gegevens visualiseren met behulp van een query die is geïmporteerd in Power BI'
+title: 'Quickstart: Visualiseer gegevens uit Azure Data Explorer met een geïmporteerde query in Power BI '
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: het importeren van een query vanuit Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756114"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050577"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van een query die is geïmporteerd in Power BI
 
@@ -31,7 +30,7 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (selecteer **GRATIS DOWNLOADEN**)
 
-* [Azure Data Explorer-desktop-app](/azure/kusto/tools/kusto-explorer)
+* [Desktop-app met een Azure Data Explorer](/azure/kusto/tools/kusto-explorer)
 
 ## <a name="get-data-from-azure-data-explorer"></a>Gegevens ophalen uit Azure Data Explorer
 
@@ -84,4 +83,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-sql-query.md)
+> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-sql-query.md)

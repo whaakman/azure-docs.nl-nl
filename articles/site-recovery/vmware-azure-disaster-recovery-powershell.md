@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d70f2b2f0afb99263eaefe1122dba565231d978c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226332"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046925"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Herstel na noodgevallen van virtuele VMware-machines naar Azure met PowerShell instellen
 
@@ -28,32 +28,35 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 > - Storage-accounts voor het opslaan van replicatiegegevens maken en de virtuele machines repliceren.
 > - Een failover uitvoeren. Failover-instellingen configureren, uitvoeren van een instellingen voor het repliceren van virtuele machines.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint:
 
 - Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](vmware-azure-architecture.md).
 - Raadpleeg de [ondersteuningsvereisten](site-recovery-support-matrix-to-azure.md) voor alle onderdelen.
-- U beschikt over versie 5.0.1 of hoger van de AzureRm PowerShell-module. Als u wilt installeren of upgraden van Azure PowerShell, volgt u deze [handleiding voor het installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- U hebt de Azure PowerShell `Az` module. Als u wilt installeren of upgraden van Azure PowerShell, volgt u deze [handleiding voor het installeren en configureren van Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met de cmdlet Connect-AzureRmAccount:
+Meld u aan bij uw Azure-abonnement met de cmdlet Connect-AzAccount:
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
-Selecteer het Azure-abonnement dat u wilt uw VMware-machines te repliceren. Gebruik de cmdlet Get-AzureRmSubscription om te profiteren van de lijst met Azure-abonnementen hebt. Selecteer het Azure-abonnement om te werken met behulp van de Select-AzureRmSubscription-cmdlet.
+Selecteer het Azure-abonnement dat u wilt uw VMware-machines te repliceren. Gebruik de cmdlet Get-AzSubscription om te profiteren van de lijst met Azure-abonnementen hebt. Selecteer het Azure-abonnement om te werken met behulp van de Select-AzSubscription-cmdlet.
 
 ```azurepowershell
-Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
+Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Een Recovery Services-kluis instellen
 
 1. Maak een resourcegroep waarin u wilt maken van de Recovery Services-kluis. In het volgende voorbeeld wordt de resourcegroep met de naam VMwareDRtoAzurePS en wordt gemaakt in de regio Oost-Azië.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
+   New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
    ```
    ```
    ResourceGroupName : VMwareDRtoAzurePS
@@ -66,7 +69,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 2. Maak een Recovery services-kluis. In het volgende voorbeeld wordt de Recovery services-kluis is de naam VMwareDRToAzurePs en is gemaakt in de regio Oost-Azië en in de resourcegroep in de vorige stap hebt gemaakt.
 
    ```azurepowershell
-   New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
+   New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
    ```
    ```
    Name              : VMwareDRToAzurePs
@@ -82,10 +85,10 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
-   $vault = Get-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
+   $vault = Get-AzRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
 
    #Download vault registration key to the path C:\Work
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    ```
    ```
    FilePath
@@ -102,7 +105,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 Stel de context van de kluis met de cmdlet Set-ASRVaultContext. Nadat deze is ingesteld, de volgende Azure Site Recovery-bewerkingen in de PowerShell-sessie worden uitgevoerd in de context van de geselecteerde kluis.
 
 > [!TIP]
-> De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery-module) wordt geleverd met eenvoudig te gebruiken-aliassen voor de meeste cmdlets. De cmdlets in de module verstaan het  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\<Bewerking >-**ASR**\<Object >*. In dit artikel wordt de cmdlet-aliassen voor betere leesbaarheid.
+> De Azure Site Recovery PowerShell-module (Az.RecoveryServices-module) wordt geleverd met eenvoudig te gebruiken-aliassen voor de meeste cmdlets. De cmdlets in de module verstaan het  *\<bewerking >-**AzRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\< Bewerking >-**ASR**\<Object >*. In dit artikel wordt de cmdlet-aliassen voor betere leesbaarheid.
 
 In het voorbeeld hieronder de details van de kluis van de $vault wordt variabele gebruikt om op te geven van de context van de kluis voor de PowerShell-sessie.
 
@@ -115,11 +118,11 @@ In het voorbeeld hieronder de details van de kluis van de $vault wordt variabele
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Als alternatief voor de cmdlet Set-ASRVaultContext kunt een ook de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile gebruiken om in te stellen van de context van de kluis. Geef het pad op waarop het registratiesleutelbestand voor kluis zich bevindt als de parameter - path aan de cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile. Bijvoorbeeld:
+Als alternatief voor de cmdlet Set-ASRVaultContext kunt een ook de cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile gebruiken om in te stellen van de context van de kluis. Geef het pad op waarop het registratiesleutelbestand voor kluis zich bevindt als de parameter - path aan de cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Bijvoorbeeld:
 
    ```azurepowershell
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
-   Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
 Latere secties van dit artikel wordt ervan uitgegaan dat de context van de kluis voor Azure Site Recovery-bewerkingen is ingesteld.
 
@@ -321,11 +324,11 @@ In deze stap worden gemaakt van de storage-accounts moet worden gebruikt voor re
 
 ```azurepowershell
 
-$PremiumStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
+$PremiumStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
 
-$LogStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$LogStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 
-$ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 ```
 
 ## <a name="replicate-vmware-vms"></a>Virtuele VMware-machines repliceren
@@ -355,10 +358,10 @@ De volgende virtuele machines met behulp van de instellingen die zijn opgegeven 
 ```azurepowershell
 
 #Get the target resource group to be used
-$ResourceGroup = Get-AzureRmResourceGroup -Name "VMwareToAzureDrPs"
+$ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzureRmVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -444,7 +447,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -487,4 +490,4 @@ We niet in deze stap over de virtuele machine Win2K12VM1 naar een specifiek hers
 2. Nadat failover is, u kunt de failoverbewerking doorvoeren en stelt u de omgekeerde replicatie van Azure back-ups maken met de on-premises VMware-site.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het automatiseren van meer taken met behulp van de [Azure Site Recovery PowerShell-referentie](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Meer informatie over het automatiseren van meer taken met behulp van de [Azure Site Recovery PowerShell-referentie](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

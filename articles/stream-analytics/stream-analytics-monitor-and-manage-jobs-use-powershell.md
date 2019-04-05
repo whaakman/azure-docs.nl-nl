@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 2755064190e787baa31ea0da7c375365fa6c29b5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 27ee1980fd60a2e301830f198a5f65c4d89df59f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733330"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046526"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Controleren en beheren van Stream Analytics-taken met Azure PowerShell-cmdlets
 Informatie over het controleren en beheren van Stream Analytics-resources met Azure PowerShell-cmdlets en powershell-scripts die eenvoudige Stream Analytics-taken uitvoeren.
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdlets voor Stream Analytics
 De volgende Azure PowerShell-cmdlets kan worden gebruikt om te controleren en beheren van Azure Stream Analytics-taken. Houd er rekening mee dat Azure PowerShell, zijn er verschillende versies. 
-**De eerste opdracht in de voorbeelden is Azure PowerShell 0.9.8 gebruikt, de tweede opdracht is voor Azure PowerShell 1.0.** De Azure PowerShell 1.0-opdrachten hebben altijd 'AzureRM' in de opdracht.
+**De eerste opdracht in de voorbeelden is Azure PowerShell 0.9.8 gebruikt, de tweede opdracht is voor Azure PowerShell 1.0.** De Azure PowerShell 1.0-opdrachten hebben altijd 'Az' in de opdracht.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Een lijst met alle Stream Analytics-taken gedefinieerd in de Azure-abonnement of de opgegeven resourcegroep gemaakt of taakinformatie ophalen over een specifieke taak binnen een resourcegroep.
@@ -200,7 +200,7 @@ Get-AzStreamAnalyticsQuota –Location "Central US"
 
 Deze PowerShell-opdracht retourneert informatie over de quota en het gebruik van streaming-eenheden in de regio VS-midden.
 
-### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
 Hiermee haalt u informatie over een specifieke transformatie gedefinieerd in een Stream Analytics-taak.
 
 **Voorbeeld 1**
@@ -547,11 +547,11 @@ In dit PowerShell-opdracht tests de status van de verbinding van de uitvoer uitv
 Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
-* [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Kennismaking met Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics (Aan de slag met Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs (Azure Stream Analytics-taken schalen)](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference (Naslaggids voor Azure Stream Analytics Query)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference (REST API-naslaggids voor Azure Stream Analytics Management)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

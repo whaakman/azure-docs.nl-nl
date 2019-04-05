@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662411"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045830"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Zelfstudie: Deel 2: de gerouteerde berichten weergeven
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>Regels voor het routeren van de berichten
 
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>PowerShell gebruiken voor het opschonen van resources
 
-U kunt de resourcegroep verwijderen met de opdracht [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). `$resourceGroup` is ingesteld op **ContosoResources** terug aan het begin van deze zelfstudie.
+U kunt de resourcegroep verwijderen met de opdracht [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` is ingesteld op **ContosoResources** terug aan het begin van deze zelfstudie.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -308,4 +310,4 @@ In deze zelfstudie 2-onderdeel, hebt u geleerd hoe u routering van berichten naa
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Metrische gegevens en diagnostische gegevens instellen en gebruiken met een IoT Hub](tutorial-use-metrics-and-diags.md)
+> [Instellen en gebruiken van metrische en diagnostische gegevens met een IoT-Hub](tutorial-use-metrics-and-diags.md)

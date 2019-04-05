@@ -1,19 +1,18 @@
 ---
-title: 'Quickstart: Gegevens visualiseren met behulp van een SQL-query in Power BI'
+title: 'Quickstart: Visualiseer gegevens uit Azure Data Explorer met behulp van een SQL-query in Power BI'
 description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: een SQL-query voor een Azure Data Explorer-cluster.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756340"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045504"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
@@ -49,7 +48,7 @@ Doorgaans gebruikt u de systeemeigen querytaal met Azure Data Explorer, maar dez
 
     ![Database-, tabel-, queryopties](media/power-bi-sql-query/database-table-query.png)
 
-    **Instelling** | **Waarde** | **Beschrijving van veld**
+    **Instelling** | **Value** | **Beschrijving van veld**
     |---|---|---|
     | Server | *help.kusto.windows.net* | De URL voor het helpcluster (zonder *https://*). Voor andere clusters heeft de URL de notatie *\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
     | Database | *Voorbeelden* | De voorbeelddatabase die wordt gehost op het cluster waarmee u verbinding maakt. |
@@ -86,4 +85,4 @@ Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)
+> [Quickstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)

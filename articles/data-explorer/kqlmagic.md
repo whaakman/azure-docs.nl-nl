@@ -1,21 +1,20 @@
 ---
-title: Gegevens analyseren met Jupyter-Notebook en Kqlmagic
-description: In dit onderwerp leert u hoe het analyseren van gegevens met behulp van Jupyter-Notebook en KQLmagic
-services: data-explorer
+title: Een Jupyter-notitieblok gebruiken voor het analyseren van gegevens in Azure Data Explorer
+description: Dit onderwerp ziet u hoe het analyseren van gegevens in Azure Data Explorer met behulp van een Jupyter-Notebook en de extensie Kqlmagic.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e7d6148297dd4208374d9900e10564ac4052c67
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756220"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045051"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Gegevens analyseren met Jupyter-Notebook en KQL Magic-pakket
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Een Jupyter-Notebook en Kqlmagic-extensie gebruiken voor het analyseren van gegevens in Azure Data Explorer
 
 Jupyter-Notebook is een open-source-webtoepassing waarmee u het maken en delen van documenten met live code, vergelijkingen, visualisaties en verhalende tekst. Gebruik omvat het opschonen van gegevens en -transformatie, numerieke simulatie, statistische modellen bouwen, gegevensvisualisatie en machine learning.
 [Jupyter-Notebook](https://jupyter.org/) ondersteunt magic-functies die de mogelijkheden van de kernel uitbreiden door de ondersteuning van aanvullende opdrachten. KQL Magic-pakket is een opdracht die de mogelijkheden van de Python-kernel in Jupyter-Notebook breidt, zodat u kunt systeemeigen Kusto language-query's uitvoeren. U kunt eenvoudig combineren met Python en Kusto-querytaal om te vragen en visualiseren van gegevens met behulp van uitgebreide Plot.ly bibliotheek geïntegreerd met `render` opdrachten. Gegevensbronnen voor het uitvoeren van query's worden ondersteund. Deze gegevensbronnen zijn Azure Data Explorer, een service voor het verkennen van snelle en schaalbare gegevens voor logboek en telemetriegegevens, evenals Azure Monitor-logboeken en Application Insights. KQL magic werkt ook met de Azure-notitieblokken, Jupyter Lab en Visual Studio Code Jupyter-extensie.

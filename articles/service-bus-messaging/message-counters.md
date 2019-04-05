@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 43689ec92fe20e61fdfd7a145d3028a3b1ee956d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848094"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050744"
 ---
 # <a name="message-counters"></a>Berichtentellers
 
 U kunt het aantal berichten in wachtrijen en abonnementen met behulp van Azure Resource Manager en Service Bus ophalen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API's in de SDK voor .NET Framework.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Met PowerShell, kunt u het aantal als volgt verkrijgen:
 
 ```powershell
-(Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
+(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
 ## <a name="message-count-details"></a>Aantal berichtgegevens

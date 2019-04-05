@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108117"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051628"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Opnieuw trainen en implementeren van een machine learning-model
 
@@ -28,6 +28,8 @@ Volgt u deze stappen voor het opnieuw trainen en implementeren van een machine l
 1. Implementeer een **webservice opnieuw trainen**
 1. Een nieuw model met behulp van de trein uw **webservice opnieuw trainen**
 1. Bijwerken van uw bestaande **Voorspellend experiment** naar het nieuwe model gebruiken
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>De retraining webservice implementeren
 
@@ -130,15 +132,15 @@ Sla de *BaseLocation*, *RelativeLocation*, en *SasBlobToken* vanuit de resultate
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Meld u aan met Azure Resource Manager
 
-Eerst, aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+Eerst, aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
 
 ### <a name="get-the-web-service-definition-object"></a>De definitie van de Web Service-object ophalen
 
-Vervolgens de definitie van de Web Service-object ophalen door het aanroepen van de [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet.
+Vervolgens de definitie van de Web Service-object ophalen door het aanroepen van de [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
 
-    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Om te bepalen van de naam van de resourcegroep van een bestaande webservice, voer de cmdlet Get-AzureRmMlWebService zonder parameters om de webservices in uw abonnement weer te geven. Ga naar de webservice en zoek vervolgens naar de web service-ID. De naam van de resourcegroep is het vierde element-id, direct na de *resourceGroups* element. In het volgende voorbeeld is de naam van de resourcegroep standaard-MachineLearning-SouthCentralUS.
+Om te bepalen van de naam van de resourcegroep van een bestaande webservice, voer de cmdlet Get-AzMlWebService zonder parameters om de webservices in uw abonnement weer te geven. Ga naar de webservice en zoek vervolgens naar de web service-ID. De naam van de resourcegroep is het vierde element-id, direct na de *resourceGroups* element. In het volgende voorbeeld is de naam van de resourcegroep standaard-MachineLearning-SouthCentralUS.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -153,9 +155,9 @@ U kunt ook om te bepalen van de naam van de resourcegroep van een bestaande webs
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>De definitie van de Web Service-object worden geëxporteerd als JSON
 
-Als u wilt wijzigen van de definitie van het getrainde model op het zojuist getrainde model gebruiken, moet u eerst gebruiken de [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) cmdlet om te exporteren naar een bestand met JSON-indeling.
+Als u wilt wijzigen van de definitie van het getrainde model op het zojuist getrainde model gebruiken, moet u eerst gebruiken de [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet om te exporteren naar een bestand met JSON-indeling.
 
-    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>De verwijzing naar de blob ilearner bijwerken
 
@@ -176,15 +178,15 @@ Zoek in de assets, het [getrainde model], bij te werken de *uri* waarde in de *l
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>De JSON importeren in een definitie van de Web Service-object
 
-Gebruik de [importeren AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) cmdlet voor het converteren van het gewijzigde JSON-bestand naar een webservicedefinitie-object dat u gebruiken kunt om bij te werken het predicative experiment.
+Gebruik de [importeren AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet voor het converteren van het gewijzigde JSON-bestand naar een webservicedefinitie-object dat u gebruiken kunt om bij te werken het predicative experiment.
 
-    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>Bijwerken van de webservice
 
-Gebruik tot slot de [Update AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) cmdlet voor het bijwerken van de Voorspellend experiment.
+Gebruik tot slot de [Update AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet voor het bijwerken van de Voorspellend experiment.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 ## <a name="next-steps"></a>Volgende stappen
 

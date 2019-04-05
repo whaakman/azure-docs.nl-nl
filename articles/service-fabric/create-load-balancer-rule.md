@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660924"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051662"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Poorten openen voor een Service Fabric-cluster
 
 De load balancer geïmplementeerd met uw Azure Service Fabric-cluster zorgt ervoor dat verkeer naar uw app wordt uitgevoerd op een knooppunt. Als u uw app voor het gebruik van een andere poort wijzigt, moet u die poort (of een andere poort te routeren) in de Azure Load Balancer.
 
 Wanneer u uw Service Fabric-cluster geïmplementeerd in Azure, wordt een load balancer is automatisch voor u gemaakt. Als u een load balancer niet hebt, raadpleegt u [een internetgerichte load balancer configureren](../load-balancer/load-balancer-get-started-internet-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>Service fabric configureren
 
@@ -82,14 +85,14 @@ PowerShell is iets gecompliceerder dan de Azure CLI. Volg deze algemene stappen 
 >[!NOTE]
 >Als u nodig hebt om te bepalen van de naam van de load balancer, moet u deze opdracht gebruiken om snel een lijst van alle load balancers en bijbehorende resourcegroepen.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-Met betrekking tot de `New-AzureRmLoadBalancerRuleConfig` opdracht, de `-FrontendPort` vertegenwoordigt de poort voor externe verbindingen wordt aangegeven dat de load balancer en de `-BackendPort` vertegenwoordigt de service fabric-toepassing luistert op poort.
+Met betrekking tot de `New-AzLoadBalancerRuleConfig` opdracht, de `-FrontendPort` vertegenwoordigt de poort voor externe verbindingen wordt aangegeven dat de load balancer en de `-BackendPort` vertegenwoordigt de service fabric-toepassing luistert op poort.
 
 >[!NOTE]
 >Zie voor meer informatie over het maken van een load balancer met PowerShell [een load balancer maken met PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [networking in Service Fabric](service-fabric-patterns-networking.md).
+Meer informatie over [networking in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patronen-networking.md).

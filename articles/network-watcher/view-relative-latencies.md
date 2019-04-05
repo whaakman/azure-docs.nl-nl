@@ -16,29 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117851"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050489"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>De relatieve latentie weergeven op Azure-regio's op specifieke locaties
 
 In deze zelfstudie leert u hoe u het gebruik van de Azure [Network Watcher](network-watcher-monitoring-overview.md) service waarmee u kunt bepalen welke Azure-regio naar uw toepassing implementeren of -service in, op basis van uw demografische gebruiker. U kunt deze ook gebruiken om u te helpen bij het evalueren van serviceproviders verbindingen met Azure.  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-a-network-watcher"></a>Maken van een network watcher
 
 Als u al een network watcher in ten minste één Azure [regio](https://azure.microsoft.com/regions), kunt u de taken in deze sectie overslaan. Maak een resourcegroep voor de netwerk-watcher. In dit voorbeeld wordt de resourcegroep wordt gemaakt in de regio VS-Oost, maar u kunt de resourcegroep in een Azure-regio maken.
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 Maak een network watcher. Hebt u een network watcher in ten minste één Azure-regio gemaakt. In dit voorbeeld wordt een network watcher in de oostelijke VS Azure-regio gemaakt.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Relatieve netwerklatenties vergelijken met één Azure-regio op een bepaalde locatie
@@ -46,7 +49,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 Serviceproviders evalueren of een gebruiker een probleem melden zoals 'de site is traag,' problemen oplossen op een bepaalde locatie naar de azure-regio waarin een service wordt geïmplementeerd. De volgende opdracht retourneert bijvoorbeeld het gemiddelde relatieve Internet serviceprovider latentie tussen de staat Washington in de Verenigde Staten en de regio West US 2 Azure tussen 13-15 December 2017:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -109,7 +112,7 @@ In de resulterende uitvoer, de waarde voor **Score** wordt de relatieve latentie
 Als, in plaats van op te geven de relatieve latentie tussen een specifieke locatie en een specifieke Azure-regio met `-Location`, u wilt bepalen van de relatieve latentie voor alle Azure-regio's op een bepaalde fysieke locatie, kunt u dat te doen. Bijvoorbeeld, de volgende opdracht helpt u te evalueren welke azure-regio voor het implementeren van een service in als uw primaire gebruikers Comcast gebruikers zich in de staat Washington:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -127,7 +130,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 Gegevens zijn beschikbaar voor bepaalde internetproviders, landen, Staten en plaatsen. Voer de volgende opdracht om een lijst weergeven met alle beschikbare internetserviceproviders, landen, Staten en plaatsen, die u kunt gegevens bekijken:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 Gegevens is alleen beschikbaar voor de landen, Staten en plaatsen die zijn geretourneerd door de vorige opdracht. De vorige opdracht moet u om op te geven van een bestaande netwerk-watcher. Het opgegeven voorbeeld de *NetworkWatcher_eastus* network watcher in een resourcegroep met de naam *NetworkWatcherRG*, maar kunt u eventuele bestaande netwerk-watcher. Als u een bestaande netwerk-watcher niet hebt, maakt u er een door het uitvoeren van de taken in [maken van een network watcher](#create-a-network-watcher). 
@@ -135,7 +138,7 @@ Gegevens is alleen beschikbaar voor de landen, Staten en plaatsen die zijn geret
 Nadat de vorige opdracht is uitgevoerd, kunt u de uitvoer die wordt geretourneerd door het opgeven van geldige waarden voor filteren **land**, **status**, en **plaats**, indien gewenst.  Bijvoorbeeld, als u wilt weergeven van de lijst met internetproviders in Seattle, Washington, beschikbaar in de Verenigde Staten, voer de volgende opdracht:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

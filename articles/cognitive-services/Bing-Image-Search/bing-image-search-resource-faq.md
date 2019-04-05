@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539017"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049418"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Veelgestelde vragen (FAQ) over de Bing afbeeldingen zoeken-API
 
@@ -25,11 +25,11 @@ Vind antwoorden op veelgestelde vragen over concepten, code en scenario's met be
 
 De volgende headers kunnen optreden in de reacties van de Bing afbeeldingen zoeken-API.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|De unieke ID die Bing is toegewezen aan de gebruiker|
-|`BingAPIs-Market`|De markt die is gebruikt om te voldoen aan de aanvraag|
-|`BingAPIs-TraceId`|De vermelding op de server-API voor Bing voor deze aanvraag (voor ondersteuning)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |De unieke ID die Bing is toegewezen aan de gebruiker |
+| `BingAPIs-Market`   |De markt die is gebruikt om te voldoen aan de aanvraag |
+| `BingAPIs-TraceId`  |De vermelding op de server-API voor Bing voor deze aanvraag (voor ondersteuning) |
 
 Dit is vooral belangrijk voor het behouden van de client-ID en retourneer het met de volgende aanvragen. Als u dit doet, wordt de zoekopdracht gebruikt voorbij context in volgorde van zoekresultaten en bieden ook een consistente gebruikerservaring.
 

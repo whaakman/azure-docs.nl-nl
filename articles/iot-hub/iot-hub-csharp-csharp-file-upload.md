@@ -8,13 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
-ms.openlocfilehash: d661f8834aec77957e0fd2713cde5da9a48903fd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010566"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046766"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub met .NET
 
@@ -173,7 +173,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
-* [Een IoT hub via een programma maken](iot-hub-rm-template-powershell.md)
+* [Een IoT Hub maken via een programma](iot-hub-rm-template-powershell.md)
 * [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
 * [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)
 

@@ -1,19 +1,18 @@
 ---
 title: Voorbeeldgegevens worden opgenomen in Azure Data Explorer
 description: Meer informatie over het opnemen van (load) weergerelateerde voorbeeldgegevens in Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ebbe3434f032b38c33ec7b82e445532836f78c9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758465"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050618"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Voorbeeldgegevens worden opgenomen in Azure Data Explorer
 
@@ -24,7 +23,7 @@ Dit artikel ziet u hoe u voorbeeldgegevens (load) opnemen in de database van een
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
+[Een testcluster en de database](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Gegevens opnemen
 
@@ -58,7 +57,7 @@ De set met voorbeeldgegevens **StormEvents** bevat gegevens van het weer afkomst
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+> [Quickstart: Query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
 
 > [!div class="nextstepaction"]
 > [Query's schrijven](write-queries.md)

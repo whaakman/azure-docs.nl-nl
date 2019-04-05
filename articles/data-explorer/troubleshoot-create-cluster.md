@@ -1,21 +1,20 @@
 ---
-title: Een cluster maken in Azure Data Explorer is mislukt
+title: Oplossen van problemen met Azure Data Explorer-cluster maken
 description: In dit artikel wordt beschreven welke stappen voor het maken van een cluster in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b95dabbdecd98902da3bf8217a14f41019c31e82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757695"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044107"
 ---
-# <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>Problemen oplossen: Een cluster maken in Azure Data Explorer is mislukt
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Problemen oplossen: Maken van een mislukte cluster van Azure Data Explorer
 
 In het onwaarschijnlijke geval dat een cluster maken in Azure Data Explorer mislukt, de volgende stappen uit.
 

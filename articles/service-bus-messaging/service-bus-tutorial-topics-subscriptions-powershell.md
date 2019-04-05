@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081267"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049554"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met PowerShell en onderwerpen/abonnementen
 
@@ -36,6 +36,9 @@ Een voorbeeld van dit scenario is het bijwerken van het voorraadassortiment voor
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voordat u begint.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
@@ -54,20 +57,20 @@ Voer de volgende opdrachten uit om u aan te melden bij Azure. Deze stappen zijn 
 1. Installeer de PowerShell-module voor Service Bus:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Voer de volgende opdracht uit om u aan te melden bij Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. Stel de context van het huidige abonnement in of vraag het actieve abonnement op:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Resources inrichten
@@ -76,19 +79,19 @@ Voer na het aanmelden bij Azure de volgende opdrachten uit om Service Bus-resour
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Zodra de cmdlet `Get-AzureRmServiceBusKey` is uitgevoerd, kopieert en plakt u de verbindingsreeks en de naam van de wachtrij die u hebt geselecteerd naar een tijdelijke locatie, zoals Kladblok. U hebt deze gegevens nodig in de volgende stap.
+Zodra de cmdlet `Get-AzServiceBusKey` is uitgevoerd, kopieert en plakt u de verbindingsreeks en de naam van de wachtrij die u hebt geselecteerd naar een tijdelijke locatie, zoals Kladblok. U hebt deze gegevens nodig in de volgende stap.
 
 ## <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 
@@ -109,7 +112,7 @@ Ga als volgt te werk om de code uit te voeren:
 4. Als u dit nog niet hebt gedaan, haalt u de verbindingsreeks op met behulp van de volgende PowerShell-cmdlet. Zorg dat u `my-resourcegroup` en `namespace-name` vervangt door uw specifieke waarden: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. Typ de volgende opdracht bij de PowerShell-prompt:
 
@@ -131,7 +134,7 @@ Ga als volgt te werk om de code uit te voeren:
 Voer de volgende opdracht uit om de resourcegroep, de naamruimte en alle gerelateerde resources te verwijderen:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
@@ -140,7 +143,7 @@ Deze sectie bevat meer informatie over de werking van de voorbeeldcode.
 
 ### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 
-De verbindingsreeks en de naam van de wachtrij worden als opdrachtregelargumenten doorgegeven aan de methode `Main()`. `Main()` declareert twee tekenreeksvariabelen die deze waarden kunnen omvatten:
+De verbindingsreeks en de naam van de wachtrij worden als opdrachtregelargumenten doorgegeven aan de methode `Main()`. `Main()` verklaart de twee tekenreeksvariabelen die voor het opslaan van deze waarden:
 
 ```csharp
 static void Main(string[] args)
@@ -283,7 +286,7 @@ Meer voorbeelden voor het verzenden en ontvangen van berichten vindt u in [de Se
 Ga naar de volgende zelfstudie voor meer informatie over het gebruik van de mogelijkheden voor publiceren/abonneren van Service Bus.
 
 > [!div class="nextstepaction"]
-> [Voorraad bijwerken met behulp van PowerShell en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-cli.md)
+> [Voorraad bijwerken met PowerShell en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-cli.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell installeren en configureren]: /powershell/azure/azurerm/install-azurerm-ps
+[Azure-account maakt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Azure PowerShell installeren en configureren]: /powershell/azure/install-Az-ps

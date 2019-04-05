@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122366"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046152"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -118,7 +118,10 @@ U kunt een Azure Machine Learning-rekenomgeving maken op aanvraag wanneer u plan
 
 #### <a name="run-based-creation"></a>Uitvoeren op basis van het maken
 
-U kunt Azure Machine Learning-Computing maken als een compute-doel tijdens runtime. De berekening wordt automatisch gemaakt voor de uitvoering. De cluster schalen tot maximaal het aantal **max_nodes** die u opgeeft in de configuratie uitvoeren. De berekening wordt automatisch verwijderd nadat de uitvoering is voltooid.
+U kunt Azure Machine Learning-Computing maken als een compute-doel tijdens runtime. De berekening wordt automatisch gemaakt voor de uitvoering. De berekening wordt automatisch verwijderd nadat de uitvoering is voltooid. 
+
+> [!NOTE]
+> Als u het maximale aantal knooppunten te gebruiken, moet u normaal gesproken instellen `node_count` aan het aantal knooppunten. Er is momenteel (04/04/2019) een bug waarmee wordt voorkomen dit niet werkt dat. Als tijdelijke oplossing, gebruikt u de `amlcompute._cluster_max_node_count` eigenschap van de configuratie van de uitvoering. Bijvoorbeeld `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Uitvoeren op basis van het maken van Azure Machine Learning-Computing is momenteel in Preview. Gebruik niet maken op basis van een uitvoeren als u automatische hyperparameter afstemmen of automatische leerprocessen. Als u wilt gebruiken hyperparameter afstemmen of geautomatiseerde voor machine learning, een [permanente compute](#persistent) in plaats daarvan richten.
@@ -415,8 +418,8 @@ Of u kunt:
 ## <a name="notebook-examples"></a>Laptop-voorbeelden
 
 Zie deze laptops voor voorbeelden van training met diverse compute-doelen:
-* [procedure-naar-gebruik-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [zelfstudies/img-classificatie-deel 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

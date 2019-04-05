@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011662"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045419"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-installatiekopieën in Azure
 Dit artikel beschrijft de beschikbare installatiekopieën van Red Hat Enterprise Linux (RHEL) in de Azure Marketplace, samen met beleid voor hun namen en retentie.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Huidige naamconventie
 Alle momenteel gepubliceerde RHEL-installatiekopieën gebruiken het betalen per gebruik-model en zijn verbonden met [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Vanwege een beperking van het ontwerp van RHUI, heeft een nieuwe naamgeving voor RHEL 7 familie installatiekopieën zijn vastgesteld. Op dit moment is niet de RHEL-6-familie naamgeving gewijzigd.
 
-De beperking is in het feit dat wanneer een niet-selectieve `yum update` wordt uitgevoerd op een virtuele machine verbonden met RHUI, de RHEL-versie wordt bijgewerkt naar de nieuwste versie in de huidige familie. Zie voor meer informatie, [deze koppeling](https://aka.ms/rhui-udate). Dit kan verwarring leiden wanneer een ingerichte RHEL 7.2-installatiekopie RHEL 7.6 nadat deze is bijgewerkt wordt. U kunt nog steeds inrichten vanaf een oudere installatiekopie zoals wordt geïllustreerd in de bovenstaande voorbeelden door expliciet op te geven de vereiste versie. Als de vereiste versie niet opgegeven is tijdens het inrichten van een nieuwe installatiekopie van de RHEL 7, wordt de meest recente installatiekopie worden ingericht.
+De beperking is in het feit dat wanneer een niet-selectieve `yum update` wordt uitgevoerd op een virtuele machine verbonden met RHUI, de RHEL-versie wordt bijgewerkt naar de nieuwste versie in de huidige familie. Zie voor meer informatie, [deze koppeling](https://aka.ms/rhui-update). Dit kan verwarring leiden wanneer een ingerichte RHEL 7.2-installatiekopie RHEL 7.6 nadat deze is bijgewerkt wordt. U kunt nog steeds inrichten vanaf een oudere installatiekopie zoals wordt geïllustreerd in de bovenstaande voorbeelden door expliciet op te geven de vereiste versie. Als de vereiste versie niet opgegeven is tijdens het inrichten van een nieuwe installatiekopie van de RHEL 7, wordt de meest recente installatiekopie worden ingericht.
 
 >[!NOTE]
 > In de RHEL for SAP reeks afbeeldingen blijft de RHEL-versie vast. De naamconventie bevat daarom een bepaalde versie in de SKU.

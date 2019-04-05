@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014116"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050974"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Zelfstudie: HTTPS configureren in een aangepast Front Door-domein
 
@@ -40,6 +40,9 @@ In deze zelfstudie leert u het volgende:
 > - Uw eigen certificaat gebruiken, dat wil zeggen, een aangepast SSL-certificaat
 > - Het domein valideren
 > - Het HTTPS-protocol uitschakelen in uw aangepast domein
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -86,11 +89,11 @@ U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie.
 
 Registreer de service-principal voor Azure Front Door Service als een app in uw Azure Active Directory via PowerShell.
 
-1. Installeer zo nodig [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell op uw lokale computer.
+1. Installeer zo nodig [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell op uw lokale computer.
 
 2. Voer in PowerShell de volgende opdracht uit:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Azure Front Door Service toegang verlenen tot uw sleutelkluis
  
@@ -238,7 +241,7 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-1. *Wie is de certificaatprovider en welk type certificaat is gebruikt?*
+1. *Wie is de certificaatprovider en welk type certificaat wordt gebruikt?*
 
     Er wordt een gereserveerd/specifiek certificaat, geleverd via Digicert, gebruikt voor uw aangepaste domein. 
 
@@ -246,15 +249,15 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
 
     Azure Front Door Service maakt gebruik van SNI TLS/SSL.
 
-3. *Wat moet ik doen als ik geen verificatie-e-mail voor het domein heb ontvangen van DigiCert?*
+3. *Ik niet wat gebeurt er als het domein verificatie-e-mailbericht ontvangen van DigiCert?*
 
     Als u beschikt over een CNAME-vermelding voor uw aangepaste domein die rechtstreeks verwijst naar de hostnaam van uw eindpunt (en u niet de subdomeinnaam afdverify gebruikt), ontvangt u een dergelijke verificatie-e-mail niet. Validatie wordt dan automatisch uitgevoerd. In andere gevallen waarbij u geen CNAME-vermelding hebt en binnen 24 uur geen e-mail hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
 
-4. *Is het gebruik van een SAN-certificaat minder veilig dan wanneer ik een toegewezen certificaat gebruik?*
+4. *Maakt gebruik van een SAN-certificaat minder veilig dan een toegewezen certificaat?*
     
     Voor een SAN-certificaat gelden dezelfde standaarden voor versleuteling en beveiliging als voor een toegewezen certificaat. Alle verleende SSL-certificaten maken gebruik van SHA-256 voor verbeterde serverbeveiliging.
 
-5. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
+5. *Heb ik een Caa-record nodig bij mijn DNS-provider?*
 
     Nee, een CAA-record is momenteel niet vereist. Als u er echter wel een hebt, moet deze DigiCert bevatten als een geldige CA.
 

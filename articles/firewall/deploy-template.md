@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038956"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046271"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Firewall van Azure met behulp van een sjabloon implementeren
 
@@ -24,6 +24,9 @@ De firewall wordt de *AzureFirewallSubnet* subnet, en heeft een regelverzameling
 Een door de gebruiker gedefinieerde route wijst netwerkverkeer van de *ServersSubnet* subnet via de firewall, waarbij de firewall-regels worden toegepast.
 
 Zie voor meer informatie over Azure-Firewall [implementeren en configureren van de Firewall van Azure met behulp van de Azure-portal](tutorial-firewall-deploy-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>Gebruik de sjabloon voor het implementeren van Azure-Firewall
 
@@ -56,10 +59,10 @@ Zie voor meer informatie over de JSON-syntaxis en de eigenschappen voor een fire
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u deze niet meer nodig, kunt u de resourcegroep, firewall en alle gerelateerde resources verwijderen door het uitvoeren van de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell-opdracht. Verwijderen van een resourcegroep met de naam *MyResourceGroup*, uitvoeren: 
+Wanneer u deze niet meer nodig, kunt u de resourcegroep, firewall en alle gerelateerde resources verwijderen door het uitvoeren van de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell-opdracht. Verwijderen van een resourcegroep met de naam *MyResourceGroup*, uitvoeren: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Niet verwijdert de resourcegroep en de firewall nog, als u van plan bent om door te gaan naar de firewall voor bewaking van de zelfstudie. 
 
@@ -68,4 +71,4 @@ Niet verwijdert de resourcegroep en de firewall nog, als u van plan bent om door
 Vervolgens kunt u de Firewall van Azure-logboeken bewaken:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Azure Firewall-logboeken bewaken](./tutorial-diagnostics.md)
+> [Zelfstudie: Azure-Firewall-logboeken bewaken](./tutorial-diagnostics.md)

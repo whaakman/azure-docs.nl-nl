@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749701"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045982"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure Key Vault instellen met sleutelrotatie en controle
 
 ## <a name="introduction"></a>Inleiding
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Nadat u een key vault hebt, kunt u gaan gebruiken voor het opslaan van sleutels en geheimen. Uw toepassingen niet langer nodig hebt om vast te leggen van de sleutels of geheimen, maar u kunt deze aanvragen op de kluis naar behoefte. Een key vault kunt u sleutels en geheimen bijwerken zonder het gedrag van uw toepassing, u een breed scala aan mogelijkheden voor uw sleutel en geheime beheer opent.
 
@@ -39,6 +37,8 @@ Dit artikel helpt bij:
 
 > [!NOTE]
 > In dit artikel niet de eerste installatie van uw key vault in detail uitgelegd. Voor deze informatie, Zie [wat is Azure Key Vault?](key-vault-overview.md). Zie voor instructies voor platformoverschrijdende opdrachtregelinterface [Key Vault beheren met behulp van de Azure CLI](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Key Vault instellen
 
@@ -166,6 +166,9 @@ Wanneer u uw toepassing uitvoert, moet u nu worden geverifieerd bij Azure Active
 
 ## <a name="key-rotation-using-azure-automation"></a>Sleutelroulatie met behulp van Azure Automation
 
+> [!IMPORTANT]
+> Azure Automation-runbooks nog steeds vereist het gebruik van de `AzureRM` module.
+
 U bent nu klaar voor het instellen van een strategie rotatie van de waarden die u als Key Vault-geheimen opslaat. Geheimen kunnen op verschillende manieren worden gedraaid:
 
 - Als onderdeel van een handmatig proces
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Selecteer in het deelvenster van editor **testvenster** voor het testen van uw script. Nadat het script wordt uitgevoerd zonder fouten, selecteert u **publiceren**, en vervolgens kunt u een schema voor het runbook in het deelvenster runbook configuratie toepassen.

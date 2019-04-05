@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 441b58e60bf8dfd5f164ac24d746b9791158ade2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043805"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Mobility-agent op beveiligde machines beheren
 
 Instellen van mobility-agent op uw server wanneer u Azure Site Recovery voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure gebruiken. Mobility-agent coördineert de communicatie tussen de beveiligde computer, configuratie van server-/ uitbreidbare processerver en beheert de gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de mobility-agent nadat deze geïmplementeerd.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="update-mobility-service-from-azure-portal"></a>Bijwerken van de mobiliteitsservice van Azure-portal
 
@@ -37,7 +40,7 @@ Instellen van mobility-agent op uw server wanneer u Azure Site Recovery voor her
 Gebruik de volgende script om te upgraden van de mobility-service op een server via power shell-cmdlet
 
 ```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Account voor push-installatie van mobiliteitsservice bijwerken

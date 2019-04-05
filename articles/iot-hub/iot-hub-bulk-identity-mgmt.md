@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010987"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049969"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Uw IoT-Hub apparaatidentiteiten bulksgewijs beheren
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importeren en exporteren van IoT Hub apparaat-id's in één bulkbewerking
 
 Elke IoT-hub is een id-register dat u per apparaat om resources te maken in de service kunt gebruiken. Het id-register kunt u toegang tot het apparaat gerichte eindpunten beheren. In dit artikel wordt beschreven hoe u importeren en exporteren van apparaat-id's in bulk naar en van een id-register.
 
@@ -255,13 +255,13 @@ Gebruik het optionele **ImportMode %** eigenschap in de serialisatie-gegevens im
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt de bestaande gegevens overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
-| **maken** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt er een fout naar het logboekbestand geschreven. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
-| **Update** |Als er al een apparaat met de opgegeven bestaat **id**, bestaande gegevens wordt overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. |
-| **updateIfMatchETag** |Als er al een apparaat met de opgegeven bestaat **id**, bestaande gegevens wordt overschreven met de opgegeven ingevoerde gegevens alleen als er een **ETag** overeenkomen. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. <br/>Als er een **ETag** incompatibel, een fout wordt geschreven naar het logboekbestand. |
-| **createOrUpdateIfMatchETag** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, de bestaande gegevens wordt overschreven met de opgegeven ingevoerde gegevens alleen als er een **ETag** overeenkomen. <br/>Als er een **ETag** incompatibel, een fout wordt geschreven naar het logboekbestand. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
-| **verwijderen** |Als er al een apparaat met de opgegeven bestaat **id**, wordt deze verwijderd zonder betrekking tot de **ETag** waarde. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. |
-| **deleteIfMatchETag** |Als er al een apparaat met de opgegeven bestaat **id**, wordt deze verwijderd alleen als er een **ETag** overeenkomen. Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. <br/>Als er een ETag komt niet overeen, wordt er een fout naar het logboekbestand geschreven. |
+| **createOrUpdate** |Als een apparaat niet met de opgegeven bestaat **ID**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt de bestaande gegevens overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
+| **maken** |Als een apparaat niet met de opgegeven bestaat **ID**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt er een fout naar het logboekbestand geschreven. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
+| **update** |Als er al een apparaat met de opgegeven bestaat **ID**, bestaande gegevens wordt overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. |
+| **updateIfMatchETag** |Als er al een apparaat met de opgegeven bestaat **ID**, bestaande gegevens wordt overschreven met de opgegeven ingevoerde gegevens alleen als er een **ETag** overeenkomen. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. <br/>Als er een **ETag** incompatibel, een fout wordt geschreven naar het logboekbestand. |
+| **createOrUpdateIfMatchETag** |Als een apparaat niet met de opgegeven bestaat **ID**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, de bestaande gegevens wordt overschreven met de opgegeven ingevoerde gegevens alleen als er een **ETag** overeenkomen. <br/>Als er een **ETag** incompatibel, een fout wordt geschreven naar het logboekbestand. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
+| **delete** |Als er al een apparaat met de opgegeven bestaat **ID**, wordt deze verwijderd zonder betrekking tot de **ETag** waarde. <br/>Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. |
+| **deleteIfMatchETag** |Als er al een apparaat met de opgegeven bestaat **ID**, wordt deze verwijderd alleen als er een **ETag** overeenkomen. Als het apparaat niet bestaat nog, wordt er een fout naar het logboekbestand geschreven. <br/>Als er een ETag komt niet overeen, wordt er een fout naar het logboekbestand geschreven. |
 
 > [!NOTE]
 > Als de serialisatiegegevens niet expliciet definieert een **ImportMode %** vlag voor een apparaat, wordt standaard **createOrUpdate** tijdens het importeren.

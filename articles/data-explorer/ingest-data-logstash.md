@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Logstash opneemt (laadt) in Azure Data Explorer
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754671"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046407"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer
 
@@ -109,12 +108,12 @@ output {
 
 | Parameternaam | Description |
 | --- | --- |
-| **path** | De Logstash-invoegtoepassing schrijft gebeurtenissen naar tijdelijke bestanden voordat ze naar Azure Data Explorer worden verzonden. Deze parameter bevat het pad waarnaar bestanden moeten worden geschreven en een tijdexpressie voor bestandsrotatie om een upload naar de service Azure Data Explorer te activeren.|
+| **pad** | De Logstash-invoegtoepassing schrijft gebeurtenissen naar tijdelijke bestanden voordat ze naar Azure Data Explorer worden verzonden. Deze parameter bevat het pad waarnaar bestanden moeten worden geschreven en een tijdexpressie voor bestandsrotatie om een upload naar de service Azure Data Explorer te activeren.|
 | **ingest_url** | Het Kusto-eindpunt voor opname-gerelateerde communicatie.|
 | **app_id**, **app_key** en **app_tenant**| Referenties vereist om verbinding te maken met Azure Data Explorer. Zorg dat u een toepassing gebruikt die opnamebevoegdheden heeft. |
 | **database**| De naam van de database waarin gebeurtenissen moeten worden geplaatst. |
-| **table** | De naam van de tabel waarin gebeurtenissen moeten worden geplaatst. |
-| **mapping** | Toewijzing wordt gebruikt om de json-tekenreeks van een inkomende gebeurtenis toe te wijzen in de juiste rij-indeling (bepaalt welke eigenschap in welke kolom wordt geplaatst). |
+| **tabel** | De naam van de tabel waarin gebeurtenissen moeten worden geplaatst. |
+| **Toewijzing** | Toewijzing wordt gebruikt om de json-tekenreeks van een inkomende gebeurtenis toe te wijzen in de juiste rij-indeling (bepaalt welke eigenschap in welke kolom wordt geplaatst). |
 
 ## <a name="run-logstash"></a>Logstash uitvoeren
 

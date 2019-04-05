@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009384"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045897"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen maken
 
@@ -35,9 +35,12 @@ Resource Manager-sjabloon is een JSON-bestand dat de infrastructuur en configura
 
 - [Overzicht van Azure Resource Manager - sjabloon implementeren](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
+- [Microsoft.TimeSeriesInsights resourcetypen](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 De [201-timeseriesinsights-omgeving-met-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart-sjabloon is gepubliceerd op GitHub. Deze sjabloon maakt u een Time Series Insights-omgeving, een onderliggende gebeurtenisbron geconfigureerd voor het gebruiken van gebeurtenissen van een Event Hub en toegangsbeleid die toegang tot gegevens van de omgeving verlenen. Als een bestaande Event Hub is niet opgegeven, wordt een gemaakt met de implementatie.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Lokaal via PowerShell quickstart-sjabloon implementeren
 
@@ -110,8 +113,8 @@ Voor het maken van een parameterbestand, Kopieer de [201-timeseriesinsights-omge
    | eventSourceDisplayName | Een optionele beschrijvende naam om weer te geven in hulpprogramma's of de gebruiker in plaats van de naam van de gebeurtenis-interfaces. |
    | eventSourceTimestampPropertyName | De gebeurteniseigenschap die wordt gebruikt als de tijdstempel van de bron van de gebeurtenis. Als een waarde niet is opgegeven voor timestampPropertyName, of als null of lege tekenreeks is opgegeven, wordt de aanmaaktijd van de gebeurtenis worden gebruikt. |
    | eventSourceKeyName | De naam van de gedeelde toegangssleutel die de Time Series Insights-service wordt gebruikt voor het verbinding maken met de event hub. |
-   | accessPolicyReaderObjectIds | Een lijst met object-id's van de gebruikers of toepassingen in Azure AD die moet lezerstoegang tot de omgeving hebben. De service principal object-id kan worden verkregen door het aanroepen van de **Get-AzureRMADUser** of de **Get-AzureRMADServicePrincipal** cmdlets. Het maken van een toegangsbeleid voor Azure AD-groepen wordt nog niet ondersteund. |
-   | accessPolicyContributorObjectIds | Een lijst met object-id's van de gebruikers of toepassingen in Azure AD die Inzender-toegang tot de omgeving moet. De service principal object-id kan worden verkregen door het aanroepen van de **Get-AzureRMADUser** of de **Get-AzureRMADServicePrincipal** cmdlets. Het maken van een toegangsbeleid voor Azure AD-groepen wordt nog niet ondersteund. |
+   | accessPolicyReaderObjectIds | Een lijst met object-id's van de gebruikers of toepassingen in Azure AD die moet lezerstoegang tot de omgeving hebben. De service principal object-id kan worden verkregen door het aanroepen van de **Get-AzADUser** of de **Get-AzADServicePrincipal** cmdlets. Het maken van een toegangsbeleid voor Azure AD-groepen wordt nog niet ondersteund. |
+   | accessPolicyContributorObjectIds | Een lijst met object-id's van de gebruikers of toepassingen in Azure AD die Inzender-toegang tot de omgeving moet. De service principal object-id kan worden verkregen door het aanroepen van de **Get-AzADUser** of de **Get-AzADServicePrincipal** cmdlets. Het maken van een toegangsbeleid voor Azure AD-groepen wordt nog niet ondersteund. |
 
 Als een voorbeeld zou de volgende parameterbestand worden gebruikt om een omgeving en de bron van een gebeurtenis die gebeurtenissen in een bestaande event hub leest te maken. Het maakt ook twee toegangsbeleid die Inzender-toegang tot de omgeving verlenen.
 
@@ -155,27 +158,27 @@ Zie voor meer informatie de [Parameters](../azure-resource-manager/resource-grou
 Voer de volgende opdracht uit vanuit een PowerShell-prompt:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 U wordt gevraagd om aan te melden bij uw Azure-account. Voer na het aanmelden, de volgende opdracht uit om de beschikbare abonnementen weer te geven:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Met deze opdracht retourneert een lijst met beschikbare Azure-abonnementen. Kies een abonnement voor de huidige sessie met de volgende opdracht. Vervang `<YourSubscriptionId>` met de GUID voor de Azure-abonnement u wilt gebruiken:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Instellen van de resourcegroep
 
-Als u nog geen een bestaande resource groep, maakt u een nieuwe resourcegroep met de **New-AzureRmResourceGroup** opdracht. Geef de naam van de resourcegroep en de locatie die u wilt gebruiken. Bijvoorbeeld:
+Als u nog geen een bestaande resource groep, maakt u een nieuwe resourcegroep met de **New-AzResourceGroup** opdracht. Geef de naam van de resourcegroep en de locatie die u wilt gebruiken. Bijvoorbeeld:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Als dit lukt, wordt een overzicht van de nieuwe resourcegroep weergegeven.
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>De implementatie testen
 
-Uw implementatie valideren door het uitvoeren van de `Test-AzureRmResourceGroupDeployment` cmdlet. Bij het testen van de implementatie, parameters opgeven precies zoals u zou doen bij het uitvoeren van de implementatie.
+Uw implementatie valideren door het uitvoeren van de `Test-AzResourceGroupDeployment` cmdlet. Bij het testen van de implementatie, parameters opgeven precies zoals u zou doen bij het uitvoeren van de implementatie.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>De implementatie maken
 
-Voer voor het maken van de nieuwe implementatie de `New-AzureRmResourceGroupDeployment` -cmdlet en geef de vereiste parameters als u wordt gevraagd. De parameters bevatten een naam voor uw implementatie, de naam van de resourcegroep, en het pad of de URL naar het sjabloonbestand. Als de **modus** parameter niet wordt opgegeven, de standaardwaarde van **incrementele** wordt gebruikt. Zie voor meer informatie, [incrementele en volledige implementaties](../azure-resource-manager/deployment-modes.md).
+Voer voor het maken van de nieuwe implementatie de `New-AzResourceGroupDeployment` -cmdlet en geef de vereiste parameters als u wordt gevraagd. De parameters bevatten een naam voor uw implementatie, de naam van de resourcegroep, en het pad of de URL naar het sjabloonbestand. Als de **modus** parameter niet wordt opgegeven, de standaardwaarde van **incrementele** wordt gebruikt. Zie voor meer informatie, [incrementele en volledige implementaties](../azure-resource-manager/deployment-modes.md).
 
 De volgende opdracht vraagt u om de vijf vereiste parameters in de PowerShell-venster:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 Als u wilt opgeven in plaats daarvan een parameterbestand, gebruik de volgende opdracht:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 U kunt ook een inline-parameters gebruiken wanneer u de implementatie-cmdlet uitvoert. De opdracht is als volgt:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Om uit te voeren een [voltooid](../azure-resource-manager/deployment-modes.md) implementatie, de **modus** parameter **voltooid**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>De implementatie controleren

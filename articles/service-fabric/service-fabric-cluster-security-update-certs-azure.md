@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315266"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050234"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
@@ -33,6 +33,9 @@ Service fabric kunt u twee clustercertificaten, een primaire en een secundaire o
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Toevoegen van een secundair clustercertificaat met behulp van de portal
 Secundair clustercertificaat kan niet worden toegevoegd via Azure portal, Azure powershell gebruiken. Het proces wordt verderop in dit document beschreven.
 
@@ -45,7 +48,7 @@ Als uw bedoeling is om te verwijderen van het certificaat dat is gemarkeerd als 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Een secundair certificaat met behulp van Resource Manager Powershell toevoegen
 > [!TIP]
-> Het is nu beter en eenvoudiger manier om toe te voegen een secundair certificaat met de [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. U hoeft niet te volgen van de rest van de stappen in deze sectie.  Bovendien hoeft u niet de sjabloon die oorspronkelijk hebt gebruikt om te maken en implementeren van het cluster bij het gebruik van de [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
+> Het is nu beter en eenvoudiger manier om toe te voegen een secundair certificaat met de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. U hoeft niet te volgen van de rest van de stappen in deze sectie.  Bovendien hoeft u niet de sjabloon die oorspronkelijk hebt gebruikt om te maken en implementeren van het cluster bij het gebruik van de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 Deze stappen wordt ervan uitgegaan dat u bekend bent met de werking van Resource Manager en ten minste één Service Fabric-cluster met behulp van Resource Manager-sjabloon hebt geïmplementeerd en de sjabloon die u hebt gebruikt voor het instellen van het cluster bij de hand hebt. Ook wordt ervan uitgegaan dat u ervaring hebt met JSON zijn.
 
@@ -195,19 +198,19 @@ De parameter Resource Manager-sjabloon in het bestand bewerken, de twee nieuwe p
 - Meld u aan bij uw Azure-Account en selecteer de specifieke azure-abonnement. Dit is een belangrijke stap voor mensen die toegang tot meer dan één azure-abonnement hebben.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Test de sjabloon voordat deze is geïmplementeerd. Gebruik dezelfde resourcegroep die uw cluster wordt momenteel geïmplementeerd in.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-De sjabloon implementeren in uw resourcegroep. Gebruik dezelfde resourcegroep die uw cluster wordt momenteel geïmplementeerd in. Voer de opdracht New-AzureRmResourceGroupDeployment. U hoeft niet om op te geven van de modus, omdat de standaardwaarde is **incrementele**.
+De sjabloon implementeren in uw resourcegroep. Gebruik dezelfde resourcegroep die uw cluster wordt momenteel geïmplementeerd in. Voer de opdracht New-AzResourceGroupDeployment. U hoeft niet om op te geven van de modus, omdat de standaardwaarde is **incrementele**.
 
 > [!NOTE]
 > Als u de modus op voltooid instellen, kunt u per ongeluk resources die zich niet in uw sjabloon verwijderen. Dus gebruik deze niet in dit scenario.
@@ -215,7 +218,7 @@ De sjabloon implementeren in uw resourcegroep. Gebruik dezelfde resourcegroep di
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Hier volgt een voorbeeld van een ingevuld van de dezelfde powershell.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

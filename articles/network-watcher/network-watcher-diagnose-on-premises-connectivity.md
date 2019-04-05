@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099393"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051577"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnose van on-premises connectiviteit via VPN-gateways
 
 Met Azure VPN Gateway kunt u hybride oplossing waarmee de noodzaak van een beveiligde verbinding tussen uw on-premises netwerk en uw Azure-netwerk maken. Als uw vereisten uniek zijn, zodat u de keuze van de on-premises VPN-apparaat is. Azure ondersteunt momenteel [verschillende VPN-apparaten](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) die voortdurend worden gevalideerd in samenwerking met de Apparaatleveranciers. Bekijk de apparaat-specifieke configuratie-instellingen voordat u uw on-premises VPN-apparaat configureert. Op deze manier Azure VPN-Gateway is geconfigureerd met een set [IPsec-parameters ondersteund](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) die worden gebruikt voor het tot stand brengen van verbindingen. Er is momenteel geen enkele manier waarop u kunt opgeven of Selecteer een specifieke combinatie van IPsec-parameters in de Azure VPN-Gateway. Voor een geslaagde verbinding maken tussen on-premises en Azure, moet on-premises VPN-apparaatinstellingen in overeenstemming met de IPsec-parameters voorgeschreven door Azure VPN-Gateway. Als de instellingen correct zijn, moet er een verlies van verbinding is en tot op heden deze problemen oplossen van problemen is niet eenvoudig en meestal duurde het uren om te bepalen en corrigeer het probleem.
 
 Problemen met de Azure Network Watcher functie, kunt u problemen ondervindt met uw Gateway en verbindingen vaststellen en binnen enkele minuten er zijn onvoldoende gegevens naar een gefundeerde beslissing nemen om rectificatie van het probleem.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -57,7 +60,7 @@ Deze problemen zijn moeilijk is om op te lossen en belangrijkste oorzaken zijn v
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Problemen oplossen met behulp van Azure Network Watcher
 
-Verbinding maken met Azure PowerShell voor het bepalen van uw verbinding en start de `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Lees de informatie over het gebruik van deze cmdlet op [virtuele netwerkgateway oplossen en verbindingen - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Deze cmdlet kan enkele minuten duren om uit te voeren.
+Verbinding maken met Azure PowerShell voor het bepalen van uw verbinding en start de `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Lees de informatie over het gebruik van deze cmdlet op [virtuele netwerkgateway oplossen en verbindingen - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Deze cmdlet kan enkele minuten duren om uit te voeren.
 
 Nadat de cmdlet is voltooid, kunt u navigeren naar de opslaglocatie die is opgegeven in de cmdlet voor gedetailleerde informatie op over het probleem en Logboeken. Azure Network Watcher maakt u een zip-map met de volgende logboekbestanden:
 
@@ -104,10 +107,10 @@ Azure Network Watcher oplossen functie kunt u problemen vaststellen en oplossen 
 | ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als "niet-verbonden." |Nee|
 | ConnectionNotConfiguredOnGateway | De onderliggende service beschikt niet over de verbinding is geconfigureerd. | Ja |
 | ConnectionMarkedStandby | De onderliggende service is gemarkeerd als stand-by.| Ja|
-| Verificatie | Vooraf gedeelde sleutel komt niet overeen. | Ja|
+| Authentication | Vooraf gedeelde sleutel komt niet overeen. | Ja|
 | PeerReachability | De peer-gateway is niet bereikbaar. | Ja|
 | IkePolicyMismatch | De peer-gateway heeft IKE-beleid die niet worden ondersteund door Azure. | Ja|
-| WfpParse fout | Er is een fout opgetreden bij het parseren van het logboek WPF. |Ja|
+| WfpParse Error | Er is een fout opgetreden bij het parseren van het logboek WPF. |Ja|
 
 ## <a name="next-steps"></a>Volgende stappen
 

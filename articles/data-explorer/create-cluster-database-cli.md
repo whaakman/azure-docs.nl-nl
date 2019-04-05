@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Een cluster van Azure Data Explorer en -database maken met behulp van Azure CLI'
 description: Ontdek hoe u een Azure Data Explorer-cluster en -database kunt maken met de Azure CLI
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: 852eb32611f526c6fae4898d2bc85cac0859498f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758428"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043969"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Een cluster van Azure Data Explorer en -database maken met behulp van Azure CLI
 
@@ -111,4 +110,4 @@ U hebt nu een cluster en een database.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)
+> [Quickstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer](python-ingest-data.md)

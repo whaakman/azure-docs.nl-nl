@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891477"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051464"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -56,9 +56,8 @@ Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision
     |__Voedsel__|Geoptimaliseerd voor foto's van maaltijden zoals u ze in een restaurant zou zien. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u het domein Food.|
     |__Oriëntatiepunten__|Geoptimaliseerd voor het herkennen van oriëntatiepunten, natuurlijke en kunstmatige. Dit domein werkt het beste als de oriëntatiepunt duidelijk zichtbaar zijn in de foto is. Dit domein werkt, zelfs als de oriëntatiepunt iets door mensen in het zicht van deze vorm.|
     |__Retail__|Geoptimaliseerd voor afbeeldingen die in een winkelwagen catalogus of webwinkels zijn gevonden. Als u classificeren van hoge precisie tussen japonnen, broeken en shirt wilt, gebruikt u dit domein.|
-    |__Volwassene__|Geoptimaliseerd voor de inhoud voor volwassenen en niet-volwassene inhoud beter definiëren. Bijvoorbeeld, als u blokkeren van installatiekopieën van mensen in bad kleuren wilt, kunt dit domein u een aangepaste classificatie om dit te doen maken.|
     |__Compact domeinen__| Geoptimaliseerd voor de beperkingen van realtime classificatie op mobiele apparaten. De modellen die worden gegenereerd door compact domeinen kunnen worden geëxporteerd als lokaal wilt uitvoeren.|
-    
+
 1. Selecteer ten slotte __project maken__.
 
 ## <a name="choose-training-images"></a>Trainingsafbeeldingen kiezen

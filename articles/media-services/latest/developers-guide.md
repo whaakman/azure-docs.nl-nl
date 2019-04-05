@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755864"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044403"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's
 
@@ -29,13 +29,16 @@ Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-ref) van Me
 
 In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, documentatie. Het bevat ook nuttige informatie voor andere ontwikkelomgevingen.
 
+> [!NOTE]
+> De Azure Media Services v3-SDK's zijn niet noodzakelijkerwijs thread-veilig. Bij het ontwikkelen van een toepassing met meerdere threads, moet u uw eigen logica voor het synchroniseren van thread voor het beveiligen van de client of het gebruik van een nieuw object AzureMediaServicesClient per thread toevoegen. Ook moet u voorzichtig met multithreading problemen geïntroduceerd door optionele objecten die worden geleverd door uw code aan de client (zoals een instantie van HttpClient in .NET).
+
 ## <a name="prerequisites"></a>Vereisten
 
 Als u wilt beginnen met het ontwikkelen met Media Services, hebt u het volgende nodig:
 
 - Een actief Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 - [Meer informatie over basisconcepten](concepts-overview.md)
-- [Een Azure Media Services-account maken - CLI](create-account-cli-how-to.md)
+- [Een Media Services-account maken - CLI](create-account-cli-how-to.md)
 
 ## <a name="start-developing-with-sdks"></a>Begin te ontwikkelen met SDK 's
 

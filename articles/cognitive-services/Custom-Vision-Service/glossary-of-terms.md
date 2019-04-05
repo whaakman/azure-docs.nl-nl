@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352099"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048933"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Verklarende woordenlijst voor Custom Vision Service
 
@@ -32,7 +32,6 @@ Als u een project maakt, selecteert u een "domein" voor dat project. Het domein 
 - **Het domein Food.** Geoptimaliseerd voor gerechten u in een restaurant ziet. Het is niet geoptimaliseerd voor het herkennen van afzonderlijke vruchten of fruit. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u de algemene domein voor dat doel.
 - **Het domein oriëntatiepunt.** Geoptimaliseerd voor het herkennen van oriëntatiepunten, natuurlijke en kunstmatige. Dit domein werkt het beste als de oriëntatiepunt duidelijk zichtbaar zijn in de foto, is zelfs als de oriëntatiepunt iets vorm van een groep mensen die zich ervoor bevinden.
 - **Het domein van een Retailanalyse.** Geoptimaliseerd voor het classificeren afbeeldingen in een winkelwagen catalogus of webwinkels zijn. Als u wilt dat hoge precisie bij het classificeren van japonnen, broeken, shirt, enz., gebruikt u het domein van een Retailanalyse.
-- **Het volwassenen domein.** Geoptimaliseerd voor beter definiëren tussen de inhoud voor volwassenen en niet-volwassene inhoud. Bijvoorbeeld, als u blokkeren van installatiekopieën van mensen in bad kleuren wilt, kunt dit domein u een aangepaste classificatie om dit te doen maken.
 - **De algemene domein.** Geschikt voor een brede verscheidenheid aan taken van installatiekopie-classificatie.
 
 De modellen die worden gegenereerd door **comprimeren domeinen** kunnen worden geëxporteerd met de functionaliteit voor het exporteren van iteratie. Ze zijn geoptimaliseerd voor de beperkingen van realtime classificatie op mobiele apparaten. Classificaties die zijn gebouwd met een compact domein mogelijk iets minder nauwkeurig een standaard domein met dezelfde hoeveelheid trainingsgegevens. Een afweging is dat ze klein genoeg moet lokaal in bijna realtime worden uitgevoerd. 

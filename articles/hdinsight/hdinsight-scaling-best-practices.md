@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316249"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050676"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -22,17 +22,20 @@ HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aanta
 
 Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="utilities-to-scale-clusters"></a>Hulpprogramma's voor het schalen van clusters
 
 Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 
 |Hulpprogramma | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
 |[Azure-CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resourcegroep \<resourcegroep >--naam \<Clusternaam >--target-instance-count \<NewSize >|
 |[CLI van Azure Classic](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren >|
-|[Azure-portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
+|[Azure Portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
 
 ![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -326,4 +329,4 @@ De laatste mogelijkheid is om te bekijken voor de zeldzame gevallen waarin HDFS 
 
 * [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Clusters schalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [HDInsight-clusters beheren met behulp van de Apache Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)

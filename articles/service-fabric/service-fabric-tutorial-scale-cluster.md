@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669500"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049396"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen in Azure
 
@@ -41,12 +41,15 @@ In deze zelfstudiereeks leert u het volgende:
 > * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 > * [Een cluster verwijderen](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) of de [Azure CLI](/cli/azure/install-azure-cli).
+* Installeer [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) of [Azure CLI](/cli/azure/install-azure-cli).
 * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Belangrijke overwegingen en richtlijnen
@@ -98,7 +101,7 @@ Als u inschalen bent, verwijderen van knooppunten van een knooppunttype Brons [d
 Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Of de volgende Azure CLI-opdracht uit:
 ```azure-cli
@@ -804,7 +807,7 @@ In de *parameters.json* bestand, voeg de volgende nieuwe parameters en waarden t
 Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Of de volgende Azure CLI-opdracht uit:
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Na het maken van een Service Fabric-cluster, kunt u een cluster horizontaal schalen door een knooppunttype (virtuele-machineschaalset) en alle bijbehorende knooppunten te verwijderen. U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster. Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
 
 > [!WARNING]
-> Remove-AzureRmServiceFabricNodeType gebruiken om te verwijderen van een knooppunttype uit een productiecluster wordt niet aanbevolen moet regelmatig worden gebruikt. Het is een opdracht als de resource VM scale set achter het knooppunttype worden verwijderd. 
+> Remove-AzServiceFabricNodeType gebruiken om te verwijderen van een knooppunttype uit een productiecluster wordt niet aanbevolen moet regelmatig worden gebruikt. Het is een opdracht als de resource VM scale set achter het knooppunttype worden verwijderd. 
 
-Als u wilt verwijderen van het knooppunttype, voer de [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet.  Het knooppunttype moet Silver- of Gold [duurzaamheidsniveau] [ durability] de cmdlet Hiermee verwijdert u de schaalset die is gekoppeld aan het knooppunttype en duurt enige tijd om te voltooien.  Voer vervolgens de [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet uit op elk van de knooppunten te verwijderen, verwijdert de status en Hiermee verwijdert u de knooppunten van het cluster. Als er services op de knooppunten zijn, klikt u vervolgens de services eerst verplaatst uit naar een ander knooppunt. Als de clustermanager een knooppunt niet voor de replica/service vinden kan, klikt u vervolgens is de bewerking vertraagd/geblokkeerd.
+Als u wilt verwijderen van het knooppunttype, voer de [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  Het knooppunttype moet Silver- of Gold [duurzaamheidsniveau] [ durability] de cmdlet Hiermee verwijdert u de schaalset die is gekoppeld aan het knooppunttype en duurt enige tijd om te voltooien.  Voer vervolgens de [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet uit op elk van de knooppunten te verwijderen, verwijdert de status en Hiermee verwijdert u de knooppunten van het cluster. Als er services op de knooppunten zijn, klikt u vervolgens de services eerst verplaatst uit naar een ander knooppunt. Als de clustermanager een knooppunt niet voor de replica/service vinden kan, klikt u vervolgens is de bewerking vertraagd/geblokkeerd.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ De VM-SKU voor alle drie typen is ingesteld in de *vmImageSku* parameter.  Nogma
 Opslaan van wijzigingen in de *template.json* en *parameters.json* bestanden.  Voer de volgende opdracht voor het implementeren van de bijgewerkte sjabloon:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Of de volgende Azure CLI-opdracht uit:
 ```azure-cli
@@ -874,6 +877,18 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Toevoegen en verwijderen van knooppunten (scale-out en inschalen)
+> * Toevoegen en verwijderen van knooppunttypen (scale-out en inschalen)
+> * Knooppunt-resources (Omhoog schalen) verhogen
+
+Daarna gaat u verder met de volgende zelfstudie, waarin u leert hoe u een upgrade uitvoert van de runtime van een cluster.
+> [!div class="nextstepaction"]
+> [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+ND inschalen))
 > * Toevoegen en verwijderen van knooppunttypen (scale-out en inschalen)
 > * Knooppunt-resources (Omhoog schalen) verhogen
 

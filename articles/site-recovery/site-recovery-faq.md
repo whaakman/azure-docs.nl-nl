@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313365"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050115"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery. 
@@ -36,9 +36,9 @@ Ja, kunt u ondersteunde Azure-VM's repliceren tussen Azure-regio's. [Meer inform
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Wat moet ik in Hyper-V om replicatie met Site Recovery?
 Wat u voor de Hyper-V-hostserver nodig hebt, is afhankelijk van het implementatiescenario. Controleer de lijst met vereisten voor Hyper-V in:
 
-* [Hyper-V-machines (zonder VMM) repliceren naar Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Hyper-V-machines (met VMM) repliceren naar Azure](site-recovery-vmm-to-azure.md)
-* [Hyper-V-machines repliceren naar een secundair datacenter](site-recovery-vmm-to-vmm.md)
+* [Replicating Hyper-V VMs (without VMM) to Azure (Virtuele Hyper-V-machines (zonder VMM) repliceren naar Azure)](site-recovery-hyper-v-site-to-azure.md)
+* [Replicating Hyper-V VMs (with VMM) to Azure (Virtuele Hyper-V-machines (met VMM) repliceren naar Azure)](site-recovery-vmm-to-azure.md)
+* [Replicating Hyper-V VMs to a secondary datacenter (Virtuele Hyper-V-machines repliceren naar een secundair datacenter)](site-recovery-vmm-to-vmm.md)
 * Als u repliceert naar een secundair datacenter meer informatie over [ondersteunde gastbesturingssystemen voor Hyper-V-machines](https://technet.microsoft.com/library/mt126277.aspx).
 * Als u naar Azure repliceert, Site Recovery biedt ondersteuning voor alle gastbesturingssystemen die worden [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -153,7 +153,7 @@ Azure is ontworpen voor herstelbaarheid. Site Recovery is voert automatisch een 
 U kunt een ongeplande failover vanuit de secundaire site activeren. Site Recovery heeft geen connectiviteit vanuit de primaire site nodig om de failover uit te voeren.
 
 ### <a name="is-failover-automatic"></a>Vindt failover automatisch plaats?
-Failover wordt niet automatisch uitgevoerd. Initiëren van failover met één klik in de portal of kunt u [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) dat een failover wordt geactiveerd. Failback is een eenvoudige actie in de Site Recovery-portal.
+Failover wordt niet automatisch uitgevoerd. Initiëren van failover met één klik in de portal of kunt u [Site Recovery PowerShell](/powershell/module/az.recoveryservices) dat een failover wordt geactiveerd. Failback is een eenvoudige actie in de Site Recovery-portal.
 
 Voor het automatiseren van u kunnen on-premises Orchestrator of Operations Manager gebruiken voor het detecteren van een storing van de virtuele machine en vervolgens de failover activeren met de SDK.
 

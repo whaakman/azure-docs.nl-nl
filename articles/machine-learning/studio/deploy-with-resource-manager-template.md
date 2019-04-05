@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 91413aa461261824782717ae4edacc2757ad5405
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648279"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048721"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio-werkruimte met behulp van Azure Resource Manager implementeren
 
 Met behulp van een Azure Resource Manager-sjabloon voor de implementatie u tijd bespaart doordat u een schaalbare manier om te implementeren met elkaar verbonden onderdelen met een validatie en mechanisme voor opnieuw proberen. Als u wilt instellen van Azure Machine Learning Studio-werkruimten, bijvoorbeeld, moet u een Azure storage-account voor het eerst configureert en implementeert u uw werkruimte. Stel dit handmatig doen voor honderden werkruimten. Eenvoudiger alternatief is het gebruik van een Azure Resource Manager-sjabloon om een Studio-werkruimte en alle afhankelijkheden ervan te implementeren. In dit artikel gaat u door dit stapsgewijze proces. Zie voor een goed overzicht van Azure Resource Manager [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Stap voor stap: een Machine Learning-werkruimte maken
 Er wordt een Azure-resourcegroep maken en implementeren van een nieuw Azure storage-account en een nieuwe Azure Machine Learning Studio-werkruimte met behulp van Resource Manager-sjabloon. Zodra de implementatie voltooid is, wordt er belangrijke informatie over de werkruimten die zijn gemaakt (de primaire sleutel, de werkruimte-id en de URL van de werkruimte) afgedrukt.
@@ -83,7 +85,7 @@ Deze sjabloon opslaan als mlworkspace.json bestand onder c:\temp\.
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
-Install-Module AzureRM -Scope CurrentUser
+Install-Module Az -Scope CurrentUser
 
 # Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
 Install-Module Azure -Scope CurrentUser
@@ -95,7 +97,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 Deze stap moet worden herhaald voor elke sessie. Eenmaal is geverifieerd, moet uw abonnementsgegevens worden weergegeven.
 
@@ -106,7 +108,7 @@ Nu we hebben toegang tot Azure, kunnen we de resourcegroep maken.
 * Een resourcegroep maken
 
 ```powershell
-$rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
+$rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
@@ -119,7 +121,7 @@ Naam van de resourcegroep wordt gebruikt door de sjabloon voor het genereren van
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
-$rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
+$rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 Zodra de implementatie is voltooid, is het eenvoudig om de eigenschappen van de werkruimte die u hebt geïmplementeerd. Bijvoorbeeld, u kunt toegang tot de primaire sleutel Token.
@@ -129,11 +131,11 @@ Zodra de implementatie is voltooid, is het eenvoudig om de eigenschappen van de 
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Een andere manier om het ophalen van tokens van bestaande werkruimte is het gebruik van de opdracht Invoke-AzureRmResourceAction. Bijvoorbeeld, kunt u de primaire en secundaire tokens van alle werkruimten weergeven.
+Een andere manier om het ophalen van tokens van bestaande werkruimte is het gebruik van de opdracht Invoke-AzResourceAction. Bijvoorbeeld, kunt u de primaire en secundaire tokens van alle werkruimten weergeven.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Nadat de werkruimte is ingericht, kunt u ook automatiseren veel Azure Machine Learning Studio-taken met behulp van de [PowerShell-Module voor Azure Machine Learning Studio](https://aka.ms/amlps).
 

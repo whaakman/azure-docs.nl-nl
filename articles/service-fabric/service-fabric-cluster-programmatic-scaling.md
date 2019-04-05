@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949607"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047936"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Een Service Fabric-cluster programmatisch schalen 
 
 Service Fabric-clusters die worden uitgevoerd in Azure zijn gebouwd boven op de virtuele-machineschaalsets.  [Clusterschaling](./service-fabric-cluster-scale-up-down.md) beschrijft hoe Service Fabric-clusters kunnen worden geschaald handmatig of met regels voor automatisch schalen. In dit artikel wordt beschreven hoe u referenties beheren en schalen van een cluster in of uit met de fluent Azure compute-SDK, die een meer geavanceerde scenario. Lees voor een overzicht [programmatische methoden voor het coördineren van Azure schalen herverdelen](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Referenties beheren
 Eén uitdaging van het schrijven van een service voor het afhandelen van schalen is dat de service moet toegang hebben tot de virtuele machine schaalsetresources zonder een interactieve aanmelding. Het is eenvoudig om toegang tot de Service Fabric-cluster als de service vergroten/verkleinen is een eigen Service Fabric-toepassing wijzigen, maar de referenties zijn nodig voor toegang tot de schaalset. Om aan te melden, kunt u een [service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) die zijn gemaakt met de [Azure CLI](https://github.com/azure/azure-cli).
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-U kunt ook kan de grootte van virtuele machine scale set ook worden beheerd met PowerShell-cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) de virtuele machine schaalsetobject kunnen worden opgehaald. De huidige capaciteit is beschikbaar via de `.sku.capacity` eigenschap. Na het wijzigen van de capaciteit op de gewenste waarde, de virtuele-machineschaalset in Azure kan worden bijgewerkt met de [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) opdracht.
+U kunt ook kan de grootte van virtuele machine scale set ook worden beheerd met PowerShell-cmdlets. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) de virtuele machine schaalsetobject kunnen worden opgehaald. De huidige capaciteit is beschikbaar via de `.sku.capacity` eigenschap. Na het wijzigen van de capaciteit op de gewenste waarde, de virtuele-machineschaalset in Azure kan worden bijgewerkt met de [ `Update-AzVmss` ](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) opdracht.
 
 Wanneer een knooppunt handmatig toe te voegen, toe te voegen een schaalsetinstantie moet worden bevat alles wat nodig is om te beginnen een nieuw Service Fabric-knooppunt omdat de sjabloon voor schaalsets uitbreidingen automatisch nieuwe exemplaren toevoegen aan de Service Fabric-cluster. 
 

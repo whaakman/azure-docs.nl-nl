@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895610"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046067"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Het Model met de Voorspellings-API gebruiken
 
@@ -45,7 +45,7 @@ Zodra het model is gepubliceerd, kunt u de vereiste gegevens ophalen door het se
 ![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling van URL-waarde voor het gebruik van een afbeeldingsbestand en de voorspelling-sleutel-waarde.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Uw __voorspelling-sleutel__ ook te vinden de [Azure Portal](https://portal.azure.com) pagina voor de aangepaste Vision Azure-Resource die is gekoppeld aan uw project, onder de __sleutels__ blade.
+> Uw __voorspelling-sleutel__ ook te vinden de [Azure-portal](https://portal.azure.com) pagina voor de aangepaste Vision Azure-Resource die is gekoppeld aan uw project, onder de __sleutels__ blade.
 
 In deze handleiding vindt u een lokale installatiekopie gebruiken, dus kopieer de URL onder **hebt u een afbeeldingsbestand** naar een tijdelijke locatie. Kopieer de bijbehorende __voorspelling-sleutel__ waarde ook.
 

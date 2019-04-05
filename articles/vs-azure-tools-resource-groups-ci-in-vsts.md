@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894146"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047315"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
 Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschillende fasen: Bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
@@ -28,6 +28,8 @@ Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschi
 2. Voeg dat meerdere Azure DevOps-Services bouwen stappen, elk ervan een fase-taak uit te voeren.
 
 In dit artikel ziet u beide opties. De eerste optie heeft het voordeel van het gebruik van hetzelfde script gebruikt door ontwikkelaars in Visual Studio en bieden consistentie gedurende de levenscyclus. De tweede optie biedt een alternatief voor het ingebouwde script. Beide procedures wordt ervan uitgegaan dat u hebt al een Visual Studio-implementatieproject ingecheckt in Azure DevOps-Services.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Artefacten kopiëren naar Azure
 Ongeacht het scenario, hebt u alle artefacten die nodig zijn voor de sjabloonimplementatie van de moet u Azure Resource Manager toegang verleent tot ze. Deze artefacten kunnen, zoals bestanden opnemen:
@@ -87,7 +89,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
       
       Gebruik voor PowerShell-scripts:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Gebruik voor Azure CLI:
       
@@ -107,7 +109,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
     ![Pad naar script bewerken][10]
 8. In de **scriptargumenten** voert u de volgende parameters (op één regel). Wanneer u het script in Visual Studio uitvoeren, kunt u zien hoe Visual Studio maakt gebruik van de parameters in de **uitvoer** venster. U kunt dit gebruiken als uitgangspunt voor het instellen van de parameterwaarden in uw build-stap.
    
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die is gebruikt voor deze implementatie. |

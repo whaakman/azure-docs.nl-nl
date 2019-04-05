@@ -1,5 +1,5 @@
 ---
-title: Model interpretability
+title: Interpreteerbaarheid van modellen
 titleSuffix: Azure Machine Learning service
 description: Informatie over het gebruik van de Azure Machine Learning Interpretability SDK waarin wordt uitgelegd waarom het model voorspellingen maakt. Het kan worden gebruikt tijdens de trainings- en inferentietaken om te begrijpen hoe het model voorspellingen maakt.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919723"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051798"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
-Meer informatie over waarin wordt uitgelegd waarom de voorspellingen wordt ontvangen door het model wordt. De Azure Machine Learning Interpretability SDK kunt u met een verklaring van uw model, wat belangrijk is voor de volgende redenen:
+In dit artikel leert u hoe waarin wordt uitgelegd waarom de voorspellingen in uw model worden gemaakt die met behulp van Azure Machine Learning Interpretability SDK. De mogelijkheid om uit te leggen van uw model is het belangrijk om de volgende redenen:
 
 * Klanten en belanghebbenden willen weten **als ze de voorspellingen kunnen vertrouwen kunt u uw model**.
 * Als een gegevenswetenschapper, die u wilt weten **hoe u query's van het model om te zoeken insights**. U moet ook hulpprogramma's om geïnformeerde beslissingen op **over het verbeteren van uw model**.
@@ -27,16 +27,10 @@ Meer informatie over waarin wordt uitgelegd waarom de voorspellingen wordt ontva
 
 Machine learning interpretability is belangrijk in twee fasen van machine learning-ontwikkelingscyclus: **training** tijd en **inferentietaken** tijd:
 
-* Tijdens de **training**: Modelontwerpers en evaluaties vereisen interpretability hulpprogramma's om uit te leggen van de uitvoer van een model belanghebbenden vertrouwen te bouwen. Interpretability hulpprogramma's kunnen u fouten opsporen in het model:
-
-    * Komt met het gedrag van het overeen met de doelen en doelstellingen?
-    * Is het doordat?
-
+* Tijdens de **training**: Modelontwerpers en evaluaties vereisen interpretability hulpprogramma's om uit te leggen van de uitvoer van een model belanghebbenden vertrouwen te bouwen. Ze moeten ook inzicht in het model zodat ze kunnen fouten opsporen in het model en beslissingen te nemen op of het gedrag komt overeen met hun doelstellingen. Tot slot moeten om ervoor te zorgen dat het model niet is gericht.
 * Tijdens de **inferentietaken**: Voorspellingen moeten explainable aan de mensen die gebruikmaken van uw model. Bijvoorbeeld, waarom het model een lening een weigeren of voorspellen dat een beleggingsportefeuille een hoger risico uitvoert?
 
-De Azure Machine Learning Interpretability SDK omvat technologieën die zijn ontwikkeld door Microsoft en bibliotheken van derden (bijvoorbeeld Shapegegevens en LICHTGROEN) een bewezen oplossing. Het biedt een gemeenschappelijke API voor de geïntegreerde bibliotheken en kan worden geïntegreerd met Azure Machine Learning-services. 
-
-Met deze SDK, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
+De Azure Machine Learning Interpretability SDK omvat technologieën die zijn ontwikkeld door Microsoft en bibliotheken van derden (bijvoorbeeld Shapegegevens en LICHTGROEN) een bewezen oplossing. De SDK maakt een gemeenschappelijke API in de geïntegreerde bibliotheken en Azure Machine Learning-services kan worden geïntegreerd. Met deze SDK, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
@@ -48,11 +42,7 @@ Azure Machine Learning Interpretability retourneert een set met informatie over 
 
 * Globale/lokale relatieve functie urgentie
 * Relatie tussen de functie en voorspelling van de globale/lokale
-* Interactieve visualisaties voor:
-
-    * Voorspellingen
-    * Functie- en voorspellingsgegevens relaties
-    * Functie voor relatieve belang waarden globaal en lokaal
+* Interactieve visualisaties met voorspellingen, functie functie en voorspelling relatie, en -relatieve belang waarden globaal en lokaal
 
 ## <a name="architecture"></a>Architectuur
 
@@ -114,11 +104,7 @@ De uitleg-functies accepteren pijplijnen en modellen als invoer. Als een model i
 
 ### <a name="local-and-remote-compute-target"></a>Lokale en externe compute-doel
 
-De SDK Interpretability van Machine Learning is ontworpen voor gebruik met zowel lokale als externe compute-doelen. 
-
-* Als **lokaal**, de SDK geen contact opnemen met de Azure-services.
-
-* Als **op afstand**, informatie over de uitvoering wordt geregistreerd in de Azure Machine Learning uitvoeren geschiedenis-Services. Zodra deze informatie wordt geregistreerd, zijn rapporten en visualisaties uit de uitleg gemakkelijk beschikbaar zijn op de Portal van Azure Machine Learning-werkruimte voor analyse van gebruikers.
+De SDK Interpretability van Machine Learning is ontworpen voor gebruik met zowel lokale als externe compute-doelen. Als lokaal uitvoert, wordt de SDK-functies niet contact op met de Azure-services. U kunt een uitleg op afstand uitvoeren in Azure Machine Learning-Computing en meld u aan de gegevens van de uitleg bij Azure Machine Learning uitvoeren geschiedenis van Services. Zodra deze informatie wordt geregistreerd, zijn rapporten en visualisaties uit de uitleg gemakkelijk beschikbaar zijn op de Portal van Azure Machine Learning-werkruimte voor analyse van gebruikers.
 
 ## <a name="train-and-explain-locally"></a>Trainen en wordt uitgelegd lokaal
 
@@ -138,9 +124,7 @@ De SDK Interpretability van Machine Learning is ontworpen voor gebruik met zowel
     model = clf.fit(x_train, y_train)
     ```
 
-2. Roep de uitleg. Bij het instantiëren van een object uitleg, geeft u het model en trainingsgegevens. U kunt eventueel de functies van belang zijn doorgeven. Als u classificatie, geeft u de namen van de klasse uitvoer.
-
-    Het volgende voorbeeld ziet u hoe u het maken van een uitleg object met [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), en `LimeExplainer` lokaal. `TabularExplainer` roept een van de drie explainers onder (`TreeExplainer`, `DeepExplainer`, of `KernelExplainer`), en is automatisch selecteren van de meest geschikt is voor uw situatie. U kunt echter elk van de drie onderliggende explainers rechtstreeks aanroepen.
+2. Roep de uitleg: Voor het starten van een object uitleg, moet u het model, de trainingsgegevens, de functies van belang (optioneel) en klassenamen uitvoer doorgeven (als classificatie) naar de uitleg. Hier wordt beschreven hoe u exemplaar maken van een uitleg object met [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), en `LimeExplainer` lokaal. `TabularExplainer` roept een van de drie explainers onder (`TreeExplainer`, `DeepExplainer`, of `KernelExplainer`), en is automatisch selecteren van de meest geschikt is voor uw situatie. U kunt echter elk van de drie onderliggende explainers rechtstreeks aanroepen.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Als u wilt een training uitvoeren, volgt u de stappen in de [instellen van compute-doelen voor modeltraining](how-to-set-up-training-targets.md#amlcompute) artikel. Gebruik de stappen voor het maken van een Azure Machine Learning-Computing-doel, en vervolgens verzendt een training uitvoeren.
+2. Volg de instructies op [instellen van compute-doelen voor modeltraining](how-to-set-up-training-targets.md#amlcompute) voor meer informatie over het instellen van een Azure Machine Learning-Computing als uw compute-doel en het verzenden van uw training uitvoeren.
 
 3. Download de uitleg in uw lokaal Jupyter-notitieblok. 
 

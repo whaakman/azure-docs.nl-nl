@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116704"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046016"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Services: Implementatie en verbruik
 
@@ -36,7 +36,7 @@ De volgende koppelingen bieden algemene informatie over het implementeren van ee
 * Voor een overzicht over het maken en implementeren van een webservice, beginnen met [zelfstudie 1: Kredietrisico voorspellen](tutorial-part1-credit-risk.md).
 * Zie voor specifieke voorbeelden die een webservice implementeren:
 
-  * [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
+  * [Zelfstudie 3: Een kredietrisicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
   * [Een webservice implementeren in meerdere regio 's](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Bij de resourceprovider voor web services API's (Azure Resource Manager-API's)
@@ -49,7 +49,7 @@ De Azure Machine Learning Studio-resourceprovider voor web-services kunt impleme
 
 De Azure Machine Learning Studio-resourceprovider voor web-services kunt implementeren en beheren van webservices met behulp van PowerShell-cmdlets.
 
-De cmdlets wilt gebruiken, moet u eerst aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. Als u niet bekend bent met het aanroepen van de PowerShell-opdrachten die zijn gebaseerd op Resource Manager, Zie [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+De cmdlets wilt gebruiken, moet u eerst aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Als u niet bekend bent met het aanroepen van de PowerShell-opdrachten die zijn gebaseerd op Resource Manager, Zie [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Voor het exporteren van uw Voorspellend experiment [deze voorbeeldcode](https://github.com/ritwik20/AzureML-WebServices). Nadat u het .exe-bestand van de code hebt gemaakt, kunt u het volgende typen:
 
@@ -78,7 +78,7 @@ Hier volgt een voorbeeld:
 
 Zie de volgende artikelen en voorbeeldcode voor meer informatie:
 
-* [Azure Machine Learning Studio-Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) verwijzingen op MSDN
+* [Azure Machine Learning Studio-Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) verwijzingen op MSDN
 * Voorbeeld [scenario](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) op GitHub
 
 ## <a name="consume-the-web-services"></a>De webservices gebruiken
@@ -89,7 +89,7 @@ U kunt uw webservice van Azure Machine Learning-webserviceportal testen. Dit omv
 
 * [Een nieuwe webservice implementeren](publish-a-machine-learning-web-service.md)
 * [Een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md)
-* [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
+* [Zelfstudie 3: Een kredietrisicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Vanuit Excel
 

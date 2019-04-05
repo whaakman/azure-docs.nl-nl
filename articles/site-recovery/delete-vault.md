@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f5ce1fa46206588a1c84388b8d543051f97919a3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449176"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045521"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Een Site Recovery Services-kluis verwijderen
 
 Afhankelijkheden kunnen voorkomen dat u een Azure Site Recovery-kluis verwijderen. De acties die u moet uitvoeren, afhankelijk van het scenario voor Site Recovery. Als u wilt verwijderen van een kluis die wordt gebruikt in Azure Backup, Zie [verwijderen van een back-upkluis in Azure](../backup/backup-azure-delete-vault.md).
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="delete-a-site-recovery-vault"></a>Een Site Recovery-kluis verwijderen 
 Als de kluis verwijderen, gaat u als volgt de aanbevolen stappen voor uw scenario.
@@ -65,12 +65,12 @@ Als de kluis verwijderen, gaat u als volgt de aanbevolen stappen voor uw scenari
 
 Als de Site Recovery-kluis verwijderen, zelfs als er beveiligde items, gebruikt u deze opdrachten:
 
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionName "XXXXX"
+    Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
+    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmRecoveryServicesVault -Vault $vault
+    Remove-AzRecoveryServicesVault -Vault $vault
 
-Meer informatie over [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault), en [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault).
+Meer informatie over [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), en [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

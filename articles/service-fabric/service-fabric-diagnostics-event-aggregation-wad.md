@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662785"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046288"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -31,6 +31,9 @@ ms.locfileid: "58662785"
 Wanneer u een Azure Service Fabric-cluster uitvoert, is het een goed idee om de logboeken te verzamelen van alle knooppunten in een centrale locatie. De logboeken die in een centrale locatie, helpt u bij het analyseren en oplossen van problemen in uw cluster, of problemen in de toepassingen en services die worden uitgevoerd in het cluster.
 
 Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de extensie Windows Azure Diagnostics (WAD), die wordt logboeken geüpload naar Azure Storage en bevat ook een optie om Logboeken te verzenden naar Azure Application Insights of Eventhub. U kunt ook een extern proces gebruiken voor de gebeurtenissen kan lezen uit de opslag en plaats deze in een analyse platform product, zoals [logboeken van Azure Monitor](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van Logboeken.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel worden de volgende hulpprogramma's gebruikt:
@@ -71,7 +74,7 @@ Voor het maken van een cluster met behulp van Resource Manager, moet u de config
 
 Als u de instelling voor diagnostische gegevens in het Resource Manager-sjabloon, open het bestand azuredeploy.json en zoeken naar **IaaSDiagnostics**. Voor het maken van een cluster met behulp van deze sjabloon, selecteert u de **implementeren in Azure** knop beschikbaar op de vorige koppeling.
 
-U kunt ook u kunt het Resource Manager-voorbeeld downloaden, wijzigingen aanbrengen en een cluster maken met de gewijzigde sjabloon met behulp van de `New-AzureRmResourceGroupDeployment` opdracht in een Azure PowerShell-venster. Zie de volgende code voor de parameters die u aan de opdracht doorgeeft. Zie het artikel voor gedetailleerde informatie over het implementeren van een resourcegroep met behulp van PowerShell [implementeren van een resourcegroep met de Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md).
+U kunt ook u kunt het Resource Manager-voorbeeld downloaden, wijzigingen aanbrengen en een cluster maken met de gewijzigde sjabloon met behulp van de `New-AzResourceGroupDeployment` opdracht in een Azure PowerShell-venster. Zie de volgende code voor de parameters die u aan de opdracht doorgeeft. Zie het artikel voor gedetailleerde informatie over het implementeren van een resourcegroep met behulp van PowerShell [implementeren van een resourcegroep met de Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>De extensie voor diagnostische gegevens toevoegen aan een bestaand cluster
 Hebt u een bestaand cluster die geen diagnostische gegevens die zijn geïmplementeerd, kunt u deze kunt toevoegen of bijwerken via de clustersjabloon. Wijzig de Resource Manager-sjabloon die wordt gebruikt voor het maken van het bestaande cluster of de sjabloon downloaden via de portal zoals eerder beschreven. Wijzig het template.json-bestand door het uitvoeren van de volgende taken:
@@ -269,7 +272,7 @@ Om in te schakelen de **Base operationele kanaal** onze aanbeveling voor uitgebr
 
 Voor het bijwerken van diagnostische gegevens voor het verzamelen van Logboeken van nieuwe kanalen voor de gebeurtenisbron die staan voor een nieuwe toepassing bent over het implementeren, uit te voeren dezelfde cluster stappen zoals eerder beschreven voor het instellen van diagnostische gegevens voor een bestaand.
 
-Update de `EtwEventSourceProviderConfiguration` sectie in het template.json-bestand om toe te voegen vermeldingen voor de nieuwe kanalen voor de gebeurtenisbron voordat u de configuratie van de toepassing met behulp van bijwerken de `New-AzureRmResourceGroupDeployment` PowerShell-opdracht. De naam van de bron van de gebeurtenis wordt gedefinieerd als onderdeel van uw code in het bestand ServiceEventSource.cs Visual Studio gegenereerd.
+Update de `EtwEventSourceProviderConfiguration` sectie in het template.json-bestand om toe te voegen vermeldingen voor de nieuwe kanalen voor de gebeurtenisbron voordat u de configuratie van de toepassing met behulp van bijwerken de `New-AzResourceGroupDeployment` PowerShell-opdracht. De naam van de bron van de gebeurtenis wordt gedefinieerd als onderdeel van uw code in het bestand ServiceEventSource.cs Visual Studio gegenereerd.
 
 Bijvoorbeeld, als uw gebeurtenisbron de naam van mijn Eventsource, de volgende code om de gebeurtenissen uit mijn Eventsource in een tabel met de naam MyDestinationTableName toevoegen.
 
@@ -346,5 +349,7 @@ Wanneer u Azure diagnostics correct hebt geconfigureerd, ziet u gegevens in uw S
 >Er is momenteel geen manier om te filteren of opschonen van de gebeurtenissen die worden verzonden naar de tabel. Als een proces voor het verwijderen van gebeurtenissen uit de tabel niet is geïmplementeerd, blijft de tabel om te groeien. Er is momenteel een voorbeeld van een gegevensservice opschonen die wordt uitgevoerd in de [Watchdog voorbeeld](https://github.com/Azure-Samples/service-fabric-watchdog-service), en wordt aanbevolen dat u een zelf ook, schrijven, tenzij er is een goede reden voor het opslaan van Logboeken na een periode 30 of 90 dagen.
 
 * [Meer informatie over het verzamelen van prestatiemeteritems of de logboeken met behulp van de extensie voor diagnostische gegevens](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Gebeurtenis analyses en visualisatie met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken](service-fabric-diagnostics-event-analysis-oms.md)
 * [Gebeurtenis analyses en visualisatie met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken](service-fabric-diagnostics-event-analysis-oms.md)

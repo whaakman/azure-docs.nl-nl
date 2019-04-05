@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670248"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049894"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric-netwerkpatronen
 U kunt uw Azure Service Fabric-cluster integreren met andere Azure-netwerkfuncties. In dit artikel hebben we laten zien hoe u het maken van clusters die gebruikmaken van de volgende functies:
@@ -34,6 +34,9 @@ Service Fabric wordt uitgevoerd in een standaard virtuele-machineschaalset. Alle
 Service Fabric is van andere netwerkfuncties in slechts één aspect uniek. De [Azure-portal](https://portal.azure.com) intern maakt gebruik van de resourceprovider voor Service Fabric om aan te roepen met een cluster voor informatie over de knooppunten en toepassingen. De Service Fabric-resourceprovider vereist openbaar toegankelijke binnenkomende toegang tot de HTTP-gateway-poort (standaard poort 19080,) op het beheereindpunt. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) maakt gebruik van het eindpunt voor het beheren van uw cluster. De resourceprovider voor Service Fabric gebruikt deze poort om informatie over uw cluster ook om weer te geven in de Azure-portal. 
 
 Als poort 19080 niet toegankelijk is vanaf de resourceprovider voor Service Fabric, een bericht zoals *knooppunten gevonden* wordt weergegeven in de portal en de lijst met knooppunt en de toepassing is leeg. Als u zien van uw cluster in Azure portal wilt, de load balancer moet beschikbaar stellen een openbaar IP-adres en de netwerkbeveiligingsgroep moet binnenkomend verkeer van poort 19080 toestaan. Als de installatie voldoet niet aan deze vereisten, wordt de Azure-portal niet de status van het cluster weergegeven.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Sjablonen
 
@@ -51,7 +54,7 @@ In het volgende voorbeeld beginnen we met een bestaand virtueel netwerk met de n
 Een statisch openbaar IP-adres is in het algemeen een toegewezen resource die afzonderlijk wordt beheerd via de virtuele machine of virtuele machines die is toegewezen. Het wordt ingericht in een speciale netwerkresourcegroep (in plaats om te groeperen in de Service Fabric-clusterresource zelf). Maak een statisch openbaar IP-adres met de naam staticIP1 in dezelfde ExistingRG resourcegroep bevinden, in de Azure portal of met behulp van PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. D
 6. De sjabloon implementeren:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Na de implementatie, het virtuele netwerk moet bevatten de nieuwe virtuele machines met schaalsets. Het knooppunttype VM scale set moet het bestaande virtuele netwerk en subnet worden weergegeven. U kunt Remote Desktop Protocol (RDP) ook gebruiken voor toegang tot de virtuele machine die zich al in het virtuele netwerk en stel de nieuwe schaal ping VM's:
@@ -276,13 +279,13 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 8. De sjabloon implementeren:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Na de implementatie, kunt u zien dat de load balancer is gebonden aan het openbare statische IP-adres uit de andere resourcegroep. Het eindpunt van de clientverbinding Service Fabric en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint-punt op de DNS-FQDN van het statische IP-adres.
@@ -378,9 +381,9 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 7. De sjabloon implementeren:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Na de implementatie maakt gebruik van de load balancer het statische 10.0.0.250 privé IP-adres. Als u een andere computer in hetzelfde virtuele netwerk hebt, gaat u naar de interne [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eindpunt. Houd er rekening mee dat deze verbinding met een van de knooppunten achter de load balancer maakt.
@@ -595,9 +598,15 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 7. De sjabloon implementeren:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Na de implementatie ziet u twee load balancers in de resourcegroep. Als u de load balancers bladert, ziet u het openbare IP-adres en het beheer eindpunten (poorten 19000 en 19080) toegewezen aan het openbare IP-adres. Ook ziet u de statische interne IP-adres en de toepassing-eindpunt (poort 80) toegewezen aan de interne load balancer. Beide functies voor taakverdeling gebruiken de dezelfde VM scale set back-endgroep.
+
+## <a name="next-steps"></a>Volgende stappen
+[Create a cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Na de implementatie ziet u twee load balancers in de resourcegroep. Als u de load balancers bladert, ziet u het openbare IP-adres en het beheer eindpunten (poorten 19000 en 19080) toegewezen aan het openbare IP-adres. Ook ziet u de statische interne IP-adres en de toepassing-eindpunt (poort 80) toegewezen aan de interne load balancer. Beide functies voor taakverdeling gebruiken de dezelfde VM scale set back-endgroep.
