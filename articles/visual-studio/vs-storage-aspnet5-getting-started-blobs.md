@@ -23,17 +23,17 @@ ms.locfileid: "42054316"
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-In dit artikel wordt beschreven hoe u aan de slag met Azure Blob-opslag in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een ASP.NET Core-project waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services** functie. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en de verbindingsreeks voor het opslagaccount toegevoegd aan uw project-configuratiebestanden. (Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
+In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure Blob Storage in Visual Studio nadat u een Azure-opslagaccount hebt gemaakt of ernaar hebt verwezen in een ASP.NET Core-project met de functie Visual Studio **Connected Services**. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en voegt de connectiestring voor het opslagaccount toe aan uw project-configuratiebestanden. (Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
 
-Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Één blob kan elke grootte zijn. BLOBs kunnen zijn items zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden. In dit artikel wordt beschreven hoe u aan de slag met blob-opslag, nadat u een Azure storage-account hebt gemaakt met behulp van de Visual Studio **Connected Services** in een ASP.NET Core-project.
+Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Een enkele blob kan elke grootte zijn. Blobs kunnen items zijn zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden. In dit artikel wordt beschreven hoe u aan de slag kunt met blob-opslag, nadat u een Azure storage-account hebt gemaakt met behulp van de Visual Studio **Connected Services** in een ASP.NET Core-project.
 
-Net zoals u bestanden in mappen woont, live storage-blobs in containers. Nadat u een blob hebt gemaakt, maakt u een of meer containers in die blob. Bijvoorbeeld in een blob met de naam 'Plakboek', kunt u containers met de naam 'installatiekopieën' voor het opslaan van foto's maken en een andere naam "audio" audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke bestanden uploaden naar deze. Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) voor meer informatie over het bewerken van blobs via een programma.
+Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een blob hebt gemaakt, maakt u een of meer containers in die blob. Bijvoorbeeld in een blob met de naam 'Plakboek', kunt u containers met de naam 'afbeeldingen' voor het opslaan van foto's maken en een andere met de naam "audio" waar u audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke bestanden er naar toe uploaden. Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) voor meer informatie over het bewerken van blobs via een programma.
 
-Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel wordt ervan uitgegaan dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
+Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel gaat ervan uit dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
 
 ## <a name="access-blob-containers-in-code"></a>Toegang tot blob-containers in code
 
-Om programmatisch toegang verkrijgen tot de blobs in ASP.NET Core-projecten, moet u de volgende code toevoegen als dit nog niet geïnstalleerd:
+Om programmatisch toegang verkrijgen tot de blobs in ASP.NET Core-projecten, moet u de volgende code toevoegen als dit er nog niet staat:
 
 1. Toevoegen van de benodigde `using` instructies:
 
@@ -45,7 +45,7 @@ Om programmatisch toegang verkrijgen tot de blobs in ASP.NET Core-projecten, moe
     using LogLevel = Microsoft.Extensions.Logging.LogLevel;
     ```
 
-1. Krijgen een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service:
+1. Maak een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code om de connectiestring van de opslag en gegevens over het opslagaccount op te halen uit de configuratie van de Azure-service:
 
     ```cs
      CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -54,7 +54,7 @@ Om programmatisch toegang verkrijgen tot de blobs in ASP.NET Core-projecten, moe
         "<access-key>"), true);
     ```
 
-1. Gebruik een `CloudBlobClient` object aan een `CloudBlobContainer` verwijzing naar een bestaande container in uw storage-account:
+1. Gebruik een `CloudBlobClient` object om een `CloudBlobContainer` verwijzing te krijgen naar een bestaande container in uw storage-account:
 
     ```cs
     // Create a blob client.
@@ -66,7 +66,7 @@ Om programmatisch toegang verkrijgen tot de blobs in ASP.NET Core-projecten, moe
 
 ## <a name="create-a-container-in-code"></a>Een container in code maken
 
-U kunt ook de `CloudBlobClient` naar een container in uw storage-account maken door het aanroepen van `CreateIfNotExistsAsync`:
+U kunt ook de `CloudBlobClient` gebruiken om een container in uw storage-account te maken door het aanroepen van `CreateIfNotExistsAsync`:
 
 ```cs
 // Create a blob client.
@@ -79,7 +79,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("my-new-containe
 await container.CreateIfNotExistsAsync();
 ```
 
-Als u wilt de bestanden in de container beschikbaar maken voor iedereen, stelt u de container openbaar:
+Als u de bestanden in de container beschikbaar wilt maken voor iedereen, stelt u de container openbaar:
 
 ```cs
 await container.SetPermissionsAsync(new BlobContainerPermissions
@@ -90,7 +90,7 @@ await container.SetPermissionsAsync(new BlobContainerPermissions
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
 
-Als u wilt een blob-bestand uploaden naar een container, een containerverwijzing ophalen en deze gebruiken om te een blobverwijzing ophalen. Vervolgens elke gewenste gegevensstroom gegevens uploaden naar die verwijzen naar door het aanroepen van de `UploadFromStreamAsync` methode. Met deze bewerking wordt de blob gemaakt als deze nog niet is ingevuld, of een bestaande blob wordt overschreven. 
+Als u een blob-bestand wilt uploaden in een container, haal dan een containerverwijzing op en gebruik deze om te een blobverwijzing te krijgen. Upload vervolgens elke gegevensstroom naar die referentie door de methode `UploadFromStreamAsync` aan te roepen. Met deze bewerking wordt de blob gemaakt als deze nog niet is ingevuld, of een bestaande blob wordt overschreven. 
 
 ```cs
 // Get a reference to a blob named "myblob".
@@ -106,7 +106,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Als u wilt de blobs in een container te vermelden, eerste get een containerverwijzing, roept u vervolgens de `ListBlobsSegmentedAsync` methode voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde `IListBlobItem`, dit casten naar een `CloudBlockBlob`, `CloudPageBlob`, of `CloudBlobDirectory` object. Als u niet weet het blobtype wat, kunt u typecontrole gebruiken om te bepalen welke dit casten naar.
+Als u de blobs in een container in een lijst wilt plaatsen, haal dan eerst een containerverwijzing op, vervolgens roept u de methode `ListBlobsSegmentedAsync` aan voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden van een geretourneerd `IListBlobItem`, zet deze om naar een `CloudBlockBlob`, `CloudPageBlob`, of `CloudBlobDirectory` object. Als u het blobtype niet weet, kunt u een typecontrole gebruiken om te bepalen waar u deze naar kunt omzetten.
 
 ```cs
 BlobContinuationToken token = null;
@@ -144,7 +144,7 @@ Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../st
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
-Voor het downloaden van een blob, het eerste get een verwijzing naar de blob, roept u vervolgens de `DownloadToStreamAsync` methode. Het volgende voorbeeld wordt de `DownloadToStreamAsync` methode voor het overdragen van de blob-inhoud naar een stroomobject, dat u kunt vervolgens opslaan als een lokaal bestand.
+Als u een blob wilt downloaden, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DownloadToStreamAsync` gebruiken. In het volgende voorbeeld wordt de methode `DownloadToStreamAsync` gebruikt om de blob-inhoud over te zetten naar een stroomobject dat u vervolgens kunt opslaan als een lokaal bestand.
 
 ```cs
 // Get a reference to a blob named "photo1.jpg".
@@ -160,8 +160,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) voor andere manieren om het opslaan van blobs als bestanden.
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
-
-Als u wilt verwijderen van een blob, het eerste get een verwijzing naar de blob, roept u vervolgens de `DeleteAsync` methode:
+Als u een blob wilt verwijderen, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DeleteAsync` aanroepen:
 
 ```cs
 // Get a reference to a blob named "myblob.txt".
