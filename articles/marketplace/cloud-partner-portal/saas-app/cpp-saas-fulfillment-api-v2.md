@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878023"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59010564"
 ---
-# <a name="saas-fulfillment-api"></a>Afhandeling van SaaS API
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
 
 Dit artikel worden de API waarmee u independent software vendors (ISV) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API maakt het ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Deze API is een vereiste voor aanbieding dat transactable SaaS-aanbiedingen op Azure Marketplace.
 
@@ -73,14 +73,34 @@ Deze status geeft aan dat de betaling van een klant is niet ontvangen. Door het 
 
 Abonnementen contact opnemen met deze status bij een expliciete klantaanvraag of als reactie op niet-betaling van bijdragen. De verwachting van de ISV is dat de gegevens van de klant voor herstel op aanvraag voor een minimum van X dagen behouden en vervolgens verwijderd. 
 
+
 ## <a name="api-reference"></a>API-verwijzing
 
-In deze sectie worden de SaaS *abonnement API* en *Operations API*.
+In deze sectie worden de SaaS *abonnement API* en *Operations API*.  De waarde van de `api-version` parameter voor versie 2-API's is `2018-08-31`.  
+
+
+### <a name="parameter-and-entity-definitions"></a>Definities van parameter en de entiteit
+
+De volgende tabel bevat de definities voor de algemene parameters en entiteiten die worden gebruikt door uitvoering API's.
+
+|     Entity/Parameter     |     Definitie                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | GUID-id voor een SaaS-resource  |
+| `name`                   | Beschrijvende naam voor deze resource is opgegeven door de klant |
+| `publisherId`            | De unieke tekenreeks-id automatisch gegenereerd voor elke uitgever, bijvoorbeeld "conotosocorporation" |
+| `offerId`                | De unieke tekenreeks-id automatisch gegenereerd voor elke aanbieding, bijvoorbeeld "contosooffer1"  |
+| `planId`                 | De unieke tekenreeks-id automatisch gegenereerd voor elk abonnement of welke sku, bijvoorbeeld "contosobasicplan" |
+| `operationId`            | GUID-id voor een bepaalde bewerking  |
+|  `action`                | De actie wordt uitgevoerd op een resource, ofwel `subscribe`, `unsubscribe`, `suspend`, `reinstate`, of `changePlan`  |
+|   |   |
+
+Unieke id's ([GUID's](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 128-bits (32 hexadecimale) getallen die worden doorgaans automatisch gegenereerd. 
 
 
 ### <a name="subscription-api"></a>Abonnement API
 
 Het abonnement API ondersteunt de volgende bewerkingen uit HTTPS: **Ophalen**, **Post**, **Patch**, en **verwijderen**.
+
 
 #### <a name="list-subscriptions"></a>Een lijst met abonnementen maken
 
@@ -106,34 +126,37 @@ Geeft een lijst van de SaaS-abonnementen voor een uitgever.
 *Responscodes:*
 
 Code: 200<br>
-Op basis van het token get auth de uitgever en de bijbehorende abonnementen voor aanbiedingen van de uitgever.<br> Payload van he antwoord:<br>
+Op basis van het token authN, krijgen de uitgever en de bijbehorende abonnementen voor aanbiedingen van de uitgever.<br> Payload van he antwoord:<br>
 
 ```json
 {
-  "subscriptions": [
+  [
       {
-          "id": "",
-          "name": "CloudEndure for Production use",
-          "publisherId": "cloudendure",
-          "offerId": "ce-dr-tier2",
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "cont-cld-tier2",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "status": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+
+Het vervolgtoken is alleen aanwezig als u extra "'s' van plannen om op te halen. 
+
 
 Code: 403 <br>
 Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig, of de aanvraag is het openen van een verzameling die geen deel van de huidige gebruiker uitmaken. 
@@ -174,22 +197,22 @@ Hiermee haalt u het opgegeven SaaS-abonnement. Gebruik deze aanroep voor het oph
 *Responscodes:*
 
 Code: 200<br>
-Saas-abonnement uit-id opgehaald<br> Payload van he antwoord:<br>
+SaaS-abonnement uit-id opgehaald<br> Payload van he antwoord:<br>
 
 ```json
 Response Body:
 { 
         "id":"",
-        "name":"CloudEndure for Production use",
-        "publisherId": "cloudendure",
-        "offerId": "ce-dr-tier2",
+        "name":"Contoso Cloud Solution",
+        "publisherId": "contoso",
+        "offerId": "cont-cld-tier2",
         "planId": "silver",
         "quantity": "10"",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
@@ -240,25 +263,23 @@ Gebruik deze aanroep om erachter te komen of er geen persoonlijke/openbare aanbi
 Code: 200<br>
 Een lijst met beschikbare abonnementen ophalen voor een klant.<br>
 
+Hoofdtekst van antwoord:
+
 ```json
-Response Body:
-[{
-    "planId": "silver",
-    "displayName": "Silver",
-    "isPrivate": false
-},
 {
-    "planId": "silver-private",
-    "displayName": "Silver-private",
-    "isPrivate": true
-}]
+    "plans": [{
+        "planId": "Platinum001",
+        "displayName": "Private platinum plan for Contoso",
+        "isPrivate": true
+    }]
+}
 ```
 
 Code: 404<br>
 Niet gevonden<br> 
 
 Code: 403<br>
-Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig of de aanvraag is het openen van een verzameling die geen deel van de huidige gebruiker uitmaken. <br> 
+Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig, of de aanvraag is het openen van een verzameling die geen deel van de huidige gebruiker uitmaken. <br> 
 
 Code: 500<br>
 Interne serverfout<br>
@@ -301,12 +322,12 @@ De ondoorzichtige token worden omgezet in een SaaS-abonnement.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",  
-    "subscriptionName": "My Saas application",
-    "offerId": "ce-dr-tier2",
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "cont-cld-tier2",
     "planId": "silver",
     "quantity": "20",
-    "operationId": " be750acb-00aa-4a02-86bc-476cbe66d7fa"  
+    "operationId": "<guid>"  
 }
 ```
 
@@ -348,7 +369,7 @@ Interne serverfout
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Dit komt overeen met alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
+|  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Deze tekenreeks correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |  JSON web token (JWT) bearer-token |
 
 *Aanvraag:*
@@ -511,7 +532,7 @@ De operations-API ondersteunt de volgende Patch en Get-bewerkingen.
 
 Een abonnement bijwerken met de opgegeven waarden.
 
-**Patch voor:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**Patch voor:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Queryparameters:*
 
@@ -534,15 +555,15 @@ Een abonnement bijwerken met de opgegeven waarden.
 
 ```json
 {
-    "planId": "",
-    "quantity": "",
+    "planId": "cont-cld-tier2",
+    "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
 ```
 
 *Responscodes:*
 
-Code: 200<br> Aanroepen voor het op de hoogte van een bewerking aan de ISV is voltooid. Dit kan bijvoorbeeld worden gewijzigd van seats/abonnementen.
+Code: 200<br> Aanroepen voor het op de hoogte van een bewerking aan de ISV is voltooid. Deze reactie kan bijvoorbeeld duiden dat de wijziging van de seats/abonnementen.
 
 Code: 404<br>
 Niet gevonden
@@ -551,7 +572,7 @@ Code: 400<br>
 Ongeldige aanvraag-validatiefouten
 
 Code: 403<br>
-Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig of de aanvraag is het openen van een verzameling die geen deel van de huidige gebruiker uitmaken.
+Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig, of de aanvraag is het openen van een verzameling die geen deel van de huidige gebruiker uitmaken.
 
 Code: 409<br>
 Een conflict. Bijvoorbeeld, is een nieuwe transactie al voldaan
@@ -597,11 +618,11 @@ Payload van he antwoord:
 
 ```json
 [{
-    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",  
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
@@ -634,7 +655,7 @@ Interne serverfout
 
 #### <a name="get-operation-status"></a>Bewerkingsstatus ophalen
 
-Kan de gebruiker voor het bijhouden van de status van een geactiveerde asynchrone bewerking (aanmelden/afmelden/wijzigen-plan).
+Kan de gebruiker voor het bijhouden van de status van de opgegeven geactiveerde asynchrone bewerking (aanmelden/afmelden/wijzigen-plan).
 
 **Toevoegen:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -653,23 +674,23 @@ Kan de gebruiker voor het bijhouden van de status van een geactiveerde asynchron
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     | De JSON web token (JWT) bearer-token.  |
 
-*Responscodes:* Code: 200<br> Hiermee haalt u de lijst van alle in behandeling SaaS-bewerkingen<br>
+*Responscodes:* Code: 200<br> Met deze eigenschap wordt de opgegeven SaaS-bewerking in behandeling<br>
 Payload van he antwoord:
 
 ```json
 Response body:
-[{
-    "id  ": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
     "timeStamp": "2018-12-01T00:00:00",
     "status": "NotStarted"
-}]
+}
 
 ```
 
@@ -700,11 +721,11 @@ De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen ge
 
 ```json
 {
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
     "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
@@ -713,14 +734,12 @@ De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen ge
 
 ```
 
-<!-- Review following, might not be needed when this publishes -->
-
 
 ## <a name="mock-api"></a>Mock API
 
-U kunt onze mock API's gebruiken om u aan de slag met ontwikkelen, met name ontwikkelen van prototypen en testen projecten te helpen. 
+U kunt onze mock API's gebruiken om u aan de slag met ontwikkelen, met name prototypen te helpen en testen van projecten. 
 
-Eindpunt voor de host: https://marketplaceapi.microsoft.com/api API-versie: 2018-09-15 geen verificatie vereist voorbeeld Uri: https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15
+Eindpunt voor de host: `https://marketplaceapi.microsoft.com/api` API-versie: `2018-09-15` Geen verificatie vereist voorbeeld Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
 
 Een van de API-aanroepen in dit artikel kan worden gemaakt met het eindpunt mock-host. U kunt verwachten mock-gegevens weer als een antwoord op te halen.
 

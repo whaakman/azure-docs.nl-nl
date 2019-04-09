@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856087"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010155"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019 April release
+
+**Nieuwe functies** 
+
+* De SDK biedt nu ondersteuning voor de Text to Speech-service als een beta-versie. Dit wordt ondersteund in Windows en Linux-Desktop via C++, C#, en Java. Voor meer informatie of de [Text to Speech overzicht](text-to-speech.md#get-started-with-text-to-speech).
+* De SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audiobestanden als invoerbestanden stream. Deze functie is alleen beschikbaar op Linux via C++ en C# en is momenteel in de bètafase (meer informatie [hier](how-to-use-compressed-audio-input-streams.md)).
+* De spraak-SDK voor Java, .NET core, C++ en Objective-C hebben opgedaan met ondersteuning voor macOS. De Objective-C-ondersteuning voor macOS is momenteel in de bètafase bevindt.
+* iOS: De spraak-SDK voor iOS (Objective-C) is nu ook gepubliceerd als een CocoaPod.
+* JavaScript: Ondersteuning voor niet-standaard microfoon als een apparaat voor invoer.
+* JavaScript: Proxy-ondersteuning voor Node.js.
+
+**Voorbeelden**
+
+* Voorbeelden voor het gebruik van de spraak-SDK met C++ en Objective-C in macOS zijn toegevoegd.
+* Voorbeelden van het gebruik van de Text to Speech-service zijn toegevoegd.
+
+**Verbeteringen / gewijzigd**
+
+* Python: Aanvullende eigenschappen van de resultaten zijn nu beschikbaar via de `properties` eigenschap.
+* Voor aanvullende ondersteuning voor ontwikkeling en foutopsporing kunt u SDK-logboekregistratie en diagnostische gegevens in een logboekbestand omleiden (meer informatie [hier](how-to-use-logging.md)).
+* JavaScript: De van audio-verwerkingsprestaties verbeteren.
+
+**Opgeloste fouten**
+
+* Mac/iOS: Een bug die hebben geleid tot een lange wachttijd wanneer een verbinding met de Speech-Service kan niet worden gemaakt, is opgelost.
+* Python: de foutafhandeling voor argumenten in Python callbacks verbeteren.
+* JavaScript: Vaste juiste status voor spraak reporting is op RequestSession beëindigd.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Februari 2019 vernieuwen
 
@@ -66,7 +94,7 @@ De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https:/
 * Windows-DLL's bevat nu een versie-resource.
 * Als u een kenmerk maakt `FromEndpoint` kunt u parameters rechtstreeks aan de eindpunt-URL toevoegen. Met behulp van `FromEndpoint` kunt u de herkenning via de standaard configuratie-eigenschappen niet configureren.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 * Lege proxygebruikersnaam en wachtwoord voor proxy zijn niet correct verwerkt. Met deze release, als u de proxygebruikersnaam en wachtwoord voor proxy hebt ingesteld op een lege tekenreeks zullen ze niet worden verzonden bij het verbinden met de proxy.
 * De sessie-id die zijn gemaakt door de SDK zijn niet altijd volledig willekeurige voor sommige talen&nbsp;/ omgevingen. De initialisatie van de generator van willekeurige u kunt dit verhelpen toegevoegd.
@@ -107,7 +135,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 * Verbeterde foutrapportage / gegevens. In enkele gevallen zijn foutberichten niet helemaal af doorgegeven.
 * Ontwikkeling van afhankelijkheden in JavaScript, kunnen gebruikmaken van recente modules bijgewerkt.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 * Vaste geheugenlekken vanwege een niet-overeenkomend gegevenstype in RecognizeAsync.
 * In sommige gevallen zijn uitzonderingen worden gelekt.
@@ -139,7 +167,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 * Verbeterde verwerking van ervaren stilte in het midden van een geluidsbestand.
 * NuGet-pakket: .NET Framework-projecten, voorkomt u dat bouwen met configuratie/platform.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 * Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Bovendien zijn uitzonderingen onderschept en geconverteerd naar geannuleerde gebeurtenis.
 * Een geheugenlek in de eigenschap management oplossen.
@@ -177,7 +205,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Ondersteuning voor Objective-C in iOS. Bekijk onze [Objective-C-Snelstartgids voor iOS](quickstart-objectivec-ios.md).
 * Ondersteuning voor JavaScript in browser. Bekijk onze [JavaScript-snelstartgids](quickstart-js-browser.md).
 
-**Belangrijke wijzigingen**
+**Wijzigingen die fouten veroorzaken**
 
 * Met deze release zijn een aantal belangrijke wijzigingen zijn geïntroduceerd.
   Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
@@ -196,12 +224,12 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 * Aanvullende foutgegevens details op verbindingsfouten worden blootgesteld.
 
-**Belangrijke wijzigingen**
+**Wijzigingen die fouten veroorzaken**
 
 * Java (Android), de `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` functie vereist niet langer een padparameter. Het pad wordt nu automatisch gedetecteerd op alle ondersteunde platforms.
 * De get-accessor van de eigenschap `EndpointUrl` in Java en C# is verwijderd.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 * In Java, is het resultaat audio synthese op de vertaling herkenning nu geïmplementeerd.
 * Een opgelost dat leiden niet-actieve threads en een toenemend aantal open en niet-gebruikte sockets tot kan.
@@ -225,7 +253,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Het herkenningsresultaat bevat meer velden. Ze worden verschoven ten opzichte van de audio begin en de duur (zowel in tikken) van de herkende tekst en aanvullende waarden die staan voor herkenning van status, bijvoorbeeld `InitialSilenceTimeout` en `InitialBabbleTimeout`.
 * Ondersteuning voor AuthorizationToken voor het maken van factory-exemplaren.
 
-**Belangrijke wijzigingen**
+**Wijzigingen die fouten veroorzaken**
 
 * Herkenning van gebeurtenissen: Gebeurtenistype NoMatch is samengevoegd met de fout-gebeurtenis.
 * Uitvoerindeling om te blijven met C++ uitgelijnde is SpeechOutputFormat in C# gewijzigd.
@@ -235,7 +263,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
    * In C++ kunt de `Read` en `GetFormat` methoden nu terug `size_t` in plaats van `int`.
 * C++: Exemplaren van invoer audiostreams nu kunnen worden doorgegeven als een `shared_ptr`.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 * Onjuiste retourwaarden, het resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
 * De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK gebruikt nu Core Audio-API's.
@@ -261,7 +289,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 - Gewijzigd in `SpeechRecognitionResult.Text` van `SpeechRecognitionResult.RecognizedText` in C#.
 
-**Oplossingen voor problemen**
+**Opgeloste fouten**
 
 - Een mogelijke retouraanroep-probleem opgelost in de laag USP tijdens het afsluiten.
 

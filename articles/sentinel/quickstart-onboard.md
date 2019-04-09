@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399685"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006586"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
 
@@ -36,21 +36,19 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 
 ## <a name="global-prerequisites"></a>Algemene vereisten
 
-- Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+- Actieve Azure-abonnement, als u nog geen hebt, maak een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 - Log Analytics-werkruimte. Meer informatie over het [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Inzender voor machtigingen aan uw tenant om in te schakelen Azure Sentinel
-
-- Globale tenant of beheerder beveiligingsmachtigingen
- 
+    - Inzender voor machtigingen voor de resourcegroep die is gekoppeld aan Azure Sentinel
+    - Inzender voor machtigingen aan de resourcegroep om in te schakelen Azure Sentinel 
 
 ## Azure Sentinel inschakelen <a name="enable"></a>
 
 1. Ga in de Azure-portal.
 2. Zorg ervoor dat het abonnement waarin Azure Sentinel is gemaakt, is geselecteerd. 
 3. Zoeken naar Azure Sentinel. 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![zoeken](./media/quickstart-onboard/search-product.png)
 
 1. Klik op **+ toevoegen**.
 1. Selecteer de werkruimte die u wilt gebruiken of een nieuwe maken. U kunt Azure Sentinel uitvoeren op meer dan één werkruimte, maar de gegevens is geïsoleerd voor één werkruimte.

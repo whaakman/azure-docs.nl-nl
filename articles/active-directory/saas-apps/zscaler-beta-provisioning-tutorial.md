@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 47cfa5b2d97148c6b925a071f46518afd3ec8d5e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54cf2924a94dda1d29baf048c866f019b82e1402
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109641"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056449"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Zelfstudie: Zscaler bèta configureren voor het automatisch inrichten van gebruikers
 
@@ -27,46 +28,42 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
+
 > Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
-*   Een Azure AD-tenant
-*   Een bètaversie van de Zscaler-tenant
-*   Een gebruikersaccount in de bètafase Zscaler met beheerdersmachtigingen
+* Een Azure AD-tenant
+* Een bètaversie van de Zscaler-tenant
+* Een gebruikersaccount in de bètafase Zscaler met beheerdersmachtigingen
 
 > [!NOTE]
 > De integratie van Azure AD-inrichting is afhankelijk van de Zscaler bèta SCIM API, die voor ontwikkelaars van de Zscaler Bèta voor accounts met het Enterprise-pakket beschikbaar is.
 
 ## <a name="adding-zscaler-beta-from-the-gallery"></a>Zscaler Beta toevoegen vanuit de galerie
+
 Voordat u Zscaler bèta configureert voor automatisch gebruikers inrichten met Azure AD, moet u Zscaler bèta uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Zscaler bèta van de Azure AD-toepassingsgalerie, kunt u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De sectie voor bedrijfstoepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u wilt toevoegen Zscaler Bèta, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Zscaler Bèta**.
+4. Typ in het zoekvak **Zscaler Beta**, selecteer **Zscaler Beta** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/app-search.png)
-
-5. Selecteer in het deelvenster resultaten **Zscaler Bèta**, en klik vervolgens op de **toevoegen** knop Zscaler Bèta toevoegen aan uw lijst met SaaS-toepassingen.
-
-    ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/app-search-results.png)
-
-    ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/app-creation.png)
+    ![Zscaler Beta in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-beta"></a>Gebruikers toewijzen aan de Zscaler bèta
 
@@ -74,13 +71,13 @@ Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om t
 
 Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot Zscaler Beta moeten. Wanneer besloten, kunt u deze gebruikers en/of groepen toewijzen aan Zscaler bèta door de instructies hier:
 
-*   [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-beta"></a>Belangrijke tips voor het toewijzen van gebruikers naar de bètaversie Zscaler
 
-*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler Bèta voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler Bèta voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer een gebruiker toewijzen aan Zscaler Bèta, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer een gebruiker toewijzen aan Zscaler Bèta, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-beta"></a>Configuratie van automatisch gebruikers inrichten naar de bètaversie Zscaler
 
@@ -91,11 +88,13 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Zscaler Beta in Azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory > bedrijfstoepassingen > alle toepassingen**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler Bèta**.
 
-2. Selecteer Zscaler Beta in uw lijst met SaaS-toepassingen.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/app-instance-search.png)
+2. Selecteer in de lijst met toepassingen, **Zscaler Bèta**.
+
+    ![De Zscaler Beta-koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
@@ -107,20 +106,20 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Tenant-URL** en **geheim Token** van uw Zscaler bèta-account, zoals beschreven in stap 6.
 
-6. Verkrijgen van de **Tenant-URL** en **geheim Token**, gaat u naar **beheer > verificatie-instellingen** in de portal Zscaler bèta-gebruikersinterface en klik op  **SAML** onder **verificatietype**. 
+6. Verkrijgen van de **Tenant-URL** en **geheim Token**, gaat u naar **beheer > verificatie-instellingen** in de portal Zscaler bèta-gebruikersinterface en klik op  **SAML** onder **verificatietype**.
 
     ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
-    
-    Klik op **SAML configureren** openen de **configuratie SAML** opties. 
+
+    Klik op **SAML configureren** openen de **configuratie SAML** opties.
 
     ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
-    
+
     Selecteer **Enable SCIM-Based inrichting** om op te halen **basis-URL** en **Bearer Token**, sla de instellingen. Kopiëren de **basis-URL** naar **Tenant-URL**, en **Bearer Token** naar **geheim Token** in Azure portal.
 
 7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met Zscaler Beta. Als de verbinding is mislukt, zorg ervoor dat uw Zscaler bèta-account beheerdersmachtigingen heeft en probeer het opnieuw.
 
     ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
-    
+
 8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in **een e-mailmelding verzenden wanneer een foutoptreedt**.
 
     ![Zscaler bèta inrichten](./media/zscaler-beta-provisioning-tutorial/notification.png)
@@ -164,7 +163,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

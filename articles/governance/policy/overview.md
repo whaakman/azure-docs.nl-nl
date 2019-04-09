@@ -1,19 +1,18 @@
 ---
 title: Overzicht van Azure-beleid
 description: Azure Policy is een service in Azure die u gebruikt om beleidsdefinities in uw Azure-omgeving te maken, toe te wijzen en te beheren.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805122"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259453"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Overzicht van de Azure Policy-service
 
@@ -145,8 +144,8 @@ Het volgende overzicht van Azure Policy is afkomstig van build 2018. Voor het do
 
 Nu u een overzicht hebt van Azure Policy en enkele van de belangrijkste geïntroduceerde concepten, ziet u hier de voorgestelde volgende stappen:
 
-- [Een beleidsdefinitie toewijzen met behulp van de portal](assign-policy-portal.md)
-- [Een beleidsdefinitie toewijzen met behulp van Azure CLI](assign-policy-azurecli.md)
-- [Een beleidsdefinitie toewijzen met behulp van PowerShell](assign-policy-powershell.md)
+- [Een beleidsdefinitie met behulp van de portal toewijzen](assign-policy-portal.md)
+- [Een beleidsdefinitie toewijzen met behulp de Azure CLI](assign-policy-azurecli.md)
+- [Een beleidsdefinitie met behulp van PowerShell toewijzen](assign-policy-powershell.md)
 - Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](..//management-groups/overview.md)
 - Bekijk [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Azure-omgeving beheren via Azure Policy) op kanaal 9

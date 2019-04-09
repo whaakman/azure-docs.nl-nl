@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801261"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057435"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
@@ -41,7 +41,7 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 1. Vul in het veld management groep-ID.
 
-   - De **beheergroep-ID** is de unieke id van map die wordt gebruikt voor het verzenden van opdrachten in deze beheergroep. Deze id kan niet worden bewerkt nadat is gemaakt, omdat deze in het hele systeem Azure gebruikt om te identificeren van deze groep.
+   - De **beheergroep-ID** is de unieke id van map die wordt gebruikt voor het verzenden van opdrachten in deze beheergroep. Deze id is niet bewerkbaar na het maken van zoals het in het hele systeem Azure wordt gebruikt voor het identificeren van deze groep. De [hoofdmap beheergroep](index.md#root-management-group-for-each-directory) wordt automatisch gemaakt met een ID die de Azure Active Directory-ID. Voor alle overige beheergroepen toewijzen een unieke ID.
    - Het weergavenaamveld is de naam die wordt weergegeven in Azure portal. Een afzonderlijke weergavenaam is een optioneel veld bij het maken van het beheer te groeperen en op elk gewenst moment kan worden gewijzigd.  
 
    ![Deelvenster Opties voor het maken van een nieuwe beheergroep](./media/create_context_menu.png)  
@@ -78,8 +78,8 @@ az account management-group create --name 'Contoso'
 
 Voor meer informatie over beheergroepen gaat u naar:
 
-- [Beheergroepen maken om Azure-resources te ordenen](create.md)
-- [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](/powershell/module/az.resources#resources)
-- [Beheergroepen bekijken via de REST-API](/rest/api/resources/managementgroups)
-- [Beheergroepen bekijken via de Azure-CLI](/cli/azure/account/management-group)
+- [Beheergroepen voor het ordenen van Azure-resources maken](create.md)
+- [Wijzigen, verwijderen of uw beheergroepen beheren](manage.md)
+- [Van beheergroepen in Azure PowerShell-Module voor Resources bekijken](/powershell/module/az.resources#resources)
+- [Bekijk beheergroepen in REST-API](/rest/api/resources/managementgroups)
+- [Van beheergroepen in Azure CLI bekijken](/cli/azure/account/management-group)

@@ -14,16 +14,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487580"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057775"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt de stappen in dit artikel om in te stellen van de Azure-opdrachtregelinterface (CLI) voor het beheren van resources voor Azure Stack Development Kit (ASDK) van Linux, Mac en Windows-clientplatforms.
 
@@ -99,7 +99,7 @@ Hier ziet u de versie van Azure CLI en andere afhankelijke bibliotheken die zijn
     python -m pip install --upgrade pip
     ```
 
-3. Installeer de **gecertificeerde** module. [Gecertificeerde](https://pypi.org/project/certifi/) een module en een verzameling van basiscertificaten voor het valideren van de betrouwbaarheid van SSL-certificaten tijdens het verifiëren van de identiteit van de TLS-hosts. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
+3. Installeer de **gecertificeerde** module. [Gecertificeerde](https://pypi.org/project/certifi/) is een module en een verzameling van basiscertificaten voor het valideren van de betrouwbaarheid van SSL-certificaten tijdens het verifiëren van de identiteit van de TLS-hosts. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ Hier ziet u de versie van Azure CLI en andere afhankelijke bibliotheken die zijn
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Installeer de **gecertificeerde** module. [Gecertificeerde](https://pypi.org/project/certifi/) een module en een verzameling van basiscertificaten voor het valideren van de betrouwbaarheid van SSL-certificaten tijdens het verifiëren van de identiteit van de TLS-hosts. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
+3. Installeer de **gecertificeerde** module. [Gecertificeerde](https://pypi.org/project/certifi/) is een module en een verzameling van basiscertificaten voor het valideren van de betrouwbaarheid van SSL-certificaten tijdens het verifiëren van de identiteit van de TLS-hosts. Open een opdrachtprompt of een PowerShell-prompt met verhoogde bevoegdheid en typ de volgende opdracht:
 
     ```bash
     pip3 install certifi
@@ -327,7 +327,7 @@ Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer ve
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
 
-    | Value | Voorbeeld | Beschrijving |
+    | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
     | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |
@@ -443,7 +443,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 2. Registreer uw omgeving. De volgende parameters gebruiken bij het uitvoeren van `az cloud register`.
 
-    | Value | Voorbeeld | Beschrijving |
+    | Value | Voorbeeld | Description |
     | --- | --- | --- |
     | Naam van de omgeving | AzureStackUser | Gebruik `AzureStackUser` voor de gebruikersomgeving. Als u de operator bent, geeft u `AzureStackAdmin`. |
     | Resource Manager-eindpunt | https://management.local.azurestack.external | De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<region>.<fqdn>/` Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Als u een vraag hebt over het eindpunt geïntegreerd systeem, moet u contact op met uw cloud-operator. |

@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/04/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: c5491683a74321e370044cd6eb270cc34bbbce6a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540224"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056405"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure Table storage bewerkingen uitvoeren met Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ In dit artikel bevat informatie over algemene Azure Table storage-bewerkingen. I
 
 In dit artikel laat zien hoe een nieuw Azure Storage-account maken in een nieuwe resourcegroep, zodat u het gemakkelijk kunt verwijderen wanneer u klaar bent. Als u in plaats van een bestaand opslagaccount gebruikt, kunt u dat in plaats daarvan doen.
 
-De voorbeelden moet Az PowerShell-modules `Az.Storage (1.1.3 or greater)` en `Az.Resources (1.2.0 or greater)`. Voer in een PowerShell-venster `Get-Module -ListAvailable Az*` de versie te vinden. Als er niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
+De voorbeelden moet Az PowerShell-modules `Az.Storage (1.1.0 or greater)` en `Az.Resources (1.2.0 or greater)`. Voer in een PowerShell-venster `Get-Module -ListAvailable Az*` de versie te vinden. Als er niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Gebruik deze functie van Azure PowerShell vereist dat u hebt de `Az` -module geïnstalleerd. De huidige versie van AzureRmStorageTable is niet compatibel met de oudere AzureRM-module.
@@ -158,7 +158,7 @@ In dit artikel met instructies, hebt u geleerd over algemene Azure Table storage
 
 Zie de volgende artikelen voor meer informatie.
 
-* [PowerShell Storage-cmdlets](/powershell/module/az.storage#storage)
+* [PowerShell-cmdlets voor Storage](/powershell/module/az.storage#storage)
 
 * [Werken met Azure-tabellen vanuit PowerShell - Module-v2.0 AzureRmStorageTable PS](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

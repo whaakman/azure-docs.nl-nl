@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404634"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057146"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Veelgestelde vragen over Avere vFXT for Azure
 
@@ -200,6 +200,14 @@ Voor latentiegevoelige omgevingen, moet u een fiber-oplossing met een minimale v
 
 Nee, Avere vFXT is bedoeld om u te worden uitgevoerd in een netwerkomgeving die is beveiligd met aanbevolen procedures.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Kan ik toegang tot internet beperken van het virtuele netwerk van mijn cluster? 
+
+In het algemeen, u kunt extra beveiliging configureren op uw vnet, indien nodig, maar er zijn enkele beperkingen kunnen leiden tot problemen met de bewerking van het cluster.
+
+Bijvoorbeeld, veroorzaakt beperken van de uitgaande toegang tot internet vanaf uw vnet problemen voor het cluster, tenzij u ook regels die expliciet toestaan toegang tot AzureConnectors en AzureCloud toevoegen. Deze situatie wordt beschreven in [aanvullende documentatie over GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Voor meer informatie over het met aangepaste beveiliging, neem contact op met ondersteuning zoals beschreven in [hulp met uw systeem](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Technische: Back-end-opslag (core filter)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Hoeveel core-filter biedt ondersteuning voor één Avere vFXT omgeving?
@@ -278,9 +286,9 @@ Nee, Avere vFXT clusters vereist 'always on' service. De clusters kunnen worden 
 
 Lees deze artikelen voor meer informatie over het plannen en implementeren van uw eigen systeem om te beginnen met Avere vFXT voor Azure:
 
-* [Plan uw Avere vFXT-systeem](avere-vfxt-deploy-plan.md)
+* [Uw Avere vFXT-systeem plannen](avere-vfxt-deploy-plan.md)
 * [Implementatie-overzicht](avere-vfxt-deploy-overview.md)
 * [Voorbereidingen voor het maken van een cluster van Avere vFXT](avere-vfxt-prereqs.md)
-* [Het Avere vFXT-cluster implementeren](avere-vfxt-deploy.md)
+* [De Avere vFXT-cluster implementeren](avere-vfxt-deploy.md)
 
 Voor meer informatie over de mogelijkheden en use cases voor Avere vFXT, gaat u naar [Avere vFXT voor Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

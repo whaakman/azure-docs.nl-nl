@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 895f6ce728ce608184bf6f68be3b73d5dc384d79
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892229"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056993"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Een laag bel toevoegen aan een kaart
 
 Dit artikel leest u hoe u gegevens uit een gegevensbron als een laag Bel op een kaart kan weergeven. Bel lagen weergegeven punten als cirkels op de kaart met vaste pixelradius. 
 
 > [!TIP]
-> Bel lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', '$type', 'Point']`
+> Bel lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', ['geometry-type'], 'Point']` of `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` als u wilt opnemen en MultiPoint functies.
 
-## <a name="add-a-bubble-layer"></a>Een bellendiagram laag toevoegen
+## <a name="add-a-bubble-layer"></a>Een bubbellaag toevoegen
 
 <iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -73,4 +73,4 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Een symbool laag toevoegen](./map-add-pin.md)
+> [Een symboollaag toevoegen](./map-add-pin.md)

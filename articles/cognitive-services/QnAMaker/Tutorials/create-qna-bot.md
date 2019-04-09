@@ -1,7 +1,7 @@
 ---
 title: QnA bot - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service v3 in Azure portal.
+description: Maak een chatbot QnA van de pagina publiceren voor een bestaande knowledge base. Deze bot maakt gebruik van de Bot Framework SDK v4-processors. U hoeft geen code voor het bouwen van de bot te schrijven, is alle code bedoeld voor u.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879605"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263873"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v3
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v4-processors
 
-In deze zelfstudie begeleidt u bij het bouwen van een QnA bot met Azure Bot service v3 in de [Azure-portal](https://portal.azure.com) zonder een code te schrijven. Een gepubliceerde knowledge base (KB) verbinding te maken met een bot is net zo eenvoudig als bot toepassingsinstellingen wijzigen. 
-
-> [!Note] 
-> In dit onderwerp is van versie 3 van de SDK-Bot. U vindt versie 4 [hier](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+Maken van een chatbot QnA van de **publiceren** pagina voor een bestaande knowledge base. Deze bot maakt gebruik van de Bot Framework SDK v4-processors. U hoeft geen code voor het bouwen van de bot te schrijven, is alle code bedoeld voor u.
 
 **In deze zelfstudie leert u het volgende:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Een Azure Bot Service maken met de QnA Maker-sjabloon
+> * Een Azure Bot Service van een bestaande kennisdatabase maken
 > * Chatten met de bot om te controleren of dat de code werkt 
-> * Uw gepubliceerde KB verbinden met de bot
-> * Testen van de bot met een vraag
-
-In dit artikel kunt u de gratis QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een gepubliceerde knowledge base voor deze zelfstudie. Als u een hebt, volgt u de stappen in [maken van een kennisdatabase](../How-To/create-knowledge-base.md) een QnA Maker-service maken met vragen en antwoorden.
+U moet een gepubliceerde knowledge base voor deze zelfstudie. Als u een hebt, volgt u de stappen in [maken en antwoord in KB](create-publish-query-in-portal.md) zelfstudie om te maken van een QnA Maker knowledge base met vragen en antwoorden.
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>Maken van een QnA Bot
 
-1. Selecteer in Azure Portal **Een resource maken**.
+Maak een bot als een clienttoepassing voor de knowledge base. 
 
-    ![bot-service maken](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. In de portal voor QnA Maker, gaat u naar de **publiceren** pagina en publiceren van uw knowledge base. Selecteer **Bot maken**. 
 
-2. Zoek in het zoekvak **Web App-Bot**.
+    ![In de portal voor QnA Maker, gaat u naar de pagina publiceren en publiceren van uw knowledge base. Selecteer maken Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    De Azure-portal wordt geopend met de configuratie van de bot maken.
 
-3. In **Bot Service** geeft u de vereiste informatie op:
+1.  Geef de instellingen voor het maken van de bot:
 
-    - Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net).
-    - Selecteer het abonnement, de resourcegroep, de App service-plan en de locatie.
+    |Instelling|Value|Doel|
+    |--|--|--|
+    |Botnaam|`my-tutorial-kb-bot`|Dit is de naam van de Azure-resource voor de bot.|
+    |Abonnement|Zie doel.|Selecteer hetzelfde abonnement als u hebt gebruikt om de QnA Maker-resources te maken.|
+    |Resourcegroep|`my-tutorial-rg`|De resourcegroep die wordt gebruikt voor alle bot-gerelateerde Azure-resources.|
+    |Locatie|`west us`|Locatie van de Azure-resource van de bot.|
+    |Prijscategorie|`F0`|De gratis laag voor de Azure botservice.|
+    |Naam van app|`my-tutorial-kb-bot-app`|Dit is een web-app voor de ondersteuning van uw bot alleen. Dit moet niet dezelfde app-naam als de QnA Maker-service wordt al gebruikt. QnA Maker van web-app delen met een andere resource wordt niet ondersteund.|
+    |SDK Language|C#|Dit is de onderliggende programmeertaal die worden gebruikt door de botframework SDK. Uw keuzes zijn C# of Node.js.|
+    |QnA verificatiesleutel|**Niet wijzigen**|Deze waarde is ingevuld voor u.|
+    |App Service-plan/-locatie|**Niet wijzigen**|Voor deze zelfstudie is de locatie niet belangrijk.|
+    |Azure Storage|**Niet wijzigen**|Conversatie gegevens worden opgeslagen in Azure Storage-tabellen.|
+    |Application Insights|**Niet wijzigen**|Logboekregistratie wordt verzonden naar Application Insights.|
+    |Microsoft App-ID|**Niet wijzigen**|Active directory-gebruiker en het wachtwoord is vereist.|
 
-4. Voor het gebruik van de v3-sjablonen, selecteert u de SDK-versie van **SDK v3** en de taal van de SDK van **C#** of **Node.js**.
+    ![De bot knowledge base met deze instellingen maken.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![de instellingen van de bot-sdk](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    Wacht enkele minuten totdat de bot maken van het proces melding rapporteert geslaagd.
 
-5. Selecteer de **vraag en antwoord** sjabloon voor het veld van de sjabloon Bot, en vervolgens slaat u de sjabloon door het selecteren van **Selecteer**.
-
-    ![Sla de bot service-sjabloon selecteren](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. Controleer uw instellingen en selecteer vervolgens **maken**. Hiermee maakt en implementeert de bot-service met op Azure.
-
-    ![bot maken](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. Bevestig dat de botservice is geïmplementeerd.
-
-    - Selecteer **meldingen** (het belpictogram die zich aan de bovenkant van de Azure-portal). De melding wordt gewijzigd van **implementatie is gestart** naar **implementatie is voltooid**.
-    - Nadat de melding wordt gewijzigd in **implementatie is voltooid**, selecteer **naar de resource gaan** op waarmee de melding.
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>Met de Bot chatten
 
-Selecteren **naar de resource gaan** gaat u naar de resource van de bot.
+1. Open de nieuwe bot-resource van de melding in de Azure-portal. 
 
-Selecteer **Test in Web Chat** om de Web Chat-deelvenster te openen. Typ 'Hallo' Web Chat.
+    ![Open de nieuwe bot-resource van de melding in de Azure-portal.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![QnA bot chatten](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. Van **Bot management**, selecteer **Test in Web Chat** en voer: `How large can my KB be?`. De bot reageren met: 
 
-De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstellingen. Dit antwoord wordt bevestigd dat uw QnA Bot het bericht heeft ontvangen, maar er geen QnA Maker-kennisdatabase die zijn gekoppeld aan het nog is. 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>Uw QnA Maker knowledge base verbinden met de bot
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. Open **toepassingsinstellingen** en bewerk de **QnAKnowledgebaseId**, **QnAAuthKey**, en de **QnAEndpointHostName** velden bevatten de waarden van de QnA Maker knowledge base.
 
-    ![App-instellingen](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![Test de nieuwe knowledge base-bot.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. Uw knowledge base-ID en host-url voor de eindpuntsleutel ophalen uit het tabblad instellingen van uw knowledge base in de portal voor QnA Maker.
-
-   - Aanmelden bij [QnA Maker](https://qnamaker.ai)
-   - Ga naar uw knowledge base
-   - Selecteer de **instellingen** tabblad
-   - **Publiceren** uw knowledge base, als dit nog niet gedaan
-
-     ![QnA Maker-waarden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>De bot testen
-
-Selecteer in de Azure portal, **testen in Web Chat** voor het testen van de bot. 
-
-![QnA Maker-bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-Uw QnA Bot antwoorden uit uw knowledge base.
+    Zie voor meer informatie over Azure Bots [gebruik QnA Maker te beantwoorden vragen](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>Met betrekking tot QnA Maker bots
 
@@ -113,7 +92,11 @@ Uw QnA Bot antwoorden uit uw knowledge base.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met de bot van deze zelfstudie, verwijdert u de bot in Azure portal. De bot-services zijn onder andere:
+Wanneer u klaar bent met de bot van deze zelfstudie, verwijdert u de bot in Azure portal. 
+
+Als u een nieuwe resourcegroep voor de resources van de bot hebt gemaakt, verwijdert u de resourcegroep. 
+
+Als u een nieuwe resourcegroep hebt gemaakt, moet u zoeken naar bronnen die zijn gekoppeld aan de bot. De eenvoudigste manier is om te zoeken door de naam van de bot en bot-app. De bot-resources zijn onder andere:
 
 * De App Service-plan
 * De Search-service

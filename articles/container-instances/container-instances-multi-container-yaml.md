@@ -1,38 +1,51 @@
 ---
-title: Groepen met meerdere containers in Azure Container Instances met Azure CLI en YAML implementeren
-description: Informatie over het implementeren van een containergroep met meerdere containers in Azure Container Instances met behulp van de Azure CLI en een YAML-bestand.
+title: Zelfstudie - een groep met meerdere containers in Azure Container Instances - YAML implementeren
+description: In deze zelfstudie leert u hoe u de containergroep van een met meerdere containers in Azure Container Instances implementeren met behulp van een YAML-bestand met de Azure CLI.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372434"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006183"
 ---
-# <a name="deploy-a-multi-container-container-group-with-yaml"></a>Een multi-containertoepassingen-containergroep met YAML implementeren
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Zelfstudie: Een groep met meerdere containers met behulp van een YAML-bestand implementeren
 
-Azure Container Instances biedt ondersteuning voor de implementatie van meerdere containers op één host met behulp van een [containergroep](container-instances-container-groups.md). Groepen met meerdere containers containers zijn nuttig bij het bouwen van een toepassing sidecar voor logboekregistratie, bewaking of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
+>
 
-Er zijn twee methoden voor het implementeren van meerdere containergroepen met de Azure CLI:
+Azure Container Instances biedt ondersteuning voor de implementatie van meerdere containers op één host met behulp van een [containergroep](container-instances-container-groups.md). Een containergroep is handig bij het bouwen van een toepassing sidecar voor logboekregistratie, bewaking of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.
 
-* YAML-bestand implementeren (in dit artikel)
-* [Sjabloonimplementatie van Resource Manager](container-instances-multi-container-group.md)
+In deze zelfstudie hebt volgen u stappen voor het uitvoeren van een eenvoudige twee-container sidecar-configuratie door het implementeren van een YAML-bestand met de Azure CLI. Een YAML-bestand bevat een beknopt indeling voor het opgeven van de instellingen voor het exemplaar. In deze zelfstudie leert u procedures om het volgende te doen:
 
-Vanwege de YAML-indeling meer beknopte aard, implementatie met een YAML-bestand wordt aanbevolen wanneer uw implementatie bevat *alleen* containerinstanties. Als u nodig hebt voor het implementeren van aanvullende Azure-service-resources (bijvoorbeeld een Azure Files-share) op het moment van implementatie van de containers-instantie, wordt sjabloonimplementatie van Resource Manager-aanbevolen.
+> [!div class="checklist"]
+> * Configureren van een YAML-bestand
+> * De containergroep implementeren
+> * Bekijk de logboeken van de containers
 
 > [!NOTE]
-> Groepen met meerdere containers zijn momenteel beperkt tot Linux-containers. Terwijl er wordt geprobeerd om alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md).
+> Groepen met meerdere containers zijn momenteel beperkt tot Linux-containers.
 
-## <a name="configure-the-yaml-file"></a>Het YAML-bestand configureren
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Implementatie van een containergroep met meerdere containers met de [az container maken] [ az-container-create] opdracht in de Azure CLI, moet u de configuratie van de container in een YAML-bestand opgeven en vervolgens geeft het YAML-bestand als een de parameter aan de opdracht.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Begin met de volgende YAML kopiëren naar een nieuw bestand met de naam **implementeren aci.yaml**.
+## <a name="configure-a-yaml-file"></a>Configureren van een YAML-bestand
+
+Implementatie van een groep met meerdere containers met de [az container maken] [ az-container-create] opdracht in de Azure CLI, moet u de configuratie van de container in een YAML-bestand. Het YAML-bestand vervolgens als een parameter doorgeven aan de opdracht.
+
+Begin met de volgende YAML kopiëren naar een nieuw bestand met de naam **implementeren aci.yaml**. In Azure Cloud Shell, kunt u Visual Studio Code om te maken van het bestand in uw werkmap:
+
+```
+code deploy-aci.yaml
+```
 
 Deze YAML-bestand definieert een containergroep met de naam 'myContainerGroup' met twee containers, een openbaar IP-adres en twee blootgestelde poorten. De containers worden geïmplementeerd vanaf de openbare Microsoft-installatiekopieën. De eerste container in de groep wordt uitgevoerd een internetgerichte-webtoepassing. De tweede de sidecar-container maakt periodiek HTTP-aanvragen voor de web-App uitgevoerd in de eerste container via het lokale netwerk van de containergroep.
 
@@ -71,6 +84,15 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
+Voor het gebruik van het installatiekopie van een privécontainerregister toevoegen de `imageRegistryCredentials` eigenschap voor de containergroep, met waarden die zijn gewijzigd voor uw omgeving:
+
+```YAML
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
 ## <a name="deploy-the-container-group"></a>De containergroep implementeren
 
 Maak een resourcegroep met de [az-groep maken] [ az-group-create] opdracht:
@@ -103,9 +125,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-logs"></a>Logboeken weergeven
+## <a name="view-container-logs"></a>Containerlogbestanden bekijken
 
-Weergave van de logboekuitvoer van een container met de [az container logs] [ az-container-logs] opdracht. De `--container-name` argument geeft u de container waarin om op te halen van Logboeken. In dit voorbeeld wordt is de eerste container opgegeven.
+Weergave van de logboekuitvoer van een container met de [az container logs] [ az-container-logs] opdracht. De `--container-name` argument geeft u de container waarin om op te halen van Logboeken. In dit voorbeeld wordt de `aci-tutorial-app` container is opgegeven.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -120,7 +142,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Als u wilt zien van de logboeken voor de container zijspan, moet u dezelfde opdracht op te geven de naam van het tweede uitvoeren.
+Als u wilt zien van de logboeken voor het sidecar-container, voeren een vergelijkbare opdracht op te geven de `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -146,92 +168,25 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Zoals u ziet, is de sidecar regelmatig maken van een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk om ervoor te zorgen dat deze wordt uitgevoerd. In dit voorbeeld sidecar kan worden uitgebreid voor het activeren van een waarschuwing als er een HTTP-responscode dan 200 OK ontvangen.
-
-## <a name="deploy-from-private-registry"></a>Implementeren vanuit een persoonlijk register
-
-Als u wilt gebruiken een persoonlijk containerregister-installatiekopie, zijn onder andere de volgende YAML met waarden die zijn gewijzigd voor uw omgeving:
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-De volgende YAML implementeert bijvoorbeeld een containergroep met een enkele container waarvan de installatiekopie wordt opgehaald uit een persoonlijke Azure Container Registry met de naam 'myregistry':
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## <a name="export-container-group-to-yaml"></a>Containergroep exporteren naar YAML
-
-U kunt de configuratie van een bestaande containergroep exporteren naar een YAML-bestand met behulp van de Azure CLI-opdracht [az container exporteren][az-container-export].
-
-Handig voor het behouden van de configuratie van de containergroep van een, export kunt u voor het opslaan van de configuratie van uw container in versiebeheer voor 'configuratie als code'. Of het geëxporteerde bestand als uitgangspunt gebruiken bij het ontwikkelen van een nieuwe configuratie in YAML.
-
-Exporteren van de configuratie voor de containergroep die u eerder hebt gemaakt met behulp van de volgende [az container exporteren] [ az-container-export] opdracht:
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-Er is geen uitvoer wordt weergegeven als de opdracht geslaagd is, maar u kunt de inhoud van het bestand om te zien van het resultaat bekijken. Bijvoorbeeld, de eerste paar regels met `head`:
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
+Zoals u ziet, is de sidecar regelmatig maken van een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk om ervoor te zorgen dat deze wordt uitgevoerd. In dit voorbeeld sidecar kan worden uitgebreid voor het activeren van een waarschuwing als er een HTTP-responscode dan ontvangen `200 OK`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit artikel hebben we de stappen die nodig zijn voor het implementeren van een instantie meerdere containers, Azure container beschreven. Zie de zelfstudie Azure Container Instances voor een Azure Container Instances ervaring met end-to-end, inclusief het gebruik van een persoonlijke Azure container registry.
+In deze zelfstudie gebruikt u een YAML-bestand voor het implementeren van een groep met meerdere containers in Azure Container Instances. U hebt geleerd hoe u:
 
-> [!div class="nextstepaction"]
-> [Zelfstudie voor Azure Container Instances][aci-tutorial]
+> [!div class="checklist"]
+> * Een YAML-bestand voor een groep met meerdere containers configureren
+> * De containergroep implementeren
+> * Bekijk de logboeken van de containers
+
+U kunt ook opgeven dat een groep met meerdere containers met een [Resource Manager-sjabloon](container-instances-multi-container-group.md). Resource Manager-sjabloon kan gemakkelijk worden aangepast voor scenario's wanneer u nodig hebt om extra Azure-service-resources met de containergroep te implementeren.
 
 <!-- LINKS - External -->
-[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create
-[az-container-export]: /cli/azure/container#az-container-export
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create

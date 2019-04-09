@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841171"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008974"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Quickstart: gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een website maakt met behulp van de JavaScript binding van de Cognitive Services Speech SDK om spraak om te zetten naar tekst.
-De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([download versie 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+De toepassing is op basis van de spraak-SDK voor JavaScript ([downloaden versie 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een abonnementssleutel voor de Speech-service. Zie [de Speech Services gratis uitproberen](get-started.md).
 * Een pc of Mac, met een werkende microfoon.
 * Een teksteditor.
-* Een actuele versie van Chrome of Microsoft Edge.
+* Een actuele versie van Chrome, Microsoft Edge of Safari.
 * Een webserver die het hosten van PHP-scripts ondersteunt (optioneel).
 
 ## <a name="create-a-new-website-folder"></a>Een nieuwe websitemap maken
@@ -52,7 +52,7 @@ Maak een nieuw bestand in de map met de naam `index.html` en open dit bestand me
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -99,6 +99,10 @@ Op die manier verlaat uw abonnementssleutel nooit uw server en is het gebruikers
 
 Om de app te starten, dubbelklikt u op het bestand index.html of opent u index.html met uw favoriete webbrowser. Er wordt een eenvoudige grafische gebruikersinterface weergegeven waarin u uw abonnementssleutel en [regio](regions.md) kunt invoeren spraakherkenning met behulp van de microfoon kunt activeren.
 
+> [!NOTE]
+> Deze methode werkt niet op de Safari-browser.
+> Op Safari moet de voorbeeldwebpagina worden gehost op een webserver. Safari kan geen websites geladen uit een lokaal bestand naar het gebruik van de microfoon.
+
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>De voorbeeldtoepassing bouwen en uitvoeren via een webserver
 
 Om uw app te starten, opent u uw favoriete webbrowser en laat u deze wijzen naar de openbare URL waarop u de map host, geeft u uw [regio](regions.md) op en activeert u spraakherkenning met behulp van de microfoon. Indien dit is geconfigureerd, wordt er een token uit uw tokenbron opgehaald.
@@ -106,4 +110,4 @@ Om uw app te starten, opent u uw favoriete webbrowser en laat u deze wijzen naar
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bekijk JavaScript-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [Verken de JavaScript-voorbeelden op GitHub](https://aka.ms/csspeech/samples)

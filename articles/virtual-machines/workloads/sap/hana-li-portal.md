@@ -13,21 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b186aa2692033a774d1d8f294315fcc0f5e874d5
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763192"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009365"
 ---
-# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure HANA grote instanties beheer via Azure portal
+# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Beheer van grote Azure HANA-exemplaren via de Azure-portal
 In dit document bevat informatie over de manier hoe [HANA grote instanties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) worden voorgesteld in [Azure-portal](https://portal.azure.com) en welke activiteiten kunnen worden uitgevoerd via Azure portal met HANA grote instantie eenheden die zijn geïmplementeerd. De zichtbaarheid van HANA grote instanties in Azure portal wordt geboden via een Azure-resourceprovider voor HANA grote instanties, die momenteel in openbare preview
 
+## <a name="register-hana-large-instance-resource-provider"></a>HANA grote instantie Resourceprovider registreren
+Uw Azure-abonnement u voor HANA grote instantie implementaties wordt meestal geregistreerd voor de Resourceprovider HANA grote instantie. Als u niet dat u HANA grote instantie eenheden hebt geïmplementeerd ziet, moet u de Resourceprovider registreren in uw Azure-abonnement. Er zijn twee manieren bij het registreren van de resourceprovider van HANA grote instantie
+
+### <a name="register-through-cli-interface"></a>Registreren via de CLI-interface
+U moet zijn aangemeld bij uw Azure-abonnement gebruikt voor de implementatie HANA grote instantie via de Azure CLI-interface. U kunt (opnieuw) van de registratie naar HANA grote instantieprovider met de volgende opdracht:
+    
+    az provider register --namespace Microsoft.HanaOnAzure
+
+Zie voor meer informatie het artikel [Azure resourceproviders en typen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+
+
+### <a name="register-through-azure-portal"></a>Registreren via Azure portal
+U kunt (opnieuw) van de registratie de HANA grote instantie Resource Provider via Azure portal. U moet een lijst met uw abonnement in Azure portal en dubbelklik op het abonnement, dat is gebruikt voor het implementeren van uw HANA grote instantie eenheid/eenheden. Een u bevindt zich in de overzichtspagina van uw abonnement 'resourceproviders' te selecteren, zoals hieronder wordt weergegeven en typt u 'HANA' in het zoekvenster. 
+
+![HLI RP registreren via Azure portal](./media/hana-li-portal/portal-register-hli-rp.png)
+
+De resourceprovider is al geregistreerd in de schermafbeelding wordt weergegeven. In het geval de resourceprovider nog niet is geregistreerd, drukt u op 'opnieuw registreren' of 'registreren'.
+
+Zie voor meer informatie het artikel [Azure resourceproviders en typen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+
+
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Weergave van HANA grote instantie eenheden in Azure portal
-Bij het indienen van een aanvraag voor HANA grote instantie, kunt u wordt gevraagd om op te geven van de Azure-abonnement dat u verbinding met de HANA grote instanties ook maakt. Het verdient aanbeveling gebruik van hetzelfde abonnement die u gebruikt voor het implementeren van de SAP-toepassingslaag die op basis van de eenheden HANA grote instantie werkt.
+Bij het indienen van een aanvraag voor HANA grote instantie, kunt u wordt gevraagd om op te geven van de Azure-abonnement dat u verbinding met de HANA grote instanties ook maakt. Het verdient aanbeveling, gebruik van hetzelfde abonnement die u gebruikt voor het implementeren van de SAP-toepassingslaag die op basis van de eenheden HANA grote instantie werkt.
 Als uw eerste HANA grote instanties zijn ophalen geïmplementeerd, een nieuwe [Azure-resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) wordt gemaakt in de Azure-abonnement u hebt ingediend in de implementatieaanvraag voor uw HANA grote instanties.  De nieuwe resourcegroep wordt een lijst al uw HANA grote instantie eenheden die u hebt geïmplementeerd in het specifieke abonnement.
 
 Als u wilt zoeken in de nieuwe Azure-resourcegroep, u een lijst met de resourcegroep waarin uw abonnement door te navigeren door het navigatiedeelvenster links in Azure portal
@@ -46,6 +67,8 @@ Als u de resourcegroep hebt gevonden, geef de details van deze. De lijst die u h
 
 Alle eenheden die vermeld zijn die één HANA grote instantie eenheid die is geïmplementeerd in uw abonnement. In dit geval kijken u acht verschillende HANA grote instantie eenheden, die zijn geïmplementeerd in uw abonnement.
 
+Als u meerdere HANA grote instantie tenants onder hetzelfde Azure-abonnement hebt geïmplementeerd, vindt u meerdere Azure-resourcegroepen 
+
 
 ## <a name="look-at-attributes-of-single-hli-unit"></a>Kenmerken van één HLI eenheid bekijken
 U kunt in de lijst van de eenheden HANA grote instantie, klikt u op één eenheid en gaan naar de details van de eenheid van HANA grote instantie. 
@@ -54,7 +77,7 @@ U ontvangt een presentatie van de eenheid, waarmee ziet als eruit in het overzic
 
 ![Overzicht van een eenheid HLI weergeven](./media/hana-li-portal/portal-show-overview.png)
 
-Kijken naar de verschillende kenmerken die worden weergegeven, zien deze kenmerken nauwelijks anders dan de kenmerken van de virtuele machine van Azure. Op de kop van de zijde links toont het de resourcegroep, Azure-regio, naam van abonnement en -ID, evenals enkele codes die u hebt toegevoegd. De eenheden HANA grote instantie hebben standaard geen code die is toegewezen. Aan de rechterkant van de koptekst, wordt de naam van de eenheid vermeld als toegewezen wanneer de implementatie is uitgevoerd. Het besturingssysteem wordt weergegeven en het IP-adres. Als met virtuele machines typt u de HANA grote instantie-eenheid met het aantal CPU wordt-threads en het geheugen weergegeven en. Meer informatie over de verschillende HANA grote instantie-eenheden, worden hier weergegeven:
+Kijken naar de verschillende kenmerken die worden weergegeven, zien deze kenmerken nauwelijks anders dan de kenmerken van de virtuele machine van Azure. In de koptekst van de linkerkant bevat deze de resourcegroep, Azure-regio, naam van abonnement en -ID, evenals enkele codes die u hebt toegevoegd. De eenheden HANA grote instantie hebben standaard geen code die is toegewezen. De naam van de eenheid wordt aan de rechterkant van de koptekst weergegeven als toegewezen wanneer de implementatie is uitgevoerd. Het besturingssysteem wordt weergegeven en het IP-adres. Als met virtuele machines typt u de HANA grote instantie-eenheid met het aantal CPU wordt-threads en het geheugen weergegeven en. Meer informatie over de verschillende HANA grote instantie-eenheden, worden hier weergegeven:
 
 - [Beschikbare SKU's voor HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [Architectuur voor SAP HANA (grote instanties)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
@@ -86,7 +109,7 @@ De sectie **eigenschappen** bevat belangrijke informatie die u ontvangt wanneer 
 
 ![bovenste deel van de eigenschappen HLI in Azure portal](./media/hana-li-portal/portal-properties-top.png)
 
-De eerste paar gegevensitems, hebt u gezien in het overzichtsscherm al. Maar een belangrijk onderdeel van de gegevens is de ExpressRoute-Circuit-ID, die wordt geleverd wanneer u de eerste geïmplementeerde eenheden afgegeven. In sommige gevallen ondersteuning kan u ophalen gevraagd om die gegevens. Een vermelding van belangrijke gegevens wordt aan de onderkant van de schermafbeelding weergegeven. De gegevens die worden weergegeven, is het IP-adres van de NFS-opslag-kop die worden geïsoleerd van uw opslagruimte te uw **tenant** in de stack HANA grote instantie. Dit IP-adres is bovendien vereist wanneer u bewerkt de [configuratiebestand voor de opslag momentopname maken van back-ups](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+De eerste paar gegevensitems, hebt u gezien in het overzichtsscherm al. Maar een belangrijk onderdeel van de gegevens is de ExpressRoute-Circuit-ID, die u hebt verkregen als de eerste geïmplementeerde eenheden zijn afgegeven. In sommige gevallen ondersteuning kan u ophalen gevraagd om die gegevens. Een vermelding van belangrijke gegevens wordt aan de onderkant van de schermafbeelding weergegeven. De gegevens die worden weergegeven, is het IP-adres van de NFS-opslag-kop die worden geïsoleerd van uw opslagruimte te uw **tenant** in de stack HANA grote instantie. Dit IP-adres is bovendien vereist wanneer u bewerkt de [configuratiebestand voor de opslag momentopname maken van back-ups](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
 
 Als u naar beneden in het deelvenster met de eigenschap schuift, dat u aanvullende gegevens, zoals een unieke resource-ID voor uw HANA grote instantie-eenheid of de abonnements-ID die is toegewezen aan de implementatie.
 
@@ -99,6 +122,9 @@ Als u bent u op de knop opnieuw opstarten, kunt u wordt gevraagd of u echt wilt 
 
 > [!NOTE]
 > In de computer opnieuw wordt gestart, wordt er een korte periode waarin de status van de eenheid is gewijzigd in **vanaf** verplaatsen naar de status van **gestart**. In de status van **gestart** betekent dat het besturingssysteem wordt gestart of dat het besturingssysteem volledig is is opgestart. Als gevolg hiervan, na het opnieuw opstarten van de eenheid, kan niet verwachte onmiddellijk Meld u aan bij de eenheid als de status verandert in een **gestart**.
+
+> [!IMPORTANT]
+> Afhankelijk van de hoeveelheid geheugen in de eenheid HANA grote instantie, een opnieuw opstarten en opnieuw opstarten van de hardware en het besturingssysteem kunnen maximaal een uur duren voordat
 
 
 ## <a name="open-a-support-request-for-hana-large-instances"></a>Open een ondersteuningsaanvraag voor HANA grote instanties
@@ -115,7 +141,7 @@ In de lijst met services, vindt u de service **SAP HANA grote instantie**. Als u
 
 ![Probleem-klasse selecteren in Azure portal](./media/hana-li-portal/portal-select-problem-class.png)
 
-Bij elk van de verschillende typen krijgt u een selectie van het probleem subtypen die u moet selecteren om aan te geven van het probleem verder. Na het selecteren van het subtype, kunt u nu het onderwerp van de naam. Wanneer u klaar bent met het proces voor het selecteren, kunt u verplaatsen naar volgende stap van het maken. In de **oplossingen** sectie u worden verwezen naar documentatie over HANA grote instanties, die een verwijzing naar een oplossing van uw probleem mogelijk geven. Als u een oplossing voor uw probleem in de documentatie van voorgestelde vinden kan, gaat u naar de volgende stap. In de volgende stap gaat u gevraagd of het probleem met VM's of met HANA grote instantie eenheden is. Dit helpt om de ondersteuningsaanvraag aan de juiste specialisten te regelen. 
+Bij elk van de verschillende typen krijgt u een selectie van het probleem subtypen die u moet selecteren om aan te geven van het probleem verder. Na het selecteren van het subtype, kunt u nu het onderwerp van de naam. Wanneer u klaar bent met het proces voor het selecteren, kunt u verplaatsen naar volgende stap van het maken. In de **oplossingen** sectie u worden verwezen naar documentatie over HANA grote instanties, die een verwijzing naar een oplossing van uw probleem mogelijk geven. Als u een oplossing voor uw probleem in de documentatie van voorgestelde vinden kan, gaat u naar de volgende stap. In de volgende stap gaat u gevraagd of het probleem met VM's of met HANA grote instantie eenheden is. Deze informatie helpt om de ondersteuningsaanvraag aan de juiste specialisten te regelen. 
 
 ![Details van de ondersteuningsaanvraag in Azure portal](./media/hana-li-portal/portal-support-request-details.png)
 

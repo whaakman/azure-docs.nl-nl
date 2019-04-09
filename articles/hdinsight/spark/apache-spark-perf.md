@@ -3,18 +3,18 @@ title: Optimaliseren voor prestaties - Azure HDInsight Spark-taken
 description: Bevat algemene strategieën samen voor optimale prestaties van Spark-clusters.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117857"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058625"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark-taken optimaliseren
 
@@ -26,14 +26,14 @@ De volgende secties beschrijven algemene optimalisaties voor Spark-taak en aanbe
 
 Eerdere versies van Spark met rdd's abstracte gegevens, Spark 1.3 en DataFrames en gegevenssets, respectievelijk 1.6 geïntroduceerd. Houd rekening met de volgende relatieve voordelen:
 
-* **Gegevensframes**
+* **DataFrames**
     * Beste keuze in de meeste situaties.
     * Queryoptimalisatie via katalysator biedt.
     * Genereren van code geheel-fase.
     * Directe geheugentoegang op.
     * Lage overhead garbagecollection (GC).
     * Niet als ontwikkelaarsvriendelijke als gegevenssets, als er geen controles compilatietijdswitch of domein object programmeren zijn.
-* **Gegevenssets**
+* **DataSets**
     * Goede in complexe ' ETL-pijplijnen waarbij de invloed op de prestaties acceptabel is.
     * Geen geschikte in aggregaties waar de invloed op de prestaties aanzienlijk kan worden.
     * Queryoptimalisatie via katalysator biedt.
@@ -41,7 +41,7 @@ Eerdere versies van Spark met rdd's abstracte gegevens, Spark 1.3 en DataFrames 
     * Serialisatie/deserialisatie overhead toegevoegd.
     * Hoge GC overhead.
     * Genereren van code geheel fasen, verbroken.
-* **RDDs**
+* **Rdd 's**
     * U hoeft niet te gebruiken van de rdd's, tenzij u moet een nieuwe aangepaste RDD bouwen.
     * Er is geen queryoptimalisatie via katalysator.
     * Er is geen geheel fase-code genereren.
@@ -60,8 +60,9 @@ Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van
 
 | Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Gebruiksvoorbeelden |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Tijdelijke cluster |
-| Azure Data Lake Storage | **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
+| Azure Blob Storage | **wasb [s]:**//url/ | **Standard** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Sneller** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Sneller** | Ja | Tijdelijke cluster |
 | Lokale HDFS | **hdfs:**//url/ | **Fastest** | Nee | Interactieve 24/7-cluster |
 
 ## <a name="use-the-cache"></a>De cache gebruiken
@@ -215,6 +216,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 * [Apache Spark-taken die worden uitgevoerd op Azure HDInsight](apache-spark-job-debugging.md)
 * [Resources beheren voor een Apache Spark-cluster in HDInsight](apache-spark-resource-manager.md)
 * [Apache Spark REST-API gebruiken voor het indienen van externe taken met een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
-* [Apache Spark afstemmen](https://spark.apache.org/docs/latest/tuning.html)
+* [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
 * [Hoe om af te stemmen daadwerkelijk de Apache Spark-taken zodat werken ze](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo serialisatie](https://github.com/EsotericSoftware/kryo)

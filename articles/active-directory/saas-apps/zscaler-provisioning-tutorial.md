@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 31f67481-360d-4471-88c9-1cc9bdafee24
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 42da57ee7320ec78de0c1d3a5336034289e30f76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086272"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056432"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Zelfstudie: Zscaler configureren voor het automatisch inrichten van gebruikers
 
@@ -27,46 +28,42 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
+
 > Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
-*   Een Azure AD-tenant
-*   Een Zscaler-tenant
-*   Een gebruikersaccount in Zscaler met beheerdersmachtigingen
+* Een Azure AD-tenant
+* Een Zscaler-tenant
+* Een gebruikersaccount in Zscaler met beheerdersmachtigingen
 
 > [!NOTE]
 > De integratie van Azure AD-inrichting is afhankelijk van de Zscaler SCIM API, die voor ontwikkelaars van de Zscaler voor accounts met het Enterprise-pakket beschikbaar is.
 
 ## <a name="adding-zscaler-from-the-gallery"></a>Zscaler uit de galerie toe te voegen
+
 Voordat u Zscaler configureert voor automatisch gebruikers inrichten met Azure AD, moet u Zscaler uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Zscaler uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De sectie voor bedrijfstoepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u wilt toevoegen Zscaler, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Zscaler**.
+4. Typ in het zoekvak **Zscaler**, selecteer **Zscaler** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/app-search.png)
-
-5. Selecteer in het deelvenster resultaten **Zscaler**, en klik vervolgens op de **toevoegen** knop Zscaler toevoegen aan uw lijst met SaaS-toepassingen.
-
-    ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/app-search-results.png)
-
-    ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/app-creation.png)
+    ![Zscaler in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler"></a>Gebruikers toewijzen aan Zscaler
 
@@ -74,13 +71,13 @@ Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om t
 
 Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot Zscaler moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan Zscaler door de instructies hier:
 
-*   [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler"></a>Belangrijke tips voor het toewijzen van gebruikers aan Zscaler
 
-*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer een gebruiker aan Zscaler toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer een gebruiker aan Zscaler toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configuratie van automatisch gebruikers inrichten voor Zscaler
 
@@ -91,11 +88,13 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Zscaler in Azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory > bedrijfstoepassingen > alle toepassingen**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler**.
 
-2. Selecteer Zscaler uit de lijst met SaaS-toepassingen.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/app-instance-search.png)
+2. Selecteer in de lijst met toepassingen, **Zscaler**.
+
+    ![De Zscaler-koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
@@ -107,20 +106,20 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Tenant-URL** en **geheim Token** van uw account Zscaler zoals beschreven in stap 6.
 
-6. Verkrijgen van de **Tenant-URL** en **geheim Token**, gaat u naar **beheer > verificatie-instellingen** in de gebruikersinterface van de Zscaler-portal en klik op **SAML** onder **verificatietype**. 
+6. Verkrijgen van de **Tenant-URL** en **geheim Token**, gaat u naar **beheer > verificatie-instellingen** in de gebruikersinterface van de Zscaler-portal en klik op **SAML** onder **verificatietype**.
 
     ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
-    Klik op **configureren SAML** openen **configuratie SAML** opties. 
+    Klik op **configureren SAML** openen **configuratie SAML** opties.
 
     ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
-    
+
     Selecteer **Enable SCIM-Based inrichting** om op te halen **basis-URL** en **Bearer Token**, sla de instellingen. Kopiëren de **basis-URL** naar **Tenant-URL**, en **Bearer Token** naar **geheim Token** in Azure portal.
 
 7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met Zscaler. Als de verbinding is mislukt, zorg ervoor dat uw account Zscaler beheerdersmachtigingen heeft en probeer het opnieuw.
 
     ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/test-connection.png)
-    
+
 8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in **een e-mailmelding verzenden wanneer een foutoptreedt**.
 
     ![Het inrichten van de Zscaler](./media/zscaler-provisioning-tutorial/notification.png)
@@ -164,7 +163,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

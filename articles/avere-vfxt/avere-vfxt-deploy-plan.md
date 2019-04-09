@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990982"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056721"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
 
@@ -130,6 +130,17 @@ Bij het maken van het cluster, kunt u al dan niet te maken van een openbaar IP-a
 
 * Als u een nieuw vnet of een nieuw subnet maken, wordt de clustercontroller een openbaar IP-adres worden toegewezen.
 * Als u een bestaand vnet en subnet selecteert, wordt de clustercontroller alleen privé IP-adressen hebben. 
+
+## <a name="vm-access-roles"></a>VM-rollen voor toegang 
+
+Azure maakt gebruik van [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor het autoriseren van de cluster-VM's bepaalde taken uit te voeren. Bijvoorbeeld de clustercontroller is verificatie vereist voor het maken en configureren van het clusterknooppunt VM's. De clusterknooppunten moeten kunnen zijn voor het toewijzen of opnieuw toewijzen van IP-adressen aan andere knooppunten van het cluster.
+
+Twee ingebouwde Azure-rollen worden gebruikt voor de Avere vFXT virtuele machines: 
+
+* De netwerkcontroller cluster maakt gebruik van de ingebouwde rol [Avere Inzender](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Clusterknooppunten gebruikt u de ingebouwde functie [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Als u nodig hebt om aan te passen van rollen voor toegang voor Avere vFXT onderdelen, moet u uw eigen rollen definiëren en deze vervolgens toewijzen aan de virtuele machines op het moment dat ze worden gemaakt. U kunt de sjabloon voor de implementatie niet gebruiken in de Azure Marketplace. Moet u de klantenservice van Microsoft en ondersteuning door het openen van een ticket in Azure portal, zoals beschreven in [hulp met uw systeem](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Volgende stap: Informatie over het implementatieproces
 

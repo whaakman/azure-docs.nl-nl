@@ -13,27 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102564"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058064"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch inrichten van gebruikers
 
-Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in de Cerner centraal en Azure AD wilt voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar een gebruiker Lesrooster Cerner centraal-India. 
-
+Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in de Cerner centraal en Azure AD wilt voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar een gebruiker Lesrooster Cerner centraal-India.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
-*   Een Azure Active Directory-tenant
-*   Een tenant Cerner-centraal 
+* Een Azure Active Directory-tenant
+* Een tenant Cerner-centraal
 
 > [!NOTE]
 > Azure Active Directory kan worden geïntegreerd met Cerner Central met behulp van de [SCIM](http://www.simplecloud.info/) protocol.
@@ -48,12 +47,11 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen 
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Belangrijke tips voor het toewijzen van gebruikers aan Cerner-centraal
 
-*   Het wordt aanbevolen dat één Azure AD-gebruiker worden toegewezen aan Cerner centraal voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het wordt aanbevolen dat één Azure AD-gebruiker worden toegewezen aan Cerner centraal voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
 * Zodra de initiële test is voltooid voor één gebruiker, Cerner centraal raadt aan om de volledige lijst met gebruikers die bestemd zijn voor toegang tot een Cerner-oplossing (niet alleen Cerner centraal) in te richten op de Cerner gebruiker schema toe te wijzen.  Andere oplossingen Cerner gebruikmaken van deze lijst met gebruikers in de gebruikerslijst.
 
-*   Bij het toewijzen van een gebruiker bij Cerner Central, moet u de **gebruiker** rol in het dialoogvenster toewijzing. Gebruikers met de rol 'standaardtoegang' worden uitgesloten van het inrichten.
-
+* Bij het toewijzen van een gebruiker bij Cerner Central, moet u de **gebruiker** rol in het dialoogvenster toewijzing. Gebruikers met de rol 'standaardtoegang' worden uitgesloten van het inrichten.
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>Inrichten van gebruikers naar Cerner centraal configureren
 
@@ -62,9 +60,7 @@ In deze sectie helpt u bij uw Azure AD verbinden met de Cerner centraal gebruike
 > [!TIP]
 > U kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor Cerner centraal, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen. Zie voor meer informatie de [één centrale Cerner aanmeldings-zelfstudie](cernercentral-tutorial.md).
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Het configureren van automatische inrichten van gebruikersaccounts bij Cerner Central in Azure AD:
-
 
 Om gebruikersaccounts bij Cerner Central inricht, moet u het systeemaccount van een centrale Cerner aanvragen bij Cerner en het genereren van een OAuth-bearer-token die Azure AD gebruiken kunt om verbinding maken met de Cerner SCIM eindpunt. Het verdient ook dat de integratie in een Cerner sandbox-omgeving worden uitgevoerd voordat het in productie wilt nemen.
 
@@ -106,9 +102,9 @@ Om gebruikersaccounts bij Cerner Central inricht, moet u het systeemaccount van 
 
    * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap 4 #.
 
-> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> Productie: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > Productie: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * In de **geheim Token** veld, het OAuth-bearer-token die u in stap 3 # invoeren en op **testverbinding**.
 
@@ -116,13 +112,13 @@ Om gebruikersaccounts bij Cerner Central inricht, moet u het systeemaccount van 
 
 1. Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het onderstaande selectievakje in.
 
-1. Klik op **Opslaan**. 
+1. Klik op **Opslaan**.
 
 1. In de **kenmerktoewijzingen** sectie, controleert u de gebruikers- en groepskenmerken van Azure AD worden gesynchroniseerd met Cerner centraal. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts en groepen Cerner centraal-India voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
 1. Wijzigen zodat de Azure AD-inrichtingsservice voor Cerner centraal de **Inrichtingsstatus** naar **op** in de **instellingen** sectie
 
-1. Klik op **Opslaan**. 
+1. Klik op **Opslaan**.
 
 Hiermee start u de initiële synchronisatie van alle gebruikers en/of groepen die zijn toegewezen aan de centrale Cerner in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app Cerner centraal worden beschreven.
 
@@ -133,7 +129,8 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 * [Cerner centraal: Publiceren van identiteitsgegevens met behulp van Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Zelfstudie: Cerner centraal configureren voor eenmalige aanmelding met Azure Active Directory](cernercentral-tutorial.md)
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

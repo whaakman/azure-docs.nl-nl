@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087190"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058795"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -45,7 +45,7 @@ De apparaat-voorwaarde voor overeenkomst identificeert aanvragen van een mobiel 
 
 Name | Doel
 -----|--------
-[apparaat](#device) | Hiermee geeft u aanvragen van een mobiel apparaat op basis van de eigenschappen ervan.
+[Apparaat](#device) | Hiermee geeft u aanvragen van een mobiel apparaat op basis van de eigenschappen ervan.
 
 ## <a name="location-match-conditions"></a>Locatie-criteria voor overeenkomst
 
@@ -54,7 +54,7 @@ De locatie-criteria voor overeenkomst identificeren aanvragen op basis van de lo
 Name | Doel
 -----|--------
 [AS-nummer](#as-number) | Aanvragen die afkomstig van een bepaald netwerk zijn identificeert.
-[Land](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen zijn.
+[Land/regio](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen zijn.
 
 ## <a name="origin-match-conditions"></a>Criteria voor overeenkomst van oorsprong
 
@@ -72,7 +72,7 @@ De aanvraag-criteria voor overeenkomst identificeren op basis van hun eigenschap
 Name | Doel
 -----|--------
 [IP-adres van client](#client-ip-address) | Aanvragen die afkomstig van een bepaald IP-adres zijn identificeert.
-[Cookie Parameter](#cookie-parameter) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven waarde.
+[Cookie-Parameter](#cookie-parameter) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven waarde.
 [Cookie Parameter reguliere expressie](#cookie-parameter-regex) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven reguliere expressie.
 [Cname voor edge](#edge-cname) | Aanvragen die naar een specifieke rand CNAME verwijzen identificeert.
 [Verwijzende domein](#referring-domain) | Aanvragen die zijn verwezen in de namen van de opgegeven host identificeert.
@@ -95,13 +95,13 @@ Name | Doel
 [URL-pad reguliere expressie](#url-path-regex) | Vergelijkt de relatieve pad van een aanvraag naar de opgegeven reguliere expressie.
 [URL-pad jokertekens](#url-path-wildcard) | Vergelijkt de relatieve pad van een aanvraag naar het opgegeven patroon.
 [URL-Query letterlijke waarde](#url-query-literal) | Vergelijkt de querytekenreeks van een aanvraag met de opgegeven waarde.
-[URL-queryparameter](#url-query-parameter) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
+[URL Query Parameter](#url-query-parameter) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
 [URL-Query reguliere expressie](#url-query-regex) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven reguliere expressie.
 [URL-Query jokertekens](#url-query-wildcard) | De opgegeven waarde op basis van de aanvraag-queryreeks wordt vergeleken.
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Naslaginformatie voor de criteria voor overeenkomst regelengine
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>Altijd
 
@@ -971,8 +971,8 @@ user=joe              | Dit patroon wordt voldaan aan wanneer de query-tekenreek
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Content Delivery Network](cdn-overview.md)
-* [Verwijzing regelengine](cdn-rules-engine-reference.md)
-* [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
-* [Functies regelengine](cdn-rules-engine-reference-features.md)
+* [Naslaginformatie over de regelengine](cdn-rules-engine-reference.md)
+* [Voorwaardelijke expressies in de regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+* [Functies van de regelengine](cdn-rules-engine-reference-features.md)
 * [Standaardgedrag HTTP met behulp van de regelengine](cdn-rules-engine.md)
 

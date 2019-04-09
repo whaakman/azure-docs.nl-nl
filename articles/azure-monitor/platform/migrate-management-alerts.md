@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006790"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 
@@ -104,7 +104,7 @@ Voor het maken van een nieuwe activiteit Log waarschuwing, kunt u:
 * Ga als volgt [onze handleiding voor het maken van een waarschuwing in Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
 * Meer informatie over het [een waarschuwing met behulp van Resource Manager-sjabloon maken](../../azure-monitor/platform/alerts-activity-log.md)
  
-Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet automatisch worden gemigreerd naar waarschuwingen voor activiteitenlogboeken. U moet de voorgaande PowerShell-script gebruiken om de waarschuwingen op gebeurtenissen voor dat u momenteel hebt geconfigureerd en deze handmatig opnieuw als waarschuwingen voor activiteitenlogboeken maken weergeven. Dit moet worden uitgevoerd vóór 1 oktober, waarna waarschuwingen over gebeurtenissen niet langer zichtbaar is in uw Azure-abonnement. Andere typen waarschuwingen van Azure, met inbegrip van Azure Monitor metrische waarschuwingen, Application Insights-waarschuwingen en Log Analytics-waarschuwingen worden niet beïnvloed door deze wijziging. Als u vragen hebt, kunt u boeken in de opmerkingen hieronder.
+Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet automatisch worden gemigreerd naar waarschuwingen voor activiteitenlogboeken. U moet de voorgaande PowerShell-script gebruiken om de waarschuwingen op gebeurtenissen voor dat u momenteel hebt geconfigureerd en deze handmatig opnieuw als waarschuwingen voor activiteitenlogboeken maken weergeven. Dit moet worden uitgevoerd vóór 1 oktober, waarna waarschuwingen over gebeurtenissen niet langer zichtbaar is in uw Azure-abonnement. Andere typen waarschuwingen van Azure, met inbegrip van Azure Monitor metrische waarschuwingen, Application Insights-waarschuwingen en waarschuwingen voor zoeken in Logboeken worden niet beïnvloed door deze wijziging. Als u vragen hebt, kunt u boeken in de opmerkingen hieronder.
 
 
 ## <a name="next-steps"></a>Volgende stappen

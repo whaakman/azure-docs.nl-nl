@@ -19,7 +19,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author:
 - rimayber
 - dgoddard
@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d53b8fe46997f6b4f915bfb14a64d69b22cc5d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905089"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057826"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
 
@@ -141,7 +141,7 @@ Deze tabel toont de lineaire afstand tussen twee locaties, in netwerken, de afst
 
 Een standaard waarde van 200 kan worden gebruikt voor de snelheid van doorgifte - waarde is dat de afstand in meters licht wordt verzonden in 1 milliseconde.
 
-In het voorbeeld New York op San Francisco is het lineaire afstand 4,148 km. Minimale RTT = 2 * (4,148 / 20). De uitvoer van de vergelijking is in milliseconden.
+In het voorbeeld New York op San Francisco is het lineaire afstand 4,148 km. Minimale RTT = 2 * (4,148 / 200). De uitvoer van de vergelijking is in milliseconden.
 
 Als de fysieke afstand tussen twee locaties een vaste realiteit is als maximale netwerkprestaties vereist, is dan is de meest logische optie te selecteren van doelen met de kleinste afstand tussen beide. Bijkomend, kunnen ontwerpbeslissingen binnen het virtuele netwerk worden gemaakt op het pad van het verkeer te optimaliseren en verminder de latentie. Deze overwegingen virtueel netwerk worden beschreven in de onderstaande overwegingen bij het ontwerp van de netwerk-sectie.
 
@@ -350,3 +350,7 @@ Als u meer informatie vindt u hieronder:
 Azure-klanten zien kunnen krijgen voor TCP-pakketten met TCP-vlaggen (zak, DUP ACK RETRANSMIT en snel opnieuw) in pakketopnamen die op problemen met de netwerkprestaties duiden kunnen. Deze pakketten geven speciaal netwerk inefficiëntie als gevolg van pakketverlies. Pakketverlies is echter niet per se vanwege problemen met de prestaties van Azure. Problemen met prestaties mogelijk het resultaat van de toepassing, besturingssysteem of andere problemen die mogelijk niet rechtstreeks met betrekking tot het Azure-platform. Het is ook belangrijk te weten dat sommige doorgifte of dubbele ACK in een netwerk is normaal: TCP-protocollen zijn ontworpen als een betrouwbare. En bewijs van de TCP-pakketten in een pakketopname een systematische netwerkprobleem niet te betekenen, tenzij ze overmatige zijn.
 
 Maar moet deze worden vermeld duidelijk dat deze typen pakketten aanwijzingen zijn dat TCP-doorvoer niet de maximale prestaties, om redenen die worden beschreven in andere gedeelten te bereiken.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Nu dat we hebben besproken TCP/IP-prestaties afstemmen voor Azure VM's, de volgende stappen omvatten [plannen van andere Virtueelnetwerk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) overwegingen of [meer informatie over de verbinding te maken en configureren van virtuele netwerken](https://docs.microsoft.com/en-us/azure/virtual-network/).

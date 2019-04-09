@@ -1,5 +1,5 @@
 ---
-title: Waarschuwingen voor het oplossen van problemen in Azure Monitor
+title: Het oplossen van waarschuwingen in Azure Monitor | Microsoft Docs
 description: Veelvoorkomende problemen, fouten en resolutie voor logboek waarschuwingsregels in Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429443"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005304"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 
 ## <a name="overview"></a>Overzicht
 
-Dit artikel laat u over het oplossen van problemen die regelmatig voorkomen bij het instellen van waarschuwingen in Azure monitor. Het biedt ook oplossingen voor antwoorden op veelgestelde vragen met betrekking tot de functionaliteit of de configuratie van waarschuwingen. 
+Dit artikel laat u over het oplossen van problemen die regelmatig voorkomen bij het instellen van waarschuwingen in Azure Monitor. Het biedt ook oplossingen voor antwoorden op veelgestelde vragen met betrekking tot de functionaliteit of de configuratie van waarschuwingen. 
 
-De term **Logboekwaarschuwingen** beschrijving van waarschuwingen die worden gestart op basis van een aangepaste query in [Log Analytics](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Meer informatie over functies, -terminologie en -typen in [Logboekwaarschuwingen - overzicht](../platform/alerts-unified-log.md).
+De term **Logboekwaarschuwingen** beschrijving van waarschuwingen die worden gestart op basis van een query voor in een [Log Analytics-werkruimte](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Meer informatie over functies, -terminologie en -typen in [Logboekwaarschuwingen - overzicht](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > In dit artikel geen rekening gehouden met de aanvragen als de Azure-portal wordt weergegeven en Waarschuwing regel geactiveerd en een melding die wordt uitgevoerd door een bijbehorende actie groep(en). Voor dergelijke gevallen raadpleegt u de details in het artikel op [actiegroepen](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwin
 
 ### <a name="data-ingestion-time-for-logs"></a>Gegevens opnemen tijd voor logboeken
 
-Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie [Gegevensopnametijd in Log Analytics](../platform/data-ingestion-time.md) voor meer informatie.
+Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Omdat Azure Monitor vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld verwerkt, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in de logboeken van Azure Monitor](../platform/data-ingestion-time.md).
 
 Als u wilt beperken gegevensopname vertraging, het systeem moet wachten en probeert de Waarschuwingsquery meerdere keren opnieuw als er dat nog niet de benodigde gegevens worden opgenomen. Het systeem heeft een exponentieel toenemende wachttijd instellen. Het logboek waarschuwing alleen triggers nadat de gegevens beschikbaar zijn, zodat ze vertraging kunnen worden veroorzaakt door trage logboekgegevens opnemen. 
 
@@ -84,7 +84,7 @@ Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfi
 
 ### <a name="alert-triggered-by-partial-data"></a>Waarschuwing geactiveerd door gegevens gedeeltelijk
 
-Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie [Gegevensopnametijd in Log Analytics](../platform/data-ingestion-time.md) voor meer informatie.
+Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie voor meer informatie, [gegevensopname keer aanmelden met Azure Monitor](../platform/data-ingestion-time.md).
 
 Afhankelijk van hoe de waarschuwingsregel is geconfigureerd, kunnen er verkeerd firing als er geen of gedeeltelijke gegevens in Logboeken op het moment van uitvoering van de waarschuwing. In dergelijke gevallen adviseren we u om de Waarschuwingsquery of de configuratie te wijzigen. 
 
@@ -100,4 +100,4 @@ Wat wordt weergegeven in de **query moet worden uitgevoerd** vak is wat de waars
 
 - Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](../platform/alerts-unified-log.md)
 - Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)
-- Meer informatie over [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Meer informatie over [melden van query's](../log-query/log-query-overview.md)

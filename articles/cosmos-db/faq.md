@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881032"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010614"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -95,8 +95,9 @@ De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 * Maximaal drie verzamelingen per abonnement voor MongoDB-accounts.
 * Opslagcapaciteit van 10 GB.
 * Globale replicatie is beschikbaar in de volgende [Azure-regio's](https://azure.microsoft.com/regions/): VS-midden, Noord-Europa en Zuidoost-Azië
-* Maximale doorvoer van 5 K RU/s.
-* Abonnementen vervalt na 24 uur, en kunnen worden uitgebreid tot een maximum van 48 uur totale.
+* Maximale doorvoer van 5 K RU/s ingericht op het niveau van de container.
+* De doorvoer van het maximum van 20 K RU/s ingericht op het databaseniveau van de.
+* Abonnementen verlopen na 30 dagen en kunnen worden uitgebreid tot een maximum van het totaal aantal 31 dagen.
 * Azure ondersteuningstickets kunnen niet worden gemaakt voor Try Azure Cosmos DB-accounts; echter, wordt ondersteuning geboden voor abonnees met bestaande ondersteuningsabonnementen.
 
 ## <a name="set-up-azure-cosmos-db"></a>Instellen van Azure Cosmos DB

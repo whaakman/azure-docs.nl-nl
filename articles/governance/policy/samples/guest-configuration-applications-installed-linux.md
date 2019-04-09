@@ -1,19 +1,18 @@
 ---
 title: Voorbeeld - Audit als toepassingen niet zijn geïnstalleerd in virtuele Linux-machines
 description: In dit voorbeeld Gast beleidsconfiguratie initiatief en definities controleren als de opgegeven toepassingen niet binnen de virtuele Linux-machines zijn geïnstalleerd.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8b383ed4a9e13380ec9d9ad2508c5b48b1e23e9e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849250"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256461"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Voorbeeld - Audit als opgegeven toepassingen zijn niet geïnstalleerd in virtuele Linux-machines
 
@@ -34,9 +33,9 @@ In dit voorbeeld met, kunt u toewijzen:
 Dit [Gast configuratie](../concepts/guest-configuration.md) initiatief is afhankelijk van het volgende beleid:
 
 - [audit](#audit-definition) -controleren dat een toepassing in Linux-VM's is geïnstalleerd
-  - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
+  - Id: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
 - [deployIfNotExists](#deployIfNotExists-definition) -implementatie van VM-extensie om te controleren dat een toepassing in Linux-VM's is geïnstalleerd
-  - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
+  - Id: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Initiatiefdefinitie
 

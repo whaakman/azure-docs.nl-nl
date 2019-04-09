@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991798"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056228"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT voor Azure - implementatie-overzicht
 
@@ -32,14 +32,6 @@ Hier volgt een overzicht van alle de stappen.
 1. Vereisten configureren 
 
    Voordat u een virtuele machine maakt, moet u een nieuw abonnement voor het Avere vFXT-project maken, abonnement eigendom configureren, quota controleren en een verhoging als nodig hebt en voorwaarden voor het gebruik van de Avere vFXT-software accepteren. Lezen [voorbereidingen voor het maken van de vFXT Avere](avere-vfxt-prereqs.md) voor gedetailleerde instructies.
-
-1. Een toegangsrol voor de clusterknooppunten maken
-
-   Azure maakt gebruik van [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor het toestaan van het clusterknooppunt VM's bepaalde taken uit te voeren. Bijvoorbeeld, moeten de clusterknooppunten kunnen toe te wijzen of opnieuw toewijzen van IP-adressen aan andere knooppunten van het cluster. Voordat u het cluster maakt, moet u een rol met voldoende machtigingen definiëren.
-
-   Lezen [maken van de functie cluster knooppunt toegang](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) voor instructies.
-
-   De clustercontroller gebruikt ook een toegangsrol, maar u kunt de standaard-rol, de eigenaar, in plaats van het maken van uw eigen accepteren. Als u een aangepaste rol voor de netwerkcontroller cluster maken wilt, lezen [aangepaste toegang controllerrol](avere-vfxt-controller-role.md). 
 
 1. De Avere vFXT-cluster maken 
 

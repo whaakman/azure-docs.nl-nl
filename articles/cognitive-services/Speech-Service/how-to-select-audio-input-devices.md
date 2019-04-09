@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550670"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010376"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Een audio-invoerapparaat selecteren met de Speech-SDK
 
-In versie 1.3.0 van de Speech-SDK wordt een API geïntroduceerd om de audio-invoer te selecteren. In dit artikel wordt beschreven hoe u de id's kunt verkrijgen van de audio-apparaten die met een systeem zijn verbonden.
+Versie 1.3.0 van de spraak-SDK bevat een API om te selecteren van de audio-invoer.
+In dit artikel wordt beschreven hoe u de id's van de audio-apparaten die zijn verbonden met een systeem te verkrijgen.
 Deze kunnen vervolgens worden gebruikt in de Speech-SDK door het audioapparaat via het `AudioConfig`-object te configureren:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Deze functionaliteit is nog niet beschikbaar in JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Gebruik van de microfoon is niet beschikbaar voor JavaScript uitvoeren in Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Id's van audioapparaten onder Windows voor bureaublad-toepassingen
 
@@ -368,10 +372,14 @@ Bijvoorbeeld: de instructie
 
 maakt het gebruik van een Bluetooth-headset voor een spraakgestuurde app mogelijk.
 
+## <a name="audio-device-ids-in-javascript"></a>Audio-apparaat-id's in JavaScript
+
+In JavaScript de [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) methode kan worden gebruikt om inventariseren van de media-apparaten en zoeken van een apparaat-ID moet worden doorgegeven aan `fromMicrophone(...)`.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Onze C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
+> [Ontdek onze voorbeelden op GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 

@@ -2,23 +2,21 @@
 title: Via een programma maken Azure Enterprise-abonnementen | Microsoft Docs
 description: Meer informatie over het maken van aanvullende Azure Enterprise- en Enterprise Dev/Test-abonnementen via een programma.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 04/05/2019
+ms.author: tomfitz
+ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486976"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256920"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
 
@@ -30,9 +28,9 @@ Wanneer u een Azure-abonnement van deze API maakt, wordt dat aan het abonnement 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een rol eigenaar of bijdrager hebben op het Inschrijvingsaccount die u wilt maken van abonnementen onder. Er zijn twee manieren om op te halen van deze rollen:
+U moet een rol van eigenaar hebben op het Inschrijvingsaccount die u wilt maken van abonnementen onder. Er zijn twee manieren om op te halen van deze rollen:
 
-* Kan de beheerder van uw inschrijving [moet u de eigenaar van een Account](https://ea.azure.com/helpdocs/addNewAccount) (aanmelding vereist) waardoor u een eigenaar van het Inschrijvingsaccount. Volg de instructies in de uitnodiging per e-mail ontvangt die u voor het handmatig maken van een eerste abonnement. Eigendom van accounts bevestigen en maak handmatig een initiële EA-abonnement voordat u doorgaat met de volgende stap. Het account bij de inschrijving is alleen toe te voegen niet voldoende.
+* Kan de beheerder van uw inschrijving [moet u de eigenaar van een Account](https://ea.azure.com/helpdocs/addNewAccount) (aanmelding vereist), waardoor u een eigenaar van het Inschrijvingsaccount. Volg de instructies in de uitnodiging per e-mail ontvangt die u voor het handmatig maken van een eerste abonnement. Eigendom van accounts bevestigen en maak handmatig een initiële EA-abonnement voordat u doorgaat met de volgende stap. Het account bij de inschrijving is alleen toe te voegen niet voldoende.
 
 * Kan de eigenaar van een bestaand van het Inschrijvingsaccount [verlenen u toegang tot](grant-access-to-create-subscription.md). Op dezelfde manier als u gebruiken van een service-principal wilt te maken van de EA-abonnement, moet u [de mogelijkheid om abonnementen te maken voor deze service-principal verlenen](grant-access-to-create-subscription.md).
 
@@ -42,7 +40,7 @@ Nadat u bent toegevoegd aan een Azure EA-inschrijving als de eigenaar van een Ac
 
 Als u wilt de volgende opdrachten uitvoeren, u moet zijn aangemeld op de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt standaard.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 De aanvraag om alle inschrijvingsaccounts weer te geven:
 
@@ -75,7 +73,7 @@ Azure reageert met een lijst met alle inschrijvingsaccounts u toegang tot hebt:
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Gebruik de [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet om alle inschrijvingsaccounts u toegang tot hebt weer te geven.
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure-CLI](#tab/azure-cli)
 
 Gebruik de [az facturering inschrijvingsaccount lijst](https://aka.ms/EASubCreationPublicPreviewCLI) opdracht om een lijst van alle inschrijvingsaccounts u toegang tot hebt.
 
@@ -132,7 +130,7 @@ Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnemente
 
 Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement *MS-AZR - 0017P* (normale EA). Het inschrijvingsaccount is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, deze waarde is een GUID), is het inschrijvingsaccount voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als RBAC-eigenaren voor het abonnement.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Gebruik de `id` van de `enrollmentAccount` in het pad van de aanvraag voor het abonnement te maken.
 
@@ -161,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 In het antwoord je weer toegang krijgen een `subscriptionOperation` object voor de bewaking. Wanneer het abonnement is gemaakt, de `subscriptionOperation` object retourneerde een `subscriptionLink` -object met de abonnements-ID.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Voor het gebruik van deze preview-module installeren door te voeren `Install-Module Az.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
 
@@ -182,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Zie voor een volledige lijst met alle parameters [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure-CLI](#tab/azure-cli)
 
 Voor het gebruik van deze preview-extensie installeren door te voeren `az extension add --name subscription` eerste.
 

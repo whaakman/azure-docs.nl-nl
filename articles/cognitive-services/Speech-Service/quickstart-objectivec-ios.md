@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094919"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009268"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u hoe u een iOS-toepassing in Objective-C maakt met behulp van de Cognitive Services Speech-SDK om een audiobestand met opgenomen spraak om te zetten in tekst.
+In dit artikel leert u hoe u een iOS-app maken in Objective-C met behulp van de Cognitive Services Speech SDK transcriberen spraak naar tekst van de microfoon of van een bestand met de opgenomen audio.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,16 +29,16 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 * Een [abonnementssleutel](get-started.md) voor Speech Service
 * Een macOS-computer met [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) of hoger
-* Het doel is ingesteld op iOS-versie 11.4 of hoger
+* Het doel ingesteld op iOS-versie 9.3 of hoger
 
 ## <a name="get-the-speech-sdk-for-ios"></a>De Speech-SDK voor iOS ophalen
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.3.1`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.4.0`.
 
-De Cognitive Services Speech-SDK voor Mac en iOS wordt momenteel gedistribueerd als een Cocoa-framework.
-Dit kan worden gedownload van https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.
+De Cognitive Services spraak-SDK voor iOS wordt gedistribueerd als een Cocoa-Framework.
+Deze kan worden gedownload vanaf [hier](https://aka.ms/csspeech/iosbinary). Download het bestand naar uw basismap.
 
 ## <a name="create-an-xcode-project"></a>Een Xcode-project maken
 
@@ -52,16 +52,16 @@ Maak in de dialoogvensters die volgen de volgende selecties:
     1. Voer een relevante organisatienaam en organisatie-id in, als u al een Apple-ontwikkelaarsaccount hebt. Voor testdoeleinden kunt u elke naam kiezen, zoals `testorg`. Om de app te kunnen ondertekenen, hebt u een geschikt inrichtingsprofiel nodig. Raadpleeg de [Apple-site voor ontwikkelaars](https://developer.apple.com/) voor meer informatie.
     1. Zorg ervoor dat Objective-C als de taal voor het project is gekozen.
     1. Schakel alle selectievakjes voor tests en essentiële gegevens uit.
-    ![Projectinstellingen](media/sdk/qs-objectivec-project-settings.png)
+    ![Instellingen voor het project](media/sdk/qs-objectivec-project-settings.png)
 1. Projectmap selecteren
     1. Kies uw basismap waarin u het project wilt plaatsen. Hiermee maakt u een `helloworld`-map in uw basismap die alle bestanden voor het Xcode-project bevat.
     1. Schakel het maken van een Git-opslagplaats uit voor dit voorbeeldproject.
     1. Pas de paden naar de SDK aan in de *projectinstellingen*.
         1. Op het tabblad **Algemeen**, onder de header **Ingesloten binaire bestanden** voegt u de SDK-bibliotheek toe als framework: **Ingesloten binaire bestanden toevoegen** > **Overige toevoegen...** > Navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
-        ![Framework toegevoegd](media/sdk/qs-objectivec-framework.png)
+        ![Toegevoegde Framework](media/sdk/qs-objectivec-framework.png)
         1. Ga naar het tabblad **Build Settings** en activeer **alle** instellingen.
         1. Voeg de map `$(SRCROOT)/..` toe aan de *Framework Search Paths* onder de kop **Search Paths**.
-        ![Instelling voor Framework Search Paths](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Framework zoekpad instelling](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>De gebruikersinterface instellen
 
@@ -102,4 +102,5 @@ Vervang de automatisch gegenereerde XML door deze code:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Objective-C-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
+> [Verken Objective-C-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+

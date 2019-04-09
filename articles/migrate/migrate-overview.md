@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894966"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058438"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -32,7 +32,7 @@ Azure Migrate helpt u bij het volgende:
 - U kunt alleen on-premises VMware-VM’s (virtuele machines) beoordelen voor migratie naar Azure-VM’s. De VMware-VM's moeten worden beheerd door een vCenter Server (versie 5.5, 6.0, 6.5 of 6.7).
 - Ondersteuning voor Hyper-V is momenteel in Preview-versie met productieondersteuning voor, als u geïnteresseerd bent in het uitprobeert, meldt u zich [hier.](https://aka.ms/migratefuture)
 - Voor de beoordeling van fysieke servers, kunt u gebruikmaken van onze [hulpprogramma's van partners](https://azure.microsoft.com/migration/partners/).
-- U kunt maximaal 1500 VM's detecteren in een enkele detectieronde en maximaal 1500 VM's in een enkel project. Bovendien kunt u maximaal 1500 VM's beoordelen in een enkele beoordeling.
+- U kunt maximaal 1500 VM's in een enkele detectieronde en in een enkel project detecteren. Er is een preview-versie beschikbaar waarmee de detectie van maximaal 10.000 VMware-machines in een enkel project met behulp van een enkel apparaat, als u geïnteresseerd bent in uitprobeert, meldt u zich [hier.](https://aka.ms/migratefuture)
 - Als u een grotere omgeving wilt detecteren, kunt u de detectie splitsen en meerdere projecten maken. [Meer informatie](how-to-scale-assessment.md). Azure Migrate ondersteunt maximaal 20 projecten per abonnement.
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
 -  U kunt een Azure Migrate-project alleen in de volgende geografische gebieden maken. Dit beperkt echter niet de mogelijkheid voor het maken van beoordelingen voor andere Azure-doellocaties.

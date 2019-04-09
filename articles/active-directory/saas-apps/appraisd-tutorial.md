@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861499"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Zelfstudie: Microsoft Azure Active Directory-integratie met Appraisd
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van Appraisd in Microsoft Azure Active Directory te configureren, moet u Appraisd vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-**Als u Appraisd vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Appraisd uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -107,9 +107,9 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te con
 
     a. Klik op **Extra URL's instellen**.
 
-    b. In het tekstvak **Relaystatus** typt u een URL: `<TENANTCODE>`
+    b. In de **Relaystatus** tekstvak typt u een URL: `<TENANTCODE>`
 
-    c. Als u de toepassing in de door **SP** geïnitieerde modus wilt configureren, typt u in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. Als u wilt configureren van de toepassing in **SP** modus gestart de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > U krijgt de werkelijke waarde van de aanmeldings-URL en de relaystatus op de pagina voor de configuratie van eenmalige aanmelding met Appraisd, wat later in de zelfstudie wordt uitgelegd.
@@ -161,7 +161,7 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te con
 
 1. Meld u in een ander browservenster bij Appraisd als een beveiligingsbeheerder aan.
 
-2. Klik rechts boven in de pagina op het pictogram **Settings** en navigeer vervolgens naar  **Configuration**.
+2. In de rechterbovenhoek van de pagina, klikt u op **instellingen** pictogram en navigeer vervolgens naar **configuratie**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te con
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Kopieer de waarde van de **standaardrelaystatus** en plak deze in het tekstvak  **Relaystatus** in  **Standaard SAML-configuratie** in de Microsoft Azure-portal.
+    a. Kopiëren de **Relay standaardstatus** waarde en plak deze in **Relaystatus** -tekstvak in **SAML-basisconfiguratie** in Azure portal.
 
-    b. Kopieer de waarde van de **door de service geïnitieerde aanmeldings-URL** en plak deze in het tekstvak  **Aanmeldings-URL** in  **Standaard SAML-configuratie** in de Microsoft Azure-portal.
+    b. Kopiëren de **Service geïnitieerde aanmeldings-URL** waarde en plak deze in **aanmeldings-URL** -tekstvak in **SAML-basisconfiguratie** in Azure portal.
 
 5. Schuif omlaag op de dezelfde pagina en voer de volgende stappen uit onder **Gebruikers identificeren**:
 
@@ -185,7 +185,7 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Appraisd te con
 
     b. Plak in het tekstvak **Identity Provider Issuer URL** de waarde van de **Microsoft Azure Active Directory-id** die u hebt gekopieerd uit de Microsoft Azure-portal en klik op **Save**.
 
-    c. Open in Kladblok het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure Portal, kopieer de inhoud en plak deze in het vak  **X.509-certificaat**  en klik op **Opslaan**.
+    c. In Kladblok, opent u het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, Kopieer de inhoud en plak deze in de **X.509-certificaat** vak en klikt u op **opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -242,15 +242,15 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat Microsoft Azure Active Directory-gebruikers zich kunnen aanmelden bij Appraisd, moeten ze worden ingericht in Appraisd. In het geval van Appraisd is dat een handmatige taak.
 
-**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
 
 1. Meld u bij Appraisd als een beveiligingsbeheerder aan.
 
-2. Klik rechts boven in de pagina op het pictogram **Settings** en navigeer vervolgens naar  **Administration centre**.
+2. In de rechterbovenhoek van de pagina, klikt u op **instellingen** pictogram en navigeer vervolgens naar **beheer centrum**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Klik in de werkbalk boven aan de pagina op  **People** en navigeer naar  **Add a new user**.
+3. Klik in de werkbalk boven aan de pagina op **mensen**, navigeert u vervolgens naar **een nieuwe gebruiker toevoegen**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
@@ -274,8 +274,8 @@ Wanneer u op de tegel Appraisd in het toegangsvenster klikt, wordt u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

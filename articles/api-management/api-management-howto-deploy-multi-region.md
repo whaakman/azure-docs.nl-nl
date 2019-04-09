@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957756"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058036"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio 's
 
 Met Azure API Management biedt ondersteuning voor implementatie voor meerdere regio's, waarmee de API-uitgevers voor het distribueren van een enkele Azure API management-service naar een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door consumenten API geografisch wordt gedistribueerd en verbetert tevens de servicebeschikbaarheid als één regio offline gaat.
 
-Een nieuwe Azure API Management-service bevat in eerste instantie slechts één [eenheid] [ unit] in één Azure-regio, de primaire regio. Extra regio's kunnen eenvoudig worden toegevoegd via de Azure-portal. Een API Management gateway-server is geïmplementeerd in elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway. Als een regio offline gaat, wordt het verkeer automatisch omgeleid naar de volgende dichtstbijzijnde gateway.
+Een nieuwe Azure API Management-service bevat in eerste instantie slechts één [eenheid] [ unit] in één Azure-regio, de primaire regio. Extra regio's kunnen eenvoudig worden toegevoegd via de Azure-portal. Een API Management gateway-server is geïmplementeerd in elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway in termen van latentie. Als een regio offline gaat, wordt het verkeer automatisch omgeleid naar de volgende dichtstbijzijnde gateway.
 
 > [!NOTE]
 > Met Azure API Management wordt alleen het onderdeel in de API-gateway gerepliceerd tussen regio's. Het onderdeel van de management-service wordt alleen in de primaire regio gehost. In het geval van een storing in de primaire regio is wijzigingen in de configuratie toepassen op een exemplaar van de Azure API Management-service niet mogelijk - met inbegrip van instellingen of beleid voor updates.
@@ -105,6 +105,20 @@ Als u wilt maken volledig gebruik van geografische verdeling van uw systeem, moe
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> U kunt ook uw back-endservices met front [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), de API-aanroepen naar de Traffic Manager sturen en laat het kunt oplossen door automatisch de routering.
+
+## <a name="custom-routing"> </a>Gebruik aangepaste routering naar regionale gateways van API Management
+
+API Management stuurt aanvragen naar een regionaal *gateway* op basis van [de laagste latentie](../traffic-manager/traffic-manager-routing-methods.md#performance). Hoewel het niet mogelijk om op te heffen met deze instelling in API Management is, kunt u uw eigen Traffic Manager kunt gebruiken met aangepaste regels voor doorsturen.
+
+1. Maak uw eigen [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Als u een aangepast domein [gebruiken met Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) in plaats van de API Management-service.
+1. [De regionale API Management-eindpunten configureren in Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). De regionale eindpunten volgen het patroon van de URL van `https://<service-name>-<region>-01.regional.azure-api.net`, bijvoorbeeld `https://contoso-westus2-01.regional.azure-api.net`.
+1. [De API Management-status van regionale-eindpunten configureren in Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). De status van regionale eindpunten volgen het patroon van de URL van `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, bijvoorbeeld `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Geef [de routeringsmethode](../traffic-manager/traffic-manager-routing-methods.md) van Traffic Manager.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

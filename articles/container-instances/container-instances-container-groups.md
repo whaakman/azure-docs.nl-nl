@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202007"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005544"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Container Instances
 
@@ -41,7 +41,9 @@ In dit voorbeeld van de container-groep:
 
 ## <a name="deployment"></a>Implementatie
 
-Hier volgen twee algemene manieren om een groep met meerdere containers implementeren: gebruik een [Resource Manager-sjabloon] [ resource-manager template] of een [YAML-bestand][yaml-file]. Resource Manager-sjabloon gebruiken wanneer u nodig hebt om extra Azure-service-resources te implementeren (bijvoorbeeld een [Azure Files delen][azure-files]) op het moment u de containerinstanties implementeren. Vanwege de YAML-indeling meer beknopte aard, worden een YAML-bestand wordt aanbevolen wanneer uw implementatie alleen containerinstanties bevat.
+Hier volgen twee algemene manieren om een groep met meerdere containers implementeren: gebruik een [Resource Manager-sjabloon] [ resource-manager template] of een [YAML-bestand][yaml-file]. Resource Manager-sjabloon wordt aanbevolen wanneer u moet extra Azure-serviceresources implementeren (bijvoorbeeld een [Azure Files delen][azure-files]) wanneer u de containerinstanties implementeert. Vanwege de YAML-indeling meer beknopte aard, worden een YAML-bestand wordt aanbevolen wanneer uw implementatie alleen containerinstanties bevat.
+
+Als u wilt behouden de configuratie van de containergroep van een, kunt u de configuratie exporteren naar een YAML-bestand met behulp van de Azure CLI-opdracht [az container exporteren][az-container-export]. Export kunt u voor het opslaan van de configuratie van uw container in versiebeheer voor 'configuratie als code'. Of het geëxporteerde bestand als uitgangspunt gebruiken bij het ontwikkelen van een nieuwe configuratie in YAML.
 
 ## <a name="resource-allocation"></a>Toewijzing van resources
 
@@ -110,3 +112,4 @@ Meer informatie over het implementeren van een multi-containertoepassingen-conta
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

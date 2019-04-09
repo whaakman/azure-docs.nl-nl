@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652294"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010410"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -96,7 +96,7 @@ Logboekregistratie is ingeschakeld wanneer u het profiel opslaan. Containers wor
 * Insights-logs-operationlogs: voor zoeken in logboeken over webverkeer
 * Insights-metrics-pt1m: voor metrische gegevens
 
-Het duurt een uur voordat de containers wordt weergegeven in de Blob-opslag. Er is een blob, per uur, per container. 
+**Het duurt een uur voordat de containers wordt weergegeven in de Blob-opslag. Er is een blob, per uur, per container.**
 
 U kunt [Visual Studio Code](#download-and-open-in-visual-studio-code) of een andere JSON-editor om de bestanden weer te geven. 
 

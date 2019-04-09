@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 42a7eee37d993e5f9245374adbfd133344797eff
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540451"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058166"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -138,8 +138,8 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
 5. Voeg de volgende JavaScript-code toe aan de functie `GetMap` nadat de kaart is geïnitialiseerd.
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -161,7 +161,7 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
     });
     ```
 
-   In deze codesegment die een load-gebeurtenis wordt toegevoegd aan de kaart, wordt die worden geactiveerd wanneer het toewijzen van resources volledig geladen zijn. In de gebeurtenis-handler voor het laden van kaarten wordt een gegevensbron gemaakt om resultaatgegevens in op te slaan. Er wordt een symboollaag gemaakt en aan de gegevensbron gekoppeld. Deze laag geeft aan hoe de resultaatgegevens in de gegevensbron moeten worden weergegeven, in dit geval met een donkerblauw speldpictogram dat is gecentreerd over de resultatencoördinaat en dat andere pictogrammen de mogelijkheid biedt te overlappen. De resultaat-laag wordt toegevoegd aan de kaartlagen.
+   In deze codesegment een `ready` gebeurtenis wordt toegevoegd aan de kaart die wordt geactiveerd wanneer het toewijzen van resources zijn geladen en de kaart is gereed om te worden geopend. Op de kaart `ready` gebeurtenis-handler een gegevensbron wordt gemaakt voor het opslaan van gegevens. Er wordt een symboollaag gemaakt en aan de gegevensbron gekoppeld. Deze laag geeft aan hoe de resultaatgegevens in de gegevensbron moeten worden weergegeven, in dit geval met een donkerblauw speldpictogram dat is gecentreerd over de resultatencoördinaat en dat andere pictogrammen de mogelijkheid biedt te overlappen. De resultaat-laag wordt toegevoegd aan de kaartlagen.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ In deze sectie ziet u hoe u de toewijzingen [zoeken-API](https://docs.microsoft.
 
 ### <a name="service-module"></a>Servicemodule
 
-1. De kaart wordt geladen gebeurtenis-handler, de search service-URL maken door de volgende Javascript-code toe te voegen.
+1. Op de kaart `ready` gebeurtenis-handler het samenstellen van de search service-URL door de volgende Javascript-code toe te voegen.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -229,7 +229,7 @@ Op dit moment kunnen op de pagina MapSearch de locaties worden weergegeven van n
 
 De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegevens voor lengtegraad/breedtegraad voor de zoekresultaten. Als u kijkt naar de onbewerkte JSON die door de service Maps Search wordt geretourneerd, ziet u echter dat deze aanvullende informatie over elk tankstation bevat, inclusief de naam en het adres. U kunt die gegevens opnemen in de kaart met behulp van interactieve pop-upvakken.
 
-1. Voeg de volgende regels code toe aan de gebeurtenis-handler voor het laden van kaarten na de code om een query uit te voeren op de service voor fuzzy zoeken. Hiermee wordt een exemplaar van een pop-upvenster gemaakt en een mouse-overgebeurtenis toegevoegd aan de symboollaag.
+1. Voeg de volgende regels code op de kaart `ready` gebeurtenis-handler na de code om op te vragen van de service fuzzy zoeken. Hiermee wordt een exemplaar van een pop-upvenster gemaakt en een mouse-overgebeurtenis toegevoegd aan de symboollaag.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -282,9 +282,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 De voorbeeldcode voor deze zelfstudie vindt u hier:
 
-> [Locatie zoeken met Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+> [Zoeklocatie met Azure-kaarten](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-[Het livevoorbeeld ziet u hier](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+[Zie het voorbeeld bevinden zich hier](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 De volgende zelfstudie laat zien hoe u een route tussen twee locaties weergeeft.
 

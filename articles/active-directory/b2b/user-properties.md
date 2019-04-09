@@ -1,27 +1,27 @@
 ---
-title: 'Eigenschappen van een gebruiker met B2B-samenwerking: Azure Active Directory | Microsoft Docs'
-description: Azure Active Directory B2B-samenwerking gebruikerseigenschappen kunnen worden geconfigureerd
+title: Eigenschappen van een B2B-Gast gebruiker - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B-Gast gebruikerseigenschappen en statussen voor en na verzilvering van uitnodiging
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294651"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257600"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Eigenschappen van de gebruiker van een Azure Active Directory B2B-samenwerking
 
-Een Azure Active Directory (Azure AD) business-to-business (B2B) samenwerking is een gebruiker met UserType = Gast. Deze gastgebruiker meestal afkomstig is van een partnerorganisatie en beperkte bevoegdheden in de map van de uitnodigende, heeft standaard.
+Dit artikel beschrijft de eigenschappen en de status van het gebruikersobject B2B-gasten in Azure Active Directory (Azure AD) voor en na een uitnodiging inwisselen. Een Azure AD-gebruiker voor samenwerking business-to-business (B2B) is een gebruiker met UserType = Gast. Deze gastgebruiker meestal afkomstig is van een partnerorganisatie en beperkte bevoegdheden in de map van de uitnodigende, heeft standaard.
 
 Afhankelijk van de behoeften van de uitnodigende organisatie, kan de gebruiker van een Azure AD B2B-samenwerking in een van de volgende account statussen zijn:
 
@@ -105,6 +105,6 @@ Ja. Standaard Gast objecten zijn niet zichtbaar in de globale adreslijst van uw 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
+* [Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)](what-is-b2b.md)
 * [B2B-samenwerking gebruikerstokens](user-token.md)
 * [B2B-samenwerking-gebruikersclaims toewijzen](claims-mapping.md)

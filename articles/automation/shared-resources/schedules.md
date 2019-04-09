@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623166"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008643"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
 
@@ -156,6 +156,9 @@ Wanneer u een planning uitschakelt, wordt een willekeurig niet meer gekoppeld aa
 1. Selecteer in de Azure portal, in uw Automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
 2. Klik op de naam van een schema te openen van het deelvenster met details.
 3. Wijziging **ingeschakeld** naar **Nee**.
+
+> [!NOTE]
+> Als u een schema dat een starttijd in het verleden heeft uitschakelen wilt, moet u de begindatum wijzigen naar een tijd in de toekomst voordat u opslaat.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Om uit te schakelen van een schema met PowerShell
 

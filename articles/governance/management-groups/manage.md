@@ -3,15 +3,15 @@ title: Wijzigen, verwijderen of beheren van uw beheergroepen - Azure-beheer
 description: Informatie over het weergeven, onderhouden, bijwerken en verwijderen van uw hiërarchie beheren.
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 58f8b3346ddd250736e09966b7c36e570b62bb10
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881038"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057741"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -34,6 +34,8 @@ U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell 
 1. Selecteer **alle services** > **beheergroepen**.
 
 1. Selecteer de beheergroep die u wilt wijzigen.
+
+1. Selecteer **details**.
 
 1. Selecteer de **naam van groep** optie aan de bovenkant van de pagina.
 
@@ -80,6 +82,8 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 1. Selecteer **alle services** > **beheergroepen**.
 
 1. Selecteer de beheergroep die u wilt verwijderen.
+
+1. Selecteer **details**.
 
 1. Selecteer **verwijderen**
 

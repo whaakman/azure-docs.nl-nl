@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745551"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058030"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
@@ -98,7 +98,7 @@ De volgende waarden opgeven:
 * Resourcegroepnaam voor het cluster, en ook voor netwerk- en opslagresources als ze zijn niet gelijk zijn aan het cluster
 * Locatie van cluster
 * Clusternetwerk en subnet 
-* Toegang tot de rol van knooppunt 
+* Toegang van de clusterfunctie-knooppunt (Gebruik de ingebouwde rol [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator))
 * Cluster-IP-adresbeheer en beheerderswachtwoord 
 * Aantal knooppunten om toe te voegen (1, 2 of 3)
 * Waarden uit de knooppunt exemplaar type en de cache-grootte 
@@ -113,7 +113,7 @@ Als u het model niet gebruikt, moet u een opdracht als de volgende, met inbegrip
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ U kunt Knooppuntexemplaren permanent vernietigen door ze te verwijderen in Azure
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Aanvullende clusterbronnen verwijderen uit de Azure portal
 
-Als u aanvullende bronnen voor het cluster vFXT hebt gemaakt, is het raadzaam om ze als onderdeel van het cluster af kwijtraken te verwijderen. U moet niet-elementen die bevatten gegevens die u nodig hebt, of de items die worden gedeeld met andere projecten vernietigen.
+Als u aanvullende bronnen voor het cluster vFXT hebt gemaakt, is het raadzaam om ze als onderdeel van het cluster af kwijtraken te verwijderen. Elementen die gegevens die u nodig hebt, of alle items die worden gedeeld met andere projecten bevatten niet vernietigen.
 
 Naast het verwijderen van de clusterknooppunten, houd rekening met het verwijderen van deze onderdelen: 
 
