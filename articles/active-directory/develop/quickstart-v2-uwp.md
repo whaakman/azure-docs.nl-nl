@@ -88,7 +88,7 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 > Waar:
 > - `Enter_the_Application_Id_here`: de toepassings-id voor de toepassing die u hebt geregistreerd.
 > - `Enter_the_Tenant_Info_Here`: is een van de onderstaande opties:
->   - Als uw toepassing **Alleen mijn organisatie** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+>   - Als uw toepassing **Alleen mijn organisatie** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.onmicrosoft.com)
 >   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
 >   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
 >
