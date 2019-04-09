@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0-OAuth-autorisatie Code stroom | Microsoft Docs
-description: Building webtoepassingen die gebruikmaken van Azure AD-implementatie van het OAuth 2.0-verificatieprotocol.
+title: Microsoft identity-platform en OAuth Authorization Code Flow | Azure
+description: Building webtoepassingen die gebruikmaken van de implementatie van het Microsoft identity-platform van het OAuth 2.0-verificatieprotocol.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,20 +12,20 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2019
+ms.topic: conceptual
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880262"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058744"
 ---
-# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
+# <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-platform en OAuth 2.0-autorisatiecodestroom
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -34,7 +34,7 @@ De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïn
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](v2-app-types.md#web-apps) en [systeemeigen geïnstalleerde apps](v2-app-types.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt. 
+De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](v2-app-types.md#web-apps) en [systeemeigen geïnstalleerde apps](v2-app-types.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt.
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parameter    | Vereist/optioneel | Beschrijving |
+| Parameter    | Vereist/optioneel | Description |
 |--------------|-------------|--------------|
 | `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
@@ -151,7 +151,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Probeer deze aanvraag wordt uitgevoerd in Postman. (Vergeet niet om te vervangen de `code`) [ ![uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
-| Parameter  | Vereist/optioneel | Beschrijving     |
+| Parameter  | Vereist/optioneel | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | vereist  | De toepassing (client)-ID die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |
@@ -264,7 +264,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parameter     |                | Beschrijving        |
+| Parameter     |                | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | vereist     | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |

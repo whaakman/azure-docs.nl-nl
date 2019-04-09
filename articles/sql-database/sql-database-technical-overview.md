@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670832"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273138"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service?
 
@@ -156,7 +156,7 @@ Er is ook een reeks functies voor de [verwerking van adaptieve query’s](/sql/r
 SQL Database biedt een reeks [ingebouwde functies voor beveiliging en naleving](sql-database-security-overview.md) zodat uw toepassing voldoet aan diverse vereisten op het gebied van beveiliging en de naleving van voorschriften.
 
 > [!IMPORTANT]
-> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
+> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -186,7 +186,7 @@ Dankzij [Azure Active Directory-integratie](sql-database-aad-authentication.md) 
 
 ### <a name="compliance-certification"></a>Nalevingscertificering
 
-SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://azure.microsoft.com/support/trust-center/services/) vindt, voor meer informatie.
+SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
 
 ## <a name="easy-to-use-tools"></a>Gebruiksvriendelijke hulpprogramma’s
 
@@ -255,10 +255,10 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/) voor hulpprogramma's voor het berekenen en vergelijken van de kosten voor individuele databases en elastische pools.
 - Zie deze Quick Starts om snel aan de slag te gaan:
 
-  - [Een SQL-database maken in Azure Portal](sql-database-single-database-get-started.md)  
-  - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)
-  - [Een SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
+  - [Een SQL-database maken in Azure portal](sql-database-single-database-get-started.md)  
+  - [Een SQL-database maken met de Azure-CLI](sql-database-get-started-cli.md)
+  - [Maak een SQL-database met behulp van PowerShell](sql-database-get-started-powershell.md)
 
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
-  - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)
-  - [Azure PowerShell-voorbeelden voor SQL Database](sql-database-powershell-samples.md)
+  - [Azure CLI-voorbeelden voor SQL-Database](sql-database-cli-samples.md)
+  - [Azure PowerShell-voorbeelden voor SQL-Database](sql-database-powershell-samples.md)

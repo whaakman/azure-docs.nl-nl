@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665012"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266270"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -157,7 +157,8 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th: alleen-van-type {verticaal uitlijnen: midden;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -685,7 +686,8 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th: alleen-van-type {verticaal uitlijnen: midden;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -879,7 +881,8 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th: alleen-van-type {verticaal uitlijnen: midden;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -1110,4 +1113,4 @@ In deel één van deze zelfstudie hebt u:
 U kunt de trainingsgegevens nu gaan gebruiken in deel twee van de zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie (deel 2): Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen](tutorial-auto-train-models.md)
+> [Zelfstudie (deel 2): De regressiemodel te trainen](tutorial-auto-train-models.md)

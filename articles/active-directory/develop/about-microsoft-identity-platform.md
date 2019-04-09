@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3fcbda160d84e41fd2244a4d58766ae3991e52
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197654"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258688"
 ---
 # <a name="about-microsoft-identity-platform"></a>Over het Microsoft Identity Platform
 
@@ -38,7 +38,7 @@ Voor toepassingen die gebruikmaken van de nieuwste ADAL en MSAL kan eenmalige aa
 
 In het volgende schema wordt de gebruikerservaring met Microsoft Identity weergegeven op hoog niveau, inclusief de registratie van apps, SDK’s, eindpunten en ondersteunde identiteiten.
 
-![Het Microsoft Identity Platform vandaag](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![Het Microsoft Identity Platform vandaag](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 Het Microsoft Identity Platform heeft twee eindpunten (v1.0 en v2.0) en twee sets clientbibliotheken voor het afhandelen van deze eindpunten. Houd bij het ontwikkelen van nieuwe toepassing rekening met de voordelen en huidige status van de eindpunten en de verificatiebibliotheken. Houd ook rekening met het volgende:
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b156917a9987b023a9bf94e51c0cc14aebb133c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738382"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006210"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory gegevenstransformatie stroom Lookup toewijzen
 
@@ -25,3 +25,21 @@ Gebruik Lookup om toe te voegen referentiegegevens vanaf een andere bron voor uw
 Selecteer de velden voor sleutels die u wilt tussen de velden van de referentie-bron en de binnenkomende stream velden overeenkomen. U moet eerst hebt gemaakt een nieuwe bron op het canvas ontwerp gegevensstroom gebruiken als de rechterkant voor de zoekopdracht.
 
 Wanneer overeenkomsten worden gevonden, wordt de resulterende rijen en kolommen uit de Verwijzingsbron worden toegevoegd aan de gegevensstroom. U kunt kiezen welke velden van belang dat u wilt opnemen in uw Sink aan het einde van de gegevensstroom.
+
+## <a name="optimizations"></a>Optimalisaties
+
+In Data Factory uitvoeren in omgevingen met uitgebreide Spark gegevens stromen. Als uw gegevensset in de geheugenruimte voor worker-knooppunt passen kan, kunnen we uw Lookup-prestaties optimaliseren.
+
+![Lid worden uitgezonden](media/data-flow/broadcast.png "Join Broadcast")
+
+### <a name="broadcast-join"></a>Lid worden van broadcast
+
+Selecteer links en/of rechterkant broadcast join om aan te vragen van ADF kunt u de volledige gegevensset pushen aan beide zijden van de opzoekrelatie in het geheugen.
+
+### <a name="data-partitioning"></a>Gegevenspartitionering
+
+U kunt ook opgeven partitioneren van uw gegevens door te selecteren 'Ingesteld partitioneren' op het tabblad optimaliseren van de Lookup-transformatie te maken van gegevenssets die beter in het geheugen per worker past.
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Deelnemen aan](data-flow-join.md) en [Exists](data-flow-exists.md) transformaties soortgelijke taken uitvoeren in ADF toewijzing gegevens stromen. Kijk eens transformaties volgende.

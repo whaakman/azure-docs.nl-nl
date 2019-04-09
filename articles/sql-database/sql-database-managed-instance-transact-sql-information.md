@@ -4,7 +4,6 @@ description: In dit artikel worden besproken die de T-SQL-verschillen tussen een
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260490"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
-De Implementatieoptie Managed Instance biedt extra compatibiliteit met on-premises SQL Server Database Engine. De meeste van de SQL Server database engine-functies worden ondersteund in een beheerd exemplaar.
-
-![Migratie](./media/sql-database-managed-instance/migration.png)
-
-Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in dit artikel bevat een overzicht van en worden deze verschillen uitgelegd. <a name="Differences"></a>
+In dit artikel bevat een overzicht van en worden de verschillen in syntaxis en het gedrag tussen Azure SQL Database Managed Instance en on-premises SQL Server Database Engine uitgelegd. <a name="Differences"></a>
 
 - [Beschikbaarheid](#availability) met inbegrip van de verschillen in [Always-On](#always-on-availability) en [back-ups](#backup),
 - [Beveiliging](#security) met inbegrip van de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credential), [cryptografische providers](#cryptographic-providers), [Aanmeldingen / gebruikers](#logins--users), [Service-sleutel en -service master key](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in di
 - [Functies](#functionalities) inclusief [BULKSGEWIJS invoegen/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [gedistribueerde transacties](#distributed-transactions), [ Uitgebreide gebeurtenissen](#extended-events), [externe bibliotheken](#external-libraries), [Filestream en Filetable](#filestream-and-filetable), [semantische zoekopdrachten in volledige tekst](#full-text-semantic-search), [gekoppeld servers](#linked-servers), [Polybase](#polybase), [replicatie](#replication), [herstellen](#restore-statement), [Service Broker](#service-broker), [ Opgeslagen procedures, functies en triggers](#stored-procedures-functions-triggers),
 - [Functies waarvoor verschillend gedrag in beheerde instanties](#Changes)
 - [Tijdelijke beperkingen en bekende problemen](#Issues)
+
+De Implementatieoptie Managed Instance biedt extra compatibiliteit met on-premises SQL Server Database Engine. De meeste van de SQL Server database engine-functies worden ondersteund in een beheerd exemplaar.
+
+![Migratie](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Beschikbaarheid
 
@@ -473,7 +473,7 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 ### <a name="tempdb-size"></a>Grootte van TEMPDB
 
-Maximale bestandsgrootte van `tempdb` mag niet gelijk dan 24 GB/core in de categorie Algemeen gebruik. Maximale `tempdb` grootte op laag bedrijfskritiek is beperkt met de grootte van de instantie. `tempdb` altijd wordt naar 12 gegevensbestanden gesplitst. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24GB / kern `tempdb`.
+Maximale bestandsgrootte van `tempdb` mag niet groter zijn dan 24 GB/core in de categorie Algemeen gebruik. Maximale `tempdb` grootte op laag bedrijfskritiek is beperkt met de grootte van de instantie. `tempdb` altijd wordt naar 12 gegevensbestanden gesplitst. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24GB / kern `tempdb`.
 
 ### <a name="cannot-restore-contained-database"></a>Kan de ingesloten database niet herstellen.
 
@@ -494,7 +494,7 @@ Dit wordt dit duidelijk gemaakt onder bepaalde omstandigheden, vanwege een speci
 
 In dit voorbeeld bestaande databases blijven werken en zonder problemen kan groeien zolang er nieuwe bestanden worden niet toegevoegd. Echter nieuwe databases kunnen niet worden gemaakt of hersteld omdat er niet voldoende ruimte voor nieuwe schijfstations, zelfs als de totale grootte van alle databases niet aan de grootte van het exemplaar komt. De fout die wordt geretourneerd is in dat geval niet wissen.
 
-U kunt [aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) systeemweergaven gebruiken. Als u verbinding probeert u deze limiet te [leeg en verwijder enkele van de kleinere bestanden met de instructie DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of shitch naar [laag bedrijfskritiek die niet is deze limiet](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+U kunt [aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) systeemweergaven gebruiken. Als u verbinding probeert u deze limiet te [leeg en verwijder enkele van de kleinere bestanden met de instructie DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of schakel over naar [laag bedrijfskritiek die niet is deze limiet](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van de SAS-sleutel tijdens de database herstellen
 

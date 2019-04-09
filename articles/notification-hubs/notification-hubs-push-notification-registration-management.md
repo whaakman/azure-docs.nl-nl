@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166766"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260445"
 ---
 # <a name="registration-management"></a>Registratiebeheer
 
@@ -45,12 +45,12 @@ Een installatie is een uitgebreide eigenschappen met betrekking tot inschrijving
 Hier volgen enkele belangrijke voordelen voor het gebruik van installaties:
 
 - Het maken of bijwerken van een installatie is volledig idempotent zijn. Zo kunt u het opnieuw zonder klachten over dubbele registraties.
-- De installatiemodel kunt eenvoudig doen afzonderlijke pushes - die zijn gericht op specifieke apparaat. Een tag system **"$InstallationId: [installationId]"** wordt automatisch toegevoegd aan elke installatie op basis van registratie. U kunt dus een verzenden naar deze tag op een specifiek apparaat zonder dat u hoeft te doen extra coderen aanroepen.
+- De installatiemodel biedt ondersteuning voor een speciale tag-indeling (`$InstallationId:{INSTALLATION_ID}`) waarmee wordt een melding rechtstreeks naar het apparaat verzonden. Bijvoorbeeld, als de app code stelt u een installatie-ID van `joe93developer` voor dit specifieke apparaat, een ontwikkelaar kunt zich richten op dit apparaat bij het verzenden van een melding naar de `$InstallationId:{joe93developer}` tag. Hiermee kunt u op een specifiek apparaat zonder dat u hoeft te doen extra coderen.
 - Met behulp van installaties kunt u een gedeeltelijke registratie-updates. De gedeeltelijke update van een installatie wordt aangevraagd met een PATCH-methode met de [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). Dit is handig als u wilt bijwerken van tags op de registratie. U hoeft niet te opgehaald van de registratie van de gehele en verzend de vorige labels opnieuw.
 
 Een installatie, kan de volgende eigenschappen bevatten. Zie voor een volledige lijst met de installatie-eigenschappen, [maken of overschrijven van een installatie met REST-API](https://msdn.microsoft.com/library/azure/mt621153.aspx) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ De sjabloonnaam van elke wordt toegewezen aan de hoofdtekst van een sjabloon en 
 
 Voor Windows Store-clienttoepassingen, verzenden van meldingen naar secundaire tegels is hetzelfde als ze worden verzonden naar de primaire database. Dit wordt ook ondersteund in installaties. Secundaire tegels hebben een ander kanaal-URI, die de SDK in uw client-app transparant verwerkt.
 
-De woordenlijst SecondaryTiles maakt gebruik van de dezelfde TileId die wordt gebruikt voor het maken van het object SecondaryTiles in uw Windows Store-app.
-Net als bij de primaire kanaal-URI, kunt ChannelUris van secundaire tegels op elk moment wijzigen. Zorgen dat de installatie van het in de notification hub bijgewerkt, moet het apparaat te vernieuwen met de huidige ChannelUris van de secundaire tegels.
+De woordenlijst SecondaryTiles maakt gebruik van de dezelfde TileId die wordt gebruikt voor het maken van het object SecondaryTiles in uw Windows Store-app. Net als bij de primaire kanaal-URI, kunt ChannelUris van secundaire tegels op elk moment wijzigen. Zorgen dat de installatie van het in de notification hub bijgewerkt, moet het apparaat te vernieuwen met de huidige ChannelUris van de secundaire tegels.
 
 ## <a name="registration-management-from-the-device"></a>Registratiebeheer van de van het apparaat
 

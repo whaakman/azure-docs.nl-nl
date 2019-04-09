@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358708"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267120"
 ---
-# <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in de kopieeractiviteit
+# <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in kopieeractiviteit
 Dit artikel wordt beschreven hoe copy activity in Azure Data Factory biedt schematoewijzing en gegevenstypetoewijzing van de brongegevens met sink-gegevens wanneer het kopiëren van gegevens uitvoert.
 
 ## <a name="column-mapping"></a>Toewijzen van kolommen
@@ -147,7 +147,7 @@ Schematoewijzing is van toepassing bij het kopiëren van gegevens tussen de hië
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de activiteit kopiëren translator moet worden ingesteld op: **TabularTranslator** | Ja |
-| schemaMapping | Een verzameling van sleutel / waarde-paren, die de relatie toewijzing van de tabellaire kant naar hiërarchische zijde vertegenwoordigt.<br/>- **Sleutel:** de kolomnaam van de gegevens in tabelvorm als gedefinieerd in de gegevenssetstructuur.<br/>- **Waarde:** de JSON-padexpressie voor elk veld om te worden toegewezen. Voor velden onder het hoofdobject begint u met root $; voor velden binnen de matrix die is gekozen door de eigenschap `collectionReference`, begint u vanaf het element van de matrix.  | Ja |
+| schemaMapping | Een verzameling van sleutel / waarde-paren, die staat voor de relatie toewijzing **van de bronkant naar het sink-zijde**.<br/>- **Sleutel:** bron vertegenwoordigt. Voor **in tabelvorm bron**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische bron**, geef de JSON-padexpressie voor elk veld om te worden toegewezen.<br/>- **Waarde:** vertegenwoordigt sink. Voor **in tabelvorm sink**, geef de naam van de kolom zoals gedefinieerd in de gegevenssetstructuur; voor **hiërarchische sink**, geef de JSON-padexpressie voor elk veld om te worden toegewezen. <br/> In het geval van hiërarchische gegevens, voor velden onder het hoofdobject, begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement.  | Ja |
 | collectionReference | Als u wilt herhalen en gegevens ophalen uit de objecten **in een matrixveld** met hetzelfde patroon en converteren naar per rij per object geeft u het JSON-pad van die matrix voor cross-pas. Deze eigenschap wordt alleen ondersteund als hiërarchische gegevens bron is. | Nee |
 
 **Voorbeeld: van MongoDB naar SQL kopiëren:**
@@ -232,14 +232,14 @@ Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaan
 * Booleaans
 * Datum en tijd
 * Datetimeoffset
-* Decimaal
-* Double-waarde
-* GUID
+* Decimal
+* Double
+* Guid
 * Int16
 * Int32
 * Int64
-* Enkelvoudig
-* Reeks
+* Single
+* String
 * Periode
 
 ### <a name="explicit-data-type-conversion"></a>Expliciete conversie van gegevenstype
@@ -255,8 +255,8 @@ In onderstaande scenario's is "structuur" in de gegevensset vereist:
 
 * Toepassen van [expliciete conversie van gegevenstype](#explicit-data-type-conversion) voor bestandsbronnen tijdens het kopiëren (invoergegevensset)
 * Toepassen van [expliciete kolomtoewijzing](#explicit-column-mapping) tijdens het kopiëren (zowel invoer en uitvoer gegevensset)
-* Kopiëren van Dynamics 365 / CRM bron (invoergegevensset)
-* Kopiëren naar Cosmos DB als het geneste object wanneer gegevensbron geen JSON-bestanden (uitvoergegevensset)
+* Kopiëren van Dynamics 365-/CRM-bron (invoergegevensset)
+* Kopiëren naar Cosmos DB als genest object wanneer de gegevensbron geen JSON-bestand is (uitvoergegevensset)
 
 In onderstaande scenario's, wordt "structuur" in de gegevensset aangeraden:
 

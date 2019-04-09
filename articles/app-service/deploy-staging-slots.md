@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484284"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266202"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Wanneer u de configuratie van een andere implementatiesite kloont, wordt de conf
 * Instellingen voor controle en diagnose
 * Openbare certificaten
 * WebJobs-inhoud
-* Hybride verbindingen
+* Hybride verbindingen *
+* VNet-integratie *
+* Service-eindpunten *
+* Azure CDN *
+
+Functies die zijn gemarkeerd met een * zijn gepland om te worden aangebracht in de sleuf sticky. 
 
 **Instellingen die niet worden gewisseld**:
 
@@ -93,10 +98,15 @@ Wanneer u de configuratie van een andere implementatiesite kloont, wordt de conf
 * Persoonlijke certificaten en SSL-bindingen
 * Schaalinstellingen
 * WebJobs-planners
+* IP-beperkingen
+* AlwaysOn
+* Instellingen-protocol (HTTP**S**, TLS-versie, clientcertificaten)
+* Instellingen voor diagnostische logboeken
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Voor het configureren van een app-instelling of de verbindingsreeks aan een specifieke site (niet wisselen), gaat u naar de **toepassingsinstellingen** voor dat de sleuf pagina en selecteer vervolgens de **site-instelling** vak voor de configuratie-elementen die behouden in de sleuf blijven moeten. Een configuratie-element markeren als sleuf specifieke vertelt App Service is niet swappable.
+Voor het configureren van een app-instelling of de verbindingsreeks aan een specifieke site (niet wisselen), gaat u naar de **toepassingsinstellingen** voor dat de sleuf pagina en selecteer vervolgens de **site-instelling** vak voor de configuratie-elementen die behouden in de sleuf blijven moeten. Een configuratie-element markeren als sleuf specifieke vertelt App Service is niet swappable. 
 
 ![Instelling voor site](./media/web-sites-staged-publishing/SlotSetting.png)
 

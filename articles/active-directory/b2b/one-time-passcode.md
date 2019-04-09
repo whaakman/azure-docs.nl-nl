@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294822"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257328"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mailbericht eenmalige wachtwoordcode verificatie (preview)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294822"
 | Eenmalige wachtwoordcode per e-mail is een openbare preview-functie van Azure Active Directory. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.|
 |     |
 
-De functie voor e-mailbericht eenmalige wachtwoordcode verifieert B2B-gastgebruikers wanneer ze niet worden geverifieerd via een andere manier, bijvoorbeeld Azure AD, een Microsoft-account (MSA) of Google federation. Met verificatie van de eenmalige wachtwoordcode is er niet nodig om een Microsoft-account te maken. Wanneer de gastgebruiker een uitnodiging wordt ingewisseld of toegang heeft tot een gedeelde bron, kunnen ze een tijdelijke code, die wordt verzonden naar het e-mailadres aanvragen. Ze voert deze code om door te gaan met het aanmelden.
+In dit artikel wordt beschreven hoe u e-mailbericht eenmalige wachtwoordcode-verificatie inschakelen voor gebruikers van B2B-gasten. De functie voor e-mailbericht eenmalige wachtwoordcode verifieert B2B-gastgebruikers wanneer ze niet worden geverifieerd via een andere manier, bijvoorbeeld Azure AD, een Microsoft-account (MSA) of Google federation. Met verificatie van de eenmalige wachtwoordcode is er niet nodig om een Microsoft-account te maken. Wanneer de gastgebruiker een uitnodiging wordt ingewisseld of toegang heeft tot een gedeelde bron, kunnen ze een tijdelijke code, die wordt verzonden naar het e-mailadres aanvragen. Ze voert deze code om door te gaan met het aanmelden.
 
 Deze functie is momenteel beschikbaar voor Preview-versie (Zie [inschrijving voor de Preview-versie](#opting-in-to-the-preview) hieronder). Na de Preview-versie, wordt deze functie ingeschakeld standaard voor alle tenants.
 

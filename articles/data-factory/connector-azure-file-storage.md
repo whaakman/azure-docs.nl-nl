@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267715"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Gegevens kopiëren van of naar Azure File Storage met behulp van Azure Data Factory
 
@@ -50,6 +50,9 @@ De volgende eigenschappen worden ondersteund voor Azure File Storage gekoppelde 
 >[!IMPORTANT]
 > - Gegevens te kopiëren naar Azure File Storage met behulp van Azure Integration Runtime expliciet [maken van een Azure IR](create-azure-integration-runtime.md#create-azure-ir) door de locatie van uw bestandsopslag en koppelen in de gekoppelde service als in het volgende voorbeeld.
 > - Houd er rekening mee om gegevens te kopiëren van/naar Azure File Storage met behulp van zelfgehoste Cloudintegratieruntime buiten Azure, uitgaande TCP-poort 445 in uw lokale netwerk openen.
+
+>[!TIP]
+>Wanneer u ADF UI gebruikt voor het ontwerpen, vindt u de specifieke vermelding van 'Azure File Storage' voor het maken van de gekoppelde service, welke eronder weergegeven type genereert `FileServer` object.
 
 **Voorbeeld:**
 

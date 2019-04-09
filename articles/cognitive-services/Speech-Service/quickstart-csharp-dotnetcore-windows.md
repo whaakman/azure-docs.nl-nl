@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak herkennen, C# (.NET Core Windows) - Speech Services'
+title: 'Quickstart: Water, C# (.NET Core) - spraakservices'
 titleSuffix: Azure Cognitive Services
-description: Informatie over het herkennen van gesproken tekst in C# onder .NET Core in Windows met behulp van de Speech SDK
+description: Meer informatie over het herkennen van gesproken tekst in C# onder .NET Core in Windows of macOS met behulp van de spraak-SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895601"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009424"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: Spraak herkennen met de Speech-SDK voor .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een C#-consoletoepassing voor .NET Core op Windows met behulp van de [Speech SDK](speech-sdk.md) van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw pc. De toepassing is gemaakt met het [NuGet-pakket van de Speech SDK](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel maakt u een C# consoletoepassing voor .NET Core in Windows of macOS met behulp van de Cognitive Services [spraak SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing is gemaakt met het [NuGet-pakket van de Speech SDK](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
 > .NET Core is een open-source, platformoverschrijdend .NET-platform waarmee de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specificatie wordt geïmplementeerd.
@@ -32,7 +32,7 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [.NET Core-SDK](https://dotnet.microsoft.com/download)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
@@ -71,7 +71,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand.
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
+> [Verken C# voorbeelden op GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
