@@ -5,21 +5,21 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894010"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270520"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
 Azure Container Registry is een beheerde service voor [Docker-registers](https://docs.docker.com/registry/) gebaseerd op de open-source Docker Registry 2.0. Maak en onderhoud Azure-containerregisters om uw persoonlijke installatiekopieën voor [Docker-containers](https://www.docker.com/what-docker) op te slaan en te beheren.
 
-Gebruik containerregisters in Azure met uw bestaande pijplijnen voor containerontwikkeling en -implementatie. Gebruik Azure Container Registry Build (ACR Build) om containerinstallatiekopieën in Azure te bouwen. Bouw op aanvraag of automatiseer builds volledig door het vastleggen van broncode en buildtriggers voor updates van basisinstallatiekopieën.
+Gebruik containerregisters in Azure met uw bestaande container-ontwikkeling en implementatie pijplijnen, of gebruik [ACR taken](#azure-container-registry-tasks) containerinstallatiekopieën in Azure bouwen. Bouw op aanvraag of automatiseer builds volledig door het vastleggen van broncode en buildtriggers voor updates van basisinstallatiekopieën.
 
 Zie het [Docker-overzicht](https://docs.docker.com/engine/docker-overview/) Voor achtergrondinformatie over Docker en containers.
 
@@ -32,15 +32,17 @@ Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar v
 
 Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) of [Jenkins](https://jenkins.io/).
 
-Configureer ACR-taken om toepassingsinstallatiekopieën automatisch opnieuw te bouwen wanneer de basisinstallatiekopieën zijn bijgewerkt. Gebruik ACR Tasks om installatiekopiebuilds te automatiseren wanneer uw team code registreert in een Git-opslagplaats.
+Configureren van de ACR-taken voor toepassingsinstallatiekopieën automatisch opnieuw opbouwen wanneer hun basisinstallatiekopieën zijn bijgewerkt, of compileren van installatiekopieën automatiseren wanneer uw team code worden doorgevoerd in een Git-opslagplaats. WebTest met meerdere stappen taken voor het automatiseren van het bouwen, testen en patch toepassen op meerdere containerinstallatiekopieën parallel in de cloud maken.
+
+Azure biedt verschillende hulpprogramma's zoals Azure-opdrachtregelinterface, Azure-portal en API-ondersteuning voor het beheren van uw Azure-containerregisters. Installeer desgewenst de [Docker-extensie voor Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) en de [Azure-Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) -extensie voor het werken met uw Azure-containerregisters. Pull- en installatiekopieën pushen naar een Azure container registry of uitvoeren van taken van de ACR, alles vanuit Visual Studio Code.
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
 
-* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Registers zijn beschikbaar in drie SKU's: [Basic, Standard en Premium](container-registry-skus.md), die alle ondersteuning bieden voor integratie van webhooks, registerverificatie met Azure Active Directory en functionaliteit voor verwijderen. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Gebruik de [geo-replicatie](container-registry-geo-replication.md)functie van Premium-registers voor geavanceerde replicatie- en distributiescenario's voor containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
+* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Registers zijn beschikbaar in drie SKU's: [Basic, Standard en Premium](container-registry-skus.md), die ondersteuning biedt voor integratie van webhooks, registerverificatie met Azure Active Directory en verwijderfunctionaliteit voor. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Gebruik de [geo-replicatie](container-registry-geo-replication.md)functie van Premium-registers voor geavanceerde replicatie- en distributiescenario's voor containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
 
-  U kunt [toegang beheren](container-registry-authentication.md) tot een containerregister met behulp van een Azure-identiteit, een door Azure Active Directory ondersteunde [service-principal](../active-directory/develop/app-objects-and-service-principals.md) of een opgegeven beheeraccount. Meld u aan bij het register met de Azure-opdrachtregelinterface of de standaard `docker login`-opdracht.
+  U kunt [toegang beheren](container-registry-authentication.md) tot een containerregister met behulp van een Azure-identiteit, een door Azure Active Directory ondersteunde [service-principal](../active-directory/develop/app-objects-and-service-principals.md) of een opgegeven beheeraccount. Meld u aan bij het register met de Azure CLI of de standaard `docker login` opdracht.
 
-* **Opslagplaats**: een register bevat een of meer opslagplaatsen, waarin groepen containerinstallatiekopieën worden opgeslagen. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met naamruimten op meerdere niveaus kunt u installatiekopieën groeperen die gerelateerd zijn aan een specifieke app, of apps groeperen die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
+* **Opslagplaats** -een register bevat een of meer opslagplaatsen, dit virtuele groepen met containerinstallatiekopieën met dezelfde naam maar verschillende codes of verwerkingen zijn. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met naamruimten op meerdere niveaus kunt u installatiekopieën groeperen die gerelateerd zijn aan een specifieke app, of apps groeperen die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` Hiermee geeft u een bedrijfsbrede installatiekopie
   * `myregistry.azurecr.io/warrantydept/dotnet-build` Hiermee geeft u een installatiekopie die wordt gebruikt voor het bouwen van .NET-apps, verdeeld over de garantieafdeling

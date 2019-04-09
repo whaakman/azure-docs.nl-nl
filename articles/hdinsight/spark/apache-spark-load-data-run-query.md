@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448982"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274005"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
@@ -24,8 +24,6 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Een gegevensframe maken van een CSV-bestand
 > * Query's uitvoeren op het gegevensframe
-
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,7 +36,11 @@ Toepassingen kunnen dataframes rechtstreeks maken vanuit bestanden of mappen op 
 ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Momentopname van gegevens voor interactieve Spark SQL-query")
 
 
-1. Open het Jupyter-notebook dat u hebt gemaakt in de snelstart die wordt vermeld bij Vereisten.
+1. Open de Jupyter-notebook die u hebt gemaakt in de sectie vereisten en een nieuwe notebook maken met PySpark.
+
+    > [!NOTE]  
+    > Door de PySpark-kernel te gebruiken voor het maken van een notebook, wordt de `spark`-sessie automatisch voor u gemaakt wanneer u de eerste cel met code uitvoert. U hoeft de sessie dus niet expliciet te maken.
+
 2. Plak de volgende code in een lege cel van het notebook en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
     ```python
@@ -58,10 +60,6 @@ Toepassingen kunnen dataframes rechtstreeks maken vanuit bestanden of mappen op 
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > Door de PySpark-kernel te gebruiken voor het maken van een notebook, wordt de `spark`-sessie automatisch voor u gemaakt wanneer u de eerste cel met code uitvoert. U hoeft de sessie dus niet expliciet te maken.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Query's uitvoeren op het gegevensframe
 
 Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegevens.
@@ -77,13 +75,13 @@ Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegeven
 
      ![Tabeluitvoer van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabeluitvoer van resultaat van interactieve Spark-query")
 
-3. U kunt de resultaten ook in andere visualisaties bekijken. Als u een vlakdiagram wilt zien voor dezelfde uitvoer, selecteert u **Area** en stelt u de andere waarden in zoals deze worden weergegeven.
+2. U kunt de resultaten ook in andere visualisaties bekijken. Als u een vlakdiagram wilt zien voor dezelfde uitvoer, selecteert u **Area** en stelt u de andere waarden in zoals deze worden weergegeven.
 
     ![Gebiedsgrafiek van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gebiedsgrafiek van resultaat van interactieve Spark-query")
 
-10. Klik in het menu **File** van het notitieblok op **Save and Checkpoint**. 
+3. Navigeer in de menubalk van de notebook naar **bestand** > **opslaan en controlepunt**.
 
-11. Als u direct verdergaat met de [volgende zelfstudie](apache-spark-use-bi-tools.md), laat u het notebook open. Als dit niet het geval is, sluit het notitieblok om de clusterresources vrij te geven: van de **bestand** menu in de notebook te selecteren **sluiten en stoppen**.
+4. Als u direct verdergaat met de [volgende zelfstudie](apache-spark-use-bi-tools.md), laat u het notebook open. Als dit niet het geval is, sluit het notitieblok om de clusterresources vrij te geven: vanuit het notitieblok in de menubalk, navigeert u naar **bestand** >  **sluiten en stoppen**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -98,11 +96,10 @@ U kunt ook de naam van de resourcegroep selecteren om de pagina van de resourceg
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
-
-* Een Apache Spark-gegevensframe maken.
-* Spark SQL uitvoeren op het gegevensframe.
+> [!div class="checklist"]
+> * Een Apache Spark-gegevensframe maken.
+> * Spark SQL uitvoeren op het gegevensframe.
 
 Ga naar het volgende artikel om te zien hoe de gegevens die u hebt geregistreerd in Apache Spark kunnen worden overgebracht naar een BI-hulpprogramma voor analyse zoals Power BI. 
 > [!div class="nextstepaction"]
 > [Gegevens analyseren met BI-tools](apache-spark-use-bi-tools.md)
-

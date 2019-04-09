@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362022"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259181"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX en Azure Machine Learning: Maken en interoperabele AI-modellen implementeren
 
@@ -28,15 +28,16 @@ De [Neural Network-Exchange Open](https://onnx.ai) (ONNX)-indeling is een open s
 Microsoft biedt ondersteuning voor ONNX voor de producten, waaronder Azure en Windows, zodat u kunt deze doelen kan bereiken.  
 
 ## <a name="why-choose-onnx"></a>Waarom kiezen voor ONNX?
+
 De interoperabiliteit waarover u met ONNX beschikt maakt het mogelijk is om op te halen van de briljante ideeën sneller naar productie. Gegevenswetenschappers kunnen ONNX, hun favoriete framework voor de taak kiezen. Ontwikkelaars kunnen op dezelfde manier besteed minder tijd aan modellen gereed voor productie aan en implementeer in de cloud en edge.  
 
-U kunt ONNX-modellen maken van veel frameworks, waaronder PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit meer en meer.
+U kunt ONNX-modellen maken van veel frameworks, waaronder PyTorch, Chainer, MXNet, ML.Net, TensorFlow, Keras, SciKit-informatie, Microsoft Cognitive Toolkit, en meer.
 
 Er is ook een ecosysteem van hulpprogramma's voor het visualiseren en aan het verkorten van ONNX-modellen. Een aantal vooraf getrainde ONNX-modellen zijn ook beschikbaar voor algemene scenario's.
 
 [U kunt ONNX-modellen kunnen worden geïmplementeerd](#deploy) naar de cloud met behulp van Azure Machine Learning en u kunt ONNX-Runtime. Ze kunnen ook worden geïmplementeerd op Windows 10-apparaten met [Windows ML](https://docs.microsoft.com/windows/ai/). Ze kunnen ook worden geïmplementeerd op andere platformen met behulp van conversieprogramma's die beschikbaar via de ONNX-community zijn. 
 
-[![U kunt ONNX flow diagram van training, conversieprogramma's en -implementatie](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ODiagram van NNX-stroom van training, conversieprogramma's en implementatie](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>U kunt ONNX-modellen
 
@@ -52,12 +53,12 @@ U kunt bestaande modellen converteren naar ONNX of opslaat als ONNX aan het eind
 
 |Framework voor model|Conversievoorbeeld van de of hulpprogramma|
 |-----|-------|
-|PyTorch|[Jupyter-notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter-notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
 |TensorFlow|[tensorflow-onnx-converter](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter-notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter-notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit meer CoreML<br/>XGBoost en libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 U vindt de meest recente lijst met ondersteunde frameworks en conversieprogramma's op de [ONNX-zelfstudies site](https://github.com/onnx/tutorials).
 
@@ -143,6 +144,9 @@ Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
 
    image.wait_for_creation(show_output = True)
    ```
+
+   > [!TIP]
+   > De standaardinstallatiekopie van het opgegeven door de Azure Machine Learning-service maakt gebruik van het vorige voorbeeld. U kunt ook een aangepaste installatiekopie gebruiken. Voor meer informatie, Zie de configureren en registreren sectie van de installatiekopie van [modellen implementeren](how-to-deploy-and-where.md#configureimage).
 
    Het bestand `score.py` bevat de logica scoring en moet worden opgenomen in de installatiekopie. Dit bestand wordt gebruikt om uit te voeren van het model in de afbeelding. Raadpleeg deze [zelfstudie](tutorial-deploy-models-with-aml.md#create-scoring-script) voor instructies over het maken van een scoring-script. Een voorbeeld van bestand voor een ONNX-model wordt hieronder weergegeven:
 

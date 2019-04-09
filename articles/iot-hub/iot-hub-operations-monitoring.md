@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791576"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258110"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub-bewerkingen bewaken (afgeschaft)
 
 IoT Hub-bewerkingen controleren kunt u de status van de bewerkingen op uw IoT-hub in realtime controleren. IoT Hub worden gebeurtenissen bijgehouden in meerdere categorieën met bewerkingen. U kunt kiezen voor het verzenden van gebeurtenissen uit een of meer categorieën naar een eindpunt van uw IoT-hub voor verwerking. U kunt de gegevens op fouten controleren of instellen van meer complexe verwerking op basis van, gegevenspatronen.
 
 >[!NOTE]
->IoT Hub **bewerkingen controleren is afgeschaft en is verwijderd uit de IoT-Hub op 10 maart 2019**. Zie voor het bewaken van de operations- en status van IoT Hub, [de status van Azure IoT Hub bewaken en problemen vast te stellen][lnk-monitor]. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **bewerkingen controleren is afgeschaft en is verwijderd uit de IoT-Hub op 10 maart 2019**. Zie voor het bewaken van de operations- en status van IoT Hub, [de status van Azure IoT Hub bewaken en problemen vast te stellen](iot-hub-monitor-resource-health.md). Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub bewaakt zes categorieën van gebeurtenissen:
 
@@ -36,15 +36,15 @@ IoT Hub bewaakt zes categorieën van gebeurtenissen:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Bewerkingen controleren inschakelen
 
-1. Maak een IoT-hub. U vindt instructies over het maken van een IoT-hub in de [aan de slag] [ lnk-get-started] handleiding.
+1. Maak een IoT-hub. U vindt instructies over het maken van een IoT-hub in de [aan de slag](quickstart-send-telemetry-dotnet.md) handleiding.
 
-1. Open de blade van uw IoT-hub. Van daaruit, klikt u op **bewerkingen controleren**.
+2. Open de blade van uw IoT-hub. Van daaruit, klikt u op **bewerkingen controleren**.
 
-    ![Bewerkingen voor gegevenstoegang configuratie in de portal bewaken][1]
+    ![Bewerkingen voor gegevenstoegang configuratie in de portal bewaken](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. Selecteer de bewaking categorieën die u wilt controleren, en klik vervolgens op **opslaan**. De gebeurtenissen zijn beschikbaar voor het lezen van de Event Hub-compatibele eindpunt die worden vermeld in **controle-instellingen**. De IoT Hub-eindpunt aangeroepen `messages/operationsmonitoringevents`.
+3. Selecteer de bewaking categorieën die u wilt controleren, en klik vervolgens op **opslaan**. De gebeurtenissen zijn beschikbaar voor het lezen van de Event Hub-compatibele eindpunt die worden vermeld in **controle-instellingen**. De IoT Hub-eindpunt aangeroepen `messages/operationsmonitoringevents`.
 
-    ![Bewerkingen controleren op uw IoT-hub configureren][2]
+    ![Bewerkingen controleren op uw IoT-hub configureren](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > Selecteren **uitgebreid** bewaking voor de **verbindingen** categorie zorgt ervoor dat de IoT Hub kunt u extra diagnostische berichten genereren. Voor alle andere categorieën, de **uitgebreid** in elke foutbericht instellen van de hoeveelheid gegevens IoT Hub bevat.
@@ -145,7 +145,9 @@ De categorie verbindingen houdt bij of fouten die optreden wanneer apparaten kop
 De categorie van bestand uploaden bijgehouden fouten die optreden bij de IoT-hub en zijn gerelateerd aan functionaliteit voor het uploaden van bestand. Deze categorie omvat:
 
 * Fouten die met de SAS-URI optreden, zoals wanneer het verloopt voordat een apparaat aan de hub van het uploaden van een voltooide gecommuniceerd.
+
 * Kan geen uploads gemeld door het apparaat.
+
 * Fouten die optreden wanneer een bestand niet in de opslag tijdens het maken van IoT-Hub melding weergegeven gevonden is.
 
 Deze categorie worden geen fouten die optreden wanneer het apparaat een bestand naar storage uploaden is gedetecteerd.
@@ -188,31 +190,31 @@ De categorie voor het doorsturen van bericht houdt bij of fouten die optreden ti
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Verbinding maken met de controle-eindpunt
 
-De controle-eindpunt op uw IoT-hub is een Event Hub-compatibele eindpunt. U kunt een mechanisme dat werkt met Event Hubs controleren om berichten te lezen vanaf dit eindpunt. Het volgende voorbeeld maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer. Zie voor meer informatie over het verwerken van Event Hubs-berichten de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial].
+De controle-eindpunt op uw IoT-hub is een Event Hub-compatibele eindpunt. U kunt een mechanisme dat werkt met Event Hubs controleren om berichten te lezen vanaf dit eindpunt. Het volgende voorbeeld maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer. Zie voor meer informatie over het verwerken van berichten van Event Hubs, de [aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) zelfstudie.
 
 Voor verbinding met de controle-eindpunt, moet u een verbindingsreeks en de naam van het eindpunt. De volgende stappen laten zien hoe u de vereiste waarden vinden in de portal:
 
 1. Navigeer naar de resourceblade van uw IoT-Hub in de portal.
 
-1. Kies **bewerkingen controleren**, en noteer de **Event Hub-compatibele naam** en **Event Hub-compatibele eindpunt** waarden:
+2. Kies **bewerkingen controleren**, en noteer de **Event Hub-compatibele naam** en **Event Hub-compatibele eindpunt** waarden:
 
-    ![Event Hub-compatibele eindpunt waarden][img-endpoints]
+    ![Event Hub-compatibele eindpunt waarden](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Kies **beleid voor gedeelde toegang**, en kies vervolgens **service**. Noteer de **primaire sleutel** waarde:
+3. Kies **beleid voor gedeelde toegang**, en kies vervolgens **service**. Noteer de **primaire sleutel** waarde:
 
-    ![Primaire sleutel voor service gedeelde toegang beleid][img-service-key]
+    ![Primaire sleutel voor service gedeelde toegang beleid](./media/iot-hub-operations-monitoring/service-key.png)
 
 De volgende C#-codevoorbeeld is afkomstig uit een Visual Studio **Windows Classic Desktop** C#-consoletoepassing. Het project heeft de **WindowsAzure.ServiceBus** NuGet-pakket geïnstalleerd.
 
 * Vervang de tijdelijke aanduiding voor tekenreeks met een verbindingsreeks die gebruikmaakt van de **Event Hub-compatibele eindpunt** en service **primaire sleutel** waarden die u hebt genoteerd eerder zoals wordt weergegeven in het volgende voorbeeld:
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * Vervang de bewaking eindpunt de naam van de tijdelijke aanduiding met de **Event Hub-compatibele naam** waarde die u eerder hebt genoteerd.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -263,24 +265,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
+* [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [AI implementeren op edge-apparaten met Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

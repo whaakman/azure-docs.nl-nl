@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 5c53c64c337cb2992b002ee02ceb9aab36e16de4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958742"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257617"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Een inleiding tot Azure Lab Services
 Met Azure Lab Services kunt u snel in de cloud een omgeving inrichten voor uw team (zoals een ontwikkelomgeving, testomgeving of labomgeving voor het leslokaal). De eigenaar van een lab maakt een lab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en hulpprogramma's en maakt deze beschikbaar voor gebruikers van het lab. Labgebruikers maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun dagelijkse werk, kortlopende projecten of voor het uitvoeren van oefeningen in het leslokaal. Zodra gebruikers aan de slag gaan met resources in het lab, kan een beheerder van het lab kosten en gebruik voor meerdere labs analyseren en overkoepelend beleid instellen om de kosten van uw organisatie of het team te optimaliseren.
@@ -120,5 +120,5 @@ In de volgende tabel worden twee soorten testlaboratoria vergeleken die worden o
 
 Zie de volgende artikelen: 
 
-- [Over Leslokaallabs ](./classroom-labs/classroom-labs-overview.md)
-- [Over DevTest Labs](devtest-lab-overview.md)
+- [Over leslokaallabs](./classroom-labs/classroom-labs-overview.md)
+- [Over DevTest-labs](devtest-lab-overview.md)

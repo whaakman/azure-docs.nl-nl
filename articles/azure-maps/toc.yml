@@ -23,14 +23,12 @@ items:
     href: tutorial-geofence.md
 - name: Concepten
   items:
-  - name: Zoomniveaus en tegelraster
-    href: zoom-levels-and-tile-grid.md
+  - name: Verificatie met Azure Maps
+    href: azure-maps-authentication.md
   - name: Azure Maps Event Grid-integratie
     href: azure-maps-event-grid-integration.md
   - name: De juiste prijscategorie kiezen
     href: choose-pricing-tier.md
-  - name: Verificatie met Azure Maps
-    href: azure-maps-authentication.md
   - name: Dekking
     items:
     - name: Dekking voor geocodering
@@ -47,6 +45,8 @@ items:
     href: supported-map-styles.md
   - name: Browsers die Web-SDK ondersteunen
     href: supported-browsers.md
+  - name: Zoomniveaus en tegelraster
+    href: zoom-levels-and-tile-grid.md
 - name: Handleidingen
   items:
   - name: Maps-accounts beheren
@@ -159,7 +159,7 @@ items:
   items:
   - name: Azure Maps-gebruiksvoorwaarden
     href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Prijzen
+  - name: Azure Maps-prijzen
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Prijscalculator
     href: https://azure.microsoft.com/pricing/calculator/
@@ -167,7 +167,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: MSDN-forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Woordenlijst
+  - name: Azure Maps-video's
+    href: https://aka.ms/AzureMapsVideos
+  - name: Azure Maps-woordenlijst
     href: glossary.md
   - name: Service-updates
     href: https://azure.microsoft.com/updates
@@ -177,7 +179,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Technische casestudy's
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Video's
+  - name: Azure Maps op IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: Verwant
   items:
@@ -205,9 +207,9 @@ items:
       href: /azure/iot-edge
     - name: IoT Device-SDK's
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: db82c8eac3288867b524f19b688b6358b8e6bbc6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fa4c3a4f8158123e6773640c1612daa0c7390424
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575820"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058931"

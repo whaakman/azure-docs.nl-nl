@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057418"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268497"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -51,6 +51,8 @@ In Azure Automation kunnen Runbooks worden uitgevoerd via een sandbox in Azure o
 ## <a name="runbook-behavior"></a>Runbook-gedrag
 
 Runbooks uitvoeren op basis van de logica die is gedefinieerd in deze. Als een runbook wordt onderbroken, wordt het runbook aan het begin opnieuw opgestart. Dit gedrag is vereist voor runbooks worden geschreven in een manier waarop ze wordt opnieuw opgestart ondersteunen als er problemen van voorbijgaande aard zijn.
+
+Er is een PowerShell-taken gestart vanuit een Runbook uitgevoerd in een Azure sandbox kan niet worden uitgevoerd in de taalmodus volledige. Zie voor meer informatie over de modi van de PowerShell-taal, [PowerShell taal modi](/powershell/module/microsoft.powershell.core/about/about_language_modes). Zie voor meer informatie over het werken met taken in Azure Automation [bij het ophalen van de status van de taak met PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Het maken van resources
 

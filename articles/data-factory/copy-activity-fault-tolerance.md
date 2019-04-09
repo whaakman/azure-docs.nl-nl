@@ -3,7 +3,7 @@ title: Fouttolerantie van kopieeractiviteit in Azure Data Factory | Microsoft Do
 description: Meer informatie over-fouttolerantie gebruikt voor het kopiëren van activiteit in Azure Data Factory door het overslaan van de niet-compatibele rijen toevoegen.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.author: jingwang
-ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: yexu
+ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014910"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267460"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van kopieeractiviteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
-> * [Versie 1:](v1/data-factory-copy-activity-fault-tolerance.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versie 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Huidige versie](copy-activity-fault-tolerance.md)
 
 De kopieeractiviteit in Azure Data Factory biedt twee manieren voor het afhandelen van incompatibele rijen tijdens het kopiëren van gegevens tussen de bron-en sink:

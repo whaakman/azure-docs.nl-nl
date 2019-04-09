@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878414"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259861"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
@@ -74,7 +74,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | String | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
@@ -148,7 +148,7 @@ Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk rele
 
 ## <a name="validating-tokens"></a>Valideren van tokens
 
-Voor het valideren van een id_token of een access_token, moet het valideren van uw app in zowel de handtekening van het token en de claims. Om te valideren toegangstokens, moet de uitgever, de doelgroep en het ondertekenen tokens ook valideren door uw app. Deze moeten worden gevalideerd op basis van de waarden in de OpenID-discovery-document. Bijvoorbeeld, de tenant onafhankelijk versie van het document bevindt zich op [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Voor het valideren van een id_token of een access_token, moet het valideren van uw app in zowel de handtekening van het token en de claims. Om te valideren toegangstokens, moet de uitgever, de doelgroep en het ondertekenen tokens ook valideren door uw app. Deze moeten worden gevalideerd op basis van de waarden in de OpenID-discovery-document. Bijvoorbeeld, de versie van de tenant-onafhankelijk van het document bevindt zich op [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
 
 De Azure AD-middleware beschikt over ingebouwde mogelijkheden voor het valideren van tokens voor toegang en vindt u op onze [voorbeelden](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) te zoeken in de taal van uw keuze. Zie voor meer informatie over hoe u expliciet een JWT-token te valideren, de [handmatige JWT Validatievoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
@@ -173,14 +173,14 @@ De `alg` claim geeft aan dat de algoritme die is gebruikt voor het ondertekenen 
 
 Azure AD kan een id_token met behulp van één van een bepaalde set van paren van openbare en persoonlijke sleutels zich op een willekeurig moment in-time. Azure AD draait het mogelijke set sleutels op periodieke basis, zodat uw app voor een correcte verwerking die automatisch moet worden geschreven. Een redelijke frequentie om te controleren op updates voor de openbare sleutels die worden gebruikt door Azure AD is elke 24 uur.
 
-U kunt de ondertekening belangrijke gegevens die nodig zijn voor het valideren van de handtekening met behulp van de OpenID Connect-metagegevensdocument dat zich bevindt in verkrijgen:
+Kunt u de ondertekening belangrijke gegevens die nodig zijn voor het valideren van de handtekening met behulp van verkrijgen de [metagegevensdocument voor OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) te vinden op:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Probeer dit [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in een browser.
+> Probeer dit [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) in een browser.
 
 Dit metagegevensdocument:
 
@@ -190,7 +190,9 @@ Dit metagegevensdocument:
 > [!NOTE]
 > Het eindpunt v1.0 retourneert zowel de `x5t` en `kid` claims, terwijl het v2.0-eindpunt met alleen reageert de `kid` claim. Voortaan, wordt u aangeraden de `kid` claim uw token te valideren.
 
-Het valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source-bibliotheken beschikbaar voor u doen indien nodig te helpen.
+Het valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source-bibliotheken beschikbaar voor u doen indien nodig te helpen.  Het Microsoft Identity-platform heeft echter een token-ondertekening van de extensie aan de normen - aangepaste ondertekeningssleutels.  
+
+Als uw app aangepaste ondersteuningssleutels door het gebruik van heeft de [claims-toewijzing](active-directory-claims-mapping.md) functie, die u moet toevoegen een `appid` queryparameter met de app-ID om op te halen een `jwks_uri` die verwijst naar uw app de ondertekeningssleutel informatie, die moet worden gebruikt voor validatie. Bijvoorbeeld: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` bevat een `jwks_uri` van `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorisatie op basis van claims
 

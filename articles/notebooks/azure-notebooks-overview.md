@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777716"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280102"
 ---
 # <a name="overview-of-azure-notebooks"></a>Overzicht van Azure Notebooks
 
 Azure Notebooks is een gratis gehoste service om Jupyter-notebooks te ontwikkelen en uitvoeren in de cloud, zonder installatie. [Jupyter](https://jupyter.org/) (voorheen IPython) is een opensourceproject waarmee u eenvoudig Markdown-tekst, uitvoerbare code en permanente gegevens, afbeeldingen en visualisaties kunt combineren op één deelbaar canvas, het *notebook* (de afbeelding is ter beschikking gesteld door jupyter.org):
 
-[![Voorbeelden van Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Examples van Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Vanwege deze krachtige combinatie van code, afbeeldingen en verklarende tekst is Jupyter populair geworden voor vele toepassingen, waaronder onderwijs in datawetenschap, het opschonen en transformeren van gegevens, numerieke simulatie, statistisch modelleren en de ontwikkeling van modellen voor machine learning.
 
@@ -58,6 +58,8 @@ Kortom, met Azure Notebooks kunt u uw werk efficiënter uitvoeren en dus meer vo
 Azure Notebooks is een gratis service, maar om misbruik te voorkomen is elk project beperkt tot 4 GB geheugen en 1 GB gegevens. Legitieme gebruikers die deze quota overschrijden, krijgen een captcha aangeboden als ze notebooks willen blijven gebruiken.
 
 Als u alle beperkingen wilt opheffen, meld u zich met behulp van Azure Active Directory aan bij Azure Notebooks met een account (bijvoorbeeld een zakelijk account). Als dit account is gekoppeld aan een Azure-abonnement, kunt u elk Azure Data Science Virtual Machine-exemplaar binnen dat abonnement verbinden. Zie [Manage and configure projects - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier) (Projecten beheren en configureren - Compute-laag) voor meer informatie.
+
+Laptop-servers worden gegarandeerd aanwezig voor maximaal 8 uur. In de meeste gevallen de container is niet afhankelijk van deze limiet en blijft ook na die tijd worden uitgevoerd, maar lange levensduur hebben sessies kunnen van tijd tot tijd worden afgesloten voor de stabiliteit van het systeem.
 
 ## <a name="available-kernels-and-environments"></a>Beschikbare kernels en omgevingen
 
@@ -95,7 +97,7 @@ Voor vragen over Azure Notebooks kunt u een vraag stellen op de [GitHub-opslagpl
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-- [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
+- [Voorbeeldnotitieblokken verkennen](azure-notebooks-samples.md)
 
 - Quickstarts:
 
@@ -112,9 +114,9 @@ Voor vragen over Azure Notebooks kunt u een vraag stellen op de [GitHub-opslagpl
 - Artikelen met procedures:
   
   - [Projecten maken en klonen](create-clone-jupyter-notebooks.md)
-  - [Projecten configureren en beheren](configure-manage-azure-notebooks-projects.md)
-  - [Pakketten vanuit een notebook installeren](install-packages-jupyter-notebook.md)
+  - [Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+  - [Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
   - [Een diavoorstelling presenteren](present-jupyter-notebooks-slideshow.md)
   - [Werken met gegevensbestanden](work-with-project-data-files.md)
-  - [Toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
+  - [Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
   - [Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

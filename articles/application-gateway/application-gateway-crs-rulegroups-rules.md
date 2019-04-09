@@ -1,23 +1,17 @@
 ---
 title: Azure Application Gateway web application firewall CRS-regelgroepen en -regels regel
 description: Deze pagina bevat informatie over web application firewall CRS-regelgroepen en -regels.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 4/16/2018
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302029"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279700"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lijst met web application firewall CRS-regelgroepen en -regels die worden aangeboden
 
@@ -37,41 +31,23 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 |RuleId|Description|
 |---|---|
-|911011|Regel 911011|
-|911012|Regel 911012|
 |911100|Methode is niet toegestaan door het beleid|
-|911013|Regel 911013|
-|911014|Regel 911014|
-|911015|Regel 911015|
-|911016|Regel 911016|
-|911017|Regel 911017|
-|911018|Regel 911018|
 
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
 |RuleId|Description|
 |---|---|
-|913011|Regel 913011|
-|913012|Regel 913012|
 |913100|Gebruiker-Agent die is gekoppeld aan een beveiligingsscanner gevonden|
 |913110|Aanvraagheader die zijn gekoppeld aan een beveiligingsscanner gevonden|
 |913120|Aanvraag filename/argument dat is gekoppeld aan een beveiligingsscanner gevonden|
-|913013|Regel 913013|
-|913014|Regel 913014|
 |913101|Gebruiker-Agent die is gekoppeld aan het uitvoeren van scripts/algemene HTTP-client gevonden|
 |913102|Gebruiker-Agent die is gekoppeld aan web crawler/bot gevonden|
-|913015|Regel 913015|
-|913016|Regel 913016|
-|913017|Regel 913017|
-|913018|Regel 913018|
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|Description|
 |---|---|
-|920011|Regel 920011|
-|920012|Regel 920012|
 |920100|Ongeldige HTTP-aanvraag regel|
 |920130|Parseren van de hoofdtekst van de aanvraag is mislukt.|
 |920140|Gedeeltelijk aanvraag voldoet niet aan streng = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM-%@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
@@ -102,30 +78,22 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |920430|HTTP-protocolversie is niet toegestaan door het beleid|
 |920440|URL-bestandsextensie wordt beperkt door het beleid|
 |920450|HTTP-header is beperkt door het beleid (%@{MATCHED_VAR})|
-|920013|Regel 920013|
-|920014|Regel 920014|
 |920200|Bereik = te veel velden (6 of meer)|
 |920201|Bereik = te veel velden voor PDF-aanvraag (35 of meer)|
 |920230|Meerdere URL-codering wordt gedetecteerd|
 |920300|Aanvraag ontbreekt een Header accepteren|
 |920271|Ongeldig teken in de aanvraag (niet-afdrukbare tekens)|
 |920320|Ontbrekende Header van de gebruiker Agent|
-|920015|Regel 920015|
-|920016|Regel 920016|
 |920272|Ongeldig teken in de aanvraag (buiten afdrukbare tekens hieronder 127 ascii)|
-|920017|Regel 920017|
-|920018|Regel 920018|
 |920202|Bereik = te veel velden voor PDF-aanvraag (6 of meer)|
 |920273|Ongeldig teken in de aanvraag (buiten zeer strikte set)|
 |920274|Ongeldig teken in de aanvraagheaders (buiten zeer strikte set)|
-|920460|Regel 920460|
+|920460|Abnormaal escape-tekens|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|Description|
 |---|---|
-|921011|Regel 921011|
-|921012|Regel 921012|
 |921100|Aanval smokkelen van HTTP-aanvraag.|
 |921110|HTTP-aanvraag ' smokkelen '-aanval|
 |921120|HTTP-antwoord splitsen aanval|
@@ -133,75 +101,43 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |921140|HTTP-Header ingebracht bij een aanval via kopteksten|
 |921150|HTTP-Header ingebracht bij een aanval via nettolading (CR/LF gedetecteerd)|
 |921160|HTTP-Header ingebracht bij een aanval via nettolading (CR/LF en headernaam gedetecteerd)|
-|921013|Regel 921013|
-|921014|Regel 921014|
 |921151|HTTP-Header ingebracht bij een aanval via nettolading (CR/LF gedetecteerd)|
-|921015|Regel 921015|
-|921016|Regel 921016|
-|921170|Regel 921170|
+|921170|HTTP-Parameter verontreiniging|
 |921180|HTTP-Parameter verontreiniging (% @{TX.1})|
-|921017|Regel 921017|
-|921018|Regel 921018|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |RuleId|Description|
 |---|---|
-|930011|Regel 930011|
-|930012|Regel 930012|
 |930100|Pad verandering aanval (/... /)|
 |930110|Pad verandering aanval (/... /)|
 |930120|De poging tot toegang OS-bestand|
 |930130|De poging tot toegang beperkt bestand|
-|930013|Regel 930013|
-|930014|Regel 930014|
-|930015|Regel 930015|
-|930016|Regel 930016|
-|930017|Regel 930017|
-|930018|Regel 930018|
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |RuleId|Description|
 |---|---|
-|931011|Regel 931011|
-|931012|Regel 931012|
 |931100|Mogelijke Remote File Inclusion (RFI) aanval URL-Parameter met behulp van IP-adres =|
 |931110|Mogelijke Remote File Inclusion (RFI) aanval = algemene RFI kwetsbaar parameternaam gebruikt w/URL nettolading|
 |931120|Mogelijke Remote File Inclusion (RFI) aanval = URL Payload gebruikt w/navolgende vraag Mark teken (?)|
-|931013|Regel 931013|
-|931014|Regel 931014|
 |931130|Mogelijke Remote File Inclusion (RFI) aanval uit domein/koppeling =|
-|931015|Regel 931015|
-|931016|Regel 931016|
-|931017|Regel 931017|
-|931018|Regel 931018|
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |RuleId|Description|
 |---|---|
-|932011|Regel 932011|
-|932012|Regel 932012|
 |932120|Uitvoering van externe opdracht Windows PowerShell-opdracht gevonden =|
 |932130|Uitvoering van externe opdracht = Unix Shell-expressie gevonden|
 |932140|Uitvoering van externe opdracht Windows = voor / als de opdracht gevonden|
 |932160|Uitvoering van externe opdracht = Unix Shell Code gevonden|
 |932170|Uitvoering van externe opdracht = Shellshock (CVE-2014-6271)|
 |932171|Uitvoering van externe opdracht = Shellshock (CVE-2014-6271)|
-|932013|Regel 932013|
-|932014|Regel 932014|
-|932015|Regel 932015|
-|932016|Regel 932016|
-|932017|Regel 932017|
-|932018|Regel 932018|
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|Description|
 |---|---|
-|933011|Regel 933011|
-|933012|Regel 933012|
 |933100|PHP-injectie-aanval = openen/eindcode gevonden|
 |933110|PHP-injectie-aanval = PHP-Script uploaden van het bestand gevonden|
 |933120|PHP-injectie-aanval configuratie richtlijn gevonden =|
@@ -209,58 +145,42 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |933150|PHP-injectie-aanval = de naam van de functie met een hoog risico PHP gevonden|
 |933160|PHP-injectie-aanval met een hoog risico PHP-functieaanroep gevonden =|
 |933180|PHP-injectie-aanval = variabele functie-oproep|
-|933013|Regel 933013|
-|933014|Regel 933014|
 |933151|PHP-injectie-aanval = de naam van de functie gemiddeld risico PHP gevonden|
-|933015|Regel 933015|
-|933016|Regel 933016|
 |933131|PHP-injectie-aanval = variabelen gevonden|
 |933161|PHP-injectie-aanval = lage waarde PHP-functieaanroep gevonden|
 |933111|PHP-injectie-aanval = PHP-Script uploaden van het bestand gevonden|
-|933017|Regel 933017|
-|933018|Regel 933018|
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |RuleId|Description|
 |---|---|
-|941011|Regel 941011|
-|941012|Regel 941012|
 |941100|XSS-aanval gedetecteerd via libinjection|
 |941110|XSS-Filter - categorie 1 = Script Tag Vector|
 |941130|XSS-Filter - categorie 3 = kenmerk Vector|
 |941140|XSS-Filter - categorie 4 = Vector Javascript-URI|
 |941150|XSS-Filter - categorie 5 = niet-toegestane HTML-kenmerken|
 |941180|Node-Validator Blacklist Keywords|
-|941190|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941200|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941210|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941220|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941230|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941240|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941260|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941270|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941280|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941290|Filters in Internet Explorer XSS - aanval gedetecteerd.|
-|941300|Filters in Internet Explorer XSS - aanval gedetecteerd.|
+|941190|Met behulp van opmaakmodellen XSS|
+|941200|XSS met VML frames|
+|941210|XSS met verborgen Javascript|
+|941220|XSS met verborgen VB-Script|
+|941230|XSS met behulp van 'ingesloten' tag|
+|941240|XSS met kenmerk 'import' of 'implementatie'|
+|941260|XSS met behulp van ' metalabel '|
+|941270|XSS href 'koppelen' met|
+|941280|XSS met 'base' label|
+|941290|XSS met behulp van 'applet'-tag|
+|941300|XSS met behulp van de tag 'object'|
 |941310|US-ASCII-onjuiste codering XSS-Filter - aanval gedetecteerd.|
 |941330|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941340|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |941350|UTF-7 codering IE XSS - aanval gedetecteerd.|
-|941013|Regel 941013|
-|941014|Regel 941014|
 |941320|Mogelijke XSS-aanval gedetecteerd - Handler voor HTML-code|
-|941015|Regel 941015|
-|941016|Regel 941016|
-|941017|Regel 941017|
-|941018|Regel 941018|
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|Description|
 |---|---|
-|942011|Regel 942011|
-|942012|Regel 942012|
 |942100|SQL-injectie-aanval gedetecteerd via libinjection|
 |942110|SQL-injectieaanvallen verminderen: Algemene webweergave gedetecteerde testen|
 |942130|SQL-injectieaanvallen verminderen: SQL-Tautology gedetecteerd.|
@@ -280,35 +200,21 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |942350|MySQL UDF-injectie en andere manipulatie gegevensstructuur/detecteert pogingen|
 |942360|Detecteert samengevoegde basic SQL-injectie en SQLLFI pogingen|
 |942370|Detecteert klassieke SQL-injectie probings 2/2|
-|942013|Regel 942013|
-|942014|Regel 942014|
 |942150|SQL-injectieaanvallen|
 |942410|SQL-injectieaanvallen|
 |942430|Beperkte Anomaliedetectie SQL-teken (argumenten): het aantal speciale tekens overschreden (12)|
 |942440|Volgorde van SQL-opmerking is gedetecteerd.|
 |942450|SQL hexadecimale codering geïdentificeerd|
-|942015|Regel 942015|
-|942016|Regel 942016|
 |942251|Detecteert de HAVING-injecties|
 |942460|Waarschuwing META teken Anomaliedetectie - terugkerende niet Word tekens|
-|942017|Regel 942017|
-|942018|Regel 942018|
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|Description|
 |---|---|
-|943011|Regel 943011|
-|943012|Regel 943012|
 |943100|Mogelijke sessie vastlegging aanval = cookiewaarden instellen in HTML-code|
 |943110|Mogelijke sessie vastlegging aanval = naam van de sessie-id-Parameter met de verwijzende site uit het domein|
 |943120|Mogelijke sessie vastlegging aanval = naam van de sessie-id-Parameter met geen verwijzende site|
-|943013|Regel 943013|
-|943014|Regel 943014|
-|943015|Regel 943015|
-|943016|Regel 943016|
-|943017|Regel 943017|
-|943018|Regel 943018|
 
 ## <a name="owasp229"></a> OWASP_2.2.9
 
@@ -569,5 +475,3 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 ## <a name="next-steps"></a>Volgende stappen
 
 Informatie over het uitschakelen van regels voor WAF door naar de pagina: [WAF-regels aanpassen](application-gateway-customize-waf-rules-portal.md)
-
-[1]: ./media/application-gateway-integration-security-center/figure1.png

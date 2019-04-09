@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085062"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282352"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Zelfstudie: SQL BACPAC-bestanden importeren met Azure Resource Manager-sjablonen
 
@@ -53,13 +53,13 @@ Een BACPAC-bestand wordt gedeeld in een [Azure Storage-account](https://armtutor
 
 ## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
 
-Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In plaats van een sjabloon helemaal vanaf de basis te maken, kunt u een voorbeeldsjabloon zoeken en aanpassen. De sjabloon die in deze zelfstudie wordt gebruikt, heet [Een Azure SQL Server implementeren met Detectie van bedreigingen](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/).
+De sjabloon die wordt gebruikt in deze zelfstudie wordt opgeslagen in een [Azure Storage-account](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. Selecteer in Visual Studio Code **Bestand**>**Bestand openen**.
 2. Plak de volgende URL in **Bestandsnaam**:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Selecteer **Openen** om het bestand te openen.
 
@@ -175,4 +175,4 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 In deze zelfstudie hebt u een SQL Server en een SQL Database geïmplementeerd en een BACPAC-bestand geïmporteerd. Het BACPAC-bestand wordt opgeslagen in een Azure Storage-account. Iedereen die de URL heeft, kan het bestand openen. Als u wilt weten hoe u het BACPAC-bestand (artefact) wilt beveiligen, raadpleegt u
 
 > [!div class="nextstepaction"]
-> [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md) (Artefacten beveiligen)
+> [De artefacten beveiligen](./resource-manager-tutorial-secure-artifacts.md)

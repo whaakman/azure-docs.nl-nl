@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: d4af11f5956d548ec25eb0dd9b553e2cf56b195f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409836"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058540"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 
@@ -84,6 +84,8 @@ Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het d
 * Een resource kan communiceren met resources in andere resourcegroepen. Deze interactie is gebruikelijk wanneer er een relatie bestaat tussen de twee resources, maar deze niet dezelfde levenscyclus delen (bijvoorbeeld web-apps die verbinding maken met een database).
 
 Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven. U vraagt zich misschien af: 'Waarom heeft een resourcegroep een locatie nodig? En als de resources andere locaties kunnen hebben dan de resourcegroep, wat is dan het nut van een locatie voor de resourcegroep?' De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
+
+Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de resourcegroep niet bijwerken omdat de metagegevens niet beschikbaar is. De resources in andere regio's wordt nog steeds werken zoals verwacht, maar kan niet worden bijgewerkt. Zoeken om risico te beperken, de resourcegroep en resources in dezelfde regio.
 
 ## <a name="resource-providers"></a>Resourceproviders
 
@@ -181,4 +183,4 @@ Deployment Manager bevindt zich momenteel in beperkte preview.
 In dit artikel hebt u geleerd hoe u Azure Resource Manager gebruikt voor de implementatie, het beheer en het toegangsbeheer van resources in Azure. Ga door naar het volgende artikel om te zien hoe u uw eerste Azure Resource Manager-sjabloon maakt.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Quickstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)

@@ -7,44 +7,37 @@ ms.reviewer: jasonh
 keywords: hadoop-opdrachten in linux,hadoop linux-opdrachten,hadoop-macro's,ssh hadoop,ssh hadoop-cluster
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: b7cad422cd7e177206e21bfa8941afe70a7864fd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ffae3e8c23a30e683db85ad6745ab30cfee93f2e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497802"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283988"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Apache Hadoop) via SSH
 
-Meer informatie over het gebruik van [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) veilig verbinding maken met Apache Hadoop op Azure HDInsight. 
+Meer informatie over het gebruik van [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) veilig verbinding maken met Apache Hadoop op Azure HDInsight. Zie voor informatie over het maken van een verbinding via een virtueel netwerk, [virtuele netwerkarchitectuur voor Azure HDInsight](./hdinsight-virtual-network-architecture.md) en [Azure HDInsight uitbreiden met behulp van een Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 
-HDInsight kan Linux (Ubuntu) als het besturingssysteem gebruiken voor knooppunten in het Hadoop-cluster. De volgende tabel bevat de adres- en poortgegevens die nodig zijn bij het verbinden met HDInsight in Linux via een SSH-client:
+De volgende tabel bevat de adres en poort van informatie die nodig zijn bij het verbinden met HDInsight met behulp van een SSH-client:
 
 | Adres | Poort | Maakt verbinding met... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ML Services in HDInsight) |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ieder ander clustertype, als er een Edge-knooppunt bestaat) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primaire hoofdknooppunt |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secundaire hoofdknooppunt |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ML Services in HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ieder ander clustertype, als er een Edge-knooppunt bestaat) |
 
-> [!NOTE]  
-> Vervang `<edgenodename>` door de naam van het Edge-knooppunt.
->
-> Vervang `<clustername>` door de naam van uw cluster.
->
-> Als uw cluster een edge-knooppunt bevat, raden we aan om __altijd verbinding te maken met het edge-knooppunt__ via SSH. De hoofdknooppunten hosten services die essentieel zijn voor de status van Hadoop. Het Edge-knooppunt voert alleen uit wat u op het knooppunt plaatst.
->
-> Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
+Vervang `<clustername>` door de naam van uw cluster. Vervang `<edgenodename>` door de naam van het Edge-knooppunt. 
+
+Als uw cluster een edge-knooppunt bevat, raden we aan om __altijd verbinding te maken met het edge-knooppunt__ via SSH. De hoofdknooppunten hosten services die essentieel zijn voor de status van Hadoop. Het Edge-knooppunt voert alleen uit wat u op het knooppunt plaatst. Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
 
 > [!TIP]  
 > Wanneer u voor het eerst verbinding maakt met HDInsight, wordt in de SSH-client mogelijk de waarschuwing weergegeven dat de authenticiteit van de host kan niet worden vastgesteld. Wanneer dit wordt gevraagd, selecteert u Ja om de host toe te voegen aan de lijst met vertrouwde servers van uw SSH-client.
 >
 > Als u eerder verbinding hebt gehad met een server met dezelfde naam, krijgt u mogelijk de waarschuwing dat de opgeslagen hostsleutel niet overeenkomt met de hostsleutel van de server. Raadpleeg de documentatie van de SSH-client als u wilt weten hoe u de bestaande vermelding voor de server verwijdert.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="ssh-clients"></a>SSH-clients
 
@@ -52,24 +45,19 @@ Linux-, Unix-en macOS-systemen bieden de opdrachten `ssh` en `scp`. De `ssh`-cli
 
 In Microsoft Windows worden SSH-clients niet standaard geïnstalleerd. De `ssh`- en `scp`-clients zijn beschikbaar voor Windows via de volgende pakketten:
 
-* OpenSSH-Client (bèta): Ga in de Fall Creators Update naar __instellingen__ > __Apps en functies__ > __optionele onderdelen beheren__  >  __Toevoegen van een functie__ en selecteer de __OpenSSH-Client__. 
+* [OpenSSH-Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). Dit is een optionele functie die is geïntroduceerd in de Windows 10 Fall Creators Update.
 
-    > [!NOTE]  
-    > Als de opdrachten `ssh` en `scp` niet beschikbaar zijn in PowerShell nadat u deze functie hebt ingeschakeld, meldt u zich af en weer aan.
+* [Bash in Ubuntu in Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
-* [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): De `ssh` en `scp` -opdrachten zijn beschikbaar via de Bash op Windows-opdrachtregel.
+* [Azure Cloudshell](../cloud-shell/quickstart.md). De Cloud Shell biedt een Bash-omgeving in uw browser.
 
-* [OpenSSH-client (bèta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Dit is een optionele functie die is geïntroduceerd in de Windows 10 Fall Creators Update.
+* [Git](https://git-scm.com/).
 
-* [Azure Cloudshell](../cloud-shell/quickstart.md): De Cloud Shell biedt een Bash-omgeving in uw browser, en biedt de `ssh`, `scp`, en andere algemene Linux-opdrachten.
-
-* [GIT (https://git-scm.com/)](https://git-scm.com/): De `ssh` en `scp` opdrachten zijn beschikbaar via de GitBash-opdrachtregel.
-
-Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
+Er zijn verschillende grafische SSH-clients, zoals [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm](https://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
 
 ## <a id="sshkey"></a>Verificatie: SSH sleutels
 
-SSH-sleutels gebruiken [openbare-sleutelcryptografie](https://en.wikipedia.org/wiki/Public-key_cryptography) voor het beveiligen van SSH-sessies. SSH-sleutels zijn veiliger dan wachtwoorden en bieden een eenvoudige manier om de toegang tot uw Hadoop-cluster te beveiligen.
+SSH-sleutels gebruiken [openbare-sleutelcryptografie](https://en.wikipedia.org/wiki/Public-key_cryptography) om te verifiëren van de SSH-sessies. SSH-sleutels zijn veiliger dan wachtwoorden en bieden een eenvoudige manier om de toegang tot uw Hadoop-cluster te beveiligen.
 
 Als uw SSH-account wordt beveiligd met een sleutel, moet de client tijdens het verbinden de bijbehorende privésleutel opgeven:
 
@@ -101,10 +89,10 @@ U wordt tijdens het maken van de sleutel gevraagd om informatie. U moet bijvoorb
 
 | Methode voor het maken | De openbare sleutel gebruiken |
 | ------- | ------- |
-| **Azure-portal** | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | Gebruik de parameter `-SshPublicKey` van de cmdlet `New-AzHdinsightCluster` en plak de inhoud van de openbare sleutel als tekenreeks.|
-| **CLI van Azure Classic** | Gebruik de parameter `--sshPublicKey` van de opdracht `azure hdinsight cluster create` en plak de inhoud van de openbare sleutel als tekenreeks. |
-| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Het `publicKeys`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) wordt gebruikt om sleutels door te geven aan Azure bij het maken van het cluster. |
+| Azure Portal | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![SSH public key dialoogvenster tijdens het maken van HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure PowerShell | Gebruik de `-SshPublicKey` parameter van de [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet en plak de inhoud van de openbare sleutel als een tekenreeks.|
+| Azure-CLI | Gebruik de `--sshPublicKey` parameter van de [az hdinsight maken](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) opdracht en plak de inhoud van de openbare sleutel als een tekenreeks. |
+| Resource Manager-sjabloon | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Het `publicKeys`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) wordt gebruikt om sleutels door te geven aan Azure bij het maken van het cluster. |
 
 ## <a id="sshpassword"></a>Verificatie: Wachtwoord
 
@@ -120,10 +108,10 @@ SSH-accounts kunnen worden beveiligd met een wachtwoord. Als u met SSH verbindin
 
 | Methode voor het maken | Het wachtwoord specificeren |
 | --------------- | ---------------- |
-| **Azure-portal** | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | Gebruik de parameter `--SshCredential` van de cmdlet `New-AzHdinsightCluster` en geef een `PSCredential`-object op dat de SSH-gebruikersaccountnaam en het wachtwoord bevat. |
-| **CLI van Azure Classic** | Gebruik de parameter `--sshPassword` van de opdracht `azure hdinsight cluster create` en geef de wachtwoordwaarde op. |
-| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Het `linuxOperatingSystemProfile`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) wordt gebruikt om de SSH-accountnaam en het wachtwoord door te geven aan Azure bij het maken van het cluster.|
+| Azure Portal | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster van de SSH-wachtwoord tijdens het maken van HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | Gebruik de `--SshCredential` parameter van de [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet en geef een `PSCredential` -object dat de SSH-gebruikersaccountnaam en het wachtwoord bevat. |
+| Azure-CLI | Gebruik de `--sshPassword` parameter van de [az hdinsight maken](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) opdracht en geeft u de waarde van het wachtwoord. |
+| Resource Manager-sjabloon | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Het `linuxOperatingSystemProfile`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) wordt gebruikt om de SSH-accountnaam en het wachtwoord door te geven aan Azure bij het maken van het cluster.|
 
 ### <a name="change-the-ssh-password"></a>Het SSH-wachtwoord wijzigen
 
@@ -133,11 +121,11 @@ Zie het gedeelte __Wachtwoorden wijzigen__ van het document [HDInsight beheren](
 
 Als u een __HDInsight-cluster gebruikt dat is gekoppeld aan een domein__, moet u de opdracht `kinit` gebruiken na het verbinden met SSH local user. Met deze opdracht wordt u om een domeingebruiker en een wachtwoord gevraagd. Uw sessie wordt geverifieerd bij het Azure Active Directory-domein dat is gekoppeld aan het cluster.
 
-U kunt ook Kerberos-verificatie inschakelen op elk knooppunt in een domein (bijvoorbeeld hoofdknooppunt, edge-knooppunt) om ssh te kunnen uitvoeren met behulp van het domeinaccount. Hiervoor moet u het bestand sshd config bewerken:
+U kunt ook Kerberos-verificatie inschakelen in elk domein is toegevoegd aan-knooppunt (bijvoorbeeld, hoofdknooppunt, edge-knooppunt) om ssh met behulp van het domeinaccount. Hiervoor moet u het bestand sshd config bewerken:
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-verwijder de opmerkingen en wijzig `KerberosAuthentication` in `yes`
+Verwijder de opmerkingen en wijzig `KerberosAuthentication` naar `yes`
 
 ```bash
 sudo service sshd restart
@@ -162,7 +150,7 @@ De hoofdknooppunten en het edge-knooppunt (indien aanwezig) zijn toegankelijk vi
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* Gebruik poort 22 als u verbinding wilt maken met het __edge-knooppunt__. De FQDN (Fully Qualified Domain Name) is `edgenodename.clustername-ssh.azurehdinsight.net`, waarbij `edgenodename` een naam is die u hebt opgegeven bij maken van het edge-knooppunt. `clustername`is de naam van het cluster.
+* Gebruik poort 22 als u verbinding wilt maken met het __edge-knooppunt__. De FQDN (Fully Qualified Domain Name) is `edgenodename.clustername-ssh.azurehdinsight.net`, waarbij `edgenodename` een naam is die u hebt opgegeven bij maken van het edge-knooppunt. `clustername` is de naam van het cluster.
 
     ```bash
     # Connect to edge node
@@ -246,7 +234,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]  
-> `scp` heeft alleen toegang tot het bestandssysteem van afzonderlijke knooppunten in het cluster. Het kan niet worden gebruikt voor toegang tot gegevens in de Hadoop Distributed File System-compatibele opslag voor het cluster.
+> `scp` alleen toegang tot het bestandssysteem van afzonderlijke knooppunten in het cluster. Het kan niet worden gebruikt voor toegang tot gegevens in de Hadoop Distributed File System-compatibele opslag voor het cluster.
 >
 > Gebruik `scp` wanneer u een resource moet uploaden voor gebruik in een SSH-sessie. Upload bijvoorbeeld van een Python-script en voer het script uit in een SSH-sessie.
 >
@@ -258,6 +246,6 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [SSH-tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
+* [Tunneling via SSH met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 * [Een virtueel netwerk gebruiken met HDInsight](hdinsight-extend-hadoop-virtual-network.md)
 * [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)

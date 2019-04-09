@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884074"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260303"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
@@ -44,7 +44,7 @@ Een claims toewijzen van beleid is een type **beleid** -object dat Hiermee wijzi
 
 Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze worden gebruikt in tokens.
 
-| Claim instellen | Beschrijving |
+| Claim instellen | Description |
 |---|---|
 | Core claimset | Aanwezig zijn in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt, en kunnen niet worden gewijzigd. |
 | Basic claimset | Bevat de claims die worden gegenereerd door de standaardwaarde voor tokens (naast de core claimset). U kunt weglaten of basic claims wijzigen met behulp van de claims toewijzen van beleid. |
@@ -415,7 +415,7 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
 
-Een aangepaste ondertekeningssleutel moet worden toegewezen aan het service-principal-object voor een claims toewijzen van beleid voor het van kracht. Alle tokens die zijn uitgegeven die mogelijk invloed hebben is door het beleid zijn ondertekend met de aangepaste ondertekeningssleutel en toepassingen moeten worden geconfigureerd voor het accepteren van tokens ondertekend met de ondertekeningssleutel. Dit zorgt ervoor dat de bevestiging dat de tokens zijn gewijzigd door de maker van de claims toewijzen van beleid en toepassingen beschermt tegen claimtoewijzing beleidsregels zijn gemaakt door kwaadwillende actoren.
+Een aangepaste ondertekeningssleutel moet worden toegewezen aan het service-principal-object voor een claims toewijzen van beleid voor het van kracht. Dit zorgt ervoor dat de bevestiging dat de tokens zijn gewijzigd door de maker van de claims toewijzen van beleid en toepassingen beschermt tegen claimtoewijzing beleidsregels zijn gemaakt door kwaadwillende actoren.  Apps waarvoor de claims toewijzing ingeschakeld moet worden gecontroleerd of een speciale URI voor de token-ondertekening sleutels door toe te voegen `appid={client_id}` aan hun [aanvragen voor metagegevens OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scenario's met meerdere tenants
 

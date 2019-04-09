@@ -1,19 +1,19 @@
 ---
 title: Realtime gegevensvisualisatie van sensorgegevens uit Azure IoT hub-Web-Apps | Microsoft Docs
 description: Gebruik de functie Web Apps van Microsoft Azure App Service om temperatuur en vochtigheid gegevens die worden verzameld van de sensor en verzonden naar uw Iot-hub te visualiseren.
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.author: robinsh
+ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158717"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270877"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Het visualiseren van realtime-sensorgegevens uit Azure IoT hub met behulp van de functie Web Apps van Azure App Service
 
@@ -61,7 +61,7 @@ In deze zelfstudie leert u hoe u voor het visualiseren van realtime-sensorgegeve
 
 2. Klik op **toepassingsinstellingen**, en klik vervolgens onder **App-instellingen**, voeg de volgende sleutel/waarde-paren toe:
 
-   | Sleutel                                   | Waarde                                                        |
+   | Sleutel                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Verkregen van Azure CLI                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | De naam van de consumergroep die u aan uw IoT-hub toevoegt  |

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878176"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283270"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -31,7 +31,7 @@ Voordat u een import-taak voor het overdragen van gegevens naar Azure Blob-opsla
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems). 
 - Het inschakelen van BitLocker op het Windows-systeem. Zie [BitLocker inschakelen](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download de WAImportExport versie 1](https://aka.ms/waiev1) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
-- Een FedEx/DHL-account hebben.  
+- Een FedEx/DHL-account hebben. Als u gebruiken van een provider dan FedEx/DHL wilt, neem dan contact op met de Azure Data Box operationele team op `adbops@microsoft.com`.  
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
     - Een nummer voor de taak uitvoer gegenereerd.
     - Elke taak moet een afzonderlijke traceringsnummer hebben. Meerdere taken met de dezelfde traceringsnummer worden niet ondersteund.
@@ -64,7 +64,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     
     De parameters die worden gebruikt worden in de volgende tabel beschreven:
 
-    |Optie  |Beschrijving  |
+    |Optie  |Description  |
     |---------|---------|
     |/j:     |De naam van het logboekbestand met de extensie jrn. Er wordt een logboekbestand gegenereerd per station. U wordt aangeraden dat u het serienummer van de schijf als de naam van het logboek gebruiken.         |
     |/ID:     |De sessie-ID. Gebruik een unieke sessie voor elk exemplaar van de opdracht.      |
@@ -113,7 +113,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 4. In **verzendinfo retourneren**:
 
-   - Selecteer de provider die in de vervolgkeuzelijst.
+   - Selecteer de provider die in de vervolgkeuzelijst. Als u een luchtvaartmaatschappij dan FedEx/DHL gebruiken wilt, kiest u een bestaande optie in de vervolgkeuzelijst. Neem contact op met Azure Data Box Operations-team op `adbops@microsoft.com` met de informatie met betrekking tot de provider die u wilt gebruiken.
    - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](https://www.fedex.com/us/oadr/) of [DHL](http://www.dhl.com/) doorberekend aan.
    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio. 
         

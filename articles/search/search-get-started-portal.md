@@ -1,23 +1,29 @@
 ---
-title: Snelstartzelfstudie indexeren en query's uitvoeren met Azure Portal - Azure Search
-description: Ontdek hoe u uw eerste index in Azure Search bouwt en er query's op uitvoert met behulp van ingebouwde voorbeeldgegevens en de wizard Gegevens importeren in de Azure-portal.
+title: 'Quickstart: Maken, laden en het opvragen van een index in Azure portal - Azure Search'
+description: Bouw en query uitvoeren op uw eerste index in Azure Search met behulp van ingebouwde voorbeeldgegevens en de wizard gegevens importeren in Azure portal.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137824"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282658"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Probeer de ingebouwde hulpprogramma's in Azure Portal als u snel vertrouwd wilt raken met de concepten van Azure Search. Wizards en editors bieden geen volledige pariteit met de .NET- en REST API's maar u kunt snel aan de slag met een inleiding die u laat zien hoe u zonder code binnen een paar minuten interessante query's kunt schrijven met behulp van voorbeeldgegevens.
 
@@ -222,7 +228,7 @@ Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het tre
 
 ### <a name="fuzzy-search"></a> Fuzzy zoekopdrachten uitproberen
 
-Voor verkeerd gespelde zoektermen, zoals *samamish* voor het Sammamish-plateau in de regio Seattle, worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. Het volgende voorbeeld retourneert geen resultaten.
+Standaard gespeld querytermen, zoals *samamish* voor Sammamish plateau in het gebied van Seattle, geen overeenkomsten in standaardzoekopdrachten retourneren. Het volgende voorbeeld retourneert geen resultaten.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Voorbeeld (verkeerd gespelde term, niet verwerkt): `search=samamish`
 
@@ -266,6 +272,6 @@ Als deze zelfstudie uw eerste gebruik van de Azure Search-service was, verwijder
 
 U kunt meer aspecten van Azure Search verkennen met behulp van de programmatische hulpprogramma's:
 
-* [Een index maken met behulp van de .NET-SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Een index maken met behulp van REST API's](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Een index maken met behulp van Postman of Fiddler en de Azure Search REST API's](search-fiddler.md)
+* [Een index maken met .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Een index maken met REST-API 's](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Een index maken met Postman of Fiddler en de Azure Search REST-API 's](search-fiddler.md)

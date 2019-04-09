@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046783"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282981"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -31,8 +31,8 @@ De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Az
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft-klantovereenkomst** | [Microsoft Azure-abonnement](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Microsoft-klantovereenkomst** | [Microsoft Azure-abonnement voor Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Microsoft-klantovereenkomst** | [Microsoft Azure-abonnement](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Microsoft-klantovereenkomst** | [Microsoft Azure-abonnement voor Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Betalen per gebruik** | [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Betalen per gebruik** | [Dev/Test met betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Man
 | **Inbegrepen** | **Niet inbegrepen** |
 | --- | --- |
 | Gebruik van Azure service<sup>1</sup> | Aankopen in de reservering: Zie voor meer informatie, [API's voor het automatiseren van Azure-reservering](../billing/billing-reservation-apis.md). |
-| Gebruik van Marketplace-aanbiedingen | Marketplace-aankopen: Zie voor meer informatie, [externe servicekosten](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace-aanbieding gebruik<sup>2</sup> | Marketplace-aankopen: Zie voor meer informatie, [externe servicekosten](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Kosten - ondersteuning voor meer informatie, Zie [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
 |   | Belasting - Zie voor meer informatie, [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
 |   | Tegoed - Zie voor meer informatie, [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> gebruik van de azure-service is gebaseerd op de reservering en heeft onderhandeld over prijzen.
+<sup>2</sup> marketplace gebruik-aanbieding is niet beschikbaar voor betalen per gebruik, MSDN, en Visual Studio biedt op dit moment.
 
 **Metagegevens**
 
 | **Inbegrepen** | **Niet inbegrepen** |
 | --- | --- |
-| Resourcetags<sup>2</sup> | groep resourcetags |
+| Resourcetags<sup>3</sup> | groep resourcetags |
 
-<sup>2</sup> resourcetags worden toegepast als het gebruik van elke service is verzonden en zijn niet beschikbaar met terugwerkende kracht voor historische gebruik.
+<sup>3</sup> resourcetags worden toegepast als het gebruik van elke service is verzonden en zijn niet beschikbaar met terugwerkende kracht voor historische gebruik.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Schema voor gegevensvernieuwing geclassificeerde gebruik
 

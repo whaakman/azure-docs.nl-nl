@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759082"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282318"
 ---
 # <a name="create-and-clone-projects"></a>Projecten maken en klonen
 
@@ -30,20 +30,20 @@ Een project onderhoudt ook metagegevens en andere configuratie-instellingen die 
 
 Uw **Mijn projecten** dashboard op `https://notebooks.azure.com/<userID>/projects` is waar u weergeven, beheren en projecten maken:
 
-[![Mijn dashboard projecten in Azure-notitieblokken](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Mdashboard van de y-projecten in Azure-notitieblokken](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Wat u op het dashboard kunt doen, is afhankelijk van of u bent aangemeld met het account dat eigenaar is van de gebruikers-ID:
 
 | Opdracht | Beschikbaar voor | Description |
 | --- | --- | --- |
-| **Uitvoeren** | Eigenaar | Start de projectserver en de projectmap in Jupyter geopend. (Meer over het algemeen u eerst in een projectmap navigeren en start u een laptop van daaruit.) |
+| **Voer** | Eigenaar | Start de projectserver en de projectmap in Jupyter geopend. (Meer over het algemeen u eerst in een projectmap navigeren en start u een laptop van daaruit.) |
 | **Downloaden** | Iedereen | Een kopie van het geselecteerde project gedownload als een ZIP-bestand. |
 | **Delen** | Iedereen | Het delen pop-upvenster waarmee u kunt verkrijgen van een URL naar een geselecteerde project, delen op sociale media, stuurt u een e-mail met de URL en verkrijgen van HTML- of Markdown-code voor met een badge 'notebook starten' wordt weergegeven (Zie [verkrijgen van een badge starten](#obtain-a-launch-badge)) met de URL. |
 | **Verwijderen** | Eigenaar | Hiermee verwijdert u het geselecteerde project. Deze bewerking kan niet ongedaan worden gemaakt. |
 | **Terminal** | Eigenaar | Start de projectserver en vervolgens een nieuw browservenster geopend met de bash, terminal voor die server. |
 | **+ Nieuw Project** | Eigenaar | Hiermee maakt u een nieuw project. Zie [een nieuw project maken](#create-a-new-project). |
 | **GitHub-opslagplaats uploaden** | Eigenaar | Een project importeert vanuit GitHub. [Een project importeren vanuit GitHub](#import-a-project-from-github). |
-| **Kloon** | Iedereen | Een geselecteerde project worden gekopieerd naar uw eigen account. Vraagt u zich kunt aanmelden in als dit nog niet. Zie [klonen van een project](#clone-a-project). |
+| **Klonen** | Iedereen | Een geselecteerde project worden gekopieerd naar uw eigen account. Vraagt u zich kunt aanmelden in als dit nog niet. Zie [klonen van een project](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Verkrijgen van een badge starten
 
@@ -120,10 +120,10 @@ Voor het klonen van een project:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
+- [Voorbeeldnotitieblokken verkennen](azure-notebooks-samples.md)
 - [Procedure: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
 - [Procedure: Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
-- [Procedure: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)
-- [Procedure: Werken met bestanden](work-with-project-data-files.md)
+- [Procedure: Een diavoorstelling presenteren](present-jupyter-notebooks-slideshow.md)
+- [Procedure: Werken met gegevensbestanden](work-with-project-data-files.md)
 - [Procedure: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
-- [Procedure: Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedure: Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

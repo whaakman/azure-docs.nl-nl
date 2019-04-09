@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092375"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280346"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
@@ -33,39 +34,34 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
-*   Een Azure AD-tenant
-*   Een [Samanage tenant](https://www.samanage.com/pricing/) met het pakket voor professionals
-*   Een gebruikersaccount in Samanage met beheerdersmachtigingen
+* Een Azure AD-tenant
+* Een [Samanage tenant](https://www.samanage.com/pricing/) met het pakket voor professionals
+* Een gebruikersaccount in Samanage met beheerdersmachtigingen
 
 > [!NOTE]
 > De integratie wordt ingericht op Azure AD is afhankelijk van de [Samanage Rest-API](https://www.samanage.com/api/), die voor ontwikkelaars voor accounts met het pakket voor professionals Samanage beschikbaar is.
 
 ## <a name="adding-samanage-from-the-gallery"></a>Samanage toevoegen vanuit de galerie
+
 Voordat u Samanage configureert voor automatisch gebruikers inrichten met Azure AD, moet u Samanage uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Samanage uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De sectie voor bedrijfstoepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u wilt toevoegen Samanage, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Samanage**.
+4. Typ **Samanage** in het zoekvak, selecteer **Samanage** in het resultaatvenster en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. Selecteer in het deelvenster resultaten **Samanage**, en klik vervolgens op de **toevoegen** knop Samanage toevoegen aan uw lijst met SaaS-toepassingen.
-
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![Samanage in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>Gebruikers toewijzen aan Samanage
 
@@ -92,11 +88,13 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Samanage in Azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory > bedrijfstoepassingen > alle toepassingen**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Samanage**.
 
-2. Selecteer Samanage uit de lijst met SaaS-toepassingen.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Samanage inrichten](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. Selecteer **Samanage** in de lijst met toepassingen.
+
+    ![De koppeling Samanage in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
@@ -164,7 +162,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -4,22 +4,20 @@ description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebru
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621402"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278782"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
@@ -29,12 +27,13 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [contains](#contains)
+* [bevat](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [empty](#empty)
+* [Leeg](#empty)
 * [endsWith](#endswith)
-* [first](#first)
+* [eerste](#first)
+* [Indeling](#format)
 * [GUID](#guid)
 * [indexOf](#indexof)
 * [laatste](#last)
@@ -43,12 +42,12 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [vervangen](#replace)
-* [skip](#skip)
+* [overslaan](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [Tekenreeks](#string)
+* [string](#string)
 * [de subtekenreeks](#substring)
-* [take](#take)
+* [toets maken](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [trim](#trim)
@@ -714,9 +713,66 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | arrayOutput | String | één |
 | stringOutput | String | O |
 
+## <a name="format"></a>Indeling
+
+`format(formatString, arg1, arg2, ...)`
+
+Maakt een opgemaakte tekenreeks van de invoerwaarden.
+
+### <a name="parameters"></a>Parameters
+
+| Parameter | Vereist | Type | Description |
+|:--- |:--- |:--- |:--- |
+| formatString | Ja | string | De samengestelde tekenreeks. |
+| arg1 | Ja | tekenreeks, geheel getal of Booleaanse waarde | De waarde in de opgemaakte tekenreeks wilt opnemen. |
+| aanvullende argumenten | Nee | tekenreeks, geheel getal of Booleaanse waarde | Aanvullende waarden in de opgemaakte tekenreeks wilt opnemen. |
+
+### <a name="remarks"></a>Opmerkingen
+
+Deze functie gebruiken om de opmaak van een tekenreeks in de sjabloon. Hierbij de dezelfde opties als de [System.String.Format](/dotnet/api/system.string.format) methode in .NET.
+
+### <a name="examples"></a>Voorbeelden
+
+De voorbeeldsjabloon van het volgende ziet u hoe u de functie format.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| formatTest | String | Hallo, gebruiker. Opgemaakte nummer: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Hiermee maakt een waarde in de indeling van een globally unique identifier op basis van de waarden geleverd als parameters.
 
@@ -800,7 +856,7 @@ Retourneert de eerste positie van een waarde van een tekenreeks. De vergelijking
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat staat voor de positie van het item te vinden. De waarde is nul. Als het item niet wordt gevonden, wordt -1 geretourneerd.
+Een geheel getal dat staat voor de positie van het item te vinden. De waarde is nul. Als het item is niet gevonden, wordt -1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -913,7 +969,7 @@ Retourneert de laatste positie van een waarde van een tekenreeks. De vergelijkin
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat staat voor de laatste positie van het item te vinden. De waarde is nul. Als het item niet wordt gevonden, wordt -1 geretourneerd.
+Een geheel getal dat staat voor de laatste positie van het item te vinden. De waarde is nul. Als het item is niet gevonden, wordt -1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -1800,7 +1856,7 @@ Uniek binnen het bereik van de implementatie voor een resourcegroep
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basis van de resourcegroep te maken. In de resourcegroep is de naam niet uniek als op dezelfde manier samengesteld.
+Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basis van de resourcegroep te maken. De naam is niet binnen de resourcegroep, unieke als op dezelfde manier samengesteld.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basi
     ...
 ```
 
-Als u wilt maken van een nieuwe unieke naam telkens wanneer u een sjabloon implementeren, en niet kunt u lezen wat de resource wilt bijwerken, kunt u de [utcNow](#utcnow) functie met uniqueString. U kunt deze aanpak gebruiken in een testomgeving. Zie voor een voorbeeld [utcNow](#utcnow).
+Als u wilt maken van een nieuwe unieke naam telkens wanneer u een sjabloon implementeren, en niet van plan bent om bij te werken van de bron, kunt u de [utcNow](#utcnow) functie met uniqueString. U kunt deze aanpak gebruiken in een testomgeving. Zie voor een voorbeeld [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Retourwaarde
 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549138"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260745"
 ---
 # <a name="managed-identity-for-data-factory"></a>Beheerde identiteit voor Data Factory
 
@@ -46,7 +46,7 @@ Als u uw data factory beschikt niet over een beheerde identiteit die is gekoppel
 
 - [Genereren van beheerde identiteit met behulp van PowerShell](#generate-managed-identity-using-powershell)
 - [Genereren van beheerde identiteit met behulp van REST-API](#generate-managed-identity-using-rest-api)
-- Genereren van beheerde identiteit met een Azure Resource Manager-sjabloon
+- [Genereren van beheerde identiteit met een Azure Resource Manager-sjabloon](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Beheerde identiteit met behulp van SDK genereren](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ U kunt de beheerde identiteit in Azure portal of via een programma ophalen. De v
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Beheerde identiteit met Azure portal ophalen
 
-U vindt de beheerde identiteitsgegevens uit Azure portal -> uw data factory -> Instellingen -> eigenschappen:
+U vindt de beheerde identiteitsgegevens uit Azure portal -> uw data factory -> eigenschappen:
 
-- ID VAN DE SERVICE-IDENTITEIT
-- TENANT VAN SERVICE-IDENTITEIT
-- **TOEPASSINGS-ID van SERVICE-identiteit** > deze waarde kopiëren
+- Object-id van beheerde identiteit
+- Tenant van beheerde identiteit
+- **Identiteitstoepassings-ID beheerd** > deze waarde kopiëren
 
 ![Ophalen van beheerde identiteit](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

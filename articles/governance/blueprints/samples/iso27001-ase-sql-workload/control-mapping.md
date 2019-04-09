@@ -1,19 +1,18 @@
 ---
 title: Toewijzing van de voorbeeld - ISO 27001-as-omgeving/SQL werkbelasting blauwdruk - besturingselement
 description: De toewijzing van het besturingselement van het voorbeeld van blauwdruk werkbelasting ISO 27001-App Service Environment/SQL-Database naar Azure-beleid en RBAC.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7a760bfe70fa2a83c43a0b41b77ba9bf45e809ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802708"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258604"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Toewijzing van de controle van het voorbeeld met ISO 27001-as-omgeving/SQL werkbelasting blauwdruk
 
@@ -124,10 +123,10 @@ Inzicht krijgen in waar uw Azure-resources mogelijk niet-optimale cryptografisch
 
 Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen zeven [Azure Policy](../../../policy/overview.md) definities die de instellingen voor op Azure-resources controleren. Een toegewezen beleid controleert ook als virtuele machines worden niet logboeken te naar een opgegeven log analytics-werkruimte verzenden.
 
-- [Preview]: Implementatie van de afhankelijkheid Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- [Preview]: Implementatie van de Agent in VMSS - VM-installatiekopie (OS) niet-vermelde afhankelijkheden controleren
-- [Preview]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- [Preview]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
+- [Preview-versie]: Implementatie van de afhankelijkheid Agent - VM-installatiekopie (OS) niet-vermelde controleren
+- [Preview-versie]: Implementatie van de Agent in VMSS - VM-installatiekopie (OS) niet-vermelde afhankelijkheden controleren
+- [Preview-versie]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
+- [Preview-versie]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
 - [Preview]: Monitor unaudited SQL database in Azure Security Center
 - Diagnostische instelling voor controleren
 - Instellingen voor SQL-controle op serverniveau

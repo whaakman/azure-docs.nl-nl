@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 614d56cba4a95b7f9364bc9c044e78d291caf3ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998599"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Zelfstudie: Azure Active Directory-integratie met SciQuest besteden directeur
 
@@ -106,9 +106,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met SciQuest besteden Di
 
     ![SciQuest besteden Director domein en URL's eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<companyname>.sciquest.com`
+    b. Typ in het vak **Id** een URL met het volgende patroon: `https://<companyname>.sciquest.com`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
@@ -203,8 +203,8 @@ Wanneer u op de tegel SciQuest besteden Director in het toegangsvenster, moet u 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

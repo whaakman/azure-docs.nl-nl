@@ -4,22 +4,20 @@ description: Een ontwikkelaarsgids voor verificatie met de API van Azure Resourc
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805513"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264332"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 
@@ -31,8 +29,6 @@ Uw app toegang heeft tot de Resource Manager API's in verschillende manieren:
 2. **App-lezentoegang**: voor apps die daemon-services en geplande taken worden uitgevoerd. Identiteit van de app wordt direct toegang tot de resources worden verleend. Deze methode werkt voor apps die op de lange termijn headless (zonder toezicht) toegang tot Azure nodig.
 
 In dit artikel biedt stapsgewijze instructies voor het maken van een app die de veiligheidsmaatregelen voor beide vorige autorisatiemethoden. U leert hoe u elke stap met REST-API of C#. De volledige ASP.NET MVC-toepassing is beschikbaar op [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>Betekenis van de web-app
 
@@ -72,27 +68,9 @@ Uw verbonden abonnementen beheren:
 ## <a name="register-application"></a>Toepassing registreren
 Voordat u begint met het coderen, registreert u uw web-app met Azure Active Directory (AD). De app-registratie maakt u een centrale identiteit voor uw app in Azure AD. Deze bevat basisinformatie over uw toepassing, zoals OAuth-Clientidentiteit, antwoord-URL's en de referenties die uw toepassing gebruikt voor verificatie en toegang tot Azure Resource Manager-API's. De app-registratie registreert ook de verschillende gedelegeerde machtigingen die uw toepassing nodig heeft bij het openen van Microsoft APIs voor de gebruiker.
 
-Omdat uw app toegang heeft tot andere abonnement, moet u deze configureren als een toepassing met meerdere tenants. Om te worden gevalideerd, bieden u een domein dat is gekoppeld aan uw Azure Active Directory. Als u wilt zien van de domeinen die zijn gekoppeld aan uw Azure Active Directory, moet u zich aanmelden bij de portal.
+Zie voor het registreren van uw app, [Quick Start: Een toepassing registreren met het Microsoft identity-platform](../active-directory/develop/quickstart-register-app.md). Geef een naam op voor uw app en selecteer **Accounts in een organisatie-map** voor de ondersteunde typen. Voor de omleidings-URL, geeft u een domein dat is gekoppeld aan uw Azure Active Directory.
 
-Het volgende voorbeeld ziet hoe u de app te registreren met behulp van Azure PowerShell. Hebt u de nieuwste versie (augustus 2016) van Azure PowerShell voor deze opdracht te laten werken.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-Om aan te melden als de AD-toepassing, moet u de toepassings-ID en het wachtwoord. Overzicht van de toepassings-ID die wordt geretourneerd vanaf de vorige opdracht gebruiken:
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-Het volgende voorbeeld ziet hoe u de app te registreren met behulp van Azure CLI.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-De resultaten bevatten de AppId, die u nodig hebt bij het verifiëren als de toepassing.
+Om aan te melden als de AD-toepassing, moet u de toepassings-ID en een geheim. De toepassings-ID wordt weergegeven in het overzicht voor de toepassing. Zie voor het maken van een geheim en API-machtigingen aanvragen, [Quick Start: Configureren van een clienttoepassing voor toegang tot web-API's](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Geef een nieuwe clientgeheim. Selecteer voor API-machtigingen, **Azure Service Management**. Selecteer **overgedragen machtigingen** en **user_impersonation**.
 
 ### <a name="optional-configuration---certificate-credential"></a>Optionele configuratie - certificaatreferentie
 Azure AD biedt ook ondersteuning voor referenties van het computercertificaat voor toepassingen: maken van een zelf-ondertekend certificaat, blijven de persoonlijke sleutel en de openbare sleutel toevoegen aan de registratie van uw Azure AD-toepassing. Uw toepassing verzendt een kleine nettolading met Azure AD ondertekend met behulp van uw persoonlijke sleutel voor verificatie en Azure AD valideert de handtekening met behulp van de openbare sleutel die u hebt geregistreerd.

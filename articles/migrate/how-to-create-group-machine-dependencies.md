@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e186effb63c1ca96ace33ec389c2487448e4d20d
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407094"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280907"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -132,6 +132,44 @@ De Kusto-query's uitvoeren:
 5. Voer de query uit door te klikken op uitvoeren. 
 
 [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) over het schrijven van Kusto-query's. 
+
+### <a name="sample-azure-monitor-logs-queries"></a>Voorbeeld van Azure Monitor logboekregistratie van query 's
+
+Hieronder vindt u voorbeeld-query's die u gebruiken kunt om afhankelijkheidsgegevens te extraheren. Houd er rekening mee dat de query's kunnen worden aangepast voor het extraheren van uw voorkeur gegevenspunten. Een volledige lijst van de velden in gegevensrecords van afhankelijkheid is beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+
+#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Binnenkomende verbindingen op een set van machines samenvatten
+
+Houd er rekening mee dat de records in de tabel voor de verbindingsgegevens, VMConnection, afzonderlijke fysieke netwerkverbindingen niet weergeven. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) over hoe fysieke netwerkverbinding gegevens worden samengevoegd in één logische records in VMConnection. 
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Samenvatting van de hoeveelheid gegevens verzonden en ontvangen voor binnenkomende verbindingen tussen een set van machines
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

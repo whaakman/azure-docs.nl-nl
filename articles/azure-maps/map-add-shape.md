@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057022"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282386"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm toevoegen aan een kaart
 
@@ -35,7 +35,7 @@ Het eerste vereiste blok van code in de bovenstaande code wordt een kaartobject.
 
 In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) object wordt gemaakt en toegevoegd aan de gegevensbron.
 
-Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Het laatste blok van code wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de regel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de regel wordt weergegeven nadat de kaart volledig is geladen.
+Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Het laatste blok van code wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de regel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenis-handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de regel wordt weergegeven nadat de kaart volledig is geladen.
 
 ### <a name="add-symbols-along-a-line"></a>Symbolen langs een lijn toevoegen
 
@@ -49,7 +49,7 @@ Zie de Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show pijl langs li
 
 ### <a name="line-stroke-gradient"></a> Een lijn-verloop toevoegen aan een regel
 
-U kunt ook een regel met een kleurovergang van de kleuren om weer te geven van de overgang van één regel segment naar de volgende niet alleen de lijnkleur van een enkel van toepassing op een regel invullen. Verlopen van de regel kunnen bijvoorbeeld worden gebruikt om aan te duiden wijzigingen gedurende de tijd en de afstand of de verschillende temperaturen in een verbonden line-of-objecten. Om deze functie op een regel toepast, de gegevensbron moet hebben de `lineMetrics` optie is ingesteld op true, en vervolgens een kleurovergang expressie kan worden doorgegeven aan de `strokeColor` optie van de regel. De lijn kleurovergang expressie heeft tot verwijzing naar de `['line-progress']` gegevens expressie waarmee wordt aangegeven dat de berekende regel metrische gegevens op de expressie.
+U kunt ook een regel met een kleurovergang van de kleuren om weer te geven van de overgang van één regel segment naar de volgende niet alleen de lijnkleur van een enkel van toepassing op een regel invullen. Verlopen van de regel kunnen bijvoorbeeld worden gebruikt om aan te duiden wijzigingen gedurende de tijd en de afstand of de verschillende temperaturen in een verbonden line-of-objecten. Om deze functie op een regel toepast, de gegevensbron moet hebben de `lineMetrics` optie is ingesteld op true, en vervolgens een kleurovergang expressie kan worden doorgegeven aan de `strokeColor` optie van de regel. De lijn kleurovergang expressie heeft tot verwijzing naar de `['line-progress']` gegevens-expressie die wordt aangegeven dat de berekende regel metrische gegevens op de expressie.
 
 <br/>
 
@@ -83,7 +83,7 @@ In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject.
 
 In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een [veelhoek](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) is gemaakt op basis van een matrix van coördinaten en toegevoegd aan de gegevensbron. 
 
-Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
+Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenis-handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>Een polygoon- en laag samen gebruiken
 
@@ -98,7 +98,7 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 
 Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) is een matrix van regels. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Het derde codeblok maakt polygoon- en lijnlagen.
 
-Het laatste blok van code wordt de polygoon- en lijnlagen toegevoegd aan de kaart. De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
+Het laatste blok van code wordt de polygoon- en lijnlagen toegevoegd aan de kaart. De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenis-handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
 
 > [!TIP]
 > Lagen van de regel standaard worden de coördinaten van polygonen, evenals regels in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen LineString wordt weergegeven de `filter` eigenschap van de laag `['==', ['geometry-type'], 'LineString']` of `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` als u wilt opnemen en MultiLineString-functies.
@@ -126,7 +126,7 @@ De polygoonlaag heeft alleen een aantal opties voor stijl. Hier is een hulpprogr
 
 ## <a name="add-a-circle-to-the-map"></a>Voeg een cirkel toe aan de kaart
 
-Azure kaarten maakt gebruik van een uitgebreide versie van de GeoJSON-schema waarmee u een definitie voor cirkels, zoals vermeld [hier](extend-geojson.md#circle). Een cirkel kan worden weergegeven op de kaart door het maken van een `Point` functie waarvoor een `subType` eigenschap met de waarde `Circle` en een `radius` eigenschap met een getal dat staat voor de radius in meters. Bijvoorbeeld:
+Azure kaarten maakt gebruik van een uitgebreide versie van de GeoJSON-schema waarmee een definitie voor cirkels, zoals vermeld [hier](extend-geojson.md#circle). Een cirkel kan worden weergegeven op de kaart door het maken van een `Point` functie waarvoor een `subType` eigenschap met de waarde `"Circle"` en een `radius` eigenschap met een getal dat de radius in meters. Bijvoorbeeld:
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Azure Maps Web SDK converteert deze `Pooint` functies in `Polygon` functies op d
 
 Het eerste vereiste blok van code in de bovenstaande code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) en heeft een `subType` eigenschap ingesteld op "cirkel" en een `radius` eigenschap waarde meters. Wanneer een punt-functie met een subType van cirkel wordt toegevoegd aan een gegevensbron, converteert het naar een circulaire veelhoek binnen de kaart.
+In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) en heeft een `subType` eigenschap ingesteld op `"Circle"` en een `radius` eigenschapswaarde in meters. Wanneer een punt-functie met een `subType` van `"Circle"` wordt toegevoegd aan een gegevensbron, worden deze omgezet in een circulaire veelhoek binnen de kaart.
 
-Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
+Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenis-handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
 
 ## <a name="make-a-geometry-easy-to-update"></a>Een geometrie gemakkelijk om bij te werken
 
@@ -171,14 +171,11 @@ Het derde codeblok maakt u een functie die wordt de waarde van het HTML-bereik s
 
 In het vierde blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Het punt wordt vervolgens toegevoegd aan de gegevensbron.
 
-Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het derde blok van code maakt een polygoonlaag. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron, de gebeurtenislistener klikken en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat het punt wordt weergegeven nadat de kaart volledig is geladen.
+Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het derde blok van code maakt een polygoonlaag. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron, de gebeurtenis click hanlder en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenis-handler](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat het punt wordt weergegeven nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [HTML-markeringen](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [Een heatmap-laag toevoegen](./map-add-heat-map-layer.md)
+> [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)

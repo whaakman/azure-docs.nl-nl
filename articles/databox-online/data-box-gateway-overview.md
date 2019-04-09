@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400960"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282811"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Wat is Azure Data Box-Gateway?
 
@@ -29,6 +29,8 @@ Data Box Gateway kan worden gebruikt voor het overdragen van gegevens naar de cl
 - **Continue gegevensopname** -continu gegevens opnemen in het apparaat om te kopiëren naar de cloud, ongeacht de grootte van de gegevens. Als de gegevens worden geschreven naar het gateway-apparaat, wordt het apparaat de gegevens geüpload naar Azure Storage.  
 
 - **Bulksgewijs overdracht gevolgd door incrementele overdracht voor de eerste** -gebruik Data Box voor het bulksgewijs in offline modus (basiswaarde) en Data Box Gateway overdragen voor incrementele overdrachten (doorlopende feed) via het netwerk.
+
+Ga voor meer informatie naar [gebruiksvoorbeelden voor Azure Data Box Gateway](data-box-gateway-use-cases.md).
 
 ## <a name="benefits"></a>Voordelen
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5dde20c485f7c2f528182c348aa6e78dc0c66034
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260915"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Routes vinden voor verschillende manieren van reizen met Azure Maps
 
@@ -46,11 +46,11 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -82,7 +82,7 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
 
     U ziet dat de HTML-header de CSS- en JavaScript-bronbestanden bevat, gehost door de Azure Map Control-bibliotheek. Let op de gebeurtenis `onload` in het hoofdtekstgedeelte van de pagina. Deze zorgt ervoor dat de functie `GetMap` wordt aangeroepen nadat het hoofdtekstgedeelte van de pagina is geladen. Deze functie bevat de inline JavaScript-code voor toegang tot de API's van Azure Maps.
 
-3. Voeg de volgende JavaScript-code toe aan de functie `GetMap`. Vervang de tekenreeks **\<Your Azure Maps Key\>** door de primaire sleutel die u hebt gekopieerd in uw Maps-account.
+3. Voeg de volgende JavaScript-code toe aan de functie `GetMap`. Vervang de tekenreeks `<Your Azure Maps Key>` met de primaire sleutel die u hebt gekopieerd uit uw kaarten-account.
 
     ```JavaScript
     //Instantiate a map object
@@ -216,7 +216,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   De **SubscriptionKeyCredential** maakt een **SubscriptionKeyCredentialPolicy** om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De **atlas.service.MapsURL.newPipeline()** wordt in de **SubscriptionKeyCredential** beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) exemplaar. De **routeURL** vertegenwoordigt een URL naar Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen.
+   De `SubscriptionKeyCredential` maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) exemplaar. De `routeURL` vertegenwoordigt een URL naar Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen.
 
 2. Na het instellen van referenties en de URL toevoegen de volgende JavaScript code voor het maken van een route vanaf het begin naar het eindpunt voor een vrachtwagen uitvoering USHazmatClass2 lading ingedeeld en de resultaten weer te geven.
 
@@ -245,7 +245,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     });
     ```
 
-    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de **geojson.getFeatures()** methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Een index 0 om ervoor te zorgen dat deze wordt weergegeven vóór alle andere regels in de gegevensbron worden ook toegevoegd. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Twee eigenschappen worden toegevoegd aan de regel van de route vrachtwagen, de kleur van een lijn die een mooie schaduw van blauw en de breedte van een lijn van negen pixels.
+    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Een index 0 om ervoor te zorgen dat deze wordt weergegeven vóór alle andere regels in de gegevensbron worden ook toegevoegd. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Twee eigenschappen worden toegevoegd aan de regel van de route vrachtwagen, de kleur van een lijn die een mooie schaduw van blauw en de breedte van een lijn van negen pixels.
 
 3. Voeg de volgende JavaScript-code voor het maken van een route voor een auto en de resultaten weer te geven.
 
@@ -265,7 +265,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     });
     ```
 
-    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de **geojson.getFeatures()** methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Twee eigenschappen worden toegevoegd aan de regel van de route auto, de kleur van een lijn die een tint van paarse en de breedte van een lijn van vijf pixels.  
+    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Twee eigenschappen worden toegevoegd aan de regel van de route auto, de kleur van een lijn die een tint van paarse en de breedte van een lijn van vijf pixels.  
 
 4. Sla het bestand **MapTruckRoute.html** op en vernieuw de browser om het resultaat te bekijken. Bij een succesvolle verbinding met de-API's van Maps ziet de kaart er ongeveer als volgt uit.
 
@@ -293,3 +293,6 @@ In de volgende zelfstudie ziet u het proces voor het maken van een eenvoudige wi
 
 > [!div class="nextstepaction"]
 > [Een store-locator met behulp van Azure-kaarten maken](./tutorial-create-store-locator.md)
+
+> [!div class="nextstepaction"]
+> [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)

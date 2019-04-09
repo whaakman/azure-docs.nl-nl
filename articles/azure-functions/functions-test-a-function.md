@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439325"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283032"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -253,6 +253,8 @@ De leden die zijn geïmplementeerd in deze klasse zijn:
 
 - **Timer_should_log_message**: Deze test maakt een exemplaar van `ListLogger` en geeft deze door een timer-functies. Nadat de functie wordt uitgevoerd, wordt het logboek gecontroleerd om te controleren of dat de verwachte bericht aanwezig is.
 
+Als u toegang wilt tot de toepassingsinstellingen in uw tests, kunt u [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### <a name="run-tests"></a>Tests uitvoeren
 
 De tests uitvoeren, gaat u naar de **Test Explorer** en klikt u op **voert u alle**.
@@ -375,6 +377,6 @@ Vervolgens stelt een onderbrekingspunt in uw test en druk op **F5**.
 ## <a name="next-steps"></a>Volgende stappen
 
 Nu dat u hebt geleerd hoe u geautomatiseerde tests uit voor uw functies schrijft, kunt u doorgaan met deze resources:
-- [Handmatig uitvoeren van een niet HTTP-geactiveerde functie](./functions-manually-run-non-http.md)
+- [Handmatig een niet door HTTP geactiveerde functie uitvoeren](./functions-manually-run-non-http.md)
 - [Azure Functions-foutafhandeling](./functions-bindings-error-pages.md)
-- [Azure-functie Event Grid Trigger lokale foutopsporing](./functions-debug-event-grid-trigger-local.md)
+- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)

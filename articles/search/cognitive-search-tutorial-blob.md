@@ -1,21 +1,21 @@
 ---
-title: Zelfstudie voor het aanroepen van Cognitive Services API's in een indexering pijplijn - Azure Search
-description: In deze zelfstudie ziet u een voorbeeld van gegevensextractie, natuurlijke taal en AI-beeldverwerking in Azure Search indexeren voor gegevensextractie en transformatie.
+title: "Zelfstudie: Cognitive Services API's aanroepen in een indexering pijplijn - Azure Search"
+description: Stap door een voorbeeld van het ophalen van gegevens, natuurlijke taal en afbeelding AI verwerken in Azure Search indexeren voor ophalen van gegevens en -transformaties via JSON-blobs.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 13361bb73043e83a0162e86604f048b98eb1c3a0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009628"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261918"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren pijplijn (Preview)
 
@@ -32,60 +32,44 @@ In deze zelfstudie maakt u REST API-aanroepen om de volgende taken uit te voeren
 
 Uitvoer is een volledige doorzoekbare index in Azure Search. U kunt de index uitbreiden met andere standaardfuncties, zoals [synoniemen](search-synonyms.md), [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyses](search-analyzers.md) en [filters](search-filters.md).
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+In deze zelfstudie wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u wilt meer dan eenmaal in deze zelfstudie wordt uitgevoerd in dezelfde dag, gebruikt u een kleiner bestand instellen, zodat u in meer uitvoeringen past.
 
 > [!NOTE]
-> Met ingang van 21 december 2018 kunt u een Cognitive Services-resource koppelen aan een vaardighedenset van Azure Search. Hierdoor kunnen we beginnen met het factureren van kosten voor het uitvoeren van vaardighedensets. Vanaf deze datum gaan we ook kosten in rekening brengen voor het extraheren van afbeeldingen als onderdeel van de fase waarin de documenten kunnen worden gekraakt. Het extraheren van tekst uit documenten blijft gratis.
+> Als u een bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureerbare Cognitive Services-resource koppelen. Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
 >
-> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen wordt in rekening gebracht op de preview-prijzen, zoals wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Is cognitief zoeken nieuw voor u? Lees dan [Wat is cognitief zoeken?](cognitive-search-concept-intro.md) voor een introductie of ga naar de [snelstart in de portal](cognitive-search-quickstart-blob.md) voor een praktische inleiding tot belangrijke concepten.
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
 
-Als u REST-aanroepen naar Azure Search wilt maken, kunt u PowerShell of een online testhulpprogramma zoals Telerik Fiddler of Postman gebruiken om HTTP-aanvragen te formuleren. Zie [REST API's voor Azure Search verkennen met Fiddler of Postman](search-fiddler.md) als u deze hulpprogramma's nog niet kent.
+[Postman bureaublad-app](https://www.getpostman.com/) wordt gebruikt voor het maken van de REST-aanroepen naar Azure Search.
 
-Gebruik [Azure Portal](https://portal.azure.com/) voor het maken van services die worden gebruikt in een end-to-end-werkstroom. 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>Een Azure Search api-sleutel en het eindpunt ophalen
 
-### <a name="set-up-azure-search"></a>Azure Search instellen
+REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-Registreer u eerst voor de Azure Search-service. 
+1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://my-service-name.search.windows.net`.
 
-1. Ga naar [Azure Portal](https://portal.azure.com) en meld u aan met uw Azure-account.
+2. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-1. Klik op **Een resource maken**, zoek naar Azure Search en klik op **Maken**. Zie [Een Azure Search-service maken in de portal](search-create-service-portal.md) als u voor de eerste keer een zoekservice instelt.
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
-   ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
-
-1. Maak een resourcegroep voor alle resources die u in deze zelfstudie gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de zelfstudie hebt voltooid.
-
-1. Voor de locatie, kiest u een regio die zich in de buurt van uw gegevens en andere cloud-apps.
-
-1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
-
-   Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
-
-   ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Servicedefinitiepagina in de portal")
-   ![Servicedefinitiepagina in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Servicedefinitiepagina in de portal")
-
- 
-1. Maak de service vast aan het dashboard voor snelle toegang tot service-informatie.
-
-   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
-
-1. Nadat de service is gemaakt, kunt u de volgende informatie verzamelen: **URL** op de overzichtspagina en **API-sleutel** (primair of secundair) op de pagina Sleutels.
-
-   ![Eindpunt- en sleutelinformatie in de portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Eindpunt- en sleutelinformatie in de portal")
+Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
 
 De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens moeten afkomstig zijn van een ondersteund type gegevensbron van een [Azure Search-indexeerfunctie](search-indexer-overview.md). Houd er rekening mee dat Azure Table Storage niet wordt ondersteund voor cognitief zoeken. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
 
-1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Voorbeeldgegevens bestaan uit een kleine set van verschillende typen bestanden. 
+1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, meld u aan bij Storage Explorer en maak een container met de naam `basicdemo`. Zie [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) (Snelstart voor Azure Storage Explorer) voor instructies over alle stappen.
+1. [Aanmelden voor Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), een opslagaccount maken, opent u de services Blob's en een container maken. De storage-account maken in dezelfde regio als de Azure Search.
 
-1. Klik in de container `basicdemo` die u hebt gemaakt met behulp van Azure Storage Explorer op **Uploaden** om de voorbeeldbestanden te uploaden.
+1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
+
+   ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. Nadat de voorbeeldbestanden zijn geladen, haalt u de containernaam en een verbindingsreeks voor de Blob-opslag op. U kunt dat doen door in de Azure-portal naar uw opslagaccount te navigeren. Ga naar **Toegangssleutels** en kopieer het veld **Verbindingsreeks**.
 

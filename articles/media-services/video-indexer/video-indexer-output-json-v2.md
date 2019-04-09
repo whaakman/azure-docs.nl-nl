@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892572"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280210"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
 
@@ -32,7 +32,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 ## <a name="root-elements"></a>Basis-elementen
 
-|Name|Beschrijving|
+|Name|Description|
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
@@ -79,7 +79,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **Persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
-|thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, roep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
+|thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, aanroepen [Get-miniatuur](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |faces|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |stemmingen|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
@@ -92,7 +92,7 @@ In deze sectie bevat een overzicht van de inzichten.
 
 ## <a name="videos"></a>video's
 
-|Name|Beschrijving|
+|Name|Description|
 |---|---|
 |accountId|Van de video VI account-ID.|
 |id|Van de video-ID.|
@@ -106,7 +106,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |metagegevens|De metagegevens van video's externe (indien opgegeven door de gebruiker).|
 |isAdult|Geeft aan of er handmatig de video is bekeken en geïdentificeerd als een volwassene video.|
 |inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
-|thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en geeft die door de video-ID en thumbnailId.|
+|thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep [Get-miniatuur](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) en geeft die door de video-ID en thumbnailId.|
 |publishedUrl|Een url naar de video te streamen.|
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
 |viewToken|Een korte levensduur hebben weergave-token voor het streamen van de video.|
@@ -190,7 +190,7 @@ Voorbeeld:
 
 #### <a name="blocks"></a>blokken
 
-Kenmerk | Beschrijving
+Kenmerk | Description
 ---|---
 id|ID van het blok.|
 instanties|Een lijst met tijdsbereiken van dit blok.|
@@ -563,7 +563,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 
 #### <a name="statistics"></a>statistieken
 
-|Name|Beschrijving|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|Het aantal berichten in de video.|
 |SpeakerWordCount|Het aantal woorden per spreker.|

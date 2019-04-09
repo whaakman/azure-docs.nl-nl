@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010537"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274669"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
 
-Dit artikel helpt u bij het configureren van OpenVPN clients.
+Dit artikel helpt u bij het configureren **OpenVPN® Protocol** clients.
 
 > [!IMPORTANT]
 > Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -49,7 +49,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open de *profileinfo.txt* in Kladblok. Als u de persoonlijke sleutel, selecteert u de tekst (met inbegrip van en tussen) "---BEGIN PRIVATE KEY---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
+8. Open de *profileinfo.txt* in Kladblok. Als u de persoonlijke sleutel, selecteert u de tekst (met inbegrip van en tussen) "---BEGIN PRIVATE KEY---" en '---END PRIVATE KEY---' en deze te kopiëren.
 9. Ga terug naar het bestand vpnconfig.ovpn in Kladblok en zoeken in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
 
    ```
@@ -109,7 +109,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open de profileinfo.txt in een teksteditor. Als u de persoonlijke sleutel, selecteert u de tekst zoals en tussen "---BEGIN PRIVÉSLEUTEL---" en '---BEGIN PRIVATE KEY---' en deze te kopiëren.
+8. Open de profileinfo.txt in een teksteditor. Als u de persoonlijke sleutel, selecteert u de tekst zoals en tussen "---BEGIN PRIVÉSLEUTEL---" en '---END PRIVATE KEY---' en deze te kopiëren.
 
 9. Open het bestand vpnconfig.ovpn in een teksteditor en zoek in deze sectie. Plak de persoonlijke sleutel vervangen alles tussen en "sleutel" en '/ sleutel'.
 
@@ -138,4 +138,6 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt dat de VPN-clients kunnen toegang krijgen tot bronnen in een ander vnet (productie), klikt u vervolgens de instructies op de [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikel voor het instellen van een vnet-naar-vnet-verbinding. Zorg ervoor dat u BGP wilt inschakelen op de gateways en verbindingen, anders niet het verkeer.
+Als u wilt dat de VPN-clients kunnen toegang krijgen tot bronnen in een ander VNet (productie), klikt u vervolgens de instructies op de [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikel voor het instellen van een vnet-naar-vnet-verbinding. Zorg ervoor dat u BGP wilt inschakelen op de gateways en verbindingen, anders niet het verkeer.
+
+**"OpenVPN" is een handelsmerk van OpenVPN Inc.**

@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057435"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259798"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
@@ -50,7 +50,7 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 ### <a name="create-in-powershell"></a>Maken in PowerShell
 
-In PowerShell, moet u de cmdlet New-AzManagementGroup gebruiken:
+Gebruik voor PowerShell de [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet voor het maken van een nieuwe beheergroep.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 De **GroupName** is een unieke id wordt gemaakt. Deze ID wordt gebruikt door andere opdrachten om te verwijzen naar deze groep en kan later worden gewijzigd.
 
-Als u wilt dat de beheergroep die u wilt weergeven van een andere naam in Azure portal, voegt u de **DisplayName** parameter met de tekenreeks. Als u wilt maken van een beheergroep met de groepsnaam van Contoso en de weergavenaam van 'Contoso groeperen', gebruikt u bijvoorbeeld de volgende cmdlet:
+Als u wilt dat de beheergroep die u wilt weergeven van een andere naam in Azure portal, voegt u toe de **DisplayName** parameter. Bijvoorbeeld, voor het maken van een beheergroep met de groepsnaam van Contoso en de weergavenaam van 'Contoso groeperen', gebruikt u de volgende cmdlet:
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Gebruik de **ParentId** parameter voor deze beheergroep hebt gemaakt onder een ander management.
+In de voorgaande voorbeelden worden de nieuwe beheergroep wordt gemaakt onder de root management-groep. Als u een andere beheergroep als de bovenliggende, gebruikt de **ParentId** parameter.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Maken in Azure CLI
 
-Op de Azure CLI, gebruikt u de az-opdracht account management-groep maken.
+Voor Azure CLI, gebruikt u de [az account management-groep maken](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) opdracht voor het maken van een nieuwe beheergroep.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+De **naam** is een unieke id wordt gemaakt. Deze ID wordt gebruikt door andere opdrachten om te verwijzen naar deze groep en kan later worden gewijzigd.
+
+Als u wilt dat de beheergroep die u wilt weergeven van een andere naam in Azure portal, voegt u toe de **weergavenaam** parameter. Bijvoorbeeld, voor het maken van een beheergroep met de groepsnaam van Contoso en de weergavenaam van 'Contoso groeperen', gebruikt u de volgende opdracht uit:
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+In de voorgaande voorbeelden worden de nieuwe beheergroep wordt gemaakt onder de root management-groep. Als u een andere beheergroep als de bovenliggende, gebruikt de **bovenliggende** parameter en geef de naam van de bovenliggende groep.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

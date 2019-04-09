@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878295"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280890"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -87,6 +87,8 @@ Geïmplementeerde modellen zijn verpakt als een afbeelding. De afbeelding bevat 
 
 Voor **Azure Container Instances**, **Azure Kubernetes Service**, en **Azure IoT Edge** implementaties, de [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klasse wordt gebruikt om de configuratie van een installatiekopie te maken. De configuratie van de installatiekopie wordt vervolgens gebruikt om te maken van een nieuwe Docker-installatiekopie.
 
+Bij het maken van de configuratie van de installatiekopie, kunt u ofwel een __standaardinstallatiekopie__ geleverd door de Azure Machine Learning-service of een __aangepaste installatiekopie__ die u opgeeft.
+
 De volgende code ziet u hoe u de configuratie van een nieuwe installatiekopie gemaakt:
 
 ```python
@@ -112,6 +114,36 @@ De belangrijke parameters in dit voorbeeld wordt beschreven in de volgende tabel
 Zie voor een voorbeeld van het maken van de configuratie van een installatiekopie, [implementeren een installatiekopie-classificatie](tutorial-deploy-models-with-aml.md).
 
 Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Een aangepaste installatiekopie gebruiken
+
+Wanneer u een aangepaste installatiekopie gebruikt, moet de volgende vereisten voldoen aan de installatiekopie:
+
+* Ubuntu 16.04 of hoger.
+* Conda 4.5. # of hoger.
+* Python 3.5. # of 3.6. #.
+
+Als u wilt gebruiken een aangepaste installatiekopie, het `base_image` eigenschap van de configuratie van de installatiekopie naar het adres van de installatiekopie. Het volgende voorbeeld ziet u hoe u een installatiekopie op beide een openbare en persoonlijke Azure Container Registry gebruiken:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Zie voor meer informatie over het uploaden van installatiekopieën naar een Azure Container Registry [uw eerste installatiekopie naar een persoonlijk Docker-containerregister pushen](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+Als uw model wordt getraind op Azure Machine Learning-Computing, __versie 1.0.22 of hoger__ van de SDK van Azure Machine Learning, een installatiekopie is gemaakt tijdens de training. Het volgende voorbeeld ziet u hoe u deze installatiekopie te gebruiken:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Uitvoering van script
 
@@ -214,7 +246,7 @@ Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://doc
 
 Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk van de compute-doel die u implementeert op. Gebruik de informatie in de volgende secties voor informatie over het implementeren op:
 
-| COMPUTE-doel | Implementatietype | Beschrijving |
+| COMPUTE-doel | Implementatietype | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Webservice (realtime Deductie)| Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
 | [Azure ML Compute](#azuremlcompute) | Webservice (Batch Deductie)| Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
@@ -396,7 +428,7 @@ Zie voor een overzicht van het implementeren van een model met behulp van Projec
 
 ## <a name="define-schema"></a>Schema definiëren
 
-Aangepaste decorators kunnen worden gebruikt voor [OpenAPI](https://swagger.io/docs/specification/about/) specificatie genereren en input type manipulatie bij het implementeren van de webservice. In de `score.py` bestand, u een voorbeeld van de invoer en/of de uitvoer in de constructor opgeven voor een van de objecten gedefinieerd type en het type en het voorbeeld worden gebruikt om het schema automatisch te genereren. De volgende typen worden momenteel ondersteund:
+Aangepaste decorators kunnen worden gebruikt voor [OpenAPI](https://swagger.io/docs/specification/about/) specificatie genereren en input type manipulatie bij het implementeren van de webservice. In de `score.py` bestand, u een voorbeeld van de invoer en/of de uitvoer in de constructor opgeven voor een van de objecten gedefinieerd type en het type en het voorbeeld worden gebruikt om automatisch te maken het schema. De volgende typen worden momenteel ondersteund:
 
 * `pandas`
 * `numpy`

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668191"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057639"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor de Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -121,7 +121,7 @@ Voor Ubuntu [zonder toezicht-upgrades](https://help.ubuntu.com/community/Automat
 
 Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA_v2.0.2.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA_v2.0.3.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -173,7 +173,8 @@ Voor uw gemak powershell (Undeploy.ps1) en (Undeploy.sh) bash-scripts vindt u sa
 
 ## <a name="view-the-update-results"></a>De Update-resultaten weergeven
 
-De patch orchestration-app beschikbaar REST-API's om de historische resultaten voor de gebruiker weer te geven. Hieronder volgt een voorbeeld-resultaat: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+De patch orchestration-app beschikbaar REST-API's om de historische resultaten voor de gebruiker weer te geven. Hieronder volgt een voorbeeld-resultaat:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -373,5 +374,10 @@ De patch orchestration app verzamelt telemetrie om gebruik en prestaties te houd
 ### <a name="version-201"></a>Versie 2.0.1
 - De app met de meest recente Service Fabric SDK gecompileerd
 
-### <a name="version-202-latest"></a>Versie 2.0.2 (recentste)
+### <a name="version-202"></a>Versie 2.0.2 
 - Een probleem opgelost met de status waarschuwing ophalen overgebleven tijdens het opnieuw opstarten.
+
+### <a name="version-203-latest"></a>Versie 2.0.3 (recentste)
+- Het probleem is opgelost waarbij CPU-gebruik van Knooppuntagent-daemon-service maximaal 99% bereikt op Standard_D1_v2 VM's.
+- Het probleem dat het toepassen van patches leven cyle op een knooppunt heeft in het geval er knooppunten zijn met de naam subset van de naam van het huidige knooppunt is opgelost. Voor dergelijke knooppunten, de mogelijke patches ontbreekt of opnieuw opstarten in behandeling is.
+- Een opgelost Knooppuntagent-daemon vanwege die vastlopen houdt wanneer beschadigd instellingen worden doorgegeven aan de service.

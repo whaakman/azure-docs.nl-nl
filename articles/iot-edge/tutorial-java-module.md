@@ -1,20 +1,20 @@
 ---
-title: 'Zelfstudie: aangepaste Java-module maken - Azure IoT Edge | Microsoft Docs'
+title: Aangepaste module zelfstudie over Java - Azure IoT Edge | Microsoft Docs
 description: In deze zelfstudie ziet u hoe u een IoT Edge-module met Java-code maakt en deze implementeert op een Edge-apparaat.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3e24894e088f443ca705163c353920e8dd3ff4ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224070"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266678"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: een IoT Edge-module in Java ontwikkelen en implementeren op uw gesimuleerde apparaat
 
@@ -36,7 +36,7 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt een IoT Edge-apparaat instellen door de stappen in de quickstarts voor [Linux](quickstart-linux.md) of [Windows](quickstart.md) te volgen.
+* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
 * Versie 1.0.5 van IoT Edge op Windows-apparaten biedt geen ondersteuning voor Java-modules. Zie [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5) (Opmerkingen bij de release 1.0.5) voor meer informatie. Zie [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md) (De IoT Edge-beveiligings-daemon en runtime bijwerken) voor stappen voor het installeren van specifieke versies.
 
 Cloudresources:
@@ -51,7 +51,7 @@ Ontwikkelingsresources:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks); en [stel de omgevingsvariabele `JAVA_HOME` in](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) om te verwijzen naar uw JDK-installatie.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Als u op een Windows-apparaat ontwikkelt, moet u ervoor zorgen dat Docker is [geconfigureerd voor het gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
+   * Als u op een Windows-apparaat ontwikkelt, controleert u of Docker is [geconfigureerd voor het gebruik van Linux of Windows-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers), afhankelijk van het besturingssysteem van uw IoT Edge-apparaat. 
 
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
@@ -146,8 +146,9 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 7. Vervang de execute-methode van **MessageCallbackMqtt** door de volgende code. Deze methode wordt aangeroepen wanneer de module een MQTT-bericht ontvangt van de IoT Edge-hub. Berichten die temperaturen onder de drempelwaarde die via de moduledubbel is ingesteld, worden hierdoor gefilterd.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Voeg de volgende twee statische binnenste klassen toe aan de klasse **App**. Met deze klassen wordt de variabele tempThreshold bijgewerkt wanneer de gewenste eigenschap van de moduledubbel verandert. Alle modules hebben hun eigen moduledubbel, waardoor u rechtstreeks in de cloud de code kunt configureren die in een module wordt uitgevoerd.
@@ -218,7 +220,7 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 
 11. Sla het App.java-bestand op.
 
-12. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand laat aan de IoT Edge-agent weten welke modules moeten worden geïmplementeerd. In dit geval gaat het om **tempSensor** en **JavaModule**. Het bestand laat de IoT Edge-hub ook weten hoe berichten tussen de modules moeten worden gerouteerd. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
+12. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand vertelt de IoT Edge agent welke modules te implementeren, en de IoT Edge hub vertelt over het routeren van berichten tussen deze. In dit geval de twee modules zijn **tempSensor** en **JavaModule**. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
    1. Het standaardplatform van uw IoT Edge is ingesteld op **amd64** in de statusbalk van uw VS Code. Dat betekent dat uw **JavaModule** is ingesteld op Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
 
@@ -264,7 +266,7 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 >[!TIP]
 >Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
 >* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure Portal.
->* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/javamodule**. 
+>* Hebt u de juiste containeropslagplaats? Open **modules** > **JavaModule** > **module.json** en zoek de **opslagplaats** veld. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/javamodule**. 
 >* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code valt standaard terug op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Windows-containers of Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
@@ -321,5 +323,5 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 In deze zelfstudie hebt u een IoT Edge-module gemaakt met code voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. U kunt verdergaan met de volgende zelfstudies om te leren hoe Azure IoT Edge u nog meer kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
 > [!div class="nextstepaction"]
-> [Gegevens opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)
+> [Gegevens aan de rand opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)
 

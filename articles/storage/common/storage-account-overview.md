@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371792"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278986"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
-Een Azure storage-account bevat al uw Azure Storage-gegevensobjecten: blobs, bestanden, wachtrijen, tabellen en schijven. Gegevens in uw Azure storage-account zijn duurzame en maximaal beschikbare, veilige, zeer schaalbare en toegankelijk is vanaf overal ter wereld via HTTP of HTTPS. 
+Een Azure storage-account bevat al uw Azure Storage-gegevensobjecten: blobs, bestanden, wachtrijen, tabellen en schijven. Gegevens in uw Azure storage-account zijn duurzame en maximaal beschikbare, veilige, zeer schaalbare en toegankelijk is vanaf overal ter wereld via HTTP of HTTPS.
 
 Zie voor meer informatie over het maken van een Azure storage-account, [een opslagaccount maken](storage-quickstart-create-account.md).
 
@@ -52,7 +52,7 @@ Voor algemeen gebruik v1-accounts bieden toegang tot alle Azure Storage-services
 - Wachtrijen
 - Tabellen
 
-Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, zijn voor algemeen gebruik v1-accounts bij uitstek geschikt voor deze scenario's: 
+Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, zijn voor algemeen gebruik v1-accounts bij uitstek geschikt voor deze scenario's:
 
 * Uw toepassingen vereisen het model van de klassieke Azure-implementatie. Accounts voor algemeen gebruik v2 en Blob storage-accounts ondersteunen alleen de Azure Resource Manager-implementatiemodel.
 
@@ -64,6 +64,10 @@ Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, 
 
 Een block blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs of toevoeg-blobs. Block blob storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
+### <a name="filestorage-preview-storage-accounts"></a>FileStorage (preview) storage-accounts
+
+Een opslagaccount FileStorage is een gespecialiseerd opslagaccount dat wordt gebruikt voor het opslaan en premium-bestandsshares maken. FileStorage storage-accounts bieden een unieke toegewezen prestatiekenmerken zoals IOPS bursting. Zie voor meer informatie over deze kenmerken, het [File share prestatielagen](../files/storage-files-planning.md#file-share-performance-tiers) gedeelte van de Planningshandleiding bestanden.
+
 ## <a name="naming-storage-accounts"></a>Naamgeving van opslagaccounts
 
 Neem de volgende regels in acht als u het opslagaccount een naam geeft:
@@ -71,7 +75,7 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 - Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 - De naam van uw opslagaccount moet uniek zijn binnen Azure. Een opslagaccount kan niet dezelfde naam hebben als een ander opslagaccount.
 
-## <a name="performance-tiers"></a>Prestatielagen
+## <a name="general-purpose-performance-tiers"></a>Prestatielagen voor algemeen gebruik
 
 Algemene opslagaccounts kunnen worden geconfigureerd voor een van de volgende prestatielagen:
 
@@ -84,9 +88,9 @@ Azure Storage biedt verschillende opties voor toegang tot blok-blobgegevens op b
 
 De laag beschikbaar zijn:
 
-* De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
-* De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.
-* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De Archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De Archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme of koude laag. 
+* De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
+* De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is echter duurder dan toegang tot gegevens in de warme laag toegang tot die gegevens kan worden.
+* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De Archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De Archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme of koude laag.
 
 Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. Zie voor meer informatie over de toegangslagen, [Azure Blob storage: hot, cool en archive toegangslagen](../blobs/storage-blob-storage-tiers.md).
 

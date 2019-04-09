@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259819"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282862"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -144,7 +144,7 @@ Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
 
-Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk. De locatienaam van elke in Azure portal of PowerShell/CLI API vertegenwoordigt één locatie. U kunt bijvoorbeeld de peeringlocaties "Singapore" en "Singapore2" selecteren en circuits vanaf elk aan hetzelfde virtuele netwerk verbinding maken. 
+Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u ze nog steeds koppelt aan de hetzelfde virtuele netwerk, maar alleen maximaal 4 ExpressRoute-circuits op elke peeringlocatie. U kunt bijvoorbeeld de peeringlocaties "Singapore" en "Singapore2" selecteren en circuits vanaf elk aan hetzelfde virtuele netwerk verbinding maken. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 

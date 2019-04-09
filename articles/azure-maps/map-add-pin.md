@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500046"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056845"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag toevoegen aan een kaart
 
-Dit artikel leest u hoe u gegevens uit een gegevensbron als een laag symbool op een kaart kan weergeven. Symbool lagen worden samengesteld met WebGL en aanzienlijk meer gegevenspunten dan HTML-markeringen ondersteunen, maar bieden geen ondersteuning voor traditionele CSS en HTML-elementen voor stijl.  
+Dit artikel leest u hoe u gegevens uit een gegevensbron als een laag symbool op een kaart kan weergeven. Symbool lagen worden samengesteld met WebGL en ondersteuning van veel grotere sets van punten dan HTML-markeringen, maar bieden geen ondersteuning voor traditionele CSS en HTML-elementen voor stijl.  
 
 > [!TIP]
-> Symbool lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', '$type', 'Point']`
+> Symbool lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', ['geometry-type'], 'Point']` of `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` als u wilt opnemen en MultiPoint functies.
 
 ## <a name="add-a-symbol-layer"></a>Een symboollaag toevoegen
 
@@ -34,14 +34,14 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 
 Het derde blok van code maakt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) en updates van het punt coördinaten van de muis klikt u op met behulp van de Shapeklasse [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) methode.
 
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  De gegevensbron, de gebeurtenislistener klikken en het symbool-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat het punt wordt weergegeven nadat de kaart volledig is geladen.
+Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  De gegevensbron, de gebeurtenislistener klikken en het symbool-laag worden gemaakt en toegevoegd aan de kaart in de `ready` [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om te controleren of het punt wordt weergegeven na de kaart geladen en klaar om te worden geopend.
 
 > [!TIP]
 > Standaard voor de prestaties optimaliseren symbool lagen de rendering van symbolen door te verbergen symbolen die elkaar overlappen. Als u de verborgen symbolen in te zoomen zichtbaar worden. Voor deze functie uitschakelen en weer van alle symbolen te allen tijde, stel de `allowOverlap` eigenschap van de `iconOptions` -opties op `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Een aangepast pictogram toevoegen aan een symbool-laag
 
-Symbool lagen worden weergegeven met behulp van WebGL. Als alle resources, zoals pictogramafbeeldingen, moeten worden geladen in de context WebGL. Dit voorbeeld laat zien hoe u een symboolpictogram van een aangepaste toevoegen aan het toewijzen van resources en vervolgens worden gebruikt om gegevens met een aangepaste symbool op de kaart weer te geven. De `textField` eigenschap van het symbool laag vereist een expressie die moet worden opgegeven. In dit geval willen we de temperatuur-eigenschap van de functie punt als de waarde van de weergegeven. Dit kan worden bereikt met deze expressie: `['get', 'temperature']`. 
+Symbool lagen worden weergegeven met behulp van WebGL. Als alle resources, zoals pictogramafbeeldingen, moeten worden geladen in de context WebGL. Dit voorbeeld laat zien hoe u een aangepast pictogram toevoegen aan het toewijzen van resources en vervolgens worden gebruikt om gegevens met een aangepaste symbool op de kaart weer te geven. De `textField` eigenschap van het symbool laag vereist een expressie die moet worden opgegeven. In dit geval willen we de temperatuur-eigenschap weergegeven, maar omdat dit een getal is, moet worden geconverteerd naar een tekenreeks. Daarnaast willen we de "° F' toegevoegd aan. Een expressie kan worden gebruikt om te doen. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -82,7 +82,7 @@ Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarte
 > [Een vorm toevoegen](./map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Een bellendiagram laag toevoegen](./map-add-bubble-layer.md)
+> [Een bubbellaag toevoegen](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [HTML-Makers toevoegen](./map-add-bubble-layer.md)

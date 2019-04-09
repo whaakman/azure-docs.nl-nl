@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762311"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282539"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
@@ -30,8 +30,9 @@ Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server in
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-| **Ondersteuning voor aangepaste installatiekopie** | U kunt nu installeren de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) op aangepaste installatiekopieën van besturingssysteem en SQL, die de beperkte functionaliteit van biedt [flexibele licentiëring](virtual-machines-windows-sql-ahb.md). Bij het registreren van uw aangepaste installatiekopie met de SQL-resourceprovider, het licentietype opgeven als 'AHUB' als anders mislukt de registratie. Beheerbaarheid mogelijk via de blade SQL-configuratie in Azure portal wordt niet ondersteund voor aangepaste installatiekopieën.   | 
+| **Ondersteuning voor aangepaste installatiekopie** | U kunt nu installeren de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) op aangepaste installatiekopieën van besturingssysteem en SQL, die de beperkte functionaliteit van biedt [flexibele licentiëring](virtual-machines-windows-sql-ahb.md). Bij het registreren van uw aangepaste installatiekopie met de SQL-resourceprovider, het licentietype opgeven als 'AHUB' als anders mislukt de registratie.  | 
 | **Benoemd exemplaar ondersteuning** | U kunt nu gebruikmaken van de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) in een benoemd exemplaar als het standaardexemplaar correct is verwijderd. | 
+| **Verbetering van de portal** | De Azure portal-ervaring voor het implementeren van een SQL Server-VM is vernieuwd om de bruikbaarheid verbeteren. Zie voor meer informatie, de korte [snelstartgids](quickstart-sql-vm-create-portal.md) en uitgebreider [procedures](virtual-machines-windows-portal-sql-server-provision.md) handleiding voor het implementeren van een SQL Server-VM. |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
@@ -85,4 +86,4 @@ Geen
 * [Overzicht van SQL Server op een virtuele Linux-machine](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Een SQL Server Linux-Machine inrichten](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [Veelgestelde vragen over (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Documentatie voor SQL Server op Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server op Linux-documentatie](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

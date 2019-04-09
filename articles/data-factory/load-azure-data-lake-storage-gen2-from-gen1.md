@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448919"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256784"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory
 
@@ -34,7 +34,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 
 * Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 * Account voor Azure Data Lake Storage Gen1 met gegevens.
-* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
+* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u een Storage-account geen [maken van een account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -104,7 +104,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
    
    ![Azure Data Lake Storage Gen2 account opgeven](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. In de **uitvoerbestand of uitvoermap kiezen** pagina **copyfromadlsgen1** als de naam van de uitvoer-map en selecteer **volgende**: 
+9. In de **uitvoerbestand of uitvoermap kiezen** pagina **copyfromadlsgen1** als de naam van de uitvoer-map en selecteer **volgende**. ADF wordt het bijbehorende Gen2 ADLS-bestandssysteem en de submappen tijdens het kopiëren van maken als deze nog niet bestaat.
 
     ![Geef de map voor uitvoer](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 

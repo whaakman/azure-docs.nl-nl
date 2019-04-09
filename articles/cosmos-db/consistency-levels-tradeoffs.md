@@ -1,18 +1,18 @@
 ---
 title: Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB
 description: Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 2/13/2019
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407518"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266423"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissen tussen consistentie, beschikbaarheid en prestaties 
 
@@ -20,11 +20,11 @@ Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaa
 
 Azure Cosmos DB nadert de consistentie van gegevens als een breed scala aan mogelijkheden. Deze benadering omvat meer opties dan de twee extreme van sterke en uiteindelijke consistentie. U kunt kiezen uit vijf goed gedefinieerde modellen op het spectrum consistentie. Van sterk naar zwak, de modellen zijn:
 
-- *Sterke*
+- *Sterk*
 - *Gebonden veroudering*
 - *Sessie*
 - *Consistent voorvoegsel*
-- *Uiteindelijke*
+- *Mogelijk*
 
 Elk model optimalisatie van de beschikbaarheid en prestaties biedt en wordt ondersteund door een uitgebreide Sla's.
 
@@ -50,7 +50,7 @@ Binnen de databaseomgeving van een wereldwijd gedistribueerde moet u er een dire
 
 De onderstaande tabel definieert u de relatie tussen consistentie-model en gegevens duurzaamheid bij grote storing regio. Het is belangrijk te weten dat in een gedistribueerd systeem, zelfs met sterke consistentie is het onmogelijk om een gedistribueerde database met een RPO en de RTO gelijk is aan nul vanwege het CAP-Theorema hebt. Zie voor meer informatie over de reden waarom, [consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
 
-|**Regio('s)**|**Replicatiemodus**|**Consistentieniveau**|**RPO**|**RTO**|
+|**Regio's**|**Replicatiemodus**|**Consistentieniveau**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Enkele of meerdere masters|Een Consistentieniveau|< 240 minuten|<1 Week|
 |>1|Single Master|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|< 15 minuten|

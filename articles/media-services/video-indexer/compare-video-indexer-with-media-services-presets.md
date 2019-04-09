@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 041e76ccecb4dd0fe9c060681609dfb92c03ec5a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 2c98f6d12f4868e5f90874fe3210fe5368f7ca2d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893143"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270333"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Voorinstellingen voor Azure Media Services v3 en Video Indexer vergelijken 
 
@@ -33,9 +33,9 @@ Er is momenteel een overlapping tussen de functies die worden aangeboden door de
 |Media-inzichten|[Verbeterd](video-indexer-output-json-v2.md) |[Basisprincipes](../latest/intelligence-concept.md)|
 |Ervaringen|Zie de volledige lijst van ondersteunde functies: <br/> [Overzicht](video-indexer-overview.md)|Retourneert alleen inzichten in video 's|
 |Billing|[Prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Naleving|[Compliance met Azure](https://aka.ms/AzureCompliance)|Media Services is compatibel met veel certificeringen. Bekijk [Azure naleving Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) en zoek naar 'Media Services' om te zien als deze aan een certificaat van belang zijn voldoet.|
+|Naleving|[ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci), en [ HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust) gecertificeerd. Voor de meest recente updates, gaat u naar [huidige certificeringen status van Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services is compatibel met veel certificeringen. Bekijk [Azure naleving Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) en zoek naar 'Media Services' om te zien als deze aan een certificaat van belang zijn voldoet.|
 |Gratis proefversie|US - oost|Niet beschikbaar|
-|Beschikbaarheid |VS-West, Zuidoost-Azië, Noord-Europa|Zie [Azure status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
+|Beschikbaarheid in regio’s|VS-Oost 2, VS Zuid-centraal, VS-West 2, Noord-Europa, West-Europa, Zuidoost-Azië, Oost-Azië en Australië-Oost.  Voor de meest recente updates, gaat u naar de [producten per regio](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) pagina.|Zie [Azure status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Volgende stappen
 

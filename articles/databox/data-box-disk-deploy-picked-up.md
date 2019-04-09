@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d1d38a2e8d3216414ab215f3023d4a188c57120
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108372"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282896"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -32,29 +32,115 @@ Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar de Azure Data B
 ## <a name="ship-data-box-disk-back"></a>Een Data Box Disk terugsturen
 
 1. Koppel de schijven los, nadat de gegevensvalidatie is voltooid. Verwijder de verbindingskabels.
-2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos.
-3. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of ontbreekt, dient u een nieuw verzendlabel te downloaden via Azure Portal en deze op het apparaat te bevestigen. Ga naar **Overzicht > Verzendlabel downloaden**.
+2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos. Kan in rekening gebracht als de accessoires ontbreekt.
+    - Het inpakken van de eerste verzending opnieuw.  
+    - Het is raadzaam dat u schijven met een goed beveiligde bubbled wrap pack.
+    - Zorg ervoor dat het geschikt snug eventuele bewegingen in het vak te verkleinen.
 
-    ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+De volgende stappen worden bepaald door waar het retourneren van het apparaat.
 
-    Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
+### <a name="pick-up-in-us-canada"></a>In de VS, Canada ophalen
 
-    ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+De volgende stappen uitvoeren als het apparaat in de Verenigde Staten of Canada worden geretourneerd.
 
-4. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
-5. Plan een ophaalmoment via UPS, als het apparaat in de Verenigde Staten worden geretourneerd. Als u het apparaat in Europa met DHL retourneert, dient u een ophaalverzoek in door op de website van DHL het verzendnummer op te geven. Ga naar de DHL Express-website voor uw land/regio en kies onder **Snel naar > Boek een retour**.
+1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren:
+    - Ga naar **Overzicht > Verzendlabel downloaden**.
+
+        ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
+
+        ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Brengt het label op het apparaat.
+
+2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
+3. Een ophalen met UPS plannen.
+
+
+### <a name="pick-up-in-europe"></a>In Europa ophalen
+
+De volgende stappen uitvoeren als het apparaat in Europa worden geretourneerd.
+
+1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren:
+    - Ga naar **Overzicht > Verzendlabel downloaden**.
+
+        ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
+
+        ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Brengt het label op het apparaat.
+
+2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
+3. Als u het apparaat in Europa met DHL retourneert, dient u een ophaalverzoek in door op de website van DHL het verzendnummer op te geven.
+4. Ga naar de DHL Express-website voor uw land/regio en kies onder **Snel naar > Boek een retour**.
 
     ![DHL retourverzending](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
-    Geef het nummer van de luchtvrachtbrief op en klik op **Boek een koerier** om een ophaalmoment te plannen.
+3. Geef het nummer van de luchtvrachtbrief op en klik op **Boek een koerier** om een ophaalmoment te plannen.
 
       ![Ophalen plannen](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
-7. Nadat de schijven door de vervoerder zijn opgehaald, verandert de orderstatus in de portal in **Opgehaald**. Er wordt ook een tracerings-id weergegeven.
+### <a name="pick-up-in-asia-pacific-region"></a>In de regio Azië en Stille Oceaan ophalen
 
-    ![Schijven opgehaald](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+Deze regio bevat instructies voor het ophalen van objecten in Japan, Korea en Australië.
+
+#### <a name="pick-up-in-australia"></a>Pikken in Australië
+
+Azure-datacenters in Australië hebben een melding voor extra beveiliging. De binnenkomende verzendingen moeten een van tevoren hebben. De volgende stappen voor ophalen in Australië.
+
+1. E-mailbericht `adbops@microsoft.com` aanvraag verzending label met de unieke ID van binnenkomend of de code TAU. Plaats de aanvraag ten minste 3 dagen vóór de geplande verzenddatum om op te halen van het label in de tijd.
+2. Het e-mailonderwerp moet - *aanvraag voor omgekeerde verzendlabel met TAU code*. Zorg ervoor dat u de volgende gegevens in het e-mailbericht: 
+
+    - Ordernaam
+    - Adres
+    - Naam van contactpersoon
+
+#### <a name="pick-up-in-japan"></a>In Japan ophalen
+
+1. Zorg ervoor dat de geretourneerde connote van Japan Post Chakubarai.
+2. Schrijven van uw bedrijf naam en adres informatie over de connote als uw gegevens van de afzender.
+3. Japan Post ophaalaanvragen nummer 0800-0800-111 (gratis op verzoek) aanroepen. De postcode van 7 cijfers voor ophalen-adres kiezen en vervolgens doorsturen naar de dichtstbijzijnde post office.
+    - Beschikbare tijden voor de aanvraag voor het ophalen, is afhankelijk van de respectieve post kantoren.
+    - Laat weten dat de verzending voor Japan Post Chakubarai Yu-Pack is.
+    - Gebruik de Chakubarai Werkelijke die is opgenomen.
+4. Als de werkelijke Japan Post Chakubarai is niet opgenomen, e- *Quantium oplossingen* op `Customerservice.JP@quantiumsolutions.com`. *Quantium oplossingen* vraagt Japan Post pikken en vraag deze om de connote bij ophalen.
+    - Geven de verwijzing naar het nummer op de Chakubarai Werkelijke Opmerking kolom dat Japan Post ervoor zorgt dat.
+    - Voer het adres zoals hieronder wordt weergegeven:   
+        ```
+        3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001
+        Microsoft Service Center c/o Quantium Solutions Japan
+        TEL: 03-5755-0150
+        ```
+
+Als de Chakubarai Werkelijke ontbreekt, kunt u de ophalen via e-mail aanvragen. Gebruik de volgende e-mailsjabloon om aan te vragen worden opgehaald.
+
+```
+To: Customerservice.JP@quantiumsolutions.com
+Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+Body: 
+- Azure Data Box Disk job name：
+- Reference number:  
+- Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+```
+
+#### <a name="pick-up-in-korea"></a>Pikken in Korea
+
+1. Zorg ervoor dat de geretourneerde connote.
+2. Om aan te vragen ophalen:
+    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *Microsoft ophalen* en het aantal connote moeten worden geschikt voor een verzameling.  
+    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *Microsoft Pickup* en het aantal connote als verwijzing.
+    3. Als de koerier niet heeft bereikt voor de verzameling, belt u *Quantium oplossingen internationale* hotline voor alternatieve regelingen. 
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren
+
+Nadat de schijven door de vervoerder zijn opgehaald, verandert de orderstatus in de portal in **Opgehaald**. Er wordt ook een tracerings-id weergegeven.
+
+![Schijven opgehaald](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
 Wanneer Microsoft de schijf heeft ontvangen en gescand, wordt de taakstatus bijgewerkt naar **Ontvangen**. 
 
@@ -114,6 +200,6 @@ In deze zelfstudie zijn verschillende onderwerpen besproken over de Azure Data B
 Ga verder met de volgende handleiding voor meer informatie over het beheren van Data Box Disk via Azure Portal.
 
 > [!div class="nextstepaction"]
-> [Azure Portal gebruiken om Azure Data Box Disk te beheren](./data-box-portal-ui-admin.md)
+> [Azure portal gebruiken voor het beheren van Azure Data Box-schijf](./data-box-portal-ui-admin.md)
 
 

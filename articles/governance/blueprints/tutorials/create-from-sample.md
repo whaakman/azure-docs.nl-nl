@@ -1,20 +1,18 @@
 ---
 title: Een omgeving maken vanuit een voorbeeld van de blauwdruk
 description: Een voorbeeld van een blauwdruk gebruik te maken van de blauwdrukdefinitie van een die stelt u twee resourcegroepen en configureert een roltoewijzing voor elk.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 68bd6e3942d2b2e2c8bcf39bfcff10540e564315
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411169"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277769"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Een omgeving maken vanuit een voorbeeld van de blauwdruk
 
@@ -84,7 +82,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 1. Geef de parameterwaarden voor de blauwdruktoewijzing:
 
-   - Basisbeginselen
+   - Basics
 
      - **Abonnementen**: Selecteer een of meer van de abonnementen die in de beheergroep die u zijn uw exemplaar van de blauwdruk monster opgeslagen. Als u meer dan één abonnement selecteert, wordt een toewijzing worden gemaakt voor elk gebruik van de ingevoerde parameters.
      - **Naam van de roltoewijzing**: De naam is ingevuld op basis van de naam van de blauwdrukdefinitie.

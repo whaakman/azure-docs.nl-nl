@@ -1,19 +1,18 @@
 ---
 title: Toewijzingen met PowerShell beheren
 description: Informatie over het beheren van blueprint-toewijzingen met de officiële Azure blauwdrukken PowerShell-module, Az.Blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 47026975a5142760f90a1a5712b532519f969fd7
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57995665"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256869"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Toewijzingen met PowerShell beheren
 
@@ -333,8 +332,8 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [blauwdruk levenscyclus](../concepts/lifecycle.md).
-- Meer informatie over het gebruik van [statische en dynamische parameters](../concepts/parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](../concepts/sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](../concepts/resource-locking.md).
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).
+- Meer informatie over de [levenscyclus van een blauwdruk](../concepts/lifecycle.md).
+- Meer informatie over hoe u [statische en dynamische parameters](../concepts/parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](../concepts/sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](../concepts/resource-locking.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

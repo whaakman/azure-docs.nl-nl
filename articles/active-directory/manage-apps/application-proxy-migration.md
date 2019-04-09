@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e831bbcb956401149d8c33fce4d00a3be5a11d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170870"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279309"
 ---
 # <a name="compare-remote-access-solutions"></a>Oplossingen voor externe toegang vergelijken
 
@@ -50,7 +50,7 @@ Gebruik deze tabel om te begrijpen hoe Threat Management Gateway (TMG), Unified 
 | Er zijn geen onderdelen in de gedemilitariseerde zone (DMZ) | - | - | - | Ja |
 | Er is geen binnenkomende verbindingen | - | - | - | Ja |
 
-Voor de meeste scenario's raden wij Azure AD-toepassing als de moderne oplossing. Web Application Proxy wordt alleen aanbevolen in scenario's waarin een proxyserver voor AD FS en u kunt geen aangepaste domeinen in Azure Active Directory gebruiken. 
+Voor de meeste scenario's raden wij Azure AD-toepassingsproxy als de moderne oplossing. Web Application Proxy wordt alleen aanbevolen in scenario's waarin een proxyserver voor AD FS en u kunt geen aangepaste domeinen in Azure Active Directory gebruiken. 
 
 Azure AD Application Proxy biedt unieke voordelen in vergelijking met vergelijkbare producten, waaronder:
 

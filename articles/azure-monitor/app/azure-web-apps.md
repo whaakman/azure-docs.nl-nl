@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905831"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262496"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 
 Inschakelen van de controle van uw .NET en .NET Core op basis van webtoepassingen die worden uitgevoerd in Azure App Services is nu eenvoudiger dan ooit. Dat u eerder hebt u nodig hebt om een site-extensie handmatig installeren, worden de nieuwste extensie/agent nu in de installatiekopie van het app service standaard ingebouwd. In dit artikel wordt u stapsgewijs door het inschakelen van bewaking van Application Insights, evenals voorlopige richtlijnen voor het automatiseren van het proces voor grootschalige implementaties.
 
 > [!NOTE]
-> Handmatig toevoegen van een Application Insights-extensie voor site via **ontwikkeltools** > **extensies** is afgeschaft. De nieuwste stabiele versie van de extensie is nu [vooraf](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) als onderdeel van de installatiekopie van het App Service. De bestanden bevinden zich in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` en worden automatisch bijgewerkt met elke stabiele versie. Als u de agent op basis van-instructies voor het inschakelen van bewaking volgt hieronder, de afgeschafte extensie automatisch worden verwijderd voor u.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Handmatig toevoegen van een Application Insights-extensie voor site via **ontwikkeltools** > **extensies** is afgeschaft. Deze methode van de installatie van de extensie is afhankelijk van handmatige updates voor elke nieuwe versie. De nieuwste stabiele versie van de extensie is nu [vooraf](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) als onderdeel van de installatiekopie van het App Service. De bestanden bevinden zich in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` en worden automatisch bijgewerkt met elke stabiele versie. Als u de agent op basis van-instructies voor het inschakelen van bewaking volgt hieronder, de afgeschafte extensie automatisch worden verwijderd voor u.
 
 ## <a name="enable-application-insights"></a>Application Insights inschakelen
 
@@ -285,6 +282,8 @@ Hieronder volgt een voorbeeld, Vervang alle exemplaren van `AppMonitoredSite` me
 
 De onderliggende toepassingsinstellingen moeten worden gewijzigd zodat de toepassing bewaken via PowerShell. Hieronder volgt een voorbeeld waarmee toepassingsbewaking voor een website met de naam 'AppMonitoredSite' in de resourcegroep 'AppMonitoredRG', en worden verzonden naar de instrumentatiesleutel '012345678-abcd-ef01-2345-6789abcd' configureert.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ De onderstaande tabel bevat een meer gedetailleerde uitleg van de betekenis van 
 |Probleem-waarde|Uitleg|Oplossen
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Deze waarde geeft aan dat de extensie wordt gedetecteerd dat een bepaald aspect van de SDK al aanwezig in de toepassing is, en wordt uitstel. Dit kan worden veroorzaakt door een verwijzing naar `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, of `Microsoft.ApplicationInsights`  | Verwijder de verwijzingen. Sommige van deze verwijzingen worden standaard toegevoegd uit bepaalde Visual Studio-sjablonen en oudere versies van Visual Studio kunnen de verwijzingen naar toevoegen `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Als de toepassing is gemaakt voor .NET Core 2.1 of 2.2 en naar verwijst [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-pakket, brengt in Application Insights en extensie wordt uitstel. | Klanten met een .NET Core 2.1,2.2 zijn [aanbevolen](https://github.com/aspnet/Announcements/issues/287) Microsoft.AspNetCore.App meta-pakket in plaats daarvan gebruiken.|
 |`AppAlreadyInstrumented:true` | Deze waarde kan ook worden veroorzaakt door de aanwezigheid van de bovenstaande DLL-bestanden in de map app vanaf een eerdere implementatie. | Schoon de app-map om ervoor te zorgen dat deze DLL-bestanden worden verwijderd.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Deze waarde geeft aan dat extensie verwijzingen naar gedetecteerd `Microsoft.AspNet.TelemetryCorrelation` in de toepassing, en wordt uitstel. | Verwijder de verwijzing.
 |`AppContainsDiagnosticSourceAssembly**:true`|Deze waarde geeft aan dat extensie verwijzingen naar gedetecteerd `System.Diagnostics.DiagnosticSource` in de toepassing, en wordt uitstel.| Verwijder de verwijzing.

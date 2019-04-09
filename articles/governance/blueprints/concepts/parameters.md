@@ -1,7 +1,6 @@
 ---
 title: Parameters voor het maken van dynamische blauwdrukken gebruiken
 description: Meer informatie over statische en dynamische parameters en hoe ze worden gemaakt met dynamische blauwdrukken.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805565"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279972"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -77,8 +76,8 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- Vervang `{YourMG}` door de naam van uw beheergroep
-- Vervang `{subscriptionId}` door uw abonnements-ID
+- `{YourMG}` -Vervangen door de naam van uw beheergroep
+- `{subscriptionId}` -Vervangen door uw abonnements-ID
 
 ##### <a name="blueprint-level-parameter"></a>Niveau blauwdrukparameter
 

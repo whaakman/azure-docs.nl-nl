@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878210"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282097"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -22,7 +22,7 @@ Met een point-to-site-VPN-gatewayverbinding (P2S) kunt u vanaf een afzonderlijke
 
 Punt-naar-site VPN kunt gebruiken dat een van de volgende protocollen:
 
-* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS (versie 11.0 en hoger), Windows, Linux en Mac-apparaten (OSX-versie 10.13 en hoger).
+* **OpenVPN® Protocol**, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS (versie 11.0 en hoger), Windows, Linux en Mac-apparaten (OSX-versie 10.13 en hoger).
 
 * Secure Socket Tunneling Protocol (SSTP), een eigen VPN op basis van een SSL-protocol. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. SSTP wordt alleen ondersteund op Windows-apparaten. Azure ondersteunt alle versies van Windows die SSTP (Windows 7 en hoger) hebben.
 
@@ -54,7 +54,7 @@ De RADIUS-server kan ook worden geïntegreerd met AD certificaatservices. Hierme
 Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe id. Hiermee opent u tal van verificatieopties voor P2S VPN, met inbegrip van opties voor meervoudige.
 
 >[!NOTE]
->OpenVPN protocol wordt niet ondersteund met RADIUS-verificatie.
+>**OpenVPN® Protocol** wordt niet ondersteund met RADIUS-verificatie.
 >
 
 ![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
@@ -109,3 +109,5 @@ Een P2S-configuratie is van een groot aantal specifieke stappen vereist. De volg
 * [De verbinding van een P2S - RADIUS-verificatie configureren](point-to-site-how-to-radius-ps.md)
 
 * [Een P2S-verbinding - Azure systeemeigen verificatie configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**"OpenVPN" is een handelsmerk van OpenVPN Inc.**

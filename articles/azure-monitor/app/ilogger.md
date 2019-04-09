@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905270"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263754"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider voor .NET Core ILogger Logboeken
 
@@ -208,10 +208,10 @@ Terwijl de oude provider kan nog steeds worden gebruikt (dit is nu verouderd en 
 1. Vorige provider ontbreken ondersteuning van [Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In de nieuwe provider worden eigenschappen van bereik automatisch toegevoegd als aangepaste eigenschappen aan de verzamelde telemetrie.
 2. Logboeken kunnen nu veel lager in de toepassing opstarten pijplijn worden vastgelegd. i.e Logboeken van klassen programma en opstarten kunnen nu worden vastgelegd.
 3. Met de nieuwe provider, wordt het filteren uitgevoerd op het niveau van het framework zelf. Het filteren van logboeken met Application Insights-provider kan worden uitgevoerd in exact dezelfde manier als voor andere providers, met inbegrip van ingebouwde providers, zoals de Console, foutopsporing, enzovoort. Het is ook mogelijk dezelfde filters toepassen op meerdere providers.
-4. De [aanbevolen](https://github.com/aspnet/Announcements/issues/255) manier in Asp.Net Core (2.0 of hoger) om in te schakelen logboekregistratie providers is met behulp van uitbreidingsmethoden op ILoggingBuilder in `Program.cs` zelf.
+4. De [aanbevolen](https://github.com/aspnet/Announcements/issues/255) manier in ASP.NET Core (2.0 of hoger) om in te schakelen logboekregistratie providers is met behulp van uitbreidingsmethoden op ILoggingBuilder in `Program.cs` zelf.
 
 > [!Note]
-De nieuwe Provider is beschikbaar voor toepassingen die zijn gericht op `NETSTANDARD2.0` of hoger. Als uw toepassing is die gericht is op oudere versies van .NET Core, zoals .NET Core 1.1 of als die gericht is op .NET Framework, echter ook doorgaan met de oude provider.
+> De nieuwe Provider is beschikbaar voor toepassingen die zijn gericht op `NETSTANDARD2.0` of hoger. Als uw toepassing is die gericht is op oudere versies van .NET Core, zoals .NET Core 1.1 of als die gericht is op het .NET Framework, echter ook doorgaan met de oude provider.
 
 ## <a name="console-application"></a>Consoletoepassing
 

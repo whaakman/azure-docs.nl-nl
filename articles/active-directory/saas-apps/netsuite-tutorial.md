@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Zelfstudie: Azure Active Directory-integratie met NetSuite
 
@@ -53,7 +53,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van NetSuite in Azure AD te configureren, moet u NetSuite vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Ga als volgt te werk om NetSuite vanuit de galerie toe te voegen:**
+**Als u wilt toevoegen NetSuite uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -173,19 +173,19 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 1. Open een nieuw tabblad in uw browser en meld u als beheerder aan bij de bedrijfssite van NetSuite.
 
-2. Klik op de werkbalk bovenaan de pagina op  **Setup**, ga naar  **Company** en klik op  **Enable Features**.
+2. In de werkbalk boven aan de pagina, klikt u op **Setup**, navigeert u vervolgens naar **bedrijf** en klikt u op **-functies inschakelen**.
 
     ![Eenmalige aanmelding configureren](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. Klik op de werkbalk in het midden van de pagina op **SuiteCloud**.
+3. Klik in de werkbalk op het midden van de pagina op **SuiteCloud**.
 
     ![Eenmalige aanmelding configureren](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Selecteer in het gedeelte  **Manage Authentication**  **SAML SINGLE SIGN-ON** om de optie SAML SINGLE SIGN-ON in te schakelen in NetSuite.
+4. Onder **verificatie beheren** sectie, selecteer **SAML SINGLE SIGN-ON** de optie SAML EENMALIGE aanmelding in NetSuite inschakelen.
 
     ![Eenmalige aanmelding configureren](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. Klik op de werkbalk in het midden van de pagina op **Setup**.
+5. Klik in de werkbalk boven aan de pagina op **Setup**.
 
     ![Eenmalige aanmelding configureren](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -324,9 +324,9 @@ Wanneer u in het toegangsvenster op de tegel NetSuite klikt, zou u automatisch m
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

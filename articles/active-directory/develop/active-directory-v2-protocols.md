@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175087"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266967"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0-protocollen - OAuth 2.0 en OpenID Connect
 
@@ -41,10 +41,11 @@ In bijna alle stromen van OAuth 2.0 en OpenID Connect zijn er vier partijen die 
 * De **Autorisatieserver** het v2.0-eindpunt is en is verantwoordelijk voor de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. De autorisatie-server ook wel bekend als de id-provider - veilig worden verwerkt niets te maken met gegevens van de gebruiker, de toegang en de vertrouwensrelaties tussen de partijen in een stroom.
 * De **Resource-eigenaar** is doorgaans de eindgebruiker. Het is de partij die eigenaar is van de gegevens en het vermogen om toe te staan van derden voor toegang tot die gegevens of bron heeft.
 * De **OAuth-Client** is uw app, geïdentificeerd door de toepassings-ID. De OAuth-client is meestal de partij die de gebruiker de interactie met en tokens opgevraagd uit de autorisatie-server. De client moet worden gemachtigd voor toegang tot de resource door de resource-eigenaar.
-* De **bronserver** is waarin de resource of de gegevens zich bevindt. Deze vertrouwt de Autorisatieserver veilig verifiëren en autoriseren van de OAuth-Client en Bearer access_tokens gebruikt om ervoor te zorgen dat toegang tot een resource kan worden verleend.
+* De **bronserver** is waarin de resource of de gegevens zich bevindt. Deze vertrouwt de Autorisatieserver veilig verifiëren en autoriseren van de OAuth-Client en toegang-Bearer-tokens gebruikt om ervoor te zorgen dat toegang tot een resource kan worden verleend.
 
 ## <a name="app-registration"></a>App-registratie
-Elke app die gebruikmaakt van het v2.0-eindpunt moet zijn geregistreerd in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) of via de nieuwe **(Preview) van de App-registraties** -ervaring in de [Azure-portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) voordat deze met behulp van OAuth of OpenID Connect communiceren kan. Het registratieproces app verzamelt en enkele waarden toewijzen aan uw app:
+
+Elke app die wil accepteren zowel persoonlijke en werk-of schoolaccounts moet zijn geregistreerd door middel van de nieuwe **(Preview) van de App-registraties** -ervaring in de [Azure-portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) voordat deze kan deze gebruikers aanmelden met behulp van OAuth 2.0 of OpenID Connect. Het registratieproces app verzamelt en enkele waarden toewijzen aan uw app:
 
 * Een **toepassings-ID** die uw app uniek wordt aangeduid
 * Een **omleidings-URI** of **-pakket-id** die kunnen worden gebruikt om te leiden antwoorden naar uw app terug
@@ -71,6 +72,9 @@ Waar de `{tenant}` kan duren voordat een van de vier verschillende waarden:
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` | Hiermee kunnen alleen gebruikers met een werk-of schoolaccounts van een specifieke Azure AD-tenant om aan te melden bij de toepassing. Ofwel de beschrijvende domeinnaam van de Azure AD-tenant of GUID-id van de tenant kan worden gebruikt. |
 
 Als u wilt weten hoe om te communiceren met deze eindpunten, kiest u een bepaalde app-type in de [protocollen](#protocols) sectie en volg de koppelingen voor meer informatie.
+
+> [!TIP]
+> Elke app die is geregistreerd bij Azure AD kan het v2.0-eindpunt kunt gebruiken, zelfs als ze zich niet in persoonlijke accounts.  Op deze manier kunt u bestaande toepassingen naar v2.0 migreren en [MSAL](reference-v2-libraries.md) zonder uw toepassing opnieuw te maken.  
 
 ## <a name="tokens"></a>Tokens
 

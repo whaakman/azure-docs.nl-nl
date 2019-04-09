@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549609"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279921"
 ---
 # <a name="get-started-with-device-management-python"></a>Aan de slag met Apparaatbeheer (Python)
 
@@ -23,21 +23,27 @@ ms.locfileid: "57549609"
 In deze zelfstudie ontdekt u hoe u:
 
 * De Azure portal gebruiken voor het maken van een IoT-Hub en een apparaat-id maken in uw IoT-hub.
+
 * Maak een gesimuleerde apparaat-app met een rechtstreekse methode die het apparaat opnieuw wordt opgestart. Directe methoden zijn aangeroepen vanuit de cloud.
+
 * Maak een Python-consoletoepassing die de directe methode voor opnieuw opstarten in de gesimuleerde apparaattoepassing via uw IoT-hub roept.
 
 Aan het einde van deze zelfstudie, beschikt u over twee Python-consoletoepassingen:
 
-**dmpatterns_getstarted_device.PY**, deze toepassing koppelt uw IoT-hub aan de apparaat-id die eerder hebt gemaakt, ontvangt u een rechtstreekse methode voor opnieuw opstarten, simuleert fysieke opnieuw worden opgestart en rapporten van de tijd voor de laatste keer opnieuw opstarten.
+* **dmpatterns_getstarted_device.PY**, deze toepassing koppelt uw IoT-hub aan de apparaat-id die eerder hebt gemaakt, ontvangt u een rechtstreekse methode voor opnieuw opstarten, simuleert fysieke opnieuw worden opgestart en rapporten van de tijd voor de laatste keer opnieuw opstarten.
 
-**dmpatterns_getstarted_service.PY**, die een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app, wordt het antwoord weergegeven en wordt de bijgewerkte gerapporteerde eigenschappen.
+* **dmpatterns_getstarted_service.PY**, die een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app, wordt het antwoord weergegeven en wordt de bijgewerkte gerapporteerde eigenschappen.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * [Python 2.x of 3.x](https://www.python.org/downloads/). Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk [pip *installeren of upgraden*, het Python-pakketbeheersysteem](https://pip.pypa.io/en/stable/installing/).
-    * Installeer de [azure-iothub-apparaat-client](https://pypi.org/project/azure-iothub-device-client/) pakket, met de opdracht   `pip install azure-iothub-device-client`
-    * Installeer de [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) pakket, met de opdracht   `pip install azure-iothub-service-client`
+
+* Installeer de [azure-iothub-apparaat-client](https://pypi.org/project/azure-iothub-device-client/) pakket, met de opdracht       `pip install azure-iothub-device-client`
+
+* Installeer de [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) pakket, met de opdracht       `pip install azure-iothub-service-client`
+
 * Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
+
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
@@ -49,16 +55,19 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
+
 In deze sectie maakt u het volgende doen:
 
 * Maakt een Python-console-app die op een rechtstreekse methode aangeroepen door de cloud reageert
+
 * Simuleren van een apparaat opnieuw opstarten
+
 * Gebruik van de gerapporteerde eigenschappen om te schakelen apparaatdubbel-query's om apparaten te identificeren en wanneer ze het laatst opnieuw opgestart
 
 1. Maak met een teksteditor een **dmpatterns_getstarted_device.py** bestand.
 
-1. Voeg de volgende `import` instructies toe aan het begin van de **dmpatterns_getstarted_device.py** bestand.
-   
+2. Voeg de volgende `import` instructies toe aan het begin van de **dmpatterns_getstarted_device.py** bestand.
+
     ```python
     import random
     import time, datetime
@@ -68,8 +77,8 @@ In deze sectie maakt u het volgende doen:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Variabelen met inbegrip van een **CONNECTION_STRING** variabele en de clientinitialisatie van de.  Vervang de verbindingsreeks door de verbindingsreeks van uw apparaat.  
-   
+3. Variabelen met inbegrip van een **CONNECTION_STRING** variabele en de clientinitialisatie van de.  Vervang de verbindingsreeks door de verbindingsreeks van uw apparaat.  
+
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -85,44 +94,43 @@ In deze sectie maakt u het volgende doen:
     METHOD_CALLBACKS = 0
     ```
 
-1. Voeg de volgende functie callbacks voor het implementeren van de directe methode die op het apparaat.
-   
+4. Voeg de volgende functie callbacks voor het implementeren van de directe methode die op het apparaat.
+
     ```python
     def send_reported_state_callback(status_code, user_context):
         global SEND_REPORTED_STATE_CALLBACKS
-    
+
         print ( "Device twins updated." )
 
     def device_method_callback(method_name, payload, user_context):
         global METHOD_CALLBACKS
-    
+
         if method_name == "rebootDevice":
             print ( "Rebooting device..." )
-        
             time.sleep(20)
-        
+
             print ( "Device rebooted." )
-        
+
             current_time = str(datetime.datetime.now())
             reported_state = "{\"rebootTime\":\"" + current_time + "\"}"
             CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
-        
+
             print ( "Updating device twins: rebootTime" )
-            
+
         device_method_return_value = DeviceMethodReturnValue()
         device_method_return_value.response = "{ \"Response\": \"This is the response from the device\" }"
         device_method_return_value.status = 200
-    
+
         return device_method_return_value
     ```
 
-1. Start de directe methode-listener en wachten.
-   
+5. Start de directe methode-listener en wachten.
+
     ```python
     def iothub_client_init():
         if CLIENT.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
             CLIENT.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-        
+
     def iothub_client_sample_run():
         try:
             iothub_client_init()
@@ -149,19 +157,20 @@ In deze sectie maakt u het volgende doen:
         iothub_client_sample_run()
     ```
 
-1. Opslaan en sluiten de **dmpatterns_getstarted_device.py** bestand.
+6. Opslaan en sluiten de **dmpatterns_getstarted_device.py** bestand.
 
 > [!NOTE]
 > Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Een extern opnieuw opstarten op het apparaat met een rechtstreekse methode activeren
+
 In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opstarten op een apparaat met een rechtstreekse methode initieert. De app maakt gebruik van apparaatdubbel-query's voor het detecteren van de laatste keer opnieuw opstarten voor dat apparaat.
 
 1. Maak met een teksteditor een **dmpatterns_getstarted_service.py** bestand.
 
-1. Voeg de volgende `import` instructies toe aan het begin van de **dmpatterns_getstarted_service.py** bestand.
-   
+2. Voeg de volgende `import` instructies toe aan het begin van de **dmpatterns_getstarted_service.py** bestand.
+
     ```python
     import sys, time
     import iothub_service_client
@@ -169,8 +178,8 @@ In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opsta
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-1. Voeg de volgende variabelendeclaraties. Alleen vervangen door waarden van de tijdelijke aanduiding voor _IoTHubConnectionString_ en _deviceId_.
-   
+3. Voeg de volgende variabelendeclaraties. Alleen vervangen door waarden van de tijdelijke aanduiding voor _IoTHubConnectionString_ en _deviceId_.
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
@@ -181,14 +190,14 @@ In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opsta
     WAIT_COUNT = 10
     ```
 
-1. Voeg de volgende functie voor het aanroepen van de apparaatmethode voor het opnieuw opstarten van het doelapparaat en klik vervolgens op te vragen voor de apparaatdubbels en ontvang de laatste keer dat opnieuw opstarten.
-   
+4. Voeg de volgende functie voor het aanroepen van de apparaatmethode voor het opnieuw opstarten van het doelapparaat en klik vervolgens op te vragen voor de apparaatdubbels en ontvang de laatste keer dat opnieuw opstarten.
+
     ```python
     def iothub_devicemethod_sample_run():
         try:
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-        
+
             print ( "" )
             print ( "Invoking device to reboot..." )
 
@@ -199,7 +208,7 @@ In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opsta
 
             print ( "" )
             print ( response.payload )
-        
+
             while True:
                 print ( "" )
                 print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
@@ -207,7 +216,7 @@ In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opsta
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     twin_info = iothub_twin_method.get_twin(DEVICE_ID)
-                
+
                     if twin_info.find("rebootTime") != -1:
                         print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
                     else:
@@ -232,24 +241,24 @@ In deze sectie maakt u een Python-consoletoepassing die een extern opnieuw opsta
         iothub_devicemethod_sample_run()
     ```
 
-1. Opslaan en sluiten de **dmpatterns_getstarted_service.py** bestand.
-
+5. Opslaan en sluiten de **dmpatterns_getstarted_service.py** bestand.
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
+
 U kunt nu de apps uitvoeren.
 
 1. Bij de opdrachtprompt de volgende opdracht uit om te luisteren naar de directe methode die opnieuw worden opgestart.
-   
+
     ```
     python dmpatterns_getstarted_device.py
     ```
 
-1. Bij een andere opdrachtprompt, voer de volgende opdracht de extern opnieuw opstarten en de query voor het dubbele apparaat vinden van de laatste keer opnieuw activeren.
-   
+2. Bij een andere opdrachtprompt, voer de volgende opdracht de extern opnieuw opstarten en de query voor het dubbele apparaat vinden van de laatste keer opnieuw activeren.
+
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. U ziet dat de reactie van het apparaat naar de directe methode die in de console.
+3. U ziet dat de reactie van het apparaat naar de directe methode die in de console.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

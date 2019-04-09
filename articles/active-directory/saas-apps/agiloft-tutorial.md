@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886385"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Zelfstudie: Azure Active Directory-integratie met Agiloft
 
@@ -52,7 +52,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Als u de integratie van Agiloft in Azure AD wilt configureren, moet u Agiloft vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Agiloft toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen Agiloft uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -167,13 +167,13 @@ Als u eenmalige aanmelding van Azure AD met Agiloft wilt configureren, voert u d
 
     ![Agiloft-configuratie](./media/agiloft-tutorial/setup4.png)
 
-    a. Plak in het tekstvak  **Entiteit-id van IdP / Verlener**  de waarde van  **Azure AD-id** die u hebt gekopieerd in de Azure-portal.
+    a. In **IdP entiteit-Id / verlener** tekstvak, plak de waarde van **Azure Ad-id**, die u hebt gekopieerd vanuit Azure portal.
 
-    b. Plak in het tekstvak  **Aanmeldings-URL van IdP**  de waarde van  **Aanmeldings-URL** die u hebt gekopieerd in de Azure-portal.
+    b. In **IdP aanmeldings-URL** tekstvak, plak de waarde van **aanmeldings-URL**, die u hebt gekopieerd vanuit Azure portal.
 
-    c. Plak in het tekstvak  **Afmeldings-URL van IdP**  de waarde van  **Afnmeldings-URL** die u hebt gekopieerd in de Azure-portal.
+    c. In **afmeldings-URL van id-provider** tekstvak, plak de waarde van **afmeldings-URL van**, die u hebt gekopieerd vanuit Azure portal.
 
-    d. Open in Kladblok het met **Base 64 gecodeerde certificaat** dat u hebt gedownload uit de Azure-portal, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak  **Met IdP geleverde X.509-certificaatinhoud** .
+    d. Open uw **base-64 gecodeerde certificaat** in Kladblok gedownload vanuit Azure portal, kopieert u de inhoud ervan naar het Klembord en plakt u deze naar de **IdP opgegeven x.509-certificaatinhoud** tekstvak.
 
     e. Klik op **Voltooien**.
 
@@ -240,8 +240,8 @@ Wanneer u op de tegel Agiloft in het toegangsvenster klikt, wordt u automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

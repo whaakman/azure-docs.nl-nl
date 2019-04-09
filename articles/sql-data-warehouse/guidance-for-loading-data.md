@@ -9,22 +9,21 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: igorstan
-ms.openlocfilehash: 0f35e14686c2bd3f87faf51ed6a54728f2a54641
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466027"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256903"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
-Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse. 
 
-- Zie voor meer informatie over PolyBase en het ontwerpen van een Extract, Load en Transform (ELT)-proces [ELT ontwerpen voor SQL Data Warehouse](design-elt-data-loading.md).
-- Gebruik voor het laden van een zelfstudie [PolyBase om gegevens te laden uit Azure blob-opslag naar Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
+Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse.
 
 ## <a name="preparing-data-in-azure-storage"></a>Gegevens voorbereiden in Azure Storage
+
 Bepaal uw opslaglaag en uw datawarehouse om de latentie te minimaliseren.
 
 Bij het exporteren van gegevens in een ORC-bestandsindeling kunnen er Java-geheugenfouten optreden wanneer er grote tekstkolommen zijn. U kunt deze beperking omzeilen door slechts een subset van de kolommen te exporteren.
@@ -39,15 +38,17 @@ Splits grote gecomprimeerde bestanden in kleinere gecomprimeerde bestanden.
 
 Voer voor de hoogste laadsnelheid slechts één taak tegelijk uit. Voer een zo klein mogelijk aantal laadtaken tegelijk uit als dit niet haalbaar is. Als u een grote laadtaak verwacht, kunt u uw datawarehouse opschalen vóór de laadtaak.
 
-Als u loads wilt uitvoeren met geschikte rekenresources, maakt u gebruikers voor het laadproces die zijn aangewezen voor het uitvoeren van loads. Wijs elke gebruiker voor het laadproces toe aan een specifieke resourceklasse. Als u een belasting wilt uitvoeren, meldt u zich aan als een van de gebruikers voor het laadproces en voert u de belasting uit. De load wordt uitgevoerd met de resourceklasse van de gebruiker.  Deze methode is eenvoudiger dan de resourceklasse van een gebruiker aanpassen om te voldoen aan de huidige benodigde resourceklasse.
+Als u loads wilt uitvoeren met geschikte rekenresources, maakt u gebruikers voor het laadproces die zijn aangewezen voor het uitvoeren van loads. Wijs elke gebruiker voor het laadproces toe aan een specifieke resourceklasse. Om uit te voeren een belasting, zich aanmelden als een van de gebruikers voor het laadproces en voert u de belasting. De load wordt uitgevoerd met de resourceklasse van de gebruiker.  Deze methode is eenvoudiger dan de resourceklasse van een gebruiker aanpassen om te voldoen aan de huidige benodigde resourceklasse.
 
 ### <a name="example-of-creating-a-loading-user"></a>Voorbeeld van het maken van een gebruiker voor het laadproces
+
 In dit voorbeeld wordt een gebruiker voor het laadproces gemaakt voor de resourceklasse staticrc20. De eerste stap is **verbinding maken met de master** en een aanmelding maken.
 
 ```sql
    -- Connect to master
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
+
 Maak verbinding met het datawarehouse en maak een gebruiker. In de volgende code wordt ervan uitgegaan dat u verbonden bent met de database mySampleDataWarehouse. U ziet hoe u een gebruiker maakt met de naam LoaderRC20 en hoe u die gebruiker machtiging voor het beheer van een database geeft. Vervolgens wordt de gebruiker toegevoegd als lid van de databaserol staticrc20.  
 
 ```sql
@@ -56,7 +57,8 @@ Maak verbinding met het datawarehouse en maak een gebruiker. In de volgende code
    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
-Meld u aan in als LoaderRC20 en voer de belasting uit om deze uit te voeren met resources voor de statiRC20-resourceklassen.
+
+Om door te voeren met resources voor de Statirc20-resourceklassen, meld u aan als LoaderRC20 en voer de belasting.
 
 Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met behulp van de statische resourceklassen worden dezelfde resources ongeacht gegarandeerd uw [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
 
@@ -73,7 +75,6 @@ Denk bijvoorbeeld aan databaseschema's, schema_A voor afdeling A, en schema_B vo
 
 Gebruiker_A en gebruiker_B worden nu geblokkeerd door het schema van de andere afdeling.
 
-
 ## <a name="loading-to-a-staging-table"></a>Laden naar een faseringstabel
 
 De hoogste laadsnelheid voor het verplaatsen van gegevens naar een datawarehousetabel kunt u verkrijgen door gegevens te laden naar een tijdelijke tabel.  Definieer de faseringstabel als een heap en gebruik round-robin voor de distributieoptie. 
@@ -87,7 +88,6 @@ Columnstore-indexen vereisen grote hoeveelheden geheugen voor het comprimeren va
 - Zorg dat de gebruiker van het laadproces voldoende geheugen heeft om maximale compressiesnelheden te bereiken. Gebruik hiervoor gebruikers voor het laadproces die lid zijn van een middelgrote of grote resourceklasse. 
 - Laad genoeg rijen om nieuwe rijgroepen volledig te vullen. Tijdens een bulksgewijze laadtaak worden elke 1.048.576 rijen rechtstreeks in de columnstore gecomprimeerd als een volledige rijgroep. Laadtaken met minder dan 102.400 rijen verzenden de rijen naar de deltastore waarin rijen zijn ondergebracht in een b-tree-index. Als u te weinig rijen laadt, gaan deze mogelijk allemaal naar de deltastore en worden ze niet direct naar columnstore-indeling gecomprimeerd.
 
-
 ## <a name="handling-loading-failures"></a>Afhandeling van fouten bij het laden
 
 Een load met behulp van een externe tabel kan mislukken met de fout *Query afgebroken--de maximale weigeringsdrempelwaarde is bereikt tijdens het lezen vanuit een externe bron*. Dit bericht geeft aan dat uw externe gegevens vervuilde records bevatten. Een gegevensrecord wordt als 'vervuild' beschouwd als de gegevenstypen en het aantal kolommen niet overeenkomen met de kolomdefinities van de externe tabel of als de gegevens niet overeenkomen met de externe bestandsindeling. 
@@ -95,6 +95,7 @@ Een load met behulp van een externe tabel kan mislukken met de fout *Query afgeb
 U kunt vervuilde records voorkomen door ervoor te zorgen dat uw externe tabel- en bestandindelingsdefinities correct zijn en uw externe gegevens overeenstemmen met deze definities. Als een subset van externe gegevensrecords ongeldig is, kunt u ervoor kiezen deze records voor uw query's te weigeren door gebruik te maken van de weigeringsopties in CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Gegevens in een productietabel invoegen
+
 Een eenmalige laadtaak naar een kleine tabel met een [INSERT-instructie](/sql/t-sql/statements/insert-transact-sql) of zelfs een periodieke herlaadtaak kan een acceptabel resultaat geven met een instructie zoals `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Het invoegen van singletons is echter niet zo efficiënt als bulksgewijs laden. 
 
 Als u de hele dag door duizenden of meerdere enkele gegevens wilt invoeren, voeg de gegevens dan samen tot een batch zodat deze bulksgewijs kunt laden.  Ontwikkel uw processen om de afzonderlijke gegevens aan een bestand toe te voegen en maak vervolgens een ander proces dat het bestand periodiek laadt.
@@ -112,6 +113,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>Opslagsleutels draaien
+
 Het is verstandig uit veiligheidsoverwegingen de toegangssleutel in de blob-opslag regelmatig te wijzigen. Er zijn twee opslagsleutels voor uw blob-opslagaccount, waarmee u de sleutels kunt wijzigen.
 
 Sleutels van het Microsoft Azure Storage-account draaien:
@@ -134,9 +136,11 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Er hoeven geen andere wijzigingen te worden aangebracht aan onderliggende externe gegevensbronnen.
 
-
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Uw workload controleren met DMV's](sql-data-warehouse-manage-monitor.md) voor het controleren van het laden van gegevens.
+
+- Zie voor meer informatie over PolyBase en het ontwerpen van een Extract, Load en Transform (ELT)-proces [ELT ontwerpen voor SQL Data Warehouse](design-elt-data-loading.md).
+- Gebruik voor het laden van een zelfstudie [PolyBase om gegevens te laden uit Azure blob-opslag naar Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Zie [Uw workload controleren met DMV's](sql-data-warehouse-manage-monitor.md) voor het controleren van het laden van gegevens.
 
 
 

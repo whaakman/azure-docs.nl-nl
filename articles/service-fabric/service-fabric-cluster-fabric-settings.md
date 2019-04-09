@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 379477cd063192fc8c23c73b4a8814ad13507043
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667529"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058863"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -159,7 +159,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tijd in seconden, de standaardwaarde is 2 |Dynamisch|Interval in seconden opgeven. Time-outinterval voor elke keer-client verbinding probeert te openen van een verbinding met de gateway.|
 |HealthOperationTimeout |Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven. De time-out voor een rapportbericht verzonden naar de status Manager. |
-|HealthReportRetrySendInterval |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|Interval in seconden opgeven. Het interval waarmee reporting onderdeel opnieuw verzendt samengevoegde statusrapporten naar Health Manager. |
+|HealthReportRetrySendInterval |Tijd in seconden, de standaardwaarde is 30, minimumwaarde is 1 |Dynamisch|Interval in seconden opgeven. Het interval waarmee het rapportonderdeel samengevoegde status opnieuw naar Health Manager-rapporten. |
 |HealthReportSendInterval |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|Interval in seconden opgeven. Het interval waarmee reporting onderdeel stuurt samengevoegde statusrapporten naar Health Manager. |
 |KeepAliveIntervalInSeconds |Int, de standaardwaarde is 20 |Statisch|Het interval waarmee het transport FabricClient keepalive-berichten naar de gateway verzendt. Voor 0; keepAlive is uitgeschakeld. Moet een positieve waarde zijn. |
 |MaxFileSenderThreads |Uint, de standaardwaarde is 10 |Statisch|Het maximum aantal bestanden die parallel worden overgedragen. |

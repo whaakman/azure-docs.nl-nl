@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915916"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256189"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
 
@@ -97,10 +97,9 @@ Meer informatie over taken meerdere stappen in [WebTest met meerdere stappen bou
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer u gereed bent voor het automatiseren van OS- en framework patchen met het bouwen van uw containerinstallatiekopieën in de cloud, controleert u de driedelige reeks zelfstudies ACR-taken.
+Wanneer u klaar bent om OS en framework patchen met het bouwen van uw containerinstallatiekopieën in de cloud automatiseren, leest de driedelige [ACR taken reeks](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [In de cloud met Azure Container Registry taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
+Installeer desgewenst de [Docker-extensie voor Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) en de [Azure-Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) -extensie voor het werken met uw Azure-containerregisters. Pull- en installatiekopieën pushen naar een Azure container registry of uitvoeren van taken van de ACR, alles vanuit Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

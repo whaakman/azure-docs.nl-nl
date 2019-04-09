@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d8d96d929e55bd4423bdb0cd0dd064e275462ce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445373"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257430"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -175,6 +175,11 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in de Azure SQL-database
 Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen.
 
+Als u wilt de weg te beginnen met eenvoudig te maken, we deze opgeslagen Procedures te geven van de deltagegevens in via een tabelvariabele rechtstreeks te gebruiken en deze vervolgens samenvoegen in doelarchief. Wees voorzichtig met dat niet een 'groot' aantal delta rijen (meer dan 100 verwacht wordt) worden opgeslagen in de tabelvariabele.  
+
+Als u moet voor het samenvoegen van een groot aantal rijen van de verschillen in het doelarchief, stellen we voor u gebruikmaken van de kopieeractiviteit alle de deltagegevens te kopiëren naar een tijdelijke "staging" tabel in de doel-eerste opslaan, en vervolgens uw eigen opgeslagen procedure gebouwd zonder gebruik van diverse tabel kan worden samengevoegd uit de tabel "staging" in de tabel 'laatste'. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -226,10 +231,9 @@ END
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
-1. Selecteer in het menu links **een resource maken** > **gegevens en analyses** > **Data Factory**: 
+1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
-   ![Selectie van Data Factory in het deelvenster Nieuw](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 1. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialBulkCopyDF** in als de **naam**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
@@ -271,7 +275,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
 1. In het venster **Instellen van Integration Runtime** selecteert u de optie **Gegevensverkeer uitvoeren en activiteiten verzenden naar externe berekeningen** en klikt u op **Volgende**. 
 
    ![Type integratieruntime selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selecteer **Privénetwerk** en klik op **Volgende**. 
+1. Selecteer ** Privénetwerk** en klik op **Volgende**. 
 
    ![Privénetwerk selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 
@@ -383,7 +387,7 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
-   1. Nadat u hebt geklikt **voltooien**, ziet u  **\@dataset(). SinkTableName** als naam van de tabel.
+ 1. Nadat u op **Voltooien** hebt geklikt, ziet u **@dataset().SinkTableName** als de tabelnaam.
    
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -425,11 +429,11 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Naam pijplijn](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Voer bij in het venster **Eigenschappen** de volgende stappen uit: 
 
-   1. Klik op **+ New**. 
-   1. Voer **tableList** in als **Name**-parameter. 
-   1. Selecteer **Object** voor de parameter **Type**.
+    1. Klik op **+ New**. 
+    1. Voer **tableList** in als **Name**-parameter. 
+    1. Selecteer **Object** voor de parameter **Type**.
 
-      ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+    ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. Vouw in de werkset **Activiteiten** de optie **Iteratie en voorwaarden** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
 
     ![ForEach-activiteitnaam](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -458,69 +462,69 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Tweede opzoekactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Schakel over naar het tabblad **Instellingen**.
 
-     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-     1. Selecteer **Query** bij **Use Query**.
-     1. Voer bij **Query** de volgende SQL-query in.
+    1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
+    1. Selecteer **Query** bij **Use Query**.
+    1. Voer bij **Query** de volgende SQL-query in.
 
-         ```sql    
-         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-         ```
+        ```sql    
+        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+        ```
     
-         ![Tweede opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        ![Tweede opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Sleep de activiteit **Kopiëren** uit de **Activiteiten**-werkset en voer **IncrementalCopyActivity** in als **Naam**. 
 
-     ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+    ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Verbind **Opzoek**-activiteiten één voor één met de activiteit **Kopiëren**. Om te verbinden, start u met het slepen van het **groene** vak gekoppeld aan de **Opzoek**-activiteit en zet u dit neer op de activiteit **Kopiëren**. Laat de muisknop los als u ziet dat de randkleur van de kopieeractiviteit is gewijzigd in **blauw**.
 
-     ![Opzoekactiviteiten verbinden met kopieeractiviteit](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    ![Opzoekactiviteiten verbinden met kopieeractiviteit](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. U ziet dat de activiteit **Kopiëren** in de pijplijn is mislukt. Ga naar het tabblad **Bron** in het venster **Eigenschappen**. 
 
-     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-     1. Selecteer **Query** bij **Use Query**. 
-     1. Voer bij **Query** de volgende SQL-query in.
+    1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
+    1. Selecteer **Query** bij **Use Query**. 
+    1. Voer bij **Query** de volgende SQL-query in.
 
-         ```sql
-         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-         ```
+        ```sql
+        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+        ```
 
-         ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
         
-     ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+    ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Open het tabblad **Parameters** en voer de volgende stappen uit:
 
-     1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
-     1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
-     1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
+    1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
+    1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
+    1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
 
-         ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Sleep de **Stored Procedure**-activiteit vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. Verbind de **Kopieer**-activiteit met de **Opgeslagen procedure**-activiteit. 
 
-     ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+    ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Selecteer de **Opgeslagen procedure**-activiteit in de pijplijn en voer **StoredProceduretoWriteWatermarkActivity** in als **Naam** in het tabblad **Algemeen** van het venster **Eigenschappen**. 
 
-     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+    ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Ga naar het tabblad **SQL-account** en selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde Service**.
 
-     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
 
-     1. Selecteer `usp_write_watermark` als **Opgeslagen procedurenaam**. 
-     1. Selecteer **Importparameter**. 
-     1. Geef de volgende waarden op voor de parameters: 
+    1. Selecteer `usp_write_watermark` als **Opgeslagen procedurenaam**. 
+    1. Selecteer **Importparameter**. 
+    1. Geef de volgende waarden op voor de parameters: 
 
-         | Name | Type | Value | 
-         | ---- | ---- | ----- |
-         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | Name | Type | Value | 
+        | ---- | ---- | ----- |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-         ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Klik in het linkerdeelvenster op **Publiceren**. Deze actie publiceert de entiteiten die u hebt gemaakt met de Data Factory-service. 
 
-     ![De knop Publiceren](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+    ![De knop Publiceren](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Wacht tot u het bericht **Gepubliceerd** ziet. Om de meldingen te zien, klikt u op de link **Meldingen weergeven**. Sluit het meldingenvenster door op **X** te klikken.
 
-     ![Meldingen weergeven](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+    ![Meldingen weergeven](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>De pijplijn uitvoeren
@@ -561,7 +565,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 ## <a name="review-the-results"></a>De resultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de SQL-doeldatabase om te controleren of de gegevens van de brontabellen naar de doeltabellen zijn gekopieerd: 
 
-**Query** 
+**Query’s uitvoeren** 
 ```sql
 select * from customer_table
 ```
@@ -578,7 +582,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from project_table
@@ -595,7 +599,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from watermarktable
@@ -663,7 +667,7 @@ VALUES
 ## <a name="review-the-final-results"></a>De eindresultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de doeldatabase om te controleren dat de bijgewerkte/nieuwe gegevens van de brontabellen naar de doeltabellen zijn gekopieerd. 
 
-**Query** 
+**Query’s uitvoeren** 
 ```sql
 select * from customer_table
 ```
@@ -682,7 +686,7 @@ PersonID    Name    LastModifytime
 
 Let op de nieuwe waarden van **Name** en **LastModifytime** voor de **PersonID** voor nummer 3. 
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from project_table
@@ -702,7 +706,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Let erop dat de invoer van **NewProject** toegevoegd is aan project_table. 
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from watermarktable
@@ -739,6 +743,6 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor het bijhouden van wijzigingen](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Incrementeel gegevens uit een Azure SQL Database naar Azure Blob-opslag met behulp van technologie voor wijzigingen bijhouden](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

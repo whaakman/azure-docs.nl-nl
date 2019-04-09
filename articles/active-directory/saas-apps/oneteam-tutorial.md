@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e2b2a7ce4e057b97ef8c714c7af25b173e881706
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183574"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Zelfstudie: Azure Active Directory-integratie met Oneteam
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Oneteam, moet u de v
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://api.one-team.io/teams/<team name>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -204,9 +204,9 @@ Wanneer u op de tegel Oneteam in het toegangsvenster, moet u worden automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

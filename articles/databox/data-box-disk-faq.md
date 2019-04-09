@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258773"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -54,7 +54,7 @@ A. Bij vijf schijven van 8 TB (7 TB aan bruikbare capaciteit), bedraagt de maxim
 A.  Als u wilt zien waar de Data Box-schijven die momenteel beschikbaar zijn, gaat u naar de [beschikbaarheid in regio](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>V. In welke regio's kan ik gegevens opslaan met Data Box Disk?
-A. Data Box Disk wordt ondersteund in alle regio's binnen de V.S., Canada, Australië en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
+A. Data Box-schijf wordt ondersteund voor alle regio's binnen de VS, Canada, Australië, West-Europa en Noord-Europa, Korea en Japan. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
 A. Neem bij problemen met Data Box-schijven contact op met [Microsoft Ondersteuning](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de se
 - [Data Box-schijf toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
 - [Data Box-schijf toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
-  A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met Azure File Sync. Metagegevens worden niet bewaard als de gegevens uit een bestand wordt gebruikt met Azure File Sync.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
+A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met Azure File Sync. Metagegevens worden niet bewaard als de gegevens uit een bestand wordt gebruikt met Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifiëren en uploaden
@@ -166,7 +166,7 @@ A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde be
 A. Ja. Uw gegevens is geüpload naar Azure, maar als er geen beheerde schijven met de opgegeven resource-groepen, is het waarschijnlijk omdat de gegevens niet geldig is. Als de pagina-blobs, blok-blobs, Azure Files, en beheerde schijven niet geldig zijn, zou deze gaat u naar de volgende mappen:
  - Pagina-blobs zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-pb -*.
  - Azure Files zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-af -*.
- - Beheerde schijven zou gaat u naar een blok-blob-container beginnen met *databoxdisk-invliad-md -*.
+ - Beheerde schijven zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-md -*.
 
 ## <a name="next-steps"></a>Volgende stappen
 

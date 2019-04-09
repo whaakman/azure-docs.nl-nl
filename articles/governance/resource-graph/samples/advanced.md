@@ -1,7 +1,6 @@
 ---
 title: Voorbeelden van geavanceerde query's
 description: Gebruik Azure Resource Graph voor het uitvoeren van enkele geavanceerde query's, met inbegrip van VMSS-capaciteit. Hiermee wordt een lijst van alle gebruikte tags en overeenkomende virtuele machines weergegeven met behulp van reguliere expressies.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842614"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256818"
 ---
 # <a name="advanced-resource-graph-queries"></a>Geavanceerde query's van Resource Graph
 
@@ -23,9 +22,9 @@ Om inzicht te krijgen in query's met Azure Resource Graph moet u eerst enige bas
 We nemen de volgende geavanceerde query's door:
 
 > [!div class="checklist"]
-> - [VMSS-capaciteit en -grootte opvragen](#vmss-capacity)
-> - [Een lijst weergeven van alle tagnamen](#list-all-tags)
-> - [Virtuele machines zoeken met reguliere expressies](#vm-regex)
+> - [Get-VMSS-capaciteit en grootte](#vmss-capacity)
+> - [Lijst van alle tagnamen](#list-all-tags)
+> - [Virtuele machines overeen met reguliere expressie](#vm-regex)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
 
@@ -76,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Deze query zoekt virtuele machines die overeenkomen met een [reguliere expressie](/dotnet/standard/base-types/regular-expression-language-quick-reference) (ook wel _regex_ genoemd).
 De **komt overeen met reguliere expressie \@**  kunnen we voor het definiëren van de reguliere expressie overeenkomt met wat `^Contoso(.*)[0-9]+$`. De definitie van deze reguliere expressie wordt als volgt uitgelegd:
 
-- `^`: Overeenkomst moet beginnen aan het begin van de tekenreeks.
-- `Contoso`: De hoofdlettergevoelige reeks.
-- `(.*)`: Een subexpressieovereenkomst:
-  - `.`: Komt overeen met een willekeurig teken (met uitzondering van een nieuwe regel).
-  - `*`: Komt nul keer of vaker overeen met vorig element.
-- `[0-9]`: Tekengroepovereenkomst met de cijfers 0 t/m 9.
-- `+`: Komt één keer of vaker overeen met vorig element.
-- `$`: Overeenkomst met het vorige element moet voorkomen aan het einde van de tekenreeks.
+- `^` --None match moet beginnen aan het begin van de tekenreeks.
+- `Contoso` -De hoofdlettergevoelige tekenreeks.
+- `(.*)` -Een overeenkomst subexpressie:
+  - `.` -Komt overeen met een willekeurig teken (met uitzondering van een nieuwe regel).
+  - `*` -Vorige element komt overeen met nul of meer keer.
+- `[0-9]` -Teken groep geschikt is voor de cijfers 0 t/m 9.
+- `+` -Vorige element komt overeen met een of meer keer.
+- `$` --None match van het vorige element moet aan het einde van de tekenreeks plaatsvinden.
 
 Na de vergelijking op naam worden de namen in oplopende volgorde weergegeven.
 

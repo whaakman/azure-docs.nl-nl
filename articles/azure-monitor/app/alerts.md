@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244363"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257158"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -143,7 +143,7 @@ In deze sectie doorlopen we over het instellen van een waarschuwing voor een que
 
 10. Ten slotte de gegevens van uw waarschuwing toevoegen (naam, beschrijving, ernst melding). Wanneer u klaar bent, klikt u op **waarschuwingsregel maken** aan de onderkant.
 
-    ![Onder Waarschuwingsdetails Typ uw naam waarschuwingsregel, Geef een beschrijving en kies een ernst ](./media/alerts/9alertdetails.png)
+    ![Onder Waarschuwingsdetails Typ uw naam waarschuwingsregel, Geef een beschrijving en kies een ernst](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
 
@@ -165,7 +165,7 @@ Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meld
 ## <a name="see-also"></a>Zie ook
 * [Webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)
-* [Proactieve diagnostische gegevens](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Proactieve diagnoses](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

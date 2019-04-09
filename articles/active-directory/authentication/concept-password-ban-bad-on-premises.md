@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862884"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264468"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Afdwingen van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory
 
@@ -31,7 +31,8 @@ Azure AD-wachtwoordbeveiliging wordt gekenmerkt door deze principes in gedachten
 * Er zijn geen wijzigingen in Active Directory-schema zijn vereist. De software maakt gebruik van de bestaande Active Directory **container** en **serviceConnectionPoint** schemaobjecten.
 * Er is geen minimale Active Directory-domein of forest functionele niveau (DFL/FFL) is vereist.
 * De software niet maken of vereisen dat accounts in Active Directory-domeinen die ermee worden beveiligd.
-* Wachtwoorden van gebruikers niet-versleutelde tekst laat niet u de domeincontroller tijdens wachtwoord validatie bewerkingen of op enig ander moment.
+* Wachtwoorden van gebruikers niet-versleutelde tekst verlaten nooit de domeincontroller tijdens wachtwoord validatie bewerkingen of op enig ander moment.
+* De software is niet afhankelijk van andere Azure AD-functies. bijvoorbeeld Azure AD-wachtwoordhashsynchronisatie is niet gerelateerd en is niet vereist voor Azure AD-wachtwoordbeveiliging functie.
 * Stapsgewijze implementatie wordt ondersteund, maar het wachtwoordbeleid alleen waarop de Agent in Domain Controller (DC-Agent afgedwongen wordt) is geïnstalleerd. Zie de volgende onderwerp voor meer informatie.
 
 ## <a name="incremental-deployment"></a>Stapsgewijze implementatie
@@ -62,7 +63,7 @@ De DC-Agent-service is verantwoordelijk voor het initiëren van het downloaden v
 
 Nadat de DC-Agent-service een nieuw wachtwoordbeleid van Azure AD ontvangt, de service wordt het beleid opgeslagen in een specifieke map in de hoofdmap van het domein *sysvol* map delen. De DC-Agent-service bewaakt ook deze map in het geval nieuwere beleid van andere services DC-Agent in het domein repliceren.
 
-De DC-Agent-service aanvragen altijd een nieuw beleid op de service is gestart. Nadat de DC-Agent-service is gestart, wordt de leeftijd van de huidige lokaal beschikbaar beleid per uur gecontroleerd. Als het beleid ouder dan een uur is, vraagt de DC-Agent een nieuw beleid uit Azure AD, zoals eerder beschreven. Als het huidige beleid niet ouder is dan een uur is, blijft de DC-Agent gebruiken dat beleid.
+De DC-Agent-service aanvragen altijd een nieuw beleid op de service is gestart. Nadat de DC-Agent-service is gestart, wordt de leeftijd van de huidige lokaal beschikbaar beleid per uur gecontroleerd. Als het beleid ouder dan een uur is, vraagt de DC-Agent een nieuw beleid uit Azure AD via de proxy-service, zoals eerder beschreven. Als het huidige beleid niet ouder is dan een uur is, blijft de DC-Agent gebruiken dat beleid.
 
 Wanneer een Azure AD-hulpprogramma voor het wachtwoord van de wachtwoord-beveiligingsbeleid is gedownload, wordt dat beleid is uitsluitend bestemd voor een tenant. Met andere woorden, zijn wachtwoordbeleid altijd een combinatie van de lijst met Microsoft global verboden wachtwoord en de lijst met per tenant aangepaste verboden-wachtwoord.
 
@@ -77,6 +78,8 @@ De proxy-service is staatloos. Deze nooit in de cache opgeslagen beleid of een a
 De DC-Agent-service gebruikt altijd de meest recente lokaal beschikbaar wachtwoordbeleid om te evalueren van het wachtwoord van een gebruiker. Als geen wachtwoordbeleid op de lokale domeincontroller beschikbaar is, wordt het wachtwoord automatisch geaccepteerd. Wanneer dit gebeurt, wordt een bericht wordt geregistreerd om te waarschuwen de beheerder.
 
 Beveiliging van Azure AD-wachtwoord is niet een realtime toepassing beleidsengine. Er is een vertraging tussen wanneer een wachtwoordwijziging voor de configuratie van beleid wordt gemaakt in Azure AD en wanneer bereikt wijzigen en op alle domeincontrollers wordt afgedwongen.
+
+Azure AD-wachtwoordbeveiliging fungeert als een aanvulling op de bestaande Active Directory wachtwoordbeleid, niet als vervanging. Dit omvat alle andere 3rd derden wachtwoord filter dll-bestanden die kunnen worden geïnstalleerd. Active Directory is altijd vereist dat alle onderdelen van de wachtwoord-validatie akkoord gaat voordat een wachtwoord worden geaccepteerd.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Forest/tenant-binding voor beveiliging met een wachtwoord
 

@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558002"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257277"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning-functies
 Het is vrij eenvoudig instellen van een Stream Analytics-taak en enkele voorbeeldgegevens doorlopen. Wat moeten we doen als we moeten de dezelfde taak uitvoeren met hogere gegevensvolume? Hiervoor inzicht in hoe u de Stream Analytics-taak configureren zodat deze kan worden geschaald. In dit document, we ons richten op de speciale aspecten van het schalen van Stream Analytics-taken met Machine Learning-functies. Zie het artikel voor meer informatie over het schalen van Stream Analytics-taken in het algemeen [taken schalen](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Wat is een Azure Machine Learning-functie in Stream Analytics?
-Een Machine Learning-functie in Stream Analytics kan worden gebruikt als een reguliere functieaanroep in de Stream Analytics-querytaal. De functieaanroepen zijn echter achter de scène daadwerkelijk Azure Machine Learning-webservice-aanvragen. Machine Learning-webservices ondersteuning "batchverwerking" meerdere rijen Mini batch in de dezelfde web service API-aanroep voor het verbeteren van de algemene doorvoer genoemd. Zie voor meer informatie, [Azure Machine Learning-functies in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) en [Azure Machine Learning-webservices](../machine-learning/studio/consume-web-services.md).
+Een Machine Learning-functie in Stream Analytics kan worden gebruikt als een reguliere functieaanroep in de Stream Analytics-querytaal. De functieaanroepen zijn echter achter de scène daadwerkelijk Azure Machine Learning-webservice-aanvragen. Machine Learning-webservices ondersteuning "batchverwerking" meerdere rijen Mini batch in de dezelfde web service API-aanroep voor het verbeteren van de algemene doorvoer genoemd. Zie voor meer informatie, [Azure Machine Learning-webservices](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configureren van een Stream Analytics-taak met Machine Learning-functies
 Wanneer u een Machine Learning-functie voor Stream Analytics-taak configureert, zijn er twee parameters om te overwegen, de batchgrootte van de Machine Learning functieaanroepen en de streaming-eenheden (su's) voor de Stream Analytics-taak is ingericht. Om te bepalen de juiste waarden voor SUs, moet eerst een beslissing worden gemaakt tussen latentie en doorvoer, dat wil zeggen, latentie van de Stream Analytics-taak en de doorvoer van elke SU. SUs kunnen altijd worden toegevoegd aan een taak voor het verhogen van de doorvoer van een goed gepartitioneerde Stream Analytics-query, maar aanvullende SUs de kosten verhoogt van het uitvoeren van de taak.
@@ -112,7 +112,7 @@ Er is een volledig gepartitioneerde Stream Analytics-query gebruikt als voorbeel
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over Stream Analytics:
 
-* [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Get started using Azure Stream Analytics (Aan de slag met Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs (Azure Stream Analytics-taken schalen)](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference (Naslaggids voor Azure Stream Analytics Query)](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference (REST API-naslaggids voor Azure Stream Analytics Management)](https://msdn.microsoft.com/library/azure/dn835031.aspx)

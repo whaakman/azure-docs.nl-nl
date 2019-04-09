@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen over toepassingsprestaties maken met Azure Monitor voor containers | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u aangepaste Azure-waarschuwingen op basis van Logboeken-query's voor geheugen en CPU-gebruik van Azure Monitor voor containers kunt maken.
+title: Waarschuwingen over toepassingsprestaties maken met behulp van Azure Monitor voor containers | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure-Monitor voor containers gebruiken om aangepaste waarschuwingen op basis van Logboeken-query's voor geheugen en CPU-gebruik te maken.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,31 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804817"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282284"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Over het instellen van waarschuwingen voor problemen met de prestaties in Azure Monitor voor containers
-Azure Monitor voor containers monitors de prestaties van containerwerkbelastingen geïmplementeerd in een Azure Container Instances of beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS). 
+Azure Monitor voor containers bewaakt de prestaties van containerworkloads die zijn geïmplementeerd in Azure Container Instances of in het beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS).
 
-Dit artikel wordt beschreven hoe u om in te schakelen waarschuwingen voor de volgende situaties:
+In dit artikel wordt beschreven hoe u waarschuwingen voor de volgende situaties inschakelen:
 
-* Wanneer gebruik CPU of geheugen op knooppunten van het cluster is groter dan de ingestelde drempel is gekomen.
-* Wanneer gebruik van de CPU of geheugen op een van de containers in een domeincontroller is groter dan de ingestelde drempel is gekomen in vergelijking met de ingestelde limiet voor de overeenkomende resource.
-* **NotReady** status knooppunt wordt geteld
-* Pod fase aantal **mislukt**, **in behandeling**, **onbekende**, **met**, of **geslaagd**
+* Bij gebruik van de CPU of geheugen op de knooppunten van een opgegeven drempelwaarde overschrijdt
+* Bij gebruik van de CPU of geheugen op een willekeurige container binnen een domeincontroller is groter dan een ingestelde drempel is gekomen in vergelijking met een limiet die ingesteld op de bijbehorende resource
+* *NotReady* status knooppunt wordt geteld
+*  *Kan niet*, *in behandeling*, *onbekende*, *met*, of *geslaagd* pod-fase wordt geteld
 
-Om u te waarschuwen wanneer de CPU of geheugen gebruik hoog op de knooppunten van het cluster is, u kunt maken van een waarschuwing voor metrische gegevens of een meting van metrische gegevens waarschuwingsregel met behulp van de logboeken-query's opgegeven. Hoewel metrische waarschuwingen lagere latentie dan logboekwaarschuwingen hebben, biedt een waarschuwing voor een geavanceerde query's en verfijning dan een waarschuwing voor metrische gegevens. Voor waarschuwingen, wordt de query's vergelijken van een datum/tijd bij de huidige met behulp van de operator nu en één uur terug. Alle datums die zijn opgeslagen door Azure Monitor voor containers worden in UTC-notatie.
+Om u te waarschuwen voor hoge CPU- of geheugengebruik op clusterknooppunten, gebruikt u de query's die beschikbaar zijn om een waarschuwing voor metrische gegevens of een waarschuwing voor een meting van metrische gegevens te maken. Metrische waarschuwingen hebben lagere latentie dan waarschuwingen. Maar waarschuwingen bieden geavanceerde query's en meer verfijning. Query's een datum/tijd bij de huidige vergelijken met behulp van waarschuwingen voor activiteitenlogboeken de *nu* operator en back-één uur te gaan. (Met azure Monitor voor containers worden alle datums in de indeling in Coordinated Universal Time (UTC).)
 
-Voordat u begint, als u niet bekend met waarschuwingen in Azure Monitor bent, Zie [overzicht van waarschuwingen in Microsoft Azure](../platform/alerts-overview.md). Zie voor meer informatie over waarschuwingen via Logboeken-query's, [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md). Zie voor meer informatie over waarschuwingen voor metrische [metrische waarschuwingen in Azure Monitor](../platform/alerts-metric-overview.md).
+Als u niet bekend met Azure Monitor-waarschuwingen bent, Zie [overzicht van waarschuwingen in Microsoft Azure](../platform/alerts-overview.md) voordat u begint. Zie voor meer informatie over waarschuwingen die gebruikmaken van Logboeken-query's, [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md). Zie voor meer informatie over metrische waarschuwingen, [metrische waarschuwingen in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Resource-gebruik log zoekquery 's
-De query's in deze sectie vindt u om alle waarschuwingen scenario te ondersteunen. De query's zijn vereist voor stap 7 onder de [waarschuwing maken](#create-alert-rule) onderstaande sectie.  
+De query's in deze sectie ondersteuning voor elk scenario waarschuwingen. Ze worden gebruikt in stap 7 van de [waarschuwing maken](#create-an-alert-rule) sectie van dit artikel.
 
-De volgende query wordt het gemiddelde CPU-gebruik als een gemiddelde van lid knooppunten CPU-gebruik per minuut berekend.  
+De volgende query wordt de gemiddelde CPU-gebruik als een gemiddelde van lid knooppunten CPU-gebruik per minuut berekend.  
 
 ```kusto
 let endDateTime = now();
@@ -72,7 +72,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-De volgende query wordt het gemiddelde geheugengebruik als een gemiddelde van geheugengebruik lidstaten-knooppunten per minuut berekend.
+De volgende query worden gemiddelde geheugengebruik als een gemiddelde van geheugengebruik lidstaten-knooppunten per minuut berekend.
 
 ```kusto
 let endDateTime = now();
@@ -107,10 +107,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Onderstaande query bevatten tekenreekswaarden tijdelijke aanduiding voor de namen van uw cluster en de domeincontroller - < uw cluster-naam > en < uw-controller-naam >. Vervang tijdelijke aanduidingen door waarden die specifiek zijn voor uw omgeving voor het instellen van waarschuwingen. 
+>De volgende query's gebruikt u de tijdelijke aanduiding voor waarden \<uw cluster-naam > en \<uw domeincontroller-naam > voor uw cluster en de domeincontroller. Bij het instellen van waarschuwingen, moet u deze vervangen door waarden die specifiek zijn voor uw omgeving.
 
-
-De volgende query berekent het gemiddelde CPU-gebruik van alle containers in een domeincontroller als een gemiddelde van CPU-gebruik van elke containerinstantie in een controller voor elke minuut als een percentage van de limiet ingesteld voor een container.
+De volgende query wordt het gemiddelde CPU-gebruik van alle containers in een domeincontroller als een gemiddelde van CPU-gebruik van elke containerinstantie in een controller voor elke minuut berekend. De meting is een percentage van de limiet ingesteld voor een container.
 
 ```kusto
 let endDateTime = now();
@@ -150,7 +149,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-De volgende query berekent het gemiddelde geheugengebruik van alle containers in een domeincontroller als een gemiddelde van het geheugengebruik van elke containerinstantie in een controller voor elke minuut als een percentage van de limiet ingesteld voor een container.
+De volgende query wordt het gemiddelde geheugengebruik van alle containers in een domeincontroller als een gemiddelde van het geheugengebruik van elke containerinstantie in een controller voor elke minuut berekend. De meting is een percentage van de limiet ingesteld voor een container.
 
 ```kusto
 let endDateTime = now();
@@ -190,7 +189,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-De volgende query retourneert alle knooppunten en het aantal met de status van **gereed** en **NotReady**.
+De volgende query retourneert alle knooppunten en aantallen die de status van *gereed* en *NotReady*.
 
 ```kusto
 let endDateTime = now();
@@ -217,7 +216,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-De volgende query retourneert pod fase wordt geteld op basis van alle fasen - **mislukt**, **in behandeling**, **onbekende**, **met**, of **Geslaagd**.  
+De volgende query retourneert pod fase telt gebaseerd op alle fasen: *Kan niet*, *in behandeling*, *onbekende*, *met*, of *geslaagd*.  
 
 ```kusto
 let endDateTime = now();
@@ -254,38 +253,37 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Om te waarschuwen wanneer bepaalde pod-fasen zoals **in behandeling**, **mislukt**, of **onbekende**, moet u de laatste regel van de query wijzigen. Bijvoorbeeld om een waarschuwing te *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
+>Om te waarschuwen wanneer bepaalde fasen pod zoals *in behandeling*, *mislukt*, of *onbekende*, wijzigt u de laatste regel van de query. Bijvoorbeeld, om een waarschuwing te *FailedCount* gebruiken: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-## <a name="create-alert-rule"></a>Waarschuwingsregel maken
-Voer de volgende stappen uit voor het maken van een waarschuwing op het logboek in Azure Monitor met een van de regels van het logboek zoeken die eerder is verkregen.  
+## <a name="create-an-alert-rule"></a>Een waarschuwingsregel maken
+Volg deze stappen voor het maken van een waarschuwing in Azure Monitor met behulp van een van de regels in een logboekbestand zoeken die eerder is opgegeven.  
 
 >[!NOTE]
->De onderstaande procedure moet u overschakelen naar de nieuwe Log waarschuwingen API, zoals beschreven in [overschakelen API voorkeur voor Logboekwaarschuwingen](../platform/alerts-log-api-switch.md) als u een waarschuwingsregel voor Resourcegebruik container maakt. 
+>De volgende procedure om te maken van een waarschuwingsregel voor brongebruik door de container, u moet overschakelen naar een nieuw logboekbestand API waarschuwingen, zoals beschreven in [overschakelen API voorkeur voor logboekwaarschuwingen](../platform/alerts-log-api-switch.md).
 >
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **Monitor** in het linkervenster in Azure portal. Onder de **Insights** sectie, selecteer **Containers**.    
-3. Uit de **bewaakt Clusters** tabblad, selecteert u een cluster in de lijst door te klikken op de naam van het cluster.
-4. In het linkerdeelvenster onder de **bewaking** sectie, selecteer **logboeken** meldt zich gegevensfactorypagina gebruikt om te schrijven en uitvoeren van Azure Log Analytics-query's te openen van de Azure Monitor.
-5. Op de **logboeken** pagina, klikt u op **+ nieuwe waarschuwingsregel**.
-6. Onder de **voorwaarde** sectie, klikt u op de voorwaarde vooraf gedefinieerde aangepaste logboek **wanneer het aangepaste zoeken in Logboeken is <logic undefined>** . De **aangepaste zoekopdrachten in logboeken** signaaltype wordt automatisch geselecteerd voor ons, omdat we het maken van een waarschuwingsregel rechtstreeks vanuit de pagina van Azure Monitor logboeken gestart.  
-7. Plak een van de [query's](#resource-utilization-log-search-queries) eerder hebt opgegeven in de **zoekquery** veld. 
+2. Selecteer **Monitor** in het deelvenster aan de linkerkant. Onder **Insights**, selecteer **Containers**.
+3. Op de **bewaakt Clusters** tabblad, selecteert u een cluster in de lijst.
+4. In het deelvenster aan de linkerkant onder **bewaking**, selecteer **logboeken** om de pagina Azure Monitor-logboeken te openen. U kunt deze pagina gebruiken om te schrijven en uitvoeren van Azure Log Analytics-query's.
+5. Op de **logboeken** weergeeft, schakelt **+ nieuwe waarschuwingsregel**.
+6. In de **voorwaarde** sectie, selecteer de **wanneer het aangepaste zoeken in Logboeken is \<logica niet gedefinieerd >** vooraf gedefinieerde aangepaste logboekvoorwaarde. De **aangepaste zoekopdrachten in logboeken** signaaltype wordt automatisch geselecteerd omdat we het maken van een waarschuwingsregel rechtstreeks vanuit de pagina Azure Monitor-Logboeken.  
+7. Plak een van de [query's](#resource-utilization-log-search-queries) eerder hebt opgegeven in de **zoekquery** veld.
+8. De waarschuwing als volgt configureren:
 
-8. Configureer de waarschuwing met de volgende gegevens:
+    1. Selecteer in de vervolgkeuzelijst **Gebaseerd op** de optie **Meting van metrische gegevens**. Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query's met een waarde hoger dan de opgegeven drempelwaarde.
+    1. Voor **voorwaarde**, selecteer **groter is dan**, en voer **75** als een initiële basislijnkopie **drempelwaarde**. Of voer een andere waarde die voldoet aan uw criteria voldoen.
+    1. In de **Trigger waarschuwingen op basis van** sectie, selecteer **achtereenvolgende schendingen**. Selecteer in de vervolgkeuzelijst **groter is dan**, en voer **2**.
+    1. Het configureren van een waarschuwing voor container CPU of geheugengebruik, onder **cumulatieve op**, selecteer **ContainerName**. 
+    1. In de **Evaluated op basis van** sectie, stelt u de **periode** waarde die moet worden **60 minuten**. De regel worden uitgevoerd om de 5 minuten en records die zijn gemaakt in het afgelopen uur van de huidige tijd retourneren. De periode instellen op een breed venster accounts voor mogelijke gegevenslatentie van. Ook zorgt u ervoor dat de query gegevens retourneert om te voorkomen dat een false negatief waarin de waarschuwing wordt nooit geactiveerd.
 
-    a. Selecteer in de vervolgkeuzelijst **Gebaseerd op** de optie **Meting van metrische gegevens**. Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query met een waarde die de opgegeven drempelwaarde overschrijdt.  
-    b. Voor de **voorwaarde**, selecteer **groter is dan** en voer **75** als een initiële basislijnkopie **drempelwaarde** of voer een waarde die voldoet aan uw criteria.  
-    c. Onder **Trigger waarschuwingen op basis van** sectie, selecteer **achtereenvolgende schendingen** en uit de vervolgkeuzelijst selecteren **groter is dan** Voer een waarde van **2**.  
-    d. Als u een waarschuwing voor container CPU of geheugengebruik, onder configureert **cumulatieve op** Selecteer **ContainerName** uit de vervolgkeuzelijst.  
-    e. Onder **Evaluated op basis van** sectie, wijzigt u de **periode** waarde en 60 minuten. De regel wordt elke vijf minuten wordt uitgevoerd en records die zijn gemaakt in het afgelopen uur van de huidige tijd retourneren. Door een ruimere periode in te stellen wordt rekening gehouden met eventuele gegevenslatentie en wordt ervoor gezorgd dat de query gegevens retourneert zodat er geen fout-negatieve waarde wordt gegenereerd in geval de waarschuwing nooit wordt geactiveerd. 
-
-9. Klik op **Gereed** om de waarschuwingsregel te voltooien.
-10. Geef een naam op van de waarschuwing in de **naam waarschuwingsregel** veld. Geef een **beschrijving** met gedetailleerde informatie over specificaties voor de waarschuwing en selecteer een geschikte ernst van de opties die zijn opgegeven.
-11. Als u de waarschuwingsregel direct na het maken wilt activeren, accepteert u de standaardwaarde voor **Regel inschakelen wanneer deze wordt gemaakt**.
-12. Voor de laatste stap wordt u een bestaande selecteren of maak een nieuwe **actiegroep**, die garandeert dat telkens wanneer een waarschuwing wordt geactiveerd en kan worden gebruikt voor elke regel u definieert de dezelfde acties worden genomen. Configureren op basis van hoe uw IT-afdeling of DevOps operations incidenten beheert. 
-13. Klik op **Waarschuwingsregel maken** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.
+9. Selecteer **gedaan** om uit te voeren van de waarschuwingsregel.
+10. Voer een naam in de **naam waarschuwingsregel** veld. Geef een **beschrijving** die bevat gedetailleerde informatie over de waarschuwing. En selecteer een juiste ernstniveau van de opties die zijn opgegeven.
+11. Als u wilt activeren onmiddellijk de waarschuwingsregel, accepteer de standaardwaarde voor **regel inschakelen bij het maken van**.
+12. Selecteer een bestaande **actiegroep** of maak een nieuwe groep. Deze stap zorgt ervoor dat elke keer dat een waarschuwing wordt geactiveerd door de dezelfde acties worden uitgevoerd. Configureren op basis van hoe uw IT-afdeling of DevOps operationele team beheert incidenten.
+13. Selecteer **waarschuwingsregel maken** om uit te voeren van de waarschuwingsregel. Deze wordt onmiddellijk uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk enkele van de [voorbeelden van aanmelden](container-insights-analyze.md#search-logs-to-analyze-data) meer informatie over de vooraf gedefinieerde query's of voorbeelden om te evalueren en te gebruiken of aanpassen voor andere scenario's met waarschuwingen. 
-* Om door te gaan met het leren over het gebruik van Azure Monitor en controleren van andere aspecten van uw AKS-cluster [weergave Azure Kubernetes Service health](container-insights-analyze.md)
+* Weergave [Meld u voorbeelden van](container-insights-analyze.md#search-logs-to-analyze-data) voor meer informatie over vooraf gedefinieerde query's en voorbeelden om te evalueren of aanpassen voor andere scenario's voor de waarschuwing.
+* Zie voor meer informatie over Azure Monitor en andere aspecten van uw AKS-cluster bewaken, [weergave Azure Kubernetes Service health](container-insights-analyze.md).

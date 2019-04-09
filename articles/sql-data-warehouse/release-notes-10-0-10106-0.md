@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f852fe67443193ad19cb9bd57e0fd2294f3c817
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522329"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266032"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Releaseopmerkingen voor Azure SQL Data Warehouse
 
@@ -27,7 +27,7 @@ In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de
 | --- | --- |
 |**Workload urgentie is nu beschikbaar voor Preview-versie**|De werkbelasting belang kunt gegevenstechnici belang gebruiken voor het classificeren van aanvragen. Aanvragen met hogere prioriteit worden gegarandeerd sneller toegang tot resources, die helpt te voldoen aan Sla's.  Urgentie van de werkbelasting kunt hoge zakelijke waarde werk om te voldoen aan Sla's in een gedeelde omgeving met minder bronnen.<br/><br/>Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/>[Concepten van werkbelasting Management](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**GROEPEREN OP SAMENVOUWEN**|UPDATEPAKKET is nu een ondersteunde GROUP BY-optie in Azure Data Warehouse.   TOTALISATIE groep maakt een groep voor elke combinatie van kolom expressies. GROUP BY ook samengevouwen"" de resultaten in subtotalen en eindtotalen weergeven. U doet dit door wordt verplaatst van rechts naar links, verminderen het aantal expressies van kolom waarover deze groepen en aggregation(s) maakt.  De volgorde van kolommen is van invloed op de ROLLUP-uitvoer en kan invloed hebben op het aantal rijen in de resultatenset.<br/><br/>Zie het artikel voor meer informatie over TOTALISATIE groep [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
-|**Verbeterde nauwkeurigheid voor gebruikte DWU en CPU portal metrische gegevens**|SQL Data Warehouse aanzienlijk verbetert de nauwkeurigheid van de metrische gegevens in Azure portal.  Deze versie bevat een oplossing voor de metrische definitie van CPU en gebruikte DWU in overeenstemming met uw werkbelasting goed voor alle computerknooppunten.|
+|**Verbeterde nauwkeurigheid voor gebruikte DWU en CPU portal metrische gegevens**|SQL Data Warehouse aanzienlijk verbetert de nauwkeurigheid van de metrische gegevens in Azure portal.  Deze versie bevat een oplossing voor de metrische definitie van CPU en gebruikte DWU in overeenstemming met uw werkbelasting goed voor alle computerknooppunten. Voordat u deze oplossing zijn metrische waarden undereported wordt. Verwacht te zien van een toename van de gebruikte DWU en CPU-metrische gegevens in Azure portal. |
 |**Als u meer T-SQL-ondersteuning**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met de ondersteuning voor:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
@@ -91,7 +91,7 @@ In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de
 
 ## <a name="more-information"></a>Meer informatie
 
-- [Blog - Azure SQL datawarehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Teamblogs met adviezen voor klanten](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
 - [Succesverhalen van klanten](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

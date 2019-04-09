@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670384"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280550"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aangepaste statusrapporten van Service Fabric toevoegen
 Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) ontworpen om u te markeren niet in orde cluster en de voorwaarden van toepassing op specifieke entiteiten. Maakt gebruik van het statusmodel **health rapporteurs** (onderdelen van het systeem en watchdogs). Het doel is eenvoudig en snel diagnose en herstel. Schrijvers van de service moeten om na te denken over de status van vooraf. Een voorwaarde die van invloed kan status moet worden gerapporteerd, met name als het de problemen met de vlag dicht bij de hoofdmap helpen kan. De statusinformatie bespaart tijd en moeite voor foutopsporing en onderzoek. Het nut is met name wissen nadat de service actief en werkend op schaal in de cloud is (particulier of Azure).
@@ -55,18 +55,18 @@ Zodra de status reporting ontwerp is uitgeschakeld, statusrapporten kunnen worde
 > 
 
 ## <a name="health-client"></a>Status van client
-De health-rapporten worden verzonden naar de health store via een health-client, die zich in de fabric-client. De health-client kan worden geconfigureerd met de volgende instellingen:
+De health-rapporten worden verzonden naar de health manager via een health-client, die zich in de fabric-client. De health manager slaat de rapporten in de health-store. De health-client kan worden geconfigureerd met de volgende instellingen:
 
-* **HealthReportSendInterval**: De vertraging tussen het moment dat het rapport is toegevoegd aan de client en de tijd dat deze wordt verzonden naar de health-store. Gebruikt voor batch-rapporten in een enkel bericht, in plaats van één bericht voor elk rapport. De batchverwerking verbetert de prestaties. Standaard: 30 seconden.
-* **HealthReportRetrySendInterval**: Het interval waarmee de client health opnieuw samengevoegde status rapporteert aan de health-store. Standaard: 30 seconden.
-* **HealthOperationTimeout**: De time-outperiode voor een rapportbericht verzonden naar de health-store. Als er is een time-out opgetreden voor een bericht, de health-client opnieuw probeert deze totdat het statusarchief bevestigt dat het rapport is verwerkt. Standaard: twee minuten.
+* **HealthReportSendInterval**: De vertraging tussen het moment dat het rapport is toegevoegd aan de client en de tijd dat deze wordt verzonden naar de health manager. Gebruikt voor batch-rapporten in een enkel bericht, in plaats van één bericht voor elk rapport. De batchverwerking verbetert de prestaties. Standaard: 30 seconden.
+* **HealthReportRetrySendInterval**: Het interval waarmee de client health opnieuw samengevoegde status rapporteert aan de health manager. Standaard: 30 seconds, minimum: 1 seconde.
+* **HealthOperationTimeout**: De time-outperiode voor een rapportbericht verzonden naar de health manager. Als er is een time-out opgetreden voor een bericht, de health-client opnieuw probeert deze totdat de health manager bevestigt dat het rapport is verwerkt. Standaard: twee minuten.
 
 > [!NOTE]
-> Wanneer de rapporten in batch worden opgenomen, de fabric-client moet worden bewaard actief voor ten minste de HealthReportSendInterval om ervoor te zorgen dat ze worden verzonden. Als het bericht verloren is of de health store niet veroorzaakt door tijdelijke fouten toepassen, de fabric-client moet worden gehouden actief meer, zodat deze een kans om opnieuw te proberen.
+> Wanneer de rapporten in batch worden opgenomen, de fabric-client moet worden bewaard actief voor ten minste de HealthReportSendInterval om ervoor te zorgen dat ze worden verzonden. Als het bericht verloren is of de health manager niet veroorzaakt door tijdelijke fouten toepassen, de fabric-client moet worden gehouden actief meer, zodat deze een kans om opnieuw te proberen.
 > 
 > 
 
-De buffer op de client neemt de uniekheid van de rapporten in acht genomen. Als een bepaalde slechte journalist 100 rapporten per seconde op dezelfde eigenschap van dezelfde entiteit rapporteert, worden de rapporten bijvoorbeeld vervangen door de laatste versie. Maximaal één dergelijk rapport bestaat in de wachtrij van de client. Als batchverwerking is geconfigureerd, wordt het aantal rapporten dat is verzonden naar de health-store is slechts een per interval verzenden. Dit rapport is de laatste toegevoegd rapport, dat overeenkomt met de meest recente status van de entiteit.
+De buffer op de client neemt de uniekheid van de rapporten in acht genomen. Als een bepaalde slechte journalist 100 rapporten per seconde op dezelfde eigenschap van dezelfde entiteit rapporteert, worden de rapporten bijvoorbeeld vervangen door de laatste versie. Maximaal één dergelijk rapport bestaat in de wachtrij van de client. Als batchverwerking is geconfigureerd, wordt het aantal rapporten dat is verzonden naar de health manager is slechts een per interval verzenden. Dit rapport is de laatste toegevoegd rapport, dat overeenkomt met de meest recente status van de entiteit.
 Parameters voor de configuratie opgeven wanneer `FabricClient` wordt gemaakt door door te geven [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) met de gewenste waarden voor vermeldingen die betrekking hebben op status.
 
 Het volgende voorbeeld maakt u een client fabric en geeft aan dat de rapporten moeten worden verzonden wanneer ze worden toegevoegd. Nieuwe pogingen gebeuren in-time-outs en fouten die opnieuw kunnen worden verstuurd, elke 40 seconden.
@@ -312,7 +312,7 @@ Op basis van de health-gegevens, kunnen schrijvers van de service en toepassing/
 
 [Systeemstatusrapporten gebruiken voor het oplossen van problemen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Controle en diagnose van services lokaal](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Services lokaal bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric-toepassingsupgrade](service-fabric-application-upgrade.md)
+[Upgrade van Service Fabric-toepassing uitvoeren](service-fabric-application-upgrade.md)
 
