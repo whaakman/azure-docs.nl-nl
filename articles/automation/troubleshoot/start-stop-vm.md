@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804850"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009781"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Het starten/stoppen van VM's uit uur oplossing oplossen
 
@@ -88,7 +88,7 @@ Bekijk de volgende lijst voor mogelijke oplossingen voor uw probleem of plaatsen
 
 * Controleer of u een schema voor het starten/stoppen van VM-oplossing goed hebt geconfigureerd. Zie voor informatie over het configureren van een schema, de [planningen](../automation-schedules.md) artikel.
 
-* Controleer de taakstromen voor de runbooks om te zoeken naar eventuele fouten. In de portal, gaat u naar uw Automation-Account en selecteer **taken** onder **procesautomatisering**. Uit de **taken** uiterlijk van de pagina voor de taken van een van de volgende runbooks:
+* Controleer de [taak streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) gezocht naar eventuele fouten. In de portal, gaat u naar uw Automation-Account en selecteer **taken** onder **procesautomatisering**. Uit de **taken** uiterlijk van de pagina voor de taken van een van de volgende runbooks:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ Bekijk de volgende lijst voor mogelijke oplossingen voor uw probleem of plaatsen
 
 * Als de virtuele machine is een probleem opgetreden bij het starten of de toewijzing ongedaan maken, kan dit probleem worden veroorzaakt door een probleem op de virtuele machine zelf. Sommige voorbeelden of potentiële problemen zijn, een update wordt toegepast wanneer u wilt afsluiten, een service vastloopt, en meer). Navigeer naar uw VM-resource en controleer de **activiteitenlogboeken** om te zien of er fouten zijn opgetreden in de logboeken. U kunt ook proberen om aan te melden bij de VM om te zien of er fouten zijn opgetreden in de gebeurtenislogboeken. Zie voor meer informatie over het oplossen van uw virtuele machine, [probleemoplossing voor Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
+* Controleer de [taak streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) gezocht naar eventuele fouten. In de portal, gaat u naar uw Automation-Account en selecteer **taken** onder **procesautomatisering**.
+
 ## <a name="custom-runbook"></a>Scenario: Mijn aangepaste runbook kan niet worden mijn VMs starten en stoppen
 
 ### <a name="issue"></a>Probleem
@@ -155,7 +157,7 @@ De oorzaak van de fout wordt mogelijk een van de vele dingen. Ga naar uw Automat
 
 ### <a name="resolution"></a>Oplossing
 
-Het is raadzaam om te gebruiken de [starten/stoppen van VM's uit uur oplossing](../automation-solution-vm-management.md) starten en stoppen van virtuele machines in Azure Automation. Deze oplossing is gemaakt door Microsoft. Aangepaste runbooks worden niet ondersteund door Microsoft. U kunt een oplossing voor uw aangepaste runbook vinden door naar de pagina de [runbook probleemoplossing](runbooks.md) artikel. Dit artikel bevat algemene richtlijnen en probleemoplossing voor runbooks van alle typen.
+Het is raadzaam om te gebruiken de [starten/stoppen van VM's uit uur oplossing](../automation-solution-vm-management.md) starten en stoppen van virtuele machines in Azure Automation. Deze oplossing is gemaakt door Microsoft. Aangepaste runbooks worden niet ondersteund door Microsoft. U kunt een oplossing voor uw aangepaste runbook vinden door naar de pagina de [runbook probleemoplossing](runbooks.md) artikel. Dit artikel bevat algemene richtlijnen en probleemoplossing voor runbooks van alle typen. Controleer de [taak streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) gezocht naar eventuele fouten. In de portal, gaat u naar uw Automation-Account en selecteer **taken** onder **procesautomatisering**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Scenario: Virtuele machines niet starten of stoppen in de juiste volgorde
 
@@ -209,7 +211,7 @@ Aantal keren dat fouten kunnen worden veroorzaakt door een verouderde versie van
 
 ### <a name="resolution"></a>Oplossing
 
-Het is raadzaam om op te lossen veel fouten, verwijderen en bijwerken van de oplossing. Zie voor informatie over het bijwerken van de oplossing, [bijwerken van het starten/stoppen van VM's uit uur oplossing](../automation-solution-vm-management.md#update-the-solution).
+Het is raadzaam om op te lossen veel fouten, verwijderen en bijwerken van de oplossing. Zie voor informatie over het bijwerken van de oplossing, [bijwerken van het starten/stoppen van VM's uit uur oplossing](../automation-solution-vm-management.md#update-the-solution). Bovendien kunt u controleren de [taak streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) gezocht naar eventuele fouten. In de portal, gaat u naar uw Automation-Account en selecteer **taken** onder **procesautomatisering**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

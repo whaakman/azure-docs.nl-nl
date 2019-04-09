@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877823"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009764"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren
 
@@ -33,7 +33,7 @@ Hier volgen enkele richtlijnen om te bepalen wat een strategie voor ingerichte d
 
 1. U hebt enkele tientallen Azure Cosmos-containers en wilt dat het delen van doorvoer op sommige of alle mappen. 
 
-2. U migreert vanaf een één tenant-database die is ontworpen om te worden uitgevoerd op virtuele machines van IaaS gehost of on-premises, bijvoorbeeld NoSQL of relationele databases met Azure Cosmos DB. Basis van de bewerkingen hebt u veel verzamelingen/tabellen/grafieken en u wilt geen wijzigingen aanbrengen in uw gegevensmodel. Opmerking: mogelijk moet u enkele van de voordelen die worden aangeboden door Azure Cosmos DB als u uw gegevensmodel niet worden bijgewerkt wanneer u migreert van een on-premises database in gevaar brengen. Het raadzaam dat u altijd toegang uw gegevensmodel om alles wat betreft prestaties en kosten optimaliseren. 
+2. U migreert vanaf een één tenant-database die is ontworpen om te worden uitgevoerd op virtuele machines van IaaS gehost of on-premises, bijvoorbeeld NoSQL of relationele databases met Azure Cosmos DB. En als u beschikt over veel verzamelingen/tabellen/grafieken en u wilt geen wijzigingen aanbrengen in uw gegevensmodel. Opmerking: mogelijk moet u enkele van de voordelen die worden aangeboden door Azure Cosmos DB als u uw gegevensmodel niet worden bijgewerkt wanneer u migreert van een on-premises database in gevaar brengen. Het raadzaam dat u altijd toegang uw gegevensmodel om alles wat betreft prestaties en kosten optimaliseren. 
 
 3. U wilt opnemen van niet-geplande pieken in de werkbelasting omdat gegroepeerde doorvoer op databaseniveau onderworpen aan onverwachte piek in de workload. 
 

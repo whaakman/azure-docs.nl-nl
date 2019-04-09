@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452127"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006769"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -59,7 +59,7 @@ De lijst met ondersteunde regio's voor ExpressRoute-bewaking is beschikbaar in d
 
 ### <a name="install-and-configure-agents"></a>Agents installeren en configureren 
 
-Gebruik de basic-processen voor het installeren van agents op [verbinding maken met Windows-computers met Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) en [Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
+Gebruik de basic-processen voor het installeren van agents op [verbinding maken met Windows-computers naar Azure Monitor](../platform/agent-windows.md) en [Operations Manager verbinden met Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Waar u de agents te installeren 
 
@@ -101,7 +101,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
 ### <a name="configure-the-solution"></a>De oplossing configureren 
 
-1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md). 
+1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Azure Monitor-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md). 
 2. Open uw Log Analytics-werkruimte en selecteer de **overzicht** tegel. 
 3. Selecteer de **Network Performance Monitor** tegel met het bericht *oplossing is aanvullende configuratie vereist*.
 
@@ -153,7 +153,7 @@ De mogelijkheden die u wilt configureren:
 
 - [Prestatiemeter](network-performance-monitor-performance-monitor.md#configuration)
 - [Service-Eindpuntbewaking](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
+- [ExpressRoute-bewaking](network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -168,7 +168,7 @@ De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere i
  
 
  
-De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. Log Analytics-agents geïnstalleerd op verschillende momenten in de netwerkpakketten exchange TCP of ICMP Echo met elkaar. Of de agents pakketten TCP of ICMP Echo gebruiken, is afhankelijk van het protocol dat u hebt geselecteerd voor bewaking. In het proces meer agents traject tijd en pakket verlies, indien van toepassing. Elke agent voert ook periodiek een route traceren naar andere agents op de verschillende routes vinden in het netwerk dat moet worden getest. Met deze gegevens, kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald om de vijf seconden. Gegevens worden samengevoegd voor ongeveer drie minuten door de agents vóór deze geüpload naar de Log Analytics-service.
+De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. Log Analytics-agents geïnstalleerd op verschillende momenten in de netwerkpakketten exchange TCP of ICMP Echo met elkaar. Of de agents pakketten TCP of ICMP Echo gebruiken, is afhankelijk van het protocol dat u hebt geselecteerd voor bewaking. In het proces meer agents traject tijd en pakket verlies, indien van toepassing. Elke agent voert ook periodiek een route traceren naar andere agents op de verschillende routes vinden in het netwerk dat moet worden getest. Met deze gegevens, kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald om de vijf seconden. Gegevens worden samengevoegd voor ongeveer drie minuten door de agents vóór deze geüpload naar de Log Analytics-werkruimte in Azure Monitor.
 
 
 
@@ -241,9 +241,9 @@ De topologie die wordt weergegeven in de kaart is laag-3-topologie en bevat geen
 ![Topologie-kaart](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Analytics voor zoeken in Logboeken 
+## <a name="log-queries-in-azure-monitor"></a>Logboeken-query's in Azure Monitor
 
-Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [zoeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
+Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [query's bijgehouden](../log-query/log-query-overview.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
 
 ## <a name="alerts"></a>Waarschuwingen
 
@@ -251,7 +251,7 @@ Network Performance Monitor maakt gebruik van de waarschuwingen mogelijkheden va
 
 Dit betekent dat alle meldingen worden beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Als u een NPM-gebruiker die het maken van een waarschuwing via Log Analytics: 
+Als u een NPM-gebruiker die het maken van een waarschuwing via LAzure Monitor: 
 1. Hier ziet u een koppeling waarmee u wordt omgeleid naar Azure-Portal. Klik hierop om de toegang tot de portal.
 2. Klik op de tegel Network Performance Monitor. 
 3. Ga om te configureren.  

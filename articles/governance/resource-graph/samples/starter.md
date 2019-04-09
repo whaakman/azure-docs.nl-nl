@@ -4,17 +4,17 @@ description: Gebruik Azure Resource Graph om een aantal starterquery's uit te vo
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bfeb1678a5271cf1e498cee0a12be12c2cbc2902
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338713"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058455"
 ---
 # <a name="starter-resource-graph-queries"></a>Starter query's van Resource Graph
 
@@ -23,16 +23,16 @@ Om inzicht te krijgen in query's met Azure Resource Graph moet u eerst enige bas
 We nemen de volgende starter query's door:
 
 > [!div class="checklist"]
-> - [Azure-resources tellen](#count-resources)
-> - [Een lijst van resources weergeven, gesorteerd op naam](#list-resources)
-> - [Alle virtuele machines weergeven, aflopend geordend op naam](#show-vms)
-> - [De eerste vijf virtuele machines weergeven op naam en met hun type besturingssysteem](#show-sorted)
-> - [Virtuele machines tellen op type besturingssysteem](#count-os)
-> - [Resources weergeven die opslag bevatten](#show-storage)
-> - [Een lijst van alle openbare IP-adressen weergeven](#list-publicip)
-> - [Resources tellen met IP-adressen die zijn geconfigureerd op abonnement](#count-resources-by-ip)
-> - [Een lijst weergeven van resources met een specifieke tagwaarde](#list-tag)
-> - [Een lijst weergeven van alle opslagaccounts met een specifieke tagwaarde](#list-specific-tag)
+> - [Aantal Azure-resources](#count-resources)
+> - [Lijst met resources die zijn gesorteerd op naam](#list-resources)
+> - [Alle virtuele machines die zijn geordend op de naam in aflopende volgorde weergeven](#show-vms)
+> - [Eerste vijf virtuele machines op naam en hun type besturingssysteem weergeven](#show-sorted)
+> - [Aantal virtuele machines door het type besturingssysteem](#count-os)
+> - [Resources met opslag weergeven](#show-storage)
+> - [Lijst van alle openbare IP-adressen](#list-publicip)
+> - [Aantal resources met een IP-adressen die zijn geconfigureerd op abonnement](#count-resources-by-ip)
+> - [Lijst met resources met een specifieke tagwaarde](#list-tag)
+> - [Lijst van alle opslagaccounts met specifieke tagwaarde](#list-specific-tag)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
 
@@ -95,7 +95,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>De eerste vijf virtuele machines weergeven op naam en met hun type besturingssysteem
 
-Deze query gebruikt `limit` om slechts vijf overeenkomende records op te halen, gesorteerd op naam. Het type van de Azure-resource is `Microsoft.Compute/virtualMachines`. `project` geeft in Azure Resource Graph aan welke eigenschappen u wilt opnemen.
+Deze query gebruikt `limit` om slechts vijf overeenkomende records op te halen, gesorteerd op naam. Het type van de Azure-resource is `Microsoft.Compute/virtualMachines`. `project` vertelt Azure Resource Graph eigenschappen die u wilt opnemen.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +167,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>Een lijst van alle openbare IP-adressen weergeven
 
 Net als bij de vorige query vindt deze query alles dat een type is met het woord **publicIPAddresses**.
-Deze query borduurt voort op dit patroon om de resultaten uit te sluiten waarvan **properties.ipAddress** null is, zodat alleen **properties.ipAddress** wordt geretourneerd, en om de resultaten te `limit` tot de top 100. Afhankelijk van uw gekozen shell, kan het zijn dat u de aanhalingstekens tussen escape-tekens moet plaatsen.
+Deze query borduurt voort op dit patroon om op te nemen alleen resultaten waar **properties.ipAddress**
+`isnotempty`, om terug te keren alleen de **properties.ipAddress**, en zo de `limit` de resultaten op basis van de bovenkant
+100. Afhankelijk van uw gekozen shell, kan het zijn dat u de aanhalingstekens tussen escape-tekens moet plaatsen.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>Resources tellen met IP-adressen die zijn geconfigureerd op abonnement
@@ -188,16 +190,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 Door aan de vorige voorbeeldquery `summarize` en `count()` toe te voegen, krijgen we een lijst per abonnement van resources met geconfigureerde IP-adressen.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>Een lijst weergeven van resources met een specifieke tagwaarde
@@ -250,7 +252,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> In dit voorbeeld wordt `==` in plaats van het voorwaardelijke `=~` gebruikt om naar overeenkomsten te zoeken. `==` is een hoofdlettergevoelige overeenkomst.
+> In dit voorbeeld wordt `==` in plaats van het voorwaardelijke `=~` gebruikt om naar overeenkomsten te zoeken. `==` is een hoofdlettergevoelig overeenkomst.
 
 ## <a name="next-steps"></a>Volgende stappen
 

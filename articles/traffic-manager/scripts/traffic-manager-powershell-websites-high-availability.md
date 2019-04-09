@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 4991be7ecb252001245a0bcde8551d8432b0794b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: db84de194832180b8e153cf6aa7e6c9fab5e6d61
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998498"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010172"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Verkeer routeren voor hoge beschikbaarheid van toepassingen met behulp van Azure PowerShell
 
@@ -56,7 +56,7 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Hiermee maakt u een Azure-web-app in de App Service-plan. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | Hiermee maakt u een Azure-web-app in de App Service-plan. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Hiermee maakt u een Azure Traffic Manager-profiel. |
-| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Een eindpunt toevoegen aan een Azure Traffic Manager-profiel. |
+| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Hiermee voegt u een eindpunt toe aan een Azure Traffic Manager-profiel. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

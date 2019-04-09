@@ -4,16 +4,16 @@ description: Informatie over het ophalen en beheren van grote gegevenssets tijde
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889032"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058379"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Werken met grote Azure-resource-gegevenssets
 
@@ -63,7 +63,7 @@ In de [REST-API](/rest/api/azureresourcegraph/resources/resources), is het bestu
 
 ## <a name="paging-results"></a>Resultaten pagineren
 
-Wanneer het nodig zijn aan het einde van een resultatenset in kleinere groepen van de records voor de verwerking is of omdat een resultatenset de maximaal toegestane aantal van overschrijdt _5000_ wisselbestand records geretourneerd, gebruiken. De [REST-API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** waarden om aan te geven van een set opgedeeld resultaten: **resultTruncated** en **$skipToken** .
+Wanneer het nodig zijn aan het einde van een resultatenset in kleinere groepen van de records voor de verwerking is of omdat een resultatenset de maximaal toegestane aantal van overschrijdt _1000_ wisselbestand records geretourneerd, gebruiken. De [REST-API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** waarden om aan te geven van een set opgedeeld resultaten: **resultTruncated** en **$skipToken** .
 **resultTruncated** is een Booleaanse waarde die u de consument informeert als er extra records niet in het antwoord geretourneerd. Dit probleem kan ook worden geïdentificeerd wanneer de **aantal** eigenschap is kleiner dan de **totalRecords** eigenschap. **totalRecords** definieert hoeveel records die overeenkomen met de query.
 
 Wanneer **resultTruncated** is **waar**, wordt de **$skipToken** eigenschap is ingesteld in het antwoord. Deze waarde wordt gebruikt door de dezelfde waarden voor query's en -abonnement om op te halen van de volgende set met records die overeenkomen met de query.

@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048806"
+ms.locfileid: "59057050"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -156,6 +156,9 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    - Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken voor aanmelding bij. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.
+
+- Azure Stack biedt nu ondersteuning voor Windows Azure Linux-agents die groter is dan versie 2.2.20. Deze ondersteuning is een onderdeel van de hotfix 1901 en 1902 en kan klanten behouden van consistente linux-installatiekopieën tussen Azure en Azure Stack.
+
 
 - Als u geen een Hardware Lifecycle Host (HLH): voordat build 1902, moest u Groepsbeleid instellen **Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties** naar **verzenden LM en NTLM: NTLMv2-sessiebeveiliging gebruiken als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is de standaardwaarde). Anders kunt u zich niet tot stand brengen van een externe PowerShell-sessie en ziet u een **toegang is geweigerd** fout:
 

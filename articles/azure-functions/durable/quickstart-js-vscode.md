@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049677"
+ms.locfileid: "59056296"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Uw eerste duurzame functie maken in JavaScript
 
@@ -110,7 +110,9 @@ Nu zijn alle benodigde onderdelen toegevoegd voor het starten van een indeling e
 
 Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio Code start, wordt u gevraagd deze hulpprogramma's te installeren.  
 
-1. Op een Windows-computer start u de Azure Storage-emulator en zorgt u ervoor dat de eigenschap **AzureWebJobsStorage** van local.settings.json is ingesteld op `UseDevelopmentStorage=true`. Op een Mac- of Linux-computer moet u de eigenschap **AzureWebJobsStorage** instellen op de verbindingsreeks van een bestaand Azure-opslagaccount. Later in dit artikel maakt u een opslagaccount.
+1. Op een Windows-computer start u de Azure Storage-emulator en zorgt u ervoor dat de eigenschap **AzureWebJobsStorage** van local.settings.json is ingesteld op `UseDevelopmentStorage=true`. 
+
+    Voor Storage Emulator 5.8 Zorg ervoor dat de **AzureWebJobsSecretStorageType** eigenschap van local.settings.json is ingesteld op `files`. Op een Mac of Linux-computer, moet u instellen de **AzureWebJobsStorage** eigenschap op de verbindingstekenreeks van een bestaand Azure storage-account. Later in dit artikel maakt u een opslagaccount.
 
 2. U kunt de functie testen door een onderbrekingspunt in de functiecode in te stellen en op F5 te drukken om het functie-appproject te starten. De uitvoer van Core Tools wordt weergegeven in het deelvenster **Terminal**. Als dit de eerste keer is dat u Durable Functions gebruikt, wordt de Durable Functions-extensie geïnstalleerd. Het bouwen kan enkele seconden duren.
 

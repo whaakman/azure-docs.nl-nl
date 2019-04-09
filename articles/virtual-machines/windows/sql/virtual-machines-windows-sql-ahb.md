@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850193"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005791"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Het wijzigen van de licentiemodel voor een virtuele machine van SQL Server in Azure
 In dit artikel wordt beschreven hoe u de licentiemodel voor een virtuele machine van SQL Server in Azure met behulp van de nieuwe SQL-VM-resourceprovider - **Microsoft.SqlVirtualMachine**. Er zijn twee modellen voor een virtuele machine (VM) die als host fungeert voor SQL Server - betalen per gebruik, licenties en uw eigen licentie (BYOL). En nu met behulp van PowerShell of Azure CLI, u kunt wijzigen welke licentiemodel maakt gebruik van uw SQL Server-VM. 
@@ -35,12 +35,17 @@ Schakelen tussen de twee licentiemodellen worden in rekening gebracht **zonder u
 
 ## <a name="remarks"></a>Opmerkingen
 
- - De mogelijkheid om het licentiemodel te converteren is momenteel alleen beschikbaar voor een VM-installatiekopie van SQL Server op basis van betalen per gebruik. Als u een BYOL-installatiekopie (Bring Your Own License) hebt, kunt u die installatiekopie niet converteren naar betalen per gebruik.
  - CSP-klanten kunnen gebruikmaken van het voordeel AHB door eerst een betalen per gebruik virtuele machine te implementeren en vervolgens te converteren naar bring-your-own-license. 
- - Deze mogelijkheid is momenteel alleen ingeschakeld voor installaties van de openbare Cloud.
  - Wanneer u een aangepaste SQL Server-VM-installatiekopie met de resourceprovider registreert, geeft u het licentietype = 'AHUB'. Typ leeg verlaten van de licentie of 'Betalen per gebruik' opgeeft, zal de registratie mislukt. 
+ 
+## <a name="limitations"></a>Beperkingen
+
+ - De mogelijkheid om het licentiemodel te converteren is momenteel alleen beschikbaar voor een VM-installatiekopie van SQL Server op basis van betalen per gebruik. Als u een BYOL-installatiekopie (Bring Your Own License) hebt, kunt u die installatiekopie niet converteren naar betalen per gebruik.
+  - Wijzigen van de licentiemodel wordt op dit moment alleen ondersteund voor virtuele machines die zijn geïmplementeerd met behulp van de Resource Manager-model. Virtuele machines die zijn geïmplementeerd met behulp van het klassieke model, worden niet ondersteund. 
+   - Op dit moment de licentiemodel wijzigen is alleen ingeschakeld voor installaties van de openbare Cloud.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Het gebruik van de resourceprovider van SQL-VM moet de SQL IaaS-extensie. Als u wilt doorgaan met het gebruik van de resourceprovider van SQL-VM, moet u als zodanig het volgende:
 - Een [Azure-abonnement](https://azure.microsoft.com/free/).
 - [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 

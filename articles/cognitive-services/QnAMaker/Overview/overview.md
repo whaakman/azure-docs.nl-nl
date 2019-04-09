@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872455"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257226"
 ---
 # <a name="what-is-qna-maker"></a>Wat is QnA Maker?
 
@@ -66,10 +66,9 @@ De architectuur van QnA Maker bestaat uit de volgende twee onderdelen:
 
 ## <a name="service-highlights"></a>Belangrijke functies van de service
 
-- Een complete **no-code**-ervaring voor het [maken van een FAQ-bot](https://aka.ms/qnamaker-docs-create-faqbot).
+- Een complete **zonder code** ervaring aan [maken van een bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) uit een knowledge base.
 - **Er is geen netwerkbeperking voor voorspellingen**. Betaal voor het hosten van de service en niet voor het aantal transacties. Bekijk de [prijzenpagina](https://aka.ms/qnamaker-docs-pricing) voor meer informatie.
 - **Schalen naar behoefte**. Kies de juiste SKU’s van de afzonderlijke componenten die bij uw scenario passen. Zie hoe u [capaciteit kiest](https://aka.ms/qnamaker-docs-capacity) voor uw QnA Maker-service.
-- **Volledige gegevenscompliance**. De onderdelen van de voorspellingsservice worden geïmplementeerd in uw Azure-abonnement en binnen hun nalevingsgrens.
 
 
 ## <a name="next-steps"></a>Volgende stappen

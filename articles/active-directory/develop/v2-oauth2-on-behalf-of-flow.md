@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 OAuth 2.0 op namens-stroom | Microsoft Docs
+title: Microsoft identity-platform en OAuth 2.0 op namens-stroom | Azure
 description: In dit artikel wordt beschreven hoe u gebruik van HTTP-berichten voor het implementeren van service-to-service-verificatie met behulp van de OAuth 2.0 op namens-stroom.
 services: active-directory
 documentationcenter: ''
@@ -13,30 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576927"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058676"
 ---
-# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-platform en OAuth 2.0 namens-stroom
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-De OAuth 2.0 namens-stroom (OBO) fungeert de use-case die waar een toepassing een service of web-API aanroept die op zijn beurt moet een andere service/web-API aanroepen. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
+De OAuth 2.0 namens-stroom (OBO) fungeert de use-case die waar een toepassing een service of web-API aanroept die op zijn beurt moet een andere service/web-API aanroepen. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet voor het beveiligen van een toegangstoken van de Microsoft identity-platform, namens de gebruiker.
 
 > [!NOTE]
-> Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure AD-scenario's en onderdelen. Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [v2.0 beperkingen](active-directory-v2-limitations.md). Met name worden bekend clienttoepassingen niet ondersteund voor apps met Microsoft-account (MSA) en Azure AD doelgroepen. Een algemeen patroon toestemming voor OBO werkt dus niet voor clients die zich in zowel persoonlijke en werk-of schoolaccount. Zie voor meer informatie over het afhandelen van deze stap van de stroom, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application).
-
-
-> [!IMPORTANT]
-> Vanaf mei 2018, bepaalde impliciete stroom afgeleid `id_token` voor OBO stroom kan niet worden gebruikt. Apps van één pagina (kuuroorden) moeten worden verwerkt een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen in plaats daarvan. Zie voor meer informatie over welke clients OBO aanroepen kunnen uitvoeren, [beperkingen](#client-limitations).
+>
+> - Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md). Met name worden bekend clienttoepassingen niet ondersteund voor apps met Microsoft-account (MSA) en Azure AD doelgroepen. Een algemeen patroon toestemming voor OBO werkt dus niet voor clients die zich in zowel persoonlijke en werk-of schoolaccount. Zie voor meer informatie over het afhandelen van deze stap van de stroom, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application).
+> - Vanaf mei 2018, bepaalde impliciete stroom afgeleid `id_token` voor OBO stroom kan niet worden gebruikt. Apps van één pagina (kuuroorden) moeten worden verwerkt een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen in plaats daarvan. Zie voor meer informatie over welke clients OBO aanroepen kunnen uitvoeren, [beperkingen](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 
@@ -44,16 +42,16 @@ Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met beh
 
 De volgende stappen de stroom OBO vormen en met behulp van het volgende diagram worden uitgelegd.
 
-![OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth 2.0 op namens-stroom](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. De clienttoepassing een aanvraag doet bij API A met A-token (met een `aud` claim van API-A).
-1. API A wordt geverifieerd op het eindpunt van de Azure AD-token-uitgifte en vraagt een token voor toegang tot API B.
-1. Het eindpunt van de Azure AD-token-uitgifte van de A-API-referenties met een token valideert en problemen met het toegangstoken voor API-B (token B).
+1. API A wordt geverifieerd op het eindpunt van de Microsoft identity platform token-uitgifte en vraagt een token voor toegang tot API B.
+1. Het eindpunt van de Microsoft identity platform token-uitgifte van de A-API-referenties met een token valideert en problemen met het toegangstoken voor API-B (token B).
 1. Token B is ingesteld in de autorisatie-header van de aanvraag voor API B.
 1. Gegevens van de beveiligde resource wordt geretourneerd door API B.
 
 > [!NOTE]
-> In dit scenario heeft de middelste laag service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. De optie voor het verlenen van toegang tot de downstream API daarom is vooraf verschijnt als een deel van de toestemming stap tijdens de verificatie is. Zie voor meer informatie over deze instellen voor uw app, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application). 
+> In dit scenario heeft de middelste laag service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. De optie voor het verlenen van toegang tot de downstream API daarom is vooraf verschijnt als een deel van de toestemming stap tijdens de verificatie is. Zie voor meer informatie over deze instellen voor uw app, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="service-to-service-access-token-request"></a>Service-naar-service toegangstokenaanvraag
 
@@ -139,7 +137,7 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 
 | Parameter | Description |
 | --- | --- |
-| `token_type` | Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt `Bearer`. Zie voor meer informatie over het bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `token_type` | Geeft aan dat de waarde van het token. Het enige type die door Microsoft identity-platform ondersteunt is `Bearer`. Zie voor meer informatie over het bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | `scope` | Het bereik van de toegang is verleend in het token. |
 | `expires_in` | De lengte van de tijd in seconden die het toegangstoken ongeldig is. |
 | `access_token` | Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om te verifiëren bij de ontvangende service. |
@@ -161,7 +159,7 @@ Het volgende voorbeeld toont een geslaagd antwoord op een verzoek om een token v
 ```
 
 > [!NOTE]
-> Het bovenstaande toegangstoken is een token v1.0-indeling. Dit is omdat het token is opgegeven op basis van de bron waartoe toegang wordt verkregen. De Microsoft Graph-aanvragen v1.0 tokens, zodat Azure AD de toegangstokens v1.0 levert wanneer een client een aanvraag tokens voor Microsoft Graph. Alleen toepassingen te toegangstokens bekijken. Clients nodig controleren ze niet. 
+> Het bovenstaande toegangstoken is een token v1.0-indeling. Dit is omdat het token is opgegeven op basis van de bron waartoe toegang wordt verkregen. De Microsoft Graph-aanvragen v1.0 tokens, zodat Microsoft identity-platform v1.0 toegangstokens levert wanneer een client een aanvraag tokens voor Microsoft Graph. Alleen toepassingen te toegangstokens bekijken. Clients nodig controleren ze niet.
 
 ### <a name="error-response-example"></a>Foutvoorbeeld antwoord
 
@@ -199,9 +197,9 @@ Afhankelijk van de doelgroep voor uw toepassing, kunt u overwegen om verschillen
 
 #### <a name="default-and-combined-consent"></a>/.Default en gecombineerde toestemming
 
-Voor toepassingen waarvoor alleen aanmelden werk of school-accounts, is de traditionele aanpak voor "Clienttoepassingen bekend" voldoende. De middelste laag-toepassing de client toegevoegd aan de lijst met bekende clients toepassingen in het manifest en vervolgens de client een gecombineerde instemmingsstroom zelf en de middelste laag-toepassing kunt activeren. Op het v2.0-eindpunt, dit wordt gedaan met behulp van de [ `/.default` bereik](v2-permissions-and-consent.md#the-default-scope). Bij het activeren van een instemmingsscherm met behulp van bekende clienttoepassingen en `/.default`, het instemmingsscherm worden machtigingen voor zowel de client op de middelste laag API weergeven en ook vragen welke machtigingen zijn vereist voor de middelste laag-API. De gebruiker heeft ingestemd voor beide toepassingen en vervolgens de stroom OBO werkt. 
+Voor toepassingen waarvoor alleen aanmelden werk of school-accounts, is de traditionele aanpak voor "Clienttoepassingen bekend" voldoende. De middelste laag-toepassing de client toegevoegd aan de lijst met bekende clients toepassingen in het manifest en vervolgens de client een gecombineerde instemmingsstroom zelf en de middelste laag-toepassing kunt activeren. Op het v2.0-eindpunt, dit wordt gedaan met behulp van de [ `/.default` bereik](v2-permissions-and-consent.md#the-default-scope). Bij het activeren van een instemmingsscherm met behulp van bekende clienttoepassingen en `/.default`, het instemmingsscherm worden machtigingen voor zowel de client op de middelste laag API weergeven en ook vragen welke machtigingen zijn vereist voor de middelste laag-API. De gebruiker heeft ingestemd voor beide toepassingen en vervolgens de stroom OBO werkt.
 
-Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoonlijke Microsoft-accountsysteem en deze benadering werkt dus niet voor apps die u wilt aanmelden specifiek persoonlijke accounts. Persoonlijke Microsoft-accounts wordt gebruikt als Gast-account in een tenant worden verwerkt met behulp van het Azure AD-systeem en gecombineerde toestemming kunnen doorlopen. 
+Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoonlijke Microsoft-accountsysteem en deze benadering werkt dus niet voor apps die u wilt aanmelden specifiek persoonlijke accounts. Persoonlijke Microsoft-accounts wordt gebruikt als Gast-account in een tenant worden verwerkt met behulp van het Azure AD-systeem en gecombineerde toestemming kunnen doorlopen.
 
 #### <a name="pre-authorized-applications"></a>Vooraf gemachtigde toepassingen
 
@@ -209,24 +207,24 @@ Een functie van de portal van de toepassing is 'vooraf gemachtigde toepassingen'
 
 #### <a name="admin-consent"></a>toestemming van de beheerder
 
-Een tenantbeheerder kan garanderen dat toepassingen kan worden gemachtigd om aan te roepen hun vereist API's door te geven van toestemming van een beheerder voor de middelste laag-toepassing. U doet dit door de beheerder de middelste laag-toepassing in hun tenant niet vinden, opent u de pagina van de vereiste machtigingen en wilt machtigen voor de app. Zie voor meer informatie over de toestemming van een beheerder, de [machtigingen en toestemming documentatie](v2-permissions-and-consent.md). 
+Een tenantbeheerder kan garanderen dat toepassingen kan worden gemachtigd om aan te roepen hun vereist API's door te geven van toestemming van een beheerder voor de middelste laag-toepassing. U doet dit door de beheerder de middelste laag-toepassing in hun tenant niet vinden, opent u de pagina van de vereiste machtigingen en wilt machtigen voor de app. Zie voor meer informatie over de toestemming van een beheerder, de [machtigingen en toestemming documentatie](v2-permissions-and-consent.md).
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Toestemming voor op Azure AD en Microsoft-account-toepassingen
 
-De toestemming-vereisten voor persoonlijke accounts zijn veroorzaakt door beperkingen in het machtigingenmodel voor persoonlijke accounts en het ontbreken van een tenant van bestuur enigszins verschillen van Azure AD. Er is geen tenant toestemming voor tenant-brede en is er de mogelijkheid voor gecombineerde toestemming geven. Dus, andere strategieën aanwezig zelf - Houd er rekening mee dat dit voor toepassingen die alleen nodig werkt voor de ondersteuning van Azure AD-accounts. 
+De toestemming-vereisten voor persoonlijke accounts zijn veroorzaakt door beperkingen in het machtigingenmodel voor persoonlijke accounts en het ontbreken van een tenant van bestuur enigszins verschillen van Azure AD. Er is geen tenant toestemming voor tenant-brede en is er de mogelijkheid voor gecombineerde toestemming geven. Dus, andere strategieën aanwezig zelf - Houd er rekening mee dat dit voor toepassingen die alleen nodig werkt voor de ondersteuning van Azure AD-accounts.
 
 #### <a name="use-of-a-single-application"></a>Gebruik van één toepassing
 
-In sommige scenario's kan u slechts één koppeling van de middelste laag en front-client hebben. In dit scenario wordt wellicht vindt u het eenvoudiger te kunnen dit één toepassing, zodat de noodzaak van een toepassing voor de middelste laag kan worden overgeslagen. Als u wilt verifiëren tussen de front-end en de web-API, kunt u cookies, een id_token of een toegangstoken aangevraagd voor de toepassing zelf. Vervolgens, aanvragen toestemming van deze één toepassing naar de back-end-bron. 
+In sommige scenario's kan u slechts één koppeling van de middelste laag en front-client hebben. In dit scenario wordt wellicht vindt u het eenvoudiger te kunnen dit één toepassing, zodat de noodzaak van een toepassing voor de middelste laag kan worden overgeslagen. Als u wilt verifiëren tussen de front-end en de web-API, kunt u cookies, een id_token of een toegangstoken aangevraagd voor de toepassing zelf. Vervolgens, aanvragen toestemming van deze één toepassing naar de back-end-bron.
 
 ## <a name="client-limitations"></a>Clientbeperkingen
 
-Als een client de impliciete stroom gebruikt om op te halen van een id_token en dat de client ook jokertekens in een antwoord-URL heeft, kan de id_token kan niet worden gebruikt voor een OBO-stroom.  Toegangstokens die zijn verkregen via de impliciete stroom kunnen echter nog steeds worden ingewisseld door een vertrouwelijke client, zelfs als de initiërende client een antwoord-URL van het jokerteken geregistreerd heeft. 
+Als een client de impliciete stroom gebruikt om op te halen van een id_token en dat de client ook jokertekens in een antwoord-URL heeft, kan de id_token kan niet worden gebruikt voor een OBO-stroom.  Toegangstokens die zijn verkregen via de impliciete stroom kunnen echter nog steeds worden ingewisseld door een vertrouwelijke client, zelfs als de initiërende client een antwoord-URL van het jokerteken geregistreerd heeft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over het OAuth 2.0-protocol en een andere manier voor het uitvoeren van service-to-service-verificatie met behulp van clientreferenties.
 
-* [Referenties voor OAuth 2.0-client verlenen in Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Stroom voor OAuth 2.0-code in Azure AD v2.0](v2-oauth2-auth-code-flow.md)
-* [Met behulp van de `/.default` bereik](v2-permissions-and-consent.md#the-default-scope) 
+* [Referenties voor OAuth 2.0-client verlenen in Microsoft identity-platform](v2-oauth2-client-creds-grant-flow.md)
+* [Stroom voor OAuth 2.0-code in Microsoft identity-platform](v2-oauth2-auth-code-flow.md)
+* [Met behulp van de `/.default` bereik](v2-permissions-and-consent.md#the-default-scope)

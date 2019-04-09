@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256376"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Wat is industriële IoT (IIoT)
 
@@ -28,9 +28,9 @@ Te verminderen de tijdrovend proces van toegang tot factory floor machines met A
 ![Industriële IoT-beveiligingsoverzicht](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Zie voor meer informatie over Azure industriële IoT-services, GitHub [opslagplaats ](https://github.com/Azure/azure-iiot-services).
+> Zie voor meer informatie over Azure industriële IoT-services, GitHub [opslagplaats](https://github.com/Azure/azure-iiot-services).
 Als u niet bekend bent met de werking van Azure IoT Edge-modules, begint u met de volgende artikelen:
-- [Informatie over Azure IoT Edge](../iot-edge/about-iot-edge.md)
+- [Over Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge-modules](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>Verbonden factory
@@ -50,4 +50,4 @@ Azure IoT OPC UA-Certificaatbeheer of OPC-kluis is een implementatie van OPC UA 
 Nu dat u een inleiding tot industriële IoT en de bijbehorende onderdelen hebt, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Wat is de OPC-Twin](overview-opc-twin.md)
+> [Wat is OPC Twin?](overview-opc-twin.md)

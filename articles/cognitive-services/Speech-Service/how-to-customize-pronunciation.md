@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339394"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005162"
 ---
 # <a name="enable-custom-pronunciation"></a>Aangepaste uitspraak inschakelen
 
@@ -63,7 +63,7 @@ Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (n
 Een weergaveformulier mag alleen een aangepast woord, een acroniem of samengestelde woorden die een combinatie van bestaande woorden.
 
 >[!NOTE]
->U kunt beter geen deze functie te reformulate veelvoorkomende woorden of te wijzigen van de gesproken vorm. Is het beter om uit te voeren van de decoder om te zien of sommige ongebruikelijke woorden (zoals afkortingen, technische woorden of woorden in vreemde talen) onjuist worden gedecodeerd. Als ze zijn, kunt u ze aan het aangepaste uitspraak van bestand toevoegen. In het taalmodel, altijd en alleen gebruikt u de vorm van de weergave van een woord.
+>U kunt beter geen deze functie te reformulate veelvoorkomende woorden of te wijzigen van de gesproken vorm. Het is beter controle of sommige ongebruikelijke woorden (zoals afkortingen, technische woorden of woorden in vreemde talen), onjuist transribed zijn voordat deze functie wordt gebruikt. Als ze zijn, kunt u ze aan het aangepaste uitspraak van bestand toevoegen. In het taalmodel, altijd en alleen gebruikt u de vorm van de weergave van een woord.
 
 ## <a name="requirements-for-the-file-size"></a>Vereisten voor de bestandsgrootte
 De grootte van de txt-bestand dat de uitspraak van vermeldingen bevat die is beperkt tot 1 MB (1KB voor de gratis laag sleutels). U hoeft normaal gesproken te uploaden van grote hoeveelheden gegevens via dit bestand. De meeste aangepaste uitspraak van bestanden zijn waarschijnlijk slechts een aantal kilobytes (kB) groot. De codering van de txt-bestand voor alle landinstellingen moet UTF-8 stuklijst. Voor de Engelse landinstelling is ook ANSI acceptabel.

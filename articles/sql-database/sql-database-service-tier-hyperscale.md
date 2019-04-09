@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/04/2019
+ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903790"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010478"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
@@ -33,8 +33,6 @@ De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier i
 > Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service beschikbare regio's voor een laag](#available-regions). Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 > [!NOTE]
 > Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [algemeen](sql-database-service-tier-general-purpose.md) en [bedrijfskritiek](sql-database-service-tier-business-critical.md) Servicelagen. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
-> [!IMPORTANT]
-> Zeer grootschalige service-laag is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Wat zijn de mogelijkheden voor grootschalige
 

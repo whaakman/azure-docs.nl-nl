@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540122"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256087"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps Map Control gebruiken
 
@@ -30,8 +30,8 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     a. Gebruik de wereldwijd gehoste CDN-versie van Azure Maps Web SDK door de URL-eindpunten toe te voegen aan de verwijzingen stylesheet en het script in de `<head>` element van het bestand:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
     b. U kunt ook laden van de Web-SDK van Azure kaarten-broncode lokaal via de [azure-kaarten-control](https://www.npmjs.com/package/azure-maps-control) NPM verpakt en hosten van de App met uw app. Dit pakket bevat ook TypeScript-definities.
@@ -102,7 +102,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </script>
     ```
 
-    Zie [verificatie met Azure Maps](azure-maps-authentication.md) voor meer informatie.
+    Zie voor meer informatie, [verificatie met Azure Maps](azure-maps-authentication.md) voor meer informatie.
 
 6. (Optioneel) wellicht vindt u de volgende elementen van de meta-tag toe te voegen aan de kop van de pagina die handig zijn:
 
@@ -114,7 +114,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Dit alles ziet uw HTML-bestand er ongeveer als volgt:
+7. Dit alles ziet uw HTML-bestand er ongeveer als de volgende code:
 
     ```HTML
     <!DOCTYPE html>
@@ -131,8 +131,8 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <style>
             html, body {
@@ -164,7 +164,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </html>
     ```
 
-8. Open het bestand in uw webbrowser en de gerenderde kaart weergeven. Het moet er als volgt uit:
+8. Open het bestand in uw webbrowser en de gerenderde kaart weergeven. Deze moet de volgende code uitzien:
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="Map control gebruiken" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Zie de Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>over het gebruik van het kaartbesturingselement</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
@@ -180,4 +180,4 @@ Informatie over het maken van en interactie met een kaart:
 Meer informatie over voor de stijl van een kaart:
 
 > [!div class="nextstepaction"]
-> [Kies een stijl kaart](choose-map-style.md)
+> [Een kaartstijl kiezen](choose-map-style.md)

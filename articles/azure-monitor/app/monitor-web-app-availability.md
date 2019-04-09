@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124317"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005745"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -167,7 +167,7 @@ U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde t
 
 ## <a name="edit"></a> Tests bekijken en bewerken
 
-Selecteer het weglatingsteken aan de rechterkant te bewerken, tijdelijk uitschakelen, verwijderen of WebTest downloaden op een specifieke test van het tabblad details.
+Selecteer het weglatingsteken aan de rechterkant te bewerken, tijdelijk uitschakelen, verwijderen of WebTest downloaden op een specifieke test van het tabblad details. Het duurt tot 20 minuten voor wijzigingen in de configuratie worden doorgegeven.
 
 Selecteer **test weergavedetails** van een specifieke test om te zien van het spreidingsdiagram en details van de specifieke locatie.
 
@@ -319,7 +319,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
     
     Opmerking: De URL mislukt mogelijk niet in browsers die een soepelere validatie van HTTP-headers. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Ik zie geen gerelateerde telemetriegegevens van de server om testfouten vast te stellen*
+* *Ik zie niet alle gerelateerde telemetrie aan de serverzijde op testfouten?*
     
     Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd. Selecteer een andere beschikbaarheidsset-resultaat.
 
@@ -335,7 +335,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.
     
-* *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
+* *Ik wil graag beschikbaarheidstests gebruiken voor onze interne server die achter een firewall wordt uitgevoerd.*
 
     Er zijn twee mogelijke oplossingen:
     
@@ -380,7 +380,7 @@ Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meld
 
 [Problemen oplossen][qna]
 
-[IP-adressen van webtest-agents](../../azure-monitor/app/ip-addresses.md)
+[IP-adressen van de webtest-agents](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 
