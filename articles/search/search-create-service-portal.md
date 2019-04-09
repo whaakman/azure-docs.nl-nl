@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885724"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264026"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -22,7 +22,7 @@ Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen 
 
 Dit artikel bevat meer informatie over hoe u een Azure Search-resource in [Azure Portal](https://portal.azure.com/) kunt maken.
 
-[![GIF-animatie](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![Amet GIF-animatie](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Hebt u liever PowerShell? Gebruik de [servicesjabloon](https://azure.microsoft.com/resources/templates/101-azure-search-create/) van Azure Resource Manager. Zie [Azure Search beheren met PowerShell](search-manage-powershell.md) voor hulp om aan de slag te gaan.
 
@@ -71,7 +71,7 @@ Als u resources niet in één groep combineert of als bestaande resourcegroepen 
 
 Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. [Prijzen kunnen verschillen](https://azure.microsoft.com/pricing/details/search/) per regio.
 
-Als u van plan bent Cognitive Search te gebruiken, kiest u een [regio waarin deze functie beschikbaar is](cognitive-search-quickstart-blob.md#supported-regions).
+Als u bij het indexeren van inhoud in een Azure-service (Azure storage, Azure Cosmos DB, Azure SQL Database), uw Azure Search-service maken in dezelfde regio als uw gegevens om bandbreedte kosten te voorkomen. Er zijn geen kosten voor uitgaande gegevens wanneer de services zijn in dezelfde regio.
 
 ## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
 
@@ -143,4 +143,4 @@ Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarhe
 Nadat u een Azure Search-service hebt ingericht, kunt u in de portal verdergaan met het maken van uw eerste index.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Gegevens en index importeren, en query's uitvoeren in de portal](search-get-started-portal.md)
+> [Zelfstudie: Gegevens importeren, index en uitvoeren van query's in de portal](search-get-started-portal.md)

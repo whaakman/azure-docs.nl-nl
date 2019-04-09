@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805071"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267341"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -137,7 +137,7 @@ Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementa
 
 #### <a name="issue"></a>Probleem
 
-U ontvangt de volgende fout bij het aanroepen van een childrunbook met de `-Wait` switch en de uitvoerstroom-object bevat:
+U ontvangt de volgende fout bij het aanroepen van een onderliggend runbook met de `-Wait` switch en de uitvoerstroom-object bevat:
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Er zijn twee manieren deze fout op te lossen:
 
 * Het runbook bewerken en verminder het aantal taakstromen die deze verzendt.
 * Verminder het aantal stromen moet worden opgehaald als de cmdlet wordt uitgevoerd. Als u wilt volgen dit gedrag, kunt u de `-Stream Output` parameter voor de `Get-AzureRmAutomationJobOutput` alleen uitvoerstromen cmdlet om op te halen. 
+
+### <a name="cannot-invoke-method"></a>Scenario: PowerShell-taak is mislukt met fout: Kan de methode niet aanroepen.
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt de volgende strekking weergegeven bij het starten van een PowerShell Job in een runbook uitvoeren in Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan optreden bij het starten van een taak in een runbook is uitgevoerd in Azure PowerShell. Dit probleem kan optreden omdat runbooks worden uitgevoerd in een Azure sandbox kan niet worden uitgevoerd in de [volledige taalmodus](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>Oplossing
+
+Er zijn twee manieren deze fout op te lossen:
+
+* In plaats van `Start-Job`, gebruikt u `Start-AzureRmAutomationRunbook` om een runbook te starten
+* Als uw runbook heeft dit foutbericht wordt weergegeven, voert u deze op een Hybrid Runbook Worker
+
+Zie voor meer informatie over dit gedrag en ander gedrag van Azure Automation-Runbooks, [Runbook gedrag](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Volgende stappen
 

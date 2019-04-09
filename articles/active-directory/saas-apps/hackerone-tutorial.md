@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898462"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Zelfstudie: Azure Active Directory-integratie met HackerOne
 
@@ -52,7 +52,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van HackerOne in Azure Active Directory, moet u HackerOne uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u HackerOne wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen HackerOne uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -106,7 +106,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure Active Directo
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij HackerOne](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://hackerone.com/<company name>/authentication`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://hackerone.com/<company name>/authentication`
 
     b. Typ een URL in het vak **Id (Entiteits-id)**: `https://hackerone.com/users/saml/metadata`
 
@@ -145,9 +145,9 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure Active Directo
 
     a. Typ uw geregistreerde domein in het tekstvak **E-Maildomein**.
 
-    b. Plak in het tekstvak   **URL voor eenmalige aanmelding** ** de waarde van de **Aanmeldings-URL  die u hebt gekopieerd uit de Azure-portal.
+    b. In **eenmalige aanmelding op URL** tekstvakken, plak de waarde van **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
-    c. Open uw gedownloade **certificaatbestand** vanuit de Azure-portal in Kladblok, kopieer de inhoud ervan naar het Klembord en plak het in het tekstvak **X509-certificaat**  .
+    c. Open uw gedownloade **certificaatbestand** vanuit Azure portal in Kladblok, Kopieer de inhoud ervan in het Klembord en plak worden de **X509 certificaat** tekstvak.
 
     d. Klik op **Opslaan**.
 
@@ -222,8 +222,8 @@ Wanneer u in het toegangsvenster op de tegel HackerOne klikt, wordt u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

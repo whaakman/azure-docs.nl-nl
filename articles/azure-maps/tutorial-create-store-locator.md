@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540853"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270800"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
@@ -132,14 +132,14 @@ Voor het maken van de gebruikersinterface voegt u code toe aan *index.html*:
 1. Voeg verwijzingen toe naar de JavaScript- en CSS-bestanden voor de Azure Maps-webbesturingselementen :
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Voeg een verwijzing toe naar de servicesmodule van Azure Maps. De module is a JavaScript-bibliotheek die de Azure Maps REST-services verpakt en ze gemakkelijk in JavaScript te gebruiken maakt. De module is handig voor het aandrijven van de zoekfunctionaliteit.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Voeg verwijzingen toe naar *index.js* en *index.css*:
@@ -454,7 +454,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
     window.onload = initialize;
     ```
 
-1. Voeg in de `load`-gebeurtenislistener van de kaart een zoombesturingselement en een HTML-markering toe om het midden van een zoekgebied weer te geven.
+1. Voeg in de `ready`-gebeurtenislistener van de kaart een zoombesturingselement en een HTML-markering toe om het midden van een zoekgebied weer te geven.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
     map.markers.add(centerMarker);
     ```
 
-1. Voeg in de `load`-gebeurtenislistener van de kaart een gegevensbron toe. Maak vervolgens een aanroep om de gegevensset te laden en te parseren. Schakel clustering voor de gegevensbron in. Door clustering van de gegevensbrongroepen worden overlappende punten samengevoegd tot een cluster. De clusters worden gescheiden in afzonderlijke wanneer de gebruiker inzoomt. Dit zorgt voor een vloeiendere gebruikerservaring en verbetert de prestaties.
+1. Voeg in de `ready`-gebeurtenislistener van de kaart een gegevensbron toe. Maak vervolgens een aanroep om de gegevensset te laden en te parseren. Schakel clustering voor de gegevensbron in. Door clustering van de gegevensbrongroepen worden overlappende punten samengevoegd tot een cluster. De clusters worden gescheiden in afzonderlijke wanneer de gebruiker inzoomt. Dit zorgt voor een vloeiendere gebruikerservaring en verbetert de prestaties.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
     loadStoreData();
     ```
 
-1. Nadat u de gegevensset in de `load`-gebeurtenislistener van de kaart hebt geladen, definieert u een set lagen om de gegevens weer te geven. Er wordt een bellenlaag gebruikt om geclusterde gegevenspunten weer te geven. Er wordt een symboollaag wordt gebruikt om het aantal punten in elk cluster boven de bellenlaag weer te geven. Met een tweede symboollaag wordt een aangepast pictogram voor afzonderlijke locaties op de kaart weergegeven.
+1. Nadat u de gegevensset in de `ready`-gebeurtenislistener van de kaart hebt geladen, definieert u een set lagen om de gegevens weer te geven. Er wordt een bellenlaag gebruikt om geclusterde gegevenspunten weer te geven. Er wordt een symboollaag wordt gebruikt om het aantal punten in elk cluster boven de bellenlaag weer te geven. Met een tweede symboollaag wordt een aangepast pictogram voor afzonderlijke locaties op de kaart weergegeven.
 
    Voeg `mouseover`- en `mouseout`-gebeurtenissen toe aan de bellen- en pictogramlagen om de muisaanwijzer te wijzigen wanneer de gebruiker een cluster of pictogram op de kaart aanwijst. Voeg een `click`-gebeurtenis toe aan de clusterbellenlaag. Deze `click`-gebeurtenis zoomt twee niveaus in op de kaart en centreert de kaart op een cluster wanneer de gebruiker een cluster selecteert. Voeg een `click`-gebeurtenis toe aan de pictogramlaag. Deze `click`-gebeurtenis geeft een pop-upvenster met de details van een koffiebar weer wanneer een gebruiker een individueel locatiepictogram selecteert. Voeg een gebeurtenis toe aan de kaart om te controleren wanneer de kaart klaar is met bewegen. Wanneer deze gebeurtenis wordt geactiveerd, worden de items in het deelvenster met de lijst bijgewerkt.  
 
@@ -959,7 +959,7 @@ De voorbeeldcode voor deze zelfstudie vindt u hier:
 
 > [Een winkelzoeker maken met behulp van Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-[Het livevoorbeeld ziet u hier](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+[Zie het voorbeeld bevinden zich hier](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Voor meer informatie over de dekking en de mogelijkheden van Azure Maps:
 
@@ -969,4 +969,7 @@ Voor meer informatie over de dekking en de mogelijkheden van Azure Maps:
 Voor meer voorbeelden van code en interactieve codering:
 
 > [!div class="nextstepaction"]
-> [Map Control gebruiken](how-to-use-map-control.md)
+> [Map control gebruiken](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)

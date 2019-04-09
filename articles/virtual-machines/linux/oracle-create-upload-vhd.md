@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: c2c02283518bab0723b7bc815f034c4324c944e1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232879"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276835"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Een virtuele Oracle Linux-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,9 +37,9 @@ In dit artikel wordt ervan uitgegaan dat u hebt een Oracle Linux-besturingssyste
 * NUMA wordt niet ondersteund voor grotere VM-grootten vanwege een fout in Linux-kernel-versies hieronder 2.6.37. Dit probleem voornamelijk gevolgen heeft voor distributies die gebruikmaken van de upstream Red Hat 2.6.32 kernel. Handmatige installatie van de Azure Linux-agent (waagent) wordt automatisch NUMA uitgeschakeld in de GRUB-configuratie voor de Linux-kernel. Meer informatie hierover vindt in de onderstaande stappen.
 * Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt in de onderstaande stappen.
 * Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
-* Zorg ervoor dat de `Addons` opslagplaats is ingeschakeld. Bewerk het bestand `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) of `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), en wijzigt u de regel `enabled=0` naar `enabled=1` onder **[ol6_addons]** of **[ol7_addons]** in dit bestand.
+* Zorg ervoor dat de `Addons` opslagplaats is ingeschakeld. Bewerk het bestand `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) of `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), en wijzigt u de regel `enabled=0` naar `enabled=1` onder **[ol6_addons]** of **[ol7_addons]** in dit bestand.
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
+## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 U moet specifieke configuratiestappen in het besturingssysteem voor de virtuele machine om uit te voeren in Azure uitvoeren.
 
 1. Selecteer in het middelste deelvenster van de Hyper-V-beheer, de virtuele machine.
@@ -48,7 +48,7 @@ U moet specifieke configuratiestappen in het besturingssysteem voor de virtuele 
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Opmerking:** als het pakket niet al is geïnstalleerd, met deze opdracht mislukt met een foutbericht weergegeven. Dit is normaal gedrag.
+    **Opmerking:** Als het pakket niet al is geïnstalleerd, wordt met deze opdracht mislukt met een foutbericht weergegeven. Dit is normaal gedrag.
 4. Maak een bestand met de naam **netwerk** in de `/etc/sysconfig/` map met de volgende tekst:
    
         NETWORKING=yes

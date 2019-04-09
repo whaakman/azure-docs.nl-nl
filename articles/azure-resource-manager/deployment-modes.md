@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407509"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265386"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
@@ -28,11 +28,13 @@ Voor beide modi wordt geprobeerd de Resource Manager om alle resources die zijn 
 
 In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Resources die zijn opgegeven in de sjabloon, maar niet geïmplementeerd omdat een [voorwaarde](resource-group-authoring-templates.md#condition) wordt geëvalueerd als onwaar, worden niet verwijderd.
 
-Er zijn enkele verschillen in hoe resourcetypen omgaan met volledige modus verwijderingen. Bovenliggende resources worden automatisch verwijderd wanneer het niet in een sjabloon die in de modus voor volledig geïmplementeerd. Sommige onderliggende resources worden niet automatisch verwijderd als deze niet in de sjabloon. Deze onderliggende resource worden echter verwijderd als de bovenliggende resource wordt verwijderd. 
+Er zijn enkele verschillen in hoe resourcetypen omgaan met volledige modus verwijderingen. Bovenliggende resources worden automatisch verwijderd wanneer het niet in een sjabloon die in de modus voor volledig geïmplementeerd. Sommige onderliggende resources worden niet automatisch verwijderd als deze niet in de sjabloon. Deze onderliggende resources worden echter verwijderd als de bovenliggende resource wordt verwijderd. 
 
-Bijvoorbeeld, als uw resourcegroep bevat een DNS-zone (resourcetype Microsoft.Network/dnsZones) en een CNAME-record (resourcetype Microsoft.Network/dnsZones/CNAME), is de DNS-zone de bovenliggende resource voor de CNAME-record. Als u met de volledige modus implementeert en de DNS-zone niet in uw sjabloon opnemen, de DNS-zone en de CNAME-record worden beide verwijderd. Als de DNS-zone opnemen in uw sjabloon, maar de CNAME-record niet opnemen, de CNAME is niet verwijderd. 
+Bijvoorbeeld, als uw resourcegroep bevat een DNS-zone (resourcetype Microsoft.Network/dnsZones) en een CNAME-record (resourcetype Microsoft.Network/dnsZones/CNAME), is de DNS-zone de bovenliggende resource voor de CNAME-record. Als u met de volledige modus implementeert en de DNS-zone niet in uw sjabloon opnemen, de DNS-zone en de CNAME-record worden beide verwijderd. Als u de DNS-zone in uw sjabloon opnemen, maar de CNAME-record zijn niet opgenomen, worden de CNAME is niet verwijderd. 
 
 Zie voor een overzicht van hoe resourcetypen omgaan met verwijdering, [verwijdering van de Azure-resources voor volledige modus implementaties](complete-mode-deletion.md).
+
+Als de resourcegroep is [vergrendeld](resource-group-lock-resources.md), volledige modus worden de resources niet verwijderd.
 
 > [!NOTE]
 > Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus. Voor [gekoppeld of geneste sjablonen](resource-group-linked-templates.md), moet u incrementeel modus. 

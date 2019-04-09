@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 03/14/2019
-ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051900"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262904"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Zelfstudie: Gegevens opnemen in Azure Data Explorer zonder één regel code
 
@@ -209,12 +209,12 @@ Gebruik de volgende query om de gegevens uit de activiteitenlogboeken toe te wij
 
 #### <a name="activity-log-data-update-policy"></a>Gegevens van een activiteitenlogboek beleid bijwerken
 
-1. Maak een [functie](/azure/kusto/management/functions) die de verzameling van records in logboek registreren activiteit wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+1. Maak een [functie](/azure/kusto/management/functions) die de verzameling van records in logboek registreren activiteit wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mv-expand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -238,11 +238,11 @@ Gebruik de volgende query om de gegevens uit de activiteitenlogboeken toe te wij
 
 #### <a name="diagnostic-log-data-update-policy"></a>Diagnostische logboekgegevens beleid bijwerken
 
-1. Maak een [functie](/azure/kusto/management/functions) die het verzamelen van diagnostische logboekrecords wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+1. Maak een [functie](/azure/kusto/management/functions) die het verzamelen van diagnostische logboekrecords wordt uitgebreid, zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mv-expand`](/azure/kusto/query/mvexpandoperator):
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),

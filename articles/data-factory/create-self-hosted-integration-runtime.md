@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905882"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261034"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ Dit document wordt beschreven hoe u kunt maken en configureren van een zelf-host
 3. Haal de verificatiesleutel en de zelf-hostende integratieruntime registreren met de sleutel. Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Instellen van een zelf-hostende IR op een Azure-VM met behulp van een Azure Resource Manager-sjabloon (automatisering)
@@ -110,7 +112,7 @@ U kunt de zelf-hostende integratieruntime installeren met het downloaden van een
 
 
 ## <a name="high-availability-and-scalability"></a>Hoge beschikbaarheid en schaalbaarheid
-Een zelf-hostende integratieruntime kan worden gekoppeld aan meerdere on-premises computers. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een zelf-hostende integratieruntime hebben. De voordelen van meerdere knooppunten (on-premises machines met een gateway is geïnstalleerd) voor een logische gateway zijn:
+Een zelf-hostende integratieruntime kan worden gekoppeld aan meerdere on-premises computers of virtuele Machines in Azure. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een zelf-hostende integratieruntime hebben. De voordelen van meerdere knooppunten (on-premises machines met een gateway is geïnstalleerd) voor een logische gateway zijn:
 * Hogere beschikbaarheid van de zelf-hostende integratieruntime zodat het niet meer het enige storingspunt in uw big data-oplossing of cloud gegevensintegratie met Azure Data Factory, ervoor te zorgen dat bedrijfscontinuïteit met maximaal vier knooppunten.
 * Verbeterde prestaties en de doorvoer tijdens de verplaatsing van gegevens tussen on-premises en cloud gegevensarchieven. Meer informatie opvragen over [prestaties vergelijkingen](copy-activity-performance.md).
 

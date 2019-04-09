@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417969"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056738"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
@@ -30,23 +30,16 @@ Een nieuw Azure-abonnement maken in Azure portal:
 
 ## <a name="configure-subscription-owner-permissions"></a>Eigenaarsmachtigingen voor abonnement configureren
 
-Een gebruiker met de van eigenaarsmachtigingen voor het abonnement moet het cluster vFXT maken. Abonnement eigenaarsmachtigingen zijn nodig voor deze acties, onder andere:
+Een gebruiker met de van eigenaarsmachtigingen voor het abonnement moet het cluster vFXT maken. Abonnement eigenaarsmachtigingen zijn nodig om te accepteren van de servicevoorwaarden voor de software en andere acties worden uitgevoerd. 
 
-* Voorwaarden voor de Avere vFXT-software accepteren
-* De functie cluster knooppunt toegang maken 
+Er zijn enkele scenario's voor tijdelijke oplossing waarmee een niet-eigenaren te maken van een vFTX Avere voor Azure-cluster. Deze scenario's hebben betrekking op het beperken van resources en aanvullende rollen toewijzen aan de maker. In beide gevallen moet de eigenaar van een abonnement ook [accepteren voor Avere vFXT software](#accept-software-terms) tevoren. 
 
-Er zijn twee oplossingen als u niet wilt dat deze eigenaar toegang geven tot de gebruikers die de vFXT maken:
-
-* De eigenaar van een resource-groep kan een cluster maken als deze voorwaarden wordt voldaan:
-
-  * De eigenaar van een abonnement moet [accepteren voor Avere vFXT software](#accept-software-terms) en [maken van de functie cluster knooppunt toegang](#create-the-cluster-node-access-role). 
-  * Alle Avere vFXT resources moeten worden geïmplementeerd in de resourcegroep, met inbegrip van:
-    * Clustercontroller
-    * Clusterknooppunten
-    * Blob Storage
-    * Netwerkelementen
+| Scenario | Beperkingen | Toegang tot rollen die zijn vereist om de Avere vFXT-cluster te maken | 
+|----------|--------|-------|
+| De beheerder van de resource-groep | Het virtuele netwerk, het cluster netwerkcontroller en de clusterknooppunten moeten worden gemaakt binnen de resourcegroep | [Beheerder van gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) rollen, zowel binnen het bereik van de doelresourcegroep | 
+| Externe vnet | De clustercontroller en de clusterknooppunten zijn gemaakt binnen de resourcegroep, maar een bestaand virtueel netwerk in een andere resourcegroep wordt gebruikt | (1) [Administrator voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) rollen binnen het bereik van de resourcegroep vFXT; en (2) [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [gebruikerstoegang Beheerder](../role-based-access-control/built-in-roles.md#user-access-administrator), en [Avere Inzender](../role-based-access-control/built-in-roles.md#avere-contributor) rollen binnen het bereik van de VNET-resourcegroep. |
  
-* Een gebruiker die geen eigenaar-machtigingen kunt vFXT clusters maken met behulp van op rollen gebaseerd toegangsbeheer (RBAC vooraf) machtigingen toewijzen aan de gebruiker. Deze methode biedt aanzienlijke machtigingen aan deze gebruikers. [In dit artikel](avere-vfxt-non-owner.md) wordt uitgelegd hoe u om een toegangsrol voor het autoriseren van niet-eigenaren van het maken van clusters te maken.
+Een alternatief is de rol van een aangepaste op rollen gebaseerde toegang-beheer (RBAC) vooraf maken en toewijzen van bevoegdheden voor de gebruiker, zoals uitgelegd in [in dit artikel](avere-vfxt-non-owner.md). Deze methode biedt aanzienlijke machtigingen aan deze gebruikers. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Het quotum voor het cluster vFXT
 
@@ -83,75 +76,6 @@ De software om voorwaarden te accepteren van tevoren:
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>Toegang tot rollen maken 
-
-[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) biedt de vFXT cluster netwerkcontroller knooppunten en clusterknooppunten autorisatie noodzakelijke taken uit te voeren.
-
-* De netwerkcontroller cluster heeft toestemming nodig voor maken en wijzigen van virtuele machines om te kunnen maken van het cluster. 
-
-* Afzonderlijke vFXT knooppunten nodig hebt voor handelingen zoals lezen van de Azure-resource-eigenschappen, opslag te beheren en de andere knooppunten netwerkinterface-instellingen beheren als onderdeel van de bewerking van het normale cluster.
-
-Voordat u uw Avere vFXT cluster maken kunt, moet u een aangepaste rol voor gebruik met de clusterknooppunten opgeven. 
-
-U kunt de standaardrol van de sjabloon te accepteren voor de netwerkcontroller cluster. Standaard geeft het cluster netwerkcontroller resource group-eigenaarsbevoegdheden. Als u liever een aangepaste rol voor de controller maken, Zie [aangepaste toegang controllerrol](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Alleen de eigenaar van een abonnement of een gebruiker met de rol eigenaar of beheerder van gebruikerstoegang, kunt rollen maken. De rollen kunnen vooraf worden gemaakt.  
-
-### <a name="create-the-cluster-node-access-role"></a>De functie cluster knooppunt toegang maken
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-Voordat u de vFXT Avere voor Azure-cluster kunt maken, moet u de rol van de cluster-knooppunt maken.
-
-> [!TIP] 
-> Interne gebruikers van Microsoft moeten de bestaande rol met de naam 'Cluster-Runtime Avere Operator' in plaats van er wordt geprobeerd gebruiken om er een maken. 
-
-1. Kopieer dit bestand. Uw abonnements-ID in de regel AssignableScopes toevoegen.
-
-   (De huidige versie van dit bestand is opgeslagen in de opslagplaats github.com/Azure/Avere als [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Sla het bestand op als ``avere-operator.json`` of een vergelijkbare gemakkelijk te onthouden naam. 
-
-
-1. Open een Azure Cloud shell en meld u aan met uw abonnements-ID (beschreven [eerder in dit document](#accept-software-terms)). Gebruik deze opdracht om de rol te maken:
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-Naam van de rol wordt gebruikt bij het maken van het cluster. In dit voorbeeld wordt de naam is ``avere-operator``.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Maken van een service-eindpunt voor opslag in uw virtuele netwerk (indien nodig)
 

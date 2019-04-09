@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fa7ace6427a14dc167a46eba3076798114cff7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897721"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Zelfstudie: Azure Active Directory-integratie met HeyBuddy
 
@@ -106,9 +106,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met HeyBuddy, moet u de 
 
     ![HeyBuddy domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://api.heybuddy.com/auth/<ENTITY ID>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `YourCompanyInstanceofHeyBuddy`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id (entiteits-ID). De `Entity ID` in de aanmeldings-url is automatisch gegenereerd voor elke organisatie. Neem contact op met [HeyBuddy Client ondersteuningsteam](mailto:support@heybuddy.com) om deze waarden te verkrijgen.
@@ -219,8 +219,8 @@ Wanneer u op de tegel HeyBuddy in het toegangsvenster, moet u worden automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339309"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268403"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies schrijven in Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Eén ding dat belangrijk is om te weten is de transactionele uitvoering van triggers in Azure Cosmos DB. Deze post-trigger wordt uitgevoerd als onderdeel van dezelfde transactie die wordt gebruikt voor het maken van het Azure Cosmos DB-item. Als er dus een uitzondering is opgetreden tijdens de uitvoering van een post-trigger, als u bijvoorbeeld niet het metagegevensitem kunt bijwerken, is de hele transactie mislukt en wordt deze teruggedraaid. Dus wordt het Azure Cosmos DB-item gemaakt en wordt een uitzondering geretourneerd.
+Eén ding dat belangrijk is om te weten is de transactionele uitvoering van triggers in Azure Cosmos DB. De na trigger wordt uitgevoerd als onderdeel van dezelfde transactie voor het onderliggende item zelf. Een uitzondering opgetreden tijdens het uitvoeren van de na mislukt de hele transactie. Alles doorgevoerd wordt teruggedraaid en een uitzondering geretourneerd.
 
 Zie de artikelen [Pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) en [Post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) voor voorbeelden van het registreren en aanroepen van een pre-trigger. 
 
@@ -320,8 +320,8 @@ Meer informatie over concepten en het schrijven of gebruiken van procedures, tri
 
 * [Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Opgeslagen procedures en triggers schrijven met de JavaScript-query-API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
+* [Over het schrijven van opgeslagen procedures en triggers in Azure Cosmos DB met behulp van Javascript-Query-API](how-to-write-javascript-query-api.md)
 
-* [Werken met opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Werken met Azure Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Werken met de JavaScript-query-API in Azure Cosmos DB](javascript-query-api.md)
+* [Werken met JavaScript-taal geïntegreerd query-API in Azure Cosmos DB](javascript-query-api.md)

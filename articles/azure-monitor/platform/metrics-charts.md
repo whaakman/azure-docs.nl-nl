@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor metrics explorer
-description: Meer informatie over nieuwe functies in Azure Monitor metrics explorer
+title: Geavanceerde functies van Azure Metrics Explorer
+description: Meer informatie over geavanceerde functies van Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916339"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271676"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Geavanceerde functies van Azure Metrics Explorer
 
-Azure Monitor metrics explorer is een onderdeel van de Microsoft Azure-portal kunt plotting grafieken, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services.
+> [!NOTE]
+> In dit artikel wordt ervan uitgegaan dat u bekend met de basisfuncties van Metrics Explorer bent. Als u een nieuwe gebruiker bent en u wilt meer informatie over het maken van uw eerste grafiek met metrische gegevens, raadpleegt [aan de slag met Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Metrische gegevens in Azure
 
 [Metrische gegevens in Azure Monitor](data-platform-metrics.md) zijn van de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure Diagnostics (WAD)-extensie](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), of door [Azure REST-API bewaken](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-a-new-chart"></a>Maak een nieuwe grafiek
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Weergaven met meerdere metrische gegevens en grafieken maken
 
-1. De Azure-portal openen
-2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens**.
+U kunt grafieken die meerdere metrische gegevens lijnen tekenen of meerdere grafieken met metrische gegevens tegelijk weergeven. Deze functie kunt u naar:
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00001.png)
+- Koppel gerelateerde metrische gegevens over dezelfde grafiek om te zien hoe een waarde is gerelateerd aan een andere
+- metrische gegevens weergeven met verschillende eenheden in de nabijheid
+- visueel aggregeren en vergelijkt u metrische gegevens uit meerdere bronnen
 
-3. De **metrische selector** automatisch worden geopend voor u. Kies een resource in de lijst om de bijbehorende metrische gegevens weer te geven. Alleen bronnen met metrische gegevens worden weergegeven in de lijst.
+Als u 5 storage-accounts hebt en u wilt weten hoeveel totale ruimte tussen deze wordt gebruikt, kunt u bijvoorbeeld een (gestapeld) vlakdiagram waarin de afzonderlijke gebruiker en de som van alle waarden op bepaalde tijdstippen in-time maken.
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>Meerdere metrische gegevens over dezelfde grafiek
 
-   > [!NOTE]
-   >Als u meer dan één Azure-abonnement hebt, Metrics Explorer worden de resources in alle abonnementen die zijn geselecteerd in de Portal-instellingen -> Filter door de abonnementenlijst met. Als u wilt wijzigen, klikt u op het tandwielpictogram voor instellingen van Portal boven op het scherm en selecteer welke abonnementen die u wilt gebruiken.
-
-4. Voor sommige typen resources (Storage-Accounts en virtuele Machines), voordat u selecteert een metrische waarde moet u een **Namespace**. Elke naamruimte heeft een eigen set metrische gegevens die relevant zijn voor alleen deze naamruimte, en niet voor andere naamruimten.
-
-   Elke Azure-Storage heeft bijvoorbeeld metrische gegevens voor subservices 'Blobs', 'Files', 'Wachtrijen' en 'Tabellen', alle onderdelen van het storage-account zijn. De metriek "aantal Wachtrijberichten" is echter op een natuurlijke manier van toepassing op de subservice 'Wachtrij' en niet op een andere opslag account subservices.
-
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00003.png)
-
-5. Selecteer een metrische waarde in de lijst. Als u een gedeeltelijke naam van de metrische gegevens die u wilt weten, kunt u beginnen te typen in een gefilterde lijst met beschikbare metrische gegevens zien:
-
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00004.png)
-
-6. Na het selecteren van een metrische waarde, worden de grafiek weergegeven met de standaardaggregatie voor de geselecteerde metrische gegevens. Op dit punt hoeft u alleen op weg van de **metrische gegevens selector** om deze te sluiten. U kunt eventueel ook de grafiek overschakelen naar een andere aggregatie. Voor sommige metrische gegevens kunt schakelen tussen aggregatie u kiezen welke waarde u wilt zien op de grafiek. U kunt bijvoorbeeld schakelen tussen de gemiddelde, minimale en maximale waarden. 
-
-7. Door te klikken op **metrische waarde toevoegen** en herhalende stap 3-6, kunt u meer metrische gegevens op de dezelfde grafiek toevoegen.
+Eerste, [maakt u een nieuwe grafiek](metrics-getting-started.md#create-your-first-metric-chart). Klik op **metrische waarde toevoegen** en Herhaal de stappen om nog een metrische waarde toevoegen aan dezelfde grafiek.
 
    > [!NOTE]
    > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in metrics explorer.
+
+### <a name="multiple-charts"></a>Meerdere diagrammen
+
+Klik op de **toevoegen grafiek** en een andere grafiek maken met een andere meetwaarde.
+
+### <a name="order-or-delete-multiple-charts"></a>Volgorde of meerdere diagrammen verwijderen
+
+Als u wilt sorteren of meerdere diagrammen verwijderen, klikt u op het beletselteken ( **...**  ) symbool grafiektype in het menu openen en kies het juiste menu-item van **omhoog**, **omlaag**, of **verwijderen**.
 
 ## <a name="apply-filters-to-charts"></a>Filters toepassen op grafieken
 
@@ -76,27 +71,7 @@ U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. B
 
 5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
-## <a name="multiple-metrics-and-charts"></a>Meerdere metrische gegevens en grafieken
 
-Ook kunt u diagrammen die meerdere metrische gegevens tekenen of meerdere grafieken met metrische gegevens tegelijk weergeven. Deze functie kunt u naar:
-
-- Koppel gerelateerde metrische gegevens over dezelfde grafiek om te zien hoe een waarde is gerelateerd aan een andere
-- metrische gegevens weergeven met verschillende eenheden in de nabijheid
-- visueel aggregeren en vergelijkt u metrische gegevens uit meerdere bronnen
-
-Als u 5 storage-accounts hebt en u wilt weten hoeveel totale ruimte tussen deze wordt gebruikt, kunt u bijvoorbeeld een (gestapeld) vlakdiagram waarin de afzonderlijke gebruiker en de som van alle waarden op bepaalde tijdstippen in-time maken.
-
-### <a name="multiple-metrics-on-a-chart"></a>Meerdere metrische gegevens in een grafiek
-
-Eerste, [maakt u een nieuwe grafiek](#create-a-new-chart). Klik op **metrische waarde toevoegen** en Herhaal de stappen om nog een metrische waarde toevoegen aan dezelfde grafiek.
-
-### <a name="multiple-charts"></a>Meerdere diagrammen
-
-Klik op de **toevoegen grafiek** en een andere grafiek maken met een andere meetwaarde.
-
-### <a name="order-or-delete-multiple-charts"></a>Volgorde of meerdere diagrammen verwijderen
-
-Als u wilt sorteren of meerdere diagrammen verwijderen, klikt u op het beletselteken ( **...**  ) symbool grafiektype in het menu openen en kies het juiste menu-item van **omhoog**, **omlaag**, of **verwijderen**.
 
 ## <a name="apply-splitting-to-a-chart"></a>Splitsen op een grafiek van toepassing
 

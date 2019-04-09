@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903654"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258524"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Zelfstudie: maken en uitvoeren van een Jupyter-notebook met Python
 
@@ -128,7 +128,7 @@ Met het gereed gegevensbestand en de project-omgeving is ingesteld, kunt u nu ma
 1. Omdat u hebt een *requirements.txt* bestand in de omgevingsinstellingen voor ziet u het bericht, 'wachten op de container om te voltooien wordt voorbereid." U kunt selecteren **OK** om te sluiten van het bericht en doorgaan met werken in het notitieblok; u cellen met een code echter niet uitvoeren totdat de omgeving volledig is ingesteld.
 1. De notebook wordt geopend in de Jupyter-interface met een één lege codecel als standaardwaarde.
 
-    [![Weergave van een nieuwe notebook in Azure-notitieblokken](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial weergave van een nieuwe notebook in Azure-notitieblokken](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Maakt een rondleiding door de notebook-interface
 
@@ -144,7 +144,7 @@ Aan de bovenkant van het venster ziet u de volgende items:
 (F) geeft aan of de notebook vertrouwd wordt (de standaardwaarde is **niet-vertrouwd**).
 (G) de kernel gebruikt voor het uitvoeren van het notitieblok, samen met een indicator voor netwerkactiviteit.
 
-[![Primaire gebruikersinterface gebieden van de Jupyter-interface](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primaire gebieden van de gebruikersinterface van de interface Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter biedt een ingebouwde rondleiding door de primaire UI-elementen. Selecteer eerst de rondleiding door de **Help** > **rondleiding door de Interface van de gebruiker** opdracht en te klikken in het pop-upvensters.
 
@@ -426,9 +426,9 @@ Zie ook [Visual Studio Code - ondersteuning voor Jupyter](https://code.visualstu
 Artikelen met procedures:
 
 - [Projecten maken en klonen](create-clone-jupyter-notebooks.md)
-- [Projecten configureren en beheren](configure-manage-azure-notebooks-projects.md)
-- [Pakketten vanuit een notebook installeren](install-packages-jupyter-notebook.md)
+- [Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+- [Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
 - [Een diavoorstelling presenteren](present-jupyter-notebooks-slideshow.md)
 - [Werken met gegevensbestanden](work-with-project-data-files.md)
-- [Toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
+- [Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
 - [Azure Machine Learning Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

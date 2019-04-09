@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773576"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264417"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Maken, configureren en beheren van elastische taken
 
@@ -76,6 +76,8 @@ Op dit moment is de preview beperkt tot 100 gelijktijdige taken.
 
 Om ervoor te zorgen dat resources niet worden overbelast tijdens het uitvoeren van taken voor databases in een elastische SQL-pool, kunnen taken zo worden geconfigureerd dat het aantal databases waarvoor een taak tegelijkertijd wordt uitgevoerd, wordt beperkt.
 
+Stel het aantal gelijktijdige databases een taak wordt uitgevoerd op door in te stellen de `sp_add_jobstep` opgeslagen procedure van `@max_parallelism` parameter in T-SQL, of `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Best practices voor het maken van taken
 
 ### <a name="idempotent-scripts"></a>Idempotente scripts
@@ -96,5 +98,5 @@ Op dezelfde manier moet een script met succes kunnen worden uitgevoerd door logi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Elastische taken maken en beheren met PowerShell](elastic-jobs-powershell.md)
-- [Elastische taken maken en beheren met Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Maken en beheren van elastische taken met behulp van PowerShell](elastic-jobs-powershell.md)
+- [Maken en beheren van elastische taken met behulp van Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

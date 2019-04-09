@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 385a1153-0f47-4e41-8f44-da1b49d7629e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: afb80f54c2354f65054d8d53b93add6ed5ffa63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ed158ae825ec8aac24a57eb0f5a986b2124b66fb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099947"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057792"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Zelfstudie: Drie Zscaler configureren voor het automatisch inrichten van gebruikers
 
@@ -27,46 +28,41 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
 > Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
-*   Een Azure AD-tenant
-*   Een drie Zscaler-tenant
-*   Een gebruikersaccount in drie Zscaler met beheerdersmachtigingen
+* Een Azure AD-tenant
+* Een drie Zscaler-tenant
+* Een gebruikersaccount in drie Zscaler met beheerdersmachtigingen
 
 > [!NOTE]
 > De integratie van Azure AD-inrichting is afhankelijk van de Zscaler drie SCIM API die voor de drie Zscaler-ontwikkelaars voor accounts met het Enterprise-pakket beschikbaar is.
 
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Uit de galerie toe te voegen drie Zscaler
+
 Voordat het Zscaler drie voor automatisch gebruikers inrichten met Azure AD configureert, moet u drie Zscaler toevoegen uit de galerie met Azure AD aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen Zscaler drie van de Azure AD-toepassingsgalerie, kunt u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![De sectie voor bedrijfstoepassingen][2]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u wilt toevoegen Zscaler drie, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Zscaler drie**.
+4. Typ in het zoekvak **Zscaler drie**, selecteer **Zscaler drie** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/app-search.png)
-
-5. Selecteer in het deelvenster resultaten **Zscaler drie**, en klik vervolgens op de **toevoegen** knop Zscaler drie toevoegen aan uw lijst met SaaS-toepassingen.
-
-    ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/app-search-results.png)
-
-    ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/app-creation.png)
+    ![Drie Zscaler in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-three"></a>Gebruikers toewijzen aan drie Zscaler
 
@@ -74,13 +70,13 @@ Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om t
 
 Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot drie Zscaler moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan Zscaler drie door de instructies hier:
 
-*   [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Belangrijke tips voor het toewijzen van gebruikers aan drie Zscaler
 
-*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler drie voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zscaler drie voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer een gebruiker toewijzen aan Zscaler drie, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer een gebruiker toewijzen aan Zscaler drie, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-three"></a>Configuratie van automatisch gebruikers inrichten op drie Zscaler
 
@@ -91,11 +87,13 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-three-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor drie Zscaler in Azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory > bedrijfstoepassingen > alle toepassingen**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Zscaler drie**.
 
-2. Selecteer drie Zscaler uit de lijst met SaaS-toepassingen.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/app-instance-search.png)
+2. Selecteer in de lijst met toepassingen, **Zscaler drie**.
+
+    ![De drie Zscaler koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
@@ -111,16 +109,16 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
     ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
-    Klik op **configureren SAML** openen **configuratie SAML** opties. 
+    Klik op **configureren SAML** openen **configuratie SAML** opties.
 
     ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
-    
+
     Selecteer **Enable SCIM-Based inrichting** om op te halen **basis-URL** en **Bearer Token**, sla de instellingen. Kopiëren de **basis-URL** naar **Tenant-URL** en **Bearer Token** naar **geheim Token** in Azure portal.
 
 7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD verbinding kunt maken met Zscaler drie. Als de verbinding is mislukt, zorg ervoor dat uw Zscaler drie account beheerdersmachtigingen heeft en probeer het opnieuw.
 
     ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/test-connection.png)
-    
+
 8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in **een e-mailmelding verzenden wanneer een foutoptreedt**.
 
     ![Zscaler drie inrichten](./media/zscaler-three-provisioning-tutorial/notification.png)
@@ -164,7 +162,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
