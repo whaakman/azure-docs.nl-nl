@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056092"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276385"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
@@ -66,3 +66,6 @@ Voor het configureren van de virtuele machines met de software FSLogix, doe het 
 |---------------------|--------------------|-----------------------------------|
 | Ingeschakeld             | DWORD              | 1                                 |
 | VHDLocations        | Waarde met meerdere tekenreeksen | "Netwerkpad voor de bestandsshare"     |
+
+>[!IMPORTANT]
+>Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

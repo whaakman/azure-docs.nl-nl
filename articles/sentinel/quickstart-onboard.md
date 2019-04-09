@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006586"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276640"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006586"
 
 In deze snelstartgids leert u hoe u aan boord Sentinel van Azure. 
 
-Aan het ingebouwde Azure-Sentinel moet u eerst verbinding maken met uw gegevensbronnen. Azure Sentinel wordt geleverd met een aantal connectors voor Microsoft-oplossingen, beschikbaar is buiten het vak en biedt realtime-integratie, inclusief Microsoft Threat Protection-oplossingen, Microsoft 365-bronnen, zoals Office 365, Azure AD, Azure ATP, en Microsoft Cloud App Security, en meer. Er zijn bovendien ingebouwde connectors voor het complete ecosysteem van de beveiliging voor niet-Microsoft-oplossingen. U kunt ook de algemene indeling voor gebeurtenissen, Syslog of REST-API om uw gegevensbronnen verbinding met Azure Sentinel te gebruiken.  
+Aan het ingebouwde Azure-Sentinel moet u eerst Azure Sentinel inschakelen en vervolgens verbinding maken met uw gegevensbronnen. Azure Sentinel wordt geleverd met een aantal connectors voor Microsoft-oplossingen, beschikbaar is buiten het vak en biedt realtime-integratie, inclusief Microsoft Threat Protection-oplossingen, Microsoft 365-bronnen, zoals Office 365, Azure AD, Azure ATP, en Microsoft Cloud App Security, en meer. Er zijn bovendien ingebouwde connectors voor het complete ecosysteem van de beveiliging voor niet-Microsoft-oplossingen. U kunt ook de algemene indeling voor gebeurtenissen, Syslog of REST-API om uw gegevensbronnen verbinding met Azure Sentinel te gebruiken.  
 
 Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie met vakkundig gemaakte dashboards die Maak inzichten op basis van uw gegevens duidelijk. Deze dashboards kunnen eenvoudig worden aangepast aan uw behoeften.
 
@@ -40,9 +40,10 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 
 - Log Analytics-werkruimte. Meer informatie over het [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - Inzender voor machtigingen voor de resourcegroep die is gekoppeld aan Azure Sentinel
-    - Inzender voor machtigingen aan de resourcegroep om in te schakelen Azure Sentinel 
-
+-  Om in te schakelen Sentinel van Azure, moet u bijdrager machtigingen voor het abonnement waarin de Azure-Sentinel werkruimte zich bevindt. 
+- Voor het gebruik van Azure Sentinel, moet u bijdrager of viewer machtigingen voor de resourcegroep die deel uitmaakt van de werkruimte op
+- Aanvullende machtigingen nodig om verbinding maken met specifieke gegevensbronnen
+ 
 ## Azure Sentinel inschakelen <a name="enable"></a>
 
 1. Ga in de Azure-portal.

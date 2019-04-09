@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075626"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275892"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -102,6 +102,17 @@ Opmerking: dit proces, via stap 3.1, is een eenmalige bewerking.
 
 -   De gebruiker kan ook het beleid, dat werkt op het moment van importeren, maar bevat standaardinstellingen waarbij er geen informatie is opgegeven tijdens het importeren bewerken. Bijvoorbeeld Er zijn geen gegevens van de verlener  
 
+### <a name="formats-of-import-we-support"></a>Indelingen van de invoer wordt ondersteund
+We ondersteunen het volgende type importeren voor PEM-indeling. Een enkele PEM gecodeerd certificaat, samen met een PKCS #8, Word gecodeerd op niet-versleutelde sleutel met de volgende
+
+---BEGIN CERTIFICATE------END CERTIFICATE---
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY---
+
+Op certificaat samenvoegen ondersteunen we 2 op basis van PEM-indeling. Kunt u één PKCS #8 gecodeerde certificaat samenvoegen of een met base64 gecodeerde bestand P7B. ---BEGIN CERTIFICATE------END CERTIFICATE---
+
+Op dit moment ondersteund niet EG sleutels in de PEM-indeling.
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Het maken van een certificaat met een CA niet een partnerschap aangegaan met Key Vault  
  Deze methode kunt werken met andere CA's dan van de Sleutelkluis hebben providers, wat betekent dat uw organisatie met een CA van de keuze kan werken.  
 
@@ -121,4 +132,4 @@ Opmerking: dit proces, via stap 3.1, is een eenmalige bewerking.
 
 ## <a name="see-also"></a>Zie ook
 
-- [Informatie over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)
+- [Over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)

@@ -1,7 +1,6 @@
 ---
 title: Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 description: Dit artikel helpt u bij het programmatisch beleid maken en beheren voor Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768601"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276487"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -98,7 +97,7 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
    De **bereik** parameter op `New-AzPolicyAssignment` werkt met de beheergroep, abonnement, resourcegroep of één resource. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is. Vervang `{rName}`, `{rgName}`, `{subId}`, en `{mgName}` met de resourcenaam van uw, resourcegroep de naam, abonnements-ID en naam van beheergroep, respectievelijk.
    `{rType}` zou worden vervangen door de **resourcetype** van de resource, zoals `Microsoft.Compute/virtualMachines` voor een virtuele machine.
 
-   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resourcegroep: `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement: `/subscriptions/{subId}/`
    - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`
@@ -226,7 +225,7 @@ Gebruik de volgende procedure voor het maken van een beleidsdefinitie:
 
    De **--bereik** parameter op `az policy assignment create` werkt met de beheergroep, abonnement, resourcegroep of één resource. De parameter maakt gebruik van een volledige resource-pad. Het patroon voor **--bereik** voor elke container als volgt is. Vervang `{rName}`, `{rgName}`, `{subId}`, en `{mgName}` met de resourcenaam van uw, resourcegroep de naam, abonnements-ID en naam van beheergroep, respectievelijk. `{rType}` zou worden vervangen door de **resourcetype** van de resource, zoals `Microsoft.Compute/virtualMachines` voor een virtuele machine.
 
-   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resourcegroep: `/subscriptions/{subID}/resourceGroups/{rgName}`
    - Abonnement: `/subscriptions/{subID}`
    - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`
@@ -253,4 +252,4 @@ Raadpleeg de volgende artikelen voor meer informatie over de opdrachten en query
 - [Azure PowerShell-Modules](/powershell/module/az.resources/#policies)
 - [Azure CLI-opdrachten voor beleid](/cli/azure/policy?view=azure-cli-latest)
 - [Resourceprovider Policy Insights REST API-naslaginformatie](/rest/api/policy-insights)
-- [Resources organiseren met beheergroepen voor Azure](../../management-groups/overview.md)
+- [Uw resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)

@@ -1,19 +1,19 @@
 ---
 title: Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#) | Microsoft Docs
-description: Als ontwikkelaar in een apparaat, hoe u verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing met behulp van C#.
+description: Als de ontwikkelaar van een apparaat, hoe u verbinding maken met een Raspberry Pi met uw Azure IoT Central-toepassing met behulp C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108355"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275960"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -25,37 +25,34 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een Raspberry
 
 Als u wilt de stappen in dit artikel hebt voltooid, moet u de volgende onderdelen:
 
-* [.NET core 2](https://www.microsoft.com/net) geïnstalleerd op uw ontwikkelcomputer. U moet ook een geschikte code-editor, zoals hebben [Visual Studio Code](https://code.visualstudio.com/).
 * Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
-* Een Raspberry Pi-apparaat met het besturingssysteem Raspbian.
-
+* Een Raspberry Pi-apparaat met het besturingssysteem Raspbian. De Raspberry Pi moet geen verbinding maken met internet. Zie voor meer informatie, [instellen van uw Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Voorbeeld van een Devkits** toepassing
 
-Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken: 
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken:
 
 - Telemetrie, waaronder de volgende metingen die het apparaat wordt verzameld:
-    - Vochtigheid
-    - Temperatuur
-    - Druk
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroscope (X, Y, Z)
+  - Vochtigheid
+  - Temperatuur
+  - Druk
+  - Magnetometer (X, Y, Z)
+  - Accelerometer (X, Y, Z)
+  - Gyroscope (X, Y, Z)
 - Instellingen
-    - Voltage
-    - Huidige
-    - Snelheid van ventilator
-    - IR in-/ uitschakelen.
+  - Voltage
+  - Huidige
+  - Snelheid van ventilator
+  - IR in-/ uitschakelen.
 - Properties
-    - Aantal apparaateigenschappen die
-    - Cloud-locatie-eigenschap
+  - Aantal apparaateigenschappen die
+  - Cloud-locatie-eigenschap
 
-Raadpleeg voor volledige informatie van de configuratie van de sjabloon apparaat [Raspberry PI Apparaatdetails sjabloon](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
-
+Zie voor de volledige details van de configuratie van de sjabloon van het apparaat, de [Raspberry Pi Apparaatdetails sjabloon](#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Raspberry Pi** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
+Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Raspberry Pi** apparaat sjabloon. Maak een notitie van het apparaat verbindingsdetails (**bereik-ID**, **apparaat-ID**, en **primaire sleutel**). Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>Uw .NET-toepassing maken
 
@@ -86,7 +83,7 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
         <RuntimeIdentifiers>win-arm;linux-arm</RuntimeIdentifiers>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.5.2" />
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.19.0" />
       </ItemGroup>
     </Project>
     ```
@@ -272,12 +269,9 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
 
 ## <a name="run-your-net-application"></a>Uw .NET-toepassing uitvoeren
 
-Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. U hebt deze verbindingsreeks wanneer u uw echt apparaat toegevoegd aan uw Azure IoT Central-toepassing.
+Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. Volg deze instructies voor [genereren de apparaatverbindingsreeks](concepts-connectivity.md#get-a-connection-string) met behulp van de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** u een Houd er rekening mee van eerder.
 
-  > [!NOTE]
-   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie.
-
-1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u eerder hebt genoteerd.
+1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u hebt gegenereerd.
 
 1. Voer de volgende opdracht in uw omgeving opdrachtregel:
 
@@ -286,7 +280,7 @@ Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
    dotnet publish -r linux-arm
    ```
 
-1. Kopieer de `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` map op uw apparaat Raspberry Pi. U kunt de **scp** opdracht de bestanden te kopiëren, bijvoorbeeld:
+1. Kopieer de `pisample\bin\Debug\netcoreapp2.1\linux-arm\publish` map op uw apparaat Raspberry Pi. U kunt de **scp** opdracht de bestanden te kopiëren, bijvoorbeeld:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
@@ -321,8 +315,7 @@ Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat 
 
      ![Raspberry Pi ontvangt instelling wijzigen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-
-## <a name="raspberry-pi-device-template-details"></a>Details van de sjabloon Raspberry PI-apparaat
+## <a name="raspberry-pi-device-template-details"></a>Details van de sjabloon Raspberry Pi-apparaat
 
 Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Raspberry Pi** apparaat sjabloon met de volgende kenmerken:
 
@@ -368,6 +361,6 @@ Instellingen voor in-/ uitschakelen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, vindt hier u de voorgestelde volgende stappen:
+Nu dat u hebt geleerd hoe u een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, vindt hier u de voorgestelde volgende stappen:
 
 * [Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT Central](howto-connect-nodejs.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577243"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276403"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -83,7 +83,7 @@ De gegevens die een gebruiker toegang tot heeft worden bepaald door meerdere fac
 | Multi-factor Authentication | Description |
 |:---|:---|
 | [Toegangsmodus](#access-modes) | Methode waarmee de gebruiker toegang heeft tot de werkruimte.  Definieert het bereik van de beschikbare gegevens en de modus voor het beheer van toegang dat wordt toegepast. |
-| [Access control-modus](#access-control-mode) | Instellen in de werkruimte waarmee wordt gedefinieerd of machtigingen worden toegepast op het niveau van de werkruimte of resource. |
+| [Modus toegangsbeheer](#access-control-mode) | Instellen in de werkruimte waarmee wordt gedefinieerd of machtigingen worden toegepast op het niveau van de werkruimte of resource. |
 | [Machtigingen](#manage-accounts-and-users) | Machtigingen voor afzonderlijke of groepen gebruikers voor de werkruimte of resource. Hiermee definieert u welke gegevens de gebruiker toegang tot hebben. |
 | [Tabelniveau RBAC](#table-level-rbac) | Optionele gedetailleerde machtigingen die van toepassing op alle gebruikers, ongeacht hun toegang of toegang besturingselement modus. Hiermee definieert u welke gegevenstypen die een gebruiker toegang heeft. |
 
@@ -102,7 +102,6 @@ De _toegangsmodus_ verwijst naar hoe een gebruiker toegang heeft tot een Log Ana
 > - Service Fabric
 > - Application Insights
 > - Containers
-> - Aangepaste logboeken die zijn gemaakt door HTTP-gegevensverzamelaar-API
 >
 > U kunt testen als Logboeken goed gekoppeld aan de resource zijn door een query uit te voeren en inspecteren van de records u geïnteresseerd bent in. Als de juiste resource-ID in de [_ResourceId](log-standard-properties.md#_resourceid) eigenschap en klik vervolgens gegevens is beschikbaar voor de resource-georiënteerde query's.
 

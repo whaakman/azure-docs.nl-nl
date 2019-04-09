@@ -1,26 +1,25 @@
 ---
 title: Oorzaken van niet-naleving bepalen
 description: Wanneer een resource niet-compatibele is, zijn er veel mogelijke oorzaken. Leer hoe u meer informatie over de oorzaak van de niet-naleving.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802742"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276096"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
 Wanneer een Azure-resource blijkt dat het niet-compatibel is op een beleidsregel, is het handig om te begrijpen welk deel van de regel voor de resource is niet compatibel zijn met. Het is ook handig om te begrijpen welke wijziging gewijzigd een voorheen compliant bron uit voor niet-compatibel te maken. Er zijn twee manieren om deze informatie te vinden:
 
 > [!div class="checklist"]
-> - [Details van compatibiliteit](#compliance-details)
+> - [Nalevingsdetails](#compliance-details)
 > - [Wijzigingsoverzicht (Preview)](#change-history-preview)
 
 ## <a name="compliance-details"></a>Nalevingsdetails
