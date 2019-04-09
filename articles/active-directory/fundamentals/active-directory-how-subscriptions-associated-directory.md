@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264893"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -30,6 +30,8 @@ Alle gebruikers hebben één *home* Active directory voor verificatie. Uw gebrui
 
 > [!Important]
 > Wanneer u een abonnement op een andere map, gebruikers die beschikken over de rol is toegewezen met behulp van koppelen [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/role-assignments-portal.md) verliest de toegang. Klassieke abonnementsbeheerders (servicebeheerder en Medebeheerders) zal ook geen toegang meer.
+> 
+> Bovendien uw cluster Azure Kubernetes Service (AKS) verplaatst naar een ander abonnement of het abonnement die eigenaar van het cluster verplaatsen naar een nieuwe tenant is, zorgt ervoor dat het cluster te verliezen functionaliteit vanwege verloren roltoewijzingen en service-principals rechten. Zie voor meer informatie over AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -67,15 +69,16 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
 
     ![Overschakelen naar directorypagina, met voorbeeldgegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Wijzigen van de abonnementsdirectory is een bewerking op serviceniveau, zodat deze niet van invloed op abonnement eigendom. De accountbeheerder kan nog steeds wijzigen voor de servicebeheerder van de [Accountcentrum](https://account.azure.com/subscriptions). Als de oorspronkelijke map verwijderen, moet u overbrengen van de abonnementsfacturering over aan een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom. 
+Wijzigen van de abonnementsdirectory is een bewerking op serviceniveau, zodat deze niet van invloed op abonnement eigendom. De accountbeheerder kan nog steeds wijzigen voor de servicebeheerder van de [Accountcentrum](https://account.azure.com/subscriptions). Als de oorspronkelijke map verwijderen, moet u overbrengen van de abonnementsfacturering over aan een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom.
 
 ## <a name="post-association-steps"></a>Stappen na-koppeling
-
 Nadat u een abonnement op een andere map hebt gekoppeld, is er mogelijk extra stappen die u uitvoeren moet om bewerkingen te hervatten.
 
 1. Als u alle sleutelkluizen hebt, moet u een tenant-id in de vorm van de sleutelkluis. Zie voor meer informatie, [een tenant-ID van key vault wijzigen na een verplaatsing van een abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](../../azure-stack/azure-stack-registration.md).
+2. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

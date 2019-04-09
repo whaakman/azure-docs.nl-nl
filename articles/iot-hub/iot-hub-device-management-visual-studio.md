@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108200"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269568"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Cloud Explorer voor Visual Studio gebruiken voor het beheer van Azure IoT Hub-apparaten
 
-![Diagram voor end-to-end](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagram voor end-to-end](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is een nuttig Visual Studio-uitbreiding waarmee u uw Azure-resources bekijken, hun eigenschappen inspecteren en voert u belangrijke ontwikkelaar acties op basis van Visual Studio. Het wordt geleverd met opties die u gebruiken kunt diverse taken uit te voeren.
 
@@ -35,7 +35,7 @@ Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (m
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-Leert u met Cloud Explorer voor Visual Studio met verschillende beheeropties voor op uw ontwikkelcomputer.
+Leert u hoe u de Cloud Explorer gebruiken voor Visual Studio met verschillende beheeropties voor op uw ontwikkelcomputer.
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
@@ -43,8 +43,8 @@ Voer Cloud Explorer voor Visual Studio met verschillende opties.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-- Een actief Azure-abonnement.
-- Een Azure-IoT-Hub in uw abonnement.
+- Een actief Azure-abonnement
+- Een Azure-IoT-Hub in uw abonnement
 - Microsoft Visual Studio 2017 Update 8 of hoger
 - Onderdeel van de cloud Explorer van Visual Studio Installer (standaard met de Azure Workload geselecteerd)
 

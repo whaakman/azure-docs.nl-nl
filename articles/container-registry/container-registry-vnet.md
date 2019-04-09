@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517926"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268405"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Toegang beperken tot een Azure container registry met behulp van een Azure-netwerk of firewall-regels
 
@@ -29,6 +29,8 @@ In dit artikel ziet u twee scenario's voor het netwerk toegangsregels om te bepe
 * Alleen een **Premium** containerregister kan worden geconfigureerd met regels voor network access. Zie voor meer informatie over Servicelagen register [Azure Container Registry-SKU's](container-registry-skus.md). 
 
 * Alleen een [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster of Azure [virtuele machine](../virtual-machines/linux/overview.md) kan worden gebruikt als een host voor toegang tot een containerregister in een virtueel netwerk. *Andere Azure-services zoals Azure Container Instances worden momenteel niet ondersteund.*
+
+* [ACR taken](container-registry-tasks-overview.md) bewerkingen worden momenteel niet ondersteund in een containerregister geïmplementeerd met een virtueel netwerk.
 
 * Elk register biedt ondersteuning voor maximaal 100 regels voor virtueel netwerk.
 

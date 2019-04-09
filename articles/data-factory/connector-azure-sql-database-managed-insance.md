@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903382"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272203"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met behulp van Azure Data Factory
 
@@ -282,7 +282,7 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **SqlSink**. | Ja. |
-| WriteBatchSize |Deze eigenschap voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. |Nee (standaard: 10,000). |
+| WriteBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. |Nee (standaard: 10,000). |
 | writeBatchTimeout |Deze eigenschap geeft u de wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn voor de tijdsduur. Een voorbeeld hiervan is "00: 30:00, ' die is 30 minuten. |Nee. |
 | preCopyScript |Deze eigenschap geeft u een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in het beheerde exemplaar. De toepassing wordt aangeroepen slechts één keer per exemplaar uitvoeren. U kunt deze eigenschap gebruiken om vooraf geladen gegevens op te schonen. |Nee. |
 | sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing. Voorbeelden van procedures zijn upsert-bewerking of transformaties doen met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee. |
@@ -438,9 +438,9 @@ Wanneer gegevens worden gekopieerd naar Azure SQL Database Managed Instance, kun
 
 U kunt een opgeslagen procedure gebruiken bij het kopiëren van ingebouwde mechanismen niet voldoen aan het doel. Dit wordt doorgaans gebruikt wanneer een upsert (update + invoegen) of een extra verwerking moet worden uitgevoerd voordat de laatste invoeging van gegevens in de doeltabel. Extra verwerking kan taken zoals het samenvoegen van kolommen, opzoeken van aanvullende waarden en plaatst deze in meerdere tabellen bevatten.
 
-Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te doen van een upsert in een tabel in het beheerde exemplaar. Het voorbeeld wordt ervan uitgegaan dat invoergegevens en de 'Marketing'-sink-tabel drie kolommen: ProfileID, status en categorie. Uitvoeren van de upsert op basis van de kolom ProfileID en toepassen voor alleen een specifieke categorie.
+Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te doen van een upsert in een tabel in de SQL Server-database. Wordt ervan uitgegaan dat de invoer- en de sink **Marketing** tabel elke drie kolommen bevatten: **ProfileID**, **status**, en **categorie**. Voer de upsert op basis van de **ProfileID** kolom, en alleen toe te passen voor een specifieke categorie.
 
-**Uitvoergegevensset**
+**Uitvoergegevensset:** de 'tableName' moet dezelfde tabel type parameternaam in de opgeslagen procedure (Zie onderstaande script van de opgeslagen procedure).
 
 ```json
 {
@@ -459,7 +459,7 @@ Het volgende voorbeeld laat zien hoe een opgeslagen procedure gebruiken om te do
 }
 ```
 
-Definieer de sectie SqlSink als volgt in een kopieeractiviteit:
+Definieer de **SQL-sink** sectie als volgt in de kopieeractiviteit.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Definieer de sectie SqlSink als volgt in een kopieeractiviteit:
 }
 ```
 
-In de database, definieert u de opgeslagen procedure met dezelfde naam als SqlWriterStoredProcedureName. Het ingevoerde gegevens van de opgegeven bron worden verwerkt en voegt deze samen in de uitvoertabel. De parameternaam van het tabeltype in de opgeslagen procedure is hetzelfde als 'tableName' die gedefinieerd in de gegevensset.
+In de database, definieert u de opgeslagen procedure met dezelfde naam als de **SqlWriterStoredProcedureName**. Het ingevoerde gegevens van de opgegeven bron worden verwerkt en samengevoegd met de uitvoertabel. De parameternaam van het tabeltype in de opgeslagen procedure moet gelijk zijn aan de **tableName** gedefinieerd in de gegevensset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

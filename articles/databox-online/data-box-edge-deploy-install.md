@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278476"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Zelfstudie: Azure Data Box Edge installeren
 
@@ -90,7 +90,9 @@ Het apparaat moet worden geïnstalleerd in een standaard 19-inch rek. Gebruik de
 
 - Voordat u begint, lees de veiligheidsinstructies in uw veiligheid, milieu en wettelijke informatie brochure zijn. In deze handleiding is geleverd met het apparaat.
 - Voordat de installatie van de rails in de toegewezen ruimte die zich het dichtst bij de onderkant van het rackbehuizing.
-- Voor de configuratie van tooled spoor koppelen, moet u acht schroeven opgeven: #10-32, #12-24 uur per dag, #M5 of #M6. De kop diameter van de schroeven moet minder dan 10 mm (0,4-").
+- Voor de configuratie van de trein tooled koppelen:
+    -  U moet acht schroeven opgeven: #10-32, #12-24 uur per dag, #M5 of #M6. De kop diameter van de schroeven moet minder dan 10 mm (0,4-").
+    -  U moet een plat draai.
 
 ### <a name="identify-the-rail-kit-contents"></a>De inhoud van de kit spoor te identificeren
 
@@ -102,6 +104,9 @@ Zoek de onderdelen voor het installeren van de trein kit assembly:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installeren en verwijderen van gereedschap rails (vierkante hole of ronde openingen rekken)
 
+> [!TIP]
+> Deze optie is gereedschap omdat er geen hulpprogramma's hoeven te installeren en verwijderen van de rails naar de niet-verbonden vierkant of gaten in de rekken afronden.
+
 1. Plaats de linker- en spoor end-onderdelen met het label **FRONT** naar binnen gerichte en elk gegeven end aan in de gaten op de front-zijde van de verticale rackflenzen plaatsen.
 2. Elk onderdeel end in de gaten onderste en bovenste van de gewenste U spaties uitlijnen.
 3. De back-end van de trein betrekken voor de seats op de verticale rack moer totdat het volledig en de vergrendeling op klikt in plaats. Herhaal deze stappen om te plaatsen en het stuk front-end in de verticale rack moer seat.
@@ -110,6 +115,9 @@ Zoek de onderdelen voor het installeren van de trein kit assembly:
 ![Installeren en verwijderen van gereedschap rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installeren en verwijderen van tooled rails (rekken hiërarchische hole)
+
+> [!TIP]
+> Deze optie is tooled omdat hiervoor een hulpprogramma (_een plat draai_) installeren en verwijderen van de rails in de threads ronde gaten in de rekken.
 
 1. De pincodes verwijderen uit de voor- en achterkant koppelen met behulp van een plat draai vierkante haken.
 2. Ophalen van en het draaien van de trein vergrendeling subverzamelingen als u wilt verwijderen uit de haakjes koppelen.
@@ -152,7 +160,7 @@ OPMERKING: Voor systemen die niet zijn uitgerust met slam vergrendelingen, het s
 
 1. Zoek de buitenste CMA vierkante haken aan de binnenkant zijden van beide rackflenzen.
 2. De kabels voorzichtig, bundelen binnenhalen ze wissen van de systeem-connectors voor de links en rechts.
-3. De banden haakje en lus via de tooled sleuven op het buitenste CMA vierkante haken voor elke zijde van het systeem voor het beveiligen van de kabel bundels van thread.
+3. De banden haakje en lus via de sleuven op het buitenste CMA vierkante haken voor elke zijde van het systeem voor het beveiligen van de kabel bundels van thread.
 
 
 ![De kabels routeren](./media/data-box-edge-deploy-install/routing-cables.png)
@@ -213,6 +221,6 @@ In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen m
 Ga naar de volgende zelfstudie voor informatie over het verbinden, instellen en activeren van uw apparaat.
 
 > [!div class="nextstepaction"]
-> [Data Box Edge aansluiten en instellen](./data-box-edge-deploy-connect-setup-activate.md)
+> [Verbinding maken met en gegevens in Edge instellen](./data-box-edge-deploy-connect-setup-activate.md)
 
 

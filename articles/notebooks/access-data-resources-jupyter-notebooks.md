@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 17f7e7acc70047119b882a5bb6e60bfdf06f79c0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775455"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271510"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Toegang tot cloud-gegevens in een notitieblok
 
@@ -71,8 +71,8 @@ Azure Cosmos DB biedt een volledig geïndexeerde NoSQL-archief voor JSON-documen
 - [Bouw een SQL-API-app met Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
 - [Een Flask-app ontwikkelen met de Azure Cosmos DB-API voor MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Een grafiekdatabase met behulp van Python en de Gremlin-API maken](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Een Cassandra-app ontwikkelen met Python en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Een tabel met Python en Azure Cosmos DB API-app bouwen](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Een Cassandra-app compileren met Python en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
+- [Een Table-API compileren met Python en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Als u werkt met Cosmos DB, kunt u de [azure-cosmos DB-tabel](https://pypi.org/project/azure-cosmosdb-table/) bibliotheek.
 
@@ -80,9 +80,9 @@ Als u werkt met Cosmos DB, kunt u de [azure-cosmos DB-tabel](https://pypi.org/pr
 
 Azure biedt een aantal andere gegevenstypen van de database die u kunt gebruiken. De onderstaande artikelen bieden hulp voor toegang tot deze databases met Python:
 
-- [Azure Database voor PostgreSQL: Python gebruiken om te verbinden en gegevens op te vragen](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Snelstart: Azure Redis-Cache gebruiken met Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database voor MySQL: Python gebruiken om te verbinden en gegevens op te vragen](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for PostgreSQL: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Quickstart: Azure Redis-Cache gebruiken met Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Azure Database for MySQL: Python gebruiken om verbinding te maken met gegevens en er query's op uit te voeren](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [De Wizard voor Azure Data Factory kopiëren](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

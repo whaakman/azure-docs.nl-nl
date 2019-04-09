@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1527a326ca0107df33857284774252b327b7d8bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112701"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273257"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 en de OpenID Connect-protocol
 
@@ -57,26 +57,28 @@ De `{tenant}` kan duren voordat een van de vier waarden:
 | `common` |Gebruikers met zowel een persoonlijk Microsoft-account en een account voor werk- of schoolaccount van Azure Active Directory (Azure AD) kunnen aanmelden bij de toepassing. |
 | `organizations` |Alleen gebruikers met een werk- of schoolaccounts van Azure AD kunnen zich aanmelden bij de toepassing. |
 | `consumers` |Alleen gebruikers met een persoonlijk Microsoft-account kunnen aanmelden bij de toepassing. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` |Alleen gebruikers met een werk- of school-account van een specifieke Azure AD tenant kan zich aanmelden bij de toepassing. Ofwel de beschrijvende domeinnaam van de Azure AD-tenant of GUID-id van de tenant kan worden gebruikt. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` | Alleen gebruikers met een werk- of school-account van een specifieke Azure AD tenant kan zich aanmelden bij de toepassing. Ofwel de beschrijvende domeinnaam van de Azure AD-tenant of GUID-id van de tenant kan worden gebruikt. U kunt ook de tenant consument `9188040d-6c67-4c5b-b112-36a304b66dad`, in plaats van de `consumers` tenant.  |
 
 De metagegevens is een eenvoudige JavaScript Object Notation (JSON)-document. Zie het volgende fragment voor een voorbeeld. De inhoud van het codefragment worden volledig beschreven in de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
 
   ...
 
 }
 ```
+Als uw app aangepaste ondersteuningssleutels door het gebruik van heeft de [claims-toewijzing](active-directory-claims-mapping.md) functie, die u moet toevoegen een `appid` queryparameter met de app-ID om op te halen een `jwks_uri` die verwijst naar uw app de ondertekeningssleutel informatie. Bijvoorbeeld: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` bevat een `jwks_uri` van `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Normaal gesproken zou u dit metagegevensdocument gebruiken om te configureren van een bibliotheek OpenID Connect of SDK. de bibliotheek gebruikt de metagegevens zijn werk te doen. Als u een vooraf gebouwde OpenID Connect-bibliotheek niet gebruikt, kunt u de stappen in de rest van dit artikel om uit te voeren aanmelden in een web-app met behulp van het v2.0-eindpunt volgen.
+
+Normaal gesproken zou u dit metagegevensdocument gebruiken om te configureren van een bibliotheek OpenID Connect of SDK. de bibliotheek gebruikt de metagegevens zijn werk te doen. Als u een vooraf gemaakte OpenID Connect-bibliotheek niet gebruikt, kunt u de stappen in de rest van dit artikel om uit te voeren aanmelden in een web-app met behulp van het v2.0-eindpunt volgen.
 
 ## <a name="send-the-sign-in-request"></a>De aanvraag voor aanmelding bij verzenden
 
@@ -87,7 +89,7 @@ Wanneer uw web-app moet de gebruiker te verifiëren, deze kunt instellen dat de 
 * De aanvraag moet bevatten de `nonce` parameter.
 
 > [!IMPORTANT]
-> Om een aanvraag is een ID-token, dat de app-registratie in de [registratieportal](https://apps.dev.microsoft.com) ze beschikken over de **[impliciete](v2-oauth2-implicit-grant-flow.md)** ingeschakeld voor de webclient. Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: "De opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is "code" "
+> Om een aanvraag is een ID-token van het eindpunt /authorization, de app-registratie in de [registratieportal](https://portal.azure.com) beschikken over de impliciete toekenning van id_tokens ingeschakeld op het tabblad verificatie (die Hiermee stelt u de `oauth2AllowIdTokenImplicitFlow`markeren de [toepassingsmanifest](reference-app-manifest.md) naar `true`). Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: "De opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is "code" "
 
 Bijvoorbeeld:
 
@@ -113,14 +115,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |Vereist |U kunt de `{tenant}` waarde in het pad van de aanvraag om te bepalen wie kan zich aanmelden bij de toepassing. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer informatie, [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | client_id |Vereist |De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere omvatten `response_type` waarden, zoals `code`. |
-| redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het URL-codering moet worden. |
+| redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het URL-codering moet worden. Indien niet aanwezig zijn, wordt het eindpunt kiezen één geregistreerde redirect_uri in willekeurige volgorde voor het verzenden van de gebruiker een back-up op. |
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. U kunt ook andere bereiken opnemen in deze aanvraag voor het aanvragen van toestemming. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die worden opgenomen in de resulterende waarde id_token als een claim. De app kunt controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar de app. Deze waarde kan `form_post` of `fragment` zijn. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post`, om te controleren of de meest veilige overdracht van tokens aan uw toepassing. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor het [cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die de gebruiker was op. |
 | prompt |Optioneel |Geeft het type tussenkomst van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn `login`, `none`, en `consent`. De `prompt=login` claim zorgt ervoor dat de gebruiker zijn referenties invoeren voor deze aanvraag, die eenmalige aanmelding wordt genegeerd. De `prompt=none` claim is het tegenovergestelde. Deze claim zorgt ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet op de achtergrond via eenmalige aanmelding worden voltooid, wordt er een fout geretourneerd in het v2.0-eindpunt. De `prompt=consent` claim wordt het dialoogvenster OAuth geactiveerd nadat de gebruiker zich aanmeldt. Het dialoogvenster waarin de gebruiker machtigingen verlenen voor de app. |
 | login_hint |Optioneel |Gebruik deze parameter kunt u vooraf invullen van het veld gebruikersnaam en het e-adres van de aanmeldingspagina voor de gebruiker, als u bekend bent met de gebruikersnaam vooraf. Vaak apps deze parameter gebruiken tijdens de verificatie wordt uitgevoerd, nadat u hebt al de gebruikersnaam van een eerdere aanmelding uitgepakt met behulp van de `preferred_username` claim. |
-| domain_hint |Optioneel |Deze waarde kan zijn `consumers` of `organizations`. Als opgenomen, wordt deze overgeslagen het detectieproces op basis van een e-mailbericht dat de gebruiker door op de v2.0-aanmelden pagina, voor een iets meer gestroomlijnde gebruikerservaring gaat. Vaak apps deze parameter gebruiken tijdens verificatie wordt uitgevoerd door te extraheren de `tid` claim van de ID-token. Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad` (de Microsoft-Account consument tenant), gebruikt u `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`. |
+| domain_hint |Optioneel | De realm van de gebruiker in een federatieve directory.  Hiermee wordt het detectieproces op basis van een e-mailbericht dat de gebruiker door op de v2.0-aanmelden pagina, voor een iets meer gestroomlijnde gebruikerservaring gaat overgeslagen. Voor tenants die zijn gefedereerd met een on-premises map, zoals ADFS, resulteert dit vaak in een naadloze aanmelding vanwege de bestaande aanmeldingssessie. |
 
 Op dit moment wordt de gebruiker gevraagd zijn referenties invoeren en de verificatie voltooien. Het v2.0-eindpunt wordt gecontroleerd dat de gebruiker heeft ingestemd met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker heeft niet ingestemd met een van deze machtigingen, vraagt het v2.0-eindpunt de gebruiker akkoord gaan met de vereiste machtigingen. U kunt meer lezen over [machtigingen en toestemming apps voor meerdere tenants](v2-permissions-and-consent.md).
 
@@ -179,7 +181,6 @@ De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in
 Alleen een id_token ontvangen is niet voldoende om te verifiëren van de gebruiker. u moet de handtekening van het id_token valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 U kunt kiezen om te valideren de `id_token` in client-code, maar een gebruikelijk is voor het verzenden van de `id_token` naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van het id_token hebt gevalideerd, zijn er enkele claims u moet om te controleren. Zie de [ `id_token` verwijzing](id-tokens.md) voor meer informatie, met inbegrip van [valideren van Tokens](id-tokens.md#validating-an-id_token) en [belangrijke informatie over de ondertekening van sleutelrollover](active-directory-signing-key-rollover.md). Het is raadzaam om gebruik van een bibliotheek voor het parseren en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
-<!--TODO: Improve the information on this-->
 
 U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
 

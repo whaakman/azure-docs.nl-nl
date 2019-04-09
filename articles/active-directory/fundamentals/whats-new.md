@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046696"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271812"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -39,7 +39,39 @@ Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt. Als u naar ite
 
 ---
 
+## <a name="april-2019"></a>April 2019
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Verbeterde beveiliging met behulp van het appbeleid-beveiliging op basis van voorwaardelijke toegang in Azure AD (openbare preview)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Voorwaardelijke toegang  
+**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+
+App-beveiliging op basis van voorwaardelijke toegang is nu beschikbaar met behulp van de **app-beveiliging vereisen** beleid. Dit nieuwe beleid helpt bij het beveiligen van uw organisatie te helpen om te voorkomen dat:
+
+- Gebruikers toegang krijgen tot apps zonder een Microsoft Intune-licentie.
+
+- Gebruikers wordt niet lukt om een beveiligingsbeleid voor apps van Microsoft Intune.
+
+- Gebruikers toegang krijgen tot apps zonder een geconfigureerde Microsoft Intune app-beveiligingsbeleid.
+
+Zie voor meer informatie, [hoe u beveiligingsbeleid voor apps vereist voor toegang tot cloud-Apps met voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## <a name="march-2019"></a>Maart 2019
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Nieuwe ondersteuning voor Azure AD eenmalige aanmelding en voorwaardelijke toegang in Microsoft Edge (preview-versie)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Voorwaardelijke toegang  
+**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+
+We hebben onze Azure AD-ondersteuning voor Microsoft Edge, met inbegrip van nieuwe ondersteuning voor eenmalige aanmelding en voorwaardelijke toegang voor Azure AD verbeterd. Als u Microsoft Intune Managed Browser eerder hebt gebruikt, kunt u Microsoft Edge in plaats daarvan nu gebruiken.
+
+Zie voor meer informatie over het instellen en beheren van uw apparaten en apps met behulp van voorwaardelijke toegang, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) en [vereisen goedgekeurde client-apps voor de cloud apptoegang met voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). Zie voor meer informatie over het beheren van toegang met behulp van Microsoft Edge met Microsoft Intune-beleid [internettoegang beheren met een Microsoft Intune-beleid beveiligd browser](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Identiteitservaring-Framework en aangepast beleid ondersteuning in Azure Active Directory B2C is nu beschikbaar is (GA)
 

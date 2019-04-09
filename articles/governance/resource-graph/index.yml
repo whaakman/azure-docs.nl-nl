@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803406"
 documentType: LandingData
 title: Documentatie voor de Azure Resource Graph-service
 metadata:
   title: 'Documentatie voor Azure Resource Graph: zelfstudies, API-naslag'
   description: Azure Resource Graph is een service in Azure waarmee op schaal complexe query's op resources kunnen worden uitgevoerd.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: Met de documentatie voor Azure Resource Graph kunt u de querytaal voor het detecteren en verkennen van uw resources op schaal configureren en hiermee leren werken.
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Configureer Resource Graph en voer uw eerste query uit.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        alt: Azure-CLI
-        src: ./media/cli.svg
-      text: Azure-CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Feedback
-  items:
-  - type: paragraph
-    text: Om feedback te geven over deze functie of als u hulp nodig hebt met query's, gaat u in de Azure-portal vanuit <b>Azure Policy</b> naar de pagina <b>Resource Graph (preview)</b> en klikt u op Feedback. U kunt ons ook suggesties sturen via <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Configureer Resource Graph en voer uw eerste query uit.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure-CLI
+              src: ./media/cli.svg
+            text: Azure-CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Feedback
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure-CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Talen
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure-SDK voor .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure-SDK voor Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API-naslaginformatie</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">Preview van 01-09-2018 (OpenAPI)</a></p>
+      - type: paragraph
+        text: 'Om feedback te geven over deze functie of als u hulp nodig hebt met query''s, gaat u in de Azure-portal vanuit <b>Azure Policy</b> naar de pagina <b>Resource Graph (preview)</b> en klikt u op Feedback. U kunt ons ook suggesties sturen via <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure-CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Talen
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure-SDK voor .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure-SDK voor Python</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API-naslaginformatie</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">Preview van 01-09-2018 (OpenAPI)</a></p>'

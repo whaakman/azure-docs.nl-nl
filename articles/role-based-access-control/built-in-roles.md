@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010665"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281213"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -121,7 +121,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Eigenaar van Spatial Anchors-account](#spatial-anchors-account-owner) | Hiermee kunt u ruimtelijke ankers in uw account beheren, waaronder de ankers verwijderen |
 | [Lezer voor Spatial Anchors-account](#spatial-anchors-account-reader) | Hiermee kunt u eigenschappen van ruimtelijke ankers in uw account zoeken en lezen |
 | [Inzender voor SQL-databases](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
-| [SQL beheerd exemplaar Inzender](#sql-managed-instance-contributor) | Hiermee kunt u beheerde SQL-instanties beheren, maar kan geen toegang verlenen aan anderen. |
 | [SQL-beveiligingsbeheer](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 | [Inzender voor SQL Server](#sql-server-contributor) | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
@@ -2229,31 +2228,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *geen* |  |
-> | **NotDataActions** |  |
-> | *geen* |  |
-
-## <a name="sql-managed-instance-contributor"></a>SQL beheerd exemplaar Inzender
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Description** | Hiermee kunt u beheerde SQL-instanties beheren, maar kan geen toegang verlenen aan anderen. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Acties** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
-> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
-> | Microsoft.Network/networkSecurityGroups/write | Hiermee een netwerkbeveiligingsgroep maken of bijwerken van een bestaande netwerkbeveiligingsgroep |
-> | Microsoft.Network/routeTables/write | Hiermee maakt u een routetabel gemaakt of een bestaande routetabel bijgewerkt |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
-> | Microsoft.Network/virtualNetworks/subnets/write | Hiermee maakt u een virtueel netwerksubnet of updates van het subnet van een bestaande virtuele netwerk |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk. Niet Signaleerbare. |
-> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
-> | **NotActions** |  |
-> | *geen* |  |
 > | **DataActions** |  |
 > | *geen* |  |
 > | **NotDataActions** |  |

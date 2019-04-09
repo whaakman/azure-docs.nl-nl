@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858852"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Zelfstudie: Azure Active Directory-integratie met Lecorpio
 
@@ -105,9 +105,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Lecorpio, moet u de 
 
     ![Lecorpio domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<instance name>.lecorpio.com/<customer name>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<instance name>.lecorpio.com/<customer name>`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instance name>.lecorpio.com/<customer name>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Lecorpio Client ondersteuningsteam](mailto:info@lecorpio.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -193,8 +193,8 @@ Wanneer u op de tegel Lecorpio in het toegangsvenster, moet u worden automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

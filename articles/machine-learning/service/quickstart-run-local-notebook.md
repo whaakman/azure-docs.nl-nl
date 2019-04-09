@@ -10,27 +10,22 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb601ac5c1ed8e9ca6d2027fe1b774a938e1f0a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362409"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281128"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning
 
-In dit artikel hebt u uw eigen notebook-server gebruiken om code die wordt vastgelegd in de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md). De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning.
+Uw eigen notebook-server gebruiken om code waarmee waarden zich in de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md). De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning.
 
-In deze snelstartgids maakt gebruik van uw eigen Python-omgeving en Jupyter Notebook-Server. Zie voor een snelstartgids met geen installatie [Quick Start: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken](quickstart-run-cloud-notebook.md) 
+In deze snelstartgids maakt gebruik van uw eigen Python-omgeving en Jupyter Notebook-Server. Zie voor een snelstartgids met geen SDK-installatie, [Quick Start: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken](quickstart-run-cloud-notebook.md) 
 
 Een videoversie van deze quickstart bekijken:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-In deze snelstart, gaat u het volgende doen:
-
-* Code schrijven om waarden te schrijven in de werkruimte
-* De vastgelegde waarden in uw werkruimte weergeven.
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -61,7 +56,7 @@ Wanneer de uitvoering is voltooid, kunt u de experimentele uitvoering weergeven 
 print(run.get_portal_url())
 ```
 
-Gebruik de koppeling om de vastgelegde waarden in Azure Portal weer te geven in uw browser.
+Deze code retourneert een koppeling die u gebruiken kunt om de vastgelegde waarden in de Azure portal in uw browser weer te geven.
 
 ![Vastgelegde waarden in Azure Portal](./media/quickstart-run-local-notebook/logged-values.png)
 
@@ -79,6 +74,6 @@ Als u niet van plan bent om de resources te gebruiken die u in dit artikel hebt 
 In dit artikel hebt u de resources gemaakt die u nodig hebt om mee te experimenteren en om modellen te implementeren. U hebt code in een notebook uitgevoerd en de uitvoeringsgeschiedenis voor de code in uw werkruimte in de cloud onderzocht.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Een model trainen voor de classificatie van afbeeldingen](tutorial-train-models-with-aml.md)
+> [Zelfstudie: Een installatiekopie van classificatie-model te trainen](tutorial-train-models-with-aml.md)
 
 U kunt ook verkennen [geavanceerdere voorbeelden op GitHub](https://aka.ms/aml-notebooks) of weergeven van de [gebruikershandleiding voor de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

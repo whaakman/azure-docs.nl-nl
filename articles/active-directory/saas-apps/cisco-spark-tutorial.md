@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852131"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex
 
@@ -53,7 +53,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Cisco Webex in Azure AD moet u Cisco Webex vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Cisco Webex toe te voegen vanuit de galerie:**
+**Als u wilt toevoegen Cisco Webex uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -107,14 +107,14 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Cisco Webex te
 
     ![Informatie over domein en URL's voor eenmalige aanmelding met Cisco Webex](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://web.ciscospark.com/#/signin`
+    a. In de **aanmeldings-URL** in het tekstvak, een URL als: `https://web.ciscospark.com/#/signin`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://idbroker.webex.com/<Org Id>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
     > Deze id is geen echte waarde. Werk deze waarde bij met de werkelijke id. Als u de metagegevens van de provider hebt, uploadt u deze in de sectie **SAML-basisconfiguratie**. De waarde **Id (Entiteits-id)** wordt vervolgens automatisch ingevuld.
 
-5. In de Cisco Webex-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om de kenmerken toe te voegen.
+5. In de Cisco Webex-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om de kenmerken toe te voegen.
 
     ![image](common/edit-attribute.png)
 
@@ -259,9 +259,9 @@ Wanneer u op de tegel Cisco Webex in het toegangsvenster klikt, zou u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

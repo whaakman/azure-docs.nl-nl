@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265629"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
@@ -30,7 +30,7 @@ Voordat u een importtaak om over te dragen van gegevens naar Azure Files maakt, 
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
 - [De WAImportExport versie 2 downloaden](https://aka.ms/waiev2) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.
-- Een FedEx/DHL-account hebben. 
+- Een FedEx/DHL-account hebben. Als u gebruiken van een provider dan FedEx/DHL wilt, neem dan contact op met de Azure Data Box operationele team op `adbops@microsoft.com`.  
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
     - Een nummer voor de taak uitvoer gegenereerd.
     - Elke taak moet een afzonderlijke traceringsnummer hebben. Meerdere taken met de dezelfde traceringsnummer worden niet ondersteund.
@@ -145,7 +145,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 4. In **verzendinfo retourneren**:
 
-    - Selecteer de provider die in de vervolgkeuzelijst.
+    - Selecteer de provider die in de vervolgkeuzelijst. Als u een luchtvaartmaatschappij dan FedEx/DHL gebruiken wilt, kiest u een bestaande optie in de vervolgkeuzelijst. Neem contact op met Azure Data Box Operations-team op `adbops@microsoft.com` met de informatie met betrekking tot de provider die u wilt gebruiken.
     - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. 
     - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio.
 

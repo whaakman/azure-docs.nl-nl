@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500199"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260558"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 5
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en oplossingen in Azure App Service op Azure Stack Update 5 en bekende problemen. Bekende problemen zijn onderverdeeld in problemen direct verband houden met de implementatie, het updateproces en problemen met de build (na de installatie).
 
@@ -77,7 +77,7 @@ Azure App Service onder Azure Stack Update 5 bevat de volgende verbeteringen en 
 ### <a name="post-deployment-steps"></a>Stappen na de implementatie
 
 > [!IMPORTANT]  
-> Als u hebt opgegeven dat de RP-App Service met een SQL Always On-exemplaar moet u [de appservice_hosting en appservice_metering databases toevoegen aan een beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) en synchroniseren van de databases om te voorkomen dat verlies van de service in de gebeurtenis van een databasefailover.
+> Als u de App Service-resourceprovider hebt opgegeven met een SQL Always On-exemplaar moet u [de appservice_hosting en appservice_metering databases toevoegen aan een beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) en de databases om te voorkomen dat verlies van synchroniseren de service in het geval van een databasefailover.
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 

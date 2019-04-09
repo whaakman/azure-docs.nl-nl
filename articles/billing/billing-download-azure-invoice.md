@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652379"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264060"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Uw Microsoft Azure-factuur weergeven en downloaden
 
@@ -135,7 +135,7 @@ Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://
 
 Zie voor meer informatie over uw factuur en de kosten in rekening gebracht:
 
-- [Weergeven en downloaden van uw Microsoft Azure-gebruik en kosten](billing-download-azure-daily-usage.md)
+- [Uw Microsoft Azure-gebruik en -kosten weergeven en downloaden](billing-download-azure-daily-usage.md)
 - [Meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md)
 - [Meer informatie over uw Azure-factuur](billing-understand-your-invoice.md)
 - [Meer informatie over uw Microsoft Azure gedetailleerd gebruik](billing-understand-your-usage.md)
@@ -143,7 +143,7 @@ Zie voor meer informatie over uw factuur en de kosten in rekening gebracht:
 
 Als u een Microsoft-KLANTOVEREENKOMST hebt, Zie:
 
-- [Meer informatie over de kosten op de factuur voor uw facturering profiel ](billing-mca-understand-your-bill.md)
+- [Meer informatie over de kosten op de factuur voor uw facturering profiel](billing-mca-understand-your-bill.md)
 - [Meer informatie over de factuur voor uw facturering profiel](billing-mca-understand-your-invoice.md)
 - [Inzicht in het Azure bestand voor gebruik en de kosten voor uw facturering profiel](billing-mca-understand-your-usage.md)
 - [Weergeven en btw-documenten voor uw facturering profiel downloaden](billing-mca-download-tax-document.md)

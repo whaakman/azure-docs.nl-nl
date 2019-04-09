@@ -1,19 +1,18 @@
 ---
 title: Voorbeeld - Toegestane locaties
 description: Deze voorbeeldbeleidsdefinitie vereist dat alle resources worden geïmplementeerd naar de goedgekeurde locaties.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0dc93b171fb610d901d2f13f3521b87aa91b1fd6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804714"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264723"
 ---
 # <a name="sample---allowed-region-locations"></a>Voorbeeld - Toegestane regiolocaties
 
@@ -24,7 +23,7 @@ U kunt dit voorbeeldbeleid implementeren met behulp van:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure-CLI](#azure-cli)
-- [REST API](#rest-api)
+- [REST-API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +52,7 @@ De JSON definieert de beleidsparameters, zoals gebruikt door Azure CLI en Azure 
 
 ## <a name="parameters"></a>Parameters
 
-|Name |Type |Veld |Beschrijving |
+|Name |Type |Veld |Description |
 |---|---|---|---|
 |listOfAllowedLocations |Matrix |locaties |De lijst met toegestane locaties|
 
@@ -158,11 +157,11 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Hiermee maakt u een nieuwe Azure Policy-definitie. |
-| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hiermee vraagt u één resourcegroep op. |
-| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Hiermee maakt u een nieuwe Azure Policy-toewijzing. In dit voorbeeld bieden we een definitie aan, maar er kan ook een initiatief nodig zijn. |
-| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Hiermee verwijdert u een bestaande Azure Policy-toewijzing. |
-| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Hiermee verwijdert u een bestaande Azure Policy-definitie. |
+| [AZ beleidsdefinitie maken](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Hiermee maakt u een nieuwe Azure Policy-definitie. |
+| [AZ group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hiermee vraagt u één resourcegroep op. |
+| [AZ beleidstoewijzing te maken](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Hiermee maakt u een nieuwe Azure Policy-toewijzing. In dit voorbeeld bieden we een definitie aan, maar er kan ook een initiatief nodig zijn. |
+| [AZ beleid voor de roltoewijzing niet verwijderen](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Hiermee verwijdert u een bestaande Azure Policy-toewijzing. |
+| [AZ policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Hiermee verwijdert u een bestaande Azure Policy-definitie. |
 
 ## <a name="rest-api"></a>REST-API
 

@@ -1,18 +1,18 @@
 ---
 title: Consistentieniveaus en Azure Cosmos DB-API's
 description: Informatie over de consistentieniveaus voor API's in Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620662"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274770"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
@@ -33,7 +33,7 @@ In tegenstelling tot AzureCosmos DB biedt Apache Cassandra systeemeigen geen gar
 
 De volgende tabel ziet u hoe de systeemeigen Cassandra-consistentieniveaus zijn toegewezen aan de Azure Cosmos DB-consistentieniveaus bij het gebruik van de Cassandra-API:  
 
-[ ![Toewijzing van Cassandra consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Ctoewijzing van assandra consistentie model](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB en Azure Cosmos DB-consistentieniveaus
 
@@ -51,7 +51,7 @@ Tijdens het gebruik van Azure Cosmos DB-API voor MongoDB:
 
 De volgende tabel ziet u hoe de systeemeigen MongoDB schrijven/lezen problemen worden toegewezen aan de Azure Cosmos-consistentieniveaus bij het gebruik van Azure Cosmos DB-API voor MongoDB:
 
-[ ![Toewijzing van MongoDB consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![Mtoewijzing van ongoDB consistentie model](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

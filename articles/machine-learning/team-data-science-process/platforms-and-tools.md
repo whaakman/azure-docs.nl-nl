@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471008"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281264"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
@@ -44,7 +44,7 @@ De data science virtual machine die wordt aangeboden op zowel Windows als Linux 
 - Power BI desktop voor Windows
 - SQL Server 2016 Developer Edition op Windows / Postgres op Linux
 
-Dit omvat ook **hulpprogramma's voor ML en AI** zoals CNTK (een Open Source Deep Learning toolkit van Microsoft), xgboost, mxnet en Vowpal Wabbit.
+Dit omvat ook **hulpprogramma's voor ML en AI** zoals xgboost, mxnet en Vowpal Wabbit.
 
 DSVM is momenteel beschikbaar in **Windows** en **Linux CentOS** besturingssystemen. Kies de grootte van uw DSVM (aantal CPU-kernen) en de hoeveelheid geheugen op basis van de behoeften van de data science-projecten die u van plan bent om uit te voeren op het. 
 

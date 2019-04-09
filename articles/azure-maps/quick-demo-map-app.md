@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3482a5516e0a044716ac38e7a60a9a8484f73245
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056211"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268667"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Een interactief doorzoekbare kaart maken met Azure Maps
 
@@ -73,12 +73,12 @@ In de zelfstudies vindt u gedetailleerde informatie over het gebruik en de confi
 In deze quickstart hebt u een Azure Maps-account gemaakt en een demo-toepassing gemaakt. Kijk eens in de volgende zelfstudies voor meer informatie over Azure-kaarten:
 
 > [!div class="nextstepaction"]
-> [Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps](./tutorial-search-location.md)
+> [Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps](tutorial-search-location.md)
 
 Bekijk de volgende handleidingen voor meer codevoorbeelden en een interactieve coderingservaring:
 
 > [!div class="nextstepaction"]
-> [Een adres vinden met behulp van de search-service van Azure Maps](./how-to-search-for-address.md)
+> [Een adres vinden met behulp van de search-service van Azure Maps](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Map Control gebruiken](./how-to-use-map-control.md)
+> [Azure Maps Map Control gebruiken](how-to-use-map-control.md)

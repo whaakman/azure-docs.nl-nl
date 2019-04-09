@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883935"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264083"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
 Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -61,7 +61,8 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 | Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. De maximale grootte voor deze parameter is 100 tekens. |
 | x-ms-date |De datum waarop de aanvraag is verwerkt, in de RFC 1123-indeling. |
-| Time-gegenereerd-veld |De naam van een veld in de gegevens die met het tijdstempel van het gegevensitem. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt opgenomen. De inhoud van het berichtenveld diende de ISO 8601-notatie jjjj-MM-ddTHH. |
+| x-ms-AzureResourceId | Resource-ID van de Azure-resource de gegevens moet worden gekoppeld. Dit vult de [_ResourceId](log-standard-properties.md#_resourceid) eigenschap en maakt het mogelijk de gegevens moeten worden opgenomen in [resource-georiënteerde](manage-access.md#access-modes) query's. Als dit veld niet wordt opgegeven, worden de gegevens niet worden opgenomen in de resource-georiënteerde query's. |
+| Time-gegenereerd-veld | De naam van een veld in de gegevens die met het tijdstempel van het gegevensitem. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt opgenomen. De inhoud van het berichtenveld diende de ISO 8601-notatie jjjj-MM-ddTHH. |
 
 ## <a name="authorization"></a>Autorisatie
 Elk verzoek aan de API van Azure Monitor HTTP Data Collector moet een autorisatie-header bevatten. Als u wilt een aanvraag worden geverifieerd, moet u zich aanmelden met de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt uitgevoerd. Geeft de handtekening die als onderdeel van de aanvraag.   
@@ -473,7 +474,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternatieven en overwegingen
 De Collector-API moet beslaat van uw behoeften voor het verzamelen van vrije-gegevens in Azure-Logboeken, maar er zijn gevallen waarbij alternatief nodig zijn om het oplossen van enkele van de beperkingen van de API. Alle uw opties zijn als volgt de belangrijkste zaken die zijn opgenomen:
 
-| Alternatieve | Beschrijving | Het meest geschikt voor |
+| Alternatieve | Description | Het meest geschikt voor |
 |---|---|---|
 | [Aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Systeemeigen SDK op basis van opname in Application Insights | Application Insights, doorgaans geïnstrumenteerd via een SDK in uw toepassing, biedt de mogelijkheid voor u om aangepaste gegevens door middel van aangepaste gebeurtenissen te verzenden. | <ul><li> Gegevens die is gegenereerd in uw toepassing, maar niet zijn doorgevoerd door SDK via een van de standaard-gegevenstypen (ie: aanvragen, afhankelijkheden, uitzonderingen, enzovoort).</li><li> Gegevens die vaak wordt gecorreleerd met de andere toepassingsgegevens in Application Insights </li></ul> |
 | [Gegevensverzamelaar-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Logboeken van Azure Monitor | De Collector-API in Azure Monitor-Logboeken is een volledig mogelijkheden voor opname van gegevens. Geen gegevens ingedeeld in een JSON-object kunnen hier worden verzonden. Als verzonden, wordt verwerkt en beschikbaar zijn in Logboeken om te worden gecorreleerd met andere gegevens in Logboeken of op basis van andere Application Insights gegevens. <br/><br/> Het is redelijk eenvoudig de gegevens te uploaden als bestanden naar een Azure Blob-blob uit waar deze bestanden worden verwerkt en geüpload naar Log Analytics. Raadpleeg [dit](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikel voor een Voorbeeldimplementatie van dergelijke een pijplijn. | <ul><li> Gegevens die niet noodzakelijkerwijs worden gegenereerd in een toepassing die is geïnstrumenteerd in Application Insights.</li><li> Voorbeelden zijn onder meer lookup-en feitentabellen, referentiegegevens, vooraf samengevoegde statistieken, enzovoort. </li><li> Bedoeld voor gegevens die op basis van andere Azure Monitor-gegevens (bijvoorbeeld Application Insights, andere gegevenstypen Logboeken, Security Center, Azure-Monitor voor Containers/VM's, enzovoort) waarnaar wordt verwezen. </li></ul> |

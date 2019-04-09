@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: f3ebbfb1b9894b2bf1ca41ac46970e138d107f7b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005791"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265080"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Het wijzigen van de licentiemodel voor een virtuele machine van SQL Server in Azure
 In dit artikel wordt beschreven hoe u de licentiemodel voor een virtuele machine van SQL Server in Azure met behulp van de nieuwe SQL-VM-resourceprovider - **Microsoft.SqlVirtualMachine**. Er zijn twee modellen voor een virtuele machine (VM) die als host fungeert voor SQL Server - betalen per gebruik, licenties en uw eigen licentie (BYOL). En nu met behulp van PowerShell of Azure CLI, u kunt wijzigen welke licentiemodel maakt gebruik van uw SQL Server-VM. 
@@ -42,7 +42,8 @@ Schakelen tussen de twee licentiemodellen worden in rekening gebracht **zonder u
 
  - De mogelijkheid om het licentiemodel te converteren is momenteel alleen beschikbaar voor een VM-installatiekopie van SQL Server op basis van betalen per gebruik. Als u een BYOL-installatiekopie (Bring Your Own License) hebt, kunt u die installatiekopie niet converteren naar betalen per gebruik.
   - Wijzigen van de licentiemodel wordt op dit moment alleen ondersteund voor virtuele machines die zijn geïmplementeerd met behulp van de Resource Manager-model. Virtuele machines die zijn geïmplementeerd met behulp van het klassieke model, worden niet ondersteund. 
-   - Op dit moment de licentiemodel wijzigen is alleen ingeschakeld voor installaties van de openbare Cloud.
+   - Wijzigen van de licentiemodel is op dit moment alleen ingeschakeld voor installaties van de openbare Cloud.
+   - Op dit moment wordt deze procedure alleen ondersteund op virtuele machines met één NIC (network interface). Op virtuele machines met meer dan één NIC, u moet eerst een verwijderen van de NIC's (met behulp van de Azure-portal) voordat u de procedure. Anders wordt u uitvoeren in een vergelijkbaar met de volgende fout: "De virtuele machine '\<vmname\>' is meer dan één NIC die is gekoppeld." Hoewel u mogelijk de NIC terug naar de virtuele machine toevoegen nadat u de licentiemodus wijzigen, bewerkingen die via de blade SQL-configuratie, zoals automatische toepassing van patches en back-up wordt niet meer worden beschouwd als ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 

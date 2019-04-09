@@ -1,25 +1,25 @@
 ---
 title: Typen van de index in Azure Cosmos DB
 description: Overzicht van de typen index in Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.author: mjbrown
-ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: 5e7ee7c0bdfd0cff6be182e6d087cc264910e440
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990558"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271557"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
-Er zijn meerdere opties waar u het indexeringsbeleid voor een pad configureren. U kunt een of meer indexering definities voor elk pad opgeven:
+Er zijn meerdere opties bij het configureren van het indexeringsbeleid voor een pad. U kunt een of meer indexering definities voor elk pad opgeven:
 
 - **Gegevenstype:** Tekenreeks, getal, punt, Polygon of LineString (kan slechts één vermelding per gegevenstype per pad bevatten).
 
-- **Index-type:** Bereik (gelijkheid, bereik of ORDER BY-query's), of Spatial (ruimtelijke query's).
+- **Index-type:** Bereik (voor gelijkheid, bereik of ORDER BY-query's), of Spatial (voor ruimtelijke query's).
 
 - **Precisie:** Voor de index van een bereik is de maximale precisiewaarde -1, dit is de standaardinstelling.
 
@@ -27,7 +27,7 @@ Er zijn meerdere opties waar u het indexeringsbeleid voor een pad configureren. 
 
 Azure Cosmos DB ondersteunt bereik index voor elk pad die kan worden geconfigureerd voor tekenreeks of getal gegevenstypen, of beide.
 
-- **Bereik index** ondersteunt gelijkheid efficiënt query's, de JOIN-query's, de bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER By-query's standaard vereist ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
+- **Bereik index** ondersteunt gelijkheid efficiënt query's, de JOIN-query's, de bereik-query's (met behulp van >, <>, =, < =,! =), en ORDER BY-query's. ORDER BY-query's, vereist standaard ook maximale index precisie (-1). Het gegevenstype mag tekenreeks of getal.
 
 - **Ruimtelijke index** ondersteunt efficiënte ruimtelijke (binnen en afstand) query's. Het gegevenstype mag punt, Polygon of LineString. Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment, zoals {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB biedt ondersteuning voor automatische indexering van punt veelhoek en LineString gegevenstypen.
 
@@ -42,16 +42,16 @@ Hier volgen enkele voorbeelden van query's die variëren en ruimtelijke indexen 
 
 - Als er geen index van het bereik van elke precisie is om aan te geven dat een scan mogelijk nodig om de query in een dergelijk geval standaard een fout geretourneerd voor query's met bereik operators zoals > =.
 
-- Bereik-query's kunnen worden uitgevoerd zonder een bereik-index met behulp van de header 'x-ms-documentdb-enable-scan' in de REST-API of de optie 'EnableScanInQuery'-aanvraag met behulp van de .NET SDK. Als er geen andere filters in de query die Azure Cosmos DB de index gebruiken kunt om te filteren op basis van, wordt geen fout geretourneerd.
+- Bereik-query's kunnen worden uitgevoerd zonder een bereik-index met behulp van de **x-ms-documentdb-enable-scan** -header in de REST-API of de **EnableScanInQuery** optie vragen via de .NET SDK. Als er geen andere filters in de query die Azure Cosmos DB de index gebruiken kunt om te filteren op basis van, wordt geen fout geretourneerd.
 
-- Standaard wordt een fout geretourneerd voor ruimtelijke query's als er geen een ruimtelijke index, of andere filters die kunnen worden weergegeven in de index. Dergelijke query's kunnen worden uitgevoerd als een scan met behulp van x-ms-documentdb-enable-scan of EnableScanInQuery.
+- Standaard wordt een fout geretourneerd voor ruimtelijke query's als er geen een ruimtelijke index, of andere filters die kunnen worden weergegeven in de index. Dergelijke query's kunnen worden uitgevoerd als een scan met behulp van **x-ms-documentdb-enable-scan** of **EnableScanInQuery**.
 
 ## <a name="index-precision"></a>Index precisie
 
 > [!NOTE]
-> Azure Cosmos-containers ondersteunen een nieuwe indexindeling die een aangepaste index precisie dan de maximale precisie value(-1) niet meer vereist. Met deze methode worden altijd paden geïndexeerd met de maximale precisie. Als u een precisiewaarde voor het indexeringsbeleid opgeeft, de CRUD-aanvragen op een containers wordt het secondedeel zonder interactie te negeren en het antwoord van de container bevat alleen de value(-1) maximumprecisie.  Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling.
+> Azure Cosmos-containers ondersteunen een nieuwe indexindeling die niet langer een aangepaste index precisie dan de maximale precisiewaarde (-1 vereist). Met deze methode worden altijd paden geïndexeerd met de maximale precisie. Als u een precisiewaarde voor het indexeringsbeleid opgeeft, wordt de CRUD-aanvragen op een containers wordt het secondedeel zonder interactie te negeren en het antwoord van de container bevat alleen de maximale precisiewaarde (-1).  Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling.
 
-- Index precisie kunt u een afweging maken tussen de overhead van indexopslag en prestaties van query's. Voor getallen, wordt u aangeraden de standaardconfiguratie van de precisie van-1 (maximum). Omdat de getallen 8 bytes in JSON, is dit gelijk aan een configuratie van 8 bytes. Het kiezen van een lagere waarde voor de precisie, zoals 1 tot en met 7, index betekent dat de waarden binnen bepaalde bereiken worden toegewezen aan dezelfde-vermelding. Daarom kunt u opslagruimte in de index verminderen, maar het uitvoeren van query's mogelijk voor het verwerken van meer items. Als gevolg daarvan kunnen verbruikt deze meer doorvoer ru's.
+- Index precisie kunt u een afweging maken tussen de opslagoverhead en de prestaties van query's. Voor getallen, wordt u aangeraden de standaardconfiguratie van de precisie van-1 (het maximum). Omdat de getallen 8 bytes in JSON, is dit gelijk aan een configuratie van 8 bytes. Het kiezen van een lagere waarde voor de precisie, zoals 1 tot en met 7, index betekent dat de waarden binnen bepaalde bereiken worden toegewezen aan dezelfde-vermelding. Daarom kunt u de opslagruimte index beperken, maar het uitvoeren van query's mogelijk voor het verwerken van meer items. Als gevolg daarvan kunnen verbruikt deze meer doorvoer ru's.
 
 - Index precisie heeft meer praktische toepassingen met bereiken van de tekenreeks. Omdat tekenreeksen elke willekeurige lengte zijn kunnen, kan de prestaties van tekenreeks bereik-query's door de keuze van de precisie van de index beïnvloeden. Het ook mogelijk van invloed op de hoeveelheid opslagruimte index die is vereist. Tekenreeks bereik indexen kunnen worden geconfigureerd met een index precisie tussen 1 en 100 of -1 (maximum). Als u uitvoeren ORDER BY query's op de eigenschappen van een verbindingsreeks wilt, moet u een precisie van-1 voor de bijbehorende paden opgeven.
 

@@ -1,7 +1,7 @@
 ---
-title: Maken, laden en query uitvoeren in een index met behulp van PowerShell en de REST-API - Azure Search
-description: Maken, laden en query uitvoeren in een index met behulp van PowerShell, Invoke-RestMethod en de Azure Search REST-API.
-ms.date: 03/15/2019
+title: 'Quickstart: Maken, laden en query uitvoeren in een index met behulp van PowerShell en de REST-API - Azure Search'
+description: Maken, laden en query uitvoeren in een index met behulp van PowerShell Invoke-RestMethod en de Azure Search REST-API.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372111"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268021"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Quickstart: Een Azure Search-index met behulp van PowerShell en de REST-API maken
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ In dit artikel begeleidt u bij het proces van het maken, laden en opvragen van e
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. Andere vereisten behoren ook de volgende items.
+De volgende services en hulpprogramma's worden gebruikt in deze Quick Start. 
+
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
 
 [PowerShell 5.1 of hoger](https://github.com/PowerShell/PowerShell), met [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) voor opeenvolgende en interactieve stappen.
 
-Lees het URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
-1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een voorbeeld-eindpunt kan er uitzien zoals https:\//my-service-name.search.windows.net.
+REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
 2. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-   ![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
-   Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
+Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 ## <a name="connect-to-azure-search"></a>Verbinding maken met Azure Search
 

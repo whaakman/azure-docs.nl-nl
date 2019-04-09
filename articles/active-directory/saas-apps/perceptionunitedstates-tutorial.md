@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 31528c30ac8b795a661539349c2bee31edb6973c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850982"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met perceptie Verenigde Staten (niet-UltiPro)
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met perceptie Verenigde 
 
     a. In het tekstvak **Id** typt u een URL: `https://perception.kanjoya.com/sp`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     c. De **perceptie Verenigde Staten (niet-UltiPro)** toepassing vereist de **Azure AD-id** waarde als < entity_id >, u van ontvangt de **perceptie Verenigde Staten (instellen Non-UltiPro)** sectie URI-codering krijgen. Als u de uri-gecodeerde waarde, gebruikt u de volgende koppeling: **http://www.url-encode-decode.com/**.
 
@@ -229,9 +229,9 @@ Wanneer u op de tegel perceptie Verenigde Staten (niet-UltiPro) in het toegangsv
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

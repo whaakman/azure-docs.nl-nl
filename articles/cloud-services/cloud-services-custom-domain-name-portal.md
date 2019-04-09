@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121618"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267137"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloudservice configureren
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice is de naam "contoso", uw gebruikers zich toegang tot uw toepassing op een URL, zoals http://contoso.cloudapp.net. Azure wijst ook een virtueel IP-adres.
@@ -64,11 +64,11 @@ Voor het maken van een CNAME-record, moet u een nieuwe vermelding in de DNS-tabe
 
 1. Gebruik een van deze methoden om te zoeken de **. cloudapp.net** domeinnaam toegewezen aan uw cloudservice.
 
-   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **Site-URL** vermelding.
+   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **overzicht** sectie en gaat u naar de **Site-URL** vermelding.
 
        ![snelle weergave-sectie van de site-URL][csurl]
 
-       **OR**
+       **OF**
    * Installeer en configureer [Azure Powershell](/powershell/azure/overview), en gebruik vervolgens de volgende opdracht uit:
 
        ```powershell
@@ -97,11 +97,11 @@ Voor het maken van een A-record, moet u eerst het virtuele IP-adres van uw cloud
 
 1. Gebruik een van de volgende methoden om het IP-adres van uw cloudservice.
 
-   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **openbare IP-adressen** vermelding.
+   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **overzicht** sectie en gaat u naar de **openbare IP-adressen** vermelding.
 
        ![snelle weergave-sectie van de VIP][vip]
 
-       **OR**
+       **OF**
    * Installeer en configureer [Azure Powershell](/powershell/azure/overview), en gebruik vervolgens de volgende opdracht uit:
 
        ```powershell
@@ -130,7 +130,7 @@ In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u e
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
+* [Cloudservices beheren](cloud-services-how-to-manage-portal.md)
 * [CDN-inhoud toewijzen aan een aangepast domein](../cdn/cdn-map-content-to-custom-domain.md)
 * [Algemene configuratie van uw cloudservice](cloud-services-how-to-configure-portal.md).
 * Meer informatie over het [implementeren van een cloudservice](cloud-services-how-to-create-deploy-portal.md).
@@ -141,6 +141,6 @@ In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u e
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006814"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278221"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configureren en beheren van replicatiebeleid voor noodherstel van VMware naar Azure
 In dit artikel wordt beschreven hoe u een replicatiebeleid configureren wanneer u bent virtuele VMware-machines repliceren naar Azure, met behulp van [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ In dit artikel wordt beschreven hoe u een replicatiebeleid configureren wanneer 
 ## <a name="create-a-policy"></a>Een beleid maken
 
 1. Selecteer **Beheren** > **Infrastructuur voor Site Recovery**.
-2. In **voor VMware en fysieke machines**, selecteer **replicatiebeleid**. 
+2. In **voor VMware en fysieke machines**, selecteer **replicatiebeleid**.
 3. Klik op **+ replicatiebeleid**, en geef de naam van het beleid.
 4. Geef de limiet voor de RPO op bij **RPO-drempelwaarde**. Waarschuwingen worden gegenereerd wanneer de continue replicatie deze limiet overschrijdt.
 5. Geef in **Bewaarperiode van het herstelpunt** de duur (in uren) op dat elk herstelpunt moet worden bewaard. Beveiligde machines kunnen binnen een bepaald tijdsvenster te allen tijde worden hersteld naar een willekeurig punt. Een bewaarperiode van maximaal 24 uur wordt ondersteund voor computers die worden gerepliceerd naar Premium Storage. Maximaal 72 uur wordt ondersteund voor standard-opslag.
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u een replicatiebeleid configureren wanneer 
 
 Wanneer u een replicatiebeleid maakt, wordt een overeenkomende failback-replicatiebeleid automatisch gemaakt, met het achtervoegsel 'failback'. Nadat het beleid is gemaakt, kunt u deze bewerken door deze te selecteren > **instellingen bewerken**.
 
-## <a name="associate-a-configuration-server"></a>Een configuratieserver koppelen 
+## <a name="associate-a-configuration-server"></a>Een configuratieserver koppelen
 
 Het replicatiebeleid koppelen aan uw on-premises configuratieserver.
 

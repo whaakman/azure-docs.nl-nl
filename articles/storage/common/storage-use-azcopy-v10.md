@@ -2,18 +2,18 @@
 title: Gegevens kopiëren of verplaatsen naar Azure Storage met behulp van AzCopy v10 (Preview) | Microsoft Docs
 description: Gebruik van de v10 AzCopy-opdrachtregelprogramma (Preview) te verplaatsen of kopiëren van gegevens naar of van blob-, data lake- en bestandsinhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574974"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278425"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Gegevens overdragen met AzCopy v10 (Preview)
 
@@ -24,6 +24,7 @@ AzCopy v10 (Preview) is het opdrachtregelprogramma voor het kopiëren van gegeve
 - Synchroniseert bestandssystemen naar Azure Blob-opslag of vice versa. Gebruik `azcopy sync <source> <destination>`. Ideaal voor scenario's voor incrementele kopie.
 - Biedt ondersteuning voor Azure Data Lake Storage Gen2 API's. Gebruik `myaccount.dfs.core.windows.net` als een URI naar de Data Lake Storage Gen2 API's aanroepen.
 - Ondersteunt het kopiëren van een hele account (alleen voor Blob-service) naar een ander account.
+- Ondersteunt het kopiëren van gegevens uit een Amazon Web Services-S3-bucket.
 - Maakt gebruik van de nieuwe [Put-blokken van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API's ter ondersteuning van accounts exemplaar. De gegevensoverdracht is sneller, omdat de overdracht naar de client is niet vereist.
 - Geeft een lijst of verwijdert u bestanden en blobs in een opgegeven pad.
 - Biedt ondersteuning voor jokertekenpatronen in een pad, en--uitsluiten vlaggen.
@@ -79,8 +80,8 @@ AzCopy v10 heeft een zelf gedocumenteerde syntaxis. Wanneer u zich hebt aangemel
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 Hier volgt hoe krijgt u een lijst van beschikbare opdrachten:
@@ -135,16 +136,16 @@ Gebruik de opdracht kopiëren om over te dragen gegevens van de bron naar de bes
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path` recursief naar de container `mycontainer1`, het maken van het `path` Active directory in de container:
+De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path` recursief naar de container `mycontainer1`, het maken van het `path` Active directory in de container. Wanneer `--put-md5` vlag wordt geleverd, AzCopy worden berekend en opgeslagen van elk bestand md5-hash in `Content-md5` eigenschap van de bijbehorende blob voor later gebruik.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 De volgende opdracht worden alle bestanden onder de map geüpload `C:\local\path` (zonder recursing in de submappen) naar de container `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 Ga voor meer voorbeelden, gebruik de volgende opdracht:
@@ -153,21 +154,27 @@ Ga voor meer voorbeelden, gebruik de volgende opdracht:
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>Kopiëren van gegevens tussen twee opslagaccounts
+## <a name="copy-blob-data-between-two-storage-accounts"></a>Kopiëren van Blob-gegevens tussen twee opslagaccounts
 
 Maakt gebruik van kopiëren van gegevens tussen twee opslagaccounts de [blok plaatsen van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, en maakt geen gebruik van netwerkbandbreedte van de client-computer. Gegevens worden gekopieerd tussen twee Azure Storage-servers rechtstreeks, terwijl AzCopy gewoon de kopieerbewerking wordt georganiseerd. Deze optie is momenteel alleen beschikbaar voor Blob-opslag.
 
-Als u wilt kopiëren van gegevens tussen twee opslagaccounts, gebruik de volgende opdracht:
+Als u wilt kopiëren alle van de Blob-gegevens tussen twee opslagaccounts, gebruik de volgende opdracht:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> Met deze opdracht wordt het inventariseren van alle blob-containers en kopieer deze naar de doelaccount. Op dit moment ondersteunt AzCopy v10 alleen blok-blobs tussen twee opslagaccounts kopiëren. Alle andere storage-account-objecten (zoals toevoeg-blobs, pagina-blobs, bestanden, tabellen en wachtrijen) wordt overgeslagen.
+Als u wilt kopiëren van een Blob-container naar een andere Blob-container, gebruik de volgende opdracht:
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Een VHD-installatiekopie kopiëren naar een opslagaccount
 
-AzCopy v10 standaard worden gegevens geüpload naar blok-blobs. Echter, als een bronbestand heeft een `.vhd` extensie, AzCopy v10 wordt teruggezet op het uploaden naar een pagina-blob. Deze actie is niet op dit moment kunnen worden geconfigureerd.
+AzCopy standaard worden gegevens geüpload naar blok-blobs. Bestanden uploaden als toevoeg-Blobs en pagina-Blobs gebruikt u de vlag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synchronisatie: incrementele kopie en verwijderen (alleen voor Blob storage)
 
@@ -192,6 +199,30 @@ U kunt ook een blob-container naar een lokaal bestandssysteem synchroniseren:
 ```
 
 Met deze opdracht synchroniseert stapsgewijs de bron naar de bestemming op basis van de laatst gewijzigde tijdstempels. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy v10 hetzelfde als in de bestemming. Voordat u deze verwijdert vraagt AzCopy u om te bevestigen.
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Gegevens kopiëren van Amazon Web Services (AWS) S3
+
+Als u wilt verifiëren met een AWS S3-bucket, de volgende omgevingsvariabelen worden ingesteld:
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+Als u wilt de bucket kopiëren naar een Blob-container, voert u de volgende opdracht uit:
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+Voor meer informatie over het kopiëren van gegevens van AWS S3 met behulp van AzCopy, Zie de pagina [hier](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
@@ -277,10 +308,11 @@ Als u wilt filteren de overdrachten op status, gebruik de volgende opdracht:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Gebruik de volgende opdracht uit om te hervatten van een taak is mislukt/geannuleerd. Met deze opdracht maakt gebruik van de id samen met het SAS-token. Het is niet persistent uit veiligheidsoverwegingen:
+Gebruik de volgende opdracht uit om te hervatten van een taak is mislukt/geannuleerd. Met deze opdracht maakt gebruik van de id samen met het SAS-token niet permanent uit veiligheidsoverwegingen is:
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

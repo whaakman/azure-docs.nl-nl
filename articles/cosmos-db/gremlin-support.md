@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081097"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275552"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Ondersteuning voor Gremlin-grafieken in Azure Cosmos DB
-Azure Cosmos DB biedt ondersteuning voor de grafiekdoorkruisingstaal van [Apache Tinkerpop](https://tinkerpop.apache.org) en [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Dit is een Gremlin-API voor het maken van grafiekentiteiten en het uitvoeren van querybewerkingen voor grafieken. U kunt de Gremlin-taal gebruiken om grafiekentiteiten (hoekpunten en randen) te maken, eigenschappen binnen deze entiteiten te wijzigen, query’s en traversals uit te voeren, en entiteiten te verwijderen. 
+Azure Cosmos DB ondersteunt [van Apache Tinkerpop](https://tinkerpop.apache.org) grafiek-traversal taal, ook wel [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). U kunt de Gremlin-taal gebruiken om grafiekentiteiten (hoekpunten en randen) te maken, eigenschappen binnen deze entiteiten te wijzigen, query’s en traversals uit te voeren, en entiteiten te verwijderen. 
 
-Azure Cosmos DB brengt functies van zakelijk niveau naar grafiekdatabases. Dit omvat wereldwijde distributie, onafhankelijk schalen van opslag en doorvoer, voorspelbare latenties van slechts enkele milliseconden, automatisch indexeren, SLA’s, leesbeschikbaarheid voor databaseaccounts in twee of meer Azure-regio’s. Omdat Azure Cosmos DB ondersteuning biedt voor TinkerPop/Gremlin, kunt u eenvoudig toepassingen migreren die zijn geschreven met een andere grafiekdatabase, zonder dat u codewijzigingen hoeft aan te brengen. Daarnaast integreert Azure Cosmos DB, vanwege de ondersteuning voor Gremlin, naadloos met analyseframeworks waarvoor TinkerPop is ingeschakeld, zoals [Apache Spark GraphX](https://spark.apache.org/graphx/). 
+Azure Cosmos DB brengt functies van zakelijk niveau naar grafiekdatabases. Deze functies omvatten globale distributie, onafhankelijk schalen van opslag en doorvoer, voorspelbare milliseconden latentie, automatische indexering, sla's, leesbeschikbaarheid voor database-accounts die twee of meer Azure-regio's. Omdat Azure Cosmos DB ondersteunt TinkerPop Gremlin /, kunt u eenvoudig toepassingen die zijn geschreven met behulp van een andere compatibel graph-database migreren. Daarnaast integreert Azure Cosmos DB, vanwege de ondersteuning voor Gremlin, naadloos met analyseframeworks waarvoor TinkerPop is ingeschakeld, zoals [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
-In dit artikel bieden we een beknopt overzicht van Gremlin en worden de functies en stappen in Gremlin beschreven die worden ondersteund door de Gremlin-API.
+In dit artikel, we bieden een snel overzicht van Gremlin en inventariseren van de Gremlin-functies die worden ondersteund door de Gremlin-API.
 
 ## <a name="gremlin-by-example"></a>Gremlin via een voorbeeld
 Laten we een voorbeeldgrafiek gebruiken om te zien hoe query’s kunnen worden uitgedrukt in Gremlin. In de volgende afbeelding ziet u een zakelijke toepassing waarmee gegevens over gebruikers, interesses en apparaten worden beheerd, in de vorm van een grafiek.  
@@ -59,7 +59,7 @@ Met de volgende query worden de hoekpunten voor Persoon in aflopende volgorde va
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-Waar grafieken in uitblinken is in het beantwoorden van vragen zoals: Welke besturingssystemen gebruiken de vrienden van Thomas? U kunt deze eenvoudige Gremlin-traversal uitvoeren om deze gegevens op te halen uit de grafiek:
+Waar grafieken in uitblinken is in het beantwoorden van vragen zoals: Welke besturingssystemen gebruiken de vrienden van Thomas? U kunt deze Gremlin-traversal om op te halen die informatie in de grafiek kunt uitvoeren:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -123,71 +123,72 @@ In het volgende fragment wordt bijvoorbeeld een GraphSON-representatie weergegev
   }
 ```
 
-In GraphSON worden de volgende eigenschappen gebruikt voor hoekpunten:
+De eigenschappen die worden gebruikt door GraphSON voor hoekpunten worden hieronder beschreven:
 
-| Eigenschap | Description |
-| --- | --- |
-| id | De id voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde _partition, indien van toepassing) |
-| label | Het label van het hoekpunt. Dit is optioneel en wordt gebruikt om het entiteitstype te beschrijven. |
-| type | Wordt gebruikt om hoekpunten te onderscheiden van niet-Graph-documenten |
-| properties | Groep door de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan het hoekpunt. Elke eigenschap kan meerdere waarden hebben. |
-| _partition (te configureren) | De partitiesleutel van het hoekpunt. Kan worden gebruikt om grafieken uit te schalen naar meerdere servers |
-| outE | Dit bevat een lijst met uitlopende randen vanaf een hoekpunt. Het opslaan van informatie over aangrenzing met het hoekpunt zorgt voor een snelle uitvoering van traversals. Randen zijn gegroepeerd op basis van de bijbehorende labels. |
+| Eigenschap | Description | 
+| --- | --- | --- |
+| `id` | De id voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde van `_partition` indien van toepassing). Als er geen waarde is opgegeven, zal deze automatisch worden geleverd met een GUID | 
+| `label` | Het label van het hoekpunt. Dit wordt gebruikt om te beschrijven van het entiteitstype. |
+| `type` | Wordt gebruikt om hoekpunten te onderscheiden van niet-Graph-documenten |
+| `properties` | Groep door de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan het hoekpunt. Elke eigenschap kan meerdere waarden hebben. |
+| `_partition` | De partitiesleutel van het hoekpunt. Gebruikt voor [graph-partitionering](graph-partitioning.md). |
+| `outE` | Deze eigenschap bevat een lijst van de randen van een hoekpunt. Het opslaan van informatie over aangrenzing met het hoekpunt zorgt voor een snelle uitvoering van traversals. Randen zijn gegroepeerd op basis van de bijbehorende labels. |
 
 En de rand bevat de volgende informatie voor hulp bij het navigeren naar andere delen van de grafiek.
 
 | Eigenschap | Description |
 | --- | --- |
-| id | De id voor de rand. Moet uniek zijn (in combinatie met de waarde _partition, indien van toepassing) |
-| label | Het label van de rand. Deze eigenschap is optioneel en wordt gebruikt om het relatietype te beschrijven. |
-| inV | Dit bevat een lijst met inkomende hoekpunten voor een rand. Het opslaan van informatie over aangrenzing aan de rand zorgt voor een snelle uitvoering van traversals. Hoekpunten zijn gegroepeerd op basis van de bijbehorende labels. |
-| properties | Groep door de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan de rand. Elke eigenschap kan meerdere waarden hebben. |
+| `id` | De id voor de rand. Moet uniek zijn (in combinatie met de waarde van `_partition` indien van toepassing) |
+| `label` | Het label van de rand. Deze eigenschap is optioneel en wordt gebruikt om het relatietype te beschrijven. |
+| `inV` | Deze eigenschap bevat een lijst in hoekpunten voor een edge. Het opslaan van informatie over aangrenzing aan de rand zorgt voor een snelle uitvoering van traversals. Hoekpunten zijn gegroepeerd op basis van de bijbehorende labels. |
+| `properties` | Groep door de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan de rand. Elke eigenschap kan meerdere waarden hebben. |
 
 Met elke eigenschap kunnen meerdere waarden worden opgeslagen binnen een matrix. 
 
 | Eigenschap | Description |
 | --- | --- |
-| waarde | De waarde van de eigenschap
+| `value` | De waarde van de eigenschap
 
 ## <a name="gremlin-steps"></a>Gremlin-stappen
 We gaan nu de Gremlin-stappen bekijken die worden ondersteund in Azure Cosmos DB. Zie [TinkerPop-naslagwerken](https://tinkerpop.apache.org/docs/current/reference) voor een compleet overzicht van Gremlin.
 
 | stap | Description | TinkerPop 3.2-documentatie |
 | --- | --- | --- |
-| `addE` | Voegt een rand toe tussen twee hoekpunten | [stap: addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Voegt een hoekpunt toe aan de grafiek | [stap: addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Zorgt ervoor dat alle traversals een waarde retourneren | [stap: and](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Een stapmodulator om een variabele toe te wijzen aan de uitvoer van een stap | [stap: as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Een stapmodulator die wordt gebruikt met `group` en `order` | [stap: by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Retourneert de eerste traversal die wordt geretourneerd als resultaat | [stap: coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Retourneert een constante waarde. Wordt gebruikt met `coalesce`| [stap: constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Retourneert het aantal van de traversal | [stap: count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Retourneert de waarden, zonder de dubbele waarden | [stap: dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Verwijdert de waarden (hoekpunt/rand) | [stap: drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Fungeert als barrière waarmee de combinatie van resultaten wordt berekend| [stap: fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Groepeert de waarden op basis van de opgegeven labels| [stap: group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Wordt gebruikt om eigenschappen, hoekpunten en randen te filteren. Biedt ondersteuning voor de varianten `hasLabel`, `hasId`, `hasNot` en `has`. | [stap: has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Waarden invoeren in een stroom| [stap: inject](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Wordt gebruikt om een filter uit te voeren met behulp van een booleaanse expressie | [stap: is](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Wordt gebruikt om het aantal items in de traversal te beperken| [stap: limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Verpakt een gedeelte van een traversal lokaal in, vergelijkbaar met een subquery | [stap: local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Wordt gebruikt om de ontkenning van een filter te produceren | [stap: not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Retourneert het resultaat van de opgegeven traversal, indien er een resultaat is, anders wordt het aanroepende element geretourneerd | [stap: optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Zorgt ervoor dat minstens een van de traversals een waarde retourneert | [stap: or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Retourneert resultaten in de opgegeven sorteervolgorde | [stap: order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Retourneert het volledige pad van de traversal | [stap: path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Projecteert de eigenschappen als een kaart | [stap: project](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Retourneert de eigenschappen voor de opgegeven labels | [stap: properties](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Filtert op het opgegeven waardenbereik| [stap: range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Herhaalt de stap zo vaak als is opgegeven. Wordt gebruikt om een lus te maken | [stap: repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Wordt gebruikt voor voorbeeldresultaten van de traversal | [stap: sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Wordt gebruikt voor projectresultaten van de traversal |  [stap: select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
-| `store` | Wordt gebruikt voor niet-blokkerende combinaties van de traversal | [stap: store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Paden van een hoekpunt combineren in een boomstructuur | [stap: tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Een iterator uitvoeren als stap| [stap: unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Resultaten van meerdere traversals samenvoegen| [stap: union](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Bevat de stappen die nodig zijn voor traversals tussen hoekpunten en randen `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` en `otherV` voor | [stap: vertex](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Wordt gebruikt om resultaten van de traversal te filteren. Biedt ondersteuning voor de operators `eq`, `neq`, `lt`, `lte`, `gt`, `gte` en `between`  | [stap: where](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `addE` | Voegt een rand toe tussen twee hoekpunten | [addE stap](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Voegt een hoekpunt toe aan de grafiek | [addV stap](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Zorgt ervoor dat alle traversals een waarde retourneren | [en stap](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Een stapmodulator om een variabele toe te wijzen aan de uitvoer van een stap | [Als stap](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Een stap modulator gebruikt in combinatie met `group` en `order` | [door stap](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Retourneert de eerste traversal die wordt geretourneerd als resultaat | [stap samenvoegen](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Retourneert een constante waarde. Gebruikt in combinatie met `coalesce`| [constante stap](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Retourneert het aantal van de traversal | [aantal stap](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Retourneert de waarden, zonder de dubbele waarden | [Ontdubbeling-stap](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Verwijdert de waarden (hoekpunt/rand) | [stap verwijderen](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `executionProfile` | Hiermee maakt u een beschrijving van alle bewerkingen die worden gegenereerd door de uitgevoerde Gremlin-stap | [executionProfile stap](graph-execution-profile.md) |
+| `fold` | Fungeert als barrière waarmee de combinatie van resultaten wordt berekend| [Vouw stap](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Groepeert de waarden op basis van de opgegeven labels| [groep-stap](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Wordt gebruikt om eigenschappen, hoekpunten en randen te filteren. Biedt ondersteuning voor de varianten `hasLabel`, `hasId`, `hasNot` en `has`. | [stap heeft](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Waarden invoeren in een stroom| [stap invoeren](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Wordt gebruikt om een filter uit te voeren met behulp van een booleaanse expressie | [stap](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Wordt gebruikt om het aantal items in de traversal te beperken| [limiet voor stap](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Verpakt een gedeelte van een traversal lokaal in, vergelijkbaar met een subquery | [lokale stap](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Wordt gebruikt om de ontkenning van een filter te produceren | [geen stap](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Retourneert het resultaat van de opgegeven traversal, indien er een resultaat is, anders wordt het aanroepende element geretourneerd | [optionele stap](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Zorgt ervoor dat minstens een van de traversals een waarde retourneert | [of de stap](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Retourneert resultaten in de opgegeven sorteervolgorde | [volgorde-stap](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Retourneert het volledige pad van de traversal | [pad naar stap](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projecteert de eigenschappen als een kaart | [Project-stap](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Retourneert de eigenschappen voor de opgegeven labels | [Eigenschappen van stap](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtert op het opgegeven waardenbereik| [bereik stap](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Herhaalt de stap zo vaak als is opgegeven. Wordt gebruikt om een lus te maken | [Herhaal stap](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Wordt gebruikt voor voorbeeldresultaten van de traversal | [Voorbeeld van stap](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Wordt gebruikt voor projectresultaten van de traversal |  [stap te selecteren](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
+| `store` | Wordt gebruikt voor niet-blokkerende combinaties van de traversal | [stap opslaan](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Paden van een hoekpunt combineren in een boomstructuur | [structuur stap](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Een iterator uitvoeren als stap| [stap uitvouwen](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Resultaten van meerdere traversals samenvoegen| [Union stap](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Bevat de stappen die nodig zijn voor traversals tussen hoekpunten en randen `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` en `otherV` voor | [hoekpunt stappen](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Wordt gebruikt om resultaten van de traversal te filteren. Biedt ondersteuning voor de operators `eq`, `neq`, `lt`, `lte`, `gt`, `gte` en `between`  | [waar stap](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
 De voor schrijven geoptimaliseerde engine van Azure Cosmos DB biedt standaard ondersteuning voor het automatisch indexeren van alle eigenschappen binnen hoekpunten en randen. Daarom worden query’s met filters, bereikquery’s, sorteringen of combinaties van elke willekeurige eigenschap verwerkt vanaf de index en efficiënt geleverd. Bekijk onze paper over [schema-agnostisch indexeren](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) voor meer informatie over hoe indexeren werkt in Azure Cosmos DB.
 

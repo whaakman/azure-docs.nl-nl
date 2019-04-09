@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010342"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277116"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Schakel Azure Disk Encryption voor virtuele Windows IaaS-machines
 
@@ -223,8 +223,7 @@ Gebruik de [az vmss versleuteling inschakelen](/cli/azure/vmss/encryption#az-vms
 Voor het versleutelen of ontsleutelen van virtuele-machineschaalset in Windows wordt ingesteld, gebruikt u de Azure Resource Manager-sjablonen en de onderstaande instructies:
 
 - [Schakelt u versleuteling op een virtuele-machineschaalset voor Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Implementeren van een VM-schaalset van virtuele machines van Windows met een jumpbox en schakelt u versleuteling op de Windows-VM-schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Schakel versleuteling uit op een Windows VM-schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Schakel versleuteling uit op een virtuele-machineschaalset voor Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Klik op **Implementeren in Azure**.
      2. Vul de vereiste velden in en ga akkoord met de voorwaarden en bepalingen.

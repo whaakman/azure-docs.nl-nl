@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403682"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275434"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -33,7 +33,7 @@ De implementatiewerkstroom bevat de volgende stappen uit:
 
 Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van een met één implementatieopdracht. Bovendien kunt u integreren implementatie in een **CI/CD-werkstroom** zoals geïllustreerd in deze afbeelding.
 
-[!['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Stap 1: Model registreren
 
@@ -63,7 +63,9 @@ De installatiekopie kan ook SDK-onderdelen voor logboekregistratie en bewaking b
 Azure Machine Learning biedt ondersteuning voor de meest populaire frameworks, maar in het algemeen een framework dat pip is geïnstalleerd worden kan kan werken.
 
 Als uw werkruimte is gemaakt, zijn dus andere verschillende andere Azure-resources gebruikt door deze werkruimte.
-Alle objecten die worden gebruikt voor het maken van de installatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. Wanneer de installatiekopie is gemaakt, kunt u aanvullende metagegevenstags bieden. De metadata-codes worden ook opgeslagen door het installatiekopieregister, en om uw installatiekopie kunnen worden opgevraagd.
+Alle objecten die worden gebruikt voor het maken van de standaardinstallatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. Wanneer de installatiekopie is gemaakt, kunt u aanvullende metagegevenstags bieden. De metadata-codes worden ook opgeslagen door het installatiekopieregister, en om uw installatiekopie kunnen worden opgevraagd.
+
+U kunt ook aangepaste installatiekopieën, die kunnen worden geüpload naar Azure Container Registry en gebruikt door de Azure Machine Learning-service gebruiken.
 
 Voor meer informatie, Zie de configureren en registreren sectie van de installatiekopie van [modellen implementeren](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar ed
 
 Webservice-implementaties zijn ook doorzoekbaar. Bijvoorbeeld, u kunt zoeken naar alle implementaties van een specifiek model of een afbeelding.
 
-[![Inferentietaken doelen](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferencing doelen](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 U kunt uw installatiekopieën implementeren naar de volgende implementatiedoelen in de cloud:
 

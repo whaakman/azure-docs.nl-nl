@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 50850fc9372976382724d6bbc98be9a8d10a0655
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850176"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Zelfstudie: Azure Active Directory-integratie met NetDocuments
 
@@ -104,7 +104,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met NetDocuments, moet u
 
     ![NetDocuments domein en URL's, eenmalige aanmelding informatie](common/sp-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
@@ -205,7 +205,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 Als u wilt dat Azure AD-gebruikers zich aanmelden bij NetDocuments, moeten ze worden ingericht voor NetDocuments.  
 In het geval van NetDocuments is inrichten een handmatige taak.
 
-**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
 
 1. Sing aan bij uw **NetDocuments** bedrijf site als administrator.
 
@@ -232,9 +232,9 @@ Wanneer u op de tegel NetDocuments in het toegangsvenster, moet u worden automat
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

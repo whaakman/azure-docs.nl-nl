@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248109"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257991"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio installeren en verbinding maken met Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resource Manager [sjablonen](azure-stack-arm-templates.md) naar Azure Stack. De stappen in dit artikel helpen u bij het installeren van Visual Studio op [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of op een externe computer als u van plan bent te gebruiken van Azure Stack via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resource Manager [sjablonen](azure-stack-arm-templates.md) naar Azure Stack. De stappen in dit artikel wordt beschreven hoe u Visual Studio installeren op [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of op een externe computer als u van plan bent te gebruiken van Azure Stack via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Visual Studio installeren
 
@@ -39,7 +39,7 @@ U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resour
 
 4. Verwijder de **Microsoft Azure PowerShell** die is geïnstalleerd als onderdeel van de Azure SDK.
 
-    ![Schermafbeelding van WebPI-installatiestappen](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Schermafbeelding van WebPI-installatiestappen](./media/azure-stack-install-visual-studio/image1.png)
 
 5. [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md)
 
@@ -65,9 +65,7 @@ Zodra u bent aangemeld, kunt u [sjablonen implementeren](azure-stack-deploy-temp
 
 3. Vouw **omgeving** in de **navigatiedeelvenster** en selecteer **Accounts**.
 
-4. Selecteer **toevoegen**, en voer de gebruiker Azure Resource Manager-eindpunt.  
-  Voor de Azure Stack Development Kit, de URL is: `https://management.local.azurestack/external`.  
-  De URL is voor geïntegreerde Azure Stack-systemen: `https://management.[Region}.[External FQDN]`.
+4. Selecteer **toevoegen**, en voer de gebruiker Azure Resource Manager-eindpunt. Voor de Azure Stack Development Kit, de URL is: `https://management.local.azurestack/external`.  De URL is voor geïntegreerde Azure Stack-systemen: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,17 +77,17 @@ Zodra u bent aangemeld, kunt u [sjablonen implementeren](azure-stack-deploy-temp
 
 6. Selecteer **Cloud Explorer** uit de **weergave** menu.
 
-1. Selecteer **-Account toevoegen** en meld u aan met uw AD FS-referenties.  
+7. Selecteer **-Account toevoegen** en meld u aan met uw AD FS-referenties.  
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
-    Cloud Explorer vraagt de beschikbare abonnementen. U kunt een selecteren een abonnement beschikbaar om te beheren.
+    Cloud Explorer vraagt de beschikbare abonnementen. U kunt een abonnement beschikbaar om te beheren.
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Bladeren door uw bestaande resources, resourcegroepen of sjablonen implementeren.
+8. Blader van uw bestaande resources, resourcegroepen of sjablonen implementeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - Meer informatie over Visual Studio [naast elkaar](https://msdn.microsoft.com/library/ms246609.aspx) met andere versies van Visual Studio.
- - [Sjablonen ontwikkelen voor Azure Stack](azure-stack-develop-templates.md).
+- Meer informatie over Visual Studio [naast elkaar](/visualstudio/install/install-visual-studio-versions-side-by-side) met andere versies van Visual Studio.
+- [Sjablonen ontwikkelen voor Azure Stack](azure-stack-develop-templates.md).

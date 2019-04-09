@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903995"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257294"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure Stack
 
@@ -30,7 +30,7 @@ Voor externe bewaking van de Azure Stack-infrastructuur, moet u de Azure Stack-s
 - Fysieke computers kunnen status en informatie over waarschuwingen beschikbaar maken via de baseboard management controllers (bmc's).
 - Fysieke netwerkapparaten kunnen status en informatie over waarschuwingen beschikbaar maken via het SNMP-protocol.
 
-Elke Azure Stack-oplossing wordt geleverd met een host van de levenscyclus van hardware. Controle van de hardwareleverancier van de Original Equipment Manufacturer (OEM)-software voor de fysieke servers en netwerkapparaten wordt uitgevoerd op deze host. Als gewenst is, kunt u deze oplossingen voor de controle omzeilen en rechtstreeks integreren met bestaande bewakingsoplossingen in uw datacenter.
+Elke Azure Stack-oplossing wordt geleverd met een host van de levenscyclus van hardware. Controle van de hardwareleverancier van de Original Equipment Manufacturer (OEM)-software voor de fysieke servers en netwerkapparaten wordt uitgevoerd op deze host. Neem contact op met uw OEM-provider als hun bewakingsoplossingen kunnen worden geïntegreerd met bestaande bewakingsoplossingen in uw datacenter.
 
 > [!IMPORTANT]
 > De externe bewakingsoplossing die u moet zonder agent. U kunt agents in Azure Stack-onderdelen van derden niet installeren.
@@ -40,7 +40,7 @@ Het volgende diagram toont de verkeersstroom tussen een geïntegreerde Azure Sta
 ![Diagram met verkeer tussen Azure Stack, bewaking en ticketing oplossing.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> Externe bewaking integratie rechtstreeks met fysieke servers en netwerkapparaten is niet toegestaan en actief worden geblokkeerd door toegangsbeheerlijsten (ACL's). 
+> Externe bewaking integratie rechtstreeks met fysieke servers is niet toegestaan en actief worden geblokkeerd door toegangsbeheerlijsten (ACL's).  Externe bewaking integratie met fysieke netwerkapparaten rechtstreeks wordt ondersteund, neem contact op met uw OEM-provider voor het inschakelen van deze functie.
 
 In dit artikel wordt uitgelegd hoe u Azure Stack integreren met externe bewakingsoplossingen, zoals System Center Operations Manager en Nagios. Dit omvat ook het werken met waarschuwingen programmatisch met behulp van PowerShell of via REST API-aanroepen.
 
@@ -79,7 +79,7 @@ De invoegtoepassing kan worden gebruikt met Nagios Enterprise en Nagios Core. U 
 
 De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende parameters:
 
-| Parameter | Beschrijving | Voorbeeld |
+| Parameter | Description | Voorbeeld |
 |---------|---------|---------|
 | *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt | https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |

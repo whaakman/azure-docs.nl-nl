@@ -1,19 +1,18 @@
 ---
 title: Voorbeeld - ISO 27001-as-omgeving/SQL werkbelasting blauwdruk - stappen implementeren
 description: Stappen van de ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk voorbeeld implementeren.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4ed51ee5f8cbdc50fa65a189d8f468bd7713a74b
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804153"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281196"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>De ISO 27001-App Service-omgeving/SQL Database-workload blauwdruk voorbeeld implementeren
 
@@ -114,7 +113,7 @@ Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan 
 
 De volgende tabel geeft een lijst van de blauwdruk artefact parameters:
 
-|Naam van het artefact|Type artefact|Parameternaam|Beschrijving|
+|Naam van het artefact|Type artefact|Parameternaam|Description|
 |-|-|-|-|
 |Log Analytics-resourcegroep|Resourcegroep|Name|**Vergrendeld** -worden samengevoegd in de **organisatienaam** met `-workload-log-rg` uniek te maken de resourcegroep.|
 |Log Analytics-resourcegroep|Resourcegroep|Locatie|**Vergrendeld** -de blauwdrukparameter wordt gebruikt.|

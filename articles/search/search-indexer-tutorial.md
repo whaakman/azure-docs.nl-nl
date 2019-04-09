@@ -1,23 +1,23 @@
 ---
-title: Zelfstudie voor het indexeren van Azure SQL-databases in Azure Portal - Azure Search
-description: In deze zelfstudie, verbinding maken met Azure SQL-database, doorzoekbare gegevens ophalen en deze te laden in een Azure Search-index.
+title: 'Zelfstudie: Indexeren van gegevens uit Azure SQL-databases in een C# voorbeeldcode - Azure Search'
+description: Een C# codevoorbeeld waarin wordt beschreven hoe u verbinding maken met Azure SQL-database, doorzoekbare gegevens ophalen en deze te laden in een Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201395"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270457"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
+# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie in C#: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
 Informatie over het configureren van een indexeerfunctie die doorzoekbare gegevens uit een voorbeeld van Azure SQL-database. [Indexeerfuncties](search-indexer-overview.md) zijn onderdelen van Azure Search die externe gegevensbronnen verkennen en een [zoekindex](search-what-is-an-index.md) vullen met inhoud. De indexeerfunctie voor Azure SQL Database is van alle indexeerfuncties is de meest gebruikte. 
 
@@ -37,35 +37,39 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
+De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
+
 [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
 
-* Een [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) leveren van de externe gegevensbron die wordt gebruikt door een indexeerfunctie. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) slaat de externe gegevensbron die wordt gebruikt door een indexeerfunctie. De voorbeeldoplossing biedt een SQL-gegevensbestand om de tabel te maken. In deze zelfstudie vindt u stappen voor het maken van de service en de database.
 
-* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities, kan worden gebruikt om uit te voeren van de Voorbeeldoplossing. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
+
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) biedt de Voorbeeldoplossing, zich in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen.
 
 > [!Note]
 > Als u de gratis Azure Search-service gebruikt, bent u beperkt tot drie indexen, drie indexeerfuncties en drie gegevensbronnen. In deze zelfstudie wordt één exemplaar van elk onderdeel gemaakt. Zorg ervoor dat uw service voldoende ruimte heeft voor de nieuwe resources.
 
-### <a name="download-the-solution"></a>De oplossing downloaden
+## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
-De indexeeroplossing in deze zelfstudie is afkomstig uit een verzameling Azure Search-voorbeelden die in één grote download wordt aangeboden. De oplossing die voor deze zelfstudie wordt gebruikt, is *DotNetHowToIndexers*.
+REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-1. Ga naar [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started) in de GitHub-opslagplaats met Azure-voorbeelden.
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-2. Klik op **Klonen of downloaden** > **ZIP downloaden**. Standaard wordt het bestand opgeslagen in de map Downloads.
+1.. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-3. Klik in **Verkenner** > **Downloads** met de rechtermuisknop op het bestand en kies **Alles uitpakken**.
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
-4. Schakel alleen-lezen machtigingen uit. Klik met de rechtermuisknop op de naam van de map > **Eigenschappen** > **Algemeen** en schakel het kenmerk **Alleen-lezen** voor de huidige map, submappen en bestanden uit.
+Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-5. Open de oplossing *DotNetHowToIndexers.sln* in **Visual Studio 2017**.
-
-6. Klik in **Solution Explorer** met de rechtermuisknop op de bovenste bovenliggende oplossing > **Restore Nuget Packages**.
-
-### <a name="set-up-connections"></a>Verbindingen instellen
+## <a name="set-up-connections"></a>Verbindingen instellen
 Verbindingsgegevens voor benodigde services worden opgegeven in het bestand **appsettings.json** in de oplossing. 
 
-Open **appsettings.json** in Solution Explorer, zodat u elke instelling kunt invoeren op basis van de instructies in deze zelfstudie.  
+1. Open in Visual Studio, de **DotNetHowToIndexers.sln** bestand.
+
+1. Open in Solution Explorer **appsettings.json** zodat u kunt de waarden voor elke instelling.  
+
+De eerste twee vermeldingen daarna vult u nu, met de URL en beheer sleutels voor uw Azure Search-service. Een eindpunt van de opgegeven `https://mydemo.search.windows.net`, is de naam van de service voor `mydemo`.
 
 ```json
 {
@@ -75,48 +79,17 @@ Open **appsettings.json** in Solution Explorer, zodat u elke instelling kunt inv
 }
 ```
 
-### <a name="get-the-search-service-name-and-admin-api-key"></a>De naam van de zoekservice en de api-sleutel voor beheer ophalen
-
-U vindt het eindpunt van de zoekservice en de sleutel in de portal. Een sleutel biedt toegang tot servicebewerkingen. Beheersleutels staan schrijftoegang toe, wat nodig is om objecten zoals indexen en indexeerfuncties in uw service te maken en te verwijderen.
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) en zoek de [zoekservices voor uw abonnement](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-
-2. Open de servicepagina.
-
-3. Zoek bovenaan op de hoofdpagina de servicenaam. In de volgende schermafbeelding is dit *azs-tutorial*.
-
-   ![Servicenaam](./media/search-indexer-tutorial/service-name.png)
-
-4. Kopieer en plak dit als eerste vermelding in **appsettings.json** in Visual Studio.
-
-   > [!Note]
-   > De servicenaam maakt deel uit van het eindpunt dat search.windows.net bevat. Desgewenst kunt u de volledige URL bekijken via **Essentials** op de overzichtspagina. De URL lijkt op dit voorbeeld: https://your-service-name.search.windows.net
-
-5. Kopieer aan de linkerkant, onder **Instellingen** > **Sleutels**, een van de beheersleutels en plak deze als tweede vermelding in **appsettings.json**. Sleutels zijn alfanumerieke tekenreeksen die tijdens de inrichting voor uw service worden gegenereerd en zijn vereist voor geautoriseerde toegang tot servicebewerkingen. 
-
-   Nadat u beide instellingen hebt toegevoegd, ziet uw bestand er ongeveer uit als in dit voorbeeld:
-
-   ```json
-   {
-    "SearchServiceName": "azs-tutorial",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
-    . . .
-   }
-   ```
+Het laatste item is vereist voor een bestaande database. In de volgende stap maakt u deze.
 
 ## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
-In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. Het gegevensbestand voor deze zelfstudie is *hotels.sql*, in de oplossingsmap \DotNetHowToIndexers. 
-
-### <a name="azure-sql-database"></a>Azure SQL Database
-
-U kunt de Azure Portal en het bestand *hotels.sql* uit het voorbeeld gebruiken om de gegevensset in Azure SQL Database te maken. Azure Search gebruikt platte rijensets, zoals de sets die worden gegenereerd op basis van een weergave of query. Het SQL-bestand in de voorbeeldoplossing maakt en vult één tabel.
+In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verkennen. U kunt de Azure Portal en het bestand *hotels.sql* uit het voorbeeld gebruiken om de gegevensset in Azure SQL Database te maken. Azure Search gebruikt platte rijensets, zoals de sets die worden gegenereerd op basis van een weergave of query. Het SQL-bestand in de voorbeeldoplossing maakt en vult één tabel.
 
 In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of database is en u maakt beide in stap 2. Als u een bestaande resource hebt, kunt u de tabel hotels er desgewenst aan toevoegen vanaf stap 4.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
 
-2. Klik op **Een resource maken** > **SQL Database** om een database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
+2. Zoekt of maakt u een **Azure SQL Database** om een groep database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
 
    ![De pagina Nieuwe database](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -143,7 +116,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    De prototypequery, `SELECT * FROM Hotels`, werkt niet in de query-editor. De voorbeeldgegevens bevatten geografische coördinaten in het veld Locatie dat momenteel niet door de editor wordt verwerkt. Voor een lijst met andere kolommen waarvoor u een query kunt uitvoeren, kunt u deze instructie uitvoeren: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    De prototypequery, `SELECT * FROM Hotels`, werkt niet in de query-editor. De voorbeeldgegevens bevatten geografische coördinaten in het veld Locatie dat momenteel niet door de editor wordt verwerkt. Voor een lijst van andere kolommen om op te vragen, kunt u deze instructie uitvoeren: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Nu u een externe gegevensset hebt, kopieert u de ADO.NET-verbindingsreeks voor de database. Ga op de pagina SQL Database van uw database naar **Instellingen** > **Verbindingsreeksen** en kopieer de ADO.NET-verbindingsreeks.
  
@@ -156,13 +129,13 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
     ```json
     {
-      "SearchServiceName": "azs-tutorial",
-      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
+      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-index-and-indexer-code"></a>Code voor index en indexeerfuncties begrijpen
+## <a name="understand-the-code"></a>De code begrijpen
 
 Uw code is nu gereed om te worden samengesteld en uitgevoerd. Voordat u dat doet, moet u even de tijd nemen om de definities van de index en de indexeerfuncties voor dit voorbeeld te bestuderen. De relevante code staat in twee bestanden:
 

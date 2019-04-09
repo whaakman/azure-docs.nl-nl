@@ -1,13 +1,18 @@
 ---
 title: Index van blauwdrukvoorbeelden
 description: Index van voorbeelden met betrekking tot naleving en standaardomgevingen die kunnen worden geïmplementeerd met Azure Blueprints.
-services: blueprints
 author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 03/14/2019
 ms.author: dacoulte
+ms.openlocfilehash: ed7afa695ab13540f5f571d94b23133133ffe59f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255951"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-voorbeelden
 

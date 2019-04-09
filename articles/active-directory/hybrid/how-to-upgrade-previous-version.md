@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193752"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267035"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgrade van een vorige versie naar de nieuwste versie
 Dit onderwerp beschrijft de verschillende methoden die u kunt uw Azure Active Directory (Azure AD) Connect-installatie bijwerken naar de nieuwste versie. U wordt aangeraden dat u zelf actueel met de versies van Azure AD Connect houden. U ook de stappen in de [Swingmigratie](#swing-migration) sectie bij het maken van een aanzienlijke configuratie wijzigen.
+
+>[!NOTE]
+> Het wordt momenteel ondersteund voor het upgraden van een willekeurige versie van Azure AD Connect naar de huidige versie. In-place upgrades van DirSync of ADSync worden niet ondersteund en een swingmigratie is vereist.  Als u upgraden van DirSync wilt, Zie [upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](how-to-dirsync-upgrade-get-started.md) of de [Swingmigratie](#swing-migration) sectie.  </br>Klanten met een extreem oude versies kunnen problemen niet rechtstreeks met betrekking tot Azure AD Connect optreden in de praktijk. Servers die in de productieomgeving jaren zijn meestal verschillende patches toegepast hebben gehad en niet al deze waarden kunnen worden verwerkt.  Over het algemeen klanten die niet in 12-18 maanden bijgewerkt moeten rekening houden met de upgrade van een swing in plaats daarvan als dit de optie meest conservatieve en minste riskant is.
 
 Als u upgraden van DirSync wilt, Zie [upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](how-to-dirsync-upgrade-get-started.md) in plaats daarvan.
 

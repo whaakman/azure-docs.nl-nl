@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d7aff33f89a8e1948c5715345ec40af91b0ce9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048500"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273954"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Toegang krijgen tot Azure Storage via SAS-referenties met een door het systeem toegewezen identiteit voor een virtuele Linux-machine (VM)
 
@@ -29,7 +29,7 @@ ms.locfileid: "59048500"
 Deze zelfstudie laat zien hoe u referenties voor een gedeelde handtekening (SAS) ophaalt voor Azure Storage met een door het systeem toegewezen beheerde identiteit voor een virtuele Linux-machine (VM). Een [service-SAS-referentie](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures), om precies te zijn. 
 
 > [!NOTE]
-> De SAS-sleutel gegenereerd in deze zelfstudie wordt niet worden beperkt/gebonden aan de virtuele machine. Als exc
+> De SAS-sleutel gegenereerd in deze zelfstudie wordt niet worden beperkt/gebonden aan de virtuele machine.  
 
 Een service-SAS biedt de mogelijkheid om beperkte toegang tot objecten in een opslagaccount te verlenen voor een beperkte tijdsduur en een specifieke service (in ons geval de blobservice), zonder een toegangssleutel voor het account beschikbaar te stellen. U kunt een SAS-referentie gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie demonstreren we het uploaden en downloaden van een blob met behulp van de opdrachtregelinterface (CLI) van Azure Storage. U leert het volgende:
 

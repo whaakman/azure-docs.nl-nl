@@ -2,16 +2,16 @@
 title: Azure Site Recovery toegang beheren met op rollen gebaseerd toegangsbeheer (RBAC) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt toepassen op rollen gebaseerd toegangsbeheer (RBAC) om Azure Site Recovery toegang te beheren.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218067"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281706"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Site Recovery toegang met op rollen gebaseerd toegangsbeheer (RBAC) beheren
 
@@ -59,7 +59,7 @@ Een gebruiker moet de volgende machtigingen voor volledige replicatie van een ni
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Klassiek | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Opslag | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Klassiek | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -73,5 +73,5 @@ Overweeg het gebruik van de 'Inzender voor virtuele machines' en 'Inzender voor 
 * Informatie over het beheren van toegang met:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure-CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [REST-API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control probleemoplossing](../role-based-access-control/troubleshooting.md): Profiteer van tips voor veelvoorkomende problemen oplossen.

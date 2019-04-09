@@ -1,19 +1,18 @@
 ---
 title: Nieuwe resources beveiligen met resourcevergrendelingen op basis van een blauwdruk
 description: Leer hoe u met de blauwdrukken voor Azure-resourcevergrendelingen alleen-lezen en verwijder niet beveiligen zojuist geïmplementeerde resources.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629218"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272271"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen
 
@@ -130,7 +129,7 @@ Zodra de blauwdrukdefinitie is **gepubliceerd**, deze kan worden toegewezen aan 
 
 1. Geef de parameterwaarden voor de blauwdruktoewijzing:
 
-   - Basisbeginselen
+   - Basics
 
      - **Abonnementen**: Selecteer een of meer van de abonnementen die in de beheergroep die u zijn aan de blauwdrukdefinitie van de opgeslagen. Als u meer dan één abonnement selecteert, wordt een toewijzing worden gemaakt voor elk gebruik van de ingevoerde parameters.
      - **Naam van de roltoewijzing**: De naam is ingevuld op basis van de naam van de blauwdrukdefinitie. We willen dat deze toewijzing te vertegenwoordigen vergrendelen van de nieuwe resourcegroep, wijzig de naam van de toewijzing aan _toewijzing-vergrendeld-storageaccount-TestingBPLocks_.

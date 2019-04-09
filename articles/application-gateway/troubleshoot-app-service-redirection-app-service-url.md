@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123178"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274532"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Problemen met Application Gateway oplossen met App Service – Omleiding naar de URL van App Service
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Application Gateway met App Service oplossen
 
- Informatie over het diagnosticeren en oplossen van problemen omleiden met Application Gateway waar de App Service-URL is ophalen blootgesteld.
+Informatie over het diagnosticeren en oplossen van problemen met Application Gateway- en App Service als de back-endserver.
 
 ## <a name="overview"></a>Overzicht
+
+In dit artikel leert u hoe u de volgende problemen:
+
+> [!div class="checklist"]
+> * App-Service-URL ophalen weergegeven in de browser wanneer er een omleiding
+> * App-Service ARRAffinity Cookie domein ingesteld op App Service-hostnaam (example.azurewebsites.net) in plaats van de oorspronkelijke host
 
 Wanneer u een openbare App Service in de back-endadresgroep van Application Gateway gerichte configureren en als u een omleiding geconfigureerd in de code van uw toepassing hebt, u die tegenkomen kunt wanneer u toegang Application Gateway tot, wordt u omgeleid door de browser rechtstreeks naar de App. Service-URL.
 
@@ -28,6 +34,8 @@ Dit probleem kan optreden vanwege de volgende belangrijke redenen:
 - Hebt u Azure AD-verificatie die ervoor zorgt de omleiding dat.
 - U kunt de switch 'Kies Host naam van back-end-adres' in de HTTP-instellingen van Application Gateway hebt ingeschakeld.
 - U hebt geen uw aangepaste domein dat is geregistreerd bij uw App Service.
+
+Ook als u Services achter Application Gateway-App gebruikt en u een aangepast domein gebruiken voor toegang tot Application Gateway, mogelijk ziet u de domeinwaarde voor de cookie ARRAffinity is ingesteld door de App-Service de naam van het domein 'example.azurewebsites.net' hebben. Als u wilt dat de hostnaam van uw oorspronkelijke als de cookiedomein, volgt u de oplossing in dit artikel.
 
 ## <a name="sample-configuration"></a>Voorbeeldconfiguratie
 
@@ -94,6 +102,16 @@ Om dit te doen, moet u een aangepast domein en volg de procedure die hieronder w
 - Koppelen van de aangepaste test terug naar de back-end-HTTP-instellingen en controleer of de back-endstatus als deze in orde is.
 
 - Zodra dit is gebeurd, Application Gateway moet nu de dezelfde hostnaam 'www.contoso.com' doorsturen naar de App-Service en de omleiding wordt uitgevoerd op de dezelfde hostnaam. U kunt het voorbeeld van de aanvraag- en reactieheaders hieronder controleren.
+
+Ga als volgt het onderstaande voorbeeld PowerShell script voor het implementeren van de stappen hierboven met behulp van PowerShell voor een bestaande installatie. Houd er rekening mee hoe we niet de switches - PickHostname hebt gebruikt in de configuratie van de test- en HTTP-instellingen.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

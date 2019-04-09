@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372710"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287099"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestaties blok-blobopslag
 
-Een premium prestaties block blob storage-account is geoptimaliseerd voor toepassingen die gebruikmaken van kleinere, kilobyte bereik, objecten. Dit is ideaal voor toepassingen waarvoor zeer hoge transactietarieven of opslag met consistente lage latentie. Premium-prestaties blok-blobopslag is ontworpen om te schalen met uw toepassingen. Als u van plan bent om te implementeren toepassingen waarvoor honderden of duizenden aanvragen per seconde of petabytes aan capaciteit, kunt u contact met ons indienen van een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Een premium prestaties block blob storage-account is geoptimaliseerd voor toepassingen die gebruikmaken van kleinere, kilobyte bereik, objecten. Dit is ideaal voor toepassingen waarvoor hoge transactietarieven of opslag met consistente lage latentie. Premium-prestaties blok-blobopslag is ontworpen om te schalen met uw toepassingen. Als u van plan bent om te implementeren toepassingen waarvoor honderden of duizenden aanvragen per seconde of petabytes aan capaciteit, kunt u contact met ons indienen van een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Premium-prestaties FileStorage (preview)
+
+Premium-bestanden gebruiken een unieke storage-account met de naam **FileStorage (preview)**. Dit accounttype is ontworpen voor werkbelastingen met hoge IOPS, hoge doorvoer met consistente lage latentie. Premium-bestand storage schaalt met de ingerichte sharegrootte.
+
+|Onderwerp  |Doel  |
+|---------|---------|
+|Max. grootte     |5 TiB (openbare preview), 100 TiB (beperkte openbare preview-versie)     |
+|Shares   |Onbeperkt  |
+|IOPS     |100.000 (beperkte openbare preview-versie)    |
+|Bandbreedte|5 GB/s     |
+
+ Voor premium-bestand delen schaal doelen, raadpleegt u de [Premium bestanden schalen doelen](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sectie.
 
 ### <a name="premium-performance-page-blob-storage"></a>Premium-prestaties pagina blob-opslag
 
-Premium-prestaties, opslagaccounts voor algemeen gebruik v1 of v2 hebben de volgende schaalbaarheidsdoelen:
+Premium-prestaties, algemeen gebruik v1 of v2-accounts voor opslag hebben de volgende schaalbaarheidsdoelen:
 
 | Totale capaciteit                            | Totale bandbreedte voor een account voor lokaal redundante opslag                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

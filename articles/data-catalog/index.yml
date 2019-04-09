@@ -1,0 +1,36 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Data Catalog
+metadata:
+  title: 'Documentatie voor Azure Data Catalog - zelfstudies, API-verwijzing'
+  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
+  services: data-catalog
+  author: markingmyname
+  ms.author: maghan
+  ms.service: data-catalog
+  ms.topic: landing-page
+  ms.date: 04/05/2019
+abstract:
+  description: 'Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie en team te helpen uw gegevensbronnen te vinden, begrijpen en gebruiken. Zelfstudies, REST-API-referentiemateriaal en andere documentatie laten zien hoe u uw gegevensopslagplaats kunt plannen en instellen, waar gegevensgebruikers beschikbare gegevensbronnen kunnen vinden en kennis kunnen opdoen die ter beschikking is gesteld door deskundigen.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Leer hoe u uw eerste Azure Data Catalog implementeert:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/data-catalog.svg
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/datacatalog/">Naslaginformatie over REST-API</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Naslaginformatie over zoeksyntaxis</a></p>
+          - title: Resource Manager
+            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Resource Manager-sjablonen</a></p>

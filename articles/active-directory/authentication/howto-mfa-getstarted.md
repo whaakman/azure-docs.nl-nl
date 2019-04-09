@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892208"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269024"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planning van een cloud-gebaseerde Azure multi-factor Authentication
 
@@ -60,8 +60,14 @@ Azure multi-factor Authentication wordt geïmplementeerd door het afdwingen van 
 * Compatibel apparaat
 * Hybrid Azure AD gekoppelde apparaat
 * Goedgekeurde client-toepassing
+ 
+
+Gebruik aanpasbare posters en e-mailsjablonen in [rollout-materiaal, multi-factor authentication] in multi-factor authentication voor uw organisatie. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Multi-factor Authentication met voorwaardelijke toegang inschakelen
 
 Beleid voor voorwaardelijke toegang afdwingen registratie, niet-geregistreerde gebruikers te verlangen dat registratie op de eerste aanmelding wordt een belangrijke veiligheidsoverweging voltooien.
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) deel uitmaakt van een registratiebeleid voor zowel geautomatiseerde risico's detecteren en herstellen van beleid voor het verhaal van de Azure multi-factor Authentication. Beleidsregels kunnen worden gemaakt om af te dwingen wachtwoord te wijzigen wanneer er een bedreiging van identiteit waarmee is geknoeid of MFA is vereist wanneer een aanmelding wordt beschouwd als riskant door de volgende [gebeurtenissen](../reports-monitoring/concept-risk-events.md):
 

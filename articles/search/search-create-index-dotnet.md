@@ -1,5 +1,5 @@
 ---
-title: Maken van een index in C# -Azure Search
+title: 'Quickstart: Maken van een index in een C# consoletoepassing - Azure Search'
 description: Informatie over het maken van een doorzoekbare index van de volledige tekst in C# met behulp van de Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -9,15 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
-ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/08/2019
+ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269041"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Quickstart: 1 - een Azure Search-index in makenC#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+>*
 
 In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-index](search-what-is-an-index.md) met behulp van C# en de [.NET SDK](https://aka.ms/search-sdk). Dit is de eerste les in een oefening 3-onderdeel voor het maken, laden en query een index. Maken van een index wordt bereikt door het uitvoeren van deze taken:
 
@@ -28,37 +34,45 @@ In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-i
 
 ## <a name="prerequisites"></a>Vereisten
 
+De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
+
 [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
-Lees het URL-eindpunt en de admin api-sleutel van uw search-service. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) biedt de Voorbeeldoplossing is een .NET Core-consoletoepassing die is geschreven in C#, dat zich bevindt in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen. Gegevens is opgenomen in de oplossing.
 
-  1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
+## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
-  2. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+Aanroepen naar de service vereist een URL-eindpunt en een toegangssleutel bij elke aanvraag. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-  ![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
+
+2. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
 Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-## <a name="1---open-the-project"></a>1 - opent u het project
+## <a name="1---configure-and-build"></a>1 - configureren en bouwen
 
-Download de voorbeeldcode [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) vanuit GitHub. 
+1. Open de **DotNetHowTo.sln** bestand in Visual Studio.
 
-Vervang de Standaardinhoud met het onderstaande voorbeeld in appsettings.json, en geef vervolgens de servicenaam en beheerder api-sleutel voor uw service. Voor de naam van de service hoeft u alleen de naam zelf. Bijvoorbeeld, als uw URL https://mydemo.search.windows.net, toevoegen `mydemo` naar de JSON-bestand.
+1. Vervang de Standaardinhoud met het onderstaande voorbeeld in appsettings.json, en geef vervolgens de servicenaam en beheerder api-sleutel voor uw service. 
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
 
-Wanneer deze waarden zijn ingesteld, kunt u F5 build de oplossing voor het uitvoeren van de console-app. De overige stappen in deze oefening en die Ga als volgt zijn een verkenning van de werking van deze code. 
+  Voor de naam van de service hoeft u alleen de naam zelf. Bijvoorbeeld, als uw URL https://mydemo.search.windows.net, toevoegen `mydemo` naar de JSON-bestand.
 
-U kunt ook verwijzen naar [over het gebruik van Azure Search via een .NET-toepassing ](search-howto-dotnet-sdk.md) voor meer dekking van de SDK-gedrag gedetailleerde. 
+1. Druk op F5 op het bouwen van de oplossing en de console-app uitvoeren. De overige stappen in deze oefening en die Ga als volgt zijn een verkenning van de werking van deze code. 
+
+U kunt ook verwijzen naar [over het gebruik van Azure Search via een .NET-toepassing](search-howto-dotnet-sdk.md) voor meer dekking van de SDK-gedrag gedetailleerde. 
 
 <a name="CreateSearchServiceClient"></a>
 

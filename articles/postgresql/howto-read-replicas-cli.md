@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/05/2019
+ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847761"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265285"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Maken en beheren van meer replica's van de Azure CLI
 
@@ -44,7 +44,7 @@ De `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op
 
 ## <a name="create-a-read-replica"></a>Maken van een replica lezen
 
-De `az mysql server replica create` opdracht moet de volgende parameters:
+De [az postgres server-replica maken](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) opdracht moet de volgende parameters:
 
 | Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
@@ -64,14 +64,14 @@ Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server 
 > Werk de configuratie van de replica op gelijke of grotere waarden voordat een hoofd-server-configuratie is bijgewerkt met nieuwe waarden. Deze actie zorgt ervoor dat de replica kunt houden met eventuele wijzigingen in het model.
 
 ## <a name="list-replicas"></a>Lijst met replica 's
-U kunt de lijst van replica's van een hoofd-server weergeven.
+U kunt de lijst van replica's van een hoofdserver weergeven met behulp van [lijst az postgres server-replica](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) opdracht.
 
 ```azurecli-interactive
-az postgres server replica stop --server-name mydemoserver --resource-group myresourcegroup 
+az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## <a name="stop-replication-to-a-replica-server"></a>Replicatie naar een replica-server stoppen
-U kunt replicatie tussen een hoofd-server en een lezen replica stoppen.
+U kunt replicatie tussen een hoofd-server en een lezen replica stoppen met [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) opdracht.
 
 Na het stoppen van replicatie naar een hoofd-server en een replica lezen, kunnen deze kan niet ongedaan worden gemaakt. De replica voor lezen wordt een zelfstandige server die ondersteuning biedt voor zowel lees- en schrijfbewerkingen. De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
 
@@ -80,7 +80,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## <a name="delete-a-master-or-replica-server"></a>Een server of replica verwijderen
-Als u wilt een server of replica verwijdert, moet u de dezelfde opdracht over het verwijderen van een zelfstandige Azure Database for PostgreSQL-server gebruiken. 
+Als u wilt verwijderen van een model of de replica-server, gebruikt u de [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) opdracht.
 
 Wanneer u een hoofdserver verwijdert, wordt replicatie naar alle lezen-replica's gestopt. De lezen-replica's worden zelfstandige servers die bieden nu ondersteuning voor zowel lees- en schrijfbewerkingen.
 

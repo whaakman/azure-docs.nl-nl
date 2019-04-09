@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f110fe84ab09e930947411a79c950af21cc5334c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544509"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274515"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
@@ -23,20 +23,22 @@ ms.locfileid: "57544509"
 In deze zelfstudie bouwt voort op de code in de [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-node-node-c2d.md) zelfstudie leert u hoe u gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
 
 - Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
+- 
 - Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
 De [aan de slag met IoT Hub](quickstart-send-telemetry-node.md) de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT Hub wordt gedemonstreerd. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
 
-* Grote bestanden met afbeeldingen
-* Video's
-* Trillingen gegevens verzameld met hoge frequentie
-* Een vorm van voorverwerkte gegevens.
+*  Grote bestanden met afbeeldingen
+*  Video's
+*  Trillingen gegevens verzameld met hoge frequentie
+*  Een vorm van vooraf verwerkte gegevens.
 
 Deze bestanden zijn meestal batch verwerkt in de cloud met behulp van hulpprogramma's zoals [Azure Data Factory](../data-factory/introduction.md) of de [Hadoop](../hdinsight/index.yml) stack. Wanneer u upland bestanden vanaf een apparaat wilt, kunt u de beveiliging en betrouwbaarheid van IoT Hub nog steeds gebruiken.
 
 Aan het einde van deze zelfstudie moet u twee Node.js-consoletoepassingen uitvoeren:
 
 * **SimulatedDevice.js**, die een bestand wordt geüpload naar storage met behulp van een SAS-URI geleverd door uw IoT-hub.
+
 * **ReadFileUploadNotification.js**, dat bestand uploaden meldingen ontvangt van uw IoT-hub.
 
 > [!NOTE]
@@ -45,6 +47,7 @@ Aan het einde van deze zelfstudie moet u twee Node.js-consoletoepassingen uitvoe
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Node.js versie 4.0.x of hoger.
+
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -59,25 +62,25 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     npm init
     ```
 
-1. In de opdrachtprompt in de map ```simulateddevice``` voert u de volgende opdracht uit om het **azure-iot-device** Device SDK-pakket en het **azure-iot-device-mqtt**-pakket te installeren:
+2. In de opdrachtprompt in de map ```simulateddevice``` voert u de volgende opdracht uit om het **azure-iot-device** Device SDK-pakket en het **azure-iot-device-mqtt**-pakket te installeren:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Maak met een teksteditor een **SimulatedDevice.js**-bestand in de map ```simulateddevice```.
+3. Maak met een teksteditor een **SimulatedDevice.js**-bestand in de map ```simulateddevice```.
 
-1. Voeg de volgende ```require``` instructies toe aan het begin van het bestand **SimulatedDevice.js**:
+4. Voeg de volgende ```require``` instructies toe aan het begin van het bestand **SimulatedDevice.js**:
 
     ```javascript
     'use strict';
-    
+
     var fs = require('fs');
     var mqtt = require('azure-iot-device-mqtt').Mqtt;
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. Voeg een ```deviceconnectionstring```-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang ```{deviceconnectionstring}``` met de naam van het apparaat dat u hebt gemaakt in de _maken van een IoT-Hub_ sectie:
+5. Voeg een `deviceconnectionstring`-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang `{deviceconnectionstring}` met de naam van het apparaat dat u hebt gemaakt in de *maken van een IoT-Hub* sectie:
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -87,19 +90,19 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     > [!NOTE]
     > Om het eenvoudig te de verbindingsreeks is opgenomen in de code: dit is geen aanbevolen en afhankelijk van uw use-case en -architectuur kunt u rekening houden met veiliger manieren om dit geheim op te slaan.
 
-1. Voeg de volgende code om de client verbinding te maken:
+6. Voeg de volgende code om de client verbinding te maken:
 
     ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
-1. Maak een callback en gebruik de **uploadToBlob** functie om het bestand te uploaden.
+7. Maak een callback en gebruik de **uploadToBlob** functie om het bestand te uploaden.
 
     ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
-    
+
         client.uploadToBlob(filename, rr, stats.size, function (err) {
             if (err) {
                 console.error('Error uploading file: ' + err.toString());
@@ -110,9 +113,9 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     });
     ```
 
-1. Sla het bestand **SimulatedDevice.js** op en sluit het.
+8. Sla het bestand **SimulatedDevice.js** op en sluit het.
 
-1. Een van installatiekopiebestand kopiëren naar de `simulateddevice` map en wijzig de naam `myimage.png`.
+9. Een van installatiekopiebestand kopiëren naar de `simulateddevice` map en wijzig de naam `myimage.png`.
 
 ## <a name="receive-a-file-upload-notification"></a>Een bestand uploaden melding ontvangen
 
@@ -126,23 +129,23 @@ U kunt de **iothubowner** connection string vanuit uw IoT-Hub in deze sectie vol
     npm init
     ```
 
-1. In het opdrachtprompt in de ```fileuploadnotification``` map, voer de volgende opdracht voor het installeren van de **azure-iothub** SDK-pakket:
+2. In het opdrachtprompt in de ```fileuploadnotification``` map, voer de volgende opdracht voor het installeren van de **azure-iothub** SDK-pakket:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-1. Maak met een teksteditor een **FileUploadNotification.js** -bestand in de ```fileuploadnotification``` map.
+3. Maak met een teksteditor een **FileUploadNotification.js** -bestand in de `fileuploadnotification` map.
 
-1. Voeg de volgende ```require``` instructies toe aan het begin van de **FileUploadNotification.js** bestand:
+4. Voeg de volgende `require` instructies toe aan het begin van de **FileUploadNotification.js** bestand:
 
     ```javascript
     'use strict';
-    
+
     var Client = require('azure-iothub').Client;
     ```
 
-1. Voeg een ```iothubconnectionstring```-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang ```{iothubconnectionstring}``` door de verbindingsreeks naar de IoT-hub die u hebt gemaakt in de _maken van een IoT-Hub_ sectie:
+5. Voeg een `iothubconnectionstring`-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang `{iothubconnectionstring}` door de verbindingsreeks naar de IoT-hub die u hebt gemaakt in de _maken van een IoT-Hub_ sectie:
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -151,13 +154,13 @@ U kunt de **iothubowner** connection string vanuit uw IoT-Hub in deze sectie vol
     > [!NOTE]
     > Om het eenvoudig te de verbindingsreeks is opgenomen in de code: dit is geen aanbevolen en afhankelijk van uw use-case en -architectuur kunt u rekening houden met veiliger manieren om dit geheim op te slaan.
 
-1. Voeg de volgende code om de client verbinding te maken:
+6. Voeg de volgende code om de client verbinding te maken:
 
     ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-1. Open de client en gebruik de **getFileNotificationReceiver** functie om de statusupdates te ontvangen.
+7. Open de client en gebruik de **getFileNotificationReceiver** functie om de statusupdates te ontvangen.
 
     ```javascript
     serviceClient.open(function (err) {
@@ -179,7 +182,7 @@ U kunt de **iothubowner** connection string vanuit uw IoT-Hub in deze sectie vol
     });
     ```
 
-1. Opslaan en sluiten de **FileUploadNotification.js** bestand.
+8. Opslaan en sluiten de **FileUploadNotification.js** bestand.
 
 ## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
@@ -213,13 +216,6 @@ U kunt de portal gebruiken om het geüploade bestand in de storage-container die
 
 In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
-* [Een IoT hub via een programma maken][lnk-create-hub]
-* [Inleiding tot C SDK][lnk-c-sdk]
-* [Azure IoT SDK 's][lnk-sdks]
-
-<!-- Links -->
-[Azure IoT-ontwikkelaarscentrum]: https://azure.microsoft.com/develop/iot
-
-[lnk-create-hub]: iot-hub-rm-template-powershell.md
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+*  [Een IoT Hub maken via een programma](iot-hub-rm-template-powershell.md)
+*  [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
+*  [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)

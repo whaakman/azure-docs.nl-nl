@@ -6,16 +6,16 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2d141a330b6b6c5fc102dd70ae1d6b3b01283d19
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444868"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270979"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>Herstel na noodgevallen voor SQL Server instellen 
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Herstel na noodgevallen voor SQL Server instellen
 
 In dit artikel wordt beschreven hoe u de SQL Server-back-end van een toepassing met behulp van een combinatie van bedrijfscontinuïteit van SQL Server en disaster recovery (BCDR)-technologieën, beveiligen en [Azure Site Recovery](site-recovery-overview.md).
 
@@ -30,7 +30,7 @@ Veel werkbelastingen SQL Server gebruiken als basis en deze kan worden geïntegr
 * **SQL Serverfailover Clustering van exemplaren (Always On FCI)**: Twee of meer knooppunten met SQL Server is gestart met gedeelde schijven worden geconfigureerd in een Windows-failovercluster. Als een knooppunt niet actief is, kan het cluster failover SQL Server naar een andere instantie. Deze instelling wordt meestal gebruikt voor het implementeren van hoge beschikbaarheid op een primaire site. Deze implementatie biedt geen bescherming tegen storingen of onderbreking in de gedeelde opslaglaag. Een gedeelde schijf kan worden geïmplementeerd met behulp van iSCSI, Fibre channel of gedeelde vhdx.
 * **SQL Always On Availability Groups**: Twee of meer knooppunten zijn ingesteld in een gedeelde niets cluster, met SQL Server-databases die zijn geconfigureerd in een beschikbaarheidsgroep met synchrone replicatie en automatische failover.
 
- In dit artikel maakt gebruik van de volgende systeemeigen SQL disaster recovery technologieën voor het herstellen van databases met een externe site:
+  In dit artikel maakt gebruik van de volgende systeemeigen SQL disaster recovery technologieën voor het herstellen van databases met een externe site:
 
 * SQL Always On Availability Groups, om te bieden voor herstel na noodgevallen voor SQL Server 2012 of 2014 Enterprise-edities.
 * SQL-database mirroring in hoge veiligheidsmodus voor SQL Server Standard edition (alle versies), of voor SQL Server 2008 R2.
@@ -40,12 +40,12 @@ Veel werkbelastingen SQL Server gebruiken als basis en deze kan worden geïntegr
 ### <a name="supported-scenarios"></a>Ondersteunde scenario's
 Site Recovery kan SQL Server beveiligen, zoals samengevat in de tabel.
 
-**Scenario** | **Naar een secundaire site** | **Naar Azure**
+**Scenario** | **Op een secundaire site** | **In Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysieke server** | Ja | Ja
-**Azure**|N.v.t.| Ja
+**Azure** |N.v.t.| Ja
 
 ### <a name="supported-sql-server-versions"></a>Ondersteunde versies van SQL Server
 Deze SQL Server-versies worden ondersteund voor de ondersteunde scenario's:
@@ -73,11 +73,11 @@ Deze tabel bevat een overzicht van onze aanbevelingen voor het integreren van SQ
 | **Versie** | **Editie** | **Implementatie** | **On-premises naar on-premises** | **On-premises naar Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 of 2012 |Enterprise |Failover-clusterexemplaar |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen |
-|| Enterprise |AlwaysOn-beschikbaarheidsgroepen voor hoge beschikbaarheid |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen | |
-|| Standard |Failover clusterexemplaar (FCI) |Replicatie van site Recovery met lokale mirror |Replicatie van site Recovery met lokale mirror | |
-|| Enterprise of Standard |Zelfstandig |Replicatie van site Recovery |Replicatie van site Recovery | |
+|| Enterprise |AlwaysOn-beschikbaarheidsgroepen voor hoge beschikbaarheid |AlwaysOn-beschikbaarheidsgroepen |AlwaysOn-beschikbaarheidsgroepen |
+|| Standard |Failover clusterexemplaar (FCI) |Replicatie van site Recovery met lokale mirror |Replicatie van site Recovery met lokale mirror |
+|| Enterprise of Standard |Zelfstandig |Replicatie van site Recovery |Replicatie van site Recovery |
 | SQL Server 2008 R2 or 2008 |Enterprise of Standard |Failover clusterexemplaar (FCI) |Replicatie van site Recovery met lokale mirror |Replicatie van site Recovery met lokale mirror |
-|| Enterprise of Standard |Zelfstandig |Replicatie van site Recovery |Replicatie van site Recovery | |
+|| Enterprise of Standard |Zelfstandig |Replicatie van site Recovery |Replicatie van site Recovery |
 | SQL Server (alle versies) |Enterprise of Standard |Failover cluster instance - DTC-toepassing |Replicatie van site Recovery |Niet ondersteund |
 
 ## <a name="deployment-prerequisites"></a>Vereisten voor implementatie
@@ -101,7 +101,7 @@ Dit is wat u moet doen:
 
 1. Scripts in uw Azure Automation-account importeren. Hierin zijn de scripts voor de SQL-beschikbaarheidsgroep failover in een [virtuele machine van Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) en een [klassieke virtuele machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Implementeren in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Deploy naar Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR-SQL-FailoverAG toevoegen als een pre-actie van de eerste groep van het herstelplan te gaan.

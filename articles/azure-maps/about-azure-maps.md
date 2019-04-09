@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571300"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268758"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 
-Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door de nieuwste kaartgegevens die beschikbaar zijn en uw webtoepassingen en mobiele toepassingen van een nauwkeurige geografische context voorzien. Azure Maps bestaat uit REST-API's voor het weergeven van **kaarten** met verschillende stijlen en satellietbeeldmateriaal, **zoeken** naar adressen, plaatsen en bezienswaardigheden over de hele wereld; **routes** van punt naar punt, meerdere punten, optimalisatie van meerdere punten, isochronen, commerciële voertuigen, beïnvloed door verkeer en matrixroutes; weergeven van de beste verkeersstroom en incidenten; achterhalen van de locatie van de gebruiker via **geolocatie**; en de locatie converteren naar **tijdzones**, evenals het ophalen van de tijd op een locatie. Bovendien biedt Azure Maps services voor **geofencing**, opslag van **kaartgegevens** - hosten van locatiegegevens in Azure; en **ruimtelijke bewerkingen**, die locatie-informatie bieden via georuimtelijke analyses. Azure Maps-services zijn rechtstreeks beschikbaar als REST-API's of via onze robuuste **Web SDK** of **Android SDK**. Met deze hulpprogramma's kunnen ontwikkelaars snel oplossingen ontwikkelen en schalen waarmee locatiegegevens vanuit de Azure-cloud worden geïntegreerd in Azure-oplossingen. Meld u nu aan voor een gratis [Azure Maps-account](https://azure.microsoft.com/services/azure-maps/) en begin met ontwikkelen!
+Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door de nieuwste kaartgegevens die beschikbaar zijn en uw webtoepassingen en mobiele toepassingen van een nauwkeurige geografische context voorzien. Azure kaarten bestaat uit de REST-API's voor rendering **Maps** in verschillende stijlen en satelliet beeldmateriaal, **zoeken** voor adressen, plaatsen en bezienswaardigheden over de hele wereld; **Routing** point-to-point, multipoint, multipoint optimalisatie, isochrone, commerciële voertuigen, verkeer beïnvloed en matrix routering, toonaangevende netwerkverkeer en incidenten weergeven; locatie van de gebruiker tot stand brengen via **Geolocatie**; en de locatie waar u wilt converteren **tijdzones**, alsmede, ophalen van de tijd op een locatie. Bovendien biedt Azure Maps services voor **geofencing**, opslag van **kaartgegevens** - hosten van locatiegegevens in Azure; en **ruimtelijke bewerkingen**, die locatie-informatie bieden via georuimtelijke analyses. Azure Maps-services zijn rechtstreeks beschikbaar als REST-API's of via onze robuuste **Web SDK** of **Android SDK**. Met deze hulpprogramma's kunnen ontwikkelaars snel oplossingen ontwikkelen en schalen waarmee locatiegegevens vanuit de Azure-cloud worden geïntegreerd in Azure-oplossingen. Meld u nu aan voor een gratis [Azure Maps-account](https://azure.microsoft.com/services/azure-maps/) en begin met ontwikkelen!
 
 In de volgende video wordt Azure Maps in detail uitgelegd:
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Ga naar de pagina [Tijdzone-API’s voor Azure Maps](https://docs.microsoft.com/
 De Traffic Service is een suite met webservices die is ontworpen voor ontwikkelaars zodat zij webtoepassingen en mobiele toepassingen kunnen maken die te maken hebben met verkeer. De service omvat twee gegevenstypen:
 
 * Verkeersstroom - waargenomen snelheden en reistijden in realtime voor alle belangrijke wegen in het netwerk.
-* Verkeersincidenten - een nauwkeurige weergave van files en incidenten op het wegennet.
+* Verkeer incidenten - een actuele weergave van de Files en incidenten op het netwerk weg.
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ Azure Maps maakt gebruik van een verificatieschema op basis van sleutels. Uw acc
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De Azure Maps-API is momenteel wereldwijd beschikbaar, met uitzondering van de volgende landen/regio's:
+De Azure kaarten-API is momenteel beschikbaar in alle landen, met uitzondering van de volgende regio's:
 
 * Argentinië
 * China
@@ -130,16 +132,16 @@ De Azure Maps-API is momenteel wereldwijd beschikbaar, met uitzondering van de v
 * Pakistan
 * Zuid-Korea
 
-Verifieer of de locatie van uw IP-adres niet in een van de bovenstaande landen is, die niet worden ondersteund.
+Controleer of dat de locatie van uw huidige IP-adres niet in een van de niet-ondersteunde landen bovengenoemde.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de nieuwe functies van Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Routematrix, isochronen, IP opzoeken en meer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Route-Matrix, van Isochronen, IP-lookup, en nog veel meer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-U kunt een voorbeeld-app met de service uitproberen:
+Probeer een voorbeeldapp die laat zien de Azure-kaarten:
 
 > [!div class="nextstepaction"]
-> [Demo van interactief zoeken naar kaarten starten](quick-demo-map-app.md)
+> [Quickstart: Een webtoepassing maken](quick-demo-map-app.md)

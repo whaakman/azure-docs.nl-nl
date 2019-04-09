@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660116"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276436"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -38,7 +38,7 @@ Azure Stack is een infrastructuur voor openbare-netwerk met behulp van extern to
 De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor Azure Stack implementeren: 
 - Certificaten moeten worden uitgegeven door een interne certificeringsinstantie of een openbare certificeringsinstantie. Als een openbare certificeringsinstantie wordt gebruikt, moet deze worden opgenomen in de installatiekopie van het besturingssysteem als onderdeel van het Microsoft-programma vertrouwde basis-CA. U vindt hier de volledige lijst: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - Uw Azure Stack-infrastructuur moet toegang tot het netwerk hebben tot de locatie van de certificeringsinstantie certificaat certificaatintrekkingslijst (CRL) gepubliceerd in het certificaat. Dit CRL moet een http-eindpunt
-- Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten op de implementatie of een openbare certificeringsinstantie van bovenstaande
+- Wanneer u certificaten in pre-1903 bouwt, certificaten moeten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten op de implementatie of een openbare certificeringsinstantie hierboven. Voor 1903 & later certificaten kunnen worden uitgegeven door een onderneming of een openbare certificeringsinstantie.
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
 - Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
 - PFX-versleuteling van het certificaat moet 3DES. 

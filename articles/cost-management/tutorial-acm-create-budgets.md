@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013034"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273580"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -63,7 +63,9 @@ Klik op **Add**.
 
 ![Cost Management budgetten wordt weergegeven in de Azure-portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een maandelijks, elk kwartaal, of de jaarlijkse duur. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur. Zie voor meer informatie over meldingen [gebruik kosten waarschuwingen](cost-mgt-alerts-monitor-usage-spending.md).
+In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een van beide per maand, per kwartaal of jaar duur<sup>1</sup>. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur. Zie voor meer informatie over meldingen [gebruik kosten waarschuwingen](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> als u een betalen per gebruik, MSDN of Visual Studio-klant bent van de factureringsperiode van uw factuur voor een abonnement kan niet aan de kalendermaand zijn uitgelijnd. Voor abonnementen en resourcegroepen die deze bucket vallen, kunt u een budget die is afgestemd op uw factuur of kalendermaanden. Selecteer een periode opnieuw instellen van de Factureringsmaand, facturering kwartaal of jaar facturering tijdens het maken voor het maken van een budget dat is afgestemd op uw factuur. Voor het maken van een budget uitgelijnd aan de kalendermaand, selecteert u een periode opnieuw instellen van de maand, kwartaal of jaar tijdens het maken.
 
 Hier volgt een voorbeeld van het maken van een maandelijks budget voor $4500. Een e-mailmelding wordt gegenereerd na het verstrijken van 90% van het budget.
 
@@ -121,4 +123,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga naar de volgende zelfstudie voor het maken van een terugkerende exporteren voor uw gegevens van cost management.
 
 > [!div class="nextstepaction"]
-> [Maken en beheren van de geëxporteerde gegevens](tutorial-export-acm-data.md)
+> [Geëxporteerde gegevens maken en beheren](tutorial-export-acm-data.md)

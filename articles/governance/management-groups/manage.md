@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 58f8b3346ddd250736e09966b7c36e570b62bb10
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272475"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -307,7 +307,8 @@ Wanneer u een bovenliggende beheergroep hebt verplaatst, worden ook de mappenhi√
 Gebruik de opdracht Update AzManagementGroup in PowerShell om te verplaatsen van een beheergroep onder een andere groep.
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
+$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>Beheergroepen verplaatsen in de Azure CLI
@@ -315,7 +316,7 @@ Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Ma
 Gebruik de opdracht update voor het verplaatsen van een beheergroep met Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
+az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Beheergroepen controleren met behulp van activiteitenlogboeken

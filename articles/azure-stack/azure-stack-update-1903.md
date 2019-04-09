@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.openlocfilehash: 0448f583743f9e5b3f8fd6de3a85b05e16bff126
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057050"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269143"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -208,6 +208,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- De syslog-configuratie is niet permanent via een cyclus van een update, wat resulteert in de syslog-client en de configuratie en de syslog-berichten te stoppen wordt doorgestuurd verloren gaan. Dit probleem is van toepassing op alle versies van Azure Stack sinds de algemene beschikbaarheid van de syslog-client (1809).
+De tijdelijke oplossing is om de syslog-client opnieuw na het toepassen van een Azure Stack-update te configureren.
 
 ## <a name="download-the-update"></a>De update downloaden
 
