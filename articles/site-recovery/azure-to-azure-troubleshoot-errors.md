@@ -6,23 +6,23 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: 34f207b3c82ada0cb20152bb71ae900f5de132cb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878312"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269619"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
 Dit artikel beschrijft de voorkomende problemen in Azure Site Recovery bij het repliceren en herstellen van virtuele machines van Azure van de ene regio naar een andere regio en wordt uitgelegd hoe u oplossingen voor deze problemen. Zie voor meer informatie over ondersteunde configuraties, de [ondersteuningsmatrix voor het repliceren van virtuele Azure-machines](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="list-of-errors"></a>Lijst met fouten
-- **[Quotumproblemen met he Azure-resource (foutcode 150097)](#azure-resource-quota-issues-error-code-150097)** 
-- **[Vertrouwde basiscertificaten (foutcode 151066)](#trusted-root-certificates-error-code-151066)** 
-- **[Uitgaande connectiviteit voor Site Recovery (foutcode 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
+- **[Quotumproblemen met he Azure-resource (foutcode 150097)](#azure-resource-quota-issues-error-code-150097)**
+- **[Vertrouwde basiscertificaten (foutcode 151066)](#trusted-root-certificates-error-code-151066)**
+- **[Uitgaande connectiviteit voor Site Recovery (foutcode 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Quotumproblemen met he Azure-resource (foutcode 150097)
 Uw abonnement moet worden ingeschakeld om te maken van virtuele Azure-machines in de doelregio die u van plan bent om te gebruiken als uw Dr-regio. Uw abonnement moet ook voldoende quotum ingeschakeld als u virtuele machines van specifieke grootte hebben. Standaard wordt met Site Recovery even groot is voor de doel-VM kiest als de bron-VM. Als de overeenkomende grootte niet beschikbaar is, wordt automatisch de dichtstbijzijnde grootte opgehaald. Als er geen overeenkomende grootte die ondersteuning biedt voor bron-VM-configuratie is, wordt dit foutbericht weergegeven:
@@ -238,13 +238,13 @@ Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, w
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 
->[!NOTE] 
+>[!NOTE]
 >
->Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script. 
+>Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script.
 
 U kunt [verwijderen van verouderde ASR-configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
 
-## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert 
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert
  **1 oorzaak:  Virtuele machine uitbreidings-sommige in de status van een mislukte of reageert niet geïnstalleerd** <br>
  Ga naar virtuele machines > instelling > extensies en controleer of er geen extensies in een foutstatus zijn. Verwijder de extensie is mislukt en probeer het opnieuw beveiligen van de virtuele machine.<br>
  **2 oorzaak:  [De Inrichtingsstatus van de virtuele machine is niet geldig](#vms-provisioning-state-is-not-valid-error-code-150019)**
@@ -296,7 +296,7 @@ U kunt 'Services'-console opent en zorg ervoor dat de ' COM + System Application
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-150172<br></br>**Bericht**: Beveiliging kan niet worden ingeschakeld voor de virtuele machine omdat er (DiskName) met grootte (DiskSize) die lager is dan de minimaal ondersteunde grootte van 1024 MB. | -De schijf is kleiner dan de ondersteunde grootte van 1024 MB| Ervoor zorgen dat de schijfgrootten binnen het ondersteunde bereik valt en probeer het opnieuw. 
+150172<br></br>**Bericht**: Beveiliging kan niet worden ingeschakeld voor de virtuele machine omdat er (DiskName) met grootte (DiskSize) die lager is dan de minimaal ondersteunde grootte van 1024 MB. | -De schijf is kleiner dan de ondersteunde grootte van 1024 MB| Ervoor zorgen dat de schijfgrootten binnen het ondersteunde bereik valt en probeer het opnieuw.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Schakel de beveiliging is mislukt omdat de apparaatnaam die worden vermeld in de GRUB-configuratie in plaats van de UUID (foutcode 151126)
 
@@ -319,11 +319,11 @@ De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
 
 1. De UUID van het apparaat vinden door het uitvoeren van de opdracht ' blkid \<apparaatnaam > '. Bijvoorbeeld:<br>
    ```
-   blkid /dev/sda1 
+   blkid /dev/sda1
    ```<br>
    ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-   ```blkid /dev/sda2```<br> 
-   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```blkid /dev/sda2```<br>
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
 
 
@@ -334,16 +334,16 @@ De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
 **Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples: 
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
 
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
    *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
    *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
    *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
    Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
@@ -360,8 +360,8 @@ Site Recovery mobility service has many components, one of which is called filte
 ## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
 
 **Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
-**How to fix:** 
-Delete the mentioned replica disk in the error message and restart the failed protection job again. 
+**How to fix:**
+Delete the mentioned replica disk in the error message and restart the failed protection job again.
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

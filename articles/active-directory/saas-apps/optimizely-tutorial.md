@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6029e24f0a08efeeae0ae7644305e07669b6f8b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176410"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Zelfstudie: Azure Active Directory-integratie met Optimizely
 
@@ -105,9 +105,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Optimizely, moet u d
 
     ![Optimizely domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://app.optimizely.net/<instance name>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://app.optimizely.net/<instance name>`
 
-    b. In het tekstvak **Id (entiteits-id)** typt u een URL met het volgende patroon: `urn:auth0:optimizely:contoso`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > Dit zijn niet de echte waarden. U kunt de waarde wordt bijgewerkt met de werkelijke aanmeldings-URL en de id, die later in de zelfstudie wordt uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -251,9 +251,9 @@ Wanneer u op de tegel Optimizely in het toegangsvenster, moet u worden automatis
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

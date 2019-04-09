@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 9fad5874a0e595ee2c275f06504665ce143266f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759458"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273971"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Verbinding maken met de API van Media Services v3 - .NET
 
@@ -200,10 +200,6 @@ namespace ConsoleApp1
  
         private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
         {
-            // Use UserTokenProvider.LoginWithPromptAsync or UserTokenProvider.LoginSilentAsync to get a token using user authentication
-            //// ActiveDirectoryClientSettings.UsePromptOnly
-            //// UserTokenProvider.LoginWithPromptAsync
-
             // Use ApplicationTokenProvider.LoginSilentWithCertificateAsync or UserTokenProvider.LoginSilentAsync to get a token using service principal with certificate
             //// ClientAssertionCertificate
             //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
@@ -229,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Zie ook
 
-- [Zelfstudie: Video's uploaden, coderen en streamen - .NET](stream-files-tutorial-with-api.md) 
-- [Zelfstudie: Live streamen met Azure Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Zelfstudie: Video's analyseren met Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
-- [Een taakinvoer maken vanuit een lokaal bestand - .NET](job-input-from-local-file-how-to.md)
-- [Een taakinvoer maken vanuit een HTTPS-URL - .NET](job-input-from-http-how-to.md)
+- [Zelfstudie: Uploaden, coderen en streamen van video's - .NET](stream-files-tutorial-with-api.md) 
+- [Zelfstudie: Stream live met Media Services v3 - .NET](stream-live-tutorial-with-api.md)
+- [Zelfstudie: Analyseren van video's met Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [De Taakinvoer van een maken vanuit een lokaal bestand - .NET](job-input-from-local-file-how-to.md)
+- [De Taakinvoer van een maken van een HTTPS-URL - .NET](job-input-from-http-how-to.md)
 - [Coderen met een aangepaste transformatie - .NET](customize-encoder-presets-how-to.md)
-- [Dynamische AES-128-versleuteling en de sleutelleveringsservice gebruiken - .NET](protect-with-aes128.md)
-- [Dynamische DRM-versleuteling en licentielevering gebruiken - .NET](protect-with-drm.md)
-- [Een ondertekeningssleutel ophalen uit het bestaand beleid - .NET](get-content-key-policy-dotnet-howto.md)
+- [Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice - .NET](protect-with-aes128.md)
+- [Gebruik DRM dynamische versleuteling en licentie leveringsservice - .NET](protect-with-drm.md)
+- [Ophalen van een ondertekeningssleutel van het bestaande beleid - .NET](get-content-key-policy-dotnet-howto.md)
 - [Filters maken met Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Voorbeelden van geavanceerde video on demand van Azure Functions-v2 met Media Services v3](https://aka.ms/ams3functions)
+- [Geavanceerde video op aanvraag voorbeelden van Azure Functions-v2 met Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="next-steps"></a>Volgende stappen
 

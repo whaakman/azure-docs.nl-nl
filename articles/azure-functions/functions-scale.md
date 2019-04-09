@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893585"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266921"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
 Azure Functions wordt uitgevoerd in twee verschillende abonnementen: Verbruiksabonnement en Premium-abonnement (preview-versie). In het abonnement Consumption wordt automatisch een compute-kracht toegevoegd wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code is gestopt. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren.  Het Premium-abonnement wordt ook automatisch worden geschaald en toevoegen van extra rekenkracht wanneer uw code wordt uitgevoerd.  Het Premium-abonnement wordt geleverd met extra functies zoals premium-rekeninstanties hebben, de mogelijkheid om te bewaren exemplaren voor onbepaalde tijd warme en VNet-connectiviteit.  Hebt u een bestaande App Service-Plan, kunt u ook uw functie-apps binnen deze uitvoeren.
 
 > [!NOTE]  
-> Beide [Premium-abonnement](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) en [verbruiksabonnement voor Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) zijn momenteel beschikbaar als preview.
+> Beide [Premium-abonnement](https://aka.ms/functions-premiumplan) en [verbruiksabonnement voor Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) zijn momenteel beschikbaar als preview.
 
 Als u niet bekend bent met Azure Functions, raadpleegt u de [overzicht van Azure Functions](functions-overview.md).
 

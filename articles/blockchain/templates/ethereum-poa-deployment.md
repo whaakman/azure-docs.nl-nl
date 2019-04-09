@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905916"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274787"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -83,7 +83,7 @@ Deze oplossing wordt geleverd met Azure Monitor voor het bijhouden van statistie
 
 ### <a name="deployment-architecture"></a>Implementatie-architectuur
 
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 
 Deze oplossing kunt implementeren één of meerdere regio's op basis van meerdere leden Ethereum consortium network. Standaard zijn de RPC- en peering eindpunten toegankelijk via openbare IP-adres om eenvoudig verbindingen tussen abonnementen en clouds. Het is raadzaam gebruik te maken van [pariteit van rollen contracten](https://wiki.parity.io/Permissioning) niveau voor toepassing besturingselementen voor toegang. We ondersteunen ook netwerken die zijn geïmplementeerd achter VPN's, die gebruikmaken van VNet-gateways voor abonnementoverschrijdende connectiviteit. Deze implementaties zijn complexer worden, zodat het wordt aanbevolen om te beginnen met het openbare IP-model eerst.
 
@@ -208,7 +208,7 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+Parameternaam|Description|Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
@@ -272,14 +272,14 @@ Geef vervolgens onder Ethereum-instellingen, Ethereum-gerelateerde configuratie-
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat, moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.v.t.
 Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
 Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.v.t.
 Geavanceerde opties|Geavanceerde opties voor Ethereum-instellingen|In- of uitschakelen|Uitschakelen
 Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbare IP
-Limiet voor Gas blokkeren (geavanceerde opties = inschakelen)|De eerste blok gas limiet van het netwerk|Een numerieke waarde|50,000,00
+Limiet voor Gas blokkeren (geavanceerde opties = inschakelen)|De eerste blok gas limiet van het netwerk|Een numerieke waarde|50000000
 Verzegelen Blokkeringsperiode (sec)|De frequentie waarmee leeg blokken worden gemaakt wanneer er geen transacties in het netwerk zijn. Een hogere frequentie hebben sneller definitieve karakter maar hogere opslagkosten.|Een numerieke waarde|15
 Transactie machtiging Contract (geavanceerde opties = inschakelen)|Bytecode voor de transactie-rollen-contract. Hiermee beperkt u de slimme contract implementatie en uitvoering aan een lijst met toegestane van Ethereum-accounts.|Contract bytecode|N.v.t.
 

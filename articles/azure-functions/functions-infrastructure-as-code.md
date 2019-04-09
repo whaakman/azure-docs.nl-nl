@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 05/25/2017
+ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792494"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270895"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiseer de implementatie van de resource voor uw functie-app in Azure Functions
 
@@ -30,21 +30,27 @@ Zie voor voorbeeldsjablonen:
 - [Functie-app op verbruiksabonnement]
 - [Functie-app in Azure App Service-plan]
 
+> [!NOTE]
+> Het Premium-abonnement voor het hosten van Azure Functions is momenteel in preview. Zie voor meer informatie, [Azure Functions Premium-abonnement](functions-premium-plan.md).
+
 ## <a name="required-resources"></a>Vereiste resources
 
-Een functie-app is vereist voor deze resources:
+De implementatie van een Azure Functions bestaat gewoonlijk uit deze resources:
 
-* Een [Azure Storage](../storage/index.yml) account
-* Een hostingplan (verbruiksabonnement of App Service-plan)
-* Een functie-app 
+| Resource                                                                           | Vereiste | Documentatie over de syntaxis en eigenschappen                                                         |   |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
+| Een functie-app                                                                     | Vereist    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| Een [Azure Storage](../storage/index.yml) account                                   | Vereist    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Een [Application Insights](../azure-monitor/app/app-insights-overview.md) onderdeel | Optioneel    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| Een [hostingplan](./functions-scale.md)                                             | Optionele<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-Zie het volgende voor JSON-syntaxis en eigenschappen voor deze resources:
+<sup>1</sup>een hostingplan is alleen vereist als u kiest voor het uitvoeren van uw functie-app op een [Premium-abonnement](./functions-premium-plan.md) (in Preview-versie) of op een [App Service-plan](../app-service/overview-hosting-plans.md).
 
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+> [!TIP]
+> Hoewel het niet vereist, is het raadzaam dat u Application Insights voor uw app configureren.
 
-### <a name="storage-account"></a>Opslagaccount
+<a name="storage"></a>
+### <a name="storage-account"></a>Storage-account
 
 Een Azure storage-account is vereist voor een functie-app. U moet een account voor algemeen gebruik die ondersteuning biedt voor blobs, tabellen, wachtrijen en bestanden. Zie voor meer informatie, [vereisten voor Azure Functions een opslagaccount](functions-create-function-app-portal.md#storage-account-requirements).
 
@@ -52,8 +58,9 @@ Een Azure storage-account is vereist voor een functie-app. U moet een account vo
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-07-01",
     "location": "[resourceGroup().location]",
+    "kind": "StorageV2",
     "properties": {
         "accountType": "[parameters('storageAccountType')]"
     }
@@ -76,15 +83,51 @@ Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteCon
         "name": "AzureWebJobsDashboard",
         "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
     }
-```    
+]
+```
+
+### <a name="application-insights"></a>Application Insights
+
+Application Insights wordt aanbevolen voor het bewaken van uw functie-apps. De Application Insights-resource is gedefinieerd met het type **Microsoft.Insights/components** en het type **web**:
+
+```json
+        {
+            "apiVersion": "2015-05-01",
+            "name": "[variables('appInsightsName')]",
+            "type": "Microsoft.Insights/components",
+            "kind": "web",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource"
+            },
+            "properties": {
+                "Application_Type": "web",
+                "ApplicationId": "[variables('functionAppName')]"
+            }
+        },
+```
+
+Bovendien de instrumentatiesleutel moet worden opgegeven met de functie app via de `APPINSIGHTS_INSTRUMENTATIONKEY` toepassingsinstelling. Deze eigenschap is opgegeven in de `appSettings` verzameling in de `siteConfig` object:
+
+```json
+"appSettings": [
+    {
+        "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+    }
+]
+```
 
 ### <a name="hosting-plan"></a>Hostingabonnement
 
-De definitie van het hostingabonnement varieert, afhankelijk van of u een planning of op uw App Service gebruiken. Zie [implementeren van een functie-app op in het abonnement Consumption](#consumption) en [implementeren van een functie-app op het App Service-plan](#app-service-plan).
+De definitie van het hostingabonnement kan varieert, en een van de volgende opties:
+* [Verbruiksabonnement](#consumption) (standaard)
+* [Premium-abonnement](#premium) (in Preview-versie)
+* [App Service-plan](#app-service-plan)
 
-### <a name="function-app"></a>Functie-app
+### <a name="function-app"></a>Function App
 
-De resource voor de functie-app wordt gedefinieerd door middel van een resource van het type **Microsoft.Web/Site** en type **functionapp**:
+De resource voor de functie-app wordt gedefinieerd door middel van een resource van het type **Microsoft.Web/sites** en type **functionapp**:
 
 ```json
 {
@@ -92,24 +135,65 @@ De resource voor de functie-app wordt gedefinieerd door middel van een resource 
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+```
+
+> [!IMPORTANT]
+> Als u een hostingplan expliciet definieert, zou een extra item in de matrix dependsOn nodig zijn: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+
+Instellingen voor deze toepassing moet worden opgenomen in een functie-app:
+
+| Naam van instelling                 | Description                                                                               | Voorbeeldwaarden                        |
+|------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
+| AzureWebJobsStorage          | Een verbindingsreeks naar een storage-account dat de Functions-runtime voor de interne wachtrij | Zie [Storage-account](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | De versie van de Azure Functions-runtime                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | De stack taal moet worden gebruikt voor functies in deze app                                   | `dotnet`, `node`, `java`, of `python` |
+| WEBSITE_NODE_DEFAULT_VERSION | Alleen nodig als u met behulp van de `node` taal stack, geeft u de versie te gebruiken              | `10.14.1`                             |
+
+Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteConfig` eigenschap:
+
+```json
+"properties": {
+    "siteConfig": {
+        "appSettings": [
+            {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+            },
+            {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "node"
+            },
+            {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                "value": "10.14.1"
+            },
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            }
+        ]
+    }
+}
 ```
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Een functie-app op in het abonnement Consumption implementeren
+## <a name="deploy-on-consumption-plan"></a>Implementeren op verbruiksabonnement
 
-U kunt een functie-app in twee verschillende modi uitvoeren: het plan verbruik en het App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd, wordt uitgeschaald naar behoefte om belasting te verwerken en vervolgens schaalt omlaag wanneer de code wordt niet uitgevoerd. Dus u hoeft te betalen voor niet-actieve virtuele machines en u hoeft te voren capaciteit reserveren. Zie voor meer informatie over het hosten van plannen, [Azure Functions-verbruik en App Service-abonnementen](functions-scale.md).
+Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd, wordt uitgeschaald naar behoefte om belasting te verwerken en vervolgens schaalt omlaag wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines en u hoeft te voren capaciteit reserveren. Zie voor meer informatie, [Azure Functions-schaal en hosting](functions-scale.md#consumption-plan).
 
 Zie voor een voorbeeld van Azure Resource Manager-sjabloon, [functie-app op verbruiksabonnement].
 
 ### <a name="create-a-consumption-plan"></a>Maken van een verbruiksabonnement
 
-Een verbruiksabonnement is een speciaal type "serverfarm" resource. U het opgeeft met behulp van de `Dynamic` waarde voor de `computeMode` en `sku` eigenschappen:
+Een verbruiksabonnement hoeft niet te worden gedefinieerd. Een zal automatisch worden gemaakt of op basis van de per regio worden geselecteerd wanneer u de functie-app-resource zelf maakt.
+
+Het verbruiksabonnement is een speciaal type "serverfarm" resource. Voor Windows, kunt u deze opgeven met behulp van de `Dynamic` waarde voor de `computeMode` en `sku` eigenschappen:
 
 ```json
 {
@@ -125,29 +209,30 @@ Een verbruiksabonnement is een speciaal type "serverfarm" resource. U het opgeef
 }
 ```
 
+> [!NOTE]
+> Het verbruiksabonnement kan niet expliciet worden gedefinieerd voor Linux. Er wordt automatisch gemaakt.
+
+Als u uw abonnement consumption expliciet definieert, moet u om in te stellen de `serverFarmId` eigenschap van de app, zodat deze naar de resource-ID van het plan verwijst. U moet ervoor zorgen dat de functie-app heeft een `dependsOn` instellen voor het abonnement ook.
+
 ### <a name="create-a-function-app"></a>Een functie-app maken
 
-Bovendien twee extra instellingen in de configuratie van de site in een verbruiksabonnement is vereist: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en `WEBSITE_CONTENTSHARE`. Deze eigenschappen configureren de storage-account en het bestandspad waarin de functie-app-code en de configuratie zijn opgeslagen.
+#### <a name="windows"></a>Windows
+
+Voor Windows, een verbruiksabonnement is vereist twee extra instellingen in de siteconfiguratie: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en `WEBSITE_CONTENTSHARE`. Deze eigenschappen configureren de storage-account en het bestandspad waarin de functie-app-code en de configuratie zijn opgeslagen.
 
 ```json
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2016-03-01",
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     ],
     "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
             "appSettings": [
-                {
-                    "name": "AzureWebJobsDashboard",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
-                },
                 {
                     "name": "AzureWebJobsStorage",
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
@@ -161,24 +246,149 @@ Bovendien twee extra instellingen in de configuratie van de site in een verbruik
                     "value": "[toLower(variables('functionAppName'))]"
                 },
                 {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~1"
+                    "value": "~2"
                 }
             ]
         }
     }
 }
-```                    
+```
+
+#### <a name="linux"></a>Linux
+
+Op Linux, de functie-app hebben de `kind` ingesteld op `functionapp,linux`, en moet de `reserved` eigenschap ingesteld op `true`:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        },
+        "reserved": true
+    }
+}
+```
+
+
+
+<a name="premium"></a>
+
+## <a name="deploy-on-premium-plan"></a>Implementeren op Premium-abonnement
+
+Het Premium-abonnement biedt dezelfde schaal als het abonnement consumption maar bevat toegewezen resources en aanvullende mogelijkheden. Zie voor meer informatie, [Azure Functions Premium plannen (Preview)](./functions-premium-plan.md).
+
+### <a name="create-a-premium-plan"></a>Een Premium-abonnement maken
+
+Een Premium-abonnement is een speciaal type "serverfarm" resource. Kunt u deze opgeven met behulp van `EP1`, `EP2`, of `EP3` voor de `sku` eigenschapswaarde.
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "EP1"
+    }
+}
+```
+
+### <a name="create-a-function-app"></a>Een functie-app maken
+
+Een functie-app op een Premium-abonnement moet hebben de `serverFarmId` eigenschap is ingesteld op de resource-ID van het abonnement eerder hebt gemaakt. Daarnaast heeft een Premium-abonnement nodig voor twee extra instellingen in de siteconfiguratie: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en `WEBSITE_CONTENTSHARE`. Deze eigenschappen configureren de storage-account en het bestandspad waarin de functie-app-code en de configuratie zijn opgeslagen.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTSHARE",
+                    "value": "[toLower(variables('functionAppName'))]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementeren van een functie-app op het App Service-plan
+## <a name="deploy-on-app-service-plan"></a>Implementeren in App Service-plan
 
-In de App Service-plan is de functie-app wordt uitgevoerd op toegewezen virtuele machines op basis, standaard en Premium-SKU's, vergelijkbaar met de web-apps. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/overview-hosting-plans.md). 
+In de App Service-plan is de functie-app wordt uitgevoerd op toegewezen virtuele machines op basis, standaard en Premium-SKU's, vergelijkbaar met de web-apps. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/overview-hosting-plans.md).
 
 Zie voor een voorbeeld van Azure Resource Manager-sjabloon, [functie-app in Azure App Service-plan].
 
 ### <a name="create-an-app-service-plan"></a>Een App Service-plan maken
+
+Een App Service-plan wordt gedefinieerd door een 'serverfarm'-resource.
 
 ```json
 {
@@ -196,9 +406,169 @@ Zie voor een voorbeeld van Azure Resource Manager-sjabloon, [functie-app in Azur
 }
 ```
 
+Als u wilt uitvoeren van uw app op Linux, moet u ook instellen de `kind` naar `Linux`:
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "Linux",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "[parameters('sku')]",
+        "workerSize": "[parameters('workerSize')]",
+        "hostingEnvironment": "",
+        "numberOfWorkers": 1
+    }
+}
+```
+
 ### <a name="create-a-function-app"></a>Een functie-app maken 
 
-Nadat u een optie voor vergroten/verkleinen hebt geselecteerd, maakt u een functie-app. De app is de container met alle uw functies.
+Een functie-app op een App Service-plan moet hebben de `serverFarmId` eigenschap is ingesteld op de resource-ID van het abonnement eerder hebt gemaakt.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
+Linux-apps moeten ook een `linuxFxVersion` eigenschap onder `siteConfig`. Als u alleen code implementeert, wordt de waarde voor dit wordt bepaald door de gewenste runtimestack:
+
+| Stack            | Voorbeeldwaarde                                         |
+|------------------|-------------------------------------------------------|
+| Python (Preview) | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
+| Javascript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
+| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+        }
+    }
+}
+```
+
+Als u [implementeren van een aangepaste containerinstallatiekopie](./functions-create-function-linux-custom-image.md), moet u opgeven met `linuxFxVersion` en met de configuratie waarmee u uw installatiekopie worden opgehaald, in [Web App for Containers](/azure/app-service/containers). Stel ook `WEBSITES_ENABLE_APP_SERVICE_STORAGE` naar `false`, omdat de inhoud van uw app is opgegeven in de container zelf:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_URL",
+                    "value": "[parameters('dockerRegistryUrl')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                    "value": "[parameters('dockerRegistryUsername')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                    "value": "[parameters('dockerRegistryPassword')]"
+                },
+                {
+                    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                    "value": "false"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+        }
+    }
+}
+```
+
+## <a name="customizing-a-deployment"></a>Een implementatie aanpassen
 
 Een functie-app heeft veel onderliggende resources die u in uw implementatie gebruiken kunt, met inbegrip van app-instellingen en opties voor broncodebeheer. U kunt desgewenst ook verwijderen de **sourcecontrols** onderliggende resources en gebruik een andere [Implementatieoptie](functions-continuous-deployment.md) in plaats daarvan.
 
@@ -221,8 +591,14 @@ Een functie-app heeft veel onderliggende resources die u in uw implementatie geb
      "siteConfig": {
         "alwaysOn": true,
         "appSettings": [
-            { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~1" },
-            { "name": "Project", "value": "src" }
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            },
+            {
+                "name": "Project",
+                "value": "src"
+            }
         ]
      }
   },
@@ -238,7 +614,10 @@ Een functie-app heeft veel onderliggende resources die u in uw implementatie geb
         ],
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
-          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
+          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "Project": "src"
         }
      },
      {
@@ -266,8 +645,8 @@ U kunt een van de volgende manieren om uw sjabloon te implementeren:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure-CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure-portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Implementeren op Azure-knop
 

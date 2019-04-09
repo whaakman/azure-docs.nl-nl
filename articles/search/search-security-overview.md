@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342419"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269551"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Beveiliging en privacy in Azure Search
 
@@ -58,6 +58,8 @@ Verschillende beveiligingsmechanismen beschikbaar Azure hele zijn en dus automat
 
 Alle Azure-services ondersteunen op rollen gebaseerd toegangsbeheer (RBAC) voor het instellen van de toegangsniveaus consistent op alle services. Bijvoorbeeld is weergeven van gevoelige gegevens, zoals de Administrator-code beperkt tot de rollen eigenaar en Inzender, terwijl voor het weergeven van de status van service beschikbaar voor leden van een rol is. RBAC biedt rollen eigenaar, Inzender en lezer. Standaard zijn alle servicebeheerders leden van de rol van eigenaar.
 
+<a name="service-access-and-authentication"></a>
+
 ## <a name="service-access-and-authentication"></a>Toegang tot de service en -verificatie
 
 Terwijl Azure Search de beveiligingsmaatregelen van het Azure-platform neemt, biedt het ook een eigen verificatie op basis van een sleutel. Een api-sleutel is een tekenreeks die bestaat uit een willekeurig gegenereerde cijfers en letters bevatten. Het type sleutel (admin of query) bepaalt het niveau van toegang. Indienen van een geldige sleutel wordt beschouwd als bewijs van de aanvraag afkomstig is van een vertrouwde entiteit. 
@@ -65,11 +67,11 @@ Terwijl Azure Search de beveiligingsmaatregelen van het Azure-platform neemt, bi
 Er zijn twee niveaus van toegang tot uw search-service ingeschakeld door twee typen sleutels:
 
 * Beheerderstoegang (geldt voor elke bewerking die lezen / schrijven op basis van de service)
-* Query-toegang (geldig voor alleen-lezen bewerkingen, zoals query's op een index)
+* Query-toegang (geldig voor alleen-lezen bewerkingen, zoals query's, op de verzameling documenten van een index)
 
-*Beheersleutels* worden gemaakt wanneer de service is geïmplementeerd. Er zijn twee beheersleutels aangewezen als *primaire* en *secundaire* dat ze rechtstreeks, maar in feite ze zijn verwisselbaar. Elke service heeft twee beheersleutels zodat u een afwisselen kunt zonder te verliezen toegang tot uw service. Kunt u een van beide administratorsleutel opnieuw genereren, maar u kunt toevoegen aan het aantal totale beheerder. Er is een maximum van twee beheersleutels per search-service.
+*Beheersleutels* worden gemaakt wanneer de service is geïmplementeerd. Er zijn twee beheersleutels aangewezen als *primaire* en *secundaire* dat ze rechtstreeks, maar in feite ze zijn verwisselbaar. Elke service heeft twee beheersleutels zodat u een afwisselen kunt zonder te verliezen toegang tot uw service. U kunt [administratorsleutel opnieuw genereren](search-security-api-keys.md#regenerate-admin-keys) periodiek per Azure-beveiliging aanbevolen procedures, maar u niet toevoegen aan het aantal totale beheerder. Er zijn maximaal twee beheersleutels per search-service.
 
-*Querysleutels* zo nodig worden gemaakt en zijn ontworpen voor clienttoepassingen die rechtstreeks aanroepen van de zoekopdracht. U kunt maximaal 50 querysleutels maken. In de toepassingscode geeft u de URL zoeken en een query-api-sleutel voor alleen-lezen toegang tot de service. Code van uw toepassing geeft ook de index die wordt gebruikt door uw toepassing. Het eindpunt een api-sleutel voor alleen-lezentoegang en een doelindex definieert samen het bereik en het toegangsniveau van de verbinding van uw clienttoepassing.
+*Querysleutels* zo nodig worden gemaakt en zijn ontworpen voor clienttoepassingen die query's uitgeven. U kunt maximaal 50 querysleutels maken. In de toepassingscode geeft u de URL zoeken en een query-api-sleutel voor alleen-lezen toegang tot de verzameling documenten van een specifieke index. Het eindpunt een api-sleutel voor alleen-lezentoegang en een doelindex definieert samen het bereik en het toegangsniveau van de verbinding van uw clienttoepassing.
 
 Verificatie is vereist voor elke aanvraag, waarbij elke aanvraag is samengesteld uit een verplichte sleutel, een bewerking, en een object. Bij het aan elkaar zijn gekoppeld, zijn de twee machtigingsniveaus (volledig of alleen-lezen) plus de context (bijvoorbeeld een querybewerking op een index) voldoende zijn voor het ontwikkelen van zeer uitgebreide beveiliging voor servicebewerkingen. Zie voor meer informatie over sleutels, [maken en beheren van api-sleutels](search-security-api-keys.md).
 
@@ -83,17 +85,11 @@ Beheerders en ontwikkelaars toegang tot indexen is niet-gedifferentieerde: moet 
 
 Voor multitenancy-oplossingen vereisen beveiligingsgrenzen op het indexniveau van de, bevatten dergelijke oplossingen doorgaans een middelste laag, die klanten gebruiken voor het afhandelen van index isolatie. Zie voor meer informatie over de multitenant-use-case [ontwerppatronen voor multitenant SaaS-toepassingen en Azure Search](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access-from-client-apps"></a>Beheerderstoegang van client-apps
+## <a name="admin-access"></a>Beheerderstoegang
 
-De Azure Search Management REST API is een uitbreiding van de Azure Resource Manager en de afhankelijkheden ervan deelt. Als zodanig is Active Directory een vereiste voor het beheer van de service van Azure Search. Alle Beheeraanvragen vanuit clientcode moeten worden geverifieerd met behulp van Azure Active Directory voordat de aanvraag heeft bereikt van het Resource Manager.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) bepaalt of u toegang tot de controle van de service en de bijbehorende inhoud. Als u een eigenaar of bijdrager van een Azure Search-service gebruikmaakt, kunt u de portal of de PowerShell **Az.Search** module maken, bijwerken of verwijderen van objecten op de service. U kunt ook de [Management REST API van Azure Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-Aanvragen voor gegevens voor het eindpunt van een Azure Search-service, zoals Index maken (Azure Search Service REST API) of documenten zoeken (Azure Search Service REST API), een api-sleutel in de aanvraagheader gebruiken.
-
-Als de code van uw toepassing verwerkt servicebewerkingen voor beheer, evenals gegevensbewerkingen op zoekindexen of documenten, twee manieren van verificatie in uw code implementeren: de toegangssleutel van systeemeigen naar Azure Search en de Active Directory-verificatie methodologie die door Resource Manager. 
-
-Zie voor meer informatie over het structureren van een aanvraag in Azure Search [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/). Zie voor meer informatie over de verificatievereisten voor Resource Manager, [gebruik Resource Manager verificatie-API voor toegang tot abonnementen](../azure-resource-manager/resource-manager-api-authentication.md).
-
-## <a name="user-access-to-index-content"></a>Gebruikerstoegang tot inhoud indexeren
+## <a name="user-access"></a>Gebruikerstoegang
 
 Standaard wordt toegang tot een index voor gebruikers bepaald door de toegangssleutel voor de queryaanvraag. De meeste ontwikkelaars maken en toewijzen van [ *querysleutels* ](search-security-api-keys.md) voor client-side zoekaanvragen. Een querysleutel verleent leestoegang tot alle inhoud in de index.
 

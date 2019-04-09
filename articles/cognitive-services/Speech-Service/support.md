@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877697"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272017"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
@@ -23,6 +23,7 @@ U net aan de slag om te verkennen van de functionaliteit van de spraakservices? 
 
 > [!div class="checklist"]
 > * Blijf op de hoogte van nieuwe ontwikkelingen in *Azure Cognitive Services*, of het laatste nieuws met betrekking tot zoeken *spraakservice*.
+> * Opmerkingen bij de release bevatten informatie voor alle versies.
 > * Zoeken om te zien of het probleem werd besproken door de community, of als bestaande documentatie voor de functie die u wilt implementeren, al bestaat.
 > * Als u een goede antwoord niet kunt vinden, een vraag stellen op *Stack Overflow*.
 > * Als u een probleem met een van de voorbeelden op GitHub kunt vinden, verhogen een *GitHub* probleem.
@@ -31,6 +32,10 @@ U net aan de slag om te verkennen van de functionaliteit van de spraakservices? 
 ## <a name="stay-informed"></a>Blijf op de hoogte
 
 Nieuws over Cognitive Services worden verzameld de [Cognitive Services-blog](https://azure.microsoft.com/blog/topics/cognitive-services/). Voor de meest recente informatie over Speech Services, bijhouden van de [spraakservices blog](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Releaseopmerkingen
+
+[Opmerkingen bij de release]] (https://aka.ms/csspeech/whatsnew) worden bijgewerkt zodra er een nieuwe versie beschikbaar is. Opmerkingen bij de bevatten informatie over nieuwe functies, verbeteringen en oplossingen voor problemen.
 
 ## <a name="search"></a>Search
 
@@ -63,7 +68,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 |---------|---------|
 |Spraakherkenning |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Spraaksynthese |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Spraakomzetting |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Spraakomzetting |[[microsoft-cognitieve + vertaling]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Bedoeling van spraak |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
@@ -77,7 +82,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 Voorbeelden zijn vaak geplaatst als open source. Voor vragen en problemen, maakt u een *probleem* in de respectieve GitHub-opslagplaats. U kunt een pull-aanvraag te verzenden. De volgende lijst bevat koppelingen naar de voorbeeld-opslagplaatsen:
 
 * [Speech-SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Apparaten SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 U kunt een foutenrapport, functie-aanvraag maken of een algemene vraag en aanbevolen procedures te delen. Voor bugrapporten, volgt u de opgegeven sjabloon:
 
@@ -108,7 +113,7 @@ Welke versie van de SDK gebruikt u.
 **Aanvullende context**
 
  - Foutberichten, logboekgegevens, stack-trace...
- - Als u een fout voor de interactie van een bepaalde service, kunt u de sessie-id en -tijd (inclusief tijdzone) van de gerapporteerde incidenten melden. De sessie-id wordt in alle call-back-ups maakt/ontvangen gebeurtenissen gerapporteerd.
+ - Als u een fout voor de interactie van een specifieke service rapporteren, rapporteren van de sessie-id en de tijd (inclusief tijdzone) van de gerapporteerde incidenten. De sessie-id wordt in alle call-back-ups maakt/ontvangen gebeurtenissen gerapporteerd.
  - Eventuele aanvullende informatie
 
 

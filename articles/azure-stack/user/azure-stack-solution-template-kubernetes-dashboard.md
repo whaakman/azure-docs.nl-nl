@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482586"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255934"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Toegang tot het Kubernetes-Dashboard in Azure Stack 
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit* 
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit* 
 > [!Note]   
 > Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie. 
 
@@ -47,7 +47,7 @@ Kubernetes biedt een webdashboard dat u voor eenvoudige beheerbewerkingen gebrui
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Overzicht van stappen voor het inschakelen van dashboard
 
 1.  De Kubernetes-certificaten van het hoofdknooppunt in het cluster exporteren. 
-2.  De certificaten importeren in Azure Stack uw beheercomputer.
+2.  De certificaten importeren in uw computer voor het beheer van Azure Stack.
 2.  Open het Kubernetes-web-dashboard. 
 
 ## <a name="export-certificate-from-the-master"></a>Certificaat exporteren van het model 
@@ -70,7 +70,7 @@ U kunt de URL voor het dashboard ophalen uit het hoofdknooppunt in uw cluster.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Zoek de URL voor het dashboard. Bijvoorbeeld:`https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Zoek de URL voor het dashboard. Bijvoorbeeld:  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Het zelfondertekende certificaat ophalen en deze converteren naar het PFX-indeling. Voer de volgende opdracht uit:
 

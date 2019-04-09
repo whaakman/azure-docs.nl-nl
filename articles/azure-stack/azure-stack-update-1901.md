@@ -16,16 +16,16 @@ ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649404"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257396"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
-*Van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op Geïntegreerde Azure Stack-systemen*
 
 Dit artikel wordt de inhoud van het updatepakket 1901 beschreven. De update bevat verbeteringen, oplossingen en nieuwe functies voor deze versie van Azure Stack. Dit artikel ook worden bekende problemen in deze release beschreven, en bevat een koppeling om de update te downloaden. Bekende problemen zijn onderverdeeld in problemen direct verband houden met het updateproces en problemen met de build (na de installatie).
 
@@ -102,7 +102,7 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
          `Get-AzsInfrastructureVolume` is afgeschaft. Gebruik de nieuwe cmdlet `Get-AzsVolume`.  
          `Get-AzsStorageSystem` is afgeschaft.  Gebruik de nieuwe cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` is afgeschaft. De `StorageSubSystem` -object bevat de eigenschap capaciteit.  
-   * **Azs.Compute.Admin-Module**  
+   * **Azs.Compute.Admin Module**  
          Foutoplossing: `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Aanroepen van `ConvertTo-PlatformImageObject` alleen in de successen.  
          BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Aanroepen van ConvertTo-VmExtensionObject alleen in de successen.  
    * **Azs.Storage.Admin-Module**  
@@ -315,6 +315,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- De syslog-configuratie is niet permanent via een cyclus van een update, wat resulteert in de syslog-client en de configuratie en de syslog-berichten te stoppen wordt doorgestuurd verloren gaan. Dit probleem is van toepassing op alle versies van Azure Stack sinds de algemene beschikbaarheid van de syslog-client (1809).
+De tijdelijke oplossing is om de syslog-client opnieuw na het toepassen van een Azure Stack-update te configureren.
 
 ## <a name="download-the-update"></a>De update downloaden
 

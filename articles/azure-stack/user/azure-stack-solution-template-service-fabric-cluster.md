@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482261"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264980"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -46,7 +46,7 @@ Het volgende is vereist om de Service Fabric-cluster te implementeren:
 
 1. **De volgende items moeten beschikbaar zijn in de Azure Stack Marketplace:**
     - **Windows Server 2016** – de sjabloon maakt gebruik van de installatiekopie van het Windows Server 2016 om het cluster te maken.  
-    - **Voor Klantenscripts** -extensie van de virtuele Machine van Microsoft.  
+    - **Aangepaste Scriptextensie** -extensie van de virtuele Machine van Microsoft.  
     - **PowerShell Desired Configuration fase** -extensie van de virtuele Machine van Microsoft.
 
 

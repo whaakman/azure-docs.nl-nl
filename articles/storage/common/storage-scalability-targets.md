@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca9c4c959d21f26369600129f3897b7624dd84f2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371170"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267698"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-schaalbaarheids- en prestatiedoelen van storage-accounts
 
@@ -23,7 +23,7 @@ Zorg ervoor dat uw service om te bepalen of de prestaties, voldoet aan uw vereis
 
 Wanneer uw toepassing de limiet bereikt van wat een partitie voor uw werkbelasting kan verwerken, begint de Azure Storage om terug te keren foutcode 503 (Server bezet) of foutcode antwoorden van 500 (time-out van de bewerking). Als 503-fouten optreden, kunt u overwegen uw toepassing met een beleid voor exponentieel uitstel voor nieuwe pogingen wijzigen. De exponentieel uitstel kan de belasting op de partitie te verlagen en om te vergemakkelijken van pieken in verkeer naar de betreffende partitie.
 
-## <a name="standard-performance-storage-account-scale-limits"></a>Schaallimieten voor standaardprestaties storage-account
+## <a name="storage-account-scale-limits"></a>Schaallimieten voor Storage-account
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -44,6 +44,36 @@ Wanneer uw toepassing de limiet bereikt van wat een partitie voor uw werkbelasti
 Zie voor meer informatie over de schaal- en prestatiedoelen voor Azure Files en Azure File Sync, [schaalbaarheids- en prestatiedoelen van Azure Files](../files/storage-files-scale-targets.md).
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="premium-files-scale-targets"></a>Premium-bestanden schalen doelen
+
+Er zijn drie soorten beperkingen van premium-bestanden: storage-accounts, bestandsshares en bestanden.
+
+Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5000 IOP's in een enkel bestand kan worden geschaald. Dus als u hebt drie bestanden in één share, het maximum aantal IOP's krijgt u van deze share is bijvoorbeeld 15.000.
+
+#### <a name="premium-file-share-limits"></a>Limieten voor Premium-bestand delen
+
+> [!IMPORTANT]
+> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
+
+|Onderwerp  |Doel  |
+|---------|---------|
+|Minimale grootte                        |100 GiB      |
+|Max. grootte                        |100 TiB      |
+|Minimale grootte vergroten/verkleinen    |1 GiB      |
+|Basislijn IOPS    |1 IOP's per GiB maximaal 100.000|
+|IOPS bursting    |3 x IOPS per GiB maximaal 100.000|
+|Minimale bandbreedte                     |100        |
+|Bandbreedte |0,1 MB/s per GB tot 5 GiB/s     |
+|Maximum aantal momentopnamen        |200       |
+
+#### <a name="premium-file-limits"></a>Limieten voor Premium-bestand
+
+|Onderwerp  |Doel  |
+|---------|---------|
+|Grootte                  |1 TiB         |
+|Maximale IOPS per bestand     |5.000         |
+|Gelijktijdige verwerkt    |2,000         |
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync schaal doelen
 

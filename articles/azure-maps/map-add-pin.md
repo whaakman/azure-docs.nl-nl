@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056845"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269483"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag toevoegen aan een kaart
 
@@ -76,13 +76,16 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Een pop-up toevoegen](./map-add-popup.md)
+> [Een pop-up toevoegen](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Een vorm toevoegen](./map-add-shape.md)
+> [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Een bubbellaag toevoegen](./map-add-bubble-layer.md)
+> [Een vorm toevoegen](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [HTML-Makers toevoegen](./map-add-bubble-layer.md)
+> [Een bubbellaag toevoegen](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [HTML-Makers toevoegen](map-add-bubble-layer.md)

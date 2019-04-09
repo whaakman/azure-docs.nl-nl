@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878037"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Zelfstudie: Azure Active Directory-integratie met Help Scout
 
@@ -52,7 +52,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Help Scout met Azure AD moet u Help Scout uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u Help Scout vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
+**Als u wilt helpen Scout toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -106,18 +106,18 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Help Scout moet u de
 
     ![Informatie over eenmalige aanmelding bij het Help Scout-domein en Help Scout-URL's](common/idp-intiated.png)
 
-    a. **Id** is de **doelgroep-URI (identiteits-id van de serviceprovider)** van Help Scout, die begint met `urn:`
+    a. **Id** is de **doelgroep-URI (Service Provider entiteits-ID)** van Help Scout, begint met `urn:`
 
-    b. **Antwoord-URL** is de **terugpost-URL (URL voor Assertion Consumer Service)** van Help Scout, die begint met `https://` 
+    b. **Antwoord-URL** is de **na back-URL (URL van de Bevestigingsconsumerservice)** van Help Scout, begint met `https://` 
 
     > [!NOTE]
-    > De waarden in deze URL's zijn alleen ter demonstratie. U moet deze waarden wijzigen in de werkelijke antwoord-URL en id. U vindt deze waarden op het tabblad **Eenmalige aanmelding** in de sectie Verificatie, die verderop in de zelfstudie wordt beschreven.
+    > De waarden in deze URL's zijn alleen ter demonstratie. U moet deze waarden van de werkelijke antwoord-URL en -ID bijwerken. U vindt deze waarden op het tabblad **Eenmalige aanmelding** in de sectie Verificatie, die verderop in de zelfstudie wordt beschreven.
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Informatie over eenmalige aanmelding bij het Help Scout-domein en Help Scout-URL's](common/metadata-upload-additional-signon.png)
 
-    Typ een URL in het tekstvak **Aanmeldings-URL**, bijvoorbeeld: `https://secure.helpscout.net/members/login/`
+    In de **aanmeldings-URL** tekstvak, een URL als: `https://secure.helpscout.net/members/login/`
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
@@ -157,7 +157,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Help Scout moet u de
 
     ![Eenmalige aanmelding configureren](./media/helpscout-tutorial/settings4.png)
 
-    a. Plak in het tekstvak  **URL voor eenmalige aanmelding**  de waarde van  **Aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
+    a. In **-URL met eenmalige aanmelding** tekstvak, plak de waarde van **aanmeldings-URL**, die u hebt gekopieerd vanuit Azure portal.
 
     b. Klik op **Certificaat uploaden** om het **certificaat (Base64)** te uploaden dat u uit de Azure-portal hebt gedownload.
 
@@ -230,8 +230,8 @@ Wanneer u in het toegangsvenster op de tegel Help Scout klikt, wordt u als het g
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

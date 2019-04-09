@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535175"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275479"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Een back-up van een virtuele machine maken in Azure
 Back-ups in Azure kunt u maken via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van back-ups in Azure en van alle verwante resources. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt met Azure Portal. 
@@ -79,7 +79,7 @@ Als u nog een zelfstudie wilt volgen waarin wordt uitgelegd hoe u gegevens terug
 
 3. Selecteer **Back-upgegevens verwijderen** in de vervolgkeuzelijst.
 
-4. Voer in het dialoogvenster **Typ de naam van het back-upitem** de naam van de VM in, zoals *myVM*. Selecteer **Back-up stoppen**.
+4. Voer in het dialoogvenster **Typ de naam van het back-upitem** de naam van de VM in, zoals *myVM*. Selecteer **back-up stoppen**.
 
     Zodra de back-up van de VM is gestopt en de herstelpunten zijn verwijderd, kunt u de resourcegroep verwijderen. Als u een bestaande VM hebt gebruikt, kunt u de resourcegroep en de VM houden.
 
@@ -94,4 +94,4 @@ Als u nog een zelfstudie wilt volgen waarin wordt uitgelegd hoe u gegevens terug
 In deze quickstart hebt u een Recovery Services-kluis gemaakt, de beveiliging op een VM ingeschakeld en het eerste herstelpunt gemaakt. Volg de andere zelfstudies als u nog meer wilt weten over Azure Backup en Recovery Services.
 
 > [!div class="nextstepaction"]
-> [Back-up maken van meerdere virtuele Azure-machines](./tutorial-backup-vm-at-scale.md)
+> [Back-up van meerdere virtuele machines van Azure](./tutorial-backup-vm-at-scale.md)

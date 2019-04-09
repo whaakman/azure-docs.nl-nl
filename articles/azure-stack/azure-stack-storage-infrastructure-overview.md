@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760270"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271285"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Opslaginfrastructuur beheren voor Azure Stack
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Dit artikel beschrijft de status en de operationele status van Azure Stack-infrastructuur opslagbronnen. Deze bronnen omvatten harde schijven en volumes. De informatie in dit onderwerp kan bijzonder waardevol zijn bij het oplossen van verschillende problemen, zoals een schijf kan niet worden toegevoegd aan een groep.
 
@@ -32,7 +32,7 @@ Dit artikel beschrijft de status en de operationele status van Azure Stack-infra
 
 ### <a name="drives"></a>Stations
 
-Azure Stack, mogelijk gemaakt door Windows Server-software gedefinieerd opslagmogelijkheden, met een combinatie van Storage Spaces Direct (S2D) en Windows Server Failover Clustering voor een goed presterende en schaalbare en flexibele storage-service.
+Mogelijk gemaakt door Windows Server-software, definieert Azure Stack opslagmogelijkheden met een combinatie van Storage Spaces Direct (S2D) en Windows Server Failover Clustering voor een krachtige, schaalbare en robuuste opslagservice.
 
 Azure Stack geïntegreerde system-partners bieden talloze variaties van de oplossing, met inbegrip van een breed scala aan flexibele opslag. Op dit moment kunt u een combinatie van drie stationstypen selecteren: NVMe (niet-vluchtige geheugen Express), SATA/SAS SSD (Solid-State Drive), HDD (hardeschijfstation).
 

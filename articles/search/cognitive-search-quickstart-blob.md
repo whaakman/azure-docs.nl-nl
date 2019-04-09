@@ -1,26 +1,26 @@
 ---
-title: Een Cognitive Search-pijplijn voor indexeren door middel van AI maken in Azure Portal - Azure Search
-description: Vaardigheden voor gegevensextractie, natuurlijke taal en beeldverwerking in Azure Portal met voorbeeldgegevens.
+title: 'Quickstart: Bouw een index AI aangestuurde in Azure portal - Azure Search'
+description: Ophalen van gegevens, natuurlijke taal en afbeeldingsverwerking vaardigheden in een Azure Search-indexering portal met behulp van de Azure portal en sample van gegevens.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200620"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265012"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: Een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Quickstart: Een AI-pijplijn indexeren met cognitieve vaardigheden en voorbeeldgegevens maken
 
-Cognitief zoeken (preview) voegt vaardigheden voor gegevensextractie, verwerking van natuurlijke taal (NLP) en beeldverwerking toe aan een Azure Search-indexeringspijplijn, waardoor niet-doorzoekbare of ongestructureerde inhoud doorzoekbaarder wordt. 
+Azure Search kan worden geïntegreerd met [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), uitpakken van inhoud, natuurlijke taalverwerking (NLP) en afbeelding verwerking vaardigheden toe te voegen aan een Azure Search indexeren pijplijn, waardoor unsearchable of ongestructureerde inhoud meer doorzoekbaar. 
 
-Met een Cognitive Search-pijplijn kunnen [Cognitive Services-resources](https://azure.microsoft.com/services/cognitive-services/), zoals [OCR](cognitive-search-skill-ocr.md), [computertaaldetectie](cognitive-search-skill-language-detection.md) en [entiteitsherkenning](cognitive-search-skill-entity-recognition.md), worden geïntegreerd in een indexeringsproces. De AI-algoritmen van Cognitive Services worden gebruikt om patronen, functies en kenmerken in brongegevens te vinden en structuren en tekstuele inhoud te retourneren voor gebruik in oplossingen voor zoekopdrachten in volledige tekst op basis van Azure Search.
+Veel bronnen voor Cognitive Services - zoals [OCR](cognitive-search-skill-ocr.md), [taaldetectie](cognitive-search-skill-language-detection.md), [entiteit erkenning](cognitive-search-skill-entity-recognition.md) om de naam van een paar - kan worden gekoppeld aan een indexeringsproces worden geautomatiseerd. De AI-algoritmen van Cognitive Services worden gebruikt om patronen, functies en kenmerken in brongegevens te vinden en structuren en tekstuele inhoud te retourneren voor gebruik in oplossingen voor zoekopdrachten in volledige tekst op basis van Azure Search.
 
 Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://portal.azure.com) voordat u ook maar één regel code schrijft:
 
@@ -30,63 +30,28 @@ Maak in deze snelstart uw eerste verrijkingspijplijn in [Azure Portal](https://p
 > * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
 > * Gebruik [**Search Explorer**](search-explorer.md) om query's op de verrijkte gegevens uit te voeren
 
-## <a name="supported-regions"></a> Ondersteunde regio's
+Deze snelstartgids wordt uitgevoerd op de gratis service, maar het aantal gratis transacties is beperkt tot 20 documenten per dag. Als u deze Quick Start meer dan één keer uitgevoerd in dezelfde dag wilt, gebruikt u een kleiner bestand instellen, zodat u in meer uitvoeringen past.
 
-AI-verrijkt indexeren via Cognitive Services is beschikbaar in alle regio's voor Azure Search.
+> [!NOTE]
+> Als u een bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureerbare Cognitive Services-resource koppelen. Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+>
+> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen wordt in rekening gebracht op de preview-prijzen, zoals wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-> [!NOTE]
-> Met ingang van 21 december 2018 kunt u een Cognitive Services-resource koppelen aan een vaardighedenset van Azure Search. Hierdoor kunnen we beginnen met het factureren van kosten voor het uitvoeren van vaardighedensets. Vanaf deze datum gaan we ook kosten in rekening brengen voor het extraheren van afbeeldingen als onderdeel van de fase waarin de documenten kunnen worden gekraakt. Het extraheren van tekst uit documenten blijft gratis.
->
-> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
-
 ## <a name="prerequisites"></a>Vereisten
 
-[Wat is cognitief zoeken?](cognitive-search-concept-intro.md) introduceert de verrijkingsarchitectuur en -onderdelen. 
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
 
-Azure-services worden uitsluitend in dit scenario gebruikt. Het maken van de services die u nodig hebt, maakt deel uit van de voorbereiding.
+[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) biedt de AI. In deze quickstart bevat stappen voor het toevoegen van deze resources in de regel, bij het opgeven van de pijplijn. Het is niet nodig voor het vooraf instellen van accounts.
 
-+ [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) biedt de brongegevens
-+ [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) biedt de AI (u kunt deze resources in line maken bij het opgeven van de pijplijn)
-+ [Azure Search](https://azure.microsoft.com/services/search/) biedt de verrijkte indexeringspijplijn en een uitgebreide ervaring voor het zoeken in tekst in vrije vorm voor gebruik in aangepaste apps
-
-### <a name="set-up-azure-search"></a>Azure Search instellen
-
-Registreer u eerst voor de Azure Search-service. 
-
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van uw Azure-account.
-
-1. Klik op **Een resource maken**, zoek naar Azure Search en klik op **Maken**. Zie [Een Azure Search-service maken in de portal](search-create-service-portal.md) als u voor de eerste keer een zoekservice instelt en meer hulp nodig hebt.
-
-   ![Dashboard van portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Een Azure Search-service maken in de portal")
-
-1. Maak voor Resourcegroep een nieuwe resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
-
-1. Kies voor Locatie een van de [ondersteunde regio's](#supported-regions) voor Cognitive Search.
-
-1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
-
-   Een gratis service is beperkt tot 3 indexen, maximaal 16 MB aan blobgrootte en 2 minuten indexeren. Dit is voldoende om de volledige functionaliteit van cognitief zoeken te verkennen. Zie [Servicelimieten](search-limits-quotas-capacity.md) om de limieten voor verschillende prijscategorieën te bekijken.
-
-   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina Servicedefinitie in de portal")
-
-   > [!NOTE]
-   > Cognitief zoeken is een openbare preview. De uitvoering van vaardigheden is momenteel in alle prijscategorieën beschikbaar, waaronder de gratis categorie. U kunt een beperkt aantal verrijkingen uitvoeren zonder een betaalde Cognitive Services-resource te koppelen. [Meer](cognitive-search-attach-cognitive-services.md) informatie.
-
-1. Maak de service vast aan het dashboard voor snelle toegang tot service-informatie.
-
-   ![Pagina Servicedefinitie in de portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina Servicedefinitie in de portal")
+Azure-services zijn vereist voor de invoer voor de pijplijn voor indexering. U kunt elke willekeurige gegevensbron wordt ondersteund door [Azure Search-indexeerfuncties](search-indexer-overview.md) , met uitzondering van Azure Table Storage, die niet wordt ondersteund voor AI-indexering. Deze snelstartgids maakt gebruik van [Azure Blob-opslag](https://azure.microsoft.com/services/storage/blobs/) als een container voor de bronbestanden van gegevens. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
 
-De verrijkingspijplijn haalt gegevensbronnen op uit Azure ondersteund door [indexeerfuncties in Azure Search](search-indexer-overview.md). Houd er rekening mee dat Azure Table Storage niet wordt ondersteund voor cognitief zoeken. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
-
 1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
 
-1. Meld u aan bij Azure Blob-opslag, maak een opslagaccount, open de Blob-servicepagina's en maak een container. 
-
-1. Op de container, stelt u de openbare toegang tot op **Container (anonieme leestoegang voor containers en blobs)**. Zie de sectie [Een container maken](../storage/blobs/storage-unstructured-search.md#create-a-container) in de zelfstudie *Niet-gestructureerde gegevens doorzoeken* voor meer informatie.
+1. [Aanmelden voor Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), een opslagaccount maken, opent u de services Blob's en een container maken.  De storage-account maken in dezelfde regio als de Azure Search.
 
 1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
 
@@ -218,4 +183,4 @@ Afhankelijk van hoe u de Cognitive Services-resource hebt ingericht, kunt u expe
 U kunt ook de voorbeeldgegevens en de services die u hebt gemaakt opnieuw gebruiken in de volgende zelfstudie om meer te weten te komen over het programmatisch uitvoeren van dezelfde taken. 
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: De REST API's voor cognitief zoeken gebruiken](cognitive-search-tutorial-blob.md)
+> [Zelfstudie: Informatie over dat de cognitieve REST-API's zoeken](cognitive-search-tutorial-blob.md)

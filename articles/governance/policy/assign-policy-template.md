@@ -1,19 +1,18 @@
 ---
 title: Een beleidstoewijzing maken met een Resource Manager-sjabloon
 description: In dit artikel begeleidt u bij de stappen voor het Resource Manager-sjabloon gebruiken om een beleidstoewijzing voor het identificeren van niet-compatibele resources te maken.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3b7ceb07fe874ebc012696f73c21d5c270cb3cee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802504"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268990"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Een beleidstoewijzing maken om te identificeren van niet-compatibele resources met behulp van Resource Manager-sjabloon
 
@@ -38,7 +37,7 @@ Hier volgt een kopie van de sjabloon:
 
 1. Selecteer de volgende afbeelding om te melden bij Azure portal en opent u de sjabloon:
 
-   [![De beleidssjabloon implementeren in Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![Deploy de beleidssjabloon naar Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Selecteer of Voer de volgende waarden:
 

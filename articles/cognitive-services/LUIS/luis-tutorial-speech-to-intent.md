@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076748"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273835"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>De Speech-service integreren in uw Language Understanding-app
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
@@ -24,7 +24,7 @@ Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Spee
 Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepassing te importeren.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS-eindpuntsleutel maken
-[Maak](luis-how-to-azure-subscription.md) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
+In de Azure-portal [maken](luis-how-to-azure-subscription.md) een **Cognitive Service** (LUIS)-sleutel voor uw LUIS-app.  
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS-app importeren
 De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de GitHub-opslagplaats [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Download het bestand [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
@@ -66,7 +66,7 @@ In dit artikel wordt het audioapparaat op uw computer gebruikt. Dat kan een head
 
 De Speech-SDK is al opgenomen als verwijzing. 
 
-[![Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Screenshot van Visual Studio 2017 Microsoft.CognitiveServices.Speech NuGet-pakket weergeven](./media/luis-tutorial-speech-to-intent/nuget-package.png "schermopname van Visual Studio 2017 weergeven Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>De C#-code wijzigen
 Open het bestand `Program.cs` en wijzig de volgende variabelen:
@@ -74,7 +74,7 @@ Open het bestand `Program.cs` en wijzig de volgende variabelen:
 |Naam van de variabele|Doel|
 |--|--|
 |LUIS_assigned_endpoint_key|Komt overeen met de toegekende waarde van de subsleutelwaarde van de eindpunt-URL van de pagina Publiceren|
-|LUIS_endpoint_key_region|Komt overeen met het eerste subdomein van de eindpunt-URL, bijvoorbeeld `westus`|
+|LUIS_endpoint_key_region|Komt overeen met de eerste subdomein eindpunt-URL, bijvoorbeeld `westus`|
 |LUIS_app_ID|Komt overeen met de route van de eindpunt-URL na **apps /**|
 
 De Human Resources-intenties zijn al toegewezen aan het bestand `Program.cs`.
@@ -98,6 +98,6 @@ Vergeet niet om de map te verwijderen wanneer u klaar bent met de voorbeeldcode.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [LUIS integreren met een bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS integreren met een BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

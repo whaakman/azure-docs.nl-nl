@@ -9,30 +9,33 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 03/18/2019
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190036"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270044"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexeren van tabellen in SQL Data Warehouse
+
 Aanbevelingen en voorbeelden voor het indexeren van tabellen in Azure SQL Data Warehouse.
 
-## <a name="what-are-index-choices"></a>Wat zijn de index-opties?
+## <a name="index-types"></a>Indextypen
 
 SQL Data Warehouse biedt verschillende opties voor indexeren met inbegrip van [geclusterde columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-overview), [geclusterde indexen en niet-geclusterde indexen](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), en een niet-index ook wel bekend als optie [heap ](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
 Zie voor informatie over het maken van een tabel met een index die de [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) documentatie.
 
 ## <a name="clustered-columnstore-indexes"></a>Geclusterde columnstore-indexen
+
 SQL Data Warehouse maakt standaard een geclusterde columnstore-index wanneer er geen indexopties zijn opgegeven in een tabel. Geclusterde columnstore-tabellen bieden zowel het hoogste niveau van de compressie van gegevens als de meest algemene prestaties van query's.  Geclusterde columnstore-tabellen worden de geclusterde index of heap-tabellen in het algemeen beter en hebben meestal de beste keuze voor grote tabellen.  Geclusterde columnstore is daarom de beste plek om te starten wanneer u niet zeker bent van uw tabel indexeren.  
 
 Voor het maken van een geclusterde columnstore-tabel, gewoon GECLUSTERDE COLUMNSTORE-INDEX opgeven in de WITH-clausule of laat de WITH-clausule uit:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -48,6 +51,7 @@ Er zijn enkele scenario's waarbij geclusterde columnstore niet mogelijk een goed
 - Kleine tabellen met minder dan 60 miljoen rijen. Kunt u overwegen een heap-tabellen.
 
 ## <a name="heap-tables"></a>Heap-tabellen
+
 Wanneer u tijdelijk gegevens in SQL Data Warehouse terechtkomen zijn, merkt u misschien dat het proces versnellen met behulp van een heap-tabel maakt. Dit is omdat loads naar heaps sneller dan indextabellen en in sommige gevallen is die het volgende lezen uit cache kan worden gedaan.  Als u het laden van gegevens alleen als u wilt deze fase voordat u meer transformaties uitvoert, is het laden van de tabel aan de heap-tabel veel sneller dan het laden van de gegevens naar een geclusterde columnstore-tabel. Bovendien het laden van gegevens naar een [tijdelijke tabel](sql-data-warehouse-tables-temporary.md) wordt geladen sneller dan het laden van een tabel in de permanente opslag.  
 
 Voor kleine opzoektabellen, minder dan 60 miljoen rijen, zinvol vaak heap-tabellen zijn.  Cluster columnstore-tabellen beginnen met het bereiken van optimale compressie zodra er meer dan 60 miljoen rijen.
@@ -55,7 +59,7 @@ Voor kleine opzoektabellen, minder dan 60 miljoen rijen, zinvol vaak heap-tabell
 Geef HEAP in de WITH-component voor het maken van een heap-tabel:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -65,12 +69,13 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Geclusterde en niet-geclusterde indexen
+
 Geclusterde indexen kunnen leveren betere prestaties dan geclusterde columnstore-tabellen wanneer één rij moet snel worden opgehaald. Voor query's waarbij één of een enkele rij opzoekfunctie vereist op prestaties met extreem snelle is, houd rekening met een clusterindex of niet-geclusterde index van de secundaire. Het nadeel van een geclusterde index is dat alleen query's die baat hebben die een zeer selectief filter voor de geclusterde index-kolom gebruiken. Ter verbetering van filteren op andere kolommen kan niet-geclusterde index worden toegevoegd aan andere kolommen. Elke index die wordt toegevoegd aan een tabel toegevoegd, ruimte en de verwerkingstijd te laden.
 
 Een geclusterde index als tabel wilt maken, moet u gewoon GECLUSTERDE INDEX opgeven in de WITH-clausule:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -86,6 +91,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Geclusterde columnstore-indexen optimaliseren
+
 Geclusterde columnstore-tabellen zijn ingedeeld in de gegevens in segmenten.  Met hoge segmentkwaliteit is van essentieel belang voor het bereiken van optimale queryprestaties op een columnstore-tabel.  Segmentkwaliteit kan worden bepaald door het aantal rijen in een gecomprimeerde Rijengroep.  Segmentkwaliteit is optimale wanneer er ten minste 100K rijen per gecomprimeerde Rijgroepen groep en toegang in de prestaties als het aantal rijen per rij benadering voor de groep 1.048.576 rijen, dit is de meeste rijen die een rijgroep kan bevatten.
 
 De onderstaande weergave kan worden gemaakt en die op uw systeem wordt gebruikt voor het berekenen van de gemiddelde rijen per rij groeperen en identificeren van alle suboptimale geclusterde columnstore-indexen.  De laatste kolom in deze weergave wordt een SQL-instructie die kan worden gebruikt om uw indexen opnieuw gegenereerd.
@@ -137,7 +143,7 @@ GROUP BY
 ;
 ```
 
-Nu dat u de weergave hebt gemaakt, kunt u deze query voor het identificeren van tabellen met Rijgroepen met minder dan 100K rijen uitvoeren. U kunt natuurlijk de drempelwaarde van 100 kB verhogen als u meer optimale segmentkwaliteit zoekt. 
+Nu dat u de weergave hebt gemaakt, kunt u deze query voor het identificeren van tabellen met Rijgroepen met minder dan 100K rijen uitvoeren. U kunt natuurlijk de drempelwaarde van 100 kB verhogen als u meer optimale segmentkwaliteit zoekt.
 
 ```sql
 SELECT    *
@@ -172,6 +178,7 @@ Nadat u de query die u beginnen kunt met de gegevens kijken en analyseer de resu
 | [Rebuild_Index_SQL] |SQL opnieuw opbouwen van columnstore-index voor een tabel |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Oorzaken van slechte columnstore-index kwaliteit
+
 Als u tabellen met slechte segmentkwaliteit hebt geïdentificeerd, wilt u de hoofdoorzaak identificeren.  Hieronder vindt u enkele veelvoorkomende oorzaken van slechte segmentkwaliteit:
 
 1. Geheugendruk wanneer de index is gemaakt
@@ -179,33 +186,39 @@ Als u tabellen met slechte segmentkwaliteit hebt geïdentificeerd, wilt u de hoo
 3. Kleine of doorsijpelen load-bewerkingen
 4. Te veel partities
 
-Deze factoren kunnen leiden tot een columnstore-index hebben aanzienlijk kleiner is dan de optimale 1 miljoen rijen per rijgroep. Ze kunnen ook leiden tot rijen naar de delta-rij-groep in plaats van een gecomprimeerde Rijengroep. 
+Deze factoren kunnen leiden tot een columnstore-index hebben aanzienlijk kleiner is dan de optimale 1 miljoen rijen per rijgroep. Ze kunnen ook leiden tot rijen naar de delta-rij-groep in plaats van een gecomprimeerde Rijengroep.
 
 ### <a name="memory-pressure-when-index-was-built"></a>Geheugendruk wanneer de index is gemaakt
+
 Het aantal rijen per gecomprimeerde Rijgroepen groep zijn direct gerelateerd aan de breedte van de rij en de hoeveelheid geheugen die beschikbaar is voor het verwerken van de rijgroep.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  De aanbevolen procedure is daarom dat de sessie die wordt geschreven naar de columnstore-index tabellen toegang tot net zo veel geheugen mogelijk.  Omdat er een afweging tussen het geheugen en gelijktijdigheid van taken, de instructies op de juiste geheugentoewijzing is afhankelijk van de gegevens in elke rij van de tabel, de datawarehouse-eenheden toegewezen aan uw systeem en het aantal gelijktijdige plekken gebruiken die u kunt geven tot de sessie die schrijven van gegevens naar de tabel is.
 
 ### <a name="high-volume-of-dml-operations"></a>Groot aantal DML-bewerkingen
+
 Een groot aantal DML-bewerkingen die bijwerken en verwijderen van rijen kunt inefficiëntie in de columnstore introduceren. Dit is vooral van toepassing als het merendeel van de rijen in een Rijengroep zijn gewijzigd.
 
 - De rij verwijderen van een rij uit een groep gecomprimeerde Rijgroepen alleen logisch worden gemarkeerd als verwijderd. De rij blijft in de groep gecomprimeerde Rijgroepen totdat de partitie of de tabel is opnieuw opgebouwd.
-- De rij invoegen van een rij aan een interne rowstore-tabel met de naam een delta-rij-groep worden toegevoegd. De ingevoegde rij is niet geconverteerd naar columnstore totdat de delta-rijgroep vol is en is gemarkeerd als gesloten. Rijgroepen worden gesloten zodra ze zich bij de maximale capaciteit van 1.048.576 rijen. 
+- De rij invoegen van een rij aan een interne rowstore-tabel met de naam een delta-rij-groep worden toegevoegd. De ingevoegde rij is niet geconverteerd naar columnstore totdat de delta-rijgroep vol is en is gemarkeerd als gesloten. Rijgroepen worden gesloten zodra ze zich bij de maximale capaciteit van 1.048.576 rijen.
 - Bijwerken van een rij in de columnstore-indeling wordt verwerkt als een logische verwijderen en vervolgens een insert. De ingevoegde rij kan worden opgeslagen in de delta-store.
 
-Batchgewijze update en insert-bewerkingen die groter zijn dan de drempelwaarde bulksgewijs van 102.400 rijen per distributie uitgelijnd Ga rechtstreeks naar de columnstore-indeling. Echter moet als een evenredige verdeling, u meer dan 6.144 miljoen rijen in één bewerking hiervoor wijzigt. Als het aantal rijen voor een bepaalde uitgelijnd distributie minder dan 102,400 is vervolgens gaat de rijen u naar de delta-store andstay er totdat voldoende rijen zijn ingevoegd of gewijzigd om aan te sluiten van de rijgroep of de index is opnieuw opgebouwd.
+Batchgewijze update en insert-bewerkingen die groter zijn dan de drempelwaarde bulksgewijs van 102.400 rijen per distributie uitgelijnd Ga rechtstreeks naar de columnstore-indeling. Echter moet als een evenredige verdeling, u meer dan 6.144 miljoen rijen in één bewerking hiervoor wijzigt. Als het aantal rijen voor een bepaalde uitgelijnd distributie minder dan 102,400 is de rijen gaat u naar de delta-store en er blijven totdat voldoende rijen zijn ingevoegd of gewijzigd om aan te sluiten van de rijgroep of de index is opnieuw opgebouwd.
 
 ### <a name="small-or-trickle-load-operations"></a>Kleine of doorsijpelen load-bewerkingen
+
 Kleine wordt geladen dat flow in SQL Data Warehouse zijn soms ook wel bekend als doorsijpelen geladen. Ze vertegenwoordigen meestal een bijna constante stream met gegevens die door het systeem wordt opgenomen. Als u deze stroom is in de buurt continue is het volume van de rijen echter niet bijzonder groot. De gegevens zijn vaak dan niet meer aanzienlijk onder de drempelwaarde die is vereist voor een directe laden naar columnstore-indeling.
 
 In deze gevallen is het vaak beter de gegevens eerst worden neergezet in Azure blob-opslag en laat verzamelen voordat ze worden geladen. Deze techniek wordt vaak ook wel *micro-batching*.
 
 ### <a name="too-many-partitions"></a>Te veel partities
-Een andere factor zijn de gevolgen van het partitioneren van de geclusterde columnstore-tabellen.  Voordat u partitioneren verdeelt SQL Data Warehouse uw gegevens al in 60 databases.  Uw gegevens partitioneren verder worden verdeeld.  Als u uw gegevens partitioneren, overweeg dan om die **elke** partitie moet ten minste 1 miljoen rijen om te profiteren van een geclusterde columnstore-index.  Als u uw tabel in 100 partities partitioneren, wordt de tabel ten minste 6 miljard rijen die u moet wilt profiteren van een geclusterde columnstore-index (60 distributies * 100 partities * 1 miljoen rijen). Als uw tabel 100 partities heeft geen 6 miljard rijen, het aantal partities verminderen of overwegen een heap-tabel in plaats daarvan.
+
+Een andere factor zijn de gevolgen van het partitioneren van de geclusterde columnstore-tabellen.  Voordat u partitioneren verdeelt SQL Data Warehouse uw gegevens al in 60 databases.  Uw gegevens partitioneren verder worden verdeeld.  Als u uw gegevens partitioneren, overweeg dan om die **elke** partitie moet ten minste 1 miljoen rijen om te profiteren van een geclusterde columnstore-index.  Als u uw tabel in 100 partities partitioneren, wordt de tabel ten minste 6 miljard rijen die u moet wilt profiteren van een geclusterde columnstore-index (60 distributies *100 partities* 1 miljoen rijen). Als uw tabel 100 partities heeft geen 6 miljard rijen, het aantal partities verminderen of overwegen een heap-tabel in plaats daarvan.
 
 Zodra uw tabellen met gegevens zijn geladen, volg de onderstaande stappen om te bepalen en opnieuw maken van tabellen met suboptimale geclusterde columnstore-indexen.
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Opnieuw opbouwen van indexen voor het verbeteren van segmentkwaliteit
+
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Stap 1: Bepalen of gebruikers dat gebruikmaakt van de juiste resourceklasse maken
-Er is een snelle manier voor het verbeteren van segmentkwaliteit onmiddellijk de index opnieuw opbouwen.  De SQL-code die wordt geretourneerd door de bovenstaande weergave retourneert een instructie ALTER INDEX REBUILD, die kan worden gebruikt om uw indexen opnieuw samenstellen. Wanneer uw-indexen herbouwen, moet u dat u onvoldoende geheugen om de sessie die de index van opnieuw gebouwde toewijzen.  U doet dit door de resourceklasse van een gebruiker met machtigingen voor het opnieuw opbouwen van de index voor deze tabel aan de aanbevolen minimale te verhogen. 
+
+Er is een snelle manier voor het verbeteren van segmentkwaliteit onmiddellijk de index opnieuw opbouwen.  De SQL-code die wordt geretourneerd door de bovenstaande weergave retourneert een instructie ALTER INDEX REBUILD, die kan worden gebruikt om uw indexen opnieuw samenstellen. Wanneer uw-indexen herbouwen, moet u dat u onvoldoende geheugen om de sessie die de index van opnieuw gebouwde toewijzen.  U doet dit door de resourceklasse van een gebruiker met machtigingen voor het opnieuw opbouwen van de index voor deze tabel aan de aanbevolen minimale te verhogen.
 
 Hieronder volgt een voorbeeld van hoe u meer geheugen toewijzen aan een gebruiker door hun resourceklasse. Als u wilt werken met resource-klassen, Zie [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md).
 
@@ -214,9 +227,10 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Stap 2: Geclusterde columnstore-indexen opnieuw samenstellen met hogere resource klasse gebruiker
+
 Meld u aan als de gebruiker uit stap 1 (bijvoorbeeld LoadUser), waarop nu met behulp van een hogere resourceklasse, en voer de instructies ALTER INDEX. Zorg ervoor dat deze gebruiker heeft de machtiging ALTER voor de tabellen waarbij de index wordt opnieuw opgebouwd. Deze voorbeelden laten zien hoe u de volledige columnstore-index opnieuw opbouwen of het opnieuw opbouwen van een enkele partitie. Bij grote tabellen is het meer praktische om op te bouwen indexen één partitie op een tijdstip.
 
-U kunt ook in plaats van opnieuw opbouwen van de index, u kan de tabel kopiëren naar een nieuwe tabel [met behulp van CTAS](sql-data-warehouse-develop-ctas.md). Welke het beste is? Voor grote hoeveelheden gegevens, CTAS is doorgaans sneller dan [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Voor kleinere hoeveelheden gegevens, ALTER INDEX is eenvoudiger te gebruiken en wordt niet hoeft te wisselen van de tabel. 
+U kunt ook in plaats van opnieuw opbouwen van de index, u kan de tabel kopiëren naar een nieuwe tabel [met behulp van CTAS](sql-data-warehouse-develop-ctas.md). Welke het beste is? Voor grote hoeveelheden gegevens, CTAS is doorgaans sneller dan [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Voor kleinere hoeveelheden gegevens, ALTER INDEX is eenvoudiger te gebruiken en wordt niet hoeft te wisselen van de tabel.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -241,10 +255,12 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 Opnieuw opbouwen van een index in SQL Data Warehouse is een offline bewerking.  Voor meer informatie over het opnieuw opbouwen van indexen, Zie de sectie ALTER INDEX REBUILD in [Columnstore-indexen defragmentatie](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), en [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Stap 3: Controleer of segmentkwaliteit van geclusterde columnstore is verbeterd
+
 Voer de query die geïdentificeerde tabel met slechte kwaliteit in segmenten en controleer of segmentkwaliteit is verbeterd.  Als het verbeteren van segmentkwaliteit is niet, kan het zijn dat de rijen in de tabel extra breed zijn.  Overweeg het gebruik van een hogere resourceklasse of DWU tijdens het opnieuw opbouwen van uw indexen.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Met CTAS en het wijzigen van de partitie-indexen herbouwen
-In dit voorbeeld wordt de [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instructie en partitie overschakelt naar een tabelpartitie opnieuw. 
+
+In dit voorbeeld wordt de [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instructie en partitie overschakelt naar een tabelpartitie opnieuw.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -270,5 +286,5 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 Zie voor meer informatie over het opnieuw maken met behulp van CTAS partities [gebruik van partities in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het ontwikkelen van tabellen [ontwikkelen tabellen](sql-data-warehouse-tables-overview.md).
 
+Zie voor meer informatie over het ontwikkelen van tabellen [ontwikkelen tabellen](sql-data-warehouse-tables-overview.md).

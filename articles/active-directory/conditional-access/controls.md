@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521972"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258739"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
@@ -58,7 +58,7 @@ Met besturingselementen voor verlenen, kunt u toegang volledig blokkeren of toeg
 - Alle geselecteerde besturingselementen om te worden uitgevoerd (*en*)
 - Een geselecteerd besturingselement moet worden voldaan (*of*)
 
-![Beheer](./media/controls/17.png)
+![Beheer](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -76,9 +76,9 @@ U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. H
 
 Het apparaat moet worden geregistreerd bij Azure AD voordat deze kan worden gemarkeerd als compatibel. Voor het registreren van een apparaat, hebt u drie opties: 
 
-- [Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)  
-- [Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Azure AD-geregistreerde apparaten](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD-gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybride Azure AD-gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Zie voor meer informatie, [hoe u beheerde apparaten vereist voor toegang tot cloud-Apps met voorwaardelijke toegang](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Omdat uw werknemers mobiele apparaten voor zowel privé- en werktaken gebruiken,
 U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) ter bescherming van gegevens van uw bedrijf onafhankelijk van een oplossing voor mobile device management (MDM).
 
 Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert te krijgen tot uw cloud-apps voor de ondersteuning van [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app. Beleid voor voorwaardelijke toegang waarvoor goedgekeurde client-apps wordt ook wel bekend als [beleid voor voorwaardelijke toegang op basis van app](app-based-conditional-access.md). Zie voor een lijst van ondersteunde goedgekeurde client-apps, [goedgekeurde client-app vereiste](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>App-beveiligingsbeleid (preview)
+
+Omdat uw werknemers mobiele apparaten voor zowel privé- en werktaken gebruiken, kunt u de mogelijkheid om bedrijfsgegevens toegankelijk zijn via apparaten, zelfs in het geval wanneer ze niet worden beheerd door u te beschermen.
+U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) ter bescherming van gegevens van uw bedrijf onafhankelijk van een oplossing voor mobile device management (MDM).
+
+Met app-beveiligingsbeleid, kunt u toegang tot clienttoepassingen die zijn gerapporteerd aan Azure beperken AD heeft ontvangst [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app met Intune app-beveiligingsbeleid. Beleid voor voorwaardelijke toegang waarvoor app-beveiligingsbeleid wordt ook wel bekend als [app-beveiliging op basis van het voorwaardelijke toegangsbeleid](app-protection-based-conditional-access.md). 
+
+Het apparaat moet worden geregistreerd bij Azure AD voordat een toepassing kan worden gemarkeerd als beleid beveiligd.
+
+Zie voor een lijst van ondersteunde beleid beveiligde client-apps, [de vereiste van het beleid voor app-beveiliging](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 

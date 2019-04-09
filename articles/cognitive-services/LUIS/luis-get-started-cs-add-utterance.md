@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852262"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273461"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 
@@ -37,19 +37,19 @@ ms.locfileid: "57852262"
 
 ## <a name="create-quickstart-code"></a>Snelstartcode maken 
 
-In Visual Studio, maak een nieuwe **Windows Classic Desktop Console** app met behulp van .NET Framework. 
+In Visual Studio, maak een nieuwe **Windows Classic Desktop Console** app met behulp van .NET Framework. Noem het project `ConsoleApp1`.
 
 ![Visual Studio-projecttype](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>De afhankelijkheid System.Web toevoegen
 
-Voor het Visual Studio-project is **System.Web** nodig. Klik in Solution Explorer met de rechtermuisknop op **References** en selecteer **Add Reference**.
+Voor het Visual Studio-project is **System.Web** nodig. In de Solution Explorer met de rechtermuisknop op **verwijzingen** en selecteer **verwijzing toevoegen** uit de sectie assembly's.
 
 ![System.web-referentie toevoegen](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Andere afhankelijkheden toevoegen
 
-Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser** nodig. Klik in Solution Explorer met de rechtermuisknop op **Verwijzingen** en selecteer **NuGet-pakketten beheren...**. Zoek beide pakketten op en voeg ze toe. 
+Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser** nodig. Klik in Solution Explorer met de rechtermuisknop op **Verwijzingen** en selecteer **NuGet-pakketten beheren...**. Zoeken en toevoegen van elk van de twee pakketten. 
 
 ![Afhankelijkheden van derden toevoegen](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Voeg de afhankelijkheden toe.
+De afhankelijkheden bijwerken die zijn:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Voeg de main-code toe om opdrachtregelargumenten te beheren. Voeg methode toe aa
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopieer utterances.json naar de uitvoerdirectory
 
-Klik in Solution Explorer met de rechtermuisknop op `utterances.json` en selecteer **Properties**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
+Voeg in de Solution Explorer de `utterances.json` met de rechtermuisknop op in de naam van de Solution Explorer het project, selecteer **toevoegen**, te selecteren **bestaand item**. Selecteer de `utterances.json` bestand. Hiermee wordt het bestand toegevoegd aan het project. Vervolgens moet worden toegevoegd aan de richting van de uitvoer. Met de rechtermuisknop op de `utterances.json` en selecteer **eigenschappen**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
 
 ![Het JSON-bestand markeren als inhoud](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Bouw de code in Visual Studio.
 Voer de toepassing uit vanaf een opdrachtregel in de directory /bin/Debug van het project. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Deze opdrachtregel toont de resultaten van het aanroepen van de API voor het toevoegen van utterances. 
@@ -140,4 +140,4 @@ Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelsta
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md) 
+> [Een LUIS-app via een programma maken](luis-tutorial-node-import-utterances-csv.md) 

@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621265"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270942"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-In Azure Search, een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, **Standard**, of **met geoptimaliseerde opslag**.  **Standard** en **met geoptimaliseerde opslag** zijn beschikbaar in verschillende configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar een van de hogere betaalde lagen voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken.
+In Azure Search, een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, **Standard**, of **met geoptimaliseerde opslag**.  **Standard** en **met geoptimaliseerde opslag** zijn beschikbaar in verschillende configuraties en capaciteit. 
+
+De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar een van de hogere betaalde lagen voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken.
 
 > [!NOTE]
 > De Servicelagen met geoptimaliseerde opslag zijn momenteel beschikbaar als preview op kortingsprijzen voor testen en experimenteren met het doel van het verzamelen van feedback. Laatste prijzen worden later aangekondigd wanneer deze lagen algemeen beschikbaar zijn. We raden u aan die deze lagen gebruiken voor productie-Apps.
@@ -29,7 +31,7 @@ Lagen weerspiegelen de eigenschappen van de hardware die als host fungeert voor 
 + Aantal indexen die u kunt maken
 + Grootte en snelheid van de partities (fysieke opslag)
 
-Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te klein gebeurt.
+Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md) heeft langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te klein gebeurt.
 
 > [!NOTE] 
 > De uitzondering functiepariteit is [indexeerfuncties](search-indexer-overview.md), die zijn niet beschikbaar op S3HD.
@@ -53,7 +55,7 @@ De volgende tabel bevat de beschikbare categorieën. Andere bronnen van laaggege
 |2 (L2) met geoptimaliseerde opslag | 2 TB per partitie (maximaal 24 TB per service) |
 
 > [!NOTE] 
-> De lagen met geoptimaliseerde opslag bieden grotere opslagcapaciteit tegen een lagere prijs per TB dan de standaard-laag.  Primaire afweging is hogere latentie van query, die u voor uw specifieke toepassingsvereisten controleren moet.  Zie voor meer informatie over Prestatieoverwegingen van deze laag [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
+> De lagen met geoptimaliseerde opslag bieden grotere opslagcapaciteit tegen een lagere prijs per TB dan de standaard-laag. Primaire afweging is hogere latentie van query, die u voor uw specifieke toepassingsvereisten controleren moet.  Zie voor meer informatie over Prestatieoverwegingen van deze laag [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Werking van facturering
@@ -70,17 +72,27 @@ In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis
 
 Extra replica's en partities zijn een invoegtoepassing voor de initiële kosten in rekening gebracht. Een search-service vereist een replica en een partitie, zodat de minimale configuratie één van elk is. Dan het minimum voegt u replica's en partities onafhankelijk van elkaar. U kunt bijvoorbeeld alleen replica's of alleen de partities toevoegen. 
 
-Extra replica's en partities worden in rekening gebracht op basis van een [formule](#search-units). De kosten zijn niet lineair (verdubbeling van capaciteit van meer dan verdubbeld de kosten). Zie voor een voorbeeld van hoe u van de formule werkt ["Het toewijzen van replica's en partities"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Extra replica's en partities worden in rekening gebracht op basis van een [formule](#search-units). De kosten zijn niet lineair (verdubbeling van capaciteit van meer dan verdubbeld de kosten). Zie voor een voorbeeld van hoe u van de formule werkt ["Het toewijzen van replica's en partities"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Kosten voor uitgaande gegevens tijdens het indexeren
 
-Bij het ophalen van gegevens uit een Azure SQL Database of Cosmos DB-gegevensbron, worden er kosten in rekening gebracht voor de transactie in de factuur voor die resources. Deze kosten zijn niet Azure Search meters, maar ze hier worden genoemd omdat als u van indexeerfuncties gebruikmaakt voor het ophalen van gegevens uit Azure SQL Database of een Azure Cosmos DB, u dat kosten in rekening gebracht op uw factuur ziet.
+Het gebruik van [Azure Search-indexeerfuncties](search-indexer-overview.md) kan leiden tot facturering impact afhankelijk van waar de services die zich bevinden. Volledig als u de Azure Search-service in dezelfde regio als uw gegevens maakt, kunt u kosten voor uitgaande gegevens voorkomen.
+
++ Er zijn geen kosten in rekening gebracht voor binnenkomende gegevens voor elke service op Azure.
+
++ Er zijn geen kosten in rekening gebracht voor uitgaande gegevens van Azure Search.
+
++ Er zijn geen kosten in rekening gebracht voor gegevens of bestanden, uitgaande van SQL DB, Cosmos, Blob-opslag (binnenkomend verkeer naar Azure Search), zolang alle services zich in dezelfde regio.
+
++ In rekening gebracht voor uitgaande gegevens of bestanden als opslag en Azure Search in verschillende regio's.
+
+Wanneer kunnen gegevens tussen Azure-regio's, ziet u de bandbreedte kosten in rekening gebracht in de factuur voor die resources. Deze kosten zijn geen onderdeel van uw factuur voor Azure Search, maar ze hier worden genoemd omdat als u van indexeerfuncties gebruikmaakt voor het ophalen van gegevens of bestanden via de kabel, u dat kosten in rekening gebracht op uw algehele factuur ziet.
+
+Als u indexeerfuncties niet gebruikt, zijn er geen kosten verbonden aan bandbreedte. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-verrijkt indexeren met cognitieve Services
 
-Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. Andere enrichments op basis van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
-
-Als u geen [cognitief zoeken](cognitive-search-concept-intro.md) of [Azure Search-indexeerfuncties](search-indexer-overview.md), de enige kosten hebben betrekking op replica's en actief worden gebruikt, voor workloads met reguliere indexeren en query-partities.
+Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. Andere enrichments, zoals de verwerking van natuurlijke taal, zijn gebaseerd op [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
 
 <a name="search-units"></a>
 

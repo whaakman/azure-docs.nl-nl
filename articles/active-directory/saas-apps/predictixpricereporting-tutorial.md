@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b1303cfdc28cf568796e03c23ff69320ab83dc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: aa96bcbc7c75f1a4dcd28a5dbe7479f99aabe908
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576996"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Zelfstudie: Azure Active Directory-integratie met Predictix prijs rapportage
 
@@ -105,7 +105,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Predictix prijs rapp
 
     ![Predictix prijs Reporting domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname-pricing>.predictix.com/sso/request`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
 
@@ -198,9 +198,9 @@ Wanneer u op de tegel Predictix prijs melden in het toegangsvenster, moet u word
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

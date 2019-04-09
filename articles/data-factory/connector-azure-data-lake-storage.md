@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba469081bf1f1aa265a55ffbd683ba19bc41b6e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521998"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263329"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -104,7 +104,7 @@ Volg deze stappen voor het gebruik van service-principal verificatie:
     - **Als sink**, in Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in de Access control (IAM), verleent ten minste **Gegevensbijdrager voor Blob** rol.
 
 >[!NOTE]
->Aan de lijst met mappen vanaf het accountniveau van de, moet u de machtiging van de service-principal wordt verleend aan instellen **storage-account met machtigingen voor "Uitvoeren"** of machtiging voor IAM. Dit geldt wanneer u de:
+>Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de service-principal wordt verleend aan instellen **storage-account met de machtiging 'Uitvoeren' in de IAM**. Dit geldt wanneer u de:
 >- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
 >Als u de bezorgdheid over het verlenen van toestemming op accountniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
@@ -158,7 +158,7 @@ Voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resourc
     - **Als sink**, in Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in de Access control (IAM), verleent ten minste **Gegevensbijdrager voor Blob** rol.
 
 >[!NOTE]
->Aan de lijst met mappen vanaf het accountniveau van de, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **storage-account met machtigingen voor "Uitvoeren"** of machtiging voor IAM. Dit geldt wanneer u de:
+>Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **storage-account met de machtiging 'Uitvoeren' in de IAM**. Dit geldt wanneer u de:
 >- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
 >Als u de bezorgdheid over het verlenen van toestemming op accountniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.

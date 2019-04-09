@@ -1,19 +1,18 @@
 ---
 title: Voorbeeld - ISO 27001 gedeelde Services blauwdruk - stappen implementeren
 description: Stappen van het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804329"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267920"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Het voorbeeld van de blauwdruk ISO 27001 gedeelde Services implementeren
 

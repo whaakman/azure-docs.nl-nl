@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051679"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271829"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902-update
 
@@ -80,7 +80,7 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 - De 1902-build introduceert een nieuwe gebruikersinterface van de beheerder van Azure Stack-portal voor het maken van plannen, aanbiedingen, quota's en aanvullende plannen. Zie voor meer informatie, waaronder schermafbeeldingen, [maken, plannen, aanbiedingen en quota's](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Verbeteringen in de betrouwbaarheid van capaciteitsuitbreiding tijdens toevoegen knooppunt wanneer u overschakelt van de status van de eenheid schaal van 'Expanding opslag' in de status actief.
+- Verbeteringen wat betreft de betrouwbaarheid van capaciteitsuitbreiding tijdens een knooppunt toevoegen wanneer u overschakelt van de status van de schaal-eenheid van 'Expanding opslag' in 'Actief'.
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -104,9 +104,6 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
     - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en ze herstellen indien nodig
     - Controleer de status van de XRP service fabric-knooppunten en ze herstellen indien nodig
     - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en ze herstellen indien nodig
-
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Verbeteringen in de betrouwbaarheid van capaciteitsuitbreiding tijdens toevoegen knooppunt wanneer u overschakelt van de status van de eenheid schaal van 'Expanding opslag' in de status actief.    
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -259,6 +256,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- De syslog-configuratie is niet permanent via een cyclus van een update, wat resulteert in de syslog-client en de configuratie en de syslog-berichten te stoppen wordt doorgestuurd verloren gaan. Dit probleem is van toepassing op alle versies van Azure Stack sinds de algemene beschikbaarheid van de syslog-client (1809).
+De tijdelijke oplossing is om de syslog-client opnieuw na het toepassen van een Azure Stack-update te configureren.
 
 ## <a name="download-the-update"></a>De update downloaden
 

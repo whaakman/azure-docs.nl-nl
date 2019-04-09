@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851169"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261986"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen met OpenID Connect en Azure Active Directory
 
@@ -47,12 +47,12 @@ OpenID Connect beschrijving van een document met metagegevens die de meeste van 
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-De metagegevens is een eenvoudige JavaScript Object Notation (JSON)-document. Zie het volgende fragment voor een voorbeeld. De inhoud van het codefragment worden volledig beschreven in de [OpenID Connect-specificatie](https://openid.net). Houd er rekening mee dat die tenant in plaats van `common` in plaats van {tenant} bovenstaande zal leiden tot tenant-specifieke URI's in de JSON-object geretourneerd.
+De metagegevens is een eenvoudige JavaScript Object Notation (JSON)-document. Zie het volgende fragment voor een voorbeeld. De inhoud van het codefragment worden volledig beschreven in de [OpenID Connect-specificatie](https://openid.net). Houd er rekening mee dat het leveren van een tenant-ID in plaats van `common` in plaats van {tenant} bovenstaande zal leiden tot tenant-specifieke URI's in de JSON-object geretourneerd.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ De metagegevens is een eenvoudige JavaScript Object Notation (JSON)-document. Zi
     ...
 }
 ```
+
+Als uw app aangepaste ondersteuningssleutels door het gebruik van heeft de [claims-toewijzing](active-directory-claims-mapping.md) functie, die u moet toevoegen een `appid` queryparameter met de app-ID om op te halen een `jwks_uri` die verwijst naar uw app de ondertekeningssleutel informatie. Bijvoorbeeld: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` bevat een `jwks_uri` van `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>De aanvraag voor aanmelding bij verzenden
 
@@ -88,10 +90,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory**, klikt u op **App-registraties**, kiest u de toepassing en zoekt u de Id op de pagina van de toepassing. |
+| client_id |vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. Klik op **Azure Active Directory**, klikt u op **App-registraties**, kiest u de toepassing en zoekt u de ID op de pagina van de toepassing. |
 | response_type |vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere response_types zoals `code` of `token`. |
 | scope | Aanbevolen | De OpenID Connect-specificatie is vereist voor het bereik `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. Deze en andere OIDC-scopes op het eindpunt v1.0 worden genegeerd, maar is nog steeds een aanbevolen procedure voor standaarden-compatibele clients. |
 | nonce |vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende `id_token` als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks of GUID die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
@@ -141,7 +143,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
-| Foutcode | Beschrijving | Clientactie |
+| Foutcode | Description | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
@@ -185,7 +187,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Als u omleiden van de gebruiker de `end_session_endpoint`, Azure AD wordt de sessie van de browser van de gebruiker gewist. Echter, de gebruiker kan nog steeds worden aangemeld bij andere toepassingen die Azure AD voor verificatie gebruiken. Om in te schakelen die toepassingen naar de gebruiker tegelijk afmelden, Azure AD een HTTP GET-aanvraag verzendt naar de geregistreerde `LogoutUrl` van alle toepassingen die de gebruiker die momenteel is aangemeld bij. Toepassingen moeten reageren op deze aanvraag door een sessie die u de gebruiker identificeert uit te schakelen en te retourneren een `200` antwoord. Als u uitzoomen ondersteuning van eenmalige aanmelding in uw toepassing wilt, moet u deze implementeren een `LogoutUrl` in de code van uw toepassing. U kunt instellen dat de `LogoutUrl` vanuit Azure portal:
 
-1. Navigeer naar de [Azure-Portal](https://portal.azure.com).
+1. Navigeer naar [Azure Portal](https://portal.azure.com).
 2. Kies uw Active Directory door te klikken op uw account in de rechterbovenhoek van de pagina.
 3. Kies in het navigatievenster links **Azure Active Directory**, en kies vervolgens **App-registraties** en selecteer uw toepassing.
 4. Klik op **instellingen**, klikt u vervolgens **eigenschappen** en zoek de **afmeldings-URL van** in het tekstvak. 
@@ -200,7 +202,7 @@ Om toegangstokens verkrijgen, moet u de aanmeldingsaanvraag van bovenstaande wij
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'
@@ -242,7 +244,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |

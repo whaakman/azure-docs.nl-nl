@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554851"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261170"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Quickstart: Een chatruimte maken met Azure Functions en SignalR-Service met behulp van Java
 
@@ -58,18 +58,18 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
     ![De service SignalR maken](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Open in uw code-editor de *chat/src/java* map in de gekloonde opslagplaats.
+1. Open in uw code-editor de *src/chat/java* map in de gekloonde opslagplaats.
 
 1. Wijzig de naam *local.settings.sample.json* in *local.settings.json*.
 
 1. Plak in **local.settings.json** de verbindingsreeks in de waarde van de instelling **AzureSignalRConnectionString**. Sla het bestand op.
 
-1. Het belangrijkste bestand met de functies zijn *src/main/java/com/function/Functions.java*:
+1. Het belangrijkste bestand met de functies zijn *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate**: gebruikt de invoerbinding *SignalRConnectionInfo* om geldige verbindingsgegevens te genereren en te retourneren.
     - **SendMessage** : een chatbericht in de hoofdtekst van de aanvraag ontvangt en gebruikt de *SignalR* uitvoer binding voor het uitzenden van het bericht voor alle verbonden clienttoepassingen.
 
-1. In de terminal, zorg ervoor dat u de *chat/src/java* map. De functie-app bouwen.
+1. In de terminal, zorg ervoor dat u de *src/chat/java* map. De functie-app bouwen.
 
     ```bash
     mvn clean package

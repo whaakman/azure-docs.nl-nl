@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620634"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273393"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
@@ -114,7 +114,7 @@ Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure 
 | Indexeerfunctie voor BLOB: maximum blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N/A |4 miljoen |4 miljoen |
 
-<sup>1</sup> gratis services hebben een maximale uitvoeringstijd van 3 minuten indexeerfunctie voor blob-bronnen en 1 minuut voor alle andere gegevensbronnen.
+<sup>1</sup> gratis services hebben een maximale uitvoeringstijd van 3 minuten indexeerfunctie voor blob-bronnen en 1 minuut voor alle andere gegevensbronnen. Voor AI indexeren die aanroepen naar Cognitive Services, zijn gratis services beperkt tot 20 gratis transacties per dag, waarbij een transactie is gedefinieerd als een document dat is doorgegeven via de pijplijn verrijking.
 
 <sup>2</sup> basisservices gemaakt nadat laat 2017 een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebben. Services die eerder hebt gemaakt, hebben 5.
 

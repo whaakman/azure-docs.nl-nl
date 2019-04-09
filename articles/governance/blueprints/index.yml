@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800434"
 documentType: LandingData
 title: Documentatie voor de Azure Blueprints-service
 metadata:
-  title: Documentatie voor Azure Blueprints - zelfstudies, API-naslag
-  description: Azure Blueprints is een service in Azure waarmee u artefacten kunt maken, definiëren en implementeren in uw Azure-omgeving.
-  services: blueprints
+  title: 'Documentatie voor Azure Blueprints - zelfstudies, API-naslag'
+  description: 'Azure Blueprints is een service in Azure waarmee u artefacten kunt maken, definiëren en implementeren in uw Azure-omgeving.'
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -18,34 +11,34 @@ metadata:
   ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
-  description: Met Azure Blueprints kunt u cloudomgevingen op een herhaalbare manier implementeren en bijwerken met behulp van samenstelbare artefacten (zoals Azure Resource Manager-sjablonen) om resources, op rollen gebaseerd toegangsbeheer en beleid te implementeren.
+  description: 'Met Azure Blueprints kunt u cloudomgevingen op een herhaalbare manier implementeren en bijwerken met behulp van samenstelbare artefacten (zoals Azure Resource Manager-sjablonen) om resources, op rollen gebaseerd toegangsbeheer en beleid te implementeren.'
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Lees meer informatie over hoe u in Azure blauwdrukdefinities maakt, toewijst en beheert.
-  - type: list
-    style: icon48
+  - title: QuickStarts van vijf minuten
     items:
-    - image:
-        alt: Azure-portal
-        src: ./media/portal.svg
-      text: Azure-portal
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Lees meer informatie over hoe u in Azure blauwdrukdefinities maakt, toewijst en beheert.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure-portal
+              src: ./media/portal.svg
+            text: Azure-portal
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST
+              src: ./media/rest.svg
+            text: REST
+            href: create-blueprint-rest-api.md
+  - title: Naslaginformatie
     items:
-    - title: Opdrachtregel
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Talen
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure-SDK voor .NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">API-naslaginformatie</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Talen
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure-SDK voor .NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/blueprints/">API-naslaginformatie</a></p>

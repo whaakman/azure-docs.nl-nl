@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447219"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269262"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -34,7 +34,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
 ## <a name="prerequisites"></a>Vereisten
 
 * Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
-* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u geen een Storage-account hebt, klikt u op [hier](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) een te maken.
+* Azure Storage-account met Data Lake Storage Gen2 is ingeschakeld: Als u een Storage-account geen [maken van een account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS-account met een S3-bucket die gegevens bevat: In dit artikel laat zien hoe het kopiëren van gegevens vanaf Amazon S3. U kunt andere gegevensarchieven gebruiken door gelijksoortige stappen te volgen.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
@@ -104,7 +104,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
    
    ![Azure Data Lake Storage Gen2 account opgeven](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. In de **uitvoerbestand of uitvoermap kiezen** pagina **copyfroms3** als de naam van de uitvoer-map en selecteer **volgende**: 
+9. In de **uitvoerbestand of uitvoermap kiezen** pagina **copyfroms3** als de naam van de uitvoer-map en selecteer **volgende**. ADF wordt het bijbehorende Gen2 ADLS-bestandssysteem en de submappen tijdens het kopiëren van maken als deze nog niet bestaat.
 
     ![Geef de map voor uitvoer](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 

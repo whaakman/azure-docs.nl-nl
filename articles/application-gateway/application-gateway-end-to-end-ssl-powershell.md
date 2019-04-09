@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101547"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269347"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
@@ -52,20 +52,17 @@ Het configuratieproces wordt beschreven in de volgende secties.
 
 In deze sectie helpt u bij het maken van een resourcegroep met de application gateway.
 
-
 1. Meld u aan bij uw Azure-account.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Selecteer het abonnement moet worden gebruikt voor dit scenario.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Maak een resourcegroep. (Sla deze stap over als u een bestaande resourcegroep gebruikt.)
 
@@ -77,7 +74,6 @@ In deze sectie helpt u bij het maken van een resourcegroep met de application ga
 
 Het volgende voorbeeld wordt een virtueel netwerk en twee subnetten. Een subnet wordt gebruikt voor het opslaan van de toepassingsgateway. Het andere subnet wordt gebruikt voor de back-ends die als host de web-App fungeren.
 
-
 1. Een adresbereik voor het subnet moet worden gebruikt voor de toepassingsgateway toewijst.
 
    ```powershell
@@ -86,8 +82,7 @@ Het volgende voorbeeld wordt een virtueel netwerk en twee subnetten. Een subnet 
 
    > [!NOTE]
    > Subnetten die zijn geconfigureerd voor een application gateway moeten correct worden aangepast. Een application gateway kan worden geconfigureerd voor maximaal 10 exemplaren. Elk exemplaar wordt één IP-adres van het subnet. Te klein van een subnet kan nadelige invloed heeft op een application gateway horizontaal schalen.
-   > 
-   > 
+   >
 
 2. Een adresbereik moet worden gebruikt voor de back-end-adresgroep toewijzen.
 
@@ -130,7 +125,6 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Maak een front-end-IP-configuratie. Deze instelling wordt een particuliere of openbare IP-adres toegewezen aan de front-end van de toepassingsgateway. De volgende stap koppelt het openbare IP-adres in de vorige stap aan de front-end-IP-configuratie.
 
    ```powershell
@@ -145,7 +139,6 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
 
    > [!NOTE]
    > Een volledig gekwalificeerde domeinnaam (FQDN) is ook een geldige waarde moet worden gebruikt in plaats van een IP-adres voor de back-endservers. U dit inschakelen met behulp van de **- BackendFqdns** overschakelen. 
-
 
 4. Configureer de front-end-IP-poort voor het openbare IP-eindpunt. Dit is de poort die eindgebruikers kunnen verbinding met maken.
 
@@ -177,7 +170,7 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    > Als u van hostheaders en Servernaamindicatie (SNI) op de back-end gebruikmaakt, is de opgehaalde openbare sleutel mogelijk niet de gewenste site aan welke verkeersstromen. Als u niet zeker bent, gaat u naar https://127.0.0.1/ op de back-endservers om te bevestigen welk certificaat wordt gebruikt voor de *standaard* SSL-binding. Gebruik de openbare sleutel van de aanvraag die in deze sectie. Als u van host-headers en SNI op HTTPS-bindingen gebruikmaakt en u geen ontvangt een reactie en een certificaat van de aanvraag van een handmatige browser aan https://127.0.0.1/ op de back-end-servers, moet u een standaard SSL-binding op deze instellen. Als u niet doet dit, mislukt de tests en de back-end is niet opgenomen in de whitelist.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
     Het volgende voorbeeld wordt de minimale protocolversie ingesteld op **TLSv1_2** en kunnen **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, en **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** alleen.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken

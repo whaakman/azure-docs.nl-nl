@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295450"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271795"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -58,7 +58,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS50007 | PartnerEncryptionCertificateMissing - het partner-versleutelingscertificaat is niet gevonden voor deze app. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) met Microsoft om dit vast. |
 | AADSTS50008 | InvalidSamlToken - SAML-verklaring ontbreekt of is niet juist geconfigureerd in het token. Neem contact op met uw federatieprovider. |
 | AADSTS50010 | AudienceUriValidationFailed - doelgroep URI validatie voor de app is mislukt omdat er geen tokendoelgroep zijn geconfigureerd. |
-| AADSTS50011 | InvalidReplyTo - het antwoordadres ontbreekt, is onjuist geconfigureerd, of komt niet overeen met de antwoordadressen die zijn geconfigureerd voor de app. Probeer de oplossing die wordt vermeld in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Als u nog steeds problemen ziet, contact op met de eigenaar van de app of de app-beheerder. |
+| AADSTS50011 | InvalidReplyTo - het antwoordadres ontbreekt, is onjuist geconfigureerd, of komt niet overeen met de antwoordadressen die zijn geconfigureerd voor de app.  Als een oplossing ervoor zorgen dat deze ontbrekende antwoordadres toevoegen aan de Azure Active Directory-toepassing of iemand met de machtigingen voor het beheren van uw toepassing in Active Directory dit voor u doen.|
 | AADSTS50012 | AuthenticationFailed - verificatie is mislukt voor een van de volgende redenen:<ul><li>De onderwerpnaam van het handtekeningcertificaat is niet gemachtigd</li><li>Een overeenkomend beleid van de vertrouwde instantie is niet gevonden voor de geautoriseerde onderwerpnaam</li><li>De certificaatketen is niet geldig</li><li>Het handtekeningcertificaat is niet geldig</li><li>Beleid is niet geconfigureerd op de tenant</li><li>Vingerafdruk van het handtekeningcertificaat is niet gemachtigd</li><li>Client-assertie bevat een ongeldige handtekening</li></ul> |
 | AADSTS50013 | InvalidAssertion - bevestiging is ongeldig vanwege verschillende redenen - uitgever van het token komt niet overeen met de api versie binnen het geldige bereik - verlopen - onjuiste - vernieuwingstoken in de verklaring is niet een primaire vernieuwingstoken. |
 | AADSTS50014 | GuestUserInPendingState - inwisseling van de gebruiker is in behandeling. Het gastgebruikersaccount is niet volledig nog wordt gemaakt. |
@@ -153,7 +153,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS70007 | UnsupportedResponseMode - de app heeft een niet-ondersteunde waarde van geretourneerd `response_mode` bij het aanvragen van een token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - het vernieuwingstoken dat is vanwege inactiviteit verlopen. Het token is uitgegeven voor XXX en voor een bepaalde hoeveelheid tijd inactief is. |
 | AADSTS70011 | InvalidScope - het bereik dat wordt aangevraagd door de app is ongeldig. |
-| AADSTS70012 | MsaServerError - een server-fout is opgetreden tijdens het verifiëren van een gebruiker beheerde Serviceaccounts (consument). Probeer het opnieuw. Als de pogingen mislukken blijven, [een ondersteuningsticket openen](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - een server-fout is opgetreden tijdens het verifiëren van een gebruiker beheerde Serviceaccounts (consument). Probeer het opnieuw. Als dit probleem blijft bestaan, [opent u een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - stroom voor OAuth 2.0 apparaatfout. Autorisatie is in behandeling. Het apparaat wordt opnieuw geprobeerd de aanvraag polling. |
 | AADSTS70018 | BadVerificationCode - ongeldige verificatiecode vanwege een gebruiker te typen in de verkeerde gebruikerscode waarmee de stroom van apparaat. Autorisatie is niet goedgekeurd. |
 | AADSTS70019 | CodeExpired - verificatiecode is verlopen. Laat de gebruiker de aanmelding opnieuw. |

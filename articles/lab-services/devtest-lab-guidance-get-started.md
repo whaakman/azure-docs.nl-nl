@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure DevTest Labs
+title: Populaire scenario's voor het gebruik van Azure DevTest Labs
 description: Dit artikel bevat de primaire scenario's voor het gebruik van Azure DevTest Labs en twee algemene paden om te beginnen met de service in uw organisatie.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803796"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272376"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>Aan de slag met Azure DevTest Labs
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Populaire scenario's voor het gebruik van Azure DevTest Labs
 Afhankelijk van de behoeften van een onderneming, kan de DevTest Labs worden geconfigureerd om te voldoen aan verschillende vereisten.  Dit artikel worden de gangbare scenario's. Elk scenario bevat informatie over voordelen gebracht met behulp van DevTest Labs en resources te gebruiken voor het implementeren van deze scenario's.  
 
 - Developer bureaubladen

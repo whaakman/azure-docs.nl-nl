@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273410"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Api-sleutels voor Azure Search-service maken en beheren
 
@@ -53,30 +53,37 @@ Kunt u toegangssleutels in de portal of via de [Management REST API](https://doc
 
 ## <a name="create-query-keys"></a>Querysleutels maken
 
-Querysleutels worden gebruikt voor alleen-lezen toegang tot documenten in een index. Beperken van toegang en bewerkingen in client-apps is essentieel voor het beveiligen van de assets zoeken op uw service. Gebruik altijd een querysleutel in plaats van een administratorsleutel voor elke query die afkomstig zijn van een client-app.
+Querysleutels worden gebruikt voor alleen-lezen toegang tot documenten in een index voor bewerkingen die zijn gericht op een verzameling documenten. Query's zoeken, filteren en suggesties worden alle bewerkingen die de querysleutel van een uitvoeren. Een alleen-lezen bewerking waarbij de retourneert system definities van gegevens of het object, zoals de status van de definitie of een indexeerfunctie voor index, is geen Administrator-code vereist.
+
+Beperken van toegang en bewerkingen in client-apps is essentieel voor het beveiligen van de assets zoeken op uw service. Gebruik altijd een querysleutel in plaats van een administratorsleutel voor elke query die afkomstig zijn van een client-app.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Lijst met de [zoekservices](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) voor uw abonnement.
 3. Selecteer de service en klik op de pagina overzicht **instellingen** >**sleutels**.
 4. Klik op **querysleutels beheren**.
-5. Gebruik de query die al worden gegenereerd voor uw service of maximaal 50 nieuwe querysleutels maken. De sleutel van de query standaard is niet met de naam, maar aanvullende querysleutels kunnen met de naam voor de beheerbaarheid.
+5. Gebruik van de querysleutel al gegenereerd voor uw service, of tot 50 nieuwe querysleutels maken. De sleutel van de query standaard is niet met de naam, maar aanvullende querysleutels kunnen met de naam voor de beheerbaarheid.
 
    ![Maken of de querysleutel te gebruiken](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > Een voorbeeld van query-sleutelgebruik kunt u vinden in [query uitvoeren op een Azure Search-index in C# ](search-query-dotnet.md).
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>Beheerder sleutels opnieuw genereren
 
-Twee beheersleutels gemaakt voor elke service, zodat u kunt een primaire sleutel draaien met behulp van de secundaire sleutel voor blijvende toegang.
-
-Als u een primaire en secundaire sleutel op hetzelfde moment genereren, worden toepassingen die gebruikmaken van beide sleutels voor toegang tot servicebewerkingen niet langer toegang tot de service hebben.
+Twee beheersleutels gemaakt voor elke service, zodat u kunt een primaire sleutel draaien met behulp van de secundaire sleutel voor bedrijfscontinuïteit.
 
 1. In de **instellingen** >**sleutels** pagina, kopieert u de secundaire sleutel.
 2. Voor alle toepassingen, werkt u de instellingen van de api-sleutel voor het gebruik van de secundaire sleutel.
 3. De primaire sleutel opnieuw genereren.
 4. Werk alle toepassingen kunnen gebruikmaken van de nieuwe primaire sleutel.
+
+Als u per ongeluk sleutels opnieuw beide op hetzelfde moment genereren, mislukken alle aanvragen van clients met behulp van deze sleutels met HTTP 403-verboden. Echter inhoud is niet verwijderd en u bent niet vergrendeld definitief. 
+
+U kunt nog steeds toegang tot de service via de portal of de beheerlaag ([REST-API](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), of Azure Resource Manager). Beheerfuncties zijn kracht via een abonnements-ID niet een service-api-sleutel en dus nog steeds beschikbaar, zelfs als uw api-sleutels niet zijn. 
+
+Nadat u nieuwe sleutels via de portal of de beheer-laag maken, toegang tot uw inhoud (indexen, indexeerfuncties, gegevensbronnen, synoniementoewijzingen) hersteld nadat u de nieuwe sleutels en geef deze sleutels op aanvragen.
 
 ## <a name="secure-api-keys"></a>Api-sleutels beveiligen
 Sleutelbeveiliging wordt gegarandeerd door het beperken van toegang via de portal of Resource Manager-interfaces (PowerShell of opdrachtregelinterface). Zoals is vermeld, worden alle abonnementsbeheerders kunnen weergeven en alle api-sleutels opnieuw genereren. Bekijk uit voorzorg roltoewijzingen voor meer informatie over wie toegang heeft tot de beheersleutels.

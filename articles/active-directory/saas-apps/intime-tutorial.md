@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226484"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Zelfstudie: Azure Active Directory-integratie met InTime
 
@@ -105,7 +105,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met InTime, moet u de vo
 
     ![InTime domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. In de **aanmeldings-URL** tekstvak typt u een URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
     b. Typ een URL in het vak **Id (Entiteits-id)**: `https://auth.intimesoft.com/auth/realms/master`
 
@@ -194,8 +194,8 @@ Wanneer u klikt op de tegel InTime in het toegangsvenster, u moet worden automat
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,7 +1,6 @@
 ---
 title: Informatie over de levenscyclus van een blauwdruk
 description: Meer informatie over de levenscyclus van een blauwdruk doorloopt en details over elke fase.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266610"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
 
@@ -103,8 +102,8 @@ Voor meer informatie Zie [bijwerken, bestaande toewijzingen](../how-to/update-ex
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het gebruik van [statische en dynamische parameters](parameters.md).
-- Meer informatie over het aanpassen van de [blauwdruk volgorde](sequencing-order.md).
-- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](resource-locking.md).
-- Meer informatie over het [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
-- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).
+- Meer informatie over hoe u [statische en dynamische parameters](parameters.md) gebruikt.
+- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast.
+- Meer informatie over hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md).
+- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md).
+- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

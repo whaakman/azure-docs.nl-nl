@@ -1,19 +1,18 @@
 ---
 title: Voorbeeld - transparante gegevensversleuteling voor SQL Database controleren
 description: Deze voorbeeldbeleidsdefinitie controleert of transparante gegevensversleuteling voor SQL-database is ingeschakeld.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: a35c7045f132b23dbe23978118d0c1cf865f9bab
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: e8ee800ff9f286f901a84a039e3c433442ae11b2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342594"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270414"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>Voorbeeld - Versleuteling van SQL-database controleren
 

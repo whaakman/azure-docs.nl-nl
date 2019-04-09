@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 55c83c91f4c183e7863c6a9fa129b5469e52afdd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834996"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Mozy Enterprise
 
@@ -209,7 +209,7 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Mozy Enterprise, mo
 >[!NOTE]
 >U kunt alle andere Mozy Enterprise gebruiker-account maken van hulpprogramma's of API's geleverd door Mozy Enterprise aan inrichten AAD-gebruikersaccounts.
 
-**Voer de volgende stappen uit om een gebruikersaccount in te richten:**
+**Ga als volgt te werk om een gebruikersaccount in te richten:**
 
 1. Meld u aan bij uw **Mozy Enterprise** tenant.
 
@@ -247,9 +247,9 @@ Wanneer u op de tegel Mozy Enterprise in het toegangsvenster, moet u worden auto
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

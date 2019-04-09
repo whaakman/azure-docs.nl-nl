@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895559"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261520"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -138,6 +138,7 @@ In uw omgeving, moet u voorkomen dat de volgende configuraties:
 
 - **Lid van domein vereisen** - dit blok beleid toegang heeft ook de mogelijkheid om toegang te blokkeren voor alle gebruikers in uw organisatie als u een apparaat domein nog niet hebt.
 
+- **App-beveiligingsbeleid vereisen** - dit blok beleid toegang heeft ook de mogelijkheid om toegang te blokkeren voor alle gebruikers in uw organisatie als u geen Intune-beleid. Als u een beheerder zonder een clienttoepassing die de Intune app-beveiligingsbeleid heeft, wordt u door dit beleid blokkeert van het ontvangen van terug bij portals, zoals Intune en Azure.
 
 **Voor alle gebruikers, alle cloud-apps, alle apparaatplatformen:**
 

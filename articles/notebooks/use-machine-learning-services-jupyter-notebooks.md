@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eb162e51a6091b22abd4a8d12275423d726b1785
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763942"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263278"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Azure Machine Learning-service in een notitieblok gebruiken
 
@@ -47,9 +47,9 @@ Azure-notitieblokken afkomstig is vooraf geconfigureerd met de noodzakelijke omg
 
 De documentatie van Azure Machine Learning-Services bevat tal van andere bronnen die u begeleiden bij het werken met Machine Learning-Service in notitieblokken:
 
-- [Snelstart: Python gebruiken om aan de slag met Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Zelfstudie 1: Een model van de classificatie installatiekopie met de service Azure Machine Learning te trainen](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Zelfstudie 2: Een afbeelding classificatie model in Azure Container exemplaar (ACI) implementeren](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Quickstart: Python gebruiken om aan de slag met Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Zelfstudie #1: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Zelfstudie #2: Een afbeelding classificatie model in Azure Container exemplaar (ACI) implementeren](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Zelfstudie: Een classificatie model trainen met geautomatiseerde machine learning in Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Zie ook de documentatie voor de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

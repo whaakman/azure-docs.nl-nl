@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050251"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271727"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -300,11 +300,11 @@ De **Start SecretRotation** cmdlet draait de geheimen van de infrastructuur van 
 
 | Parameter | Type | Vereist | Positie | Standaard | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
-| CertificatePassword | SecureString | False  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als externe geheimen worden gedraaid. |
-| Intern | String | False | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
-| PathAccessCredential | PSCredential | False  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen.  |
-| ReRun | SwitchParameter | False  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie is nieuwe na een mislukte poging. |
+| `PfxFilesPath` | String  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als externe geheimen worden gedraaid. |
+| `Internal` | String | False | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
+| `PathAccessCredential` | PSCredential | False  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen.  |
+| `ReRun` | SwitchParameter | False  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie is nieuwe na een mislukte poging. |
 
 ### <a name="examples"></a>Voorbeelden
 

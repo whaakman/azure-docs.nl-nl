@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 18d293270c3af486a1ea3756048a504d9ae70fce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076374"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269398"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -171,7 +171,12 @@ END
 ```
 
 ### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in Azure SQL Database
-Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen.
+Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen. 
+
+Als u wilt de weg te beginnen met eenvoudig te maken, we deze opgeslagen Procedures te geven van de deltagegevens in via een tabelvariabele rechtstreeks te gebruiken en deze vervolgens samenvoegen in doelarchief. Wees voorzichtig met dat niet een 'groot' aantal delta rijen (meer dan 100 verwacht wordt) worden opgeslagen in de tabelvariabele.  
+
+Als u moet voor het samenvoegen van een groot aantal rijen van de verschillen in het doelarchief, stellen we voor u gebruikmaken van de kopieeractiviteit alle de deltagegevens te kopiëren naar een tijdelijke "staging" tabel in de doel-eerste opslaan, en vervolgens uw eigen opgeslagen procedure gebouwd zonder gebruik van diverse tabel kan worden samengevoegd uit de tabel "staging" in de tabel 'laatste'. 
+
 
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
@@ -222,10 +227,7 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps).
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Een voorbeeld is `"adfrg"`. 
@@ -244,7 +246,7 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 1. Voer de volgende opdracht uit om de resourcegroep te maken: 
 
     ```powershell
-    New-AzResourceGroup $resourceGroupName $location
+    New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
     Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.
 
@@ -256,10 +258,10 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. Voor het maken van de data factory, voer de volgende **Set AzDataFactoryV2** cmdlet: 
+1. Voer de volgende cmdlet **Set AzureRmDataFactoryV2** uit om de data factory te maken: 
     
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 Houd rekening met de volgende punten:
@@ -340,10 +342,10 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
 
 1. Schakel in PowerShell over naar de map C:\ADFTutorials\IncCopyMultiTableTutorial.
 
-1. Voer de **Set AzDataFactoryV2LinkedService** cmdlet voor het maken van de gekoppelde AzureStorageLinkedService-service. In het volgende voorbeeld geeft u de waarden door voor de parameters *ResourceGroupName* en *DataFactoryName*: 
+1. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service AzureStorageLinkedService te maken. In het volgende voorbeeld geeft u de waarden door voor de parameters *ResourceGroupName* en *DataFactoryName*: 
 
     ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
     Hier volgt een voorbeeld van uitvoer:
@@ -372,10 +374,10 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
         }
     }
     ```
-1. Voer in PowerShell de **Set AzDataFactoryV2LinkedService** cmdlet voor het maken van de gekoppelde service AzureSQLDatabaseLinkedService. 
+1. Voer in PowerShell de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service AzureSQLDatabaseLinkedService te maken. 
 
     ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Hier volgt een voorbeeld van uitvoer:
@@ -413,10 +415,10 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
 
     Naam van de tabel is een dummy-naam. De kopieeractiviteit in de pijplijn gebruikt een SQL-query voor het laden van de gegevens in plaats van de hele tabel te laden.
 
-1. Voer de **Set AzDataFactoryV2Dataset** cmdlet om de gegevensset SourceDataset te maken.
+1. Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset SourceDataset te maken.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Hier volgt een uitvoervoorbeeld van de cmdlet:
@@ -457,10 +459,10 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
     }
     ```
 
-1. Voer de **Set AzDataFactoryV2Dataset** cmdlet om de gegevensset SinkDataset te maken.
+1. Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset SinkDataset te maken.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Hier volgt een uitvoervoorbeeld van de cmdlet:
@@ -493,10 +495,10 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
         }
     }    
     ```
-1. Voer de **Set AzDataFactoryV2Dataset** cmdlet om de gegevensset WatermarkDataset te maken.
+1. Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset WatermarkDataset te maken.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Hier volgt een uitvoervoorbeeld van de cmdlet:
@@ -655,10 +657,10 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
         }
     }
     ```
-1. Voer de **Set AzDataFactoryV2Pipeline** cmdlet om de pijplijn IncrementalCopyPipeline te maken.
+1. Voer de cdmlet **Set-AzureRmDataFactoryV2Pipeline** uit om de pijplijn IncrementalCopyPipeline te maken.
     
    ```powershell
-   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Hier volgt een voorbeeld van uitvoer: 
@@ -694,10 +696,10 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
         ]
     }
     ```
-1. Voer de pijplijn IncrementalCopyPipeline met behulp van de **Invoke-AzDataFactoryV2Pipeline** cmdlet. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en data factory.
+1. Voer de pijplijn IncrementalCopyPipeline uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en data factory.
 
     ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
 ## <a name="monitor-the-pipeline"></a>De pijplijn bewaken
@@ -728,7 +730,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 ## <a name="review-the-results"></a>De resultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de SQL-doeldatabase om te controleren of de gegevens van de brontabellen naar de doeltabellen zijn gekopieerd: 
 
-**Query** 
+**Query’s uitvoeren** 
 ```sql
 select * from customer_table
 ```
@@ -745,7 +747,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from project_table
@@ -762,7 +764,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from watermarktable
@@ -799,7 +801,7 @@ VALUES
 1. Voer nu de pijplijn opnieuw uit door de volgende PowerShell-opdracht te gebruiken:
 
     ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
 1. Volg de pijplijnuitvoeringen met behulp van de instructies in de sectie [De pijplijn bewaken](#monitor-the-pipeline). Omdat de pijplijnstatus **In uitvoering** is, ziet u een andere actiekoppeling onder **Acties** om de pijplijn te annuleren. 
 
@@ -814,7 +816,7 @@ VALUES
 ## <a name="review-the-final-results"></a>De eindresultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de doeldatabase om te controleren dat de bijgewerkte/nieuwe gegevens van de brontabellen naar de doeltabellen zijn gekopieerd. 
 
-**Query** 
+**Query’s uitvoeren** 
 ```sql
 select * from customer_table
 ```
@@ -833,7 +835,7 @@ PersonID    Name    LastModifytime
 
 Let op de nieuwe waarden van **Name** en **LastModifytime** voor de **PersonID** voor nummer 3. 
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from project_table
@@ -853,7 +855,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Let erop dat de invoer van **NewProject** toegevoegd is aan project_table. 
 
-**Query**
+**Query’s uitvoeren**
 
 ```sql
 select * from watermarktable
@@ -890,6 +892,6 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor het bijhouden van wijzigingen](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[Incrementeel gegevens uit een Azure SQL Database naar Azure Blob-opslag met behulp van technologie voor wijzigingen bijhouden](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

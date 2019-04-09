@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71e1f7d85d823add804e8ef5dcb6126cffc21902
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009897"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258059"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Zelfstudie: Een pijplijn maken met de kopieeractiviteit in Visual Studio
 > [!div class="op_single_selector"]
@@ -374,7 +374,7 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi�
 3. U hebt **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van pijplijnen worden beschreven.
 4. U hebt een **pijplijn** gemaakt met een **kopieeractiviteit** met **BlobSource** als bron en **SqlSink** als sink. 
 
-Zie voor meer informatie over het gebruik van een HDInsight Hive-activiteit om gegevens te transformeren met behulp van Azure HDInsight-cluster, [ zelfstudie: Uw eerste pijplijn voor het transformeren van gegevens met behulp van Hadoop-cluster maken](data-factory-build-your-first-pipeline.md).
+Zie voor meer informatie over het gebruik van een HDInsight Hive-activiteit om gegevens te transformeren met behulp van Azure HDInsight-cluster, [zelfstudie: Uw eerste pijplijn voor het transformeren van gegevens met behulp van Hadoop-cluster maken](data-factory-build-your-first-pipeline.md).
 
 U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
 

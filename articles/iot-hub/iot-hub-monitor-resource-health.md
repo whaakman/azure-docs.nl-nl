@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240997"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274039"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
-Bedrijven die Azure IoT Hub implementeren verwachten betrouwbare prestaties van hun resources. Voor hulp bij het onderhouden van een sluiten controle over uw bewerkingen, IoT-Hub volledig is geïntegreerd met [Azure Monitor](../azure-monitor/index.yml) en [Azure Resource Health](../service-health/resource-health-overview.md). Deze twee services werken zodat u de gegevens die u nodig hebt om uw IoT-oplossingen en die worden uitgevoerd in een status in orde te houden. 
+Bedrijven die Azure IoT Hub implementeren verwachten betrouwbare prestaties van hun resources. Voor hulp bij het onderhouden van een sluiten controle over uw bewerkingen, IoT-Hub volledig is geïntegreerd met [Azure Monitor](../azure-monitor/index.yml) en [Azure Resource Health](../service-health/resource-health-overview.md). Deze twee services werken zodat u de gegevens die u nodig hebt om uw IoT-oplossingen en die worden uitgevoerd in een status in orde te houden.
 
 Azure Monitor is één bron van controle en registratie voor uw Azure-services. U kunt de diagnostische logboeken die Azure Monitor genereert Azure Monitor-Logboeken, Event Hubs of Azure Storage voor de verwerking van aangepaste verzenden. Instellingen voor het metrische en diagnostische gegevens van Azure Monitor kunnen u inzicht in de prestaties van uw resources. Doorgaan met het lezen van dit artikel voor meer informatie over hoe u [gebruikt Azure Monitor](#use-azure-monitor) met uw IoT-hub. 
 
@@ -30,7 +30,7 @@ IoT Hub biedt ook een eigen metrische gegevens die u gebruiken kunt om te begrij
 
 ## <a name="use-azure-monitor"></a>Azure Monitor gebruiken
 
-Azure Monitor biedt diagnostische gegevens voor Azure-resources, wat betekent dat bewerkingen die binnen uw IoT-hub plaatsvinden te bewaken. 
+Azure Monitor biedt diagnostische gegevens voor Azure-resources, wat betekent dat bewerkingen die binnen uw IoT-hub plaatsvinden te bewaken.
 
 Azure Monitor diagnostische instellingen vervangt de IoT Hub-bewerkingen bewaken. Als u momenteel gebruikmaakt van bewerkingen controleren, moet u uw werkstromen migreren. Zie voor meer informatie, [migreren uit bewerkingen voor controle-instellingen voor diagnostische gegevens over](iot-hub-migrate-to-diagnostics-settings.md).
 
@@ -40,7 +40,7 @@ Zie voor meer informatie over de specifieke metrische gegevens en gebeurtenissen
 
 ### <a name="understand-the-logs"></a>Logboeken begrijpen
 
-Azure Monitor houdt bij of verschillende bewerkingen die zich in IoT Hub voordoen. Elke categorie bevat een schema dat definieert hoe gebeurtenissen in die categorie worden gerapporteerd. 
+Azure Monitor houdt bij of verschillende bewerkingen die zich in IoT Hub voordoen. Elke categorie bevat een schema dat definieert hoe gebeurtenissen in die categorie worden gerapporteerd.
 
 #### <a name="connections"></a>Verbindingen
 
@@ -49,11 +49,10 @@ De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen lo
 > [!NOTE]
 > Voor betrouwbare verbindingsstatus van apparaten controleren [apparaat heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
-
 ```json
 {
-    "records": 
-    [
+   "records":
+   [
         {
             "time": " UTC timestamp",
             "resourceId": "Resource Id",
@@ -73,13 +72,13 @@ De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij 
 
 * Verzenden van cloud-naar-apparaat-berichten (zoals niet-geautoriseerde afzender fouten)
 * Ontvangen van berichten van cloud-naar-apparaat (zoals levering overschrijdt het aantal fouten), en
-* Cloud-naar-apparaat bericht feedback ontvangen (zoals feedback verlopen fouten). 
+* Cloud-naar-apparaat bericht feedback ontvangen (zoals feedback verlopen fouten).
 
 Deze categorie heeft geen runbookauteur fouten worden gedetecteerd wanneer het cloud-naar-apparaat-bericht is bezorgd, maar niet goed door het apparaat verwerkt.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": " UTC timestamp",
@@ -89,7 +88,7 @@ Deze categorie heeft geen runbookauteur fouten worden gedetecteerd wanneer het c
             "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddress\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
             "location": "Resource location"
         }
     ]
@@ -102,14 +101,14 @@ De apparaatcategorie die identiteit operations houdt bij of fouten die optreden 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
             "resourceId": "Resource Id",
             "operationName": "get",
             "category": "DeviceIdentityOperations",
-            "level": "Error",    
+            "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
             "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
@@ -131,7 +130,7 @@ Deze categorie bevat geen specifieke fouten over berichten zelf (zoals apparaat 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -152,7 +151,7 @@ De apparaatcategorie telemetrie houdt bij of fouten die optreden bij de IoT-hub 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -174,14 +173,16 @@ De apparaatcategorie telemetrie houdt bij of fouten die optreden bij de IoT-hub 
 De categorie van bestand uploaden bijgehouden fouten die optreden bij de IoT-hub en zijn gerelateerd aan functionaliteit voor het uploaden van bestand. Deze categorie omvat:
 
 * Fouten die met de SAS-URI optreden, zoals wanneer het verloopt voordat een apparaat aan de hub van het uploaden van een voltooide gecommuniceerd.
+
 * Kan geen uploads gemeld door het apparaat.
+
 * Fouten die optreden wanneer een bestand niet in de opslag tijdens het maken van IoT-Hub melding weergegeven gevonden is.
 
 Deze categorie worden geen fouten die optreden wanneer het apparaat een bestand naar storage uploaden is gedetecteerd.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -201,11 +202,11 @@ Deze categorie worden geen fouten die optreden wanneer het apparaat een bestand 
 
 #### <a name="cloud-to-device-twin-operations"></a>Cloud-naar-apparaat dubbele bewerkingen
 
-De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen bevatten dubbele ophalen, bijwerken of vervangen van tags, en bijwerken of vervangen gewenste eigenschappen. 
+De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen bevatten dubbele ophalen, bijwerken of vervangen van tags, en bijwerken of vervangen gewenste eigenschappen.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -214,7 +215,7 @@ De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service ge�
             "category": "C2DTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -227,7 +228,7 @@ De categorie van het dubbele apparaat-naar-cloud-bewerkingen bijgehouden apparaa
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -236,7 +237,7 @@ De categorie van het dubbele apparaat-naar-cloud-bewerkingen bijgehouden apparaa
             "category": "D2CTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
             "location": "Resource location"
         }
     ]
@@ -245,11 +246,11 @@ De categorie van het dubbele apparaat-naar-cloud-bewerkingen bijgehouden apparaa
 
 #### <a name="twin-queries"></a>Apparaatdubbel-query 's
 
-De categorie van de query's dubbele rapporteert over queryaanvragen voor apparaatdubbels die geïnitieerd zijn in de cloud. 
+De categorie van de query's dubbele rapporteert over queryaanvragen voor apparaatdubbels die geïnitieerd zijn in de cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -258,7 +259,7 @@ De categorie van de query's dubbele rapporteert over queryaanvragen voor apparaa
             "category": "TwinQueries",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -267,11 +268,11 @@ De categorie van de query's dubbele rapporteert over queryaanvragen voor apparaa
 
 #### <a name="jobs-operations"></a>Taakbewerkingen
 
-De categorie van de bewerkingen taken rapporteert over taakaanvragen voor het bijwerken van apparaatdubbels of directe methoden aanroepen op meerdere apparaten. Deze aanvragen worden gestart in de cloud. 
+De categorie van de bewerkingen taken rapporteert over taakaanvragen voor het bijwerken van apparaatdubbels of directe methoden aanroepen op meerdere apparaten. Deze aanvragen worden gestart in de cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -280,7 +281,7 @@ De categorie van de bewerkingen taken rapporteert over taakaanvragen voor het bi
             "category": "JobsOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}",
             "location": "Resource location"
         }
     ]
@@ -289,11 +290,11 @@ De categorie van de bewerkingen taken rapporteert over taakaanvragen voor het bi
 
 #### <a name="direct-methods"></a>Directe methoden
 
-De categorie directe methoden houdt request response-interacties verzonden naar afzonderlijke apparaten. Deze aanvragen worden gestart in de cloud. 
+De categorie directe methoden houdt request response-interacties verzonden naar afzonderlijke apparaten. Deze aanvragen worden gestart in de cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -302,7 +303,7 @@ De categorie directe methoden houdt request response-interacties verzonden naar 
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}",
             "location": "Resource location"
         }
     ]
@@ -313,15 +314,15 @@ De categorie directe methoden houdt request response-interacties verzonden naar 
 
 De categorie gedistribueerde tracering houdt de correlatie-id's voor berichten die de trace-context-header bevatten. Om deze logboeken, client-side-code moet worden bijgewerkt door [analyseren en onderzoeken van IoT-toepassingen end-to-end met IoT Hub gedistribueerde tracering (preview)](iot-hub-distributed-tracing.md).
 
-Houd er rekening mee dat `correlationId` voldoet aan de [W3C Trace Context](https://github.com/w3c/trace-context) voorstel, waar deze bevat een `trace-id` , evenals een `span-id`. 
+Houd er rekening mee dat `correlationId` voldoet aan de [W3C Trace Context](https://github.com/w3c/trace-context) voorstel, waar deze bevat een `trace-id` , evenals een `span-id`.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Logboeken van IoT Hub D2C (apparaat-naar-cloud)
 
-IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenschappen van geldige spoor op IoT-Hub aankomt. 
+IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenschappen van geldige spoor op IoT-Hub aankomt.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -333,7 +334,7 @@ IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenscha
             "resultType": "Success",
             "resultDescription":"Receive message success",
             "durationMs": "",
-            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}",
             "location": "Resource location"
         }
     ]
@@ -355,7 +356,7 @@ IoT Hub registreert dit logboek bij het bericht met geldige trace-eigenschappen 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -367,14 +368,14 @@ IoT Hub registreert dit logboek bij het bericht met geldige trace-eigenschappen 
             "resultType": "Success",
             "resultDescription":"Ingress message success",
             "durationMs": "10",
-            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend
+In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
 | Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -387,7 +388,7 @@ IoT Hub records dit melden wanneer [routering](iot-hub-devguide-messages-d2c.md)
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -399,106 +400,107 @@ IoT Hub records dit melden wanneer [routering](iot-hub-devguide-messages-d2c.md)
             "resultType": "Success",
             "resultDescription":"Egress message success",
             "durationMs": "10",
-            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend
+In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
 | Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | De naam van het eindpunt van de routering |
-| **endpointType** | String | Het type van het eindpunt van de routering |
+| **EndpointType** | String | Het type van het eindpunt van de routering |
 | **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van de bovenliggende bericht dat de IoT Hub inkomend bericht tracering in dit geval zou zijn |
-
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lezen Logboeken uit Azure Event Hubs
 
 Na het instellen van via diagnostische instellingen voor logboekregistratie van gebeurtenissen, kunt u toepassingen die de logboeken gelezen zodat u op basis van de informatie in deze actie kunt ondernemen. Deze voorbeeldcode haalt de logboeken van een event hub:
 
 ```csharp
-class Program 
+class Program
 { 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+    static string connectionString = "{your AMS eventhub endpoint connection string}";
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}";
+    static EventHubClient eventHubClient;
+    //This is the Diagnostic Settings schema
+    class AzureMonitorDiagnosticLog
+    {
+        string time { get; set; }
+        string resourceId { get; set; }
+        string operationName { get; set; }
+        string category { get; set; }
+        string level { get; set; }
+        string resultType { get; set; }
+        string resultDescription { get; set; }
+        string durationMs { get; set; }
+        string callerIpAddress { get; set; }
+        string correlationId { get; set; }
+        string identity { get; set; }
+        string location { get; set; }
+        Dictionary<string, string> properties { get; set; }
+    };
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        var tasks = new List<Task>();
+        foreach (string partition in d2cPartitions)
+        {
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
+        }
+        Console.ReadLine();
+        Console.WriteLine("Exiting...");
+        cts.Cancel();
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
+    {
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
+        while (true)
+        {
+            if (ct.IsCancellationRequested)
+            {
+                await eventHubReceiver.CloseAsync();
+                break;
+            }
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10));
+            if (eventData != null)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                var deserializer = new JavaScriptSerializer();
+                //deserialize json data to azure monitor object
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result);
+            }
+        }
+    }
+}
 ```
 
 ## <a name="use-azure-resource-health"></a>Gebruik Azure Resource Health
 
-Gebruik Azure Resource Health om te controleren of uw IoT-hub actief en werkend is. U kunt ook meer informatie of een regionale storing is die invloed hebben op de status van uw IoT-hub. Voor meer informatie over specifieke details over de status van uw Azure-IoT-Hub, raden wij aan dat u [gebruikt Azure Monitor](#use-azure-monitor). 
+Gebruik Azure Resource Health om te controleren of uw IoT-hub actief en werkend is. U kunt ook meer informatie of een regionale storing is die invloed hebben op de status van uw IoT-hub. Voor meer informatie over specifieke details over de status van uw Azure-IoT-Hub, raden wij aan dat u [gebruikt Azure Monitor](#use-azure-monitor).
 
 Azure IoT Hub geeft aan dat de status op het niveau van een regionale. Als een regionale storing van invloed is op uw IoT-hub, de status wordt weergegeven als **onbekende**. Zie voor meer informatie, [resourcetypen en statuscontroles in Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 Om te controleren of de status van uw IoT-hubs, de volgende stappen uit:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Navigeer naar **servicestatus** > **resourcestatus**.
-1. Selecteer uw abonnement in de vervolgkeuzelijsten en selecteer vervolgens **IoT-Hub** als het resourcetype.
+
+2. Navigeer naar **servicestatus** > **resourcestatus**.
+
+3. Selecteer uw abonnement in de vervolgkeuzelijsten en selecteer vervolgens **IoT-Hub** als het resourcetype.
 
 Zie voor meer informatie over het interpreteren van de van gezondheidsgegevens, [overzicht van Azure resource health](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Informatie over metrische gegevens van IoT Hub](iot-hub-metrics.md)
-- [Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
+* [Informatie over metrische gegevens van IoT Hub](iot-hub-metrics.md)
+* [Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

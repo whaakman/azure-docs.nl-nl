@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262547"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen naar de vastgelegd voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden
 
@@ -81,6 +81,31 @@ Er zijn twee algemene typen van interne koppelingen in on-premises toepassingen:
 
 - **Relatieve interne koppelingen** dat punt met een gedeelde bron in de structuur van een lokaal bestand, zoals `/claims/claims.html`. Deze koppelingen worden automatisch in apps die worden gepubliceerd via toepassingsproxy en blijven werken met of zonder de vertaling van koppelingen werken. 
 - **Interne koppelingen vastgelegd** naar andere on-premises toepassingen, zoals `http://expenses` of bestanden, zoals gepubliceerd `http://expenses/logo.jpg`. De functie van de vertaling koppeling werkt op interne koppelingen vastgelegd, en kunnen worden aangepast om te verwijzen naar de externe URL's die externe gebruikers moeten doorlopen.
+
+De volledige lijst van HTML-codetags dat Application Proxy biedt ondersteuning voor vertaling van koppelingen zijn:
+* a
+* audio
+* Base
+* Knop
+* div
+* Insluiten
+* formulier
+* frame
+* HEAD
+* html
+* iframe
+* img
+* input
+* koppeling
+* menuitem
+* meta
+* object
+* Script
+* source
+* Bijhouden
+* video
+
+Bovendien binnen CSS is het URL-kenmerk ook vertaald.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Hoe apps koppelen aan elkaar?
 

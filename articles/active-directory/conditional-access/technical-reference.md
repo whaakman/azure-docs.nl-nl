@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051119"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273036"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -232,6 +232,23 @@ Deze instelling geldt voor de volgende client-apps:
 - De goedgekeurde client-apps ondersteunen de Intune mobile application management-functie.
 - De **goedgekeurde client-app vereisen** vereiste:
    - Biedt alleen ondersteuning voor iOS en Android for [apparaat platform voorwaarde](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>De vereiste van het beleid voor App-beveiliging 
+
+U kunt in uw beleid voor voorwaardelijke toegang vereisen dat een beveiligingsbeleid voor apps zijn aanwezig zijn op de client-app voordat toegang beschikbaar voor de geselecteerde cloud-apps is. 
+
+![Toegang beheren met app-beveiligingsbeleid](./media/technical-reference/22.png)
+
+Deze instelling geldt voor de volgende client-apps:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Opmerkingen**
+
+- Apps voor app-beveiligingsbeleid ondersteunen de Intune mobile application management-functie met beleid voor beveiliging.
+- De **vereisen app-beveiligingsbeleid** vereisten:
+    - Biedt alleen ondersteuning voor iOS en Android for [apparaat platform voorwaarde](#device-platform-condition).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544969"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264984"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van C\#
 
@@ -36,7 +36,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
 ## <a name="configure-and-run-the-azure-function-app"></a>De Azure-functie-app configureren en uitvoeren
 
-1. Start Visual Studio (of een andere code-editor) en open de oplossing in de *chat\src\csharp* map van de gekloonde opslagplaats.
+1. Start Visual Studio (of een andere code-editor) en open de oplossing in de *src/chat/csharp* map van de gekloonde opslagplaats.
 
 1. Controleer in de browser waarin de Azure-portal is geopend, of het service-exemplaar van SignalR dat u eerder hebt geïmplementeerd, is gemaakt. Hiervoor typt u de naam van het exemplaar in het zoekvak boven in de portal. Selecteer het exemplaar om het te openen.
 
@@ -76,4 +76,4 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 In deze snelstartgids hebt gemaakt en is een realtime toepassing zonder server wordt uitgevoerd in Visual Studio. Nu volgt meer informatie over het ontwikkelen en implementeren van Azure Functions met behulp van Visual Studio Code.
 
 > [!div class="nextstepaction"]
-> [Azure Functions ontwikkelen met Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Ontwikkel Azure Functions met Visual Studio](../azure-functions/functions-develop-vs.md)

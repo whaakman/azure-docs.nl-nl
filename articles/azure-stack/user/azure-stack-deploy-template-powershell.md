@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d71df99096e58b3ac7adc920b91891b9a50cd6f7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479578"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262292"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Een sjabloon implementeren in Azure Stack met behulp van PowerShell
 
-*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt PowerShell gebruiken om te implementeren van Azure Resource Manager-sjablonen voor Azure Stack. In dit artikel wordt beschreven hoe u PowerShell gebruikt om een sjabloon te implementeren.
 
@@ -34,9 +34,9 @@ U kunt PowerShell gebruiken om te implementeren van Azure Resource Manager-sjabl
 In dit voorbeeld wordt **AzureRM** PowerShell-cmdlets en een sjabloon die zijn opgeslagen op GitHub. De sjabloon maakt u een virtuele machine van Windows Server 2012 R2 Datacenter.
 
 >[!NOTE]
->Voordat u dit voorbeeld probeert, zorgt u ervoor dat u hebt [geconfigureerd PowerShell](azure-stack-powershell-configure-user.md) voor een Azure Stack-gebruiker.
+> Voordat u dit voorbeeld probeert, zorgt u ervoor dat u hebt [geconfigureerd PowerShell](azure-stack-powershell-configure-user.md) voor een Azure Stack-gebruiker.
 
-1. Ga naar [ https://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) en zoek de **101-eenvoudig-windows-vm** sjabloon. De sjabloon opslaan in deze locatie: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Ga de [AzureStackGitHub opslagplaats](https://aka.ms/AzureStackGitHub) en zoek de **101-eenvoudig-windows-vm** sjabloon. De sjabloon opslaan in deze locatie: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Open een PowerShell-opdrachtprompt met verhoogde bevoegdheid.
 3. Vervang `username` en `password` in het volgende script met uw gebruikersnaam en wachtwoord, en voer het script:
 
@@ -45,10 +45,10 @@ In dit voorbeeld wordt **AzureRM** PowerShell-cmdlets en een sjabloon die zijn o
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
     $myLocation = "local"
-   
+
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
-   
+
     # Deploy simple IaaS template
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
@@ -63,7 +63,7 @@ In dit voorbeeld wordt **AzureRM** PowerShell-cmdlets en een sjabloon die zijn o
     ```
 
     >[!IMPORTANT]
-    >Telkens wanneer u dit script uitvoert, verhoog de waarde van de `$myNum` parameter om te voorkomen dat uw implementatie wordt overschreven.
+    > Telkens wanneer u dit script uitvoert, verhoog de waarde van de `$myNum` parameter om te voorkomen dat uw implementatie wordt overschreven.
 
 4. Open de Azure Stack-portal, selecteer **Bladeren**, en selecteer vervolgens **virtuele machines** te vinden van uw nieuwe virtuele machine (**myDeployment001**).
 

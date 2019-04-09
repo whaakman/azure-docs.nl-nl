@@ -1,22 +1,22 @@
 ---
-title: Zelfstudie voor het zoeken naar JSON in Azure-blob-opslag - Azure Search
-description: In deze zelfstudie leert u hoe u semi-gestructureerde Azure-blob-gegevens kunt zoeken met Azure Search.
+title: 'Zelfstudie: Semi-strutured gegevens in JSON-blobs - Azure Search indexeren'
+description: Informatie over het indexeren en doorzoeken van semi-gestructureerde Azure JSON-blobs met Azure Search en Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201344"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270456"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Zelfstudie: Semi-gestructureerde gegevens zoeken in Azure-cloudopslag
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
 
 Azure Search kunt indexeren van JSON-documenten en matrices in Azure blob storage met behulp van een [indexeerfunctie](search-indexer-overview.md) die weet hoe het lezen van semi-gestructureerde gegevens. Semi-gestructureerde gegevens bevatten labels of markeringen die inhoud in de gegevens scheiden. Het verschil tussen niet-gestructureerde gegevens, die volledig moeten worden geïndexeerd en formeel gestructureerde gegevens die in overeenstemming is met een gegevensmodel, zoals een relationele database-schema, die kan worden geïndexeerd op basis van per veld gesplitst.
 
@@ -33,37 +33,47 @@ In deze zelfstudie gebruikt u de [Azure Search REST API's](https://docs.microsof
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
+De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
 
-[Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voorbeeldgegevens bevatten.
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken. 
 
-[Postman gebruiken](https://www.getpostman.com/) of een andere REST-client om uw aanvragen te verzenden. Instructies voor het instellen van een HTTP-aanvraag in Postman zijn opgegeven in de volgende sectie.
+[Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), en vervolgens [maken van een Blob-container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. Omdat u een sleutel en de opslag accountnaam voor de verbinding gebruikt, zorg er dan voor dat van de container openbaar toegangsniveau is ingesteld op 'Container (anonieme leestoegang voor de container)'.
 
-## <a name="set-up-postman"></a>Postman instellen
+[Postman bureaublad-app](https://www.getpostman.com/) wordt gebruikt voor het verzenden van aanvragen naar Azure Search.
 
-Start Postman en stel een HTTP-aanvraag in. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) bevat de gegevens in deze zelfstudie gebruikt. Download en pak deze uit dit bestand in een eigen map. Data is afkomstig uit [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), geconverteerd naar JSON voor deze zelfstudie.
 
-De aanvraagmethode voor elke aanroep in deze zelfstudie is 'POST'. De headersleutels zijn 'Content-type' en 'api-key'. De waarden van de headersleutels zijn respectievelijk 'application/json' en 'admin key' (admin key is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht). In de hoofdtekst plaatst u de werkelijke inhoud van uw aanroep. Afhankelijk van de client die u gebruikt, kunnen er enkele variaties zijn op de manier waarop u uw query samenstelt, maar dit zijn de basisprincipes.
+## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
-  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
+REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-Voor de REST-aanroepen die in deze zelfstudie worden behandeld, is de API-sleutel van de zoekopdracht vereist. U vindt de API-sleutel onder **Sleutels** in uw zoekservice. Deze API-sleutel moet voorkomen in de header van elke API-aanroep (vervang 'admin key' in de vorige schermafbeelding door deze API-sleutel) die u in deze zelfstudie gevraagd wordt te maken. Noteer de sleutel. U hebt deze nodig voor elke aanroep.
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/keys.png)
+1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+
+Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 ## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
-1. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** en pak het uit in een eigen map. Data is afkomstig uit [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), geconverteerd naar JSON voor deze zelfstudie.
+1. Ga naar de voorbeeldgegevens die u hebt gedownload naar uw systeem.
 
-2. Aanmelden bij de [Azure-portal](https://portal.azure.com), gaat u naar uw Azure storage-account, open de **gegevens** container en klik op **uploaden**.
+1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account en de Blob-container en op **uploaden**.
 
-3. Klik op **Geavanceerd**, voer 'clinical-trials-json' in en upload alle JSON-bestanden die u hebt gedownload.
+1. Klik op **Geavanceerd**, voer 'clinical-trials-json' in en upload alle JSON-bestanden die u hebt gedownload.
 
   ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/clinicalupload.png)
 
 Nadat de upload is voltooid, worden de bestanden weergegeven in hun eigen submap in de gegevenscontainer.
 
-## <a name="connect-your-search-service-to-your-container"></a>Uw zoekservice verbinden met de container
+## <a name="set-up-postman"></a>Postman instellen
+
+Start Postman en stel een HTTP-aanvraag in. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
+
+De aanvraagmethode voor elke aanroep in deze zelfstudie is **POST**. De headersleutels zijn 'Content-type' en 'api-key'. De waarden van de headersleutels zijn respectievelijk 'application/json' en 'admin key' (admin key is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht). In de hoofdtekst plaatst u de werkelijke inhoud van uw aanroep. Afhankelijk van de client die u gebruikt, kunnen er enkele variaties zijn op de manier waarop u uw query samenstelt, maar dit zijn de basisprincipes.
+
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
 
 We gebruiken Postman om drie API-aanroepen te doen naar uw zoekservice; voor het maken van een gegevensbron, een index en een indexeerfunctie. De gegevensbron bevat een verwijzing naar uw opslagaccount en uw JSON-gegevens. Uw zoekservice maakt de verbinding tijdens het laden van de gegevens.
 

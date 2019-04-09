@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446558"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263159"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van .NET-back-end en .NET-apparaat
 
@@ -54,7 +54,7 @@ In deze sectie maakt u een .NET-consoletoepassing op het gesimuleerde apparaat w
 
 1. **Maak een Visual Studio-project:** In Visual Studio een visueel element toevoegen C# Windows Classic Desktop-project aan de bestaande oplossing met behulp van de **Console-App (.NET Framework)** projectsjabloon. Zorg ervoor dat de versie van .NET Framework minimaal 4.6.1 is. Noem het project **UpdateModuleTwinReportedProperties**.
 
-    ![Een Visual Studio-project maken](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
+    ![Een Visual Studio-project maken](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 2. **Installeer de meest recente Azure IoT Hub .NET-apparaat-SDK:** Moduledubbel voor identiteits- en -module is in openbare preview. Het is alleen beschikbaar in de IoT Hub prerelease-device SDK's. Open in Visual Studio tools > Nuget package manager > manage Nuget packages for solution. Zoek naar Microsoft.Azure.Devices.Client. Zorg ervoor dat u het selectievakje Prerelease opnemen hebt ingeschakeld. Selecteer de meest recente versie en installeren. U hebt nu toegang tot alle modulefuncties. 
 
@@ -62,7 +62,7 @@ In deze sectie maakt u een .NET-consoletoepassing op het gesimuleerde apparaat w
 
 3. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com/). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
-    ![Details van de Azure Portal-module](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Details van de Azure Portal-module](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 4. **UpdateModuleTwinReportedProperties console-app maken**
 
@@ -160,7 +160,7 @@ In deze sectie maakt u een .NET-consoletoepassing op het gesimuleerde apparaat w
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
 
-U kunt nu de apps uitvoeren. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Selecteer **Meerdere opstartprojecten** en selecteer vervolgens **Starten** als de actie voor de consoletoepassing. Druk op F5 om de toepassing te starten. 
+U kunt nu de apps uitvoeren. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Selecteer **Meerdere opstartprojecten** en selecteer vervolgens **Starten** als de actie voor de consoletoepassing. Druk op F5 om de toepassing te starten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

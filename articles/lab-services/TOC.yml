@@ -53,6 +53,8 @@ items:
       href: devtest-lab-concepts.md
     - name: Scenario's
       items:
+      - name: Populaire scenario's voor het gebruik van DevTest Labs
+        href: devtest-lab-guidance-get-started.md
       - name: Labs gebruiken voor ontwikkelaars
         href: devtest-lab-developer-lab.md
       - name: Labs gebruiken voor testomgevingen
@@ -109,8 +111,6 @@ items:
     - name: DevTest Labs-infrastructuur instellen in uw onderneming
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Aan de slag met DevTest Labs
-        href: devtest-lab-guidance-get-started.md
       - name: Uw DevTest Labs-implementatie omhoog schalen
         href: devtest-lab-guidance-scale.md
       - name: De DevTest Labs-implementatie organiseren
@@ -279,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Veelgestelde vragen
       href: devtest-lab-faq.md
-ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a5312fc1c99072c10337bd00569a608825df3bc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894437"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262870"
