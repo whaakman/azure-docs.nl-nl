@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447211"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006098"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Meld u waarschuwingsquery's in Azure Monitor
 [Waarschuwingsregels op basis van Azure Monitor logboeken](alerts-unified-log.md) met regelmatige tussenpozen uitvoeren, dus moet u ervoor zorgen dat ze worden geschreven naar de overhead en Latentie minimaliseren. In dit artikel bevat aanbevelingen voor het schrijven van efficiënte query's voor waarschuwingen en een proces voor het converteren van bestaande query's. 
 
 ## <a name="types-of-log-queries"></a>Typen logboeken-query 's
-[Query's in Log Analytics](../log-query/log-query-overview.md) starten met ofwel een tabel of een [zoeken](/azure/kusto/query/searchoperator) of [union](/azure/kusto/query/unionoperator) operator.
+[Meld u query's in Azure Monitor](../log-query/log-query-overview.md) starten met ofwel een tabel of een [zoeken](/azure/kusto/query/searchoperator) of [union](/azure/kusto/query/unionoperator) operator.
 
 Bijvoorbeeld de volgende query is afgestemd op de _SecurityEvent_ tabel en wordt gezocht naar specifieke gebeurtenis-ID. Dit is de enige tabel waarmee de query moet worden verwerkt.
 

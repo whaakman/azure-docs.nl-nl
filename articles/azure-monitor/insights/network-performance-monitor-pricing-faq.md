@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734297"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005929"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prijswijzigingen voor Azure Network Performance Monitor
 
@@ -28,7 +28,7 @@ We hebben uw feedback geluisterd en onlangs geïntroduceerd een [nieuwe prijsmod
 Network Performance Monitor bestaat uit drie onderdelen:
 * [Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
 * [Service-Eindpuntbewaking](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [ExpressRoute-bewaking](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 De volgende secties worden de prijswijzigingen voor de NPM-onderdelen.
 
@@ -38,7 +38,7 @@ De volgende secties worden de prijswijzigingen voor de NPM-onderdelen.
 
 De facturering voor NPM is gebaseerd op het gebruik en het verbruik van twee onderdelen:
 * **Knooppunten**: Alle synthetische transacties afkomstig zijn en eindigen op de knooppunten. Knooppunten worden ook aangeduid als agents of Microsoft Beheeragents.
-* **Gegevens**: De resultaten van de verschillende netwerktests worden opgeslagen in de Azure Log Analytics-opslagplaats.
+* **Gegevens**: De resultaten van de verschillende netwerktests worden opgeslagen in de Log Analytics-werkruimte.
 
 De factuur is berekend op basis van het aantal knooppunten en het volume van gegenereerde gegevens onder het oude model. 
 
@@ -63,7 +63,7 @@ Zie voor de kosten van de bewaking van een koppeling met één subnet voor de he
 
 **Wat zijn de kosten voor gegevens die in Prestatiemeter gegenereerd?**
 
-De kosten voor gegevensopname (het uploaden van gegevens naar Log Analytics, verwerking en indexeren) is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor Log Analytics, in de sectie opname van gegevens. De kosten voor het bewaren van gegevens (dat wil zeggen gegevens bewaard in de optie van de klant, na de eerste maand) is ook beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/), in de sectie voor het bewaren van gegevens.
+De kosten voor gegevensopname (het uploaden van gegevens naar Log Analytics-werkruimte in Azure Monitor, verwerking en indexeren) is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor Log Analytics, in de sectie opname van gegevens. De kosten voor het bewaren van gegevens (dat wil zeggen gegevens bewaard in de optie van de klant, na de eerste maand) is ook beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/), in de sectie voor het bewaren van gegevens.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-bewaking

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905236"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006360"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box-Edge-systeemvereisten
 
@@ -101,6 +101,37 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 ## <a name="internet-bandwidth"></a>Internet-bandbreedte
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>COMPUTE dimensioneringsoverwegingen
+
+Uw ervaring bij het ontwikkelen en testen van uw oplossing gebruiken om te controleren of er voldoende capaciteit is op uw gegevens in het Edge-apparaat en u de optimale prestaties van uw apparaat.
+
+U moet rekening houden met factoren zijn onder andere:
+
+- **Details van de container** -denken over het volgende.
+
+    - Hoeveel containers zijn in uw werkbelasting? U kunt veel van lichtgewicht containers ten opzichte van enkele resource-intensieve labels hebben.
+    - Wat zijn de resources die zijn toegewezen aan deze containers ten opzichte van wat zijn de resources die ze gebruiken?
+    - Het aantal lagen maken gebruik van uw containers?
+    - Zijn er niet-gebruikte containers? Een gestopte container neemt nog steeds schijfruimte.
+    - In welke taal zijn uw containers geschreven?
+- **Grootte van de gegevens verwerkte** -hoeveel gegevens uw containers wordt verwerkt? Deze gegevens verbruikt schijfruimte of de gegevens in het geheugen wordt verwerkt?
+- **Prestaties verwacht** -wat zijn de gewenste prestatiekenmerken van uw oplossing? 
+
+Om te begrijpen en verfijnen van de prestaties van uw oplossing, kunt u het volgende gebruiken:
+
+- De compute-meetgegevens beschikbaar zijn in Azure portal. Ga naar uw gegevens in het Edge-resource en ga vervolgens naar **bewaking > metrische gegevens**. Bekijk de **Edge compute - geheugengebruik** en **Edge compute - Percentage CPU** om te begrijpen van de beschikbare resources en hoe worden de resources ophalen die worden gebruikt.
+- De bewaking opdrachten die beschikbaar zijn via de PowerShell-interface van het apparaat, zoals:
+
+    - `dkr` statistieken voor een live stream van containers Haal verbruiksstatistieken op resource. De opdracht biedt ondersteuning voor CPU, geheugengebruik, geheugenlimiet en netwerk-i/o-metrische gegevens.
+    - `dkr system df` voor informatie met betrekking tot de hoeveelheid schijfruimte die wordt gebruikt. 
+    - `dkr image [prune]` opschonen van niet-gebruikte installatiekopieën en ruimte vrij te maken.
+    - `dkr ps --size` om te bekijken van de geschatte grootte van een container die wordt uitgevoerd. 
+
+    Voor meer informatie over de beschikbare opdrachten gaat u naar [bewaken en problemen oplossen compute modules](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Ten slotte, zorg ervoor dat u uw oplossing voor uw gegevensset te valideren en de prestaties voor gegevens in het edge-apparaten voordat u implementeert in productie kwantificeren.
+
 
 ## <a name="next-step"></a>Volgende stap
 

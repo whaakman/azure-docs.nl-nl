@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649455"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006927"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -108,7 +108,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.20][9.20 UR] | SP1 3.12.49-1
 **Onderdeel** | **Ondersteund**
 --- | ---
 Bestandssystemen | ext3, ext4, XFS
-Volume manager | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 wordt ondersteund. <br/> 2. LVM wordt ondersteund voor gegevensschijven alleen. <br/> 3. Azure virtuele machines hebben alleen een besturingssysteemschijf.<br/><br/>Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) en hoger, LVM en LVM2 worden ondersteund.
+Volume manager | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM wordt ondersteund. <br/> 2. bevinden op LVM-volume wordt niet ondersteund. <br/> 3. Meerdere besturingssysteemschijven worden niet ondersteund.<br/><br/>Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) en hoger, bevinden op LVM wordt ondersteund. Meerdere besturingssysteemschijven worden niet ondersteund.
 Geparavirtualiseerde opslagapparaten | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
@@ -120,7 +120,7 @@ Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installati
 
 ## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
-**Actie** | **Details**
+**Bewerking** | **Details**
 --- | ---
 Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund.
 Schijf toevoegen op de gerepliceerde virtuele machine | Schakel de replicatie voor de virtuele machine, de schijf toevoegen en vervolgens weer inschakelen replicatie. Toevoegen van een schijf op een replicerende virtuele machine wordt momenteel niet ondersteund.
@@ -187,6 +187,7 @@ Gast/server MPIO (Multipath I/O) | Nee
 >
 > - Alleen de migratie naar Azure wordt ondersteund. Failback naar on-premises VMware-site wordt niet ondersteund.
 > - De server mag niet meer dan vier partities hebben op de besturingssysteemschijf.
+> - Alleen NTFS wordt ondersteund
 > - Mobility Service versie 9.13 of hoger vereist.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -236,7 +237,7 @@ VM-naam | Van 1 tot 63 tekens bevatten.<br/><br/> Alleen letters, cijfers en afb
 
 De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, wordt aangeraden om te [tool voor implementatieplanning uitgevoerd](site-recovery-deployment-planner.md) en moet u toepassingen uitgebreid testen met behulp van een testfailover uit om de prestaties van de toepassing.
 
-**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+**Beoogde replicatieopslag** | **Gemiddelde bronschijf i/o-grootte** |**Gemiddeld gegevensverloop van schijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
 Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
@@ -245,7 +246,7 @@ Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |20 MB/s | 1684 GB per schijf
 
-**brongegevensverloop** | **Maximumaantal**
+**Gegevensverloop van bron** | **Maximumaantal**
 ---|---
 Gemiddeld gegevensverloop per VM| 25 MB/s
 Piekgegevensverloop over alle schijven op een VM | 54 MB/s
@@ -255,7 +256,7 @@ Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery ka
 
 ## <a name="vault-tasks"></a>Kluis-taken
 
-**Actie** | **Ondersteund**
+**Bewerking** | **Ondersteund**
 --- | ---
 Kluis verplaatsen tussen resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
@@ -263,7 +264,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Download de nieuwste Azure Site Recovery-onderdelen
 
-**Naam** | **Beschrijving** | **Meest recente versie downloadinstructies**
+**Name** | **Description** | **Meest recente versie downloadinstructies**
 --- | --- | ---
 Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-deploy-configuration-server.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-set-up-process-server-scale.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-process-server.md#upgrade-a-process-server).

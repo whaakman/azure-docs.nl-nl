@@ -1,6 +1,6 @@
 ---
 title: Azure verkeer doorsturen naar Azure SQL Database en SQL Data Warehouse | Microsoft Docs
-description: Dit document wordt uitgelegd dat de Azure SQL Database en SQL Data Warehouse connectiviteitsarchitectuur uit in Azure of van buiten Azure.
+description: Dit document wordt uitgelegd dat de architectuur van de onnectivity Azcure SQL voor databaseverbindingen in Azure of van buiten Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918600"
+ms.locfileid: "59006771"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
 In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteitsarchitectuur ook uitgelegd hoe de verschillende onderdelen functie verkeer naar uw Azure SQL-exemplaar. Deze functie van de onderdelen verbinding om te leiden van netwerkverkeer naar de Azure SQL Database of SQL Data Warehouse met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
-
-> [!IMPORTANT]
-> **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
-> Klanten wordt aangeraden om nieuwe servers en set aandeel bestaande klanten met verbindingstype expliciet zijn ingesteld op omleiding (voorkeur) of Proxy, afhankelijk van hun architectuur, verbinding te maken.
->
-> Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
->
-> - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.
-> - Voor alle andere servers, schakelen we de verbinding type zal worden overgeschakeld naar de `Redirect`.
->
-> De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds:
->
-> - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen
-> - Logica voor automatische implementatie maakt u een SQL-databaseserver ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy`
->
-> Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 11999. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
-> [!NOTE]
-> In dit onderwerp is van toepassing op Azure SQL Database-servers die als host fungeert voor individuele databases en elastische pools, SQL Data Warehouse-databases, Azure Database for MySQL, Azure Database voor MariaDB en Azure Database for PostgreSQL. Voor het gemak worden SQL-Database wordt gebruikt bij het verwijzen naar SQL Database, SQL Data Warehouse, Azure Database voor MySQL, Azure Database voor MariaDB en Azure Database for PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 

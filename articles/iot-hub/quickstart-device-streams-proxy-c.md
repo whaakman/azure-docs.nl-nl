@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 539357c9dcfaaffa551b4be08427a51d9e92475f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 78aa8653385a126cf40e851332d50eac4c293390
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484766"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006003"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Quickstart: SSH/RDP via IoT Hub-apparaatstreams met behulp van C#-proxytoepassingen (preview)
 
@@ -28,6 +28,7 @@ Microsoft Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [prev
 In dit document wordt beschreven hoe u tunneling van SSH-verkeer instelt (met behulp van poort 22) via apparaatstreams. De configuratie voor RDP-verkeer is vergelijkbaar en vereist een eenvoudige wijziging in de configuratie. Omdat apparaatstreams toepassings- en protocolneutraal zijn, kan de bestaande quickstart zo worden bewerkt (door de communicatiepoorten te wijzigen) dat er andere soorten toepassingsverkeer mogelijk zijn.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
+
 De onderstaande afbeelding ziet u de installatie van hoe de apparaat - en service-lokale proxy's end-to-end-connectiviteit tussen de SSH-client en de SSH-daemon-processen kunnen. Gedurende de openbare preview biedt de C SDK alleen ondersteuning voor apparaatstreams aan de apparaatzijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de proxytoepassing in het apparaat. Voer een bijbehorende proxytoepassing in de service uit. Deze is beschikbaar in de handleidingen [Quickstart voor C#](./quickstart-device-streams-proxy-csharp.md) of [Quickstart voor Node.js](./quickstart-device-streams-proxy-nodejs.md).
 
 ![Alternatieve tekst](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Lokale proxy-instellingen")
@@ -52,10 +53,15 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 * De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
   * **US - centraal**
-  * **VS-midden EUAP**
+  * **US - centraal EUAP**
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
+* Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden
 
@@ -126,14 +132,13 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **MyDevice**: dit is de naam van het geregistreerde apparaat. Gebruik MyDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -221,4 +226,4 @@ In deze quickstart hebt u een IoT Hub ingesteld, een apparaat geregistreerd, een
 Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 
 > [!div class="nextstepaction"]
-> [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)
+> [Overzicht van de stromen van apparaat](./iot-hub-device-streams-overview.md)

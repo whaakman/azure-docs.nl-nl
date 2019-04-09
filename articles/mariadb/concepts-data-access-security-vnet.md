@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958912"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006686"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database voor MariaDB
 
@@ -105,6 +105,8 @@ U hebt de mogelijkheid van het gebruik van [op rollen gebaseerd toegangsbeheer (
 ## <a name="limitations"></a>Beperkingen
 
 Voor Azure Database voor MariaDB heeft de functie van de regels voor virtueel netwerk in de volgende beperkingen:
+
+- Een Web-App kunnen worden toegewezen aan een privé IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, worden verbindingen van de Web-App naar de server een Azure openbare IP-bron niet de bron van een VNet/subnet hebben. Om in te schakelen connectiviteit vanuit een Web-App naar een server met VNet-firewallregels, moet u toestaan dat Azure-services voor toegang tot de server op de server.
 
 - In de firewall voor uw Azure Database voor MariaDB verwijst elke regel van het virtuele netwerk naar een subnet. Alle deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de Azure Database voor MariaDB.
 

@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757402"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056109"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definiëren en toezicht werkstromen gebruiken
 
@@ -65,9 +65,9 @@ Nu dat u een aangepaste werkstroom hebt gedefinieerd, kunt u deze met voorbeeldi
 
 ![Werkstroom testen](images/image-workflow-execute.PNG)
 
-Sla dit [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) naar uw lokale schijf. Selecteer vervolgens **bestand(en) Kies** en de installatiekopie uploaden naar de werkstroom.
+Sla dit [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) naar uw lokale schijf. Selecteer vervolgens **bestand(en) Kies** en de installatiekopie uploaden naar de werkstroom.
 
-![een vrouw in een bepaalde bad kleur](images/sample-racy.PNG)
+![Een runner met een aanhalingsteken boven op de installatiekopie](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Voortgang bijhouden
 

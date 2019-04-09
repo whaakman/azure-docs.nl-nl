@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521088"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058761"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -133,6 +133,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Azure Database Migration
 * Azure Databricks
 * Azure Firewall
+* Azure Kubernetes Service (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
@@ -143,7 +144,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Dev-opslagruimten
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
 * Managed Applications
 * Microsoft Genomics

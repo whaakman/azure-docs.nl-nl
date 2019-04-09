@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417479"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006331"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database for PostgreSQL
 
@@ -106,6 +106,8 @@ U hebt de mogelijkheid van het gebruik van [op rollen gebaseerd toegangsbeheer (
 ## <a name="limitations"></a>Beperkingen
 
 Voor Azure Database for PostgreSQL heeft de functie van de regels voor virtueel netwerk in de volgende beperkingen:
+
+- Een Web-App kunnen worden toegewezen aan een privé IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, worden verbindingen van de Web-App naar de server een Azure openbare IP-bron niet de bron van een VNet/subnet hebben. Om in te schakelen connectiviteit vanuit een Web-App naar een server met VNet-firewallregels, moet u toestaan dat Azure-services voor toegang tot de server op de server.
 
 - In de firewall voor uw Azure Database for PostgreSQL, is elke regel van het virtuele netwerk verwijst naar een subnet. Alle deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de Azure Database voor PostgreSQL.
 

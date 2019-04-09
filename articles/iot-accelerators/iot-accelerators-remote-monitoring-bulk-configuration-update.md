@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683426"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009664"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Zelfstudie: Uw verbonden apparaten bulksgewijs beheren
 
@@ -57,7 +57,7 @@ De volgende software moet op uw lokale computer zijn geïnstalleerd:
 Voordat u begint:
 
 * Controleer of de [bootloader op uw IoT DevKit-apparaat versie 1.4.0 of hoger](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) is.
-* Controleer of de SDK van IoT DevKit dezelfde versie heeft als de bootloader. U kunt de SDK van IoT DevKit bijwerken met behulp van de Azure IoT Workbench in VS Code. Open het opdrachtenpalet en voer **Arduino: Board Manager** in. Zie [Prepare the development environment](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment) (De ontwikkelomgeving voorbereiden) voor meer informatie.
+* Controleer of de SDK van IoT DevKit dezelfde versie heeft als de bootloader. U kunt de SDK van IoT DevKit bijwerken met behulp van de Azure IoT Workbench in VS Code. Open het opdrachtenpalet en voer de **Arduino: Bord Manager**. Zie [Prepare the development environment](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment) (De ontwikkelomgeving voorbereiden) voor meer informatie.
 
 U hebt ook minimaal één IoT DevKit-apparaat met de oplossingsverbetering voor Externe bewaking nodig. Als u nog geen IoT DevKit-apparaat hebt verbonden, zie dan [Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md) (MXChip IoT DevKit AZ3166 verbinden met de IoT oplossingsverbetering voor Externe bewaking).
 
@@ -89,7 +89,7 @@ De VS Code-extensie van [Azure IoT Workbench](https://marketplace.visualstudio.c
 
 1. Zorg dat uw IoT DevKit niet is verbonden met uw computer. Start VS Code en verbind de DevKit verbinden met uw computer.
 
-1. Druk op **F1** om het opdrachtenpalet te openen. Typ of selecteer **IoT Workbench: Examples**. Selecteer **IoT DevKit** als het bord.
+1. Druk op **F1** om te openen de command palette, typ en selecteer **IoT Workbench: Voorbeelden**. Selecteer **IoT DevKit** als het bord.
 
 1. Zoek **Firmware OTA** en klik op **Open Sample**. In een nieuw VS Code-venster wordt de projectmap **firmware_ota** weergegeven:
 
@@ -103,7 +103,7 @@ De eerste versie van de apparaatfirmware is 1.0.0. De nieuwe firmware moet een h
 
     ![Firmwareversie wijzigen](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Open het opdrachtenpalet en typ of selecteer **IoT Workbench: Device**. Selecteer vervolgens **Device Compile** om de code te compileren:
+1. Open het opdrachtenpalet, typ en selecteer vervolgens **IoT Workbench: Device**. Selecteer vervolgens **Device Compile** om de code te compileren:
 
     ![Device compile](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ De eerste versie van de apparaatfirmware is 1.0.0. De nieuwe firmware moet een h
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>De CRC-waarde genereren en de grootte van het firmwarebestand berekenen
 
-1. Open het opdrachtenpalet en typ of selecteer **IoT Workbench: Device**. Selecteer vervolgens **Generate CRC**:
+1. Open het opdrachtenpalet, typ en selecteer vervolgens **IoT Workbench: Device**. Selecteer vervolgens **Generate CRC**:
 
     ![Generate CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,19 +139,19 @@ Gebruik het Azure storage-account om het nieuwe firmwarebestand te hosten in de 
 
     ![Versie 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Open het opdrachtenpalet en typ of selecteer **IoT Workbench: Device**. Selecteer vervolgens **Device Upload**:
+1. Open het opdrachtenpalet, typ en selecteer vervolgens **IoT Workbench: Device**. Selecteer vervolgens **Device Upload**:
 
     ![Device Upload](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. In VS Code wordt de code gecontroleerd en geüpload naar het IoT DevKit-apparaat.
 
-1. Wanneer het uploaden is voltooid, wordt het IoT DevKit-apparaat opnieuw opgestart. Wanneer het apparaat opnieuw is opgestart, wordt in het scherm van IoT DevKit **FW-versie: 1.0.0** weergegeven en ziet u dat er op nieuwe firmware wordt gecontroleerd:
+1. Wanneer het uploaden is voltooid, wordt het IoT DevKit-apparaat opnieuw opgestart. Wanneer het opnieuw opstarten voltooid is, ziet u het scherm van IoT DevKit **FW-versie: 1.0.0**, en dat deze controleert op nieuwe firmware:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Een apparaatconfiguratie maken
 
-Een apparaatconfiguratie geeft de gewenste status van uw apparaten aan. Normaal gesproken is het de ontwikkelaar die [een configuratie maakt](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) op de pagina **IoT-apparaatconfiguratie** van de Azure-portal. Een apparaatconfiguratie is een JSON-document dat de gewenste status van uw apparaten en een set metrische gegevens bevat.
+Een apparaatconfiguratie geeft de gewenste status van uw apparaten aan. Normaal gesproken is het de ontwikkelaar die [een configuratie maakt](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) op de pagina **IoT-apparaatconfiguratie** van de Azure-portal. Een apparaatconfiguratie is een JSON-document dat de gewenste status van uw apparaten en een set metrische gegevens bevat.
 
 Sla de volgende configuratie als een bestand met de naam **firmware-update.json** op uw lokale computer op. Vervang de tijdelijke aanduidingen voor `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` en `YOURPACKAGESIZE` door de waarden die u eerder hebt genoteerd:
 
@@ -226,9 +226,9 @@ In deze sectie gaat u een implementatie maken en uitvoeren die de apparaatconfig
 
 1. Maak in het deelvenster **Nieuwe implementatie** een implementatie met de volgende instellingen:
 
-    |Optie|Waarde|
+    |Optie|Value|
     |---|---|
-    |Naam|Firmware-update implementeren|
+    |Name|Firmware-update implementeren|
     |Pakkettype|Apparaatconfiguratie|
     |Configuratietype|Firmware|
     |Pakket|firmware-update.json|

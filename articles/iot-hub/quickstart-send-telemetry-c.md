@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
 ms.author: wesmc
-ms.openlocfilehash: be8418059ae80b6bcc4c86c677491b5fc9a27e12
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9c65020c4d9b80d5f32b87aa8c63878a677ae0c9
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481855"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006292"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Quickstart: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (C)
 
@@ -35,6 +35,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
+* Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden
 
@@ -121,14 +126,13 @@ In deze snelstartgids bereidt u een ontwikkelomgeving voor die wordt gebruikt om
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
    **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **MyCDevice** : dit is de naam van het geregistreerde apparaat. Gebruik MyCDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
@@ -214,4 +218,4 @@ In deze snelstartgids hebt u een IoT-hub geconfigureerd, een apparaat geregistre
 Voor meer informatie over het ontwikkelen met de Azure loT Hub C SDK gaat u verder naar de volgende instructiegids:
 
 > [!div class="nextstepaction"]
-> [Ontwikkelen met behulp van Azure IoT Hub C SDK](iot-hub-devguide-develop-for-constrained-devices.md)
+> [Ontwikkelen met behulp van C-SDK van Azure IoT Hub](iot-hub-devguide-develop-for-constrained-devices.md)

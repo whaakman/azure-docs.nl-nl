@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57728962"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006477"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-sjablonen voor Azure Container Instances
 
@@ -24,8 +24,8 @@ Zie voor de implementatie-opties, de [implementatie](#deployment) sectie. Als u 
 
 | | |
 |-|-|
-| **Toepassingen** ||
-| [Wordpress][app-wp] | Hiermee maakt een WordPress-website en de MySQL-database in een containerexemplaar. De inhoud van de WordPress-site en MySQL-database zijn opgeslagen op een Azure-bestanden delen. |
+| **Applicaties** ||
+| [WordPress][app-wp] | Hiermee maakt u een WordPress-website en de MySQL-database in een container bevinden. De inhoud van de WordPress-site en MySQL-database zijn opgeslagen op een Azure-bestanden delen. Maakt ook een application gateway om toegang tot het openbare netwerk WordPress weer te geven. |
 | [MS NAV met SQL Server en IIS][app-nav] | Implementeert een enkele Windows-container met een volledig functionele zichzelf Dynamics NAV / Dynamics 365 Business Central-omgeving. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Twee Linux-containers die delen van een volume emptyDir implementeert. |

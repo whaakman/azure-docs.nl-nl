@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/18/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbb50ba703221c28576b4c3614c77bbac7eeabb9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519116"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057418"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -43,7 +43,7 @@ In Azure Automation kunnen Runbooks worden uitgevoerd via een sandbox in Azure o
 |Een bestand of map met een runbook bewaken|Hybrid Runbook Worker|Gebruik een [Watcher-taak](automation-watchers-tutorial.md) op een Hybrid Runbook worker|
 |Resource-intensieve script|Hybrid Runbook Worker| Azure-sandboxes geladen hebt [beperking op resources](../azure-subscription-service-limits.md#automation-limits)|
 |Modules gebruiken met specifieke vereisten| Hybrid Runbook Worker|Een aantal voorbeelden:</br> **WinSCP** -afhankelijkheid van winscp.exe </br> **IISAdministration** -IIS moet worden ingeschakeld|
-|Module waarvoor installatieprogramma installeren|Hybrid Runbook Worker|Modules voor sandbox moet xcopyable|
+|Module waarvoor installatieprogramma installeren|Hybrid Runbook Worker|Modules voor sandbox moet copiable|
 |Met behulp van runbooks of modules waarvoor .NET Framework verschilt 4.7.2|Hybrid Runbook Worker|Automation-sandboxes geladen .NET Framework 4.7.2 hebben en er is geen manier om te upgraden|
 |Scripts die verhoogde bevoegdheden vereist|Hybrid Runbook Worker|Sandboxes toegestaan uitbreiding van bevoegdheden niet. Een Hybrid Runbook Worker te gebruiken om op te lossen dit, en kunt u uitschakelen UAC en gebruik `Invoke-Command` als met de opdracht die is vereist tot misbruik van bevoegdheden|
 |Scripts die toegang hebben tot WMI nodig|Hybrid Runbook Worker|Taken die worden uitgevoerd in sandboxes de cloud [bent niet gemachtigd de WMI](#device-and-application-characteristics)|
@@ -246,9 +246,9 @@ U kunt de volgende stappen gebruiken om de taken voor een runbook weer te geven.
 3. Op de pagina voor het geselecteerde runbook, klikt u op de **taken** tegel.
 4. Klik op een van de taken in de lijst en op de pagina met details van runbook-taak kunt u de details en de uitvoer bekijken.
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>Bij het ophalen van de status van taak met behulp van Windows PowerShell
+## <a name="retrieving-job-status-using-powershell"></a>Bij het ophalen van de status van taak met behulp van PowerShell
 
-U kunt de [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) om op te halen van de taken die voor een runbook en de details van een bepaalde taak is gemaakt. Als u een runbook te met Windows PowerShell starten [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), en vervolgens wordt de resulterende taak geretourneerd. Gebruik [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) om een taak ophalen de uitvoer.
+U kunt de [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) om op te halen van de taken die voor een runbook en de details van een bepaalde taak is gemaakt. Als u een runbook te met PowerShell starten [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), en vervolgens wordt de resulterende taak geretourneerd. Gebruik [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) om een taak ophalen de uitvoer.
 
 De volgende voorbeeldopdrachten de laatste taak voor een voorbeeldrunbook opgehaald en de status ervan, de waarden voor de runbookparameters en de uitvoer van de taak weergeven.
 
@@ -285,11 +285,30 @@ Andere gegevens, zoals de persoon die of het account dat het runbook startte kun
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## <a name="fair-share"></a>Evenredige deel

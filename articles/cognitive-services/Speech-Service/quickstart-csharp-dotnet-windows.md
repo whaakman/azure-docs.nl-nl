@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838609"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008744"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Spraak herkennen met de spraak-SDK voor .NET Framework (Windows)
 
@@ -25,7 +25,7 @@ Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te make
 
 Voor een snelle demonstratie (zonder het bouwen van de Visual Studio-project zelf, zoals hieronder weergegeven):
 
-De nieuwste [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) vanuit Github.
+De nieuwste [Cognitive Services Speech SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-speech-sdk) vanuit GitHub.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -68,7 +68,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
+> [Verken C# voorbeelden op GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 

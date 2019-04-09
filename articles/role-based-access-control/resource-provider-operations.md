@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906205"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010733"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -31,7 +31,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/delete | Organisatie-eenheid Container verwijderen |
@@ -47,7 +47,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -164,7 +164,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AlertsManagement/actionRules/delete | Actieregel in een bepaald abonnement verwijderen. |
 > | Bewerking | Microsoft.AlertsManagement/actionRules/read | Alle actieregels voor de voor de invoer filters ophalen. |
@@ -188,7 +188,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AnalysisServices/locations/checkNameAvailability/action | Hiermee wordt gecontroleerd of de opgegeven Analysis Server naam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.AnalysisServices/locations/operationresults/read | Haalt de informatie van het opgegeven bewerkingsresultaat. |
@@ -435,7 +435,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Automation/automationAccounts/agentRegistrationInformation/read | Een Azure Automation DSC-registratiegegevens lezen |
 > | Bewerking | Microsoft.Automation/automationAccounts/agentRegistrationInformation/regenerateKey/action | Schrijft een aanvraag voor Azure Automation DSC-sleutels opnieuw genereren |
@@ -666,7 +666,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.BotService/botServices/channels/delete | Verwijderen van een Bot-Service |
 > | Bewerking | Microsoft.BotService/botServices/channels/read | Lees een Botservice |
@@ -715,7 +715,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Capacity/appliedreservations/read | Alle reserveringen lezen |
 > | Bewerking | Microsoft.Capacity/calculateprice/action | De prijs van een reservering berekenen |
@@ -747,7 +747,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | Bewerking | Microsoft.Cdn/CheckResourceUsage/action |  |
@@ -810,7 +810,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Delete | Een bestaand certificaat verwijderen |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | De lijst met certificaten ophalen |
@@ -1074,7 +1074,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | Deze bewerking wordt een grote verscheidenheid aan visuele kenmerken op basis van de inhoud van de uitgepakt.  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | Deze bewerking wordt een vak rond het belangrijkste gedeelte van de afbeelding geretourneerd. |
@@ -1162,7 +1162,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Commerce/RateCard/read | Retourneert bieden gegevens, metagegevens van de resource/meter en tarieven voor het betreffende abonnement. |
 > | Bewerking | Microsoft.Commerce/UsageAggregates/read | Hiermee haalt u van Microsoft Azure-verbruik door een abonnement. Het resultaat bevat statistische gegevens over gebruik, abonnement en de resourcegroep verwante gegevens, op een bepaalde periode. |
@@ -1327,7 +1327,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Uitvoeren in een specifieke container. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Logbestanden voor een specifieke container ophalen. |
@@ -1676,7 +1676,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataFactory/checkazuredatafactorynameavailability/read | Controleert of de naam van de Data Factory beschikbaar is voor gebruik. |
 > | Bewerking | Microsoft.DataFactory/datafactories/activitywindows/read | Activiteit Windows in de Data Factory met de opgegeven parameters worden gelezen. |
@@ -1820,7 +1820,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataLakeStore/accounts/delete | Een DataLakeStore-account verwijderen. |
 > | Bewerking | Microsoft.DataLakeStore/accounts/enableKeyVault/action | Key Vault voor een DataLakeStore-account kunt inschakelen. |
@@ -1850,7 +1850,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataMigration/locations/operationResults/read | De status ophalen van een langdurige bewerking die betrekking heeft op een 202-antwoord (Geaccepteerd) |
 > | Bewerking | Microsoft.DataMigration/locations/operationStatuses/read | De status ophalen van een langdurige bewerking die betrekking heeft op een 202-antwoord (Geaccepteerd) |
@@ -1885,7 +1885,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DBforMariaDB/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
 > | Bewerking | Microsoft.DBforMariaDB/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
@@ -2074,7 +2074,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DevTestLab/labCenters/delete | Lab centers verwijderen. |
 > | Bewerking | Microsoft.DevTestLab/labCenters/read | Lab-datacenters worden gelezen. |
@@ -2181,7 +2181,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DocumentDB/databaseAccountNames/read | Controleert op beschikbaarheid van de naam. |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/backup/action | Een aanvraag indient bij de back-up configureren |
@@ -2299,7 +2299,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.EventHub/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.EventHub/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -2371,7 +2371,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get Gast configuration toewijzing. |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Get Gast configuratierapport toewijzing. |
@@ -2380,7 +2380,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.HDInsight/clusters/applications/delete | Toepassing voor HDInsight-Cluster verwijderen |
 > | Bewerking | Microsoft.HDInsight/clusters/applications/read | Toepassing voor HDInsight-Cluster |
@@ -2691,7 +2691,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -2701,7 +2701,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.IoTCentral/checkNameAvailability/action | Controleert of de naam van een IoT Central-toepassing beschikbaar is |
 > | Bewerking | Microsoft.IoTCentral/checkSubdomainAvailability/action | Controleert of een subdomein IoT Central-toepassing beschikbaar is |
@@ -2789,7 +2789,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LabServices/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.LabServices/labAccounts/delete | Lab-accounts verwijderen. |
@@ -3160,7 +3160,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Hosting-account verwijderen |
@@ -3173,7 +3173,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningModelManagement/accounts/delete | Hosting-account verwijderen |
 > | Bewerking | Microsoft.MachineLearningModelManagement/accounts/read | Hosting-account lezen |
@@ -3203,7 +3203,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedIdentity/register/action | Hiermee wordt het abonnement voor de beheerde identiteit-resourceprovider geregistreerd |
 > | Bewerking | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | RBAC-actie voor het toewijzen van een bestaande gebruiker toegewezen identiteit aan een resource |
@@ -3214,7 +3214,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedLab/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.ManagedLab/labAccounts/delete | Lab-accounts verwijderen. |
@@ -3252,7 +3252,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.Maps/accounts/data/read | Verleent toegang tot het lezen van gegevens naar een maps-account. |
 > | Bewerking | Microsoft.Maps/accounts/delete | Een Maps-Account verwijderen. |
@@ -3269,7 +3269,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Hiermee wordt een overeenkomst geretourneerd. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Hiermee wordt een ondertekende overeenkomst geaccepteerd. |
@@ -3281,7 +3281,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/delete | Biedt een DELETE-bewerking op de bron van een klassieke dev-service. |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/listSecrets/action | Hiermee haalt u een klassieke dev servicesleutels resource management. |
@@ -3305,7 +3305,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Media/checknameavailability/action | Controleert of de naam van een Media Services-account beschikbaar is |
 > | Bewerking | Microsoft.Media/locations/checkNameAvailability/action | Controleert of de naam van een Media Services-account beschikbaar is |
@@ -3372,7 +3372,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Migrate/locations/assessmentOptions/read | Hiermee worden de evaluatieopties opgehaald die op de opgegeven locatie beschikbaar zijn |
 > | Bewerking | Microsoft.Migrate/locations/checknameavailability/action | Controleert de beschikbaarheid van de naam van de resource voor het betreffende abonnement op de opgegeven locatie |
@@ -3416,7 +3416,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.NetApp/locations/operationresults/read | Hiermee wordt een bewerking resultaat resource gelezen. |
 > | Bewerking | Microsoft.NetApp/locations/read | Leest een beschikbaarheid van controleren resources |
@@ -3438,7 +3438,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Application Gateway beschikbaar aanvraagheaders ophalen |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Application Gateway beschikbaar Response-Header ophalen |
@@ -3856,7 +3856,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
@@ -3921,7 +3921,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationalInsights/linkTargets/read | Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als u wilt dit Azure-abonnement koppelen aan een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken. |
 > | Bewerking | microsoft.operationalinsights/operations/read | Een lijst met alle van de beschikbare OperationalInsights Rest-API-bewerkingen. |
@@ -4173,7 +4173,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
@@ -4195,7 +4195,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Portal/consoles/delete | Hiermee wordt het Cloud Shell-exemplaar verwijderd. |
 > | Bewerking | Microsoft.Portal/consoles/read | Hiermee wordt het Cloud Shell-exemplaar gelezen. |
@@ -4211,7 +4211,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/delete | Verwijdert de Power BI toegewezen capaciteit. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/read | Haalt de informatie van de opgegeven toegewezen capaciteit van Power BI. |
@@ -4229,7 +4229,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is een interne bewerking die wordt gebruikt door de service |
@@ -4401,7 +4401,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Relay/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.Relay/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -4471,7 +4471,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Resources/checkPolicyCompliance/action | Controleer de nalevingsstatus van een bepaalde resource aan de hand van het beleid voor resources. |
 > | Bewerking | Microsoft.Resources/checkResourceName/action | Controleer of de resourcenaam geldig is. |
@@ -4513,7 +4513,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Scheduler/jobcollections/delete | Hiermee verwijdert u de taakverzameling. |
 > | Bewerking | Microsoft.Scheduler/jobcollections/disable/action | Hiermee schakelt u de taakverzameling uit. |
@@ -4745,7 +4745,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Solutions/applicationDefinitions/applicationArtifacts/read | Hiermee worden de artefacten voor toepassingen van de toepassingsdefinitie weergegeven. |
 > | Bewerking | Microsoft.Solutions/applicationDefinitions/delete | Hiermee wordt een toepassingsdefinitie verwijderd. |
@@ -5426,7 +5426,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Subscription/CreateSubscription/action | Maak een Azure-abonnement |
 > | Bewerking | Microsoft.Subscription/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.Subscription |
@@ -5436,7 +5436,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
 > | Bewerking | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |
@@ -5484,7 +5484,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftweb"></a>microsoft.web
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.web/apimanagementaccounts/apiacls/read | Api Management-Accounts Apiacls ophalen. |
 > | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Api Management Accounts API's Apiacls verwijderen. |

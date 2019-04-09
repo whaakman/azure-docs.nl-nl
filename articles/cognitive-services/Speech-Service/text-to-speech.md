@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521241"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010444"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -38,7 +38,7 @@ Deze tabel bevat de kernfuncties voor tekst naar spraak:
 
 | Toepassing | SDK | REST |
 |----------|-----|------|
-| Converteert tekst naar spraak. | Nee | Ja |
+| Converteert tekst naar spraak. | Ja | Ja |
 | Gegevenssets voor de toon aanpassing uploaden. | Nee | Ja\* |
 | Maken en beheren van spraak lettertype modellen. | Nee | Ja\* |
 | Maken en beheren van implementaties van spraak lettertype. | Nee | Ja\* |
@@ -54,25 +54,32 @@ Deze tabel bevat de kernfuncties voor tekst naar spraak:
 
 We bieden snelstartgidsen ontworpen dat u de uitvoering van code in minder dan 10 minuten. Deze tabel bevat een lijst met tekst naar spraak snelstartgidsen ingedeeld per taal.
 
-| Snelstartgids | Platform | API-verwijzing |
+| Quickstart (REST) | Platform | API-verwijzing |
 |------------|----------|---------------|
 | [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Quickstart (SDK) | Platform | API-verwijzing |
+|------------|----------|---------------|
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Bladeren](https://aka.ms/csspeech/cppref) |
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
 Voorbeeldcode voor tekst naar spraak is beschikbaar op GitHub. Deze voorbeelden omvatten tekst naar spraak converteren in de populairste programmeertalen.
 
 * [Text to Speech-voorbeelden (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text to Speech-voorbeelden (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="reference-docs"></a>Referentiedocumenten
 
 * [Speech-SDK](speech-sdk-reference.md)
-* [Spraak apparaten SDK](speech-devices-sdk.md)
-* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
-* [REST API: Text-to-speech](rest-text-to-speech.md)
-* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST-API: Spraak-naar-tekst](rest-speech-to-text.md)
+* [REST-API: Tekst naar spraak](rest-text-to-speech.md)
+* [REST-API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 

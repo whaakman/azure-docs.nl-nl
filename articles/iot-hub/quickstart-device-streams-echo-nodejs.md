@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079892"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006433"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Quickstart: Communiceren met een apparaattoepassing in Node.js via IoT Hub-apparaatstreams (preview)
 
@@ -37,13 +37,12 @@ De code laat zien het proces voor het initiëren van een apparaat-stream, evenal
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-
 ## <a name="prerequisites"></a>Vereisten
 
 De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
   - **US - centraal**
-  - **VS-midden EUAP**
+  - **US - centraal EUAP**
 
 Voor het uitvoeren van de toepassing aan de serverzijde in deze quickstart moet Node.js versie 4.x.x of hoger op uw ontwikkelcomputer zijn geïnstalleerd.
 
@@ -53,6 +52,12 @@ Gebruik de volgende opdracht om de huidige versie van Node.js op uw ontwikkelcom
 
 ```
 node --version
+```
+
+Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Node.js van https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip en pakt u het ZIP-archief uit.
@@ -71,14 +76,13 @@ Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een Io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **MyDevice**: dit is de naam van het geregistreerde apparaat. Gebruik MyDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -149,4 +153,4 @@ In deze quickstart hebt u een IoT-hub ingesteld, een apparaat geregistreerd, een
 Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 
 > [!div class="nextstepaction"]
-> [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)
+> [Overzicht van de stromen van apparaat](./iot-hub-device-streams-overview.md)

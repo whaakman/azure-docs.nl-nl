@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498805"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009815"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Voorbeeld: Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
 
-In dit voorbeeld wordt informatie over het gebruik [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions) en [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) aan het bouwen van een krachtige zoekvak die ondersteuning biedt voor search-as-u-type gedrag.
+In dit artikel leert u hoe u [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions) en [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) aan het bouwen van een krachtige zoekvak die ondersteuning biedt voor search-as-u-type gedrag.
 
-+ *Suggesties* is een lijst met voorgestelde resultaten die zijn gegenereerd tijdens het typen, waarbij elke voorstel is een enkelvoudig resultaat wordt verkregen uit de index die overeenkomt met wat u tot nu toe hebt getypt. 
++ *Suggesties* voorgestelde resultaten die zijn gegenereerd tijdens het typen, waarbij elke voorstel is een enkelvoudig resultaat wordt verkregen uit de index die overeenkomt met wat u tot nu toe hebt getypt zijn. 
 
-+ *Automatisch aanvullen*, [een preview-functie](search-api-preview.md), "voltooid" het woord of woordgroep die een gebruiker is momenteel te typen. Net als bij suggesties voor is een voltooide woord of woordgroep echter afhankelijk van een overeenkomst in de index. 
++ *Automatisch aanvullen*, [een preview-functie](search-api-preview.md), "voltooid" het woord of woordgroep die een gebruiker is momenteel te typen. In plaats van het retourneren van resultaten, is een query die u vervolgens uitvoeren kunt om te retourneren van resultaten voltooid. Net als bij suggesties voor is een voltooide woord of zinsdeel in een query echter afhankelijk van een overeenkomst in de index. De service wordt niet query's die geen resultaten geretourneerd in de index bieden.
 
 U kunt downloaden en uitvoeren van de voorbeeldcode **DotNetHowToAutocomplete** om te evalueren van deze functies. De voorbeeldcode is gericht op een vooraf gedefinieerde index die is gevuld met [NYCJobs demo gegevens](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). De index NYCJobs bevat een [suggestie constructie](index-add-suggesters.md), dit is een vereiste voor het gebruik van suggesties of automatisch aanvullen. U kunt de voorbereide index die wordt gehost in een sandboxservice of [uw eigen-index te vullen](#configure-app) met behulp van een laadprogramma voor inventarisatiegegevens in de Voorbeeldoplossing NYCJobs. 
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-De bovenstaande code wordt uitgevoerd in de browser laden van de pagina jQuery gebruikersinterface automatisch aanvullen voor het invoervak "example1a" configureren.  `minLength: 3` zorgt ervoor dat aanbevelingen alleen worden weergegeven wanneer er zich ten minste drie tekens in het zoekvak bevinden.  De bronwaarde is belangrijk:
+De bovenstaande code wordt uitgevoerd in de browser laden van de pagina jQuery gebruikersinterface automatisch aanvullen voor het invoervak "example1a" configureren.  `minLength: 3` zorgt ervoor dat aanbevelingen alleen worden weergegeven wanneer er ten minste drie tekens in het zoekvak.  De bronwaarde is belangrijk:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#Versie
+## <a name="c-example"></a>C#-voorbeeld
 
 Nu we de JavaScript-code voor de webpagina hebt doorgenomen, laten we bekijken de C# serverzijde controllercode die daadwerkelijk haalt de voorgestelde komt overeen met de Azure Search .NET SDK gebruiken.
 
@@ -229,9 +229,11 @@ Voeg een onderbrekingspunt toe aan het begin van de functie Voorstellen en doorl
 
 De andere voorbeelden op de pagina gaat u als volgt de hetzelfde patroon om toe te voegen treffers markeren en facetten ter ondersteuning van caching aan clientzijde van de resultaten automatisch aanvullen. Loop door elk van deze voorbeelden heen zodat u begrijpt hoe ze werken en hoe u ze kunt gebruiken in uw zoekervaring.
 
-## <a name="javascript-version-with-rest"></a>JavaScript-versie met REST
+## <a name="javascript-example"></a>JavaScript-voorbeeld
 
-Open voor de implementatie van JavaScript **IndexJavaScript.cshtml**. U ziet dat de jQuery automatisch aanvullen van UI-functie ook voor het zoekvak gebruikt wordt, verzamelen van search term invoer en asynchrone aanroepen naar Azure Search om op te halen komt overeen met voorgestelde of voorwaarden voltooid. 
+Een Javascript-uitvoering van automatisch aanvullen en suggesties roept de REST-API, met behulp van een URI als de bron om op te geven van de index en het gebruik. 
+
+Als u wilt controleren van de implementatie van JavaScript, open **IndexJavaScript.cshtml**. U ziet dat de jQuery automatisch aanvullen van UI-functie ook voor het zoekvak gebruikt wordt, verzamelen van search term invoer en asynchrone aanroepen naar Azure Search om op te halen komt overeen met voorgestelde of voorwaarden voltooid. 
 
 Kijk eens naar de JavaScript-code uit het eerste voorbeeld:
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893058"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010597"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -288,10 +288,9 @@ Zie voor meer informatie, [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
     - Lezer van de wachtrij wordt niet ondersteund.  
     - Opdrachtshell is nog niet ondersteund.
   - Beheerde exemplaren geen toegang tot externe bronnen (bijvoorbeeld netwerkshares via robocopy).  
-  - PowerShell is nog niet ondersteund.
   - Analyseservices worden niet ondersteund.
 - Meldingen worden gedeeltelijk ondersteund.
-- E-mailmelding wordt ondersteund, is vereist voor het configureren van een Database-e-mailprofiel. Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile` in openbare preview-versie (tijdelijke beperking).  
+- E-mailmelding wordt ondersteund, is vereist voor het configureren van een Database-e-mailprofiel. SQL-Agent kan slechts één database-e-mailprofiel gebruiken en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`.  
   - Pager wordt niet ondersteund.  
   - Net Send wordt niet ondersteund.
   - Waarschuwingen worden nog niet ondersteund.
@@ -432,10 +431,7 @@ Beperkingen:
 - `.BAK` bestanden met meerdere back-upsets kunnen niet worden hersteld.
 - `.BAK` bestanden met meerdere logboekbestanden kunnen niet worden hersteld.
 - Herstellen mislukt als .bak bevat `FILESTREAM` gegevens.
-- Back-ups met databases die momenteel actieve In-memory-objecten hebt, kunnen niet worden hersteld.  
-- Back-ups met databases waar op een bepaald moment In-Memory objecten op dit moment bestaat kunnen niet worden hersteld.
-- Back-ups met databases in de modus alleen-lezen op dit moment kunnen niet worden hersteld. Deze beperking wordt binnenkort verwijderd.
-
+- Back-ups van databases met actieve In-memory-objecten met kunnen niet worden hersteld voor algemeen gebruik-exemplaar.  
 Zie voor meer informatie over de Restore-instructies [herstellen instructies](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
@@ -485,6 +481,8 @@ Beheerd exemplaar kan niet worden hersteld [ingesloten databases](https://docs.m
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, en `RESTORE DATABASE` instructies mislukken omdat de instantie kan de Azure Storage-limiet is bereikt.
+
 Elke algemeen doel beheerd exemplaar met maximaal 35 TB opslag is gereserveerd voor Azure Premium-schijfruimte en elk databasebestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijfgrootten is 128 GB, 256 GB, 512 GB, 1 TB of 4 TB. Ongebruikte ruimte op schijf is niet in rekening gebracht, maar de totale som van Azure Premium Disk-groottes mag niet meer dan 35 TB. In sommige gevallen een beheerd exemplaar dat niet 8 TB in totaal hoeft kan groter zijn dan de 35 TB Azure de limiet voor opslaggrootte, vanwege een interne fragmentatie.
 
 Een algemeen doel beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf met 4 TB en 248 bestanden (elke 1 GB groot) die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) en SQL Server Data Tools (SSDT) mogelijk enk
 
 Verschillende systeemweergaven, prestatiemeteritems, foutberichten, XEvents en fouten in logboekvermeldingen weergegeven GUID database-id's in plaats van de werkelijke databasenamen. Vertrouw niet op deze GUID-id's omdat ze zou worden vervangen door de werkelijke databasenamen in de toekomst.
 
+### <a name="database-mail"></a>Database-e-mail
+
+`@query` parameter in [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure werken niet.
+
 ### <a name="database-mail-profile"></a>Database-e-mailprofiel
 
-Het database-e-mailprofiel gebruikt door SQL-Agent moet worden aangeroepen `AzureManagedInstance_dbmail_profile`.
+Het database-e-mailprofiel gebruikt door SQL-Agent moet worden aangeroepen `AzureManagedInstance_dbmail_profile`. Er zijn geen beperkingen met betrekking tot andere namen van database mail-profiel.
 
 ### <a name="error-logs-are-not-persisted"></a>Foutenlogboeken zijn niet-persistente
 

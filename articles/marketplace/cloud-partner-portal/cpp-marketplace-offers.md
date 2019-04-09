@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446706"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010569"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure en AppSource-Marketplace-aanbiedingen
 
@@ -56,10 +56,10 @@ De volgende tabel bevat de huidige aanbieding die worden ondersteund door de [Cl
 | [Consulting Services](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Beide | Microsoft gekwalificeerde consultants kunnen hun domeinspecifieke services op Azure Marketplace of AppSource vermelden.  Hun ervaring helpt klanten hun problemen evalueren en het maken en implementeren van de juiste oplossingen om te voldoen aan hun zakelijke doelstellingen.  |
 | [Container](./containers/cpp-containers-offer.md)  | Azure | Oplossing is een Docker-containerinstallatiekopie ingericht als een service op basis van Kubernetes of Azure Container instances. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Een pakket die uitgebreider is dan deze enterprise resourceplanning (ERP) en de business management-systeem. |
-| [Dynamics 365 voor Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Een pakket dat de klant is een uitbreiding resource klantrelatiebeheer (CRM) systeem, via de sales, service, project-service en veld-servicemodules.  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Een pakket dat deze enterprise resource planning (ERP-)-service die ondersteuning biedt voor geavanceerde is een uitbreiding voor Financiën, bewerkingen, productie en toeleveringsbeheer. |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Een pakket dat de klant is een uitbreiding resource klantrelatiebeheer (CRM) systeem, via de sales, service, project-service en veld-servicemodules  |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Een pakket dat deze enterprise resource planning (ERP-)-service die ondersteuning biedt voor geavanceerde is een uitbreiding voor Financiën, bewerkingen, productie en toeleveringsbeheer |
 | [IoT Edge-module](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Een compatibel is met Docker-container die wordt uitgevoerd op een IoT Edge-apparaat.  Het bevat kleine rekenkundige modules die gebruikmaken van een combinatie van aangepaste code, andere Azure-services en services 3rd derden. |
-| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Een pakket die gebruikmaakt van gegevensstromen verbinding te maken van rapporten en dashboards met gegevens in de opslag van veelgebruikte gegevens. |
+| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Een Power BI-app die aanpasbare Power BI-inhoud pakketten, met inbegrip van gegevenssets, rapporten en dashboards |
 | [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Oplossing is een software-as-a-service-abonnement, beheerd door de uitgever, welke gebruikers zich aanmelden via een aangepaste interface die gebruikmaakt van Azure Active Directory. |
 | [Virtuele machine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Oplossing is opgenomen in een enkele virtuele machine is geïmplementeerd op van de klant-abonnement.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
@@ -69,4 +69,4 @@ Zie voor meer informatie, [Publicatiehandleiding voor door het aanbiedingtype](.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U leert over de algemene bewerkingen die u op de marketplace-aanbiedingen en hun algemene technische kenmerken en elementen in het onderwerp uitvoeren kunt [beheren van aanbiedingen](./manage-offers/cpp-manage-offers.md).
+U leert over de algemene bewerkingen die u op de marketplace-aanbiedingen en hun algemene technische kenmerken en elementen in het artikel uitvoeren kunt [beheren van aanbiedingen](./manage-offers/cpp-manage-offers.md).

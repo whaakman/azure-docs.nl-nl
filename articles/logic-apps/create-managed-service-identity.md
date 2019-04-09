@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755708"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010546"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
 
@@ -37,7 +37,7 @@ Voor toegang tot resources in andere tenants Azure Active Directory (Azure AD) e
 
 Voor het systeem toegewezen beheerde identiteiten moet u niet handmatig maken die identiteit. Als u een systeem toegewezen beheerde identiteit voor uw logische app instelt, kunt u de volgende manieren gebruiken: 
 
-* [Azure-portal](#azure-portal) 
+* [Azure Portal](#azure-portal) 
 * [Azure Resource Manager-sjablonen](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -59,9 +59,9 @@ Inschakelen om in te schakelen op een systeem toegewezen beheerde identiteit voo
 
    ![GUID's voor object-ID](./media/create-managed-service-identity/object-id.png)
 
-   | Eigenschap | Waarde | Beschrijving | 
+   | Eigenschap | Waarde | Description | 
    |----------|-------|-------------| 
-   | **Object-ID** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
+   | **Object-id** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
    ||| 
 
 <a name="template"></a>
@@ -158,7 +158,7 @@ Na het instellen van uw logische app met een door het systeem toegewezen beheerd
    In de **URI** voert u de eindpunt-URL voor deze Azure-service. 
    Dus als u Azure Resource Manager gebruikt, voert u deze waarde in de **URI** eigenschap:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. Kies in de HTTP-actie **geavanceerde opties weergeven**.
 

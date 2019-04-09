@@ -1,5 +1,5 @@
 ---
-title: Oplossing voor externe bewaking importeren pakket ADM - Azure | Microsoft Docs
+title: Oplossing voor externe bewaking importeren pakket - Azure | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u een automatische inrichting management Pack importeren in de oplossingsverbetering voor externe controle
 author: dominicbetts
 manager: philmea
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8fd6e733f3e80ba2a3ec632c088d070252e260cc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684990"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009849"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importeren van een pakket voor automatische inrichting in de oplossingsverbetering voor externe controle
 
@@ -30,14 +30,14 @@ De Azure portal gebruiken voor het exporteren van de configuratie van automatisc
 
 1. Navigeer naar de IoT-hub die u kunt ontwikkelen en testen van uw IoT-apparaten in de Azure-portal. Klik op **IoT apparaatconfiguratie**:
 
-    [![Configuratie van de IoT-apparaat](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![Iapparaatconfiguratie oT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. Klik op de configuratie die u wilt gebruiken. De **apparaat configuratiedetails** pagina:
 
-    [![Configuratiedetails van de IoT-apparaat](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+    [![Iconfiguratiedetails van oT apparaat](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. Klik op **configuratiebestand downloaden**:
 
-    [![Configuratiebestand downloaden](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
+    [![Dconfiguratiebestand downloaden](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
 1. Het JSON-bestand opslaan als een lokaal bestand met de naam **configuration.json**.
 
@@ -47,7 +47,7 @@ U hebt nu een bestand met de configuratie van automatische device management. In
 
 Volg onderstaande stappen voor het importeren van een configuratie van automatische device management als een pakket in uw oplossing:
 
-1. Navigeer naar de **pakketten** pagina in de externe controle-Webgebruikersinterface: ![pakketten pagina](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Navigeer naar de **pakketten** pagina in de externe controle-Webgebruikersinterface:  ![Pakketten pagina](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Klik op **+ nieuw pakket**, kiest u **configuratie** als het pakkettype, en klik op **Bladeren** selecteren de **configuration.json** bestand dat u in de vorige sectie hebt opgeslagen:
 

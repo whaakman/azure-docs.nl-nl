@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: f19afeb3ac984427458dd23085c9c6d9e69e3e3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884207"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005610"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Verbinding maken met de externe oplossing met behulp van Common Event Format
 
@@ -80,14 +80,14 @@ U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtue
             
             2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
             
-            1. De syslog-daemon opnieuw starten `sudo service rsyslog restart`
-             
+            1. De syslog-daemon opnieuw starten `sudo service rsyslog restart`<br> Zie voor meer informatie de [rsyslog-documentatie](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
+           
           - Als u syslog-ng het volgende hebt geselecteerd:
 
               1. Laat de Syslog-daemon op faciliteit local_4 luisteren en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
               2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
 
-              3. De syslog-daemon opnieuw starten `sudo service syslog-ng restart`
+              3. De syslog-daemon opnieuw starten `sudo service syslog-ng restart` <br>Zie voor meer informatie de [syslog-ng-documentatie](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/mutual-authentication-using-tls/2)
       2. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 

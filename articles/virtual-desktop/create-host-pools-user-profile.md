@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628986"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056092"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Een gebruikersprofielshare instellen voor een hostpool
 
-De service Windows Virtual Desktop Preview biedt FSLogix profiel containers als de gebruiker aanbevolen profiel-oplossing. We raden het gebruik van de gebruiker profiel schijf (UDP)-oplossing en deze in toekomstige versies van virtuele Windows-bureaublad wordt afgeschaft.
+De service Windows Virtual Desktop Preview biedt FSLogix profiel containers als de gebruiker aanbevolen profiel-oplossing. Wordt niet aanbevolen met behulp van de gebruiker profiel schijf (UDP)-oplossing die is afgeschaft in toekomstige versies van virtuele Windows-bureaublad.
 
 In deze sectie wordt uitgelegd hoe u voor het instellen van een share FSLogix profiel container voor een groep host. Raadpleeg voor algemene documentatie met betrekking tot FSLogix de [FSLogix site](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Na het maken van de virtuele machine, voeg deze toe aan het domein door het volg
 
 Hier volgen de algemene instructies over het voorbereiden van een virtuele machine om te fungeren als een bestandsshare voor gebruikersprofielen:
 
-1. Deelnemen aan de sessie host virtuele machines naar een [Active Directory-beveiligingsgroep](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Deze beveiligingsgroep wordt gebruikt voor verificatie van de sessie hosts virtuele machines op de virtuele machine van een bestand delen dat u zojuist hebt gemaakt.
+1. De Windows virtuele bureaublad Active Directory: gebruikers toevoegen aan een [Active Directory-beveiligingsgroep](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Deze beveiligingsgroep wordt gebruikt voor verificatie van de virtuele Windows-bureaublad-gebruikers aan de virtuele machine van een bestand delen dat u zojuist hebt gemaakt.
 2. [Verbinding maken met de virtuele machine van file share](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Maak een map op het bestandsshare virtuele machine op de **C-station** die wordt gebruikt als de profiel-share.
 4. Met de rechtermuisknop op de nieuwe map, selecteert u **eigenschappen**, selecteer **delen**en selecteer vervolgens **Geavanceerd delen...** .
 5. Selecteer **deel deze map**, selecteer **machtigingen...** en selecteer vervolgens **toevoegen...** .
-6. Zoeken naar de beveiligingsgroep waaraan u de sessie hosten van virtuele machines toegevoegd, moet u ervoor zorgen dat de groep heeft **volledig beheer**.
+6. Zoeken naar de beveiligingsgroep waaraan u de virtuele Windows-bureaublad-gebruikers toegevoegd, moet u ervoor zorgen dat de groep heeft **volledig beheer**.
 7. Na het toevoegen van de beveiligingsgroep, met de rechtermuisknop op de map, selecteert u **eigenschappen**, selecteer **delen**, kopieert u de **netwerkpad** voor later gebruik.
 
 Zie voor meer informatie over machtigingen voor de [FSLogix documentatie](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ Voor het configureren van de virtuele machines met de software FSLogix, doe het 
 
 1. [Verbinding maken met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt opgegeven bij het maken van de virtuele machine.
 2. Start een internetbrowser en navigeer naar [deze koppeling](https://go.microsoft.com/fwlink/?linkid=2084562) voor het downloaden van de agent FSLogix. Als onderdeel van de openbare preview van virtuele Windows-bureaublad krijgt u een licentiesleutel om de software FSLogix te activeren. De sleutel is het LicenseKey.txt-bestand dat is opgenomen in het FSLogix agent ZIP-bestand.
-3. Installeer de agent FSLogix.
+3. Navigeer naar een \\ \\Win32\\Release of \\ \\X64\\Release in het ZIP-bestand en voer **FSLogixAppsSetup** de FSLogix-agent te installeren.
 4. Navigeer naar **Program Files** > **FSLogix** > **Apps** om te bevestigen van de agent is geïnstalleerd.
-5. Voer vanuit het startmenu **RegEdit** als beheerder. Navigeer naar **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\profielen**
-6. Maak de volgende waarden:
+5. Voer vanuit het startmenu **RegEdit** als beheerder. Navigeer naar **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Een sleutel met de naam **profielen**.
+7. De volgende waarden voor de profielen voor toets maken:
 
 | Name                | Type               | Gegevenswaarde /                        |
 |---------------------|--------------------|-----------------------------------|
 | Ingeschakeld             | DWORD              | 1                                 |
-| VHDLocations        | Waarde met meerdere tekenreeksen | "Netwerkpad voor de bestandsshare" |
-| VolumeType          | String             | VHDX                              |
-| SizeInMBs           | DWORD              | 'geheel getal voor de grootte van het profiel'     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Waarde met meerdere tekenreeksen | "Netwerkpad voor de bestandsshare"     |

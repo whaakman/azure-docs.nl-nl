@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521989"
 documentType: LandingData
-title: Documentatie voor Video Indexer
+title: Documentatie voor Azure Media Services Video Indexer
 metadata:
-  document_id: 
-  title: Documentatie voor Video Indexer | Microsoft Docs
+  document_id: null
+  title: Documentatie voor Azure Media Services Video Indexer | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
@@ -21,38 +15,38 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u inzichten ophalen uit uw video's met Video Indexer-modellen voor audio en video.<br/>Als u het verschil wilt weten tussen het gebruik van instellingen van Video Indexer en Media Services, raadpleegt u het <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">vergelijkingsdocument</a>.
+  description: 'Azure Media Services Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search en Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u inzichten ophalen uit uw video''s met Video Indexer-modellen voor audio en video.<br/>Als u het verschil wilt weten tussen het gebruik van instellingen van Video Indexer en Media Services, raadpleegt u het <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">vergelijkingsdocument</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: video-indexer-overview.md
+            html: '<p>Video Indexer bevat technologieën voor media-AI, zodat het makkelijker is om inzichten uit video''s te extraheren.</p>'
+            image:
+              src: media/index/AMSIcons-media_servicesV3.svg
+            title: Wat is Azure Media Services Video Indexer?
+  - title: QuickStarts van vijf minuten
     items:
-    - href: video-indexer-overview.md
-      html: <p>Video Indexer bevat technologieën voor media-AI, zodat het makkelijker is om inzichten uit video's te extraheren.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV3.svg
-      title: Wat is Video Indexer?
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: 'Aanmelden bij de Video Indexer-website en uw eerste video uploaden:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Aanmelden bij de Video Indexer-website en uw eerste video uploaden:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Inzichten extraheren
+            href: /azure/media-services/video-indexer/video-indexer-get-started
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Inzichten extraheren
-      href: /azure/media-services/video-indexer/video-indexer-get-started
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: 'Leer hoe u inzichten uit uw video- en audiobestanden extraheert met behulp van de Video Indexer-API:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Inzichten extraheren
-      href: /azure/media-services/video-indexer/video-indexer-use-apis
+      - type: paragraph
+        text: 'Leer hoe u inzichten uit uw video- en audiobestanden extraheert met behulp van de Video Indexer-API:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Inzichten extraheren
+            href: /azure/media-services/video-indexer/video-indexer-use-apis

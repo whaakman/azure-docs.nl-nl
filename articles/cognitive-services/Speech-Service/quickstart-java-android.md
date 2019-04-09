@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258544"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009175"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Java onder Android met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een Java-toepassing voor Android kunt ontwikkelen met behulp van de Cognitive Services Speech SDK om spraak om te zetten in tekst.
-De toepassing is gebaseerd op het Microsoft Cognitive Services Speech SDK Maven-pakket, versie 1.3.1 en Android Studio 3.1.
+De toepassing is op basis van de Maven-pakket voor spraak-SDK, versie 1.4.0 en Android Studio 3.3.
 De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits ARM- en Intel x86/x64-compatibele processors.
 
 > [!NOTE]
@@ -38,27 +38,19 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
     ![Schermafbeelding van het welkomstscherm van Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. De wizard **Create New Project** wordt weergegeven. Voer in het scherm **Create Android Project** **Quickstart** in voor **Application name**, **samples.speech.cognitiveservices.microsoft.com** voor **Company domain** en kies een projectmap. Laat de selectievakjes voor C++ en Kotlin uitgeschakeld, en selecteer **Next**.
+1. De **Kies uw project** wizard wordt weergegeven, selecteert u **telefoons en tablets** en **lege activiteit** in de activiteit selecteren in het vak. Selecteer **Volgende**.
 
-   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-02-create-android-project.png)
+   ![Schermopname van het kiezen van de wizard voor uw project](media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. Selecteer in het scherm **Target Android Devices** alleen **Phone and Tablet**. Kies in de vervolgkeuzelijst hieronder **API 23: Android 6.0 (Marshmallow)** en selecteer **Volgende**.
+1. In de **configureren van uw project** scherm, voert u **snelstartgids** als **naam**, **samples.speech.cognitiveservices.microsoft.com** als **Pakketnaam**, en kies een projectmap. Voor **minimaal API-niveau** kiezen **API 23: Android 6.0 (Marshmallow)**, alle andere selectievakjes laat dit selectievakje uitschakelt, en selecteer **voltooien**.
 
-   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. Selecteer **Empty Activity** in het scherm **Add an Activity to Mobile** en klik op **Next**.
-
-   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. Gebruik in het scherm **Configure Activity** **MainActivity** als de naam van de activiteit en **activity\_main** als de naam van de lay-out. Schakel beide selectievakjes in en selecteer **Finish**.
-
-   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-05-configure-activity.png)
+   ![Schermafbeelding van de projectwizard configureren](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio heeft even de tijd nodig om het nieuwe Android-project voor te bereiden. Configureer het project vervolgens voor gebruik van de Speech SDK en Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.3.1`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.4.0`.
 
 De Speech SDK voor Android wordt aangeboden als een [AAR (Android Library)](https://developer.android.com/studio/projects/android-library) die de vereiste bibliotheken en Android-machtigingen bevat.
 Deze wordt gehost in een Maven-opslagplaats op https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +65,7 @@ Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Stru
 
    ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Voer in het venster dat verschijnt de naam en versie van onze Speech SDK voor Android in, `com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`. Selecteer vervolgens **OK**.
+1. Voer in het venster dat verschijnt de naam en versie van onze Speech SDK voor Android in, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`. Selecteer vervolgens **OK**.
    De Speech SDK moet nu worden toegevoegd aan de lijst met afhankelijkheden, zoals hieronder wordt weergegeven:
 
    ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -100,16 +92,9 @@ We gaan een eenvoudige gebruikersinterface maken voor de toepassing. Bewerk de l
 
 De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeveer als volgt uitzien:
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
@@ -144,7 +129,7 @@ Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)
+> [Java-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 

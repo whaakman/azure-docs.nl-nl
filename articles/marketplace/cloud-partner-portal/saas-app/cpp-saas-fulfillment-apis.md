@@ -12,18 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/26/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349515"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009442"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS-uitvoerings-API's
 
-De API van de vervulling SaaS kunnen onafhankelijke softwareleveranciers (ISV's) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API maakt het ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Deze API is een vereiste voor aanbieding dat transactable SaaS-aanbiedingen op Azure Marketplace.
+De uitvoering van SaaS API's inschakelen independent software vendors (ISV) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API's kunnen ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Ze zijn vereist voor het aanbieden van transactable SaaS-aanbiedingen op Azure Marketplace.
+
+> [!WARNING]
+> De huidige versie van deze API is versie 2, die moet worden gebruikt voor alle nieuwe SaaS biedt.  Versie 1 van de API is afgeschaft en wordt onderhouden voor de ondersteuning van bestaande aanbiedingen.
+
 
 ## <a name="business-model-support"></a>Ondersteuning voor bedrijven-model
 
@@ -37,4 +41,4 @@ Deze API biedt ondersteuning voor de volgende zakelijke model mogelijkheden; U k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze interface gebruiken voor het ontwikkelen van: [SaaS vervulling API-versie 2](./cpp-saas-fulfillment-api-v2.md).
+Als u hebt nog niet gedaan, registreert u uw SaaS-toepassing in de [Azure-portal](https://ms.portal.azure.com) zoals uitgelegd in [registreren van een Azure AD-toepassing](./cpp-saas-registration.md).  Daarna gebruikt u de meest recente versie van deze interface voor het ontwikkelen van: [SaaS vervulling API-versie 2](./cpp-saas-fulfillment-api-v2.md).

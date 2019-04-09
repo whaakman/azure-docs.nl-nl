@@ -4,18 +4,21 @@ description: Hierin wordt beschreven hoe u grote aantallen on-premises virtuele 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116670"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057469"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
-Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wordt beschreven hoe u voor de beoordeling van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure Migrate](migrate-overview.md).   
+Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wordt beschreven hoe u voor de beoordeling van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> Er is een preview-versie beschikbaar waarmee de detectie van maximaal 10.000 VMware-machines in een enkel project met behulp van een enkel apparaat, als u geïnteresseerd bent in uitprobeert, meldt u zich [hier.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -155,7 +158,7 @@ Controleer dat het OVA-bestand beveiligd is voordat u deze implementeert:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Voorbeeld van gebruik: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Zorg ervoor dat de gegenereerde hash komt overeen met de volgende instellingen.
 

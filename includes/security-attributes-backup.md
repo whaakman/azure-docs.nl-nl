@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513510"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007207"
 ---
 ## <a name="preventative"></a>Preventative
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513510"
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enzovoort)| Ja | Log Analytics wordt ondersteund via Logboeken met diagnostische gegevens. Zie de Monitor voor Azure Backup beveiligde werkbelastingen met behulp van Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) voor meer informatie. |
+| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Log Analytics wordt ondersteund via Logboeken met diagnostische gegevens. Zie de Monitor voor Azure Backup beveiligde werkbelastingen met behulp van Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) voor meer informatie. |
 
 ## <a name="iam-support"></a>IAM-ondersteuning
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
 | Toegangsbeheer - verificatie| Ja | Verificatie is via Azure Active Directory. |
-| Toegangsbeheer - autorisatie| Ja | Klanten die zijn gemaakt en ingebouwde RBAC-rollen worden gebruikt. Zie Use Role-Based Access Control voor het beheren van Azure Backup-herstelpunten (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) voor meer informatie. |
+| Toegangsbeheer - autorisatie| Ja | Klanten die zijn gemaakt en ingebouwde RBAC-rollen worden gebruikt. Zie Use Role-Based Access Control voor het beheren van Azure Backup herstelpunten (/ azure/back-up/back-up-rbac-rs-kluis) voor meer informatie. |
 
 
 ## <a name="audit-trail"></a>Audittrail
@@ -55,4 +55,4 @@ ms.locfileid: "55513510"
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie enzovoort)| Ja|  |
+| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja|  |

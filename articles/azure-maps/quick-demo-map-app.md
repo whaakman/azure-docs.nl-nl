@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5e7994ba5fcd3efa061f56d7ee77f796bab16708
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 3482a5516e0a044716ac38e7a60a9a8484f73245
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449302"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056211"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Een interactief doorzoekbare kaart maken met Azure Maps
 
@@ -49,7 +49,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Sla de inhoud van dit bestand lokaal op als **AzureMapDemo.html**. Open het in een teksteditor.
-3. Zoek naar de tekenreeks `<insert-key>`. Vervang deze door de waarde van de **primaire sleutel** uit de voorgaande sectie.
+3. Zoek naar de tekenreeks `<Your Azure Maps Key>`. Vervang deze door de waarde van de **primaire sleutel** uit de voorgaande sectie.
 
 ## <a name="open-the-application"></a>De toepassing openen
 
@@ -70,7 +70,7 @@ In de zelfstudies vindt u gedetailleerde informatie over het gebruik en de confi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een Azure Maps-account gemaakt en een demo-toepassing gemaakt. Als u meer informatie wilt over het maken van uw eigen toepassing met behulp van de Azure Maps-API's, gaat u verder met de volgende zelfstudie:
+In deze quickstart hebt u een Azure Maps-account gemaakt en een demo-toepassing gemaakt. Kijk eens in de volgende zelfstudies voor meer informatie over Azure-kaarten:
 
 > [!div class="nextstepaction"]
 > [Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps](./tutorial-search-location.md)
@@ -78,7 +78,7 @@ In deze quickstart hebt u een Azure Maps-account gemaakt en een demo-toepassing 
 Bekijk de volgende handleidingen voor meer codevoorbeelden en een interactieve coderingservaring:
 
 > [!div class="nextstepaction"]
-> [Een adres vinden met behulp van de Azure Maps-zoekservice](./how-to-search-for-address.md)
+> [Een adres vinden met behulp van de search-service van Azure Maps](./how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps Map Control gebruiken](./how-to-use-map-control.md)

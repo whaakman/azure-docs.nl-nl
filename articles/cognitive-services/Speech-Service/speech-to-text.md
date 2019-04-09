@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520663"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008489"
 ---
 # <a name="what-is-speech-to-text"></a>Wat is de spraak-naar-tekst?
 
@@ -84,7 +84,7 @@ Naast het universele model door de Speech Services gebruikt, kunt u aangepaste a
 |-------|-------------|
 | [Akoestisch model](how-to-customize-acoustic-models.md) | Het maken van een aangepast akoestisch model is handig als uw toepassing, hulpprogramma's of apparaten worden gebruikt in een bepaalde omgeving, zoals in een auto of een gegevensfactory met de voorwaarden van de specifieke opnemen. Voorbeelden zijn spraak met een accent, specifieke achtergrondgeluiden of het gebruik van een specifieke microfoon voor opname. |
 | [Taalmodel](how-to-customize-language-model.md) | Maak een aangepast taalmodel ter verbetering van transcriptie van branchespecifieke vocabulaire en grammatica, zoals medische terminologie of IT-jargon. |
-| [Uitspraakmodel](how-to-customize-pronunciation.md) | Met een aangepaste uitspraak-model, kunt u de fonetische vorm en de weergave van een woord of een term kunt definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand. |
+| [Uitspraak van model](how-to-customize-pronunciation.md) | Met een aangepaste uitspraak-model, kunt u de fonetische vorm en de weergave van een woord of een term kunt definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand. |
 
 > [!NOTE]
 > Opties voor het aanpassen variëren per taal/landinstelling (Zie [ondersteunde talen](supported-languages.md)).
@@ -102,10 +102,10 @@ Als uw toepassingen, hulpprogramma's of producten die van de Bing Speech-API's o
 ## <a name="reference-docs"></a>Referentiedocumenten
 
 * [Speech-SDK](speech-sdk-reference.md)
-* [Spraak apparaten SDK](speech-devices-sdk.md)
-* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
-* [REST API: Text-to-speech](rest-text-to-speech.md)
-* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST-API: Spraak-naar-tekst](rest-speech-to-text.md)
+* [REST-API: Tekst naar spraak](rest-text-to-speech.md)
+* [REST-API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666389"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009000"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Overzicht van Azure Service Fabric
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Service Fabric biedt ook een oplossing voor de grote uitdaging van het ontwikkelen en beheren van systeemeigen cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Service Fabric is het platform van de nieuwe generatie voor het ontwikkelen en beheren van deze hoogwaardige zakelijke tier-1-toepassingen op cloudschaal die in containers worden uitgevoerd.
@@ -29,7 +29,7 @@ In deze korte video worden Service Fabric en microservices geïntroduceerd:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Naleving
-Azure Service Fabric-Resourceprovider is beschikbaar in alle Azure-regio's en is compatibel met alle certificaten voor naleving met Azure; Dit omvat het volgende: SOC, ISO, PCI DSS, HIPPA en GDRP. Lees de volgende onderwerpen voor een volledige lijst van naleving certificaten: [Compliance-aanbiedingen](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric-Resourceprovider is beschikbaar in alle Azure-regio's en is compatibel met alle certificaten voor naleving met Azure; Dit omvat het volgende: SOC, ISO, PCI DSS, HIPAA en GDRP. Lees de volgende onderwerpen voor een volledige lijst van naleving certificaten: [Compliance-aanbiedingen](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Toepassingen die uit microservices zijn samengesteld 
 Met Service Fabric kunt u schaalbare en betrouwbare toepassingen ontwikkelen en beheren die uit microservices bestaan. Deze worden met hoge dichtheid op een gedeelde groep computers uitgevoerd, een zogenaamde cluster. Het biedt een geavanceerde, lichtgewicht runtime voor het bouwen van gedistribueerde, schaalbare, staatloze en stateful microservices die worden uitgevoerd in de containers. Het biedt tevens mogelijkheden voor uitgebreide mogelijkheden voor toepassingsbeheer voor het inrichten, implementeren, bewaken, upgraden/patchen en verwijderen van geïmplementeerde toepassingen, waaronder services in containers.
@@ -91,8 +91,8 @@ Als u Service Fabric gebruikt, kunt u:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie:
-  * [Waarom een microservices-benadering voor het ontwikkelen van toepassingen?](service-fabric-overview-microservices.md)
-  * [Overzicht terminologie](service-fabric-technical-overview.md)
+  * [Waarom een microservices-benadering voor het bouwen van toepassingen?](service-fabric-overview-microservices.md)
+  * [Overzicht van de terminologie](service-fabric-technical-overview.md)
 * Een [ontwikkelomgeving voor Windows](service-fabric-get-started.md) instellen  
 * Een [ontwikkelomgeving voor Linux](service-fabric-get-started-linux.md) instellen
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)

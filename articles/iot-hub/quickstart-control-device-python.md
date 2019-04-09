@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: ce3bf98a5f31f18c6759b202d53d8a1ced46296e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519660"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005840"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Quickstart: Een apparaat dat is verbonden met een IoT-hub (Python) beheren
 
@@ -51,6 +51,12 @@ python --version
 python3 --version
 ```
 
+Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Python van https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip en pakt u het ZIP-archief uit.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
@@ -65,14 +71,13 @@ Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een Io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
     **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
     **MyPythonDevice** : dit is de naam van het geregistreerde apparaat. Gebruik MyPythonDevice zoals weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
@@ -173,4 +178,4 @@ In deze snelstartgids hebt u vanuit een back-endtoepassing een directe methode o
 Ga verder met de volgende zelfstudie als u wilt leren hoe u berichten van een apparaat naar andere bestemmingen in de cloud kunt routeren.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Routeren van telemetriegegevens naar verschillende eindpunten voor verwerking](tutorial-routing.md)
+> [Zelfstudie: Telemetrie van de route naar verschillende eindpunten voor verwerking](tutorial-routing.md)

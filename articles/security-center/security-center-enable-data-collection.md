@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/02/2019
 ms.author: monhaber
-ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578948"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006751"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's), virtuele-machineschaalsets, IaaS-containers en niet-Azure (met inbegrip van on-premises) computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De agent van Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -77,7 +77,7 @@ Security center kan automatisch een standaardwerkruimte voor het opslaan van de 
 Een werkruimte te selecteren die zijn gemaakt door Security Center:
 
 1. Onder **configuratie van de standaardwerkruimte**, selecteer werkruimten die zijn gemaakt door Security center gebruiken.
-   ![Prijscategorie selecteren][10] 
+   ![Een prijscategorie selecteren][10] 
 
 1. Klik op **Opslaan**.<br>
     Security Center maakt u een nieuwe resource-groep en de standaard werkruimte in die geolocatie en verbindt de agent voor de desbetreffende werkruimte. De naamconventie voor de werkruimte en de resource is:<br>
@@ -138,7 +138,7 @@ Selecteer een bestaande Log Analytics-werkruimte:
      
     b.  Selecteer de gewenste werkruimte waarin u van plan bent om te koppelen van de agent door te klikken op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
         ![Selecteer werkruimte][8] c. De prijscategorie instellen.
-        ![Prijscategorie selecteren][9] 
+        ![Een prijscategorie selecteren][9] 
    
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
@@ -179,7 +179,7 @@ Hier volgt een compleet overzicht van de beveiliging en AppLocker gebeurtenis-id
 | --- | --- |
 | Minimaal | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Algemeen | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Algemeen | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -254,9 +254,9 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
    a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
      
    b.  Selecteer de werkruimte waarin u van plan bent om de agent verbinding te maken. Zorg ervoor dat de werkruimte zich in hetzelfde abonnement u in Security Center en dat u lees-/ schrijfmachtigingen beschikt in de werkruimte hebben.
-       ![Selecteer een werkruimte][8]
+       ![Werkruimte selecteren][8]
 3. De prijscategorie instellen.
-   ![Prijscategorie selecteren][9] 
+   ![Een prijscategorie selecteren][9] 
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
    > 

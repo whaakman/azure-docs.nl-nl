@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802114"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009594"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Toevoegen of verwijderen van gebruikers met Azure Active Directory
 Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers van uw organisatie Azure Active Directory (Azure AD).
@@ -47,7 +47,7 @@ U kunt een nieuwe gebruiker met behulp van de Azure Active Directory-portal make
 
    - **Groepen.** U kunt eventueel de gebruiker toevoegen aan een of meer bestaande groepen. U kunt ook de gebruiker toevoegen aan groepen op een later tijdstip. Zie voor meer informatie over het toevoegen van gebruikers aan groepen [hoe u een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md).
 
-   - **Directory-rol.** (Optioneel) u kunt de gebruiker toevoegen aan een een Azure AD-beheerdersrol. U kunt de gebruiker moet een globale beheerder of een of meer van de beperkte beheerdersrollen in Azure AD. Zie voor meer informatie over het toewijzen van rollen [rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md).
+   - **Directory-rol.** U kunt eventueel de gebruiker toevoegen aan de rol van een Azure AD-beheerder. U kunt de gebruiker moet een globale beheerder of een of meer van de beperkte beheerdersrollen in Azure AD. Zie voor meer informatie over het toewijzen van rollen [rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md).
 
 4. Kopieer de automatisch gegenereerde wachtwoord opgegeven in de **wachtwoord** vak. U moet dit wachtwoord geven aan de gebruiker voor de initiële aanmeldingsproces.
 

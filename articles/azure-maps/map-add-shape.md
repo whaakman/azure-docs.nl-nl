@@ -9,20 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579288"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057022"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm toevoegen aan een kaart
 
-Dit artikel laat u het toevoegen van een [vorm](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) aan de kaart en update-eigenschappen van een bestaande vorm op de kaart.
+In dit artikel leest u hoe geometrie op de kaart met behulp van lagen van regel en Veelhoek weergeven. Azure Maps Web SDK ondersteunt ook het maken van de cirkel geometrie zoals gedefinieerd in de [uitgebreid GeoJSON-schema](extend-geojson.md#circle). Alle functie geometrie kunnen ook worden eenvoudig bijgewerkt als verpakt met de [vorm](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klasse.
 
 <a id="addALine"></a>
 
-## <a name="add-a-line"></a>Een regel toevoegen
+## <a name="add-lines-to-the-map"></a>Voeg regels toe aan de kaart
+
+`LineString` en `MultiLineString` functies worden gebruikt om aan te duiden paden en die worden beschreven op de kaart.
+
+## <a name="use-a-line"></a>Een regel gebruiken
 
 <iframe height='500' scrolling='no' title='Een regel toegevoegd aan een kaart' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>een regel toegevoegd aan een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -33,7 +37,7 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 
 Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Het laatste blok van code wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de regel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de regel wordt weergegeven nadat de kaart volledig is geladen.
 
-## <a name="add-symbols-along-a-line"></a>Symbolen langs een lijn toevoegen
+### <a name="add-symbols-along-a-line"></a>Symbolen langs een lijn toevoegen
 
 In dit voorbeeld laat zien hoe pictogrammen langs een lijn toevoegen op de kaart. Wanneer met behulp van een laag symbool, stelt u de plaatsingsoptie '' naar 'line', wordt dit weergegeven van de symbolen op de lijn en draaien de pictogrammen (0 graden = rechts).
 
@@ -43,7 +47,17 @@ In dit voorbeeld laat zien hoe pictogrammen langs een lijn toevoegen op de kaart
 Zie de Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show pijl langs lijn</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-line-layer"></a>Een lijnlaag aanpassen
+### <a name="line-stroke-gradient"></a> Een lijn-verloop toevoegen aan een regel
+
+U kunt ook een regel met een kleurovergang van de kleuren om weer te geven van de overgang van één regel segment naar de volgende niet alleen de lijnkleur van een enkel van toepassing op een regel invullen. Verlopen van de regel kunnen bijvoorbeeld worden gebruikt om aan te duiden wijzigingen gedurende de tijd en de afstand of de verschillende temperaturen in een verbonden line-of-objecten. Om deze functie op een regel toepast, de gegevensbron moet hebben de `lineMetrics` optie is ingesteld op true, en vervolgens een kleurovergang expressie kan worden doorgegeven aan de `strokeColor` optie van de regel. De lijn kleurovergang expressie heeft tot verwijzing naar de `['line-progress']` gegevens expressie waarmee wordt aangegeven dat de berekende regel metrische gegevens op de expressie.
+
+<br/>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Lijn met kleurovergang voor de lijn" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zie de Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>lijn met kleurovergang voor de lijn</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### <a name="customize-a-line-layer"></a>Een lijnlaag aanpassen
 
 De regel van de verschillende opties voor stijl laag. Hier is een hulpprogramma voor ze kunt uitproberen.
 
@@ -52,26 +66,15 @@ De regel van de verschillende opties voor stijl laag. Hier is een hulpprogramma 
 <iframe height='700' scrolling='no' title='Lijnopties laag' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>laag Regelopties</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-<a id="addACircle"></a>
-
-## <a name="add-a-circle"></a>Voeg een cirkel toe
-
-<iframe height='500' scrolling='no' title='Voeg een cirkel toe aan een kaart' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>een cirkel toevoegen aan een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Het eerste vereiste blok van code in de bovenstaande code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
-
-In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) en heeft een `subType` eigenschap ingesteld op "cirkel" en een `radius` eigenschap waarde meters. Wanneer een punt-functie met een subType van cirkel wordt toegevoegd aan een gegevensbron, converteert het naar een circulaire veelhoek binnen de kaart.
-
-Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
-
 <a id="addAPolygon"></a>
 
-## <a name="add-a-polygon"></a>Toevoegen van een veelhoek
+## <a name="add-a-polygon-to-the-map"></a>Een veelhoek toevoegen aan de kaart
 
-Er zijn twee verschillende manieren kunt u een veelhoek toevoegen aan de kaart. Beide worden beschreven in de volgende voorbeelden.
+`Polygon` en `MultiPolygon` functies worden vaak gebruikt om weer te geven van een gebied op een kaart. 
 
-### <a name="use-polygon-layer"></a>Polygoonlaag gebruiken 
+### <a name="use-a-polygon-layer"></a>Gebruik een polygoonlaag 
+
+Een polygoonlaag geeft het gebied van een polygoon bevindt. 
 
 <iframe height='500' scrolling='no' title='Een veelhoek toevoegen aan een kaart ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>een veelhoek toevoegen aan een kaart </a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -82,7 +85,9 @@ In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behu
 
 Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
 
-### <a name="use-polygon-and-line-layer"></a>Polygoon- en laag gebruiken
+### <a name="use-a-polygon-and-line-layer-together"></a>Een polygoon- en laag samen gebruiken
+
+Een lijnlaag kan worden gebruikt om de omtrek van een polygoon weer te geven. 
 
 <iframe height='500' scrolling='no' title='Polygoon- en laag toe te voegen veelhoek' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygoon- en laag toe te voegen veelhoek</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -95,7 +100,10 @@ Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/
 
 Het laatste blok van code wordt de polygoon- en lijnlagen toegevoegd aan de kaart. De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de veelhoek wordt weergegeven nadat de kaart volledig is geladen.
 
-## <a name="fill-a-polygon-with-a-pattern"></a>Vul een veelhoek met een patroon
+> [!TIP]
+> Lagen van de regel standaard worden de coördinaten van polygonen, evenals regels in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen LineString wordt weergegeven de `filter` eigenschap van de laag `['==', ['geometry-type'], 'LineString']` of `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` als u wilt opnemen en MultiLineString-functies.
+
+### <a name="fill-a-polygon-with-a-pattern"></a>Vul een veelhoek met een patroon
 
 Een installatiekopie-patroon kan ook worden gebruikt naast het invullen van een veelhoek met een kleur. Laden van een installatiekopie-patroon in de maps-installatiekopie sprite resources en deze vervolgens deze installatiekopie met de `fillPattern` eigenschap van de polygoonlaag.
 
@@ -105,7 +113,7 @@ Een installatiekopie-patroon kan ook worden gebruikt naast het invullen van een 
 Zie de Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>veelhoek opvulling patroon</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-polygon-layer"></a>Een polygoonlaag aanpassen
+### <a name="customize-a-polygon-layer"></a>Een polygoonlaag aanpassen
 
 De polygoonlaag heeft alleen een aantal opties voor stijl. Hier is een hulpprogramma voor ze kunt uitproberen.
 
@@ -114,9 +122,40 @@ De polygoonlaag heeft alleen een aantal opties voor stijl. Hier is een hulpprogr
 <iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="update-a-shape"></a>Bijwerken van een vorm
+<a id="addACircle"></a>
 
-Een Shapeklasse verpakt een [geometrie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) of [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) en maakt het gemakkelijk om te werken en ze zelf onderhouden.
+## <a name="add-a-circle-to-the-map"></a>Voeg een cirkel toe aan de kaart
+
+Azure kaarten maakt gebruik van een uitgebreide versie van de GeoJSON-schema waarmee u een definitie voor cirkels, zoals vermeld [hier](extend-geojson.md#circle). Een cirkel kan worden weergegeven op de kaart door het maken van een `Point` functie waarvoor een `subType` eigenschap met de waarde `Circle` en een `radius` eigenschap met een getal dat staat voor de radius in meters. Bijvoorbeeld:
+
+```javascript
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.126986, 47.639754]
+    },
+    "properties": {
+        "subType": "Circle",
+        "radius": 100
+    }
+}  
+```
+
+Azure Maps Web SDK converteert deze `Pooint` functies in `Polygon` functies op de achtergrond en kunnen worden weergegeven op de kaart met behulp van polygoon- en lijnlagen zoals hier wordt weergegeven.
+
+<iframe height='500' scrolling='no' title='Voeg een cirkel toe aan een kaart' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>een cirkel toevoegen aan een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Het eerste vereiste blok van code in de bovenstaande code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+
+In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) en heeft een `subType` eigenschap ingesteld op "cirkel" en een `radius` eigenschap waarde meters. Wanneer een punt-functie met een subType van cirkel wordt toegevoegd aan een gegevensbron, converteert het naar een circulaire veelhoek binnen de kaart.
+
+Een [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) weergegeven van de gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) op de kaart. Het laatste blok van code wordt gemaakt en wordt een polygoonlaag toegevoegd aan de kaart. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). De gegevensbron en de polygoonlaag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
+
+## <a name="make-a-geometry-easy-to-update"></a>Een geometrie gemakkelijk om bij te werken
+
+Een `Shape` klasse wordt een [geometrie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) of [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) en maakt het gemakkelijk om te werken en ze zelf onderhouden.
 `new Shape(data: Feature<data.Geometry, any>)` vormt een shape-object en initialiseert ze met de opgegeven functie.
 
 <br/>
@@ -142,4 +181,4 @@ Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten
 > [HTML-markeringen](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Een kaartLaag heatmap toevoegen](./map-add-heat-map-layer.md)
+> [Een heatmap-laag toevoegen](./map-add-heat-map-layer.md)

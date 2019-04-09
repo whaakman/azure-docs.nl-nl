@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906086"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057384"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -350,13 +350,14 @@ Als u inschakelt de **vertrouwde Microsoft-services toestaan...**  uitzondering,
 |Service|Resource-providernaam|Doel|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.Backup|Back-ups en herstelbewerkingen van niet-beheerde schijven in virtuele machines van IAAS uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Site Recovery|Microsoft.SiteRecovery |Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Data Box|Microsoft.DataBox|Hiermee schakelt het importeren van gegevens naar Azure met behulp van Data Box. [Meer informatie](/azure/databox/data-box-overview).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure HDInsight|Microsoft.HDInsight|De initiële inhoud van het standaardbestandssysteem voor een nieuw HDInsight-cluster inrichten. [Meer informatie](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
+|Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure Site Recovery|Microsoft.SiteRecovery |Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Hiermee kunt importeren en exporteren van scenario's met behulp van PolyBase. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Toegang tot gegevens van Storage analytics

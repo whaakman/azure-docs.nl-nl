@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6c38591aa283491369562db8ea840ef7e5b17e6d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402623"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009832"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -193,10 +193,10 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
 
 * [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
-* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [C#-script (.csx)](functions-reference-csharp.md#environment-variables)
 * [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
+* [Javascript](functions-reference-node.md#environment-variables)
 
 Wanneer er is geen geldige verbindingsreeks is ingesteld voor [ `AzureWebJobsStorage` ] en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
 
@@ -475,7 +475,7 @@ Naar het bestand een bug of functie-aanvraag [opent u een GitHub-probleem](https
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portal]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 ['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

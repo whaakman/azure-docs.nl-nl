@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116687"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008899"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>De firmware-update starten
 
-U maakt een [automatische apparaatbeheerconfiguratie](iot-hub-auto-device-config.md#create-a-configuration) in de back-endtoepassing om het firmware-updateproces te starten op alle apparaten die zijn getagd met het **devicetype** koelinstallatie. In deze sectie kunt u zien hoe u:
+U maakt een [automatische apparaatbeheerconfiguratie](iot-hub-automatic-device-management.md#create-a-configuration) in de back-endtoepassing om het firmware-updateproces te starten op alle apparaten die zijn getagd met het **devicetype** koelinstallatie. In deze sectie kunt u zien hoe u:
 
 * Een configuratie maakt vanuit een back-endtoepassing.
 * De taak bewaakt tot deze is uitgevoerd.
@@ -115,10 +115,10 @@ De back-endtoepassing maakt de volgende configuratie:
 
 De configuratie bevat de volgende secties:
 
-* `content` geeft de gewenste eigenschappen van de firmware op die naar de geselecteerde apparaten worden verzonden.
-* `metrics` geeft de uit te voeren query's op voor het rapporteren van de status van de firmware-update.
-* `targetCondition` selecteert de apparaten die de firmware-update moeten ontvangen.
-* `priorty` stelt de relatieve prioriteit van deze configuratie in ten opzichte van andere configuraties.
+* `content` Hiermee geeft u de eigenschappen van de firmware gewenst verzonden naar de geselecteerde apparaten.
+* `metrics` Hiermee geeft u de query's om uit te voeren dat rapport de status van de firmware-update.
+* `targetCondition` de apparaten voor het ontvangen van de firmware-update selecteert.
+* `priorty` Hiermee stelt u de relatieve prioriteit van deze configuratie op andere configuraties.
 
 De back-endapplicatie gebruikt de volgende code om de configuratie voor het instellen van de gewenste eigenschappen te maken:
 

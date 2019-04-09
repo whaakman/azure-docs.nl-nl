@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/27/2019
-ms.openlocfilehash: 8c297c973a8d6a03b6d5990164bbde1485e36023
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1fca4f6e3aacfee52f348f338806b98d6e61994b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170901"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006423"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (Node.js)
 
@@ -45,6 +45,12 @@ Gebruik de volgende opdracht om de huidige versie van Node.js op uw ontwikkelcom
 node --version
 ```
 
+Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Node.js van https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip en pakt u het ZIP-archief uit.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
@@ -59,14 +65,13 @@ Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een Io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken.
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **MyNodeDevice**: De naam van het apparaat dat u gaat registreren. Gebruik **MyNodeDevice**, zoals weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
@@ -160,4 +165,4 @@ In deze snelstart hebt u vanuit een back-endtoepassing een directe methode op ee
 Ga verder met de volgende zelfstudie als u wilt leren hoe u berichten van een apparaat naar andere bestemmingen in de cloud kunt routeren.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Routeren van telemetriegegevens naar verschillende eindpunten voor verwerking](tutorial-routing.md)
+> [Zelfstudie: Telemetrie van de route naar verschillende eindpunten voor verwerking](tutorial-routing.md)

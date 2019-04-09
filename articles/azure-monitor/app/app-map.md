@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622107"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009192"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -36,7 +36,7 @@ Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedi
 
 U ziet de volledige toepassing-topologie voor meerdere niveaus van gerelateerde toepassingsonderdelen. Onderdelen mogelijk op verschillende Application Insights-resources of verschillende rollen in een enkele resource. Het toepassingsoverzicht vindt onderdelen door de volgende HTTP-afhankelijkheidsaanroepen tussen servers met de Application Insights-SDK geïnstalleerd. 
 
-Deze ervaring wordt gestart met progressieve detectie van de onderdelen. Wanneer u eerst het toepassingsoverzicht laadt, wordt een set van query's worden geactiveerd voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel. Een knop in de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
+Deze ervaring wordt gestart met progressieve detectie van de onderdelen. Wanneer u eerst het toepassingsoverzicht laadt, wordt een set van query's voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel geactiveerd. Een knop in de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
 
 Op 'Toewijzingsonderdelen bijwerken' klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd. Dit kan een minuut laden duren afhankelijk van de complexiteit van uw toepassing.
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -184,6 +185,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Understanding Cloud.RoleName binnen de context van het Toepassingsoverzicht
+
+Wat hoe om na te denken over Cloud.RoleName het kan handig zijn om te kijken naar een overzicht van de toepassing die meerdere Cloud.RoleNames aanwezig is:
+
+![Schermafbeelding van de toepassing-kaart](media/app-map/cloud-rolename.png)
+
+In het Toepassingsoverzicht boven elk van de namen in groen vakken zijn Cloud.RoleName/role waarden voor verschillende aspecten van deze bepaalde gedistribueerde toepassing. Dus voor deze app bijbehorende rollen bestaan uit: `Authentication`, `acmefrontend`, `Inventory Management`, een `Payment Processing Worker Role`. 
+
+In het geval van deze app elke van deze `Cloud.RoleNames` vertegenwoordigt ook een andere unieke Application Insights-resource met hun eigen instrumentatiesleutels. Omdat de eigenaar van deze toepassing toegang tot elk van deze vier verschillende Application Insights-resources heeft, kan overzicht van de toepassing een overzicht van de onderliggende relaties samen te voegen.
+
+Voor de [officiële definities](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+U kunt ook is Cloud.RoleInstance handig voor scenario's waarbij Cloud.RoleName u leest het probleem zich ergens in uw web-front-end, maar u mogelijk actief uw web-front-end op meerdere servers met load balancing, de mogelijkheid om in te zoomen op een dieper laag via Kusto-query's en de wetenschap dat als het probleem van invloed is op kan alle web-front-servers /-exemplaren of slechts een zeer belangrijk zijn.
+
+Een scenario waarin u mogelijk wilt overschrijven van de waarde voor Cloud.RoleInstance kan zijn als uw app wordt uitgevoerd in een omgeving met beperkte waarbij alleen de afzonderlijke server weet mogelijk niet voldoende informatie te vinden van een bepaald probleem.
 
 Zie voor meer informatie over het onderdrukken van de eigenschap cloud_RoleName met telemetrie initializers, [eigenschappen toevoegen: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 

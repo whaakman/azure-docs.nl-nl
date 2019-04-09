@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: f5ec6a16de46a7902f7ab739922dc756c96702e0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010970"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004793"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Quickstart: telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (Java)
 
@@ -49,6 +49,12 @@ Gebruik de volgende opdracht om de huidige versie van Maven op uw ontwikkelcompu
 mvn --version
 ```
 
+Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Download het Java-voorbeeldproject van https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip en pak het ZIP-archief uit.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
@@ -59,14 +65,13 @@ Download het Java-voorbeeldproject van https://github.com/Azure-Samples/azure-io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken.
+1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **MyJavaDevice**: De naam van het apparaat dat u gaat registreren. Gebruik **MyJavaDevice** zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
@@ -164,4 +169,4 @@ In deze snelstartgids hebt u een IoT-hub geconfigureerd, een apparaat geregistre
 Ga verder met de volgende snelstartgids als u wilt weten hoe u een gesimuleerd apparaat beheert vanuit een back-endtoepassing.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-java.md)
+> [Quickstart: Een apparaat dat is verbonden met een IoT-hub beheren](quickstart-control-device-java.md)

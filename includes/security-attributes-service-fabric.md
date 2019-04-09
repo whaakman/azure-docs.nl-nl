@@ -2,22 +2,22 @@
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 179d87a0c1af587148f1b5ffa2cad8085ef0886f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 41a8d6c2812b0fbd1d7e2fd4fd88a4343b52714f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306873"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007273"
 ---
 ## <a name="preventative"></a>Preventative
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | De klant is eigenaar van het cluster en de schaalset voor virtuele machine (VM) het cluster is gebouwd op. Azure disk encryption kan worden ingeschakeld op de VM-schaalset. |
+| Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | De klant is eigenaar van het cluster en de schaalset voor virtuele machine (VM) het cluster is gebouwd op. Azure disk encryption kan worden ingeschakeld op de virtuele-machineschaalset. |
 | Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja |  |
-| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Ja | De klant is eigenaar van het cluster en de schaalset voor virtuele machine (VM) het cluster is gebouwd op. Azure disk encryption kan worden ingeschakeld op de VM-schaalset. |
+| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Ja | De klant is eigenaar van het cluster en de schaalset voor virtuele machine (VM) het cluster is gebouwd op. Azure disk encryption kan worden ingeschakeld op de virtuele-machineschaalset. |
 | Versleuteling op kolom (Azure-gegevensservices)| N/A |  |
 | API-aanroepen die zijn versleuteld| Ja | Service Fabric-API-aanroepen worden gemaakt via Azure Resource Manager. Een geldig JSON webtoken (JWT) is vereist. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "56306873"
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enzovoort)| Ja | Met behulp van Azure-ondersteuning en ondersteuning voor externe bewaking. |
+| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Met behulp van Azure-ondersteuning en ondersteuning voor externe bewaking. |
 
 ## <a name="iam-support"></a>IAM-ondersteuning
 
@@ -55,5 +55,5 @@ ms.locfileid: "56306873"
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie enzovoort)| Ja | Configuratie van de service is samengesteld en geïmplementeerd met behulp van Azure implementeren. De code (toepassings- en runtime) is samengesteld met behulp van Azure bouwen.
+| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja | Configuratie van de service is samengesteld en geïmplementeerd met behulp van Azure implementeren. De code (toepassings- en runtime) is samengesteld met behulp van Azure bouwen.
  |

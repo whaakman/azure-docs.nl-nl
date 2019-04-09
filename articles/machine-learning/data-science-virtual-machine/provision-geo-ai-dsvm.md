@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858135"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008835"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Een geografisch kunstmatige intelligentie-Machine in Azure inrichten 
 
@@ -42,12 +42,12 @@ Hier volgt de procedure voor het maken van een exemplaar van de Geo AI Data Scie
 
 1. Navigeer naar de virtuele machine weergeven op [Azure-portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Selecteer de **maken** onder in de wizard een moeten worden genomen.
-![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![maken-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. De wizard die wordt gebruikt voor het maken van de Geo-DSVM vereist **invoer** voor elk van de **vier stappen** geïnventariseerd aan de rechterkant van de volgende afbeelding. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
 
 
 
-   - **Basisinstellingen**
+   - **Basics**
 
       1. **Naam**: Naam van de data science-server die u maakt.
 
@@ -87,7 +87,7 @@ Anders kunt u zich aanmelden voor nieuwe ArcGIS-account en -licentie of vraag ee
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Zodra u aanmelden voor een een betaalde versie of een gratis proefaccount ArcGIS hebt, kunt u ArcGIS Pro machtigen voor uw account door de instructies in de [aan de slag met ArcGIS Pro-documentatie](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Nadat u zich registreert voor een van beide een betaalde of gratis proefversie ArcGIS-account, kunt u ArcGIS Pro machtigen voor uw account door de instructies in [aan de slag met ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Nadat u zich aanmeldt bij ArcGIS Pro desktop met uw account ArcGIS, bent u klaar om te beginnen met de data science-hulpprogramma's die zijn geïnstalleerd en geconfigureerd op de virtuele machine voor uw georuimtelijke analyses en machine learning-projecten.
 

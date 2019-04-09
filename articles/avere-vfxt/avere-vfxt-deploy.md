@@ -4,14 +4,14 @@ description: Stappen voor het implementeren van het cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409683"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056602"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
@@ -31,18 +31,17 @@ Zorg ervoor dat u deze vereisten hebt opgelost voordat u met behulp van de sjabl
 1. [Nieuw abonnement](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Eigenaarsmachtigingen voor abonnement](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Het quotum voor het cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Aangepaste rollen](avere-vfxt-prereqs.md#create-access-roles) -moet u een rol voor het beheer van toegang op basis van rollen om toe te wijzen aan de clusterknooppunten. U hebt de mogelijkheid ook een aangepaste toegang-rol voor de netwerkcontroller cluster maken, maar de meeste gebruikers de rol eigenaar standaard, waardoor de bevoegdheden van de netwerkcontroller overeenkomt op een resourcegroepeigenaar zal duren. Lezen [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md#owner) voor meer informatie.
 1. [Storage service-eindpunt (indien nodig)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - vereist voor implementeert met behulp van een bestaand virtueel netwerk en het maken van blob-opslag
 
 Lees voor meer informatie over de stappen voor de implementatie van cluster en het plannen van [van plan bent uw Avere vFXT systeem](avere-vfxt-deploy-plan.md) en [implementatieoverzicht](avere-vfxt-deploy-overview.md).
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>De vFXT Avere voor Azure maken
 
-Toegang tot de sjabloon maken in Azure portal door te zoeken naar Avere en selecteren ' Avere vFXT ARM implementatie ". 
+Toegang tot de sjabloon maken in Azure portal door te zoeken naar Avere en 'Avere vFXT voor Azure ARM-sjabloon' selecteren. 
 
-![Stukjes browservenster met de Azure-portal met brood 'Nieuw > Marketplace > Alles'. In de alles pagina, het zoekveld heeft de term 'avere' en het tweede resultaat ' Avere vFXT ARM implementatie ' wordt beschreven in red om deze te markeren.](media/avere-vfxt-template-choose.png)
+![Stukjes browservenster met de Azure-portal met brood 'Nieuw > Marketplace > Alles'. De term 'avere' en het tweede resultaat, "Avere vFXT voor Azure ARM-sjabloon" in alles op de pagina, het zoekveld wordt beschreven in red om deze te markeren.](media/avere-vfxt-template-choose.png)
 
-Na het lezen van gegevens op de pagina Avere vFXT ARM-implementatie, klikt u op **maken** om te beginnen. 
+Lees de informatie over de vFXT Avere voor Azure ARM-sjabloon pagina en klik op **maken** om te beginnen. 
 
 ![Azure marketplace met de eerste pagina van de implementatie van sjabloon weergeven](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Vul in de volgende informatie:
 
 * **Wachtwoord** of **openbare SSH-sleutel** -afhankelijk van het verificatietype dat u hebt geselecteerd, moet u een openbare RSA-sleutel of een wachtwoord in de volgende velden opgeven. Deze referentie gebruikt met de eerder opgegeven gebruikersnaam.
 
-* **Avere cluster rol-ID maken** -dit veld gebruiken om op te geven van de functie voor het beheer van toegang voor de clustercontroller. De standaardwaarde is de ingebouwde rol [eigenaar](../role-based-access-control/built-in-roles.md#owner). Eigenaarsbevoegdheden voor de clustercontroller zijn beperkt tot de resourcegroep van het cluster. 
-
-  U moet de unieke id die overeenkomt met de rol. Voor de standaardwaarde (eigenaar) is de GUID 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. Als u de GUID voor een aangepaste rol zoekt, gebruikt u deze opdracht: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Abonnement** -Selecteer het abonnement voor de vFXT Avere. 
 
 * **Resourcegroep** : Selecteer een bestaande lege resourcegroep voor de Avere vFXT cluster, of klik op 'Nieuw' en voer de naam van een nieuwe resourcegroep. 
@@ -97,10 +88,6 @@ De tweede pagina van de sjabloon voor de implementatie kunt u de clustergrootte,
 * **Aantal clusterknooppunten Avere vFXT** -kiest u het aantal knooppunten te gebruiken in het cluster. De minimumwaarde is drie knooppunten en de maximumwaarde is 12. 
 
 * **Wachtwoord voor het beheer van cluster** -maken van het wachtwoord voor Clusterbeheer. Dit wachtwoord wordt gebruikt met de gebruikersnaam ```admin``` zich aanmeldt bij het cluster van het Configuratiescherm om te controleren van het cluster en om instellingen te configureren.
-
-* **De clusterfunctie operations Avere** -Geef de naam van de access control-rol voor de clusterknooppunten. Dit is een aangepaste rol die is gemaakt als een vereiste stap. 
-
-  Het voorbeeld dat wordt beschreven in [maken van de functie cluster knooppunt toegang](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) slaat het bestand als ```avere-operator.json``` en de bijbehorende naam is ```avere-operator```.
 
 * **De naam van de cluster vFXT Avere** -Geef het cluster een unieke naam. 
 
@@ -138,7 +125,7 @@ Pagina drie bevat een overzicht van de configuratie en valideert de parameters. 
 
 ![Derde pagina van de sjabloon voor de implementatie - validatie](media/avere-vfxt-deploy-3.png)
 
-Op de vierde pagina, klikt u op de **maken** knop aan de voorwaarden accepteren en de vFXT Avere voor Azure-cluster maken. 
+Voer alle vereiste contactgegevens op de vierde pagina, en klik op de **maken** knop aan de voorwaarden accepteren en de vFXT Avere voor Azure-cluster maken. 
 
 ![Vierde pagina van de sjabloon voor de implementatie - voorwaarden en bepalingen, knop maken](media/avere-vfxt-deploy-4.png)
 

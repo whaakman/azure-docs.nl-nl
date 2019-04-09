@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793633"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056674"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -67,6 +67,23 @@ Wanneer u vooraf configureren en boeken scripts, u kunt parameters doorgeven net
 Als u een ander objecttype nodig hebt, kunt u het casten naar een ander type met uw eigen logica in het runbook.
 
 Naast de standaard runbookparameters, is een extra parameter opgegeven. Deze parameter is **SoftwareUpdateConfigurationRunContext**. Deze parameter is een JSON-tekenreeks en als u de parameter in het script voor vóór of na definieert, wordt automatisch doorgegeven door de update-implementatie. De parameter bevat informatie over de update-implementatie, die een subset van gegevens die zijn geretourneerd door de [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) de volgende tabel ziet u de eigenschappen die zijn opgegeven in de variabele:
+
+## <a name="stopping-a-deployment"></a>Een implementatie stoppen
+
+Als u wilt stoppen van een implementatie op basis van een Pre-script dat u moet [throw](automation-runbook-execution.md#throw) een uitzondering. Als u een uitzondering genereren, de implementatie en post-script nog steeds uitgevoerd. De [voorbeeldrunbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in de galerie toont hoe u dit kunt doen. Hier volgt een codefragment in dat runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext eigenschappen
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>De implementatie van de patch afbreken
+
+Als de Pre-script een fout retourneert, kunt u om af te breken van uw implementatie. Om dit te doen, moet u [throw](/powershell/module/microsoft.powershell.core/about/about_throw) een fout in het script voor een logica die een fout vormt.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>Bekende problemen
 
 * U toevoegen geen objecten of -matrices aan de parameters bij het gebruik van scripts voor vóór en na. Het runbook zal mislukken.
@@ -240,5 +268,5 @@ if ($summary.Type -eq "Error")
 Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
 
 > [!div class="nextstepaction"]
-> [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
+> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
 
