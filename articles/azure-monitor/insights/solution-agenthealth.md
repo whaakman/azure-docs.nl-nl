@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426219"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Oplossing status van agent in Azure Monitor
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle agents rapporteren rechtstreeks aan de Log Analytics-werkruimte in Azure Monitor of een System Center Operations Manager-beheergroep verbonden met Azure Monitor, die zich niet meer reageert en het indienen van operationele gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -51,7 +51,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | Beheergroep System Center Operations Manager | Ja | Heartbeat-gebeurtenissen worden verzameld van agents die rapporteren aan de beheergroep elke 60 seconden en vervolgens doorgestuurd naar Azure Monitor. Een directe verbinding van Operations Manager-agents naar Azure Monitor is niet vereist. Gegevens van heartbeat-gebeurtenissen uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte.|
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatus** tegel wordt toegevoegd aan uw dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![De tegel Status van agent in het dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatus** tegel wordt toegevoegd aan uw dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![Tegel van de oplossing status van agent op dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te openen.  Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de tien belangrijkste gebeurtenissen naar aantal die overeenkomen met de criteria van die kolom voor de opgegeven periode. U kunt de volledige lijst met gebeurtenissen weergeven door linksonder elke kolom **Alles weergeven** te selecteren. Dit kan overigens ook door op de kolomkop te klikken.
 
@@ -76,28 +76,28 @@ Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben de 
 
 | Eigenschap | Description |
 | --- | --- |
-| Type | *Heartbeat*|
-| Categorie | De waarde is *Direct Agent*, *SCOM Agent* of *SCOM Management Server*.|
-| Computer | De naam van de computer.|
-| OSType | Windows- of Linux-besturingssysteem.|
-| OSMajorVersion | De primaire versie van het besturingssysteem.|
-| OSMinorVersion | De secundaire versie van het besturingssysteem.|
-| Versie | Log Analytics-Agent of Operations Manager-Agent-versie.|
-| SCAgentChannel | De waarde is *Direct* en/of *SCManagementServer*.|
-| IsGatewayInstalled | Als Log Analytics gateway is geïnstalleerd, is waarde *waar*, anders wordt de waarde is *false*.|
-| ComputerIP | Het IP-adres van de computer.|
-| RemoteIPCountry | De geografische locatie waar de computer is geïmplementeerd.|
-| ManagementGroupName | De naam van de beheergroep van Operations Manager.|
-| SourceComputerId | De unieke ID van de computer.|
-| RemoteIPLongitude | De lengtegraad van geografische locatie van de computer.|
-| RemoteIPLatitude | De breedtegraad van de geografische locatie van de computer.|
+| `Type` | *Heartbeat*|
+| `Category` | De waarde is *Direct Agent*, *SCOM Agent* of *SCOM Management Server*.|
+| `Computer` | De naam van de computer.|
+| `OSType` | Windows- of Linux-besturingssysteem.|
+| `OSMajorVersion` | De primaire versie van het besturingssysteem.|
+| `OSMinorVersion` | De secundaire versie van het besturingssysteem.|
+| `Version` | Log Analytics-Agent of Operations Manager-Agent-versie.|
+| `SCAgentChannel` | De waarde is *Direct* en/of *SCManagementServer*.|
+| `IsGatewayInstalled` | Als Log Analytics gateway is geïnstalleerd, is waarde *waar*, anders wordt de waarde is *false*.|
+| `ComputerIP` | Het IP-adres van de computer.|
+| `RemoteIPCountry` | De geografische locatie waar de computer is geïmplementeerd.|
+| `ManagementGroupName` | De naam van de beheergroep van Operations Manager.|
+| `SourceComputerId` | De unieke ID van de computer.|
+| `RemoteIPLongitude` | De lengtegraad van geografische locatie van de computer.|
+| `RemoteIPLatitude` | De breedtegraad van de geografische locatie van de computer.|
 
 Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee heartbeats, en de waarde van de eigenschap SCAgentChannel bevat zowel **Direct** en **SCManagementServer** , afhankelijk van wat gegevensbronnen en bewakingsoplossingen die u hebt ingeschakeld in uw abonnement. Als u intrekt, gegevens van oplossingen verzonden rechtstreeks vanuit een Operations Manager-beheerserver naar Azure Monitor of vanwege de hoeveelheid gegevens die worden verzameld op de agent, rechtstreeks vanuit de agent worden verzonden naar Azure Monitor. Voor heartbeat-gebeurtenissen met de waarde **SCManagementServer** bestaat de waarde van ComputerIP uit het IP-adres van de beheerserver, aangezien de gegevens door deze server worden geüpload.  Voor heartbeats waarvan de eigenschap SCAgentChannel is ingesteld op **Direct**, is de waarde het openbare IP-adres van de agent.  
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Het totale aantal agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |

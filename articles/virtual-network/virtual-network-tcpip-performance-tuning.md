@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276521"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426440"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
 
@@ -85,7 +85,7 @@ Houd er rekening mee dat de virtuele netwerkstack niet inherent inefficiënt omd
 
 #### <a name="azure-and-fragmentation"></a>Azure en fragmentatie
 
-Virtueel netwerkstack is ingesteld om te verwijderen 'niet-geordende fragmenten,' dat wil zeggen, gefragmenteerde pakketten die niet in de oorspronkelijke gefragmenteerde volgorde binnenkomen. Deze pakketten zijn verwijderd voornamelijk vanwege een beveiligingsprobleem voor netwerk aangekondigd in November 2018 FragmentStack genoemd.
+Virtueel netwerkstack is ingesteld om te verwijderen 'niet-geordende fragmenten,' dat wil zeggen, gefragmenteerde pakketten die niet in de oorspronkelijke gefragmenteerde volgorde binnenkomen. Deze pakketten zijn verwijderd voornamelijk vanwege een beveiligingsprobleem voor netwerk aangekondigd in November 2018 FragmentSmack genoemd.
 
 FragmentSmack is een fout in de manier waarop de Linux-kernel opnieuw samenstellen van gefragmenteerde pakketten voor IPv4 en IPv6 verwerkt. Een externe aanvaller kan deze fout trigger dure fragment opnieuw samenstellen bewerkingen, die tot hogere CPU- en een DoS-aanval op het doelsysteem leiden kunnen gebruiken.
 

@@ -12,14 +12,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e0f45de51c191f532340179f2477844dfe0b491d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535227"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361483"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure-SSIS Integratieruntime in Azure Data Factory maken
+
 Dit artikel bevat stappen voor inrichting Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om te implementeren en SQL Server Integration Services (SSIS)-pakketten uitvoeren in deze integratieruntime in Azure.
 
 De [zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) ziet u hoe u Azure-SSIS IR maken met behulp van Azure SQL Database-server host SSIS-catalogusdatabase (SSISDB). In dit artikel gaat verder in op de zelfstudie en ziet u hoe u het volgende doen:
@@ -29,9 +30,10 @@ De [zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssi
 - Azure Active Directory (AAD) verificatie met de beheerde identiteit voor uw ADF (optioneel) gebruiken om te verbinden met de database-server. Als een vereiste, moet u de beheerde identiteit voor uw ADF toevoegen als een ingesloten databasegebruiker die geschikt zijn voor het maken van SSISDB in uw Azure SQL Database-server/beheerd exemplaar, raadpleeg dan [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir).
 
 ## <a name="overview"></a>Overzicht
+
 In dit artikel ziet u inrichting Azure-SSIS IR op verschillende manieren:
 
-- [Azure-portal](#azure-portal)
+- [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager-sjabloon](#azure-resource-manager-template)
 
@@ -50,12 +52,14 @@ Als u Azure-SSIS IR inricht, worden ook Azure Feature Pack voor SSIS en de Acces
     Zorg ervoor dat uw Azure SQL Database-server/beheerd exemplaar nog geen een SSISDB. Het inrichten van Azure-SSIS-IR biedt geen ondersteuning met behulp van een bestaande SSISDB.
 
 - **Azure Resource Manager-netwerk (optioneel)**. U hebt een virtueel netwerk van Azure Resource Manager als ten minste één van de volgende voorwaarden voldaan wordt:
-    - U kunt SSISDB worden gehost in Azure SQL Database-server met service-eindpunten voor virtueel netwerk of in het beheerde exemplaar in een virtueel netwerk.
-    - U wilt verbinding maken met on-premises gegevens gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd op uw Azure-SSIS-IR.
+
+  - U kunt SSISDB worden gehost in Azure SQL Database-server met service-eindpunten voor virtueel netwerk of in het beheerde exemplaar in een virtueel netwerk.
+  - U wilt verbinding maken met on-premises gegevens gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd op uw Azure-SSIS-IR.
 
 - **Azure PowerShell**. Volg de instructies op [hoe u Azure PowerShell installeren en configureren](/powershell/azure/install-az-ps), als u wilt uitvoeren van een PowerShell-script voor het inrichten van Azure-SSIS IR.
 
 ### <a name="region-support"></a>Ondersteuning voor regio
+
 Zie voor een overzicht van Azure-regio's, waarin ADF en Azure-SSIS IR momenteel beschikbaar is zijn, [ADF + SSIS-IR beschikbaarheid per regio](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all).
 
 ### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>SQL Database single database/elastische pool en SQL Database Managed Instance vergelijken
@@ -65,7 +69,7 @@ De volgende tabel vergelijkt bepaalde functies van Azure SQL Database-server en 
 | Functie | één database/elastische pool| Beheerd exemplaar |
 |---------|--------------|------------------|
 | **Planning** | SQL Server Agent is niet beschikbaar.<br/><br/>Zie [plant de uitvoering van een pakket in ADF pijplijn](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Beheerde exemplaar Agent is beschikbaar. |
-| **Verificatie** | U kunt SSISDB maken met een ingesloten databasegebruiker voor een AAD-groep met de beheerde identiteit van de ADF als een lid in de **db_owner** rol.<br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt de SSISDB maken met een ingesloten databasegebruiker voor de beheerde identiteit van de ADF. <br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Authentication** | U kunt SSISDB maken met een ingesloten databasegebruiker voor een AAD-groep met de beheerde identiteit van de ADF als een lid in de **db_owner** rol.<br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt de SSISDB maken met een ingesloten databasegebruiker voor de beheerde identiteit van de ADF. <br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Servicelaag** | Als u Azure-SSIS IR met uw Azure SQL Database-server maken, selecteert u de servicelaag voor SSISDB. Er zijn meerdere service-lagen. | Wanneer u Azure-SSIS IR met uw beheerde exemplaar maken, kunt u de servicelaag niet selecteren voor SSISDB. Alle databases in uw beheerde exemplaar delen dezelfde resource toegewezen aan deze instantie. |
 | **Virtueel netwerk** | Biedt ondersteuning voor virtuele netwerken alleen Azure Resource Manager voor uw Azure-SSIS IR moeten worden samengevoegd als u Azure SQL Database-server met service-eindpunten voor virtueel netwerk gebruiken of toegang tot on-premises gegevensopslagexemplaren nodig hebben. | Biedt ondersteuning voor virtuele netwerken alleen Azure Resource Manager voor uw Azure-SSIS IR om toe te voegen. Het virtuele netwerk is altijd vereist.<br/><br/>Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar toevoegen, zorg ervoor dat uw Azure-SSIS IR in een ander subnet dan uw beheerde exemplaar is. Als u uw Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij een peering op virtueel netwerk of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Gedistribueerde transacties** | Ondersteund via elastische transacties. Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw SSIS-pakketten MSDTC gebruiken gedistribueerde transacties te coördineren, kunt u migreren naar elastische transacties voor Azure SQL Database. Zie voor meer informatie, [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
@@ -114,11 +118,12 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 1. Klik op **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad.
 
 ### <a name="provision-an-azure-ssis-integration-runtime"></a>Een Azure SSIS-integratieruntime inrichten
+
 1. Klik op de pagina Aan de slag op de tegel **SSIS-integratieruntime configureren**.
 
    ![De tegel SSIS-integratieruntime configureren](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
-1. Voer op de pagina **Algemene instellingen** van **Installatie van integratieruntime** de volgende stappen uit:
+2. Voer op de pagina **Algemene instellingen** van **Installatie van integratieruntime** de volgende stappen uit:
 
    ![Algemene instellingen](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
@@ -138,7 +143,7 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     h. Klik op **volgende**.
 
-1. Voer op de pagina **SQL-instellingen** de volgende stappen uit:
+3. Voer op de pagina **SQL-instellingen** de volgende stappen uit:
 
    ![SQL-instellingen](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
@@ -158,7 +163,7 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     h. Klik op **Verbinding testen**. Als dit lukt, klikt u op **Volgende**.
 
-1.  Voer op de pagina **Geavanceerde instellingen** de volgende stappen uit:
+4. Voer op de pagina **Geavanceerde instellingen** de volgende stappen uit:
 
     ![Geavanceerde instellingen](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -166,7 +171,7 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     b. Bij **SAS URI aangepaste installatie container**  voert u desgewenst de SAS (Shared Access Signature) URI (Uniform Resource Identifier) van uw Azure Storage Blob-container in waar uw installatiescript en de bijbehorende bestanden zijn opgeslagen. Zie [Aangepaste installatie voor Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Op **een virtueel netwerk selecteren...**  selectievakje, selecteer of u wilt uw integratieruntime toevoegen aan een virtueel netwerk. Bekijk het als u gebruik van Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar naar SSISDB-host of toegang tot on-premises gegevens; vereisen dat wil zeggen, on-premises gegevensbronnen/bestemmingen hebt in uw SSIS-pakketten, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Als u dit selectievakje inschakelt, kunt u de volgende stappen:
+5. Op **een virtueel netwerk selecteren...**  selectievakje, selecteer of u wilt uw integratieruntime toevoegen aan een virtueel netwerk. Bekijk het als u gebruik van Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar naar SSISDB-host of toegang tot on-premises gegevens; vereisen dat wil zeggen, on-premises gegevensbronnen/bestemmingen hebt in uw SSIS-pakketten, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Als u dit selectievakje inschakelt, kunt u de volgende stappen:
 
    ![Geavanceerde instellingen met een virtueel netwerk](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
@@ -180,40 +185,43 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     e. Voor **subnetnaam**, selecteert u de naam van het subnet voor het virtuele netwerk. Dit moet een ander subnet dan de versie die wordt gebruikt voor beheerd exemplaar als host voor SSISDB.
 
-1. Klik op **VNet validatie** en als dit lukt, klikt u op **voltooien** om te beginnen met het maken van uw Azure-SSIS integratieruntime.
+6. Klik op **VNet validatie** en als dit lukt, klikt u op **voltooien** om te beginnen met het maken van uw Azure-SSIS integratieruntime.
 
     > [!IMPORTANT]
     > - Dit proces duurt ongeveer 20-30 minuten om te voltooien
     > - De Data Factory-service maakt verbinding met uw Azure SQL-database om de SSISDB (SSIS Catalog Database) voor te bereiden. Ook machtigingen en instellingen voor het virtuele netwerk configureert als is opgegeven en het nieuwe exemplaar van Azure-SSIS integratieruntime verbinding met het virtuele netwerk.
 
-1. Ga in het venster **Verbindingen** naar **Integratieruntimes**, indien nodig. Klik op **Vernieuwen** om de status te vernieuwen.
+7. Ga in het venster **Verbindingen** naar **Integratieruntimes**, indien nodig. Klik op **Vernieuwen** om de status te vernieuwen.
 
    ![Status van het maken](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
 
-1. Gebruik de koppelingen onder **acties** kolom om te stoppen/starten, bewerken of verwijderen van de integratieruntime. Gebruik de laatste koppeling om JSON-code weer te geven voor de integratieruntime. De knoppen Bewerken en Verwijderen zijn alleen beschikbaar wanneer de IR is gestopt.
+8. Gebruik de koppelingen onder **acties** kolom om te stoppen/starten, bewerken of verwijderen van de integratieruntime. Gebruik de laatste koppeling om JSON-code weer te geven voor de integratieruntime. De knoppen Bewerken en Verwijderen zijn alleen beschikbaar wanneer de IR is gestopt.
 
    ![Azure SSIS-IR - acties](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)
 
 ### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Azure SSIS-integratieruntimes in de portal
+
 1. Ga in de Azure Data Factory-UI naar het tabblad **Bewerken**, klik op **Verbindingen** en ga vervolgens naar het tabblad **Integratieruntimes** om bestaande integratieruntimes in uw gegevensfactory weer te geven.
 
    ![Bestaande IR's weergeven](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
-1. Klik op **Nieuw** om een nieuwe Azure SSIS-IR te maken.
+2. Klik op **Nieuw** om een nieuwe Azure SSIS-IR te maken.
 
    ![Integratieruntime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. Als u een Azure SSIS-integratieruntime wilt maken, klikt u op **Nieuw** zoals wordt weergegeven in de afbeelding.
-1. Selecteer in het venster Installatie van integratieruntime de optie voor het **verplaatsen van bestaande SSIS-pakketten voor uitvoering in Azure** en klik vervolgens op **Volgende**.
+3. Als u een Azure SSIS-integratieruntime wilt maken, klikt u op **Nieuw** zoals wordt weergegeven in de afbeelding.
+4. Selecteer in het venster Installatie van integratieruntime de optie voor het **verplaatsen van bestaande SSIS-pakketten voor uitvoering in Azure** en klik vervolgens op **Volgende**.
 
    ![Geef het type integratieruntime op](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
-1. Zie de sectie [Een Azure SSIS-integratieruntime inrichten](#provision-an-azure-ssis-integration-runtime) voor de resterende stappen voor het instellen van een Azure SSIS-IR.
+5. Zie de sectie [Een Azure SSIS-integratieruntime inrichten](#provision-an-azure-ssis-integration-runtime) voor de resterende stappen voor het instellen van een Azure SSIS-IR.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
 In deze sectie maakt u de Azure PowerShell gebruiken om een Azure-SSIS-IR te maken
 
 ### <a name="create-variables"></a>Variabelen maken
+
 Definieer variabelen voor gebruik in het script in deze zelfstudie:
 
 ```powershell
@@ -254,8 +262,9 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
-### <a name="log-in-and-select-subscription"></a>Aanmelden en abonnement selecteren
-Voeg de volgende code het script aan te melden en selecteer uw Azure-abonnement:
+### <a name="sign-in-and-select-subscription"></a>Aanmelden en abonnement selecteren
+
+Voeg de volgende code in en selecteer uw Azure-abonnement met het script:
 
 ```powershell
 Connect-AzAccount
@@ -263,6 +272,7 @@ Select-AzSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>Valideren van verbinding met de database
+
 Voeg het volgende script voor het valideren van het eindpunt voor uw Azure SQL Database-server.
 
 ```powershell
@@ -292,6 +302,7 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="configure-virtual-network"></a>Virtueel netwerk configureren
+
 Voeg het volgende script toe om automatisch machtigingen/instellingen voor het virtuele netwerk te configureren waarmee uw Azure SSIS Integration Runtime moet worden verbonden.
 
 ```powershell
@@ -315,6 +326,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
+
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met behulp van de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd.
 
 ```powershell
@@ -322,6 +334,7 @@ New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
+
 Voer de volgende opdracht uit om een data factory te maken.
 
 ```powershell
@@ -331,6 +344,7 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>Een Integration Runtime maken
+
 Voer de volgende opdrachten voor het maken van een Azure-SSIS integratieruntime die SSIS-pakketten in Azure uitvoert.
 
 Als u niet gebruik van Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar naar SSISDB-host of toegang tot on-premises gegevens nodig hebben, kunt u VNetId en Subnet parameters weglaat of lege waarden doorgeven voor hen. Anders kunnen niet laat ze en moet geldige waarden doorgeven van de configuratie van uw virtuele netwerk, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
@@ -379,6 +393,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNull
 ```
 
 ### <a name="start-integration-runtime"></a>Integration Runtime starten
+
 Voer de volgende opdracht uit om de Azure SSIS Integration Runtime te starten:
 
 ```powershell
@@ -395,6 +410,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 Het duurt **20-30 minuten** voordat deze opdracht is voltooid.
 
 ### <a name="full-script"></a>Volledige script
+
 Dit is het volledige script dat wordt gemaakt van een Azure-SSIS integratieruntime.
 
 ```powershell
@@ -537,13 +553,14 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
+
 In deze sectie kunt u de Azure Resource Manager-sjabloon gebruiken voor Azure-SSIS integratieruntime maken. Hier volgt een voorbeeld-overzicht:
 
 1. Maak een JSON-bestand met de volgende Azure Resource Manager-sjabloon. Waarden in de punthaken (tijdelijke aanduidingen) vervangen door uw eigen waarden.
 
     ```json
     {
-        "contentVersion": "1.0.0.0",
+      "contentVersion": "1.0.0.0",
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "parameters": {},
         "variables": {},
@@ -584,8 +601,8 @@ In deze sectie kunt u de Azure Resource Manager-sjabloon gebruiken voor Azure-SS
         }]
     }
     ```
-    
-1. Voor het implementeren van de Azure Resource Manager-sjabloon, nieuw-AzResourceGroupDeployment opdracht zoals wordt weergegeven in het volgende voorbeeld, waarbij ADFTutorialResourceGroup is de naam van de resourcegroep en ADFTutorialARM.json is het bestand met JSON-definitie voor uitvoeren uw data factory en Azure-SSIS IR.
+
+2. Voor het implementeren van de Azure Resource Manager-sjabloon, nieuw-AzResourceGroupDeployment opdracht zoals wordt weergegeven in het volgende voorbeeld, waarbij ADFTutorialResourceGroup is de naam van de resourcegroep en ADFTutorialARM.json is het bestand met JSON-definitie voor uitvoeren uw data factory en Azure-SSIS IR.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -593,7 +610,7 @@ In deze sectie kunt u de Azure Resource Manager-sjabloon gebruiken voor Azure-SS
 
     Deze opdracht maakt u uw data factory en Azure-SSIS IR erin, maar dit niet de IR wordt gestart
 
-1. Voor het starten van uw Azure-SSIS-IR, voert u Start AzDataFactoryV2IntegrationRuntime-opdracht uit:
+3. Voor het starten van uw Azure-SSIS-IR, voert u Start AzDataFactoryV2IntegrationRuntime-opdracht uit:
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
@@ -603,9 +620,11 @@ In deze sectie kunt u de Azure Resource Manager-sjabloon gebruiken voor Azure-SS
     ```
 
 ## <a name="deploy-ssis-packages"></a>SSIS-pakketten implementeren
+
 Gebruik nu SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) om uw SSIS-pakketten te implementeren in Azure. Verbinding maken met uw database-server die als host fungeert voor de SSIS-catalogus (SSISDB). De naam van database-server heeft de indeling: &lt;Azure SQL Database-servernaam&gt;. database.windows.net of &lt;Managed Instance-naam. DNS-voorvoegsel&gt;. database.windows.net. Zie het artikel [Pakketten implementeren](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) voor instructies.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie de andere Azure-SSIS IR-onderwerpen in deze documentatie:
 
 - [Azure-SSIS Integratieruntime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat algemene informatie over integratieruntimes in het algemeen met inbegrip van de Azure-SSIS-IR.

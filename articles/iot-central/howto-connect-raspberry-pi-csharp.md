@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275960"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426355"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -269,7 +269,7 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
 
 ## <a name="run-your-net-application"></a>Uw .NET-toepassing uitvoeren
 
-Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. Volg deze instructies voor [genereren de apparaatverbindingsreeks](concepts-connectivity.md#get-a-connection-string) met behulp van de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** u een Houd er rekening mee van eerder.
+Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. Volg deze instructies voor [genereren de apparaatverbindingsreeks](howto-generate-connection-string.md) met behulp van de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** u een Houd er rekening mee van eerder.
 
 1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u hebt gegenereerd.
 

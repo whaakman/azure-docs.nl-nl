@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891032"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425817"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Aan de slag in Azure Dev Spaces met behulp van Node.js
 
@@ -25,17 +25,10 @@ In deze handleiding leert u het volgende:
 - Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 
 > [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen.
-
-U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
+> **Als u zitten** op elk gewenst moment, Zie de [probleemoplossing](troubleshooting.md) sectie.
 
 ## <a name="install-the-azure-cli"></a>Azure-CLI installeren
-Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. De lokale computer kan onder Windows en Linux en op een Mac worden uitgevoerd. Voor Linux worden de volgende distributies ondersteund: Ubuntu (18.04, 16.04 en 14.04), Debian 8 en 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 en SLES 12.
-
-Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.43 of hoger gebruikt.
+Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Aanmelden bij Azure CLI
 Meld u aan bij Azure. Typ de volgende opdracht in een terminalvenster:
@@ -112,7 +105,7 @@ U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier n
     ```
 
 Met de opdracht `azds prep` van Azure-CLI worden Docker- en Kubernetes-assets met standaardinstellingen gemaakt:
-* In `./Dockerfile` wordt beschreven wat de containerinstallatiekopie van de app is, en hoe de broncode is opgebouwd en wordt uitgevoerd in de container.
+* `./Dockerfile` Beschrijving van de app container-installatiekopie, en hoe de broncode wordt opgebouwd en wordt uitgevoerd in de container.
 * Met een [Helm-grafiek](https://docs.helm.sh) die zich onder `./charts/webfrontend` bevindt, wordt beschreven hoe de container in Kubernetes moet worden geïmplementeerd.
 
 Op dit moment is het nog niet nodig om de volledige inhoud van deze bestanden te begrijpen. Wat u wel moet weten is dat **de dezelfde assets voor 'configuratie als code' in Docker en Kubernetes kunnen worden gebruikt van ontwikkeling tot productie, waardoor er meer consistentie tussen de verschillende omgevingen bestaat.**
@@ -272,10 +265,10 @@ In deze configuratie is de container geconfigureerd voor het starten van *nodemo
 1. Bewerk het hallo-bericht opnieuw in `server.js` en sla het bestand op.
 1. Vernieuw de browser of klik op de knop *Say It Again* om de wijzigingen door te voeren.
 
-**U beschikt nu over een methode om code snel te ontwikkelen en foutopsporing rechtstreeks uit te voeren in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
+**U hebt nu een methode voor het snel herhalen op code en foutopsporing rechtstreeks in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over ontwikkelen van meerdere services](multi-service-nodejs.md)
+> [Meer informatie over het ontwikkelen van meerdere services](multi-service-nodejs.md)
 

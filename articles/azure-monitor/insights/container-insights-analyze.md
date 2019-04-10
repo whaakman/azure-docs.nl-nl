@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233997"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426389"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -71,7 +71,7 @@ De volgende tabel bevat een verdeling van de berekening van de statussen voor ee
 | |Waarschuwing |N/A |
 | |Kritiek |< 100% |
 | |Onbekend |Als niet wordt vermeld in de afgelopen 30 minuten |
-|**Node** | | |
+|**Knooppunt** | | |
 | |In orde |> 85% |
 | |Waarschuwing |60 - 84% |
 | |Kritiek |< 60% |
@@ -100,7 +100,34 @@ Het diagram van de prestaties worden vier metrische gegevens voor prestaties wee
 
 De toetsen pijl-links/rechts kunt u bladeren door elk gegevenspunt in de grafiek en de pijl-omhoog/omlaag sleutels om te bladeren naar de regels percentiel.
 
-Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap.  Het bevat de eigenschappen van het item dat is geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster.  
+Azure Monitor voor containers biedt ook ondersteuning voor Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), waarbij u kunt uw eigen plot grafieken, met elkaar te vergelijken maken en trends te onderzoeken en aan dashboards vastmaken. Van metrics explorer ook kunt u de criteria die u hebt ingesteld voor het visualiseren van uw metrische gegevens als de basis van een [metrische gegevens op basis van de waarschuwingsregel](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>De container metrische gegevens weergeven in metrics explorer
+In metrics explorer u geaggregeerde controleknooppunt en pod metrische gegevens over Resourcegebruik van Azure Monitor voor containers. De volgende tabel geeft een overzicht van de gegevens om te begrijpen hoe u container metrische gegevens visualiseren met de grafieken met metrische gegevens.
+
+|Naamruimte | Gegevens |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+U kunt toepassen [splitsen](../platform/metrics-charts.md#apply-splitting-to-a-chart) van een metrische waarde voor dit bekijken door de dimensie en visualiseren hoe verschillende segmenten van deze zich verhouden tot elkaar. Voor een knooppunt, kunt u segmenteren de grafiek door de *host* dimensie, en in een schil kunt u het segment op de volgende dimensies:
+
+* Controller
+* Kubernetes-naamruimten
+* Knooppunt
+* Fase
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analyseer knooppunten, domeincontrollers en containerstatus
+
+Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap.  Het bevat de eigenschappen van het item geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster.  
 
 ![Voorbeeld van Kubernetes perspectieven het deelvenster met eigenschappen](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar u kunt he
 
 Wanneer u met de muisaanwijzer boven het staafdiagram onder de **Trend** kolom, elke balk ziet u gebruik van CPU of geheugen, afhankelijk van welke waarde is geselecteerd, binnen de periode van een voorbeeld van 15 minuten. Nadat u de trendgrafiek via een toetsenbord hebt geselecteerd, kunt u de sleutels Alt + Page up of Alt + PAGE DOWN om te bladeren door elke balk afzonderlijk en de dezelfde gegevens zoals u zou op mouseover doen.
 
-![Trend balk voorbeeldgrafiek bij aanwijzen](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Trend balken grafieken Beweeg de muisaanwijzer over voorbeeld](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 In het volgende voorbeeld wordt de opmerking voor de eerste in de lijst - knooppunt *aks-nodepool1 -*, de waarde voor **Containers** is 9, die een samenvoeging van het totale aantal containers die zijn geïmplementeerd is.
 
@@ -176,10 +203,10 @@ De informatie die wordt weergegeven wanneer u de controllers weergeven wordt in 
 |--------|-------------|
 | Name | De naam van de controller.|
 | Status | De status rollup van de containers is voltooid met met de status, zoals *OK*, *beëindigd*, *mislukt* *gestopt*, of *Onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
-| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Updatepakket gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel. |
-| Avg, Min, Max, 50e, 90e  | Totalisering van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
+| Avg, Min, Max, 50e, 90e  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
 | Containers | Totaal aantal containers voor de controller of de schil. |
-| Opnieuw opstarten | Updatepakket van het aantal opnieuw opstarten van containers. |
+| Herstarten | Getotaliseerde u van het aantal opnieuw opstarten van containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart. |
 | Knooppunt | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. | 
 | Gem. trend&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;%| Trend staafdiagram vertegenwoordigt de metriek gemiddelde percentiel van de controller. |

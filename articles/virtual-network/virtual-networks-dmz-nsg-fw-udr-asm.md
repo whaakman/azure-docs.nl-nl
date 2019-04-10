@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277410"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426525"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Voorbeeld 3: Een perimeternetwerk ter bescherming van netwerken met een firewall, UDR en nsg's maken
 
@@ -396,7 +396,7 @@ Hier volgen de details van elke regel vereist voor het voltooien van dit voorbee
     > [!TIP]
     > Hoewel deze voorbeeldregel maakt gebruik van `<explicit-dest>` -verwijzing, moet u een consistent benadering in de gehele configuratie van de firewall. Het is raadzaam om met behulp van een benoemde-netwerkobject voor eenvoudiger leesbaarheid en ondersteuningsmogelijkheden. De `<explicit-dest>` alleen om weer te geven van een methode alternatieve verwijzing als volgt weergegeven. Niet in het algemeen wordt aangeraden, met name voor complexe configuraties.
 
-* **Regel voor uitgaand naar internet**: Deze pass-regel staat verkeer van een Bronnetwerk moeten worden doorgegeven aan de geselecteerde bestemming-netwerken. De Barracuda NextGen firewall is meestal dit met deze regel 'aan' standaard, maar een uitgeschakelde status. Met de rechtermuisknop op deze regel voor toegang tot de **regel activeren** opdracht. Wijzig de regel wordt weergegeven in de schermopname de netwerkobjecten voor back-end- en front-end-subnetten toevoegen aan het bronkenmerk van deze regel. U hebt deze netwerkobjecten gemaakt in de sectie vereisten van dit artikel.
+* **Regel voor uitgaand naar internet**: Deze pass-regel staat verkeer van een Bronnetwerk moeten worden doorgegeven aan de geselecteerde bestemming-netwerken. De Barracuda NextGen firewall heeft meestal deze regel 'aan' standaard, maar een uitgeschakelde status. Met de rechtermuisknop op deze regel voor toegang tot de **regel activeren** opdracht. Wijzig de regel wordt weergegeven in de schermopname de netwerkobjecten voor back-end- en front-end-subnetten toevoegen aan het bronkenmerk van deze regel. U hebt deze netwerkobjecten gemaakt in de sectie vereisten van dit artikel.
   
     ![Uitgaande-firewallregel][14]
 

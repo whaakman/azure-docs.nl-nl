@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268208"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361541"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -407,11 +407,14 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |AzureStorageMaxWorkerThreads | int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
 |AzureStorageOperationTimeout | Tijd in seconden, de standaardwaarde is 6000 |Dynamisch|Interval in seconden opgeven. Time-out voor xstore bewerking is voltooid. |
 |CleanupApplicationPackageOnProvisionSuccess|BOOL, standaard is ingesteld op FALSE |Dynamisch|Deze configuratie of het automatisch opschonen van het toepassingspakket op geslaagde inrichten uitgeschakeld. |
+|CleanupUnusedApplicationTypes|BOOL, standaard is ingesteld op FALSE |Dynamisch|Deze configuratie kan bij inschakeling automatisch registratie versies van een niet-gebruikte toepassingstype wordt de meest recente drie niet-gebruikte versies, waardoor de schijfruimte die wordt ingenomen door de installatiekopieopslag bijsnijden overgeslagen. Het opruimen van de automatische aan het einde van geslaagde inrichten voor dat specifieke app-type wordt geactiveerd en periodiek eenmaal per dag voor alle toepassingstypen wordt ook uitgevoerd. Aantal niet-gebruikte versies overslaan kan worden geconfigureerd met behulp van de parameter 'MaxUnusedAppTypeVersionsToKeep'. |
 |DisableChecksumValidation | BOOL, de standaardinstelling is false |Statisch| Deze configuratie kan we controlesomvalidatie tijdens het inrichten van de toepassing uit te schakelen. |
 |DisableServerSideCopy | BOOL, de standaardinstelling is false |Statisch|Deze configuratie- of serverzijde kopie van het toepassingspakket op de ImageStore tijdens het inrichten van de toepassing uitgeschakeld. |
 |ImageCachingEnabled | BOOL, de standaardinstelling is true |Statisch|Deze configuratie kan we in- of uitschakelen in cache opslaan. |
 |ImageStoreConnectionString |SecureString |Statisch|De verbindingsreeks naar de hoofdmap voor ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, standaard is 1024 |Dynamisch|De minimale overdrachtssnelheid tussen het cluster en de ImageStore. Deze waarde wordt gebruikt om te bepalen van de time-out bij het openen van de externe ImageStore. Deze waarde alleen wijzigen als de latentie tussen het cluster en de ImageStore waarmee meer tijd voor het cluster te downloaden van de externe ImageStore hoog is. |
+|MaxUnusedAppTypeVersionsToKeep | Int, de standaardwaarde is 3 |Dynamisch|Deze configuratie bepaalt het aantal versies van een niet-gebruikte toepassingstype worden overgeslagen om op te schonen. Deze parameter is van toepassing alleen als parameter CleanupUnusedApplicationTypes is ingeschakeld. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |

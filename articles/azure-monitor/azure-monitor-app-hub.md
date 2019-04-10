@@ -5,17 +5,17 @@ title: Azure Monitor Application insights-documentatie - zelfstudies, API-verwij
 description: Azure Monitor Application Insights biedt uitgebreide code-niveau bewaking van toepassingsprestaties.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244238"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426270"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -85,15 +85,15 @@ ms.locfileid: "56244238"
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">Mobiele telefoon</a><br>
                                                             <a href="./app/website-monitoring.md">Browser/client-side monitoring</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Zelfstudies</h3>
                                                         <p>
-                                                            <a href="./learn/tutorial-runtime-exceptions.md">Runtime-uitzonderingen zoeken en diagnoses uitvoeren</a><br>
-                                                            <a href="./learn/tutorial-performance.md">Prestatieproblemen zoeken en diagnoses uitvoeren</a><br>
-                                                            <a href="./learn/tutorial-alert.md">Controle en waarschuwingen bij toepassingsstatus</a><br>
+                                                            <a href="./learn/tutorial-runtime-exceptions.md">Vinden en diagnosticeren van runtime-uitzonderingen</a><br>
+                                                            <a href="./learn/tutorial-performance.md">Vinden en diagnosticeren van prestatieproblemen</a><br>
+                                                            <a href="./learn/tutorial-alert.md">Monitor en waarschuwing bij toepassingsstatus</a><br>
                                                             <a href="./learn/tutorial-users.md">Begrijp het gebruikersgedrag van de</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">Aangepaste dashboards maken</a>
                                                             </p>
@@ -114,14 +114,14 @@ ms.locfileid: "56244238"
                                                             <a href="./app/proactive-exception-volume.md">Abnormaal pieken in uitzonderingen</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">Geheugenlekken</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">Laag CPU-gebruik</a><br>
-                                                            <a href="./app/proactive-application-security-detection-pack.md">Beveiligingsproblemen met zich mee</a><br>
+                                                            <a href="./app/proactive-application-security-detection-pack.md">Beveiligingsproblemen</a><br>
                                                             <a href="./app/proactive-cloud-services.md">Azure Cloud Services</a><br>
                                                             <a href="./app/proactive-arm-config.md">Slimme detectie met sjablonen beheren</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Referentie</h3>
                                                         <p>
-                                                            <a href="./app/auto-collect-dependencies.md">Afhankelijkheid automatisch verzamelen</a><br>
+                                                            <a href="./app/auto-collect-dependencies.md">Afhankelijkheden automatisch verzamelen</a><br>
                                                             <a href="./app/correlation.md">Telemetriecorrelatie</a><br>
                                                             <a href="./app/nuget.md">NuGet-pakketten</a><br>
                                                             <a href="./app/azure-functions-supported-features.md">Azure Functions</a>
@@ -146,7 +146,7 @@ ms.locfileid: "56244238"
                                                             <a href="./app/java-agent.md">Configuratie van de agent voor bijhouden van afhankelijkheid</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Configuratie-XML</a><br>
+">Config .xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">Open Source Java SDK GitHub-opslagplaats</a>
                                                         </p>
                                                         <br><br>
@@ -198,7 +198,7 @@ ms.locfileid: "56244238"
                                                             <a href="./app/usage-funnels.md">Trechters</a><br>
                                                             <a href="./app/usage-cohorts.md">Cohorten</a><br>
                                                             <a href="./app/usage-impact.md">Impact</a><br>
-                                                            <a href="./app/usage-retention.md">Retentie</a><br>
+                                                            <a href="./app/usage-retention.md">Bewaartermijn</a><br>
                                                             <a href="./app/usage-flows.md">Gebruikersstromen</a>
                                                         </p>
                                                         <br><br>
@@ -210,7 +210,7 @@ ms.locfileid: "56244238"
                                                             <a href="./app/app-map.md">Gedistribueerde app-toewijzing</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">Resourcegroep niveau bewaking</a><br>
                                                             <a href="./app/usage-workbooks.md">Interactieve rapportage</a><br>
-                                                            <a href="./app/export-power-bi.md">Power BI-integratie</a><br>
+                                                            <a href="./app/export-power-bi.md">Integratie met Power BI</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">Metrische gegevens onderzoeken</a>
                                                         </p>
                                                         <br><br>
@@ -218,7 +218,7 @@ ms.locfileid: "56244238"
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Verwerken van persoonlijke gegevens</a><br>
                                                             <a href="./app/data-retention-privacy.md">Het verzamelen van gegevens, vasthouden, &amp; opslag</a><br>
-                                                            <a href="./app/resources-roles-access-control.md">Rollen gebaseerd toegangsbeheer</a><br>
+                                                            <a href="./app/resources-roles-access-control.md">Toegang op basis van rollen</a><br>
                                                             <a href="./app/ip-addresses.md">IP-adres &amp; firewall-uitzonderingen</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Gebruik en geraamde kosten</a>
                                                         </p>

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848258"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425982"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching voor SQL Server in virtuele machines van Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -64,9 +64,9 @@ Voor het gebruik van geautomatiseerde Patching, houd rekening met de volgende ve
 ## <a name="settings"></a>Instellingen
 De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor het automatisch patchen. De werkelijke configuratiestappen variëren afhankelijk van of u de Azure portal of Azure Windows PowerShell-opdrachten gebruiken.
 
-| Instelling | Mogelijke waarden | Beschrijving |
+| Instelling | Mogelijke waarden | Description |
 | --- | --- | --- |
-| **Automatisch patch toepassen** |In-of uitschakelen (uitgeschakeld) |Hiermee schakelt automatisch patchen voor een Azure-machine of. |
+| **Automatisch patchen** |In-of uitschakelen (uitgeschakeld) |Hiermee schakelt automatisch patchen voor een Azure-machine of. |
 | **Onderhoudsplanning** |Elke dag, maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag, zondag |Het schema voor het downloaden en installeren van Windows, SQL Server en Microsoft-updates voor uw virtuele machine. |
 | **Begintijd van onderhoud** |0-24 |De lokale tijd voor het bijwerken van de virtuele machine start. |
 | **Duur van het onderhoudsvenster** |30-180 |Het aantal minuten dat is toegestaan om uit te voeren van het downloaden en installeren van updates. |
@@ -96,11 +96,6 @@ In de **SQL Server-configuratie** blade, klikt u op de **bewerken** knop in de s
 Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratie** blade uw wijzigingen op te slaan.
 
 Als u automatisch patchen voor het eerst inschakelen wilt, configureert Azure de SQL Server IaaS Agent op de achtergrond. Gedurende deze tijd de Azure-portal mogelijk niet weergegeven dat automatisch patchen is geconfigureerd. Wacht enkele minuten voor de agent moet worden geïnstalleerd of geconfigureerd. Daarna geeft de Azure portal de nieuwe instellingen.
-
-> [!NOTE]
-> U kunt ook configureren om automatisch patchen met behulp van een sjabloon. Zie voor meer informatie, [Azure quickstart-sjabloon voor het automatisch patchen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
-> 
-> 
 
 ## <a name="configuration-with-powershell"></a>Configuratie met PowerShell
 Na het inrichten van uw SQL-VM door PowerShell te gebruiken voor het configureren van automatisch patchen.

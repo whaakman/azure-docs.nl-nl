@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492800"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426610"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -38,9 +38,9 @@ Als u een back-up gaat maken en het opslagaccount selecteert waarin u bestandssh
 Ja. U moet echter wel de [beveiliging stoppen](backup-azure-files.md#stop-protecting-an-azure-file-share) vanuit de gekoppelde kluis, de [registratie ongedaan maken](troubleshoot-azure-files.md#configuring-backup) van dit opslagaccount, en het account vervolgens met een andere kluis beveiligen.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In welke geografische gebieden kan ik back-ups maken van Azure-bestandsshares? <br/>
-Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase en is alleen beschikbaar in de volgende geografische gebieden: 
-- Australië - oost (AE) 
-- Australië - zuidoost (ASE) 
+Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase en is alleen beschikbaar in de volgende geografische gebieden:
+- Australië - oost (AE)
+- Australië - zuidoost (ASE)
 - Brazilië - zuid (BRS)
 - Canada centraal (CNC)
 - Canada - oost (CE)
@@ -50,17 +50,17 @@ Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase 
 - US - oost 2 (EUS2)
 - Japan - oost (JPE)
 - Japan - west (JPW)
-- India - centraal (INC) 
+- India - centraal (INC)
 - India - zuid (INS)
 - Korea - centraal (KRC)
 - Korea - zuid (KRS)
-- US - noord-centraal (NCUS) 
-- Europa - noord (NE) 
-- US - zuid-centraal (SCUS) 
+- US - noord-centraal (NCUS)
+- Europa - noord (NE)
+- US - zuid-centraal (SCUS)
 - Azië - zuidoost (SEA)
-- Verenigd Koninkrijk zuid (UKS) 
-- Verenigd Koninkrijk west (UKW) 
-- Europa - west (WE) 
+- Verenigd Koninkrijk zuid (UKS)
+- Verenigd Koninkrijk west (UKW)
+- Europa - west (WE)
 - US - west (WUS)
 - US - west-centraal (WCUS)
 - US - west 2 (WUS 2)
@@ -82,7 +82,7 @@ Nee. Alle bestandsshares in een opslagaccount kunnen alleen in dezelfde kluis wo
 U kunt op elk moment maximaal 200 momentopnamen voor een bestandsshare hebben. Deze limiet is inclusief momentopnamen die zijn gemaakt met Azure Backup zoals gedefinieerd in uw beleid. Als uw back-ups mislukken nadat de limiet is bereikt, verwijdert u herstelpunten op aanvraag om ervoor te zorgen dat toekomstige back-ups slagen.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Nadat ik op mijn opslagaccount virtuele netwerken had ingeschakeld, heb ik geen back-ups meer kunnen maken van bestandsshares in het account. Hoe komt dat?
-Het maken van back-ups van Azure-bestandsshares biedt geen ondersteuning voor opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld. Schakel virtuele netwerken uit voor de opslagaccounts om geslaagde back-ups te maken. 
+Het maken van back-ups van Azure-bestandsshares biedt geen ondersteuning voor opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld. Schakel virtuele netwerken uit voor de opslagaccounts om geslaagde back-ups te maken.
 
 ## <a name="restore"></a>Herstellen
 
@@ -91,6 +91,10 @@ Wanneer een Azure-bestandsshare wordt verwijderd, krijgt u de lijst met back-ups
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Kan ik gegevens herstellen vanuit back-ups als ik ben gestopt met de beveiliging van een Azure-bestandsshare? <br/>
 Ja. Als u **Back-upgegevens behouden** hebt gekozen toen u met de beveiliging stopte, kunt u vanaf alle bestaande herstelpunten iets terugzetten.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Wat gebeurt er als ik een continue hersteltaak annuleren?
+Als een lopende hersteltaak is geannuleerd, blijven de terugzetten wordt beëindigd en alle bestanden hersteld voordat de annulering in geconfigureerde doel (oorspronkelijke of een alternatieve locatie) zonder eventuele terugdraaiacties. 
+
 
 ## <a name="manage-backup"></a>Het maken van back-ups beheren
 
@@ -109,5 +113,5 @@ Wanneer er op een of meer bestandsshares een nieuw beleid wordt toegepast, worde
 ## <a name="see-also"></a>Zie ook
 Deze informatie heeft alleen betrekking op het maken van back-ups van Azure-bestanden. Voor meer informatie over andere gebieden van Azure Backup, wordt u aangeraden een aantal van een van deze overige veelgestelde vragen over het maken van back-ups te raadplegen:
 -  [Veelgestelde vragen over Recovery Services-kluis](backup-azure-backup-faq.md)
--  [Veelgestelde vragen over Azure VM-back-ups](backup-azure-vm-backup-faq.md)
--  [Veelgestelde vragen over Azure Backup-agent](backup-azure-file-folder-backup-faq.md)
+-  [Azure VM Veelgestelde vragen over backup](backup-azure-vm-backup-faq.md)
+-  [Veelgestelde vragen over Azure Backup agent](backup-azure-file-folder-backup-faq.md)

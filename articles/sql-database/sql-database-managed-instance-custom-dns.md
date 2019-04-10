@@ -9,36 +9,37 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 353df930b5769a585d7372716f33fe724a2a7594
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562144"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361700"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Een aangepaste DNS configureren voor Azure SQL Database Managed Instance
 
-Een Azure SQL Database Managed Instance moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's (bijvoorbeeld db e-mail, gekoppelde servers naar andere SQL-exemplaren in uw omgeving cloud of hybride) waarvoor persoonlijke hostnamen worden omgezet in het beheerde exemplaar. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance. 
+Een Azure SQL Database Managed Instance moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's (bijvoorbeeld db e-mail, gekoppelde servers naar andere SQL-exemplaren in uw omgeving cloud of hybride) waarvoor persoonlijke hostnamen worden omgezet in het beheerde exemplaar. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance.
 
    > [!IMPORTANT]
    > Gebruik de volledig gekwalificeerde domeinnamen (FQDN) voor de e-mailservers, SQL-Servers en andere services altijd, zelfs als ze binnen uw privé-DNS-zone. Gebruik bijvoorbeeld `smtp.contoso.com` voor e-mailserver omdat eenvoudige `smtp` worden niet correct opgelost.
 
-Als u wilt maken van een aangepaste DNS-configuratie is compatibel met het beheerde exemplaar, moet u: 
-- Aangepaste DNS-server configureren zodat deze kunnen openbare domeinnamen omzetten 
-- Azure recursieve naamomzetting DNS IP-adres 168.63.129.16 aan het einde van het virtuele netwerk DNS-lijst plaatsen 
- 
+Als u wilt maken van een aangepaste DNS-configuratie is compatibel met het beheerde exemplaar, moet u:
+
+- Aangepaste DNS-server configureren zodat deze kunnen openbare domeinnamen omzetten
+- Azure recursieve naamomzetting DNS IP-adres 168.63.129.16 aan het einde van het virtuele netwerk DNS-lijst plaatsen
+
 ## <a name="setting-up-custom-dns-servers-configuration"></a>Instellen van aangepaste DNS-servers configureren
 
 1. Zoeken in de Azure-portal, aangepaste DNS-optie voor uw VNet.
 
-   ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
+   ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
 
-2. Schakel over naar aangepaste en voer uw aangepaste DNS-server IP-adres, evenals Azure recursieve resolvers IP-adres 168.63.129.16. 
+2. Schakel over naar aangepaste en voer uw aangepaste DNS-server IP-adres, evenals Azure recursieve resolvers IP-adres 168.63.129.16.
 
-   ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
+   ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
 
    > [!IMPORTANT]
    > Instelling van Azure recursieve naamomzetting in de lijst met DNS kan leiden tot het beheerde exemplaar in te voeren een beschadigde status waarbij de aangepaste DNS-servers om een bepaalde reden niet beschikbaar zijn. Herstellen vanaf dat staat mogelijk moet u nieuwe instantie in een VNet aan het nalevingsbeleid voor netwerken, serviceniveau-Instantiegegevens maken en herstellen van uw databases. Instelling van de Azure recursieve naamomzetting omdat de laatste vermelding in de lijst met DNS-zorgt ervoor dat, zelfs als alle aangepaste DNS-servers mislukt, kunnen openbare namen nog steeds worden opgelost.

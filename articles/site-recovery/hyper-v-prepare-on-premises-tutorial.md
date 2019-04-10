@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315772"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361883"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>On-premises Hyper-V-servers voorbereiden op herstel na noodgevallen naar Azure
 
-Deze zelfstudie leert u hoe u uw on-premises Hyper-V-infrastructuur voorbereidt wanneer u Hyper-V-machines repliceren naar Azure, voor de doeleinden van herstel na noodgevallen. Hyper-V-hosts kunnen worden beheerd door System Center Virtual Machine Manager (VMM), maar het is niet vereist.  In deze zelfstudie leert u het volgende:
+In dit artikel wordt beschreven hoe u uw on-premises Hyper-V-infrastructuur voorbereidt wanneer u wilt instellen van herstel na noodgevallen van Hyper-VM's naar Azure, met behulp van [Azure Site Recovery](site-recovery-overview.md).
+
+
+Dit is de tweede zelfstudie in een serie die laat zien u hoe u herstel na noodgevallen naar Azure instelt voor on-premises Hyper-V-machines. In de eerste zelfstudie we [instellen van de Azure-onderdelen](tutorial-prepare-azure.md) die nodig zijn voor Hyper-V-noodherstel.
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Lees de vereisten voor Hyper-V, en de VMM-vereisten indien van toepassing.
-> * Voorbereiden van VMM, indien van toepassing
-> * Controleer of de internettoegang tot Azure-locaties
-> * Virtuele machines voorbereiden, zodat u ze na een failover naar Azure
+> * Vereisten voor Hyper-V en VMM-vereisten controleren als de Hyper-V-hosts worden beheerd door System Center VMM.
+> * Bereid VMM indien van toepassing.
+> * Controleer of u toegang tot internet tot Azure-locaties.
+> * Virtuele machines voorbereiden, zodat u ze na een failover naar Azure.
 
-Dit is de tweede zelfstudie in de reeks. Zorg ervoor dat u [de Azure-onderdelen hebt ingesteld](tutorial-prepare-azure.md) zoals beschreven in de vorige zelfstudie.
+> [!NOTE]
+> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Lees het artikel in de sectie How To van de Site Recovery inhoudsopgave voor gedetailleerde instructies.
 
+## <a name="before-you-start"></a>Voordat u begint
 
+Zorg ervoor dat u hebt voorbereid Azure zoals wordt beschreven in de [eerste zelfstudie in deze reeks](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Vereisten controleren en vereisten
 
@@ -79,7 +87,7 @@ Voor verbinding met virtuele Windows-machines na een failover met RDP, als volgt
 
 1. Om toegang te krijgen via het internet, schakelt u voor de failover RDP in op de on-premises VM. Zorg ervoor dat TCP- en UDP-regels zijn toegevoegd voor het profiel **Openbaar** en dat RDP is toegestaan in **Windows Firewall** > **Toegestane apps** voor alle profielen.
 2. Voor toegang via VPN tussen sites schakelt u RDP in op de on-premises computer. RDP moet toegestaan zijn in de **Windows Firewall** -> **Toegestane apps en onderdelen** voor **Domein en Privé**-netwerken.
-   Controleer of het SAN-beleid van het besturingssysteem is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135). Er mogen geen Windows-updates in behandeling zijn op de VM wanneer u een failover activeert. Als die er zijn, kunt u pas weer bij de virtuele machine inloggen als de update is voltooid.
+   Controleer of het SAN-beleid van het besturingssysteem is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135). Er mogen geen Windows-updates in behandeling zijn op de VM wanneer u een failover activeert. Als er, kunt u zich niet aanmelden bij de virtuele machine totdat de update is voltooid.
 3. Controleer na een failover **Diagnostische gegevens over opstarten** op de Windows Azure VM om een schermopname van de VM weer te geven. Als u geen verbinding kunt maken, controleer dan of de VM actief is en bekijk deze [tips voor het oplossen van problemen](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Na een failover, kunt u toegang tot Azure-VM's met behulp van hetzelfde IP-adres als de gerepliceerde on-premises VM, of een ander IP-adres. [Meer informatie](concepts-on-premises-to-azure-networking.md) over het instellen van het IP-adressering voor failover.

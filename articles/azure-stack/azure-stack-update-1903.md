@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360566"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471474"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 update
 
@@ -97,7 +97,8 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md), een waarschuwingsbericht wordt weergegeven van de Baseboard Management Controller (BMC) wordt weergegeven. U kunt deze waarschuwing negeren.
 
-- <!-- 2468613 - IS --> Tijdens de installatie van deze update, ziet u mogelijk waarschuwingen met de titel **fout: sjabloon voor FaultType UserAccounts.New ontbreekt.** U kunt deze waarschuwingen negeren. De waarschuwingen worden automatisch gesloten na de installatie van deze update is voltooid.
+<!-- 2468613 - IS -->
+- Tijdens de installatie van deze update, ziet u mogelijk waarschuwingen met de titel **fout: sjabloon voor FaultType UserAccounts. Nieuwe ontbreekt.** U kunt deze waarschuwingen negeren. De waarschuwingen worden automatisch gesloten na de installatie van deze update is voltooid.
 
 ## <a name="post-update-steps"></a>Stappen na het bijwerken
 
@@ -124,10 +125,15 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Verwijderen van zwevende resources leidt van gebruiker-abonnementen. Als tijdelijke oplossing, eerst Gebruikersbronnen of de hele resourcegroep verwijderen en verwijder vervolgens de gebruikersabonnementen.
 
 <!-- 1663805 - IS ASDK --> 
-- U kunt machtigingen aan uw abonnement met behulp van de Azure Stack-portals niet weergeven. Als tijdelijke oplossing gebruiken [PowerShell machtigingen kan verifiëren](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- U kunt machtigingen aan uw abonnement met behulp van de Azure Stack-portals niet weergeven. Als tijdelijke oplossing gebruiken [PowerShell machtigingen kan verifiëren](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- In de gebruikersportal, wanneer u gaat u naar een blob in een storage-account en probeert te openen **toegangsbeleid** in de navigatiestructuur, het volgende venster niet kan worden geladen.
+- In de gebruikersportal, wanneer u gaat u naar een blob in een storage-account en probeert te openen **toegangsbeleid** in de navigatiestructuur, het volgende venster niet kan worden geladen. De volgende PowerShell-cmdlets inschakelen om dit probleem omzeilen, maken, ophalen, instellen en verwijderen van toegangsbeleid, respectievelijk:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - In de gebruikersportal, wanneer u probeert te uploaden van een blob met de **OAuth(preview)** optie, de taak is mislukt met een foutbericht weergegeven. U kunt dit probleem omzeilen, uploaden van de blob met behulp de **SAS** optie.
@@ -157,17 +163,16 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken voor aanmelding bij. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.
 
-- Azure Stack biedt nu ondersteuning voor Windows Azure Linux-agents die groter is dan versie 2.2.20. Deze ondersteuning is een onderdeel van de hotfix 1901 en 1902 en kan klanten behouden van consistente linux-installatiekopieën tussen Azure en Azure Stack.
-
+- Azure Stack biedt nu ondersteuning voor Windows Azure Linux-agents die groter is dan versie 2.2.20. Deze ondersteuning is een onderdeel van de 1901 en 1902 hotfixes en kan klanten te houden van Linux-installatiekopieën die consistent zijn tussen Azure en Azure Stack.
 
 - Als u geen een Hardware Lifecycle Host (HLH): voordat build 1902, moest u Groepsbeleid instellen **Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\beveiligingsopties** naar **verzenden LM en NTLM: NTLMv2-sessiebeveiliging gebruiken als heeft onderhandeld over**. Sinds build 1902, moet u deze als laten **niet gedefinieerd** of stel deze in op **alleen verzenden NTLMv2-antwoord** (dit is de standaardwaarde). Anders kunt u zich niet tot stand brengen van een externe PowerShell-sessie en ziet u een **toegang is geweigerd** fout:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed

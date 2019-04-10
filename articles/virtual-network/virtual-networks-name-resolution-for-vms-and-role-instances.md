@@ -4,26 +4,26 @@ titlesuffix: Azure Virtual Network
 description: De naam van oplossing scenario's voor Azure IaaS, hybride oplossingen, tussen verschillende cloudservices, Active Directory en uw eigen DNS-server.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418734"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426423"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
 Afhankelijk van hoe u Azure gebruikt voor het hosten van IaaS, PaaS en hybride oplossingen, moet u mogelijk de virtuele machines (VM's) en andere resources die zijn geïmplementeerd in een virtueel netwerk om te communiceren met elkaar toestaan. Hoewel u communicatie inschakelen kunt met behulp van IP-adressen, is het veel eenvoudiger namen te gebruiken die eenvoudig kunnen worden onthouden, en niet te wijzigen. 
 
-Wanneer resources die zijn geïmplementeerd in virtuele netwerken domeinnamen omzetten in het interne IP-adressen moeten, kunnen ze een van twee methoden gebruiken:
+Wanneer resources die zijn geïmplementeerd in virtuele netwerken domeinnamen moeten omzetten naar interne IP-adressen, kan dat met behulp van twee verschillende methoden:
 
 * [Azure geleverd naamomzetting](#azure-provided-name-resolution)
 * [Naamomzetting die gebruikmaakt van uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server) (die mogelijk doorsturen van query's naar de Azure DNS-servers)
@@ -34,7 +34,7 @@ Het type van de naamomzetting die u gebruikt, is afhankelijk van hoe uw resource
 > Afhankelijk van uw scenario, kunt u de functie Azure DNS Private Zones, dat zich momenteel in openbare preview-versie gebruiken. Zie voor meer informatie [Azure DNS gebruiken voor privédomeinen](../dns/private-dns-overview.md).
 >
 
-| **Scenario** | **Oplossing** | **Suffix** |
+| **Scenario** | **Oplossing** | **Achtervoegsel** |
 | --- | --- | --- |
 | Naamomzetting tussen virtuele machines zich bevinden in het hetzelfde virtuele netwerk of de Azure Cloud Services-rolexemplaren in dezelfde cloudservice. | [Azure DNS Private Zones](../dns/private-dns-overview.md) of [Azure geleverd naamomzetting](#azure-provided-name-resolution) |De hostnaam of FQDN-naam |
 | Naamomzetting tussen virtuele machines in verschillende virtuele netwerken of rolinstanties in verschillende cloudservices. |[Azure DNS Private Zones](../dns/private-dns-overview.md) of door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |

@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 25b72b6770e088a2999f1e70f3dc3559587cd0e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774810"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361445"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 
@@ -58,8 +58,8 @@ _Zonder_ Dev Spaces zou Scott maar over een paar manieren beschikken om de updat
 ### <a name="set-up-your-baseline"></a>De basislijn instellen
 We moeten eerst een basislijn voor onze services implementeren. Deze implementatie vertegenwoordigt de laatst bekende goed werkende situatie. Daardoor kunt u eenvoudig het gedrag van uw lokale code vergelijken met de ingecheckte versie. Vervolgens maakt u een onderliggende ruimte op basis van deze basislijn zodat we onze wijzigingen van *mywebapi* kunnen testen binnen de context van de grotere toepassing.
 
-1. De [Dev Spaces-voorbeeldtoepassing](https://github.com/Azure/dev-spaces) klonen: `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. De externe branch *azds_updates* uitchecken: `git checkout -b azds_updates origin/azds_updates`
+1. Kloon de [Dev spaties voorbeeldtoepassing](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. De externe branch uitchecken *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Sluit alle F5-foutopsporingssessies voor beide services, maar houd de projecten open in de bijbehorende Visual Studio-vensters.
 1. Schakel over naar het Visual Studio-venster met het _mywebapi_-project.
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Properties**.

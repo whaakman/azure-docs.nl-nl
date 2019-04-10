@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006344"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361349"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>De Azure Site Recovery deployment planner voor noodherstel van Hyper-V naar Azure uitvoeren
 
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(Optioneel) Het wachtwoord om verbinding te maken met de Hyper-V-host. Als u dit niet als een parameter opgeeft, wordt u om dit wachtwoord gevraagd wanneer u de opdracht uitvoert.|
 |-StorageAccountName|(Optioneel) De naam van het opslagaccount dat wordt gebruikt om de bereikbare doorvoer te vinden voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de doorvoer te berekenen. Het opslagaccount moet v1 (GPv1) voor algemene doeleinden zijn.|
 |-StorageAccountKey|(Optioneel) De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > **Opslagaccounts** > *naam van het opslagaccount* >  **Instellingen** > **Toegangssleutels** > **Sleutel1** (of primaire toegangssleutel voor een klassiek opslagaccount).|
-|-Environment|(Optioneel) Uw doelomgeving voor het Azure Storage-account. Het kan een van drie waarden zijn: AzureCloud, AzureUSGovernment of AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China is.|
+|-Environment|(Optioneel) Uw doelomgeving voor het Azure Storage-account. Het kan een van drie waarden zijn: AzureCloud, AzureUSGovernment of AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China 21Vianet is.|
 
 Het is raadzaam om de virtuele machines gedurende meer dan 7 dagen te profileren. Als het verlooppatroon binnen een maand varieert, raden wij u aan de profilering door de week uit te voeren wanneer zich het maximale verloop voordoet. Het beste is om de profilering gedurende 31 dagen uit te voeren, zodat u een betere aanbeveling krijgt. 
 
@@ -254,12 +254,12 @@ We raden u ten zeerste aan om rekening te houden met groei tijdens het plannen v
 
 Het gegenereerde Microsoft Excel-rapport bevat de volgende informatie:
 
-* [Samenvatting van on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Samenvatting on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Aanbevelingen](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [Plaatsing van VM-opslag](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM-opslagplaatsing](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatibele VM's](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Niet-compatibele VM's](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [Opslagvereiste voor on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [On-premises opslagvereiste](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR-batchverwerking](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Kostenraming](hyper-v-deployment-planner-cost-estimation.md)
 
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | De naam van het opslagaccount dat wordt gebruikt om de bandbreedte te bepalen die wordt gebruikt voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de gebruikte bandbreedte te bepalen. Het opslagaccount moet v1 (GPv1) voor algemene doeleinden zijn.|
 | -StorageAccountKey | De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > **Opslagaccounts** > *naam van opslagaccount* >  **Instellingen** > **Toegangssleutels** > **Sleutel1**.|
 | -VMListFile | Het bestand met de lijst met virtuele machines die moeten worden geprofileerd voor het berekenen van de gebruikte bandbreedte. Het bestandspad kan absoluut of relatief zijn. Voor Hyper-V is dit het uitvoerbestand voor de bewerking GetVMList. Als u de voorbereiding handmatig uitvoert, moet het bestand één servernaam of IP-adres bevatten, gevolgd door de naam van de VM (gescheiden door een \ per regel). De VM-naam die wordt opgegeven in het bestand, moet gelijk zijn aan de VM-naam op de Hyper-V host.<br><br>**Voorbeeld:** VMList.txt bevat de volgende virtuele machines:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Optioneel) Uw doelomgeving voor het Azure Storage-account. Het kan een van drie waarden zijn: AzureCloud, AzureUSGovernment of AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China is.|
+|-Environment|(Optioneel) Uw doelomgeving voor het Azure Storage-account. Het kan een van drie waarden zijn: AzureCloud, AzureUSGovernment of AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China 21Vianet is.|
 
 ### <a name="example"></a>Voorbeeld
 ```

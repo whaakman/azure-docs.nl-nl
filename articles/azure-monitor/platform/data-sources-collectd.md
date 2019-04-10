@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999314"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426134"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Gegevens verzamelen van verzamelde op Linux-agents in Azure Monitor
 [Verzamelde](https://collectd.org/) is een open-source Linux-daemonwijzigingen die periodiek metrische gegevens voor prestaties van toepassingen en gegevens op systeem verzamelt. Van de voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx. In dit artikel bevat informatie over het verzamelen van prestatiegegevens van verzamelde in Azure Monitor.
@@ -112,14 +112,14 @@ Voor het onderhouden van een vertrouwde model tussen metrische gegevens over inf
 
 | Veld van de verzamelde metrische gegevens | Azure Monitor-veld |
 |:--|:--|
-| host | Computer |
-| Invoegtoepassing | Geen |
-| plugin_instance | Instantienaam<br>Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*" |
-| type | ObjectName |
-| type_instance | CounterName<br>Als **type_instance** is *null* vervolgens CounterName =**leeg** |
-| dsnames] | CounterName |
-| dstypes | Geen |
-| waarden] | CounterValue |
+| `host` | Computer |
+| `plugin` | Geen |
+| `plugin_instance` | Instantienaam<br>Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Als **type_instance** is *null* vervolgens CounterName =**leeg** |
+| `dsnames[]` | CounterName |
+| `dstypes` | Geen |
+| `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

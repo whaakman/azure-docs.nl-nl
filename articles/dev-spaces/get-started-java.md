@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842410"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426304"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Aan de slag in Azure Dev Spaces met behulp van Java
 
@@ -26,15 +26,10 @@ In deze handleiding leert u het volgende:
 - Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 
 > [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen.
-
-U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
+> **Als u zitten** op elk gewenst moment, Zie de [probleemoplossing](troubleshooting.md) sectie.
 
 ## <a name="install-the-azure-cli"></a>Azure-CLI installeren
 Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-> [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.43 of hoger gebruikt.
 
 ### <a name="sign-in-to-azure-cli"></a>Aanmelden bij Azure CLI
 Meld u aan bij Azure. Typ de volgende opdracht in een terminalvenster:
@@ -113,7 +108,7 @@ U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier n
     ```
 
 Met de opdracht `azds prep` van Azure-CLI worden Docker- en Kubernetes-assets met standaardinstellingen gemaakt:
-* In `./Dockerfile` wordt beschreven wat de containerinstallatiekopie van de app is, en hoe de broncode is opgebouwd en wordt uitgevoerd in de container.
+* `./Dockerfile` Beschrijving van de app container-installatiekopie, en hoe de broncode wordt opgebouwd en wordt uitgevoerd in de container.
 * Met een [Helm-grafiek](https://docs.helm.sh) die zich onder `./charts/webfrontend` bevindt, wordt beschreven hoe de container in Kubernetes moet worden geïmplementeerd.
 
 Op dit moment is het nog niet nodig om de volledige inhoud van deze bestanden te begrijpen. Wat u wel moet weten is dat **de dezelfde assets voor 'configuratie als code' in Docker en Kubernetes kunnen worden gebruikt van ontwikkeling tot productie, waardoor er meer consistentie tussen de verschillende omgevingen bestaat.**
@@ -153,7 +148,7 @@ Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Te
 > Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
-1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java` en bewerk het welkomstbericht: `return "Hello from webfrontend in Azure!";`
+1. Open het codebestand met de naam `src/main/java/com/ms/sample/webfrontend/Application.java`, en het begroetingsbericht bewerken: `return "Hello from webfrontend in Azure!";`
 1. Sla het bestand op.
 1. Voer `azds up` uit in het terminalvenster.
 
@@ -220,9 +215,9 @@ In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containeri
 
 Vernieuw de web-app in de browser. U ziet dat uw aangepaste bericht wordt weergegeven in de gebruikersinterface.
 
-**U beschikt nu over een methode om code snel te ontwikkelen en foutopsporing rechtstreeks uit te voeren in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
+**U hebt nu een methode voor het snel herhalen op code en foutopsporing rechtstreeks in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over ontwikkelen van meerdere services](multi-service-java.md)
+> [Meer informatie over het ontwikkelen van meerdere services](multi-service-java.md)

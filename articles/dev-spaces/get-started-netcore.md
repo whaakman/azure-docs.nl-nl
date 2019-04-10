@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: a72e02cf7cc85113fe4fb660fdc5e5f0b5f22019
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903144"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426338"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core
 
@@ -25,17 +25,10 @@ In deze handleiding leert u het volgende:
 - Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 
 > [!Note]
-> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen.
-
-U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
+> **Als u zitten** op elk gewenst moment, Zie de [probleemoplossing](troubleshooting.md) sectie.
 
 ## <a name="install-the-azure-cli"></a>Azure-CLI installeren
-Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. De lokale computer kan onder Windows en Linux en op een Mac worden uitgevoerd. Voor Linux worden de volgende distributies ondersteund: Ubuntu (18.04, 16.04 en 14.04), Debian 8 en 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 en SLES 12.
-
-Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.43 of hoger gebruikt.
+Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Aanmelden bij Azure CLI
 Meld u aan bij Azure. Typ de volgende opdracht in een terminalvenster:
@@ -112,7 +105,7 @@ U hebt nu een eenvoudige web-app die lokaal kan worden uitgevoerd. U gaat hier n
     ```
 
 Met de opdracht `azds prep` van Azure-CLI worden Docker- en Kubernetes-assets met standaardinstellingen gemaakt:
-* In `./Dockerfile` wordt beschreven wat de containerinstallatiekopie van de app is, en hoe de broncode is opgebouwd en wordt uitgevoerd in de container.
+* `./Dockerfile` Beschrijving van de app container-installatiekopie, en hoe de broncode wordt opgebouwd en wordt uitgevoerd in de container.
 * Met een [Helm-grafiek](https://docs.helm.sh) die zich onder `./charts/webfrontend` bevindt, wordt beschreven hoe de container in Kubernetes moet worden geïmplementeerd.
 
 Op dit moment is het nog niet nodig om de volledige inhoud van deze bestanden te begrijpen. Wat u wel moet weten is dat **de dezelfde assets voor 'configuratie als code' in Docker en Kubernetes kunnen worden gebruikt van ontwikkeling tot productie, waardoor er meer consistentie tussen de verschillende omgevingen bestaat.**
@@ -152,7 +145,7 @@ Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Te
 ### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
-1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 waar `<h2>Application uses</h2>` staat in iets als: `<h2>Hello k8s in Azure!</h2>`
+1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 `<h2>Application uses</h2>` naar ongeveer als volgt: `<h2>Hello k8s in Azure!</h2>`
 1. Sla het bestand op. Enkele ogenblikken later ziet u in het terminalvenster een bericht met de melding dat een bestand in de actieve container is bijgewerkt.
 1. Ga naar de browser en vernieuw de pagina. De bijgewerkte HTML-code wordt op de webpagina weergegeven.
 
@@ -162,7 +155,7 @@ Wat is er gebeurd? Bewerkingen van inhoudsbestanden, zoals HTML en CSS, vereisen
 Het bijwerken van codebestanden vereist iets meer werk, omdat een .NET Core-app bijgewerkte binaire toepassingsbestanden moet bouwen en produceren.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
-1. Open het codebestand met de naam `Controllers/HomeController.cs` en bewerk het bericht dat op de pagina Info wordt weergegeven: `ViewData["Message"] = "Your application description page.";`
+1. Open het codebestand met de naam `Controllers/HomeController.cs`, en bewerken van het bericht dat op de pagina over wordt weergegeven: `ViewData["Message"] = "Your application description page.";`
 1. Sla het bestand op.
 1. Voer `azds up` uit in het terminalvenster. 
 
@@ -233,9 +226,9 @@ In plaats van telkens als codewijzigingen zijn aangebracht een nieuwe containeri
 
 Vernieuw de web-app in de browser en ga naar de pagina Info. U ziet dat uw aangepaste bericht wordt weergegeven in de gebruikersinterface.
 
-**U beschikt nu over een methode om code snel te ontwikkelen en foutopsporing rechtstreeks uit te voeren in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
+**U hebt nu een methode voor het snel herhalen op code en foutopsporing rechtstreeks in Kubernetes.** Hierna ziet u hoe u een tweede container kunt maken en aanroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Informatie over ontwikkelen van meerdere services](multi-service-netcore.md)
+> [Meer informatie over het ontwikkelen van meerdere services](multi-service-netcore.md)

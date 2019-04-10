@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500556"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361490"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -85,10 +85,10 @@ Voorbereiden van uw AKS-cluster bestaat uit:
 * Inschakelen van Azure Dev spaties over het gebruik van uw cluster `az aks use-dev-spaces`
 
 Zie voor meer informatie over het maken en configureren van een AKS-cluster voor Azure Dev spaties, een van de aan de slag-handleidingen:
-* [Aan de slag met Azure Dev-ruimten met Java](get-started-java.md)
-* [Aan de slag met Azure Dev-ruimten met .NET Core en Visual Studio](get-started-netcore-visualstudio.md)
-* [Aan de slag met Azure Dev-ruimten met .NET Core](get-started-netcore.md)
-* [Aan de slag met Azure Dev-ruimten met behulp van Node.js](get-started-nodejs.md)
+* [Aan de slag in Azure Dev Spaces met behulp van Java](get-started-java.md)
+* [Aan de slag in Azure Dev Spaces met behulp van .NET Core en Visual Studio](get-started-netcore-visualstudio.md)
+* [Aan de slag in Azure Dev Spaces met behulp van .NET Core](get-started-netcore.md)
+* [Aan de slag in Azure Dev Spaces met behulp van Node.js](get-started-nodejs.md)
 
 Wanneer Azure Dev opslagruimten is ingeschakeld op uw AKS-cluster, installeert het de controller voor uw cluster. De controller is een afzonderlijke Azure-resources buiten het cluster en doet het volgende aan resources in uw cluster:
 

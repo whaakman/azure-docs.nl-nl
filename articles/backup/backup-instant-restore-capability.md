@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905967"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359972"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905967"
 Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
 
 * De mogelijkheid om te gebruiken van momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die is beschikbaar voor herstel zonder te wachten op voor de overdracht van gegevens naar de kluis om te voltooien. Beperkt het de wachttijd voor momentopnamen te kopiëren naar de kluis voordat het activeren van de herstelbewerking.
-* Vermindert back-up en herstel met behoud van momentopnamen lokaal voor standaard twee dagen. Deze kluis standaard worden geconfigureerd op een waarde tussen 1 tot 5 dagen.
-* Ondersteunt schijf de grootte van maximaal 4 TB.
+* Vermindert back-up en herstel met behoud van momentopnamen lokaal voor standaard twee dagen. Deze standaardwaarde voor het bewaren van momentopname kan worden geconfigureerd op een waarde tussen 1 tot 5 dagen.
+* Ondersteunt schijf de grootte van maximaal 4 TB. Azure Backup biedt geen ondersteuning voor striped schijven. Grootte van de schijf wordt niet aanbevolen door Azure Backup.
 * Standard-SSD-schijven, samen met de standaard harde schijven en Premium-SSD-schijven ondersteunt.
 *   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
 
@@ -75,9 +74,9 @@ In de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade 
 > Via Az PowerShell versie 1.6.0 en hoger, kunt u de bewaarperiode voor direct herstel momentopname in met behulp van PowerShell-beleid bijwerken
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 De standaard momentopname bewaarperiode voor elk beleid is ingesteld op 2 dagen. Gebruiker kan de waarde minimaal 1 en maximaal 5 dagen wijzigen. Wekelijkse beleid voor is de bewaarperiode voor momentopname van 5 dagen opgelost.
 

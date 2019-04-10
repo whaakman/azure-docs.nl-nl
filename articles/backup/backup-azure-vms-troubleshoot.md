@@ -6,41 +6,168 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259946"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361517"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
 
+## <a name="backup"></a>Backup
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-kopiëren van back-ups van gegevens uit de kluis is een time-out
+
+Foutcode: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Foutbericht: Kopiëren van back-ups van gegevens uit de kluis is een time-out
+
+Dit kan gebeuren vanwege onvoldoende opslagruimte op account IOPS aan voor de Backup-service gegevens overdraagt naar de kluis binnen de time-outperiode of van tijdelijke Opslagfouten. VM-back-up met behulp van deze configureren [aanbevolen procedures](backup-azure-vms-introduction.md#best-practices) en voer de back-upbewerking opnieuw uit.
+
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM is niet in een status waarin de back-ups.
+
+Foutcode: UserErrorVmNotInDesirableState <br/>
+Foutbericht: Virtuele machine is niet in een status waarin de back-ups.<br/>
+
+De back-upbewerking is mislukt omdat de virtuele machine in de status mislukt. Voor geslaagde back-up van de virtuele machine moet de status actief, gestopt of gestopt (toewijzing opgeheven).
+
+* Als de virtuele machine een tijdelijke status tussen is **met** en **afsluiten**, wacht totdat de status om te wijzigen. Vervolgens de back-uptaak activeert.
+*  Als de virtuele machine een Linux-VM is en de module Security-Enhanced Linux-kernel gebruikt, sluit u het pad van de Azure Linux Agent **/var/lib/waagent** van het beveiligingsbeleid en zorg ervoor dat de back-up-extensie is geïnstalleerd.
+
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>Kan de UserErrorFsFreezeFailed - niet blokkeren van een of meer koppelpunten van de virtuele machine naar een bestandssysteem consistente momentopname te maken
+
+Foutcode: UserErrorFsFreezeFailed <br/>
+Foutbericht: Kan niet stilzetten van een of meer koppelpunten van de virtuele machine naar een bestandssysteem consistente momentopname te maken.
+
+* Controleer de status van alle gekoppelde apparaten met behulp van de **tune2fs** opdracht, bijvoorbeeld **tune2fs -l/dev/sdb1 \\** .\| grep **bestandssysteem status**.
+* Ontkoppel de apparaten die de systeemstatus van het bestand is niet opgeschoond waarvoor, met behulp van de **umount** opdracht.
+* Een bestand system consistentiecontrole op deze apparaten worden uitgevoerd met behulp van de **fsck** opdracht.
+* De apparaten opnieuw koppelen en voer de back-upbewerking opnieuw uit.</ol>
+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - extensie installatie/per bewerking is mislukt vanwege een COM +-fout
+
+Foutcode: ExtensionSnapshotFailedCOM <br/>
+Foutbericht: De momentopnamebewerking is mislukt vanwege een COM +-fout
+
+Foutcode: ExtensionInstallationFailedCOM  <br/>
+Foutbericht: Extensiebewerking installatie is mislukt vanwege een COM +-fout
+
+Foutcode: ExtensionInstallationFailedMDTC-foutbericht: Installatie van de extensie is mislukt met de fout 'COM + is niet kan communiceren met de Microsoft Distributed Transaction Coordinator
+
+De back-up is mislukt vanwege een probleem met Windows-service **COM + System** toepassing.  Volg deze stappen om dit probleem op te lossen:
+
+* Windows-service starten/Start **COM + System Application** (vanaf een opdrachtprompt met verhoogde bevoegdheid **-net start COMSysApp**).
+* Zorg ervoor dat **Distributed Transaction Coordinator** services wordt uitgevoerd als **netwerkservice** account. Als dit niet het geval is, wijzig dit in het run as- **netwerkservice** account in en start opnieuw op **COM + System Application**.
+* Als aan de service opnieuw starten, opnieuw installeren **Distributed Transaction Coordinator** service door de onderstaande stappen te volgen:
+    * Stop de MSDTC-service
+    * Open een opdrachtprompt (cmd)
+    * Opdracht uitvoeren ' msdtc-verwijderen "
+    * ongedaan maken-opdracht ' msdtc-installeren "
+    * Start de MSDTC-service
+* Start de service Windows **COM + System Application**. Na de **COM + System Application** wordt gestart, activeert u een back-uptaak van de Azure-portal.</ol>
+
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - momentopname is mislukt omdat de VSS-schrijvers in orde zijn
+
+Foutcode: ExtensionFailedVssWriterInBadState <br/>
+Foutbericht: De momentopnamebewerking is mislukt omdat VSS-schrijvers in orde zijn.
+
+Start opnieuw op VSS-schrijvers in orde. Voer vanuit een opdrachtprompt met verhoogde bevoegdheid ```vssadmin list writers```. De uitvoer bevat alle VSS-schrijvers en hun status. Voor elke VSS-schrijver met een status die geen **[1] stabiel**, zodat deze opnieuw starten van VSS-schrijver, voer de volgende opdrachten uit vanaf een opdrachtprompt met verhoogde bevoegdheid:
+
+  * ```net stop serviceName```
+  * ```net start serviceName```
+
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - fout bij het parseren van de configuratie voor de Backup-extensie
+
+Foutcode: ExtensionConfigParsingFailure<br/>
+Foutbericht: Er is een fout opgetreden bij het parseren van de configuratie voor de back-upextensie.
+
+Deze fout treedt op vanwege een gewijzigde machtigingen op de **als** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Voer de volgende opdracht uit en controleer of dat machtigingen voor de **als** directory zijn standaard labels:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+Standaardmachtigingen zijn als volgt:
+* Iedereen: (R,W)
+* BUILTIN\Administrators: (F)
+
+Als er machtigingen in de **als** directory opgespoord die anders is dan de standaardinstellingen, volg deze stappen om de juiste machtigingen, het verwijderen van het certificaat en het activeren van de back-up:
+
+1. Los van machtigingen op de **als** directory. Met behulp van Explorer security eigenschappen en instellingen voor geavanceerde beveiliging in de directory, kunt u machtigingen terug naar de standaardwaarden opnieuw instellen. Verwijder alle gebruikersobjecten, behalve de standaardinstellingen van de map en zorg ervoor dat de **iedereen** machtiging heeft speciale toegang als volgt:
+
+    * Gegevens van de map/lezen lijst
+    * Kenmerken lezen
+    * Uitgebreide kenmerken lezen
+    * Maken van bestanden/gegevens schrijven
+    * Maken van mappen/gegevens toevoegen
+    * Kenmerken schrijven
+    * Uitgebreide kenmerken schrijven
+    * De machtiging lezen
+2. Verwijder alle certificaten die waar **verleend aan** is van het klassieke implementatiemodel of **Windows Azure CRP-Certificaatgenerator**:
+    * [Certificaten op een lokale computer-console openen](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+    * Onder **persoonlijke** > **certificaten**, alle certificaten verwijderen waar **verleend aan** is van het klassieke implementatiemodel of **CRP van Windows Azure Certificaat Generator**.
+3. Een virtuele machine back-uptaak activeert.
+
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - status van de extensie is niet gericht op de back-upbewerking
+
+Foutcode: ExtensionStuckInDeletionState <br/>
+Foutbericht: Status van de extensie is niet gericht op de back-upbewerking
+
+De back-up is mislukt vanwege inconsistente status van de back-up-uitbreiding. Volg deze stappen om dit probleem op te lossen:
+
+* Zorg ervoor dat de gastagent geïnstalleerd en responsief is
+* Ga van Azure-portal naar **Virtuele machine** > **Alle instellingen** > **Extensies**
+* Selecteer de backup-extensie VmSnapshot of VmSnapshotLinux en klik op **Verwijderen**
+* Probeer na verwijdering van de back-upextensie de back-upbewerking opnieuw
+* De volgende back-upbewerking installeert de nieuwe extensie in de gewenste status
+
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - de momentopnamebewerking is mislukt omdat de limiet voor momentopnames is overschreden voor sommige van de schijven die zijn gekoppeld
+
+Foutcode: ExtensionFailedSnapshotLimitReachedError  <br/>
+Foutbericht: De momentopnamebewerking is mislukt omdat de limiet voor momentopnames is overschreden voor sommige van de schijven die zijn gekoppeld
+
+De momentopnamebewerking is mislukt omdat de limiet voor momentopnames is overschreden voor sommige van de schijven die zijn gekoppeld. Voer de volgende probleemoplossingsstappen en probeer het opnieuw.
+
+* Verwijder de blob-momentopnamen van de schijf die niet vereist. Wees voorzichtig met het schijf-blob niet verwijderen, alleen momentopname blobs moeten worden verwijderd.
+* Als de functie voor voorlopig verwijderen is ingeschakeld op de VM-schijf Opslagaccounts, functie voor voorlopig verwijderen bewaren configureren zodat bestaande momentopnamen kleiner zijn dan de maximaal toegestane op elk moment zijn.
+* Als Azure Site Recovery is ingeschakeld in de back-ups van virtuele machine, voer de onderstaande:
+
+    * Zorg ervoor dat de waarde van **isanysnapshotfailed** is ingesteld op ONWAAR in /etc/azure/vmbackup.conf
+    * Azure Site Recovery plannen op een ander tijdstip zodat er geen is de back-upbewerking conflict.
+
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - momentopname is mislukt vanwege onvoldoende VM-resources.
+
+Foutcode: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Foutbericht: De momentopnamebewerking is mislukt vanwege onvoldoende VM-resources.
+
+Back-upbewerking op de virtuele machine is mislukt vanwege vertragingen in netwerkaanroepen tijdens het uitvoeren van de momentopnamebewerking. U kunt dit probleem oplossen door stap 1 uit te voeren. Als het probleem zich blijft voordoen, probeert u stappen 2 en 3.
+
+**Stap 1**: Momentopname maken via host
+
+Voer vanaf een opdrachtprompt met verhoogde bevoegdheid (beheerder) de onderstaande opdracht uit:
+
+```
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
+```
+
+Deze opdracht zorgt ervoor dat de momentopnamen worden gemaakt via host in plaats van Guest. Probeer de back-upbewerking opnieuw.
+
+**Stap 2**: Wijzig het back-upschema naar een tijd waarop de virtuele machine wordt minder belast (minder CPU-/ IOP's enz.)
+
+**Stap 3**: Probeer [het vergroten van de virtuele machine](https://azure.microsoft.com/blog/resize-virtual-machines/) en probeer het opnieuw
+
+### <a name="common-vm-backup-errors"></a>Veelvoorkomende fouten voor VM-back-up
+
 | Foutdetails | Tijdelijke oplossing |
 | ------ | --- |
-| Back-up kan niet de bewerking niet uitvoeren omdat de virtuele machine (VM) niet meer bestaat: <br>De beveiliging van de virtuele machine zonder te verwijderen van back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](https://go.microsoft.com/fwlink/?LinkId=808124). |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**of**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| De Azure Virtual Machine Agent (VM-Agent) kan niet communiceren met de Azure Backup-service: <br>Zorg ervoor dat de virtuele machine heeft een netwerkverbinding en de VM-agent is het laatste nieuws en uitgevoerd. Zie voor meer informatie, [Azure Backup-problemen oplossen-fout: Problemen met de agent of de extensie](https://go.microsoft.com/fwlink/?LinkId=800034). |Deze fout treedt op als er een probleem met de VM-Agent, of toegang tot het netwerk naar de Azure-infrastructuur is geblokkeerd op een bepaalde manier. Meer informatie over [problemen opsporen van fouten in VM momentopname](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup). <br><br>Als de VM-Agent niet wordt veroorzaakt door problemen, start u de VM opnieuw. Een onjuiste status voor de virtuele machine kan problemen veroorzaken en stelt de status opnieuw starten van de virtuele machine opnieuw. |
+| Foutcode: 320001<br/> Foutbericht: Kan de bewerking niet uitvoeren omdat de VM niet meer bestaat. <br/> <br/> Foutcode: 400094 <br/> Foutbericht: De virtuele machine bestaat niet <br/> <br/>  Een virtuele machine van Azure is niet gevonden.  |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**of**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | De virtuele machine is mislukte Inrichtingsstatus: <br>Opnieuw opstarten van de virtuele machine en controleer of dat de virtuele machine wordt uitgevoerd of afsluiten. | Deze fout treedt op wanneer een van de extensie-fouten in mislukte Inrichtingsstatus heeft de virtuele machine wordt geplaatst. Ga aan de lijst met extensies als er een uitbreiding is mislukt is, verwijdert u deze en probeer het opnieuw opstarten van de virtuele machine. Als alle extensies actief is, controleert u of de VM-Agent-service wordt uitgevoerd. Als dat niet het geval is, start de VM-Agent-service opnieuw. |
-| Back-up kan niet kopiëren van de momentopname van de virtuele machine vanwege onvoldoende beschikbare ruimte in de storage-account: <br>Zorg ervoor dat opslagaccount vrije schijfruimte die gelijk is aan de gegevens aanwezig zijn op de premium storage-schijven die zijn gekoppeld aan de virtuele machine heeft. | Voor premium-VM's op de VM-back-upstack V1 kopiëren we de momentopname van het naar het opslagaccount. Deze stap zorgt ervoor dat verkeer van de back-upbeheer, dat op de momentopname werkt, heeft geen beperkingen voor het aantal IOP's beschikbaar voor de toepassing met behulp van premium-schijven. <br><br>Het is raadzaam dat u alleen 50 procent van de totale opslagruimte voor de account 17,5 TB toewijzen. De Azure Backup-service kan de momentopname vervolgens kopiëren naar de storage-account en de overdracht van gegevens vanaf deze locatie gekopieerd in het opslagaccount naar de kluis. |
-| Back-up kan de bewerking niet uitvoeren omdat de VM-Agent wordt reageert niet. |Deze fout treedt op als er een probleem met de VM-Agent of toegang tot het netwerk naar de Azure-infrastructuur is geblokkeerd op een bepaalde manier. Controleer de status van de VM-Agent-service in services en of de agent wordt weergegeven in programma's in het Configuratiescherm voor Windows-VM's. <br><br>Probeer te verwijderen van het programma in het Configuratiescherm en de agent opnieuw te installeren zoals beschreven in [VM-Agent](#vm-agent). Nadat u de agent opnieuw installeert, activeert u een ad-hoc back-up om deze te verifiëren. |
-| De bewerking voor recovery services-extensie is mislukt: <br>Zorg ervoor dat de nieuwste VM-Agent aanwezig is op de virtuele machine en de VM-Agent-service wordt uitgevoerd. Probeer de back-upbewerking opnieuw. Als de back-upbewerking is mislukt, moet u contact op met Microsoft Support. |Deze fout treedt op wanneer de VM-Agent verouderd is. Raadpleeg los problemen met Azure virtuele machine back-up naar de VM-Agent bijwerken. |
-| De virtuele machine bestaat niet: <br>Zorg ervoor dat de virtuele machine bestaat of Selecteer een andere virtuele machine. |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**of**<br></li><li>De beveiliging van de virtuele machine zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| De opdracht is mislukt: <br>Een andere bewerking wordt momenteel uitgevoerd voor dit item. Wacht totdat de vorige bewerking is voltooid. Voer de bewerking vervolgens opnieuw uit. |Een bestaande back-uptaak wordt uitgevoerd en een nieuwe taak kan niet worden gestart totdat de huidige taak is voltooid. |
-| Het kopiëren van VHD's van de Recovery Services-kluis is een time-out: <br>Voer de bewerking over enkele minuten opnieuw uit. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. | Deze fout treedt op als er een tijdelijke fout aan de opslag, of als de Backup-service heeft voldoende opslagaccount IOPS gegevens overdraagt naar de kluis binnen de time-outperiode ontvangen. Zorg ervoor dat u de [aanbevolen procedures bij het configureren van uw virtuele machines](backup-azure-vms-introduction.md#best-practices). Uw virtuele machine verplaatsen naar een ander opslagaccount die niet is geladen en probeer de back-uptaak.|
-| Back-up is mislukt met een interne fout: <br>Voer de bewerking over enkele minuten opnieuw uit. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |U kunt deze foutmelding krijgt om twee redenen: <ul><li> Er is een tijdelijk probleem bij het openen van de VM-opslag. Controleer de [status van Azure site](https://azure.microsoft.com/status/) om te zien of er Reken-, opslag- of netwerkproblemen in de regio. Nadat het probleem opgelost is, probeer de back-uptaak. <li> De oorspronkelijke virtuele machine is verwijderd en het herstelpunt kan niet worden uitgevoerd. Als u wilt de back-upgegevens bewaren voor een verwijderde virtuele machine, maar Verwijder de back-fouten, beveiliging opheffen van de virtuele machine en kies de optie om de gegevens te behouden. Deze actie worden de geplande back-uptaak en de terugkerende foutberichten gestopt. |
-| Back-up is mislukt voor het installeren van de Azure Recovery Services-extensie op het geselecteerde item: <br>De VM-Agent is een vereiste voor de Azure Recovery Services-extensie. De Azure VM-Agent installeren en opnieuw starten van de bewerking voor de registratie. |<ol> <li>Controleer of de VM-Agent correct is geïnstalleerd. <li>Zorg ervoor dat de vlag aan de configuratie van de virtuele machine correct is ingesteld.</ol> Meer informatie over het installeren van de VM-Agent en hoe u de installatie van de VM-Agent te valideren. |
-| Installatie van de extensie is mislukt met de fout **COM + is niet kan communiceren met de Microsoft Distributed Transaction Coordinator**. |Deze fout betekent meestal dat de COM +-service niet actief is. Neem contact op met Microsoft Support voor hulp bij het oplossen van dit probleem. |
+|Foutcode: UserErrorBCMPremiumStorageQuotaError<br/> Foutbericht: Kan de momentopname van de virtuele machine, vanwege onvoldoende beschikbare ruimte in het opslagaccount niet kopiëren | Voor premium-VM's op de VM-back-upstack V1 kopiëren we de momentopname van het naar het opslagaccount. Deze stap zorgt ervoor dat verkeer van de back-upbeheer, dat op de momentopname werkt, heeft geen beperkingen voor het aantal IOP's beschikbaar voor de toepassing met behulp van premium-schijven. <br><br>Het is raadzaam dat u alleen 50 procent van de totale opslagruimte voor de account 17,5 TB toewijzen. De Azure Backup-service kan de momentopname vervolgens kopiëren naar de storage-account en de overdracht van gegevens vanaf deze locatie gekopieerd in het opslagaccount naar de kluis. |
+| Kan niet Microsoft Recovery Services-uitbreiding installeren als de virtuele machine wordt niet uitgevoerd <br>De VM-Agent is een vereiste voor de Azure Recovery Services-extensie. De Azure VM-Agent installeren en opnieuw starten van de bewerking voor de registratie. |<ol> <li>Controleer of de VM-Agent correct is geïnstalleerd. <li>Zorg ervoor dat de vlag aan de configuratie van de virtuele machine correct is ingesteld.</ol> Meer informatie over het installeren van de VM-Agent en hoe u de installatie van de VM-Agent te valideren. |
 | De momentopnamebewerking is mislukt met de Volume Shadow Copy Service (VSS)-bewerkingsfout **dit station is vergrendeld door BitLocker-stationsversleuteling. U moet deze schijf van het Configuratiescherm ontgrendelen.** |BitLocker uitschakelen voor alle stations op de virtuele machine en controleer of de VSS-probleem is opgelost. |
-| De VM zich niet in een status waarin de back-ups. |<ul><li>Als de virtuele machine een tijdelijke status tussen is **met** en **afsluiten**, wacht totdat de status om te wijzigen. Vervolgens de back-uptaak activeert. <li> Als de virtuele machine een Linux-VM is en de module Security-Enhanced Linux-kernel gebruikt, sluit u het pad van de Azure Linux Agent **/var/lib/waagent** van het beveiligingsbeleid en zorg ervoor dat de Azure Backup-extensie is geïnstalleerd.  |
-| Een virtuele machine van Azure is niet gevonden. |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor de verwijderde virtuele machine. Corrigeer deze fout als volgt: <ol><li>Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**, <br>**of** <li> Schakel de beveiliging voor deze virtuele machine, zodat de back-uptaken wordt niet gemaakt. </ol> |
+| De VM zich niet in een status waarin de back-ups. |<ul><li>Als de virtuele machine een tijdelijke status tussen is **met** en **afsluiten**, wacht totdat de status om te wijzigen. Vervolgens de back-uptaak activeert. <li> Als de virtuele machine een Linux-VM is en de module Security-Enhanced Linux-kernel gebruikt, sluit u het pad van de Azure Linux Agent **/var/lib/waagent** van het beveiligingsbeleid en zorg ervoor dat de back-up-extensie is geïnstalleerd.  |
 | De VM-Agent niet aanwezig op de virtuele machine: <br>Alle vereiste onderdelen en de VM-Agent installeren. Start de bewerking vervolgens opnieuw. |Meer informatie over [VM-Agent-installatie en het valideren van de installatie van de VM-Agent](#vm-agent). |
-| De momentopnamebewerking is mislukt omdat de VSS-schrijvers in orde zijn. |Start opnieuw op VSS-schrijvers in orde. Voer vanuit een opdrachtprompt met verhoogde bevoegdheid ```vssadmin list writers```. De uitvoer bevat alle VSS-schrijvers en hun status. Voor elke VSS-schrijver met een status die geen **[1] stabiel**, zodat deze opnieuw starten van VSS-schrijver, voer de volgende opdrachten uit vanaf een opdrachtprompt met verhoogde bevoegdheid: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
-| De momentopnamebewerking is mislukt vanwege een fout bij het parseren van de configuratie. |Deze fout treedt op vanwege een gewijzigde machtigingen op de **als** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Voer de volgende opdracht uit en controleer of deze machtigingen op de **als** directory zijn standaard die:<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>Standaardmachtigingen zijn als volgt: <ul><li>Iedereen: (R,W) <li>BUILTIN\Administrators: (F)</ul> Als er machtigingen in de **als** directory opgespoord die anders is dan de standaardinstellingen, volg deze stappen om de juiste machtigingen, het verwijderen van het certificaat en het activeren van de back-up: <ol><li>Los van machtigingen op de **als** directory. Met behulp van Explorer security eigenschappen en instellingen voor geavanceerde beveiliging in de directory, kunt u machtigingen terug naar de standaardwaarden opnieuw instellen. Verwijder alle gebruikersobjecten, behalve de standaardinstellingen van de map en zorg ervoor dat de **iedereen** machtiging heeft speciale toegang als volgt: <ul><li>Gegevens van de map/lezen lijst <li>Kenmerken lezen <li>Uitgebreide kenmerken lezen <li>Maken van bestanden/gegevens schrijven <li>Maken van mappen/gegevens toevoegen<li>Kenmerken schrijven<li>Uitgebreide kenmerken schrijven<li>De machtiging lezen </ul><li>Verwijder alle certificaten die waar **verleend aan** is van het klassieke implementatiemodel of **Windows Azure CRP-Certificaatgenerator**:<ol><li>[Certificaten op een lokale computer-console openen](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>Onder **persoonlijke** > **certificaten**, alle certificaten verwijderen waar **verleend aan** is van het klassieke implementatiemodel of **CRP van Windows Azure Certificaat Generator**.</ol> <li>Een virtuele machine back-uptaak activeert. </ol>|
-| De Azure Backup-service beschikt niet over voldoende machtigingen voor Azure Key Vault voor back-up van versleutelde virtuele machines. |Om deze machtigingen in PowerShell bieden de Backup-service met behulp van de stappen in [maken van een VM van herstelde schijven](backup-azure-vms-automation.md). |
-|Installatie van de momentopname-extensie is mislukt met de fout **COM + is niet kan communiceren met de Microsoft Distributed Transaction Coordinator**. | De Windows-service starten vanaf een opdrachtprompt met verhoogde bevoegdheid **COM + System Application**. Een voorbeeld is **net start COMSysApp**. Als de service niet kan worden gestart, klikt u vervolgens de volgende stappen uitvoeren:<ol><li> Zorg ervoor dat de aanmeldingsaccount van de service **Distributed Transaction Coordinator** is **netwerkservice**. Als dat niet het geval is, wijzigt u het account aanmelden op **netwerkservice** en start de service opnieuw. Probeer te starten **COM + System Application**.<li>Als **COM + System Application** wordt niet gestart, de volgende stappen uit om te verwijderen en installeer de service **Distributed Transaction Coordinator**: <ol><li>Stop de MSDTC-service. <li>Open een opdrachtprompt **cmd**. <li>Voer de opdracht ```msdtc -uninstall``` uit. <li>Voer de opdracht ```msdtc -install``` uit. <li>Start de MSDTC-service. </ol> <li>Start de service Windows **COM + System Application**. Na de **COM + System Application** wordt gestart, activeert u een back-uptaak van de Azure-portal.</ol> |
-|  De momentopnamebewerking is mislukt vanwege een COM +-fout. | Het is raadzaam dat u de Windows-service opnieuw starten **COM + System Application** vanaf een opdrachtprompt met verhoogde bevoegdheid **net start COMSysApp**. Als het probleem zich blijft voordoen, start u de VM opnieuw. Als opnieuw opstarten van de virtuele machine niet wordt opgelost, probeert u [verwijderen van de VMSnapshot-extensie](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) en de back-up handmatig activeren. |
 | Back-up is mislukt voor het blokkeren van een of meer koppelpunten van de virtuele machine naar een bestand system consistente momentopname te maken. | De volgende stap uitvoeren: <ul><li>Controleer de status van alle gekoppelde apparaten met behulp van de **'tune2fs'** opdracht. Een voorbeeld is **tune2fs -l/dev/sdb1 \\** .\| grep **bestandssysteem status**. <li>Ontkoppel de apparaten waarvoor de systeemstatus van het bestand is niet schoon met behulp van de **'umount'** opdracht. <li> Een bestand system consistentiecontrole op deze apparaten worden uitgevoerd met behulp van de **'fsck'** opdracht. <li> De apparaten opnieuw koppelen en probeer het back-up.</ol> |
 | De momentopnamebewerking is mislukt vanwege fout bij het maken van een beveiligd netwerk communicatiekanaal. | <ol><li> Open de Register-Editor door te voeren **regedit.exe** in een modus met uitgebreide bevoegdheden. <li> Identificeer alle versies van .NET Framework aanwezig zijn in uw systeem. Ze zijn aanwezig in de hiërarchie van registersleutel **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Voor elke .NET Framework in de registersleutel aanwezig is, moet u de volgende sleutel toevoegen: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | De momentopnamebewerking is mislukt vanwege fout voor het installeren van Visual C++ Redistributable voor Visual Studio 2012. | Navigeer naar C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion en vcredist2012_x64 installeren. Zorg ervoor dat de registersleutelwaarde waarmee de installatie van deze service is ingesteld op de juiste waarde. Dat wil zeggen, de waarde van de registersleutel **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** is ingesteld op **3** en niet **4**. <br><br>Als u nog steeds problemen met de installatie hebt, start u de installatieservice opnieuw door te voeren **MSIEXEC/UNREGISTER** gevolgd door **MSIEXEC /REGISTER** vanaf een opdrachtprompt met verhoogde bevoegdheid.  |
@@ -124,30 +251,8 @@ Back-up van virtuele machine is afhankelijk van de van momentopnameopdrachten na
 - **Als meer dan vier virtuele machines delen dezelfde cloudservice, de virtuele machines verdeeld over meerdere back-upbeleid**. De back-uptijden, dus er is geen dat back-ups van meer dan vier VM starten op hetzelfde moment spreiden. Probeer te scheiden van de begintijden in het beleid door ten minste een uur.
 - **De virtuele machine wordt uitgevoerd op een hoog CPU of geheugen**. Als de virtuele machine wordt uitgevoerd op meer dan 90 procent, veel geheugen of CPU-gebruik, wordt de momentopname-taak in de wachtrij geplaatst en vertraagd. Uiteindelijk er een time-out optreedt. Als dit probleem treedt op, probeert u een on-demand back-up.
 
-## <a name="troubleshoot-backup-of-encrypted-vms"></a>Back-up van versleutelde virtuele machines oplossen
-
-### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Azure Backup beschikt niet over machtigingen voor toegang tot Key Vault
-- **Foutcode**: UserErrorKeyVaultPermissionsNotConfigured
-- **Foutbericht**: Azure Backup-Service beschikt niet over voldoende machtigingen voor Key Vault voor back-up van versleutelde virtuele Machines.
-- **Oplossing**: Azure Backup-machtigingen voor Key Vault in de [portal](backup-azure-vms-encryption.md#provide-permissions), of met [PowerShell](backup-azure-vms-automation.md#enable-protection)
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>De virtuele machine kan niet worden hersteld omdat de bijbehorende Key Vault bestaat niet
-- **Oplossing**: Zorg ervoor dat u hebt [een Sleutelkluis gemaakt](../key-vault/quick-create-portal.md#create-a-vault).
-- **Oplossing**: Ga als volgt [deze instructies](backup-azure-restore-key-secret.md) om terug te zetten van een sleutel en -geheim, zelfs als deze nog niet bestaan in Key Vault.
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>De virtuele machine kan niet worden hersteld omdat de bijbehorende sleutel bestaat niet
-- **Foutcode**: UserErrorKeyVaultKeyDoesNotExist
-- **Foutbericht**: U kunt deze versleutelde VM niet herstellen omdat de sleutel die is gekoppeld aan deze virtuele machine bestaat niet.
-- **Oplossing**: Ga als volgt [deze instructies](backup-azure-restore-key-secret.md) om terug te zetten van een sleutel en -geheim, zelfs als deze nog niet bestaan in Key Vault.
-
-### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>De virtuele machine kan niet worden hersteld, omdat Azure Backup geen autorisatie
-- **Foutcode**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
-- **Foutbericht**: De Backup-service heeft geen toegang tot resources in uw abonnement.
-- **Oplossing**: Herstel de schijven zoals aanbevolen. [Meer informatie](backup-azure-vms-encryption.md#restore-an-encrypted-vm). 
-
-
 ## <a name="networking"></a>Netwerken
-Zoals alle extensies van de Azure Backup-extensie heeft toegang nodig tot het openbare internet om te werken. Toegang kunt krijgen tot het openbare internet, kan zich op verschillende manieren manifest:
+Net als alle extensies van nodig back-up-extensies toegang tot het openbare internet om te werken. Toegang kunt krijgen tot het openbare internet, kan zich op verschillende manieren manifest:
 
 * Installatie van de extensie kan mislukken.
 * Back-upbewerkingen, zoals de schijfmomentopname van de kunnen mislukken.

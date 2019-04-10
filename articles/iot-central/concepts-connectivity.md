@@ -3,17 +3,17 @@ title: Connectiviteit van apparaten in Azure IoT Central | Microsoft Docs
 description: In dit artikel bevat belangrijke concepten met betrekking tot connectiviteit van apparaten in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522091"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425964"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -39,24 +39,7 @@ In dit artikel beschrijft de volgende vier gebruiksvoorbeelden:
 
 ## <a name="connect-a-single-device"></a>Verbinding maken met een enkel apparaat
 
-Deze methode is nuttig wanneer u experimenteren met IoT Central of testen van apparaten.
-
-Voor een enkel apparaat verbinding met IoT Central met behulp van SAS, de volgende stappen uit:
-
-1. Als u wilt toevoegen echt apparaat, gaat u naar de **Device Explorer**, kies een apparaat-sjabloon en selecteer **+ Nieuw > echte**:
-    - Voer uw eigen (kleine letters) **apparaat-ID** of gebruikt u de voorgestelde-ID.
-    - Voer een **apparaatnaam** of de voorgestelde naam gebruiken.
-
-      ![Apparaat toevoegen](media/concepts-connectivity/add-device.png)
-
-1. Als u de verbindingsgegevens van apparaat, selecteert u **Connect** op de Apparaatpagina. U moet de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** waarden:
-    - Elke IoT Central-toepassing heeft een unieke [bereik-ID](../iot-dps/concepts-device.md#id-scope) die door de DPS wordt gegenereerd.
-    - [Apparaat-ID](../iot-dps/concepts-device.md#device-id) is de unieke apparaat-ID. De apparaat-ID opgeslagen in de [id-register](../iot-hub/iot-hub-devguide-identity-registry.md).
-    - **Primaire sleutel** een SAS-token is gegenereerd door IoT Central voor het apparaat.
-
-      ![Verbindingsdetails](media/concepts-connectivity/device-connect.png)
-
-Gebruik de verbindingsgegevens in de apparaatcode van uw zodat het apparaat verbinding maakt en gegevens verzenden naar IoT voor uw IoT Central-toepassing. Zie voor meer informatie over het verbinden van apparaten, [Vervolgstappen](#next-steps).
+Deze methode is nuttig wanneer u experimenteren met IoT Central of testen van apparaten. U kunt de informatie over de verbinding van uw IoT Central-toepassing gebruiken voor het genereren van de verbindingsreeks voor een apparaat. Zie voor gedetailleerde stappen [het genereren van een apparaatverbindingsreeks verbinding maakt met een Azure IoT Central toepassing](howto-generate-connection-string.md).
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Verbinding maken met apparaten op schaal met behulp van SAS
 
@@ -169,26 +152,6 @@ Wanneer een echt apparaat verbinding maakt met uw IoT Central-toepassing, de inr
 
 1. Een operator kan een apparaat blokkeren. Wanneer een apparaat is geblokkeerd, kan deze gegevens naar uw IoT Central-toepassing verzenden. Geblokkeerde apparaten hebben een status van de inrichting van **geblokkeerd**. Een operator moet het apparaat opnieuw instellen voordat u deze kunt doorgaan met het verzenden van gegevens. Wanneer een apparaat de status van de inrichting wordt geretourneerd naar de vorige waarde door een operator beter zicht **geregistreerde** of **ingerichte**.
 
-## <a name="get-a-connection-string"></a>Een verbindingsreeks ophalen
-
-De volgende stappen wordt beschreven hoe u een verbindingsreeks voor een apparaat kan krijgen:
-
-1. Selecteer **Connect** op de **Device Explorer** pagina voor de verbindingsdetails: **Scope-ID**, **apparaat-ID**, en **apparaat primaire sleutel**:
-
-    ![Verbindingsdetails](media/concepts-connectivity/device-connect.png)
-
-1. Gebruik de `dps-keygen` opdrachtregel-hulpprogramma voor het genereren van een verbindingsreeks:  Voor het installeren van de [sleutel generator-hulpprogramma](https://github.com/Azure/dps-keygen), voer de volgende opdracht uit:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-    Voor het genereren van een verbindingsreeks, moet u de volgende opdracht uitvoeren:
-
-    ```cmd/sh
-    dps-keygen -di:<device_id> -dk:<device_key> -si:<scope_id>
-    ```
-
 ## <a name="sdk-support"></a>SDK-ondersteuning
 
 De apparaat-SDK's van Azure-aanbieding de eenvoudigste manier voor u de apparaatcode van uw implementeert. Het volgende apparaat-SDK's zijn beschikbaar:
@@ -218,7 +181,7 @@ De volgende tabel geeft een overzicht van hoe Azure IoT Central apparaatfuncties
 
 Zie voor meer informatie over het gebruik van de apparaat-SDK's, een van de volgende artikelen bijvoorbeeld code:
 
-- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+- [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
 - [Een Raspberry Pi-apparaat verbinden met uw Azure IoT Central-toepassing](howto-connect-raspberry-pi-python.md)
 - [Een apparaat van de kit DevDiv verbinden met uw Azure IoT Central application](howto-connect-devkit.md).
 
@@ -243,6 +206,6 @@ Alle gegevens die worden uitgewisseld tussen apparaten en uw Azure IoT Central i
 Nu dat u hebt geleerd over verbindingsmogelijkheden voor apparaten in Azure IoT Central, vindt hier u de voorgestelde volgende stappen:
 
 - [Voorbereiden en een apparaat DevKit verbinden](howto-connect-devkit.md)
-- [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
-- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+- [Voorbereiden en verbinding maken met een Raspberry Pi](howto-connect-raspberry-pi-python.md)
+- [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
 - [C-SDK: Provisioning Device SDK-Client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

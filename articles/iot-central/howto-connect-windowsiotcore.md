@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309907"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426236"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -48,10 +48,7 @@ Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze ha
 
 ### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
-
- > [!NOTE]
-   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie.
+Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Volg deze instructies voor [genereren de apparaatverbindingsreeks](howto-generate-connection-string.md) met behulp van de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** u een Houd er rekening mee van eerder.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Het Windows 10 IoT Core-apparaat voorbereiden
 
@@ -67,7 +64,8 @@ De clienttoepassing uit de vorige stap op uw Windows 10 IoT-apparaat om te kunne
 
 **Zorg ervoor dat de verbindingsreeks is opgeslagen op het apparaat voor de clienttoepassing te gebruiken**
 * Sla de verbindingsreeks in een tekstbestand met de naam connection.string.iothub op het bureaublad.
-* Kopieer het tekstbestand naar de map document van het apparaat: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+* Kopieer het tekstbestand naar de map document van het apparaat:
+`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
 Zodra u dat hebt gedaan, moet u opent de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) door te typen in http://[device-IP-address]:8080 in elke browser.
 

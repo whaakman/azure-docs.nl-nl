@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65badda86fa29dc68f2eef1e9c0883dc8b40107a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852889"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426321"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Zelfstudie: Azure Active Directory-integratie met GitHub
 
@@ -53,7 +53,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van GitHub in Azure AD, moet u GitHub vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u GitHub wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen GitHub uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -67,7 +67,7 @@ Voor het configureren van de integratie van GitHub in Azure AD, moet u GitHub va
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **GitHub** in het zoekvak, selecteer **GitHub** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ in het zoekvak **GitHub**, selecteer **GitHub.com** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
      ![GitHub in de lijst met resultaten](common/search-new-app.png)
 
@@ -107,9 +107,9 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met GitHub 
 
     ![Informatie over eenmalige aanmelding voor domeinen en URL's van GitHub](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://github.com/orgs/<entity-id>/sso`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://github.com/orgs/<entity-id>/sso`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://github.com/orgs/<entity-id>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE]
     > Houd er rekening mee dat dit niet de werkelijke waarden zijn. U dient deze waarden bij te werken met de werkelijke aanmeldings-URL en -id. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Ga naar de sectie GitHub-beheerder om de waarden op te halen.
@@ -222,7 +222,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Het doel van deze sectie is om in GitHub een gebruiker te maken met de naam Britta Simon. GitHub ondersteunt het automatisch inrichten van gebruikers, wat standaard is ingeschakeld. U kunt [hier](github-provisioning-tutorial.md) meer informatie vinden over het configureren van het automatisch inrichten van gebruikers.
 
-**Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
+**Als u moet de gebruiker handmatig hebt gemaakt, voert u de volgende stappen uit:**
 
 1. Meld u als beheerder aan bij de bedrijfssite van GitHub.
 
@@ -255,8 +255,8 @@ Wanneer u op de tegel GitHub in het toegangsvenster klikt, wordt u automatisch a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

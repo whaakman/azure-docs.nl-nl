@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905678"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361869"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resources, rollen en toegangsbeheer in Application Insights
 
@@ -48,7 +48,7 @@ Eerste, sommige definities:
 
 ## <a name="access"></a> Toegang beheren in de resourcegroep
 
-Het is belangrijk om te begrijpen dat naast de resource die u voor uw toepassing hebt gemaakt, er ook afzonderlijke verborgen resources voor waarschuwingen en webtests zijn. Ze zijn gekoppeld aan dezelfde [resourcegroep](#resource-group) als uw toepassing. Mogelijk hebt u andere Azure-services er, zoals websites of storage ook geplaatst.
+Het is belangrijk om te begrijpen dat naast de resource die u voor uw toepassing hebt gemaakt, er ook afzonderlijke verborgen resources voor waarschuwingen en webtests zijn. Ze zijn gekoppeld aan dezelfde [resourcegroep](#resource-group) als uw Application Insights-resource. Mogelijk hebt u andere Azure-services er, zoals websites of storage ook geplaatst.
 
 Toegang tot deze resources die daarom het raadzaam om te beheren:
 

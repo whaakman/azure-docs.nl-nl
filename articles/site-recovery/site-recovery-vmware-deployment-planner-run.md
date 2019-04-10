@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361990"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Optioneel) Duidt het protocol aan dat 'http' of 'https' is, om verbinding te maken met vCenter. Het standaardprotocol is https.|
 | -StorageAccountName | (Optioneel) De naam van het opslagaccount dat wordt gebruikt om de bereikbare doorvoer te vinden voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de doorvoer te berekenen. Het opslagaccount moet v1 (GPv1) voor algemene doeleinden zijn. |
 | -StorageAccountKey | (Optioneel) De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <*naam van opslagaccount*> > Instellingen > Toegangssleutels > Key1. |
-| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is. |
+| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China 21Vianet is. |
 
 
 Het is raadzaam om de virtuele machines gedurende meer dan 7 dagen te profileren. Als het verlooppatroon varieert binnen een maand, raden wij u aan de profilering door de week uit te voeren wanneer zich het maximale verloop voordoet. Het beste is het om de profilering gedurende 31 dagen uit te voeren, omdat u dan een betere aanbeveling krijgt. Gedurende de periode voor profilering blijft ASRDeploymentPlanner.exe actief. Het hulpprogramma noteert de invoer van de profileringstijd in dagen. Voor het uitvoeren van een snelle test of concepttest van het hulpprogramma, kunt u een profilering van een paar uur of van een paar minuten uitvoeren. De minimaal toegestane tijd voor profilering is 30 minuten.
@@ -95,7 +95,7 @@ Het hulpprogramma is standaard geconfigureerd als u wilt profileren en rapport m
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van ASR Deployment Planner uit, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan.
+Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van Azure Site Recovery Deployment Planner, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan.
 
 Op basis van de hardwareconfiguratie hebben we gezien dat de bewerking kan mislukken vanwege onvoldoende geheugen, met name wat de omvang betreft van het RAM van de server waarop het hulpprogramma wordt uitgevoerd om het rapport te genereren. Als u goede hardware hebt, kunt u de waarde MaxVMsSupported verhogen.  
 
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Percentielwaarde die voor de berekening wordt gebruikt
-**Welke standaardpercentielwaarde met betrekking tot de prestatiegerelateerde metrische gegevens die tijdens de profilering zijn verzameld, wordt tijdens het genereren van het rapport gebruikt?**
+**Welke standaardpercentielwaarde de prestatiegerelateerde metrische gegevens die zijn verzameld tijdens de profilering gebruikt het hulpprogramma bij het genereren van een rapport?**
 
 Het hulpprogramma wordt standaard ingesteld op de 95e-percentielwaarde van de IOPS voor lezen/schrijven, de IOPS voor schrijven en de gegevensverloop die tijdens het profileren van de virtuele machines zijn verzameld. Deze waarde zorgt ervoor dat een piek (100e-percentielwaarde) die vanwege tijdelijke gebeurtenissen kan ontstaan op virtuele machines, niet wordt gebruikt om de vereisten te bepalen van het doel-opslagaccount en de bron-bandbreedte. Voorbeelden van tijdelijke gebeurtenissen zijn het één keer per dag uitvoeren van een back-up, het periodiek indexeren van een database, het genereren van analyserapporten en andere vergelijkbare activiteiten die op een bepaald moment actief zijn.
 
@@ -226,7 +226,7 @@ Het gebruik van de 95e-percentielwaarde biedt een waarheidsgetrouw beeld van de 
 ```
 
 ## <a name="growth-factor-considerations"></a>Overwegingen voor groeifactor
-**Waarom moet ik rekening houden met een groeifactor bij het plannen van implementaties?**
+**Waarom moet ik rekening houden met groei factor bij het plannen van implementaties?**
 
 Het is essentieel dat u in uw workloadkenmerken rekening houdt met groei (mogelijke toename in gebruik na verloop van tijd). Als de beveiliging eenmaal is ingeschakeld en uw workloadkenmerken vervolgens veranderen, is het namelijk niet mogelijk om over te schakelen naar een ander opslagaccount voor beveiliging zonder eerst de beveiliging uit te schakelen en opnieuw in te schakelen.
 
@@ -242,7 +242,7 @@ Het gegenereerde Microsoft Excel-rapport bevat de volgende informatie:
 
 * [Samenvatting on-premises](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM<->Opslagplaatsing](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM <> - Opslagplaatsing](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatibele VM's](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Niet-compatibele VM's](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md)
@@ -265,7 +265,7 @@ Open een opdrachtregelconsole en ga naar de map met het hulpprogramma voor de Si
 | -StorageAccountName | De naam van het opslagaccount dat wordt gebruikt om de bandbreedte te bepalen die wordt gebruikt voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de gebruikte bandbreedte te bepalen. Het opslagaccount moet v1 (GPv1) voor algemene doeleinden zijn.|
 | -StorageAccountKey | De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <*naam van het opslagaccount*> > Instellingen > Toegangssleutels > Key1 (of primaire toegangssleutel voor klassieke opslagaccount). |
 | -VMListFile | Het bestand met de lijst met virtuele machines die moeten worden geprofileerd voor het berekenen van de gebruikte bandbreedte. Het bestandspad kan absoluut of relatief zijn. Het bestand moet per regel één naam of IP-adres van een virtuele machine bevatten. De namen van de virtuele machines in het bestand moeten identiek zijn met de namen van de virtuele machine op de vCenter-server of vSphere ESXi-host.<br>Het bestand ProfileVMList bevat bijvoorbeeld de volgende virtuele machines:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is. |
+| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw doelregio Azure US Government or Azure China 21Vianet is. |
 
 Het hulpprogramma maakt in de opgegeven directory verschillende asrvhdfile<#>.vhd-bestanden van 64 MB (# is het volgnummer). Deze bestanden worden geüpload naar het opslagaccount om de doorvoer te bepalen. Nadat de doorvoer is gemeten, worden al deze bestanden verwijderd uit het opslagaccount en van de lokale server. Als het hulpprogramma om wat voor reden dan ook wordt beëindigd tijdens het berekenen van de doorvoer, worden de bestanden niet verwijderd uit het account of van de lokale server. U moet de bestanden dan handmatig verwijderen.
 

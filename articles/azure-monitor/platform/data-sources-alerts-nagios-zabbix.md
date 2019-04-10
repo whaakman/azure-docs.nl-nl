@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540042"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426186"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Meldingen van Nagios en Zabbix in Azure Monitor verzamelen in Log Analytics-agent voor Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Ontvang een waarschuwing records die zijn verzameld door Nagios hebben een **Typ
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Type |*Ontvang een waarschuwing* |
-| SourceSystem |*Nagios* |
-| AlertName |Naam van de waarschuwing. |
-| AlertDescription | Beschrijving van de waarschuwing. |
-| AlertState | De status van de service of de host.<br><br>OK<br>WAARSCHUWING<br>OMHOOG<br>OMLAAG |
-| Hostnaam | Naam van de host die de waarschuwing hebt gemaakt. |
-| PriorityNumber | Prioriteit van de waarschuwing. |
-| StateType | Het type van de status van de waarschuwing.<br><br>VOORLOPIG - probleem dat niet opnieuw is gecontroleerd.<br>HARDE - probleem dat is een opgegeven aantal keren opnieuw gecontroleerd.  |
-| TimeGenerated |De datum en tijd waarop de waarschuwing is gemaakt. |
+| `Type` |*Waarschuwing* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Naam van de waarschuwing. |
+| `AlertDescription` | Beschrijving van de waarschuwing. |
+| `AlertState` | De status van de service of de host.<br><br>OK<br>WAARSCHUWING<br>OMHOOG<br>OMLAAG |
+| `HostName` | Naam van de host die de waarschuwing hebt gemaakt. |
+| `PriorityNumber` | Prioriteit van de waarschuwing. |
+| `StateType` | Het type van de status van de waarschuwing.<br><br>VOORLOPIG - probleem dat niet opnieuw is gecontroleerd.<br>HARDE - probleem dat is een opgegeven aantal keren opnieuw gecontroleerd.  |
+| `TimeGenerated` |De datum en tijd waarop de waarschuwing is gemaakt. |
 
 
 ### <a name="zabbix-alert-records"></a>Waarschuwing Zabbix-records
@@ -108,17 +108,17 @@ Ontvang een waarschuwing die worden verzameld door Zabbix records hebben een **T
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Type |*Ontvang een waarschuwing* |
-| SourceSystem |*Zabbix* |
-| AlertName | Naam van de waarschuwing. |
-| AlertPriority | Ernst van de waarschuwing.<br><br>niet-geclassificeerd<br>informatie<br>waarschuwing<br>gemiddeld<br>Hoog<br>na noodgevallen  |
-| AlertState | Status van de waarschuwing.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.  |
-| AlertTypeNumber | Hiermee geeft u op of in een waarschuwing meerdere gebeurtenissen van het probleem kan worden gegenereerd.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.    |
-| Opmerkingen | Aanvullende opmerkingen voor de waarschuwing. |
-| Hostnaam | Naam van de host die de waarschuwing hebt gemaakt. |
-| PriorityNumber | De waarde die aangeeft van ernst van de waarschuwing.<br><br>0 - niet geclassificeerd<br>1 - gegevens<br>2 - waarschuwing<br>3 - gemiddelde<br>4 - hoog<br>5 - noodherstel |
-| TimeGenerated |De datum en tijd waarop de waarschuwing is gemaakt. |
-| TimeLastModified |Datum en tijd die de status van de waarschuwing voor het laatst is gewijzigd. |
+| `Type` |*Waarschuwing* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Naam van de waarschuwing. |
+| `AlertPriority` | Ernst van de waarschuwing.<br><br>niet-geclassificeerd<br>informatie<br>waarschuwing<br>gemiddeld<br>Hoog<br>na noodgevallen  |
+| `AlertState` | Status van de waarschuwing.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.  |
+| `AlertTypeNumber` | Hiermee geeft u op of in een waarschuwing meerdere gebeurtenissen van het probleem kan worden gegenereerd.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.    |
+| `Comments` | Aanvullende opmerkingen voor de waarschuwing. |
+| `HostName` | Naam van de host die de waarschuwing hebt gemaakt. |
+| `PriorityNumber` | De waarde die aangeeft van ernst van de waarschuwing.<br><br>0 - niet geclassificeerd<br>1 - gegevens<br>2 - waarschuwing<br>3 - gemiddelde<br>4 - hoog<br>5 - noodherstel |
+| `TimeGenerated` |De datum en tijd waarop de waarschuwing is gemaakt. |
+| `TimeLastModified` |Datum en tijd die de status van de waarschuwing voor het laatst is gewijzigd. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

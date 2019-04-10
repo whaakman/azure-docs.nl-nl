@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793478"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425930"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
@@ -41,6 +41,8 @@ Voordat u begint, moet degene die het apparaat maakt ten minste de eerste zelfst
 * [Een nieuw apparaattype definiëren](tutorial-define-device-type.md) (verplicht)
 * [Regels en acties voor uw apparaat configureren](tutorial-configure-rules.md) (optioneel)
 * [De weergaven van de operator aanpassen](tutorial-customize-operator.md) (optioneel)
+
+Installeer [Node.js](https://nodejs.org/) versie 8.0.0 of hoger op uw ontwikkelcomputer. U kunt uitvoeren `node --version` vanaf de opdrachtregel om uw versie te controleren. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
@@ -92,37 +94,27 @@ De artikelen die worden vermeld in de [Vervolgstappen](#next-steps) sectie bevat
 
 In de volgende stappen ziet u hoe u het [Node.js](https://nodejs.org/)-voorbeeld voorbereidt:
 
-1. Installeer [Node.js](https://nodejs.org/) versie 4.0.x of nieuwer op uw computer. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
-
-1. Maak de map `connectedairconditioner` op uw computer.
-
-1. Ga in uw opdrachtregelprogramma naar de map `connectedairconditioner` die u hebt gemaakt.
-
-1. Installeer de DPS-sleutelgenerator met behulp van de volgende opdracht:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   Meer informatie over het [opdrachtregelprogramma hier](https://www.npmjs.com/package/dps-keygen).
+### <a name="get-the-device-connection-information"></a>Haal de verbindingsgegevens van apparaat
 
 1. De verbindingsreeks voor een apparaatinstantie in uw toepassing wordt gegenereerd op basis van apparaatinformatie die wordt verstrekt door IoT Central.
 
-   Ga terug naar de IoT Central-portal. Kies op het apparaatscherm voor uw echte, verbonden airconditioning de optie **Verbinding maken**.
+   Kies op het apparaatscherm voor uw echte, verbonden airconditioning de optie **Verbinding maken**.
 
    ![Apparaatpagina met koppeling voor het weergeven van verbindingsgegevens](media/tutorial-add-device/connectionlink.png)
 
-1. Kopieer op de pagina Apparaatverbinding de bereik-id, apparaat-id en primaire sleutel en plak deze in een teksteditor. Sla deze waarden vervolgens op. U gaat ze in de volgende stap gebruiken.
+1. Op de pagina apparaatverbinding Neem notitie van de **bereik-ID**, **apparaat-ID** en **primaire sleutel** waarden. U gaat ze in de volgende stap gebruiken.
 
    ![Verbindingsdetails](media/tutorial-add-device/device-connect.png)
 
-1. Ga terug naar de opdrachtregelomgeving en genereren van de verbindingsreeks door te voeren:
+### <a name="generate-the-connection-string"></a>De verbindingsreeks genereren
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Kopieer de uitvoer en sla deze op in een nieuw bestand (bijvoorbeeld verbinding.txt).
+### <a name="prepare-the-nodejs-project"></a>De Node.js-project voorbereiden
+
+1. Maak een map genaamd `connectedairconditioner` op uw ontwikkelcomputer.
+
+1. Ga in uw opdrachtregelprogramma naar de map `connectedairconditioner` die u hebt gemaakt.
 
 1. Voor het initialiseren van het Node.js-project, voert u de volgende opdracht uit, waarbij u alle standaardwaarden overneemt:
 
@@ -309,7 +301,7 @@ Als u de clientcode wilt configureren zodat verbinding kan worden gemaakt met de
     var connectionString = '{your device connection string}';
     ```
 
-1. Vervang `{your device connection string}` door de verbindingsreeks van het echte apparaat. U hebt de verbindingsreeks eerder opgeslagen in een teksteditor.
+1. Vervang `{your device connection string}` door de verbindingsreeks van het echte apparaat. U hebt de verbindingsreeks die u hebt gegenereerd in de vorige stap hebt gekopieerd.
 
 1. Sla de wijzigingen op in het bestand **ConnectedAirConditioner.js**.
 
@@ -367,7 +359,7 @@ Als operator leert u het volgende:
 Als apparaatontwikkelaar, leert u het volgende:
 
 * [Voorbereiden en verbinding maken met een apparaat DevKit (C)](howto-connect-devkit.md)
-* [Voorbereiden en verbinding maken met een Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Voorbereiden en verbinding maken met een Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Een Raspberry Pi (Python) voorbereiden en aansluiten](howto-connect-raspberry-pi-python.md)
+* [Een Raspberry Pi (C#) voorbereiden en aansluiten](howto-connect-raspberry-pi-csharp.md)
 * [Voorbereiden en verbinding maken met een Windows 10 IoT core-apparaat (C#)](howto-connect-windowsiotcore.md)
-* [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
+* [Een algemene Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)

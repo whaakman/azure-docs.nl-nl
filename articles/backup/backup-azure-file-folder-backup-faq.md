@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918566"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426253"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Vragen over de Azure Backup-agent
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van de Azure Backup-agent. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -74,8 +74,8 @@ Gebruik de volgende lijst om de cachelocatie te wijzigen.
 
 1. Stop de Backup-engine door de volgende opdracht uit te voeren via een opdrachtprompt met verhoogde bevoegdheid:
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. Verplaats de bestanden niet. Kopieer in plaats daarvan de map met de cacheruimte naar een ander station met voldoende ruimte. De oorspronkelijke cacheruimte kan worden verwijderd nadat is bevestigd dat de back-ups werken met de nieuwe cacheruimte.
 3. Werk de volgende registervermeldingen bij met het pad naar de nieuwe map van de cacheruimte.<br/>
 
@@ -111,7 +111,14 @@ De cachemap en de metagegevens-VHD hebben beide niet de benodigde kenmerken voor
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Is er een manier om de hoeveelheid bandbreedte aan te passen die door de Backup-service wordt gebruikt?<br/>
   Ja, u kunt in de Backup-agent de optie **Eigenschappen wijzigen** gebruiken om de bandbreedte aan te passen. U kunt de hoeveelheid bandbreedte aanpassen, evenals de tijden waarop deze bandbreedte wordt gebruikt. Zie **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)** (Netwerkbeperking inschakelen) voor stapsgewijze instructies.
 
+## <a name="restore"></a>Herstellen
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Wat gebeurt er als ik een continue hersteltaak annuleren?
+Als een lopende hersteltaak is geannuleerd, blijven de terugzetten wordt beëindigd en alle bestanden hersteld voordat de annulering in geconfigureerde doel (oorspronkelijke of een alternatieve locatie) zonder eventuele terugdraaiacties.
+
+
 ## <a name="manage-backups"></a>Back-ups beheren
+
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Wat gebeurt er als ik de naam van een Windows-server wijzig waarmee back-ups van gegevens naar Azure worden opgeslagen?<br/>
 Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zijn geconfigureerd, gestopt. Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Andere server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) in de wizard **Gegevens herstellen**.
 
@@ -119,7 +126,7 @@ Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zij
 De Azure Backup-agent is afhankelijk van NTFS. De [lengtespecificatie van het bestandspad wordt beperkt door de Windows-API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Als u bestanden wilt beveiligen met een bestandspad dat langer is dan toegestaan door de Windows-API, kunt u een back-up van de bovenliggende map of het schijfstation maken.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Welke tekens zijn toegestaan in het bestandspad van het Azure Backup-beleid met Azure Backup-agent? <br>
- De Azure Backup-agent is afhankelijk van NTFS. Er worden [NTFS-ondersteunde tekens](/windows/desktop/FileIO/naming-a-file#naming_conventions) ingeschakeld als onderdeel van de bestandsspecificatie. 
- 
+ De Azure Backup-agent is afhankelijk van NTFS. Er worden [NTFS-ondersteunde tekens](/windows/desktop/FileIO/naming-a-file#naming_conventions) ingeschakeld als onderdeel van de bestandsspecificatie.
+
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Ik krijg een waarschuwing dat er geen Azure-back-ups zijn geconfigureerd voor deze server, terwijl ik wel een back-upbeleid heb geconfigureerd. <br/>
 Deze waarschuwing wordt weergegeven wanneer de instellingen voor het back-upschema die zijn opgeslagen op de lokale server niet overeenkomen met de instellingen die zijn opgeslagen in de back-upkluis. Wanneer de server of de instellingen zijn hersteld naar een bekende goede status, worden de back-upschema's mogelijk niet meer gesynchroniseerd. Als u deze waarschuwing ontvangt, [configureert u het back-upbeleid opnieuw](backup-azure-manage-windows-server.md) en **voert u een back-up uit** om de lokale server te synchroniseren met Azure.

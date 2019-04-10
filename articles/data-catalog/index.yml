@@ -24,6 +24,14 @@ sections:
               src: media/index/data-catalog.svg
             text: Azure Portal
             href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: 'Informatie over het registreren, zoeken, van aantekeningen voorzien, beheren en verwijderen van assets in Azure Data Catalog:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="register-data-assets-tutorial">Gegevensassets registreren in Azure Data Catalog</a>
   - title: Naslaginformatie
     items:
       - type: list

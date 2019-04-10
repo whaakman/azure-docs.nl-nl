@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905200"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426484"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -77,7 +77,7 @@ U kunt Azure SQL-databases en databases exemplaar instellen om de volgende diagn
 > Elastische pools en beheerde exemplaren hebben een eigen afzonderlijke diagnostische gegevens telemetrie van databases die ze bevatten. Dit is belangrijk te weten als diagnostische gegevens telemetrie wordt afzonderlijk geconfigureerd voor elk van deze resources, zoals hieronder beschreven.
 
 > [!NOTE]
-> Logboeken voor beveiligingscontrole en SQLSecurityAuditEvents kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controle van Logboeken in Logboeken van Azure Monitor en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Logboeken voor beveiligingscontrole en SQLSecurityAuditEvents kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens (Hoewel weergegeven op het scherm). Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controle van Logboeken in Logboeken van Azure Monitor en Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -141,7 +141,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Herhaal deze stappen voor elke database die u wilt bewaken.
 
 > [!NOTE]
-> Logboeken voor beveiligingscontrole en SQLSecurityAuditEvents kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controle van Logboeken in Logboeken van Azure Monitor en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Logboeken voor beveiligingscontrole en SQLSecurityAuditEvents kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens (Hoewel weergegeven op het scherm). Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controle van Logboeken in Logboeken van Azure Monitor en Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Herhaal deze stappen voor elke Azure SQL-Database die u wilt bewaken.
 
@@ -545,7 +545,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 
 ### <a name="errors-dataset"></a>Gegevensset voor fouten
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |

@@ -5,21 +5,24 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5b664285ae7d8b5af6e64c2b7ba3d4c6bdadd656
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312662"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361290"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure
 
-De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.
+In dit artikel wordt beschreven hoe u replicatie inschakelen voor on-premises Hyper-V-machines die worden beheerd door System Center Virtual Machine Manager (VMM), voor herstel na noodgevallen naar Azure met de [Azure Site Recovery](site-recovery-overview.md) service. Als u geen VMM, klikt u vervolgens [Volg deze zelfstudie](hyper-v-azure-tutorial.md).
 
-In deze zelfstudie leert u hoe u herstel na noodgevallen instelt voor on-premises Hyper-V-VM's naar Azure. De zelfstudie is relevant voor Hyper-V-machines die worden beheerd door System Center Virtual Machine Manager (VMM). In deze zelfstudie leert u het volgende:
+Dit is de derde zelfstudie in een serie die laat zien u hoe u herstel na noodgevallen naar Azure instelt voor on-premises VMware-VM's. In de vorige zelfstudie we [de on-premises Hyper-V-omgeving voorbereid](hyper-v-prepare-on-premises-tutorial.md) voor herstel na noodgevallen naar Azure. 
+
+In deze zelfstudie leert u het volgende:
+
 
 > [!div class="checklist"]
 > * De replicatiebron en het replicatiedoel selecteren.
@@ -28,37 +31,45 @@ In deze zelfstudie leert u hoe u herstel na noodgevallen instelt voor on-premise
 > * Een replicatiebeleid maken
 > * Replicatie inschakelen voor een VM
 
+
+> [!NOTE]
+> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Lees het artikel in de sectie How To van de Site Recovery inhoudsopgave voor gedetailleerde instructies.
+
+## <a name="before-you-begin"></a>Voordat u begint
+
 Dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid:
 
 1. [Azure voorbereiden](tutorial-prepare-azure.md)
-2. [On-premises Hyper-V voorbereiden](tutorial-prepare-on-premises-hyper-v.md)
-
-Voordat u begint, is het handig om [de architectuur te bekijken](concepts-hyper-v-to-azure-architecture.md) voor dit noodherstelscenario.
-
+2. [On-premises Hyper-V voorbereiden](tutorial-prepare-on-premises-hyper-v.md) dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid:
 
 
 ## <a name="select-a-replication-goal"></a>Een replicatiedoel selecteren
 
-1. In **alle Services** > **Recovery Services-kluizen**, klikt u op de naam van de kluis in deze zelfstudie we gebruiken **ContosoVMVault**.
+1. Selecteer de kluis in **Recovery Services-kluizen**. We de kluis voorbereid **ContosoVMVault** in de vorige zelfstudie.
 2. Klik in **Aan de slag** op **Site Recovery**. Klik vervolgens op **Infrastructuur voorbereiden**.
-3. In **Beveiligingsdoel** > **Waar bevinden de machines zich**, selecteert u **On-premises**.
-4. In **Waarnaartoe wilt u de machines repliceren** selecteert u **Naar Azure**.
-5. In **zijn de machines gevirtualiseerd**, selecteer **Ja, met Hyper-V**.
+3. In **beveiligingsdoel** > **waar bevinden de machines zich?**, selecteer **On-premises**.
+4. In **waar wilt u de machines repliceren?**, selecteer **naar Azure**.
+5. In **zijn de machines gevirtualiseerd?** Selecteer **Ja, met Hyper-V**.
 6. In **gebruikt u System Center VMM**, selecteer **Ja**. Klik vervolgens op **OK**.
 
     ![Replicatiedoel](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
 
+## <a name="confirm-deployment-planning"></a>Implementatieplanning bevestigen
+
+1. In **implementatieplanning**, als u van plan bent een grote implementatie, de Deployment Planner voor Hyper-V downloaden via de koppeling op de pagina. [Meer informatie](hyper-v-deployment-planner-overview.md) over het plannen van Hyper-V-implementatie.
+2. We hebben nodig niet de deployment planner voor de doeleinden van deze zelfstudie. In **hebt u de implementatieplanning uitgevoerd?**, selecteer **doe ik later**. Klik vervolgens op **OK**.
+
 
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Bij het instellen van de bronomgeving, moet u de Azure Site Recovery Provider en de Azure Recovery Services-agent installeren en on-premises servers in de kluis registreren. 
+Bij het instellen van de bronomgeving, moet u de Azure Site Recovery Provider installeren op de VMM-server en de server in de kluis registreren. U kunt de Azure Recovery Services-agent installeren op elke Hyper-V-host. 
 
 1. Klik in **Infrastructuur voorbereiden** op **Bron**.
 2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen. Controleer in **Server toevoegen**of **System Center VMM-server** wordt weergegeven bij **Servertype**.
 3. Download het installatieprogramma voor de Microsoft Azure Site Recovery Provider.
 4. Download de registratiesleutel voor de kluis. U hebt deze nodig wanneer u de Provider-installatie uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
-5. De Recovery Services-agent downloaden.
+5. Download het installatieprogramma voor de Microsoft Azure Recovery Services-agent.
 
     ![Downloaden](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
@@ -75,7 +86,7 @@ Bij het instellen van de bronomgeving, moet u de Azure Site Recovery Provider en
 
 Nadat de registratie is voltooid, metagegevens van de server worden opgehaald door Azure Site Recovery en de VMM-server wordt weergegeven in **Site Recovery-infrastructuur**.
 
-### <a name="install-the-recovery-services-agent"></a>De Recovery Services-agent installeren
+### <a name="install-the-recovery-services-agent-on-hyper-v-hosts"></a>Installeer de Recovery Services-agent op Hyper-V-hosts
 
 Installeer de agent op elke Hyper-V-host met VM's die u wilt repliceren.
 
@@ -90,7 +101,7 @@ Installeer de agent op elke Hyper-V-host met VM's die u wilt repliceren.
 
 1. Klik op **Infrastructuur voorbereiden** > **Doel**.
 2. Selecteer het abonnement en de resourcegroep (**ContosoRG**) waarin de Azure VM's zullen worden gemaakt na een failover.
-3. Selecteer het **Resource Manager**-implementatiemodel.
+3. Selecteer de **Resource Manager** implementatiemodel.
 
 Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
@@ -108,10 +119,10 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
 ## <a name="set-up-a-replication-policy"></a>Een replicatiebeleid instellen
 
 1. Klik op **Infrastructuur voorbereiden** > **Replicatie-instellingen** > **+Maken en koppelen**.
-2. Geef in **Beleid maken en koppelen** de beleidsnaam **ContosoReplicationPolicy** op.
+2. Geef in **Beleid maken en koppelen** een beleidsnaam op. We maken gebruik van **ContosoReplicationPolicy**.
 3. Behoud de standaardinstellingen en klik op **OK**.
     - **Kopieerfrequentie** geeft aan dat deltagegevens (na de initiële replicatie) om de vijf minuten worden gerepliceerd.
-    - **Bewaarperiode van het herstelpunt** geeft aan dat het retentietijdvenster voor elk herstelpunt twee uur is.
+    - **Bewaarperiode voor herstelpunten** geeft aan dat voor elk herstelpunt gedurende twee uur behouden blijft.
     - **Frequentie van de app-consistente momentopname** geeft aan dat er elk uur herstelpunten met app-consistente momentopnamen worden gemaakt.
     - **Starttijd van de initiële replicatie** geeft aan dat de initiële replicatie direct wordt gestart.
     - **Versleutelen van gegevens die zijn opgeslagen in Azure** -standaard **uit** instelling geeft aan dat at-rest-gegevens in Azure wordt niet versleuteld.
@@ -128,5 +139,7 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
    U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Wanneer de taak **De beveiliging voltooien** is voltooid, is de initiële replicatie voltooid en is de virtuele machine klaar voor failover.
 
 
+
 ## <a name="next-steps"></a>Volgende stappen
-[Noodherstelanalyse uitvoeren](tutorial-dr-drill-azure.md)
+> [!div class="nextstepaction"]
+> [Noodherstelanalyse uitvoeren](tutorial-dr-drill-azure.md)
