@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117452"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277682"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk encryption (ADE) ingeschakeld virtuele machines repliceren naar een andere Azure-regio
 
@@ -148,7 +148,7 @@ U kunt [het script](#copy-ade-keys-to-dr-region-using-powershell-script) te kopi
 Als u een gemaakte Keyvault selecteert in de doelregio plaats kunt maken van Azure Site Recovery. Zorg ervoor dat de Key vault is vereist machtigingen als hierboven.</br>
 *Bijvoorbeeld*: Een gebruiker probeert te repliceren van een virtuele machine met een key vault op bronregio bijvoorbeeld 'ContososourceKeyvault'.
 Gebruiker heeft de machtiging all op de bron regio key vault, maar tijdens beveiliging hij selecteert een gemaakte sleutelkluis 'ContosotargetKeyvault', dat niet is gemachtigd en -beveiliging wordt een fout genereert.</br>
-**Over het oplossen van:** Heb ' Start > Keyvaults > ContososourceKeyvault > beleid voor gegevenstoegang ' en voeg machtigingen toe zoals hierboven wordt weergegeven. 
+**Over het oplossen van:** Heb ' Start > Keyvaults > ContososourceKeyvault > beleid voor gegevenstoegang ' en voeg machtigingen toe zoals hierboven wordt weergegeven.
 
 **2 oorzaak:** U hebt geselecteerd een gemaakte Keyvault van de doelregio die niet zijn decry pt-versleutelen machtigingen.
 Als u een gemaakte Keyvault selecteert in de doelregio plaats kunt maken van Azure Site Recovery. Zorg ervoor dat de gebruiker heeft decoderen-versleutelen machtigingen in het geval u bij het versleutelen van de sleutel te in de bronregio.</br>

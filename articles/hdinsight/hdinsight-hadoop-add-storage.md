@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 373851c406d95a2e458c017cb311bd5cc4e5b30f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664287"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357750"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
@@ -106,6 +106,10 @@ az hdinsight script-action execute ^
 Zie [een scriptactie van toepassing op een actief cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Bekende problemen
+
+### <a name="storage-firewall"></a>Opslag-firewall
+
+Als u ervoor kiest voor het beveiligen van uw opslagaccount met de **Firewalls en virtuele netwerken** beperkingen met betrekking tot **geselecteerde netwerken**, zorg ervoor dat u het inschakelen van de uitzondering **vertrouwde Microsoft toestaan Services...**  zodat HDInsight toegang krijgen uw storage-account tot kan.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Storage-accounts niet weergegeven in Azure portal of hulpprogramma 's
 

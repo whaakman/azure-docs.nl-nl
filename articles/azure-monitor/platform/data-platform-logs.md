@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360628"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -46,7 +46,7 @@ De volgende tabel bevat de verschillende manieren dat u Logboeken in Azure Monit
 | Analyseren | Gebruik [Log Analytics](../log-query/get-started-portal.md) in Azure portal om te schrijven [query's bijgehouden](../log-query/log-query-overview.md) en interactief analyseren logboekgegevens met behulp van de krachtige analyse-engine van Data Explorer.<br>Gebruik de [Application Insights analytics-console](../app/analytics.md) in Azure portal om te schrijven logboeken-query's en analyseren van logboekgegevens van Application Insights. |
 | Visualiseren | Queryresultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Maak een [werkmap](../app/usage-workbooks.md) te combineren met meerdere sets met gegevens in een interactieve rapport. <br>De resultaten van een query voor het exporteren [Power BI](powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.<br>De resultaten van een query voor het exporteren [Grafana](grafana-plugin.md) gebruikmaken van de dashboarding en combineren met andere gegevensbronnen.|
 | Waarschuwing | Configureren van een [waarschuwingsregel](alerts-log.md) die duurt of verzendt een melding [automatische actie](action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.<br>Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric-logs.md) op bepaalde log gegevenslogboeken geëxtraheerd als metrische gegevens. |
-| Ophalen | Toegang tot log queryresultaten vanuit een opdrachtregel met [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Toegang tot log queryresultaten vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Toegang tot log queryresultaten vanuit een aangepaste toepassing met [REST-API](https://dev.loganalytics.io/). |
+| Ophalen | Toegang tot log queryresultaten vanuit een opdrachtregel met [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Toegang tot log queryresultaten vanuit een opdrachtregel met [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Toegang tot log queryresultaten vanuit een aangepaste toepassing met [REST-API](https://dev.loganalytics.io/). |
 | Exporteren | Een werkstroom voor het ophalen van logboekgegevens en kopieer deze naar een externe locatie met bouwen [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 |:---|:---|
 | Aanvragen en uitzonderingen | Gedetailleerde gegevens over aanvragen en uitzonderingen zijn de _aanvragen_, _pageViews_, en _uitzonderingen_ tabellen. Aanroepen naar [externe onderdelen](../app/asp-net-dependencies.md) zijn de _afhankelijkheden_ tabel. |
 | Gebruik en prestaties | Prestaties voor de toepassing is beschikbaar in de _aanvragen_, _browserTimings_ en _performanceCounters_ tabellen. Gegevens voor [aangepaste metrische gegevens](../app/api-custom-events-metrics.md#trackevent) is in de _customMetrics_ tabel.|
-| Gegevens traceren | Resultaat is van een [gedistribueerde tracering](/app/distributed-tracing) worden opgeslagen in de _traceringen_ tabel. |
-| Beschikbaarheidstests | Gegevens van de samenvatting van [beschikbaarheidstests](/app/monitor-web-app-availability) wordt opgeslagen in de _availabilityResults_ tabel. Gedetailleerde gegevens van deze tests worden in afzonderlijke opslag en Application Insights in Azure portal gebruikt. |
+| Gegevens traceren | Resultaat is van een [gedistribueerde tracering](../app/distributed-tracing.md) worden opgeslagen in de _traceringen_ tabel. |
+| Beschikbaarheidstests | Gegevens van de samenvatting van [beschikbaarheidstests](../app/monitor-web-app-availability.md) wordt opgeslagen in de _availabilityResults_ tabel. Gedetailleerde gegevens van deze tests worden in afzonderlijke opslag en Application Insights in Azure portal gebruikt. |
 
 ### <a name="insights"></a>Inzichten
 
@@ -117,7 +117,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="custom"></a>Aangepast telefoonnummer 
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 |:---|:---|
 | REST-API | Gegevens schrijven naar Log Analytics-werkruimte van een REST-client. Zie [logboekgegevens verzenden naar Azure Monitor met de API HTTP Data Collector](data-collector-api.md) voor meer informatie.
 | Logische apps | Geen gegevens schrijven naar Log Analytics-werkruimte van een werkstroom voor logische App met de **Azure Log Analytics-gegevensverzamelaar** actie. |
@@ -127,7 +127,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 | Gegevens | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) worden gegevens opgeslagen die worden verzameld in een Log Analytics-werkruimte waar deze kan worden geanalyseerd met andere logboekgegevens. Zie [verzamelen van gegevens in Azure Security Center](../../security-center/security-center-enable-data-collection.md) voor meer informatie over de configuratie van de standaardwerkruimte. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [verbinding maken met gegevensbronnen](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Volgende stappen

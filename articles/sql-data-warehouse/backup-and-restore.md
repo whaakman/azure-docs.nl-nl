@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846995"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359008"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Informatie over het gebruik van back-up en herstellen in Azure SQL Data Warehous
 
 Een *datawarehouse momentopname* een herstelpunt dat u kunt gebruiken om te herstellen of uw datawarehouse naar een eerdere status kopie wordt gemaakt.  Omdat SQL Data Warehouse een gedistribueerd systeem is, bestaat er een momentopname van een datawarehouse met veel bestanden die zich in Azure storage. Momentopnamen vastleggen incrementele wijzigingen van de gegevens die zijn opgeslagen in uw datawarehouse.
 
-Een *datawarehouse herstellen* is een nieuwe datawarehouse is gemaakt van een punt voor het herstellen van een bestaande of een verwijderd datawarehouse. Herstellen van uw datawarehouse is een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel, omdat de gegevens opnieuw worden gemaakt na het per ongeluk beschadigd of verwijderd. Datawarehouse is ook een krachtig mechanisme om kopieën van uw datawarehouse voor test- en testdoeleinden te maken.  SQL Data Warehouse maakt gebruik van snel herstel mechanismen binnen dezelfde regio die aan een grootte van minder dan 20 minuten duren voordat heeft zijn gemeten.
+Een *datawarehouse herstellen* is een nieuwe datawarehouse is gemaakt van een punt voor het herstellen van een bestaande of een verwijderd datawarehouse. Herstellen van uw datawarehouse is een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel, omdat de gegevens opnieuw worden gemaakt na het per ongeluk beschadigd of verwijderd. Datawarehouse is ook een krachtig mechanisme om kopieën van uw datawarehouse voor test- en testdoeleinden te maken.  Tarieven voor het herstellen van SQL Data Warehouse kunnen variëren afhankelijk van de grootte van de database en de locatie van de bron- en datawarehouse. Op gemiddelde binnen dezelfde regio, meestal duren ongeveer 20 minuten tarieven voor herstel. 
 
 ## <a name="automatic-restore-points"></a>Automatische herstelpunten
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849958"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281944"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configureren van taakverdeling en regels voor uitgaand verkeer in de standaardversie van Load Balancer met behulp van Azure CLI
 
@@ -99,7 +99,7 @@ Een Load Balancer maken met de inkomende IP-adres met [az network lb maken](http
 Maak een extra back-end-adresgroep voor het definiëren van de uitgaande connectiviteit voor een pool van virtuele machines met [az network lb address-pool maken](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) met de naam van de *bepooloutbound*.  Het maken van een afzonderlijke uitgaande groep biedt maximale flexibiliteit, maar u kunt deze stap overslaan en gebruik alleen het inkomende *bepoolinbound* ook.
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound

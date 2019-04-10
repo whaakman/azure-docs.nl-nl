@@ -2,16 +2,16 @@
 title: IP-adressen behouden tijdens de failover van de virtuele machine van Azure met Azure Site Recovery | Microsoft Docs
 description: Hierin wordt beschreven hoe u IP-adressen behouden wanneer failover van virtuele machines van Azure voor herstel na noodgevallen naar een secundaire regio met Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090743"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357899"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>IP-adressen behouden tijdens failover
 

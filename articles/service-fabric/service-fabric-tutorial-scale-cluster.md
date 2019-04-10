@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049396"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278697"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen in Azure
 
@@ -75,7 +75,7 @@ Lees voor meer informatie, [richtlijnen van de capaciteit van cluster](service-f
 
 ## <a name="export-the-template-for-the-resource-group"></a>De sjabloon voor de resourcegroep exporteren
 
-Na het maken van een veilige [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en instellen van de resourcegroep, de Resource Manager-sjabloon voor de resourcegroep exporteren. De sjabloon exporteren, kunt u voor het automatiseren van toekomstige implementaties van het cluster en de resources, omdat de sjabloon de volledige infrastructuur bevat.  Lees voor meer informatie over het exporteren van sjablonen [resourcegroepen beheren van Azure Resource Manager met behulp van de Azure-portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+Na het maken van een veilige [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en instellen van de resourcegroep, de Resource Manager-sjabloon voor de resourcegroep exporteren. De sjabloon exporteren, kunt u voor het automatiseren van toekomstige implementaties van het cluster en de daarbij behorende bronnen omdat de sjabloon de volledige infrastructuur bevat.  Lees voor meer informatie over het exporteren van sjablonen [resourcegroepen beheren van Azure Resource Manager met behulp van de Azure-portal](/azure/azure-resource-manager/manage-resource-groups-portal).
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep met het cluster (**sfclustertutorialgroup**, als u deze zelfstudie volgt). 
 

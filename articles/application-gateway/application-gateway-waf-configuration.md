@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790154"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277409"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
@@ -40,7 +40,7 @@ De volgende kenmerken kunnen worden toegevoegd aan een lijst met uitgesloten:
 
 * Aanvraagheaders
 * Cookies van de aanvraag
-* Hoofdtekst van de aanvraag
+* Aanvraagtekst
 
    * Meerdelige formuliergegevens
    * XML
@@ -54,6 +54,7 @@ Hier volgen de ondersteunde overeenkomst criteria operators:
 - **Begint met**: Deze operator komt overeen met alle velden die met de selectie van de opgegeven waarde beginnen.
 - **Eindigt met**:  Deze operator komt overeen met alle velden op aanvraag die met de selectie van de opgegeven waarde eindigen.
 - **Bevat**: Deze operator komt overeen met alle velden op aanvraag die de opgegeven selector waarde bevatten.
+- **Gelijk aan willekeurig**: Deze operator komt overeen met alle velden van de aanvraag. * is de waarde selector.
 
 In alle gevallen wordt onderscheid en reguliere expressies zijn niet toegestaan als het selectoren.
 

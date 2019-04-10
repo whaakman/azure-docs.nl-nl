@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
 manager: yuvalm
-ms.openlocfilehash: b105b5d4609430ef9a302fdf990b22406941e132
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f371be384214447c9d98f6223dd830f7c240326
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850765"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357054"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -39,7 +39,7 @@ Omwille van de tijd downloaden we voorbeeldcode uit een GitHub-opslagplaats. Ga 
     2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
     ```
 
-1. De eindpunt-URL ziet er ongeveer uit als `http://localhost:<portnumber>`. **Tip: In de statusbalk van VS Code wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
+1. De eindpunt-URL ziet er ongeveer uit als `http://localhost:<portnumber>`. **Tip: Op de VS Code-statusbalk wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
 1. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres.
 1. Als alle stappen zijn voltooid, moet er een reactie van de `mywebapi`-service te zien zijn.
 
@@ -107,4 +107,4 @@ U hebt nu een toepassing met meerdere containers waarin elke container afzonderl
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling in Dev Spaces](team-development-java.md)
+> [Meer informatie over teamontwikkeling in Dev-ruimten](team-development-java.md)

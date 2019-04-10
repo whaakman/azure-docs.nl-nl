@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012570"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278822"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Zelfstudie: Verificatie van Azure SignalR Service met Azure Functions
 
@@ -348,7 +348,7 @@ Tot nu toe werkt de chat-app anoniem. In Azure gebruikt u [App Service-verificat
 
 Bij het verzenden van een bericht kan de app beslissen om het te verzenden naar alle verbonden clients of alleen naar de clients die zijn geverifieerd voor een bepaalde gebruiker.
 
-1. Open in VS Code **SignalRInfo/function.json**.
+1. Open in Visual Studio Code, **negotiate/function.json**.
 
 1. Plaats een [bindingexpressie](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) in de eigenschap *userId* van de binding *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Hiermee stelt u de waarde in op de gebruikersnaam van de geverifieerde gebruiker. Het kenmerk ziet er nu als volgt uit.
 

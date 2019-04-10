@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320274"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359023"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
 
@@ -56,7 +56,7 @@ In de eerste sectie ziet u de totale DR-kosten per onderdelen en per statussen.
 
 **Netwerk**: ExpressRoute- en site-naar-site VPN-kosten voor DR-behoeften. 
 
-**ASR-licentie**: De Site Recovery-licentiekosten voor alle compatibele virtuele machines. Als u handmatig een virtuele machine in de tabel met de gedetailleerde kostenanalyse hebt ingevoerd, worden de kosten voor de Site Recovery-licentie ook voor die VM inbegrepen.
+**Azure Site Recovery-licentie**: De Site Recovery-licentiekosten voor alle compatibele virtuele machines. Als u handmatig een virtuele machine in de tabel met de gedetailleerde kostenanalyse hebt ingevoerd, worden de kosten voor de Site Recovery-licentie ook voor die VM inbegrepen.
 
 ### <a name="overall-dr-costs-by-states"></a>Totale kosten voor herstel na noodgeval per status
 De totale kosten voor herstel na noodgeval zijn gebaseerd op twee verschillende statussen: replicatie en noodherstelanalyse.
@@ -107,21 +107,21 @@ Handmatig VM's toevoegen:
 
 1. Vul de volgende kolommen in op basis van de geschatte VM-grootte en het aantal VM's dat overeenkomt met de volgende configuratie: 
 
-    a. **Aantal VM's**
+    a. **Aantal virtuele machines**
 
     b. **Grootte van IaaS (uw selectie)**
 
     c. **Opslagtype Standard/Premium**
 
-    d. **Totale VM-opslagruimte (GB)**
+    d. **De grootte van de totale VM-opslagruimte (GB)**
 
-    e. **Aantal noodherstelanalyses in een jaar**
+    e. **Aantal DR-oefeningen in een jaar**
 
-    f. **Duur van elke noodherstelanalyse (dagen)**
+    f. **De duur van elke DR-oefening (dagen)**
 
-    g. **Type besturingssysteem**
+    g. **Het type besturingssysteem**
 
-    h. **Gegevensredundantie**
+    h. **De gegevensredundantie**
 
     i. **Azure Hybrid Use Benefit**
 
@@ -157,7 +157,7 @@ Handmatig VM's toevoegen:
 
 **Totale kosten DR-oefening (gemiddeld)**: De berekenings- en opslagkosten voor noodherstelanalyse.
 
-**Kosten ASR-licentie**: De Site Recovery-licentie kosten.
+**Azure Site Recovery-licentiekosten**: De Site Recovery-licentie kosten.
 
 ## <a name="supported-target-regions"></a>Ondersteunde doelregio's
 Azure Site Recovery Deployment Planner biedt een schatting van de kosten voor de volgende Azure-regio's. Als uw regio hieronder niet wordt vermeld, kunt u een van de volgende regio's gebruiken waarvan de prijzen het dichtst bij die van uw regio liggen:

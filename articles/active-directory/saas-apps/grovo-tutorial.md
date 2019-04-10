@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861958"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Zelfstudie: Azure Active Directory-integratie met Grovo
 
@@ -108,11 +108,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met Grovo, moet u de vol
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. Klik op **Extra URL's instellen**.
 
-    d. In het tekstvak **Relaystatus** typt u een URL met de volgende notatie: `https://<subdomain>.grovo.com`
+    d. In de **Relaystatus** tekstvak typt u een URL met behulp van het volgende patroon: `https://<subdomain>.grovo.com`
 
 5. Als u wilt configureren van de toepassing in **SP** gestart modus, de volgende stap uitvoeren:
 
@@ -260,9 +260,9 @@ Wanneer u op de tegel Grovo in het toegangsvenster, moet u worden automatisch aa
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

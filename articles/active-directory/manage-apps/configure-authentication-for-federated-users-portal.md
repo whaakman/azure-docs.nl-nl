@@ -1,6 +1,6 @@
 ---
 title: Aanmelden automatisch-versnelling voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren | Microsoft Docs
-description: Wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory.
+description: Informatie over het configureren van beleid voor Thuisrealmdetectie voor Azure Active Directory-verificatie voor federatieve gebruikers, met inbegrip van auto-versnelling en domein hints.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190259"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360933"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
 
-Het volgende document bevat een inleiding tot Azure Active Directory-verificatiegedrag voor federatieve gebruikers configureren.   Het bevat informatie over de configuratie van automatische-versnelling en verificatie beperkingen voor gebruikers in federatieve domeinen.
+In dit artikel bevat een inleiding tot Azure Active Directory-verificatiegedrag voor federatieve gebruikers configureren. Het bevat informatie over de configuratie van automatische-versnelling en verificatie beperkingen voor gebruikers in federatieve domeinen.
 
 ## <a name="home-realm-discovery"></a>Home Realm Discovery
 Thuis Realm detectie (HRD) is het proces waarmee Azure Active Directory (Azure AD) om te bepalen wanneer een gebruiker moet worden geverifieerd tijdens het aanmelden.  Wanneer een gebruiker zich aanmeldt met een Azure AD-tenant voor toegang tot een resource, of naar de Azure AD algemene aanmelden pagina, typt u de naam van een gebruiker (UPN). Azure AD gebruikt om te ontdekken waar de gebruiker moet zich aanmelden. 

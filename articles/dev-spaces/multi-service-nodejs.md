@@ -9,12 +9,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 61a10d4401daeedcf81ea85b7b837f5c1fbfb909
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902702"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357150"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -33,7 +33,7 @@ U beschikt al over voorbeeldcode voor `mywebapi` voor deze handleiding in een ma
 1. Open de map `mywebapi` in een *afzonderlijk VS Code-venster*.
 1. Open het **Opdrachtenpalet** (via het menu **Beeld | Opdrachtenpalet**), en gebruik automatisch aanvullen om te typen en deze opdracht te selecteren: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Deze opdracht moet niet worden verward met de opdracht `azds prep`, waarmee u het project configureert voor implementatie.
 1. Druk op F5 en wacht tot de service is gebouwd en geïmplementeerd. Weet u het gereed is wanneer de *luistert op poort 80* bericht wordt weergegeven in de console voor foutopsporing.
-1. Noteer de URL van het eindpunt. Deze ziet er ongeveer als volgt uit: `http://localhost:<portnumber>`. **Tip: In de statusbalk van VS Code wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
+1. Noteer de URL van het eindpunt. Deze ziet er ongeveer als volgt uit: `http://localhost:<portnumber>`. **Tip: Op de VS Code-statusbalk wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
 1. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres. U ziet nu een reactie van de `mywebapi`-service. (Hello from mywebapi).
 
 
@@ -60,7 +60,7 @@ Nu gaan we code schrijven in `webfrontend` waarmee een aanvraag wordt verzonden 
        });
     });
     ```
-   1. *Verwijder* de `server.close()`-regel aan het einde van `server.js`
+   1. *Verwijder* de `server.close()` regel aan het einde van `server.js`
 
 In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende aanvraag doorgestuurd naar de uitgaande aanvraag. Later ziet u hoe dit teamleden helpt om samen te ontwikkelen.
 
@@ -101,4 +101,4 @@ U hebt nu een toepassing met meerdere containers waarin elke container afzonderl
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling in Dev Spaces](team-development-nodejs.md)
+> [Meer informatie over teamontwikkeling in Dev-ruimten](team-development-nodejs.md)

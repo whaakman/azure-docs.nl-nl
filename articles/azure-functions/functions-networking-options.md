@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896456"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358150"
 ---
 # <a name="azure-functions-networking-options"></a>Netwerken opties van Azure Functions
 
@@ -43,7 +43,8 @@ Functie-Apps kan worden gehost op verschillende manieren.
 
 IP-beperkingen kunt u een prioriteit geordende lijst toestaan/weigeren van IP-adressen die zijn toegestaan voor toegang tot uw app te definiëren. De acceptatielijst kan IPv4 en IPv6-adressen bevatten. Wanneer er een of meer vermeldingen, is er een impliciete weigeren alle die aan het einde van de lijst voorkomt. De mogelijkheid IP-beperkingen werkt met alle functie hosting-opties.
 
-> ! [BELANGRIJK] Als u de Azure portal-editor gebruiken, de portal moeten kunnen rechtstreeks toegang tot uw functie-app die wordt uitgevoerd en het apparaat dat u gebruikt voor toegang tot de portal moet de IP-endexemplaren. Met netwerkbeperkingen op locatie, u kunt nog steeds toegang tot alle functies in de **platformfuncties** tabblad.
+> [!NOTE]
+> Als u de Azure portal-editor gebruiken, de portal moeten kunnen rechtstreeks toegang tot uw functie-app die wordt uitgevoerd en het apparaat dat u gebruikt voor toegang tot de portal moet de IP-endexemplaren. Met netwerkbeperkingen op locatie, u kunt nog steeds toegang tot alle functies in de **platformfuncties** tabblad.
 
 [Hier voor meer informatie](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

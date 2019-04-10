@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567108"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358790"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Configuratie van netwerken voor Azure App Service-hostingabonnement synchroniseren
 
-Het gebeuren dat hoewel u [geïntegreerd van uw app met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), u kunt geen verbinding maken met Managed Instance. Wat die kunt u proberen is om te vernieuwen voor de configuratie van netwerken voor uw service-plan. 
+Het gebeuren dat hoewel u [geïntegreerd van uw app met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), u kunt geen verbinding maken met Managed Instance. Wat die kunt u proberen is om te vernieuwen voor de configuratie van netwerken voor uw service-plan.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Netwerkconfiguratie synchroniseren voor App Service-hostingplan
 
 Voer hiervoor de volgende stappen uit:  
 
 1. Ga naar uw web-apps met App Service-plan.
- 
+
    ![App Service-plan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Klik op **netwerken** en klik vervolgens op **Klik hier om te beheren**.
- 
+
    ![beheren van service-plan](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Selecteer uw **VNet** en klikt u op **netwerk synchroniseren**. 
- 
+3. Selecteer uw **VNet** en klikt u op **netwerk synchroniseren**.
+
    ![netwerk synchroniseren](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Wacht totdat de synchronisatie is voltooid.

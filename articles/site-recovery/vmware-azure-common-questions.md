@@ -1,295 +1,58 @@
 ---
 title: Veelgestelde vragen - VMware naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
-description: In dit artikel bevat een overzicht van veelgestelde vragen bij het instellen van herstel na noodgevallen van on-premises VMware-machines naar Azure met Azure Site Recovery
+description: In dit artikel bevat een overzicht van algemene vragen bestandsnaamgedeelte herstel na noodgevallen van on-premises VMware-machines naar Azure met behulp van Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/21/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051917"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360543"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
-In dit artikel vindt u antwoorden op veelgestelde vragen, we zien bij het implementeren van herstel na noodgevallen van on-premises VMware-machines naar Azure. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+In dit artikel vindt u antwoorden op veelgestelde vragen wanneer u herstel na noodgevallen van on-premises VMware-VM's naar Azure implementeert. 
 
-## <a name="general"></a>Algemeen
-### <a name="how-is-site-recovery-priced"></a>Hoe wordt de Site Recovery geprijsd?
-Beoordeling [prijzen voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) details.
+## <a name="general"></a>Algemeen 
+### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>Wat heb ik nodig voor noodherstel van VMware-VM?
 
-### <a name="how-do-i-pay-for-azure-vms"></a>Hoe moet ik betalen voor Azure VM's?
-Tijdens de replicatie, gegevens worden gerepliceerd naar Azure storage en betaalt u geen wijzigingen in de virtuele machine. Wanneer u een failover naar Azure uitvoert, maakt Site Recovery automatisch virtuele machines van Azure IaaS. Hierna wordt u gefactureerd voor de rekenresources die u in Azure gebruikt.
+[Meer informatie over](vmware-azure-architecture.md) de onderdelen die betrokken zijn bij herstel na noodgevallen van virtuele VMware-machines. 
 
-### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Wat kan ik doen met VMware naar Azure-replicatie?
-- **Herstel na noodgevallen**: U kunt volledige noodherstel instellen. In dit scenario kunt u on-premises VMware-machines repliceren naar Azure storage. Klik, als uw on-premises infrastructuur niet beschikbaar is, kunt u een failover naar Azure. Wanneer u een failover uitvoert, kan Azure-VM's worden gemaakt met behulp van de gerepliceerde gegevens. U kunt toegang tot apps en workloads op de Azure VM's, totdat uw on-premises datacenter weer beschikbaar is. U kunt vervolgens failback van Azure naar uw on-premises site.
-- **Migratie**: U kunt Site Recovery gebruiken voor het migreren van on-premises VMware-machines naar Azure. In dit scenario kunt u on-premises VMware-machines repliceren naar Azure storage. Vervolgens kunt u een failover van on-premises naar Azure. Na een failover zijn uw toepassingen en workloads beschikbaar en worden uitgevoerd op Azure Virtual machines.
+### <a name="can-i-use-site-recovery-to-migrate-vmware-vms-to-azure"></a>Kan ik Site Recovery gebruiken voor het migreren van virtuele VMware-machines naar Azure?
 
-## <a name="azure"></a>Azure
-### <a name="what-do-i-need-in-azure"></a>Wat moet ik in Azure?
-U moet een Azure-abonnement, een Recovery Services-kluis, een cache-opslagaccount, beheerde schijven en een virtueel netwerk. De kluis, cache-opslagaccount, beheerde schijven en netwerk moet zich in dezelfde regio bevinden.
+Ja, naast het gebruik van Site Recovery kunt u volledige noodherstel instellen voor VMware-VM's, u kunt ook Site Recovery gebruiken voor het migreren van on-premises VMware-machines naar Azure. In dit scenario kunt u on-premises VMware-machines repliceren naar Azure storage. Vervolgens kunt u een failover van on-premises naar Azure. Na een failover zijn uw toepassingen en workloads beschikbaar en worden uitgevoerd op Azure Virtual machines. Het proces is vergelijkbaar met het instellen van volledige noodherstel, behalve dat de migratie van een systeem u kunt geen failback van Azure.
+
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Mijn Azure-account moet machtigingen voor het maken van virtuele machines?
 Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft wanneer u Site Recovery- en schrijfmachtigingen voor het geselecteerde opslagaccount configureren of een beheerde schijf op basis van uw configuratie. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
-### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan ik Gastbesturingssysteem server-licentie gebruiken op Azure?
-Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
-
-## <a name="pricing"></a>Prijzen
-
-### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>Hoe worden verwerkt licentieverlening kosten in rekening gebracht tijdens de replicatie na een failover?
-
-Raadpleeg onze Veelgestelde vragen over licenties [hier](https://aka.ms/asr_pricing_FAQ) voor meer informatie.
-
-### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Hoe kan ik de geschatte kosten in rekening gebracht tijdens het gebruik van Site Recovery berekenen?
-
-U kunt [prijscalculator](https://aka.ms/asr_pricing_calculator) kosten wilt ramen tijdens het gebruik van Azure Site Recovery. De tool voor implementatieplanning voor gedetailleerde raming van kosten worden uitgevoerd (https://aka.ms/siterecovery_deployment_planner) en analyseren van de [kosten van het rapport met kostenramingen](https://aka.ms/asr_DP_costreport).
-
-### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>Is er een verschil in kosten als ik repliceer rechtstreeks op een beheerde schijf?
-
-Beheerde schijven worden in rekening gebracht iets anders dan de storage-accounts. Zie het voorbeeld hieronder voor een schijf die als bron van de grootte van 100 GiB. Het voorbeeld is specifiek voor differentiële kosten voor opslag. Deze kosten omvat de kosten voor momentopnamen, cacheopslag en transacties.
-
-* Standard storage-account Visual Studio. Standard HDD Managed Disk
-
-    - **Ingerichte opslagschijf door Azure Site Recovery**: S10
-    - **Standard-opslagaccount in rekening gebracht op volume verbruikt**: $5 per maand
-    - **Standard-beheerde schijven in rekening gebracht op ingerichte volume**: $5.89 per maand
-
-* Premium storage-account Visual Studio. Premium SSD Managed Disk 
-    - **Ingerichte opslagschijf door Azure Site Recovery**: P10
-    - **Premium storage-account in rekening gebracht op ingerichte volume**: $17.92 per maand
-    - **Premium beheerde schijven in rekening gebracht op ingerichte volume**: $17.92 per maand
-
-Meer informatie over [gedetailleerde prijsinformatie van beheerde schijven](https://azure.microsoft.com/pricing/details/managed-disks/).
-
-### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>Ik extra kosten voor Cache-Opslagaccount met beheerde schijven?
-
-Nee, u doet geen extra kosten voor cache. Cache is altijd onderdeel van VMware naar Azure-architectuur. Als u naar standard storage-account repliceert, is deze cacheopslag deel uitmaken van hetzelfde doel-opslagaccount.
-
-### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Ik ben al meer dan een maand gebruiker van Azure Site Recovery. Krijg ik nog steeds de eerste 31 dagen gratis voor elke beschermde instantie?
-
-Ja, het maakt niet uit hoe lang u Azure Site Recovery al gebruikt. Voor elk beschermd exemplaar worden geen Azure Site Recovery-kosten in rekening gebracht tijdens de eerste 31 dagen. Als u de laatste zes maanden bijvoorbeeld tien exemplaren hebt beschermd en een elfde exemplaar toevoegt aan Azure Site Recovery, worden er gedurende de eerste 31 dagen geen Azure Site Recovery-kosten in rekening gebracht voor het elfde exemplaar. Voor de eerste tien exemplaren worden er nog steeds Azure Site Recovery-kosten in rekening gebracht omdat ze al meer dan 31 dagen worden beschermd.
-
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Worden er gedurende de eerste 31 dagen andere Azure-kosten in rekening gebracht?
-
-Ja, hoewel Azure Site Recovery gratis is gedurende de eerste 31 dagen van een beschermd exemplaar, worden er mogelijk kosten in rekening gebracht voor Azure Storage, opslagtransacties en gegevensoverdracht. Voor een herstelde virtuele machine worden mogelijk ook Azure-rekenkosten in rekening gebracht.
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Op welke kosten moet ik rekenen wanneer ik Azure Site Recovery gebruik?
-
-Raadpleeg onze [Veelgestelde vragen over de kosten in rekening gebracht](https://aka.ms/asr_pricing_FAQ) voor gedetailleerde informatie.
-
-### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>Zijn er kosten gekoppeld aan de DR-oefeningen/test-failover uitvoeren?
-
-Er is geen afzonderlijke kosten voor noodherstelanalyse. Er zijn rekenkosten in rekening gebracht nadat de virtuele machine is gemaakt na test-failover.
-
-## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery-onderdelen bijwerken
-
-### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>De Mobility-agent/Configuration Server/versie van de processerver is zeer verouderd en wordt mijn upgrade is mislukt. Hoe moet ik een upgrade uitvoeren naar de nieuwste versie?
-
-Azure Site Recovery volgt N-4 ondersteuningsmodel. Raadpleeg onze [ondersteuningsverklaring](https://aka.ms/asr_support_statement) om te begrijpen van de informatie over hoe u een upgrade van zeer oude versies.
-
-### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Waar vind ik de release-opmerkingen/updatepakketten van Azure Site Recovery?
-
-Raadpleeg de [document](https://aka.ms/asr_update_rollups) voor release-opmerkingen bij de informatie. Koppelingen van de installatie van de betreffende onderdelen vindt u in elke update totaliseren.
-
-### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>Hoe moet ik een upgrade Site Recovery-onderdelen voor on-premises VMware of fysieke-site naar Azure?
-
-Raadpleeg onze richtlijnen voor het opgegeven [hier](https://aka.ms/asr_vmware_upgrades) uw onderdelen te upgraden.
-
-## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>Opnieuw opstarten van de bronmachine verplicht is voor elke upgrade?
-
-Hoewel aanbevolen, is dit het niet verplicht voor elke upgrade. Raadpleeg [hier](https://aka.ms/asr_vmware_upgrades) wissen voor richtlijnen.
-
-## <a name="on-premises"></a>On-premises
-
-### <a name="what-do-i-need-on-premises"></a>Wat kan ik on-premises nodig?
-
-In on-premises hebt u het volgende nodig:
-- Site Recovery-onderdelen geïnstalleerd op een enkele VMware-VM.
-- Een VMware-infrastructuur, met ten minste één ESXi-host, en we raden u aan een vCenter-server.
-- Een of meer virtuele VMware-machines te repliceren.
-
-[Meer informatie](vmware-azure-architecture.md) over VMware naar Azure-architectuur.
-
-De on-premises configuratieserver kan als volgt worden geïmplementeerd:
-
-- We adviseren dat u de configuratieserver implementeren als een VMware-VM gebruiken een OVA-sjabloon met de configuratieserver vooraf zijn geïnstalleerd.
-- Als u niet een sjabloon om een bepaalde reden gebruiken, kunt u de configuratieserver handmatig instellen. [Meer informatie](physical-azure-disaster-recovery.md#set-up-the-source-environment).
-
-
-
-### <a name="where-do-on-premises-vms-replicate-to"></a>Waar repliceer on-premises machines naar?
-Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert, Site Recovery automatisch virtuele Azure-machines maakt van het storage-account of een beheerde schijf op basis van uw configuratie.
-
-## <a name="replication"></a>Replicatie
-
 ### <a name="what-applications-can-i-replicate"></a>Welke toepassingen kan ik repliceren?
-U kunt elke app of de werkbelasting wordt uitgevoerd op een VMware-VM die aan de voldoet repliceren [replicatievereisten](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery biedt ondersteuning voor toepassingsgevoelige replicatie, zodat apps kunnen worden failover is uitgevoerd en kan niet naar een intelligente status. Site Recovery kan worden geïntegreerd met Microsoft-toepassingen zoals SharePoint, Exchange, Dynamics, SQL Server en Active Directory, en werkt nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat. Lees [hier](site-recovery-workload.md) meer informatie over workloadbeveiliging.
+U kunt elke app of de werkbelasting wordt uitgevoerd op een VMware-VM die aan de voldoet repliceren [replicatievereisten](vmware-physical-azure-support-matrix.md##replicated-machines).
+- Site Recovery biedt ondersteuning voor toepassingsgevoelige replicatie, zodat apps kunnen worden failover is uitgevoerd en kan niet naar een intelligente status.
+- Site Recovery kan worden geïntegreerd met Microsoft-toepassingen zoals SharePoint, Exchange, Dynamics, SQL Server en Active Directory, en werkt nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat.
+- Lees [hier](site-recovery-workload.md) meer informatie over workloadbeveiliging.
 
-### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Kan ik een virtuele machine waarvoor Docker-schijfconfiguratie beveiligen?
-
-Nee, dit is een niet-ondersteund scenario.
-
-### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Kan ik repliceren naar Azure met een site-naar-site-VPN?
-Site Recovery repliceert gegevens van on-premises naar Azure storage via een openbaar eindpunt of met behulp van openbare ExpressRoute-peering. Replicatie via een site-naar-site VPN-netwerk wordt niet ondersteund.
-
-### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan ik repliceren naar Azure met ExpressRoute?
-Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery repliceert gegevens naar Azure Storage via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
-
-### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hoe kan ik storage-account wijzigen nadat de machine is beveiligd?
-
-U moet uitschakelen en inschakelen van replicatie om te upgraden of downgraden van het opslagaccounttype.
-
-### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>Kan ik repliceren naar storage-accounts voor nieuwe machine?
-
-Nee, vanaf maart-19, kunt u repliceren naar managed disks op Azure vanuit de portal. Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via REST-API en Powershell. API-versie 2016-08-10- of 2018-01-10 gebruiken voor het repliceren naar storage-accounts.
-
-### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Wat zijn de voordelen bij het repliceren naar managed disks?
-
-Lees het artikel over hoe u [Azure Site Recovery herstel na noodgeval met beheerde schijven vereenvoudigt](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
-
-### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hoe kan ik Managed Disk-type wijzigen nadat de machine is beveiligd?
-
-Ja, kunt u eenvoudig het type beheerde schijf wijzigen. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Echter wanneer u het type beheerde schijf wijzigt, zorg ervoor dat u wacht op de nieuwe herstelpunten moeten worden gegenereerd als u wilt testfailover of failover plaatsen deze activiteit.
-
-### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>Kan ik de replicatie van beheerde schijven naar niet-beheerde schijven wisselen?
-
-Nee, overstappen van beheerd naar niet-beheerde wordt niet ondersteund.
-
-### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
-
-Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
-
-### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Kan ik Riverbed SteelHeads voor replicatie gebruiken?
-
-Onze partner, Riverbed, bevat een gedetailleerde richtlijnen over het werken met Azure Site Recovery. Raadpleeg de [handleiding](https://community.riverbed.com/s/article/DOC-4627).
-
-### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
-
-Voor replicatie, moet een ondersteund besturingssysteem op een VMware-VM worden uitgevoerd. Bovendien hebben de virtuele machine moet voldoen aan de vereisten voor Azure-VM's. [Meer informatie](vmware-physical-azure-support-matrix.md##replicated-machines) in de ondersteuningsmatrix.
-
-### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
-Replicatie is continue bij het repliceren van virtuele VMware-machines naar Azure.
-
-### <a name="can-i-retain-the-ip-address-on-failover"></a>Kan ik het IP-adres bij failover bewaren?
-Ja, kunt u het IP-adres bij failover behouden. Zorg ervoor dat u het doel-IP-adres op 'berekening en netwerk-blade voordat de failover wordt vermeld. Zorg er ook voor de machines afsluiten op het moment van failover naar het IP-conflicten te voorkomen dat op het moment van failback.
-
-### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
-Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
-
-### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
-Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
-
-### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
-Ja, kunt u schijven uitsluiten van replicatie.
-
-### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan ik de doel-VM-grootte of het type van de virtuele machine voordat de failover wijzigen?
-Ja, kunt u het type of de grootte van de virtuele machine elk gewenst moment voordat de failover door te gaan naar berekening en netwerk-instellingen van het item replicatie vanaf de portal.
-
-### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan ik virtuele machines met dynamische schijven repliceren?
-Dynamische schijven kunnen worden gerepliceerd. De besturingssysteemschijf moet een standaardschijf.
-
-### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Als ik gebruik replicatiegroepen voor multi-VM-consistentie, kan ik toevoegen een nieuwe virtuele machine aan een bestaande replicatiegroep?
-Ja, kunt u nieuwe virtuele machines toevoegen aan een bestaande replicatiegroep wanneer u replicatie voor deze inschakelt. U kunt een virtuele machine niet toevoegen aan een bestaande replicatiegroep nadat replicatie is gestart, en u een replicatiegroep voor bestaande VM's maken kunt.
-
-### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan ik virtuele machines die worden gerepliceerd door toe te voegen of het formaat van schijven wijzigen?
-
-U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt toevoegen van nieuwe schijven moet u de schijf toevoegen en weer inschakelen van beveiliging voor de virtuele machine.
-
-### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan ik migreren op lokale machines met een Vcenter-nieuwe zonder enige impact op de doorlopende replicatie?
-Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet Azure Site Recovery met de nieuwe Vcenter instellen en replicatie inschakelen voor machines.
-
-### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan ik repliceren naar cache/doel-opslagaccount met een Vnet (met Azure storage-firewalls) geconfigureerd voor?
-Azure Site Recovery biedt Nee, geen ondersteuning voor replicatie naar de opslag op Vnet.
-
-## <a name="configuration-server"></a>Configuratieserver
-
-### <a name="what-does-the-configuration-server-do"></a>Wat doet de configuratieserver?
-De configuratieserver wordt uitgevoerd de on-premises Site Recovery-onderdelen, met inbegrip van:
-- De configuratieserver coördineert de communicatie tussen on-premises en Azure en beheert de gegevensreplicatie.
-- De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt die deze naar Azure storage-., de processerver installeert ook Mobility-Service op VM's die u wilt repliceren en detecteert automatisch on-premises virtuele VMware-machines.
-- De hoofddoelserver die verantwoordelijk is voor replicatiegegevens tijdens de failback vanuit Azure.
-
-[Meer informatie](vmware-azure-architecture.md) over de onderdelen van de configuratieserver en processen.
-
-### <a name="where-do-i-set-up-the-configuration-server"></a>Waar kan ik de configuratieserver instellen?
-In dat geval moet u een één maximaal beschikbare on-premises virtuele VMware-machine in voor de configuratieserver.
-
-### <a name="what-are-the-requirements-for-the-configuration-server"></a>Wat zijn de vereisten voor de configuratieserver?
-
-Controleer de [vereisten](vmware-azure-deploy-configuration-server.md#prerequisites).
-
-### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan ik handmatig instellen de configuratieserver in plaats van een sjabloon?
-Het is raadzaam dat u de meest recente versie van de OVF-sjabloon [maken van de configuratieserver VM](vmware-azure-deploy-configuration-server.md). Als voor een of andere reden is niet mogelijk, zoals u geen toegang tot de VMware-server, kunt u [de geïntegreerde Setup-bestand downloaden](physical-azure-set-up-source.md) vanuit de portal en uitvoeren op een virtuele machine.
-
-### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan een configuratieserver in meer dan één regio repliceren?
-Nee. Om dit te doen, moet u voor het instellen van een configuratieserver in elke regio.
-
-### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan ik een configuratieserver in Azure hosten?
-Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. Dit kunt latenties toevoegen en voortdurende replicatie van invloed zijn op.
-
-### <a name="how-do-i-update-the-configuration-server"></a>Hoe kan ik de configuratieserver bijwerken?
-[Meer informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) bijwerken van de configuratieserver. U vindt de meest recente update-informatie in de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery). U kunt ook rechtstreeks downloaden de nieuwste versie van de configuratieserver in [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Als uw versie ouder dan 4 versies van de huidige versie is, raadpleegt u onze [ondersteuningsverklaring](https://aka.ms/asr_support_statement) voor richtlijnen voor upgrades.
-
-### <a name="should-i-backup-the-deployed-configuration-server"></a>Moet ik back-up van het geïmplementeerde configuratie-server?
-We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor succesvolle failback wordt de virtuele machine wordt een failback moet aanwezig zijn in de database van de configuratieserver en de configuratieserver moet worden uitgevoerd en een verbonden status heeft. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
-
-### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Als ik van de configuratieserver instelt ben, kan ik handmatig downloaden en installeren MySQL?
-
-Ja. Downloaden van MySQL en plaats deze in de **C:\Temp\ASRSetup** map. Installeer deze vervolgens handmatig. Bij het instellen van de virtuele machine van de configuratieserver en de voorwaarden accepteren, MySQL wordt vermeld als **al geïnstalleerd** in **Download en installeer**.
-
-### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan ik te voorkomen dat het downloaden van MySQL, maar kunt Site Recovery installeren?
-
-Ja. Download het installatieprogramma van MySQL en plaats deze in de **C:\Temp\ASRSetup** map.  Bij het instellen van de virtuele machine van de configuratieserver, de voorwaarden accepteren en klik op **Download en installeer**, de portal wordt het installatieprogramma dat u hebt toegevoegd voor het installeren van MySQL gebruikt.
- 
-### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan ik de virtuele machine van de configuratieserver voor iets anders gebruiken?
-Nee, moet u de virtuele machine alleen gebruiken voor de configuratieserver. 
-
-### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan ik een configuratieserver klonen en voor het indelen van gebruiken?
-Nee, moet u een nieuwe configuratieserver om te voorkomen dat problemen met registratie instellen.
-
-### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Kan ik de kluis geregistreerd op de configuratieserver wijzigen?
-Nee. Nadat een kluis is geregistreerd bij de configuratieserver, kan niet worden gewijzigd. Beoordeling [in dit artikel](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) voor herregistratie stappen.
-
-### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Ik kan de dezelfde configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers gebruiken
-Ja, maar houd er rekening mee dat de fysieke computer kan worden alleen mogelijk is naar een VMware-VM.
-
-### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
-[Lees dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor meer informatie over het downloaden van de wachtwoordzin.
-
-### <a name="where-can-i-download-vault-registration-keys"></a>Waar kan ik registratiesleutels kluis downloaden?
-
-In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. In **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
-
-
-
-## <a name="mobility-service"></a>Mobility-service
-
-### <a name="where-can-i-find-the-mobility-service-installers"></a>Waar vind ik de Mobility-service-installatieprogramma's?
-Het installatieprogramma's zijn ondergebracht in de **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** map op de configuratieserver.
-
-## <a name="how-do-i-install-the-mobility-service"></a>Hoe installeer ik de Mobility-service?
-U installeert op elke virtuele machine die u repliceren wilt, met behulp van een [push-installatie](vmware-physical-mobility-service-overview.md#push-installation), of [handmatige installatie](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) vanuit de gebruikersinterface of Powershell. U kunt ook implementeren met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
-
-
+### <a name="can-i-use-a-guest-os-server-license-on-azure"></a>Kan ik een gast-OS-server-licentie gebruiken op Azure?
+Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
 
 ## <a name="security"></a>Beveiliging
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-servers"></a>Welke toegang Site Recovery moet VMware-servers
 Site Recovery moet toegang hebben tot de VMware-servers om het volgende te kunnen doen:
 
-- Instellen van een VMware-VM met de configuratieserver en andere on-premises Site Recovery-onderdelen. [Meer informatie](vmware-azure-deploy-configuration-server.md)
-- Virtuele machines automatisch detecteren voor replicatie. Meer informatie over een account voorbereiden voor automatische detectie. [Meer informatie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)
+- Een VMware-VM met de Site Recovery-configuratieserver instellen
+- Virtuele machines automatisch detecteren voor replicatie. 
 
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-vms"></a>Welke toegang Site Recovery moet VMware-VM's?
 
-- Als u wilt repliceren, moet een VMware-VM hebben de Site Recovery Mobility service geïnstalleerd en wordt uitgevoerd. U kunt het hulpprogramma handmatig implementeren of u kunt opgeven dat Site Recovery een push-installatie van de dienst doen moet wanneer u replicatie voor een virtuele machine inschakelt. Site Recovery moet voor de push-installatie een account die kan worden gebruikt voor het installeren van de service zijn. [Meer informatie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation). De processerver (standaard uitgevoerd op de configuratieserver) uitvoert deze installatie. [Meer informatie](vmware-azure-install-mobility-service.md) over de installatie van de Mobility-service.
+- Als u wilt repliceren, moet een VMware-VM hebben de Site Recovery Mobility service geïnstalleerd en wordt uitgevoerd. U kunt het hulpprogramma handmatig implementeren of u kunt opgeven dat Site Recovery een push-installatie van de dienst doen moet wanneer u replicatie voor een virtuele machine inschakelt. 
 - Tijdens de replicatie communiceren de virtuele machines als volgt met Site Recovery:
     - Virtuele machines communiceren met de configuratieserver op poort 443 voor HTTPS voor het replicatiebeheer van.
     - Virtuele machines verzenden replicatiegegevens naar de processerver op HTTPS-poort 9443 (kan worden gewijzigd).
@@ -301,16 +64,202 @@ Nee, Site Recovery gerepliceerde gegevens niet worden onderschept, en heeft geen
 
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Kunnen we de metagegevens van on-premises bewaren binnen een geografische regio's?
-Ja. Wanneer u een kluis in een regio maken, zorgen we dat alle metagegevens die wordt gebruikt door Site Recovery blijft binnen een geografische grens van die regio.
 
-### <a name="does-site-recovery-encrypt-replication"></a>Wordt replicatie met Site Recovery versleuteld?
-Ja, zowel versleuteling-in-transit en [versleuteling in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) worden ondersteund.
+## <a name="pricing"></a>Prijzen
+### <a name="how-can-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hoe kan ik de geschatte kosten in rekening gebracht voor VMware-noodherstel berekenen?
+
+U kunt de [prijscalculator](https://aka.ms/asr_pricing_calculator) kosten wilt ramen tijdens het gebruik van Site Recovery.
+
+Voor gedetailleerde raming van kosten, voer de tool voor implementatieplanning voor [VMware](https://aka.ms/siterecovery_deployment_planner), en gebruik de [kosten van het rapport met kostenramingen](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Is er een verschil in kosten tussen repliceren naar de opslag of rechtstreeks naar managed disks?
+
+Beheerde schijven worden in rekening gebracht iets anders dan de storage-accounts. [Meer informatie](https://azure.microsoft.com/pricing/details/managed-disks/) over de prijs van beheerde schijven.
+
+## <a name="mobility-service"></a>Mobility-service
+
+### <a name="where-can-i-find-the-mobility-service-installers"></a>Waar vind ik de Mobility-service-installatieprogramma's?
+Het installatieprogramma's zijn de **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** map op de configuratieserver.
+
+## <a name="how-do-i-install-the-mobility-service"></a>Hoe installeer ik de Mobility-service?
+U installeert op elke virtuele machine die u repliceren wilt, met behulp van een aantal methoden:
+- [Push-installatie](vmware-physical-mobility-service-overview.md#push-installation)
+- [Handmatige installatie](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) vanuit de gebruikersinterface of Powershell.
+- Implementatie met behulp van een implementatieprogramma zoals [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+
+## <a name="managed-disks"></a>Managed Disks
+
+### <a name="where-does-site-recovery-replicate-data-to"></a>Waar Site Recovery gegevens repliceren?
+
+Site Recovery repliceert on-premises VMware-machines en fysieke servers naar beheerde schijven in Azure.
+- De processerver van Site Recovery schrijft de replicatielogboeken naar een cache-opslagaccount in de doelregio.
+- Deze logboeken worden gebruikt voor het maken van herstelpunten op de beheerde schijven.
+- Wanneer een failover optreedt, wordt het herstelpunt dat u selecteert om te maken van de beheerde schijf gebruikt.
+- Virtuele machines die eerder zijn gerepliceerd naar een opslagaccount (vóór maart 2019) worden niet beïnvloed.
+
+
+### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Kan ik nieuwe machines repliceren naar storage-accounts?
+
+Nee, vanaf maart 2019, in de portal, kunt u repliceren naar Azure alleen beheerde schijven. 
+
+Replicatie van nieuwe virtuele machines naar een opslagaccount is alleen beschikbaar via PowerShell of de REST-API (versie 2018-01-10- of 2016-08-10).
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Wat zijn de voordelen bij het repliceren naar managed disks?
+
+[Informatie over hoe](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/) Site Recovery vereenvoudigt het herstel na noodgeval met beheerde schijven.
+
+
+### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Kan ik het type beheerde schijf wijzigen nadat de machine is beveiligd?
+
+Ja, u kunt eenvoudig [wijzigen van het type beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Echter, als u het type beheerde schijf kunt, wachten op nieuwe herstelpunten moeten worden gegenereerd als u wilt testen van failover of testfailover na de wijziging.
+
+### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan ik replicatie van beheerde schijven naar niet-beheerde schijven wisselen?
+
+Nee, overstappen van beheerd naar niet-beheerde wordt niet ondersteund.
+
+## <a name="replication"></a>Replicatie
+
+
+### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
+
+[Meer informatie](vmware-physical-azure-support-matrix.md##replicated-machines) over de vereisten voor virtuele VMware-machine/fysieke server en ondersteuning.
+
+### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
+Replicatie is continue bij het repliceren van virtuele VMware-machines naar Azure.
+
+
+### <a name="can-i-extend-replication"></a>Kan ik replicatie verlengen?
+Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### <a name="can-i-do-an-offline-initial-replication"></a>Kan ik een offline initiële replicatie?
+Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+### <a name="can-i-exclude-disks-from-replication"></a>Kan ik schijven uitsluiten van replicatie?
+Ja, kunt u schijven uitsluiten.
+
+### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan ik virtuele machines met dynamische schijven repliceren?
+Dynamische schijven kunnen worden gerepliceerd. De besturingssysteemschijf moet een standaardschijf.
+
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Als ik gebruik replicatiegroepen voor multi-VM-consistentie, kan ik toevoegen een nieuwe virtuele machine aan een bestaande replicatiegroep?
+Ja, kunt u nieuwe virtuele machines toevoegen aan een bestaande replicatiegroep wanneer u replicatie voor deze inschakelt.
+- U kunt een virtuele machine niet toevoegen aan een bestaande replicatiegroep, nadat replicatie is gestart.
+- U kunt geen een replicatiegroep maken voor bestaande VM's.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan ik virtuele machines die worden gerepliceerd door toe te voegen of het formaat van schijven wijzigen?
+
+U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt toevoegen van nieuwe schijven moet u de schijf toevoegen en weer inschakelen van beveiliging voor de virtuele machine.
+
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kan ik on-premises machines migreren naar een nieuwe vCenter-Server zonder enige impact op de doorlopende replicatie?
+Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet de Site Recovery instellen met de nieuwe vCenter-Server, en replicatie inschakelen voor machines opnieuw.
+
+### <a name="can-i-replicate-to-a-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan ik repliceren naar een cache-/ doelopslagaccount met een VNet (met Azure storage-firewalls) geconfigureerd voor?
+Nee, Site Recovery biedt geen ondersteuning voor replicatie naar de opslag op Vnet.
+
+
+
+
+
+## <a name="component-upgrade"></a>Upgrade van onderdeel
+
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Mijn versie van de Mobility-services-server-agent of de configuratie is de oude als de upgrade is mislukt. Wat moet ik doen?  
+
+Site Recovery volgt het ondersteuningsmodel N-4. [Meer informatie](https://aka.ms/asr_support_statement) over het bijwerken van oude versies.
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Waar vind ik de release-opmerkingen/updatepakketten van Azure Site Recovery?
+
+[Informatie over](site-recovery-whats-new.md) over nieuwe updates en [rollup-informatie ophalen](service-updates-how-to.md).
+
+### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Waar vind ik een upgrade-informatie voor herstel na noodgevallen naar Azure?
+
+[Meer informatie over](https://aka.ms/asr_vmware_upgrades) upgraden.
+
+## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Moet ik bronmachines voor elke upgrade opnieuw opstarten?
+
+Hoewel aanbevolen, is dit het niet verplicht voor elke upgrade. [Meer informatie](https://aka.ms/asr_vmware_upgrades).
+
+
+## <a name="configuration-server"></a>Configuratieserver
+
+### <a name="what-does-the-configuration-server-do"></a>Wat doet de configuratieserver?
+
+De configuratieserver wordt uitgevoerd de on-premises Site Recovery-onderdelen, met inbegrip van:
+- De configuratieserver zelf die coördineert de communicatie tussen on-premises en Azure en beheert de gegevensreplicatie.
+- De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en versleuteling, en verzendt ze naar de Azure-opslag. De processerver ook is een push-installatie van de Mobility-Service op virtuele machines, en detecteert automatisch on-premises virtuele VMware-machines.
+- De hoofddoelserver die verantwoordelijk is voor replicatiegegevens tijdens de failback vanuit Azure.
+
+[Meer informatie](vmware-azure-architecture.md) over de onderdelen van de configuratieserver en processen.
+
+### <a name="where-do-i-set-up-the-configuration-server"></a>Waar kan ik de configuratieserver instellen?
+In dat geval moet u een één maximaal beschikbare on-premises virtuele VMware-machine in voor de configuratieserver. Voor herstel na noodgevallen fysieke server, kunt u de configuratieserver installeren op een fysieke computer.
+
+### <a name="what-do-i-need-for-the-configuration-server"></a>Wat heb ik nodig voor de configuratieserver
+
+Controleer de [vereisten](vmware-azure-deploy-configuration-server.md#prerequisites).
+
+### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan ik handmatig instellen de configuratieserver in plaats van een sjabloon?
+We raden aan dat u [maken van de configuratieserver VM](vmware-azure-deploy-configuration-server.md) met de meest recente versie van het OVF-sjabloon. Als voor een of andere reden is niet mogelijk, zoals u geen toegang tot de VMware-server, kunt u [downloaden](physical-azure-set-up-source.md) het setup-bestand van de portal en het instellen van de configuratieserver.
+
+### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan een configuratieserver in meer dan één regio repliceren?
+Nee. Om dit te doen, moet u een configuratieserver in elke regio.
+
+### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan ik een configuratieserver in Azure hosten?
+Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. Dit wordt toegevoegd latentie en heeft gevolgen voor doorlopende replicatie.
+
+### <a name="how-do-i-update-the-configuration-server"></a>Hoe kan ik de configuratieserver bijwerken?
+
+[Informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) configuratieserver bijwerken.
+- U kunt de meest recente update informatie vinden op de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery).
+- U kunt de meest recente versie downloaden via de portal. U kunt ook rechtstreeks downloaden de nieuwste versie van de configuratieserver in de [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Als uw versie meer dan vier versies ouder dan de huidige versie is, raadpleegt u onze [ondersteuningsverklaring](https://aka.ms/asr_support_statement) voor richtlijnen voor upgrades.
+
+### <a name="should-i-back-up-the-configuration-server"></a>Moet ik back-up van de configuratieserver?
+We raden u aan om regelmatig geplande back-ups van de configuratieserver.
+- De virtuele machine wordt een failback moet voor geslaagde failback bestaat in de database van de configuratieserver.
+- De configuratieserver moet worden uitgevoerd en een verbonden status heeft.
+- [Meer informatie](vmware-azure-manage-configuration-server.md) over algemene beheertaken voor configuratie-server.
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Als ik van de configuratieserver instelt ben, kan ik handmatig downloaden en installeren MySQL?
+
+Ja. Downloaden van MySQL en plaats deze in de **C:\Temp\ASRSetup** map. Installeer deze vervolgens handmatig. Bij het instellen van de virtuele machine van de configuratieserver en de voorwaarden accepteren, MySQL wordt vermeld als **al geïnstalleerd** in **Download en installeer**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan ik te voorkomen dat het downloaden van MySQL, maar kunt Site Recovery installeren?
+
+Ja. Download het installatieprogramma van MySQL en plaats deze in de **C:\Temp\ASRSetup** map.  Bij het instellen van de virtuele machine van de configuratieserver, de voorwaarden accepteren en klik op **Download en installeer**. De portal wordt het installatieprogramma dat u hebt toegevoegd voor het installeren van MySQL gebruikt.
+ 
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan ik de virtuele machine van de configuratieserver voor iets anders gebruiken?
+Nee, moet u de virtuele machine alleen gebruiken voor de configuratieserver. 
+
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan ik een configuratieserver klonen en voor het indelen van gebruiken?
+Nee, moet u instellen een nieuwe configuratieserver om te voorkomen dat problemen met registratie.
+
+### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Kan ik de kluis waarin de configuratieserver is geregistreerd wijzigen?
+Nee. Nadat een kluis gekoppeld aan de configuratieserver is, kan niet worden gewijzigd. Beoordeling [in dit artikel](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) voor meer informatie over het opnieuw te registreren.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Ik kan de dezelfde configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers gebruiken
+Ja, maar houd er rekening mee dat de fysieke computer kan alleen worden mislukte terug naar een VMware-VM.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
+[Meer informatie over het](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) downloaden van de wachtwoordzin.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Waar kan ik registratiesleutels kluis downloaden?
+
+Klik in de Recovery Services-kluis op **configuratieservers** in **Site Recovery-infrastructuur** > **beheren**. Klik vervolgens in **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
+
+
+
+
+
 
 
 ## <a name="failover-and-failback"></a>Failover en failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan ik de processerver op on-premises voor failback gebruiken?
-Het is raadzaam een processerver maken in Azure voor failback doel om te voorkomen dat gegevensoverdracht latenties. Bovendien, als u het Bronnetwerk met virtuele machines met de Azure-gerichte netwerk op de configuratieserver gescheiden, is essentieel is voor het gebruik van de processerver voor failback gemaakt in Azure.
+Sterk aanbevolen het maken van een processerver in Azure voor failback doeleinden, om te voorkomen dat gegevensoverdracht latenties. Bovendien in het geval u het Bronnetwerk met virtuele machines met de Azure-gerichte netwerk op de configuratieserver gescheiden, is het essentieel is voor het gebruik van de processerver voor failback gemaakt in Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Kan ik het IP-adres bij failover bewaren?
+Ja, kunt u het IP-adres bij failover behouden. Zorg ervoor dat u opgeeft de doel-IP-adres in 'berekening en netwerk-instellingen voor de virtuele machine voordat de failover. Bovendien machines afsluiten op het moment van failover IP-adres om conflicten te voorkomen tijdens de failback.
+
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan ik de doel-VM-grootte of het type van de virtuele machine voordat de failover wijzigen?
+Ja, u kunt het type of de grootte van de virtuele machine op elk gewenst moment voordat de failover van de instellingen berekening en netwerk van de gerepliceerde virtuele machine, in de portal wijzigen.
 
 ### <a name="how-far-back-can-i-recover"></a>Hoe ver terug kan ik gegevens herstellen?
 Voor VMware naar Azure is het oudste herstelpunt dat u kunt gebruiken dit 72 uur.
@@ -319,6 +268,7 @@ Voor VMware naar Azure is het oudste herstelpunt dat u kunt gebruiken dit 72 uur
 Na een failover, kunt u Azure-VM's openen via een beveiligde internetverbinding, via een site-naar-site-VPN of via Azure ExpressRoute. U moet een aantal dingen om verbinding te kunnen voorbereiden. [Meer informatie](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Failover wordt uitgevoerd gegevens tegen?
+
 Azure is ontworpen voor herstelbaarheid. Site Recovery is ontworpen voor failover naar een secundaire Azure-datacenter, in overeenstemming met de Azure SLA. Wanneer een failover optreedt, zorgen wij ervoor dat uw metagegevens en kluizen binnen dezelfde geografische regio die u hebt gekozen voor uw kluis blijven.
 
 ### <a name="is-failover-automatic"></a>Vindt failover automatisch plaats?

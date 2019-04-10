@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890923"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291676"
 ---
 De volgende tabel beschrijft de standaardlimieten voor Azure Storage. De *inkomend* limiet verwijst naar alle gegevens van aanvragen die worden verzonden naar een opslagaccount. De *uitgaande* limiet verwijst naar alle gegevens van antwoorden die worden ontvangen van een storage-account.
 
@@ -22,10 +22,15 @@ De volgende tabel beschrijft de standaardlimieten voor Azure Storage. De *inkome
 | Aantal storage-accounts per regio per abonnement, met inbegrip van zowel standard als premium-accounts | 250 |
 | Maximale opslagcapaciteit voor account | 2 PB voor de Verenigde Staten en Europa, 500 TB voor alle andere regio's, waaronder het Verenigd Koninkrijk |
 | Maximum aantal blob-containers, blobs, bestandsshares, tabellen, wachtrijen, entiteiten of berichten per opslagaccount | Geen limiet |
+| Maximale grootte van een opslagaccount FileStorage (preview) | 100.000 giB |
+| Maximale IOPS bij een FileStorage (preview) storage-account | 100.000 |
+| Maximale bandbreedte voor een opslagaccount FileStorage (preview) | 5 GB/s |
 | Maximale aantal aanvragen<sup>1</sup> per opslagaccount | 20.000 aanvragen per seconde |
 | Maximale ingangslimiet<sup>1</sup> per opslagaccount (VS-regio's) | 10 Gbps als RA-GRS/GRS is ingeschakeld, 20 Gbps voor LRS/ZRS<sup>2</sup> |
 | Maximale ingangslimiet<sup>1</sup> per opslagaccount (niet-Amerikaanse regio's) | 5 Gbps als RA-GRS/GRS is ingeschakeld, 10 Gbps voor LRS/ZRS<sup>2</sup> |
-| Maximum aantal uitgaande voor algemeen gebruik v2 en Blob storage-accounts (alle regio's) | 50 Gbps |
+| Maximale invoer per FileStorage (preview) storage-account (VS-regio's) | 20 Gbps (alleen LRS) |
+| Maximale invoer per FileStorage (preview) storage-account (niet-Amerikaanse regio's) | 10 Gbps (alleen LRS)|
+| Maximum aantal uitgaande voor algemeen gebruik v2, FileStorage (preview) en Blob storage-accounts (alle regio's) | 50 Gbps |
 | Maximum aantal uitgaande voor opslagaccounts voor algemeen gebruik v1 (VS-regio's) | 20 Gbps als RA-GRS/GRS is ingeschakeld, 30 Gbps voor LRS/ZRS<sup>2</sup> |
 | Maximum aantal uitgaande voor opslagaccounts voor algemeen gebruik v1 (niet-Amerikaanse regio's) | 10 Gbps als RA-GRS/GRS is ingeschakeld, 15 Gbps voor LRS/ZRS<sup>2</sup> |
 

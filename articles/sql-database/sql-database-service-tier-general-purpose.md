@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357919"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Algemeen gebruik-servicelaag - Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "55997359"
 
 Azure SQL Database is gebaseerd op voor de cloudomgeving is aangepast om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid van SQL Server database engine-architectuur. Er zijn drie soorten Servicelagen die in Azure SQL Database, elk met verschillende architectuurmodellen worden gebruikt. Deze service-lagen zijn:
 
-- Algemeen doel 
+- Algemeen doel
 - Bedrijfskritiek
 - Hyperscale
 

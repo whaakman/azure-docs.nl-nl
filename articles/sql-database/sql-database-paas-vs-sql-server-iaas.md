@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: SQL Server-cloud, SQL Server in de cloud, PaaS-database, SQL-cloudserver, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835415"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360815"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Kies de juiste SQL Server-optie in Azure
 
@@ -79,7 +79,7 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 |  | Teams die het onderliggende besturingssysteem en configuratie-instellingen niet willen beheren. | Hetzelfde als één en gegroepeerde databases van SQL-Database. | U hebt een aangepaste omgeving met volledige beheerdersrechten nodig. |
 |  | Databases van maximaal 100 TB. | Maximaal 8 TB. | SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. |
 | **Compatibiliteit** | Biedt ondersteuning voor de meeste on-premises op databaseniveau mogelijkheden. | Ondersteunt bijna alle on-premises mogelijkheden op exemplaarniveau en op databaseniveau. | Biedt ondersteuning voor alle on-premises mogelijkheden. |
-| **Bronnen:** | U wilt geen IT-resources voor configuratie en beheer van de onderliggende infrastructuur implementeren, maar u wilt zich richten op het niveau van de toepassing. | Hetzelfde als één en gegroepeerde databases van SQL-Database. | U hebt een aantal IT-resources voor configuratie en beheer. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. |
+| **Resources:** | U wilt geen IT-resources voor configuratie en beheer van de onderliggende infrastructuur implementeren, maar u wilt zich richten op het niveau van de toepassing. | Hetzelfde als één en gegroepeerde databases van SQL-Database. | U hebt een aantal IT-resources voor configuratie en beheer. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. |
 | **Totale eigendomskosten:** | Elimineert hardwarekosten en verlaagt administratieve kosten. | Hetzelfde als één en gegroepeerde databases van SQL-Database. | Elimineert hardwarekosten. |
 | **Bedrijfscontinuïteit:** |Naast [ingebouwde infrastructuurmogelijkheden voor fouttolerantie](sql-database-high-availability.md), Azure SQL Database biedt functies, zoals [geautomatiseerde back-ups](sql-database-automated-backups.md), [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-herstel](sql-database-recovery-using-backups.md#geo-restore), [actieve geo-replicatie](sql-database-active-geo-replication.md), en [automatische failovergroepen](sql-database-auto-failover-group.md) om bedrijfscontinuïteit te verhogen. Zie voor meer informatie [SQL Database business continuity overview](sql-database-business-continuity.md). | Hetzelfde als één en gegroepeerde databases van SQL-Database, plus de gebruiker geïnitieerde, kopie-alleen back-ups zijn beschikbaar. | Met SQL Server op Azure Virtual Machines kunt u een oplossing met hoge beschikbaarheid en herstel na een noodgeval instellen voor de specifieke behoeften van uw database. Daarmee creëert u een systeem dat is geoptimaliseerd voor uw toepassing. U kunt zelf tests en failovers uitvoeren wanneer dit nodig is. Zie voor meer informatie [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybride cloud:** |Uw on-premises toepassing heeft toegang tot gegevens in Azure SQL Database. | [Implementatie van systeemeigen virtuele netwerk](sql-database-managed-instance-vnet-configuration.md) en verbinding met uw on-premises-omgeving met behulp van Azure Express Route- of VPN-Gateway. | Met SQL Server op Azure Virtual Machines krijgt u de toepassingen die deels in de cloud draaien en deels on-premises. Zo kunt u uw on-premises netwerk en Active Directory-domein uitbreiden naar de cloud met [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Zie voor meer informatie over hybride cloudoplossingen [oplossingen voor on-premises gegevens naar de cloud uitbreiden](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |

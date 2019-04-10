@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807552"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291860"
 ---
 ## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
@@ -31,6 +31,10 @@ Beheerde schijven gebruiken, kunt u maximaal 50.000 VM maken **schijven** van ee
 
 Beheerde schijven zijn geïntegreerd met beschikbaarheidssets om ervoor te zorgen dat de schijven van [virtuele machines in een beschikbaarheidsset](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voldoende zijn geïsoleerd van elkaar om te voorkomen dat een single point of failure. Schijven worden automatisch in verschillende kasten (stempels) geplaatst. Als een stempel is mislukt vanwege fout bij de hardware of software, wordt alleen de VM-exemplaren met schijven op deze stempels mislukt. Bijvoorbeeld: Stel dat u hebt een toepassing die wordt uitgevoerd op vijf virtuele machines en de virtuele machines zich in een Beschikbaarheidsset. De schijven voor deze virtuele machines wordt niet allemaal worden opgeslagen in de dezelfde stempel, dus als één stamp is uitvalt, worden de andere exemplaren van de toepassing worden uitgevoerd.
 
+## <a name="integration-with-availability-zones"></a>Integratie met Beschikbaarheidszones
+
+Beheerde schijven ondersteunt [Beschikbaarheidszones](../articles/availability-zones/az-overview.md), dit is een hoge beschikbaarheid bieden die uw toepassingen tegen storingen in datacenters beschermt. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. Met beschikbaarheidszones biedt Azure de beste uptime SLA voor VM’s van de branche, van 99,99%.
+
 ### <a name="azure-backup-support"></a>Ondersteuning van Azure back-up
 
 Om te beveiligen tegen regionale rampen [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) kan worden gebruikt voor het maken van een back-uptaak met back-ups op basis van tijd en voor het bewaren van back-up. Hiermee kunt u eenvoudig VM herstelprocedures moment uitvoeren. Azure Backup ondersteunt momenteel schijfgrootten tot vier tebibyte (TiB)-schijven. Zie voor meer informatie, [back-up met behulp van Azure voor virtuele machines met beheerde schijven](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -41,11 +45,15 @@ U kunt [Azure op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-
 
 ## <a name="disk-roles"></a>Schijf-rollen
 
-### <a name="data-disks"></a>Gegevensschijven
+Er zijn drie belangrijkste schijf rollen in Azure: de gegevensschijf, schijf met het besturingssysteem en de tijdelijke schijf. Deze rollen worden toegewezen aan de schijven die zijn gekoppeld aan uw virtuele machine.
+
+![Schijf-rollen in actie](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>Gegevensschijf
 
 Een gegevensschijf is een beheerde schijf die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens, of andere gegevens die u wilt houden. Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest. Elke gegevensschijf heeft een maximale capaciteit van 32.767 gibibytes (GiB). De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan het en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.
 
-### <a name="os-disks"></a>OS-schijven
+### <a name="os-disk"></a>Besturingssysteemschijf
 
 Elke virtuele machine heeft een gekoppelde besturingssysteemschijf. De OS-schijf heeft een vooraf geïnstalleerde besturingssysteem, die is geselecteerd als de virtuele machine is gemaakt.
 
@@ -62,7 +70,7 @@ Een momentopname van een beheerde schijf is een alleen-lezen kopie van een behee
 Zie de volgende bronnen voor meer informatie over het maken van momentopnamen met beheerde schijven:
 
 * [Kopie maken van een VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Kopie van de VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Linux maken](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Installatiekopieën
 
@@ -71,7 +79,7 @@ Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aange
 Zie de volgende artikelen voor meer informatie over het maken van installatiekopieën:
 
 * [Hoe u een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Een virtuele Linux-machine generaliseren en vastleggen met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Installatiekopieën met momentopnamen
 

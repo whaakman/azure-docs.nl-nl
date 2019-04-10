@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578727"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278595"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Met behulp van de module Azure Maps Services
 
@@ -27,7 +27,7 @@ Azure Maps Web SDK biedt een services-module die is een helper-bibliotheek waarm
     a. Gebruik de wereldwijd gehoste CDN-versie van de module Azure Maps services door het toevoegen van een scriptverwijzing naar de <head> element van het bestand:
     
     ```html
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
     
     b. U kunt ook laden van de Web-SDK van Azure kaarten-broncode lokaal via de [azure-kaarten-rest](https://www.npmjs.com/package/azure-maps-rest) NPM verpakt en hosten van de App met uw app. Dit pakket bevat ook TypeScript-definities.
@@ -186,7 +186,7 @@ Zie de volgende artikelen voor meer voorbeelden van code die gebruikmaken van de
 > [Zoekresultaten weergeven op de kaart](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+> [Informatie ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
 > [Routebeschrijving van A naar B](./map-route.md)

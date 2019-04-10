@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855721"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280533"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met de Speech SDK voor C#
 
@@ -131,19 +131,21 @@ Maak vervolgens een mechanisme voor intentieherkenning met behulp van `new Inten
 
 Importeer het model nu uit de LUIS-app met `LanguageUnderstandingModel.FromAppId()` en voeg de intenties van LUIS toe die u wilt herkennen via de methode `AddIntent()` van het mechanisme. Deze twee stappen verbeteren de nauwkeurigheid van spraakherkenning door woorden aan te geven die de gebruiker waarschijnlijk zal gebruiken in aanvragen. Het is niet nodig om alle intenties van de app toe te voegen als u ze niet allemaal hoeft te herkennen in uw toepassing.
 
-Er zijn drie argumenten vereist voor het toevoegen van intenties: het LUIS-model (dat net is gemaakt en de naam `model` heeft), de naam van de intentie en een intentie-id. Het verschil tussen de id en de naam is als volgt.
+Intents toevoegen vereist drie argumenten: de LUIS-model (die is gemaakt en de naam `model`), de naam van de intentie en een intentie-ID. Het verschil tussen de id en de naam is als volgt.
 
-|Argument voor `AddIntent()`|Doel|
+|`AddIntent()` argument|Doel|
 |--------|-------|
 |intentName |De naam van de intentie zoals gedefinieerd in de LUIS-app. Moet exact overeenkomen met de naam van de LUIS-intentie.|
 |intentID    |Een id die door de Speech SDK wordt toegewezen aan een herkende intentie. Deze id kan elke gewenste waarde hebben en hoeft niet overeen te komen met de naam van de intentie zoals deze is gedefinieerd in de LUIS-app. Als in dezelfde code bijvoorbeeld meerdere intenties worden afgehandeld, kun u dezelfde id voor de intenties gebruiken.|
 
-De LUIS-app Home Automation heeft twee intenties: een voor het inschakelen van een apparaat en een het uitschakelen van een apparaat. Met de onderstaande regels worden deze intenties toegevoegd aan het mechanisme voor intentieherkenning. Vervang de drie regels `AddIntent` in de methode `RecognizeIntentAsync()` door deze code.
+De app start Automation LUIS heeft twee intents: één voor het inschakelen van een apparaat en een voor een apparaat uitschakelen. Met de onderstaande regels worden deze intenties toegevoegd aan het mechanisme voor intentieherkenning. Vervang de drie regels `AddIntent` in de methode `RecognizeIntentAsync()` door deze code.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+In plaats van afzonderlijke intents toevoegt, u kunt ook de `AddAllIntents` methode alle intents toevoegen in een model voor de herkenning.
 
 ## <a name="start-recognition"></a>Herkenning starten
 
@@ -186,4 +188,4 @@ De code voor dit artikel kunt u vinden in de map samples/csharp/sharedcontent/co
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Spraak herkennen](how-to-recognize-speech-csharp.md)
+> [Het herkennen van spraak](how-to-recognize-speech-csharp.md)

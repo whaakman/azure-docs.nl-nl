@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271829"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361111"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902-update
 
@@ -97,13 +97,14 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
   ```  
   
 - Ter verbetering van op de algehele betrouwbaarheid en beschikbaarheid van core infrastructuurservices tijdens het bijwerken, de systeemeigen Update-resourceprovider als onderdeel van de update-actieplan detecteert en aanroepen van de automatische algemene herstelbewerkingen zo nodig. Globale herstel 'herstellen' werkstromen zijn onder andere:
-    - Controleren op infrastructuur-VM's die zich in een niet-optimale status en proberen te herstellen van deze zo nodig 
-    - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen van deze zo nodig
-    - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en probeert deze zo nodig herstellen
-    - Controleer de status van de netwerkcontroller (NC)-service en probeert te herstellen indien nodig
-    - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en ze herstellen indien nodig
-    - Controleer de status van de XRP service fabric-knooppunten en ze herstellen indien nodig
-    - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en ze herstellen indien nodig
+
+  - Controleren op infrastructuur-VM's die zich in een niet-optimale status en proberen te herstellen van deze zo nodig.
+  - Controleren op problemen met de SQL-service als onderdeel van het besturingselement-plan en proberen te herstellen van deze zo nodig.
+  - Controleer de status van de Software Load Balancer (SLB)-service als onderdeel van de netwerkcontroller (NC) en proberen te herstellen van deze zo nodig.
+  - Controleer de status van de netwerkcontroller (NC)-service en probeert te herstellen indien nodig
+  - Controleer de status van de EMS Recovery Console Service (ERCS) service fabric-knooppunten en deze herstellen indien nodig.
+  - Controleer de status van de functie van de infrastructuur en naar behoefte herstellen.
+  - Controleer de status van de Azure consistente opslag (ACS) service fabric-knooppunten en deze herstellen indien nodig.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -258,8 +259,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>Syslog 
-- De syslog-configuratie is niet permanent via een cyclus van een update, wat resulteert in de syslog-client en de configuratie en de syslog-berichten te stoppen wordt doorgestuurd verloren gaan. Dit probleem is van toepassing op alle versies van Azure Stack sinds de algemene beschikbaarheid van de syslog-client (1809).
-De tijdelijke oplossing is om de syslog-client opnieuw na het toepassen van een Azure Stack-update te configureren.
+
+- De syslog-configuratie is niet permanent via een cyclus van een update, waardoor de syslog-client te verliezen van de configuratie en de syslog-berichten te stoppen wordt doorgestuurd. Dit probleem is van toepassing op alle versies van Azure Stack sinds de algemene beschikbaarheid van de syslog-client (1809). U kunt dit probleem omzeilen, configureren van de syslog-client na het toepassen van een Azure Stack-update.
 
 ## <a name="download-the-update"></a>De update downloaden
 

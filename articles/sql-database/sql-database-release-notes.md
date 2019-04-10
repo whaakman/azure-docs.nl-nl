@@ -8,18 +8,41 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/03/2019
 ms.author: carlrab
-ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861285"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360080"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
 In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Database en in de documentatie van SQL-Database. Zie voor verbetering van SQL Database-service ook [updates van de service SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates).
+
+## <a name="features-in-public-preview"></a>Functies in public preview
+
+| Functie | Details |
+| ---| --- |
+| Taken voor Elastic Database | Zie voor meer informatie, [maken, configureren en beheren van elastische taken](elastic-jobs-overview.md) |
+| Elastische transacties | [Over clouddatabases gedistribueerde transacties](sql-database-elastic-transactions-overview.md) |
+| Elastische query’s | Zie voor meer informatie, [elastische query's-overzicht](sql-database-elastic-query-overview.md) |
+| Replicatie met beheerde exemplaren |Zie voor meer informatie, [-replicatie in een Azure SQL Database beheerde Exemplaardatabase configureren](replication-with-sql-database-managed-instance.md)|
+| De sortering van het exemplaar met beheerde exemplaren |Zie voor meer informatie, [PowerShell gebruiken met Azure Resource Manager-sjabloon maken van een beheerd exemplaar in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| R services / machine learning met individuele databases en elastische pools |Zie voor meer informatie, [Machine Learning-Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
+| Versneld databaseherstel met individuele databases en elastische pools | Zie voor meer informatie, [versneld databaseherstel](sql-database-accelerated-database-recovery.md)|
+| Gegevensdetectie en -classificatie  |Zie voor meer informatie, [Azure SQL Database en SQL Data Warehouse gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md)|
+| Transparante gegevensversleuteling (TDE) met Bring Your Own Key (BYOK) met beheerde exemplaren |Zie voor meer informatie, [Azure SQL Transparent Data Encryption met de klant beheerde sleutels in Azure Key Vault: Bring Your Own Key-ondersteuning](transparent-data-encryption-byok-azure-sql.md)|
+| Opnieuw maken verwijderde databases met beheerde exemplaren |Zie voor meer informatie, [databases in Azure SQL Managed Instance opnieuw maken verwijderd](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
+| Detectie van bedreigingen met beheerde exemplaren |Zie voor meer informatie, [detectie van bedreigingen configureren in Azure SQL-Database beheerd exemplaar](sql-database-managed-instance-threat-detection.md)|
+| Zeer grootschalige service-lagen met individuele databases |Zie voor meer informatie, [grootschalige servicelaag voor maximaal 100 TB](sql-database-service-tier-hyperscale.md)|
+| Query-editor in Azure portal |Zie voor meer informatie, [van de Azure portal SQL query-editor gebruiken om te verbinden en gegevens op te vragen](sql-database-connect-query-portal.md)|
+|Geschatte aantal afzonderlijke|Zie voor meer informatie, [geschatte Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Batch-servicemodus op Rowstore (onder compatibiliteitsniveau 150)|Zie voor meer informatie, [batchmodus op Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|Feedback op Geheugentoekenning (rij-modus) (met compatibiliteitsniveau 150)|Zie voor meer informatie, [Feedback op Geheugentoekenning in (rij-modus)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|Tabel variabele uitgesteld compilatie (onder compatibiliteitsniveau 150)|Zie voor meer informatie, [tabel variabele uitgesteld compilatie](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|||
 
 ## <a name="march-2019"></a>Maart 2019
 
@@ -27,7 +50,7 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-| Binnenkort beschikbaar ||
+| Algemene beschikbaarheid: Ondersteuning voor uitschalen voor leesbewerkingen in Azure SQL Database | Zie voor meer informatie, [Read scale-out](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij

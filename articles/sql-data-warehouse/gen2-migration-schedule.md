@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275603"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361142"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 
@@ -34,7 +34,7 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 |:--- |:--- |:--- |
 | Australië - oost |Beschikbaar |1 juni 2019 |
 | Australië - zuidoost |15 april 2019 |1 mei 2019 |
-| Brazilië - zuid |15 mei 2019 |\* |
+| Brazilië - zuid |15 mei 2019 |1 juni 2019 |
 | Canada - midden |Beschikbaar |1 juni 2019 |
 | Canada - oost |\* |\* |
 | US - centraal |Beschikbaar |1 juni 2019 |
@@ -44,8 +44,8 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | China - noord 2 |\* |\* |
 | Azië - oost |Beschikbaar |1 juni 2019 |
 | US - oost |Beschikbaar |1 juni 2019 |
-| US - oost 2 |Beschikbaar |Op 1 juni. 2019 |
-| Frankrijk - centraal |\* |\* |
+| US - oost 2 |Beschikbaar |1 juni 2019 |
+| Frankrijk - centraal |\* |1 juni 2019 |
 | Duitsland - centraal |\* |\* |
 | Duitsland - west-centraal |1 september 2019|2 januari 2020 |
 | India - centraal |Beschikbaar |1 juni 2019 |

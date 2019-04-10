@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225005"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360760"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
 Voor het verwerken van een matrix in uw logische app, kunt u een ['Foreach'-lus](#foreach-loop). Deze lus een of meer acties voor elk item in de matrix. Zie voor beperkingen met betrekking tot het aantal matrixitems die 'Foreach' kunnen worden verwerkt, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
 
-Als u wilt herhalen acties totdat een voorwaarde wordt voldaan, of een status verandert, kunt u een ['Tot'-lus](#until-loop). Uw logische app de acties binnen de lus wordt uitgevoerd, en controleert vervolgens of de voorwaarde of status. Als de voorwaarde wordt voldaan, wordt de lus gestopt. Anders wordt de lus wordt herhaald. Zie voor beperkingen met betrekking tot het aantal 'Tot' Lussen in een logische app uitvoeren, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
+Als u wilt herhalen acties totdat een voorwaarde wordt voldaan, of een status verandert, kunt u een ['Tot'-lus](#until-loop). Uw logische app eerst alle acties die binnen de lus wordt uitgevoerd, en controleert vervolgens of de voorwaarde of status. Als de voorwaarde wordt voldaan, wordt de lus gestopt. Anders wordt de lus wordt herhaald. Zie voor beperkingen met betrekking tot het aantal 'Tot' Lussen in een logische app uitvoeren, [limieten en configuratie](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren, kunt u *debatch* matrix met de [ **SplitOn** activeren van de eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Als u met JSON-definitie van uw logische app werkt, kunt u de `Sequential` optie
 
 ## <a name="until-loop"></a>"Tot" lus
   
-Om te worden herhaald acties totdat een voorwaarde wordt voldaan, of een status wordt gewijzigd, plaatst u deze acties in een lus 'Tot'. Hier volgen enkele algemene scenario's waarin u een lus 'Tot kunt':
+Om te worden uitgevoerd en acties te herhalen totdat een voorwaarde wordt voldaan, of een status wordt gewijzigd, plaatst u deze acties in een lus 'Tot'. Uw logische app eerst alle acties binnen de lus wordt uitgevoerd, en controleert vervolgens of de voorwaarde of status. Als de voorwaarde wordt voldaan, wordt de lus gestopt. Anders wordt de lus wordt herhaald.
+
+Hier volgen enkele algemene scenario's waarin u een lus 'Tot kunt':
 
 * Een eindpunt aanroepen totdat u het gewenste antwoord.
 
@@ -193,9 +195,9 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
    | Eigenschap | Waarde | Beschrijving |
    | -------- | ----- | ----------- |
-   | **Naam** | Limiet | De naam van uw variabele | 
+   | **Name** | Limiet | De naam van uw variabele | 
    | **Type** | Geheel getal | Het gegevenstype van uw variabele | 
-   | **Waarde** | 0 | De variabele de beginwaarde | 
+   | **Value** | 0 | De variabele de beginwaarde | 
    |||| 
 
 1. Onder de **variabele initialiseren** actie, kiest u **nieuwe stap**. 
@@ -234,7 +236,7 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
       | Eigenschap | Waarde | Description |
       | -------- | ----- | ----------- | 
-      | **Aan** | *<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
+      | **Handeling** | *<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
       | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 
       | **Hoofdtekst** | <*email-content*> | Geef de inhoud van het e-bericht die u wilt verzenden. Voer de tekst die u in dit voorbeeld. | 
       |||| 
@@ -251,8 +253,8 @@ Een lus 'Tot' heeft standaardlimieten die niet meer kan worden uitgevoerd als ee
 
 | Eigenschap | Standaardwaarde | Description | 
 | -------- | ------------- | ----------- | 
-| **Aantal** | 60 | Het hoogste aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
-| **Timeout** | PT1H | De meeste hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, wordt de huidige cyclus niet stoppen. De volgende cyclus niet echter worden gestart omdat de voorwaarde van de limiet is niet voldaan. | 
+| **Count** | 60 | Het hoogste aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
+| **Time-out** | PT1H | De meeste hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, wordt de huidige cyclus niet stoppen. De volgende cyclus niet echter worden gestart omdat de voorwaarde van de limiet is niet voldaan. | 
 |||| 
 
 Als u wilt deze standaardlimieten wijzigen, kiest u **geavanceerde opties weergeven** in de vorm van de actie lus.

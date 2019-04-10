@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894590"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360651"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
-Het is raadzaam dat u vereisen dat gebruikers meerdere verificatiemethoden registreren als een beheerder verificatiemethoden kiezen voor Azure multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen (SSPR). Wanneer een verificatiemethode niet beschikbaar voor een gebruiker is, kunnen ze kiezen voor verificatie met een andere methode.
+Als beheerder, kiest verificatiemethoden voor meervoudige verificatie en selfservice voor wachtwoordherstel (SSPR) het wordt aanbevolen dat u vereisen dat gebruikers meerdere verificatiemethoden registreren. Wanneer een verificatiemethode niet beschikbaar voor een gebruiker is, kunnen ze kiezen voor verificatie met een andere methode.
 
 Beheerders kunnen definiëren in welke verificatiemethoden beschikbaar voor gebruikers van SSPR en MFA zijn-beleid. Sommige verificatiemethoden zijn mogelijk niet beschikbaar voor alle functies. Uw beleid Zie voor meer informatie over het configureren van de artikelen [implementeren van selfservice voor wachtwoordherstel](howto-sspr-deployment.md) en [plannen van een cloud-gebaseerde Azure multi-factor Authentication](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ De Microsoft Authenticator-app kunt u voorkomt ongeoorloofde toegang tot account
 
 Als u het gebruik van inschakelt zijn beide melding via mobiele app en verificatiecode via mobiele app, gebruikers die de Microsoft Authenticator-app met behulp van een melding te registreren kunnen zowel melding en code gebruiken om hun identiteit te verifiëren.
 
+> [!NOTE]
+> Als uw organisatie personeel heeft in werkt of onderweg naar China, de **melding via mobiele app** methode voor **Android-apparaten** werkt niet in dat land. Alternatieve methoden moeten beschikbaar zijn voor gebruikers worden gemaakt.
+
 ### <a name="verification-code-from-mobile-app"></a>Verificatiecode via mobiele app
 
 De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt als een Softwaretoken voor het genereren van een OATH-code voor verificatie. Na het invoeren van uw gebruikersnaam en wachtwoord, voert u de code die is geleverd door de app in het aanmeldingsscherm. De verificatiecode zorgt voor een tweede vorm van verificatie.
@@ -149,11 +152,11 @@ De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt 
 > Self-service voor wachtwoord opnieuw ingesteld wanneer alleen één methode vereist is voor het opnieuw instellen van de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
 
-Gebruikers hebben mogelijk een combinatie van maximaal 5 OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
+Gebruikers hebben mogelijk een combinatie van maximaal vijf OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH-hardware-tokens (openbare preview)
 
-OATH is een open standaard die aangeeft hoe eenmalig wachtwoord (OTP)-codes worden gegenereerd. Azure AD ondersteunt het gebruik van de mobiele TOTP-SHA-1-OATH-tokens van de verschillende 30 seconden of 60 seconden. Klanten kunnen deze tokens verkrijgen van de leverancier van hun keuze. Houd er rekening mee dat de geheime sleutels zijn beperkt tot 128 tekens die niet compatibel met alle tokens.
+OATH is een open standaard die aangeeft hoe eenmalig wachtwoord (OTP)-codes worden gegenereerd. Azure AD ondersteunt het gebruik van de mobiele TOTP-SHA-1-OATH-tokens van de verschillende 30 seconden of 60 seconden. Klanten kunnen deze tokens verkrijgen van de leverancier van hun keuze. Geheime sleutels zijn beperkt tot 128 tekens lang, wat mogelijk niet compatibel met alle tokens.
 
 ![OATH-tokens geüpload naar de blade MFA Server OATH-tokens](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ Afhankelijk van de grootte van het CSV-bestand duurt het enkele minuten om te ve
 
 Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleutel door te klikken op **activeren** voor het token wordt geactiveerd en de invoeren door de OTP op het token wordt weergegeven.
 
-Gebruikers hebben mogelijk een combinatie van maximaal 5 OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
+Gebruikers hebben mogelijk een combinatie van maximaal vijf OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
 ## <a name="mobile-phone"></a>Mobiele telefoon
 

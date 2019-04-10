@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847577"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359172"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maak een beheerde installatiekopie van een gegeneraliseerde VM in Azure
 
@@ -88,7 +88,7 @@ Als u wilt uw Windows-VM generaliseren, de volgende stappen uit:
 
 Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine zorgt ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, met inbegrip van de schijf met het besturingssysteem en eventuele gegevensschijven. In dit voorbeeld laat zien hoe een beheerde installatiekopie maken van een virtuele machine die maakt gebruik van schijven beheerde.
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de Azure PowerShell-module hebt. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable Az` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/azurerm/install-az-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzAccount` voor het maken van een verbinding met Azure.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de Azure PowerShell-module hebt. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable Az` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzAccount` voor het maken van een verbinding met Azure.
 
 
 > [!NOTE]

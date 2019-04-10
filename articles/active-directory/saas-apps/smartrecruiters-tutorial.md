@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6cf24dd5bd43670efbc41b89ca62ec061dc0dbc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177599"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Zelfstudie: Azure Active Directory-integratie met SmartRecruiters
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SmartRecruiters, moe
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -221,9 +221,9 @@ Wanneer u op de tegel SmartRecruiters in het toegangsvenster, moet u worden auto
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

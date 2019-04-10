@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088924"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360160"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site
 
@@ -101,7 +101,7 @@ Multipath (MPIO) | N/A
 
 ## <a name="vaults"></a>Kluizen
 
-**Actie** | **Ondersteund** 
+**Bewerking** | **Ondersteund** 
 --- | --- 
 Verplaatsen van kluizen andere resourcegroepen (binnen of tussen abonnementen) | Nee 
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen abonnementen) | Nee 

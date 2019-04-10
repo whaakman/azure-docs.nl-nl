@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772776"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359767"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Bepalen van het IP-adres van de management-eindpunt
 
@@ -32,7 +32,6 @@ We gaan ervan uit dat Managed Instance host `mi-demo.xxxxxx.database.windows.net
 Voer een andere `nslookup` voor het verwijderen van de naam van de gemarkeerde de `.vnet.` segment. U krijgt het openbare IP-adres wanneer u deze opdracht wordt uitgevoerd.
 
 ![Het omzetten van openbare IP-adres](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

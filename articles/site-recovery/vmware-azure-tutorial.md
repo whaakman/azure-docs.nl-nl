@@ -6,50 +6,44 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310588"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357872"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Herstel van on-premises VMware-VM’s naar Azure na een noodgeval instellen
 
-[Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
+In dit artikel wordt beschreven hoe u replicatie inschakelen voor on-premises VMware-VM voor herstel na noodgevallen naar Azure met de [Azure Site Recovery](site-recovery-overview.md) service.
 
+Dit is de derde zelfstudie in een serie die laat zien u hoe u herstel na noodgevallen naar Azure instelt voor on-premises VMware-VM's. In de vorige zelfstudie we [de on-premises VMware-omgeving voorbereid](vmware-azure-tutorial-prepare-on-premises.md) voor herstel na noodgevallen naar Azure.
 
-Deze zelfstudie leert u hoe u Site Recovery implementeren met basisinstellingen zonder aanpassingen. Raadpleeg de artikelen in How To voor complexere opties.
-
-    - Stel de [replicatiebron](vmware-azure-set-up-source.md) en de [configuratieserver](vmware-azure-deploy-configuration-server.md) in.
-    - Stel het [replicatiedoel](vmware-azure-set-up-target.md) in.
-    - Configureer een [replicatiebeleid](vmware-azure-set-up-replication.md) en schakel [replicatie in](vmware-azure-enable-replication.md).
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * De replicatiebron en het replicatiedoel invoeren.
-> * De replicatiebronomgeving, waaronder on-premises Site Recovery-onderdelen, en de replicatiedoelomgeving instellen.
+> * De bronreplicatie-instellingen en een on-premises Site Recovery-configuratieserver instellen.
+> * Instellen van de replicatie-instellingen voor doel.
 > * Een replicatiebeleid maken.
-> * Replicatie voor een VM inschakelen.
+> * Schakel replicatie voor een VMware-VM.
+
+> [!NOTE]
+> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Lees het artikel in de sectie How To van de Site Recovery inhoudsopgave voor gedetailleerde instructies.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u begint, is het handig om:
+Voltooi de vorige zelfstudies:
+1. Zorg ervoor dat u hebt [Azure instellen](tutorial-prepare-azure.md) voor noodherstel van on-premises VMware naar Azure.
+2. Ga als volgt [stappen](vmware-azure-tutorial-prepare-on-premises.md) naar uw on-premises VMware-implementatie voorbereiden voor herstel na noodgevallen naar Azure.
+3. In deze zelfstudie laten we zien u hoe u een enkele virtuele machine repliceert. Als u meerdere VMware-VM's implementeert moet u de [Tool voor implementatieplanning](https://aka.ms/asr-deployment-planner). [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma.
+4. In deze zelfstudie wordt een aantal opties die u wilt mogelijk anders doen:
+    - De zelfstudie maakt gebruik van een OVA-sjabloon te maken van de configuratieserver VMware-VM. Als dit niet mogelijk om een bepaalde reden, voert u de [deze instructies](physical-manage-configuration-server.md) handmatig instellen van de configuratieserver.
+    - In deze zelfstudie Site Recovery automatisch gedownload en geïnstalleerd MySQL met de configuratieserver. Als u liever, kunt u dit handmatig instellen in plaats daarvan. [Meer informatie](vmware-azure-deploy-configuration-server.md#configure-settings).
 
-- [De architectuur te bekijken](vmware-azure-architecture.md) voor dit noodherstelscenario.
-- Als u precies wilt weten hoe u herstel na noodgevallen voor virtuele VMware-machines kunt instellen, kunt u de volgende bronnen raadplegen:
-    - [Veelgestelde vragen](vmware-azure-common-questions.md)te lezen over herstel na noodgevallen voor VMware.
-    - [Uit te vinden](vmware-physical-azure-support-matrix.md) wat er door VMWare wordt ondersteund en wat er is vereist.
-- In deze zelfstudie laten we zien u hoe u een enkele virtuele machine repliceert. Als u meerdere virtuele machines implementeert moet u de [Tool voor implementatieplanning](https://aka.ms/asr-deployment-planner) om u te helpen bij uw implementatie plannen. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma.
-
-En bekijk deze tips:
-- Deze zelfstudie gebruikt een OVA-sjabloon om de VM van de VMware-configuratieserver te maken. Als dit niet mogelijk, voert u de [deze instructies](physical-manage-configuration-server.md) handmatig instellen van de configuratieserver.
-- In deze zelfstudie wordt MySQL met behulp van Site Recovery op de configuratieserver gedownload en geïnstalleerd. Als u liever, kunt u dit handmatig instellen in plaats daarvan. [Meer informatie](vmware-azure-deploy-configuration-server.md#configure-settings).
-  >U kunt de nieuwste versie van de configuratieserversjabloon rechtstreeks downloaden vanuit het [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-  De licentie die is opgegeven met behulp van OVF-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Windows die wordt uitgevoerd op de virtuele machine moet worden geactiveerd met de vereiste licentie. 
 
 
 
@@ -65,15 +59,18 @@ En bekijk deze tips:
 
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-In uw bronomgeving moet u één maximaal beschikbare, on-premises computer naar host on-premises Site Recovery-onderdelen. Onderdelen zijn de configuratieserver, de processerver en de hoofddoelserver:
+In uw bronomgeving moet u een enkele, maximaal beschikbare on-premises computer voor het hosten van deze on-premises Site Recovery-onderdelen:
 
-- De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
-- De processerver fungeert als replicatiegateway. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt deze naar de cacheopslag in Azure-account. De processerver installeert ook Mobility Service op VM's die u wilt repliceren, en detecteert automatisch on-premises VMware-VM's.
-- Op de hoofddoelserver worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.
-
-Om de configuratieserver in te stellen als een maximaal beschikbare VMware-VM, downloadt u een voorbereide OVA-sjabloon (Open Virtualization Application) en importeert u de sjabloon in VMware om de VM te maken. Nadat u de configuratieserver heb ingesteld, registreert u deze in de kluis. Na de registratie detecteert de Site Recovery on-premises VMware-VM’s.
+- **Configuratieserver**: De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
+- **Processerver**: De processerver fungeert als replicatiegateway. Deze ontvangt replicatiegegevens; optimaliseert met caching, compressie en codering, en verzendt ze naar een cache-opslagaccount in Azure. De processerver installeert ook de Mobility-Service-agent op virtuele machines die u repliceren wilt, en detecteert automatisch on-premises virtuele VMware-machines.
+- **Hoofddoelserver**: Op de hoofddoelserver worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.
 
 
+Al deze onderdelen samen zijn geïnstalleerd op de één on-premises virtuele machines die bekend staat als de *configuratieserver*. Voor herstel na noodgevallen VMware, wordt standaard ingesteld we van de configuratieserver als een maximaal beschikbare VMware-VM. Om dit te doen, kunt u een voorbereide Open Virtualization-toepassing (OVA)-sjabloon downloaden en importeren van de sjabloon in VMware om de VM te maken. 
+
+- De meest recente versie van de configuratieserver is beschikbaar in de portal. U kunt ook downloaden deze rechtstreeks vanuit de [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Als u niet voor een of andere reden een OVA-sjabloon gebruiken voor het instellen van een virtuele machine, voert u de [deze instructies](physical-manage-configuration-server.md) handmatig instellen van de configuratieserver.
+- De licentie die is opgegeven met behulp van OVF-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Windows die wordt uitgevoerd op de virtuele machine moet worden geactiveerd met de vereiste licentie. 
 
 
 ### <a name="download-the-vm-template"></a>De VM-sjabloon downloaden
@@ -105,7 +102,7 @@ Om de configuratieserver in te stellen als een maximaal beschikbare VMware-VM, d
 
 ## <a name="add-an-additional-adapter"></a>Een extra adapter toevoegen
 
-Als u een extra NIC aan de configuratieserver wilt toevoegen, moet u dit doen voordat u de server in de kluis registreert. Het toevoegen van extra adapters wordt niet ondersteund na registratie.
+Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toevoegen voordat u de server in de kluis registreert. Het toevoegen van extra adapters wordt niet ondersteund na registratie.
 
 1. Klik in de vSphere Client-inventaris met de rechtermuisknop op de VM en selecteer **Instellingen bewerken**.
 2. Selecteer **Toevoegen** > **Ethernet-adapter** bij **Hardware**. Selecteer vervolgens **Volgende**.
@@ -114,6 +111,8 @@ Als u een extra NIC aan de configuratieserver wilt toevoegen, moet u dit doen vo
 
 
 ## <a name="register-the-configuration-server"></a>De configuratieserver registreren 
+
+Nadat de configuratieserver is ingesteld, registreert u deze in de kluis.
 
 1. Schakel de VM in vanuit de VMWare vSphere Client-console.
 2. De VM wordt opgestart in een Windows Server 2016-installatie-ervaring. Accepteer de gebruiksrechtovereenkomst en voer een Administrator-wachtwoord in.
@@ -124,7 +123,11 @@ Als u een extra NIC aan de configuratieserver wilt toevoegen, moet u dit doen vo
 7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op.
 8. Meld u opnieuw aan bij de machine. Na enkele seconden wordt de wizard voor het beheer van de configuratieserver automatisch gestart.
 
+
 ### <a name="configure-settings-and-add-the-vmware-server"></a>Instellingen configureren en de VMware-server toevoegen
+
+Einddatum instellen en de configuratieserver te registreren. 
+
 
 1. Selecteer in de configuratie van wizard voor het beheer, **connectiviteit instellen**. In de vervolgkeuzelijsten, selecteert u eerst de NIC die gebruikmaakt van de ingebouwde processerver voor detectie en push-installatie van de mobility-service op bronmachines en selecteer vervolgens de NIC die gebruikmaakt van de configuratieserver voor connectiviteit met Azure. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze geconfigureerd.
 2. Selecteer in **Selecteer Recovery Services-kluis** uw Azure-abonnement en de relevante resourcegroep en kluis.
@@ -140,7 +143,7 @@ Als u een extra NIC aan de configuratieserver wilt toevoegen, moet u dit doen vo
 10. Controleer nadat de registratie is voltooid in Azure Portal of de configuratieserver en de VMware-server worden weergegeven op de pagina **Bron** in de kluis. Selecteer vervolgens **OK** om de doelinstellingen te configureren.
 
 
-Site Recovery maakt verbinding met de VMware-servers met behulp van de opgegeven instellingen en de VM's worden gedetecteerd.
+Nadat de configuratieserver is geregistreerd, Site Recovery maakt verbinding met de VMware-servers met behulp van de opgegeven instellingen en VM's worden gedetecteerd.
 
 > [!NOTE]
 > Het duurt 15 minuten of langer voordat de accountnaam wordt weergegeven in de portal. Selecteer **Configuratieservers** > ***servernaam*** > **Server vernieuwen** om direct bij te werken.
@@ -171,7 +174,7 @@ Selecteer en controleer doelbronnen.
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-U kunt replicatie als volgt inschakelen:
+Replicatie voor virtuele machines als volgt inschakelen:
 
 1. Selecteer **Toepassing repliceren** > **Bron**.
 1. Bij **Bron** selecteert u **On-premises** en selecteert u de configuratieserver bij **Bronlocatie**.
@@ -181,7 +184,7 @@ U kunt replicatie als volgt inschakelen:
 1. Selecteer in **Doel** het abonnement en de resourcegroep waarin u de failover-VM's wilt maken. Het implementatiemodel van Resource Manager wordt gebruikt. 
 1. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden gemaakt.
 1. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle virtuele machines waarop u replicatie inschakelt. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren.
-1. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Selecteer vervolgens **OK**. Als u een bepaalde virtuele machine niet kunt weergeven of selecteren, klikt u [hier](https://aka.ms/doc-plugin-VM-not-showing) om het probleem te verhelpen.
+1. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Selecteer vervolgens **OK**. Als u niet kunt weergeven of een bepaalde virtuele machine te selecteren [meer](https://aka.ms/doc-plugin-VM-not-showing) over het oplossen van het probleem.
 1. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het account dat door de processerver moet worden gebruikt om automatisch Mobility Service op de computer te installeren.
 1. Controleer of het juiste replicatiebeleid is geselecteerd in **Replicatie-instellingen** > **Replicatie-instellingen configureren**.
 1. Selecteer **Replicatie inschakelen**. Site Recovery installeert de Mobility-service wanneer replicatie wordt ingeschakeld voor een VM.
@@ -190,6 +193,6 @@ U kunt replicatie als volgt inschakelen:
 1. Voor het bewaken van virtuele machines die u toevoegt, controleert u de laatste detectietijd voor VM's in **Configuratieservers** > **Laatst contact om**. Als u VM's wilt toevoegen zonder te wachten op de geplande detectie, markeert u de configuratieserver (zonder deze te selecteren), en selecteert u **Vernieuwen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-
+Voer na het inschakelen van replicatie, een detailanalyse om te controleren of dat alles werkt zoals verwacht.
 > [!div class="nextstepaction"]
-> Na het inschakelen van replicatie, [een Dr-herstelanalyse uitvoeren](site-recovery-test-failover-to-azure.md) om ervoor te zorgen dat alles werkt zoals verwacht.
+> [Noodherstelanalyse uitvoeren](site-recovery-test-failover-to-azure.md)

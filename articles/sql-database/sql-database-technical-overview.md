@@ -8,19 +8,19 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273138"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358328"
 ---
-# <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service?
+# <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service
 
 SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt dynamisch schaalbare prestaties in twee verschillende aankopen modellen: een op vCore gebaseerde aankoopmodel en een op DTU gebaseerde aankoopmodel. SQL Database biedt ook opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
 
@@ -102,12 +102,12 @@ U maakt gebruik van de [ingebouwde hulpprogramma's voor prestatiebewaking](sql-d
 ## <a name="availability-capabilities"></a>Beschikbaarheid
 
 In een traditionele SQL Server-omgeving, zijn er in het algemeen (minimaal) 2 machines lokaal ingesteld exacte (synchroon gehouden) kopieën van de gegevens (met functies zoals AlwaysOn-beschikbaarheidsgroepen of Failover Cluster Instances) om te beveiligen tegen een Fout van een enkele machine/component.  Dit zorgt voor hoge beschikbaarheid, maar biedt geen bescherming tegen een natuurramp vernietigen van uw datacenter.
- 
+
 Herstel na noodgevallen wordt ervan uitgegaan dat een catastrofale gebeurtenis geografisch worden gelokaliseerd voldoende om het te ver hebben van een andere computer/set van computers met een kopie van uw gegevens.  U kunt in SQL Server Always On Availability Groups in asynchrone modus gebruiken om op te halen van deze mogelijkheid.  De snelheid van lichte problemen betekent meestal dat mensen niet wilt wachten op replicatie om te voorkomen dat ver weg voordat het doorvoeren van een transactie, zodat er kans op gegevensverlies als u niet-geplande failovers uitvoeren.
 
 Databases in de premium- en business kritieke service al lagen [iets vergelijkbaar doen](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tot de synchronisatie van een beschikbaarheidsgroep. Redundantie voor databases in een lagere service-lagen via opslag met behulp van een [verschillend maar vergelijkbaar mechanisme](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Er is een logica die tegen fouten in een enkele computer beschermt.  De functie van actieve geo-replicatie biedt u de mogelijkheid om te beveiligen tegen rampen waar een hele regio wordt vernietigd.
 
-Azure Availability Zones is een afspelen op het probleem met hoge beschikbaarheid.  Probeert te beveiligen tegen de uitval van één datacentrum bouwen binnen één regio.  Ja, het bedrijf wil beveiligen tegen het verlies van kracht of het netwerk naar een gebouw. In SQL Azure, dit werkt door de verschillende replica's in verschillende beschikbaarheidszones (verschillende gebouwen, effectief) en anders werken als voorheen. 
+Azure Availability Zones is een afspelen op het probleem met hoge beschikbaarheid.  Probeert te beveiligen tegen de uitval van één datacentrum bouwen binnen één regio.  Ja, het bedrijf wil beveiligen tegen het verlies van kracht of het netwerk naar een gebouw. In SQL Azure, dit werkt door de verschillende replica's in verschillende beschikbaarheidszones (verschillende gebouwen, effectief) en anders werken als voorheen.
 
 In feite van Azure voor de bedrijfstak toonaangevende 99,99% beschikbaarheid serviceovereenkomst [(SLA)](https://azure.microsoft.com/support/legal/sla/), dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, helpt bij het beveiligen van uw app 24/7 wordt uitgevoerd. Het Azure-platform volledig elke database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
 
@@ -156,7 +156,7 @@ Er is ook een reeks functies voor de [verwerking van adaptieve query’s](/sql/r
 SQL Database biedt een reeks [ingebouwde functies voor beveiliging en naleving](sql-database-security-overview.md) zodat uw toepassing voldoet aan diverse vereisten op het gebied van beveiliging en de naleving van voorschriften.
 
 > [!IMPORTANT]
-> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
+> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -186,7 +186,7 @@ Dankzij [Azure Active Directory-integratie](sql-database-aad-authentication.md) 
 
 ### <a name="compliance-certification"></a>Nalevingscertificering
 
-SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
+SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
 
 ## <a name="easy-to-use-tools"></a>Gebruiksvriendelijke hulpprogramma’s
 
@@ -240,7 +240,6 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 |SQL Server Enterprise Edition core customers with SA|<li>Kan Base-tarief voor algemeen gebruik of bedrijfskritieke SKU betalen</li><br><li>1 core on-premises = 4 kernen in SKU voor algemeen gebruik</li><br><li>1 core on-premises = 1 kern in bedrijfskritieke SKU</li>|
 |SQL Server Standard Edition core klanten met Software Assurance|<li>Kan Base tarief voor betalen op SKU voor algemeen gebruik alleen</li><br><li>1 core on-premises = 1 kern in SKU voor algemeen gebruik</li>|
 |||
-
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contact met het technische team van SQL Server
 

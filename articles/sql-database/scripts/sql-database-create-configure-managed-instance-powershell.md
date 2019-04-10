@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449866"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357002"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>PowerShell gebruiken om u te maken van een Azure SQL-Database beheerd exemplaar
 
-Met dit PowerShell-voorbeeldscript maakt een beheerd exemplaar voor Azure SQL Database in een toegewezen subnet in een nieuw virtueel netwerk. Het is ook configureert u een routetabel en een netwerkbeveiligingsgroep voor het virtuele netwerk. Nadat het script is uitgevoerd, kan het beheerde exemplaar van worden geopend binnen het virtuele netwerk of vanuit een on-premises omgeving. Zie voor snelstartgidsen waarin u wordt getoond hoe om dit te doen, [configureren van virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) en [configureren van een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises](../sql-database-managed-instance-configure-p2s.md).
+Met dit PowerShell-voorbeeldscript maakt een beheerd exemplaar voor Azure SQL Database in een toegewezen subnet in een nieuw virtueel netwerk. Het is ook configureert u een routetabel en een netwerkbeveiligingsgroep voor het virtuele netwerk. Nadat het script is uitgevoerd, kan het beheerde exemplaar van worden geopend binnen het virtuele netwerk of vanuit een on-premises omgeving. Zie [configureren van virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) en [configureren van een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > Zie voor beperkingen, [ondersteunde regio's](../sql-database-managed-instance-resource-limits.md#supported-regions) en [abonnementstypen ondersteund](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -36,7 +36,7 @@ Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
+Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Hiermee maakt u een virtueel netwerk |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Hiermee voegt u een subnetconfiguratie toe aan een virtueel netwerk |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Hiermee haalt u een virtueel netwerk in een resourcegroep |

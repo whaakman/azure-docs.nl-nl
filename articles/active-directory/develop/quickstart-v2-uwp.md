@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793166"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360119"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Quickstart: De Microsoft Graph-API aanroepen vanuit de Universeel Windows-platformtoepasing (UWP)
 
@@ -64,14 +64,14 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
 > Voor een juiste werking van het codevoorbeeld uit deze quickstart moet u een omleidings-URI toevoegen zoals **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging voor mij maken]()
+> > [Deze wijziging hebt aangebracht voor mij]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-uwp/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
+> > ![Al geconfigureerd](media/quickstart-v2-uwp/green-check.png) uw toepassing is geconfigureerd met deze kenmerken.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Stap 2: uw Visual Studio-project downloaden
 
- - [Download het Visual Studio 2017-project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Het project voor Visual Studio 2017 downloaden](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
@@ -86,11 +86,11 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 
 > [!div renderon="docs"]
 > Waar:
-> - `Enter_the_Application_Id_here`: de toepassings-id voor de toepassing die u hebt geregistreerd.
-> - `Enter_the_Tenant_Info_Here`: is een van de onderstaande opties:
->   - Als uw toepassing **Alleen mijn organisatie** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.onmicrosoft.com)
->   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
->   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
+> - `Enter_the_Application_Id_here` -is de toepassings-Id voor de toepassing die u hebt geregistreerd.
+> - `Enter_the_Tenant_Info_Here` -is een van de onderstaande opties:
+>   - Als uw toepassing ondersteunt **mijn organisatie alleen**, vervang deze waarde met de **Tenant-Id** of **tenantnaam** (bijvoorbeeld contoso.onmicrosoft.com)
+>   - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
+>   - Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met `common`
 >
 > > [!TIP]
 > > Als u de waarden van *Toepassings-id*, *Map-id (tenant)* en *Ondersteunde accounttypen* wilt weten, gaat u naar de **Overzichtspagina**
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Volg de zelfstudie voor Windows-bureaublad voor een volledige stapsgewijze handleiding voor het bouwen van toepassingen en nieuwe functies, waaronder een volledige uitleg van deze quickstart.
 
 > [!div class="nextstepaction"]
-> [UWP - Zelfstudie voor het aanroepen van Graph API](tutorial-v2-windows-uwp.md)
+> [UWP - aanroep Graph API-zelfstudie](tutorial-v2-windows-uwp.md)

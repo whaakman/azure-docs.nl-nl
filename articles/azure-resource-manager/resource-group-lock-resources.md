@@ -4,22 +4,20 @@ description: Voorkomen dat gebruikers bijwerken of verwijderen van essentiële A
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649166"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360439"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources vergrendelen om onverwachte wijzigingen te voorkomen 
 
@@ -36,12 +34,32 @@ Wanneer u een vergrendeling op een overkoepelend bereik toepast, nemen alle reso
 
 In tegenstelling tot de op rollen gebaseerd toegangsbeheer gebruikt u beheervergrendelingen voor het toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen, [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-vergrendelingen gelden alleen voor bewerkingen die in de beheerlaag, die uit bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen van resources zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een alleen-lezenvergrendeling op een SQL-Database wordt voorkomen dat u verwijderen of aanpassen van de database, maar deze niet te voorkomen dat u het maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties zijn toegestaan, omdat deze bewerkingen worden niet naar verzonden `https://management.azure.com`.
+Resource Manager-vergrendelingen gelden alleen voor bewerkingen die in de beheerlaag, die uit bewerkingen die worden verzonden optreden bestaat naar `https://management.azure.com`. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen van resources zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een alleen-lezenvergrendeling op een SQL-Database wordt voorkomen dat u verwijderen of aanpassen van de database. Het wordt niet voorkomen dat u uit het maken, bijwerken of verwijderen van gegevens in de database. Gegevenstransacties zijn toegestaan, omdat deze bewerkingen worden niet naar verzonden `https://management.azure.com`.
 
 Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten omdat bepaalde bewerkingen die kunnen worden gelezen bewerkingen daadwerkelijk extra acties vereist. Bijvoorbeeld, als u plaatst een **ReadOnly** vergrendeling op een storage-account wordt voorkomen dat alle gebruikers van de aanbieding van de sleutels. De lijst met sleutels bewerking via een POST-aanvraag wordt verwerkt, omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen. Voor een ander voorbeeld: als u plaatst een **alleen-lezen** vergrendeling op een App Service-resource voorkomt dat Visual Studio Server Explorer weergeven van bestanden voor de resource omdat die interactie schrijftoegang is vereist.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Wie kunt maken of verwijderen van vergrendelingen in uw organisatie
+## <a name="who-can-create-or-delete-locks"></a>Wie kunt maken of verwijderen van vergrendelingen
 Als u wilt maken of verwijderen van beheervergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/*` of `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
+
+## <a name="managed-applications-and-locks"></a>Beheerde toepassingen en wordt vergrendeld
+
+Aantal Azure-Services, zoals Azure Databricks, [beheerde toepassingen](../managed-applications/overview.md) voor het implementeren van de service. In dat geval wordt maakt de service twee resourcegroepen. Een resourcegroep bevat een overzicht van de service en niet is vergrendeld. De resourcegroep bevat van de infrastructuur voor de service en is vergrendeld.
+
+Als u probeert te verwijderen van de resourcegroep voor infrastructuur, krijgt u een foutmelding waarin staat dat de resourcegroep is vergrendeld. Als u probeert te verwijderen van de vergrendeling voor de resourcegroep voor infrastructuur, krijgt u een foutmelding waarin staat dat de vergrendeling kan niet worden verwijderd omdat deze eigendom van een systeemtoepassing.
+
+In plaats daarvan de service, die ook Hiermee verwijdert u de resourcegroep voor infrastructuur verwijderen.
+
+Voor beheerde toepassingen, selecteert u de service die u hebt geïmplementeerd.
+
+![Service selecteren](./media/resource-group-lock-resources/select-service.png)
+
+U ziet dat de service bevat een koppeling voor een **beheerde resourcegroep**. Deze resourcegroep bevat de infrastructuur en is vergrendeld. Het kan niet rechtstreeks verwijderd.
+
+![Beheerde groep weergeven](./media/resource-group-lock-resources/show-managed-group.png)
+
+Selecteer wilt verwijderen van alles voor de service, met inbegrip van de resourcegroep vergrendelde infrastructuur **verwijderen** voor de service.
+
+![Service verwijderen](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]

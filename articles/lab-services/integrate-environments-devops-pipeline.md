@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887203"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357406"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Omgevingen integreren in uw Azure DevOps-CI/CD-pijplijnen
 U kunt de extensie Azure DevTest Labs-taken die is geïnstalleerd in Azure DevOps-Services (voorheen bekend als Visual Studio Team Services) om eenvoudig te integreren uw continue integratie (CI) / continue levering (CD) build-en-release-pijplijn met Azure DevTest Labs. Deze extensies maken het gemakkelijker om snel te implementeren een [omgeving](devtest-lab-test-env.md) voor een specifieke taak testen en vervolgens te verwijderen wanneer de test is voltooid. 
@@ -56,7 +56,7 @@ De volgende fase van de implementatie is het maken van de omgeving moet worden g
 
 1. Selecteer in de release-definitie **toevoegen taken**.
 2. Op de **taken** tabblad, voegt u een taak maken-omgeving van Azure DevTest Labs. De taak als volgt configureren:
-    1. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](/devops/pipelines/library/service-endpoints).
+    1. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](/azure/devops/pipelines/library/service-endpoints).
 2. Voor **Labnaam**, selecteert u de naam van het exemplaar dat u eerder hebt gemaakt, *.
 3. Voor **naam van de opslagplaats**, selecteert u de opslagplaats waar naar het Resource Manager-sjabloon (201) is gepusht *.
 4. Voor **sjabloonnaam**, selecteert u de naam van de omgeving die u in uw bron code opslagplaats * hebt opgeslagen. 
@@ -71,7 +71,7 @@ De laatste fase is om de omgeving die u hebt geïmplementeerd in uw Azure DevTes
 Selecteer in de release-definitie **toevoegen taken**, en klik vervolgens op de **implementeren** tabblad, voegt u een **Azure DevTest Labs-verwijderen omgeving** taak. Configureer deze als volgt:
 
 1. Als u wilt verwijderen van de virtuele machine, Zie [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](/devops/pipelines/library/service-endpoints).
+    1. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](/azure/devops/pipelines/library/service-endpoints).
     2. Voor **Labnaam**, selecteert u de testomgeving waarbij de omgeving bestaat.
     3. Voor **Omgevingsnaam**, voer de naam van de omgeving moet worden verwijderd.
 2. Voer een naam voor de release-definitie en vervolgens op te slaan.
@@ -80,5 +80,5 @@ Selecteer in de release-definitie **toevoegen taken**, en klik vervolgens op de 
 Zie de volgende artikelen: 
 - [Multi-VM-omgevingen maken met Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md).
 - Snelstartgids voor Resource Manager-sjablonen voor het automatiseren van DevTest Labs van de [DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates).
-- [Pagina voor het oplossen van VSTS](/devops/pipelines/troubleshooting)
+- [Pagina voor het oplossen van VSTS](/azure/devops/pipelines/troubleshooting)
 

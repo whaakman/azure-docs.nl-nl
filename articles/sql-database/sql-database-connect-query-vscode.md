@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 20d6ccca448d53da54835aad1d6dd85702c7390f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446940"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357107"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: Visual Studio Code gebruiken om verbinding te maken met en query's uit te voeren voor een Azure SQL-database
 
@@ -33,9 +33,9 @@ ms.locfileid: "58446940"
   | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
-  |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Verbinding van een virtuele machine](sql-database-managed-instance-configure-vm.md)|
+  |||[De connectiviteit van ter plekke](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen volgens de quickstart|[Herstellen van Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -46,11 +46,11 @@ ms.locfileid: "58446940"
 
 Zorg ervoor dat u de nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/Download) hebt geïnstalleerd en de [mssql-extensie](https://aka.ms/mssql-marketplace) hebt geladen. Zie [VS-code installeren](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) en [mssql voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) voor hulp bij het installeren van de mssql-extensie.
 
-## <a name="configure-visual-studio-code"></a>Visual Studio Code configureren 
+## <a name="configure-visual-studio-code"></a>Visual Studio Code configureren
 
-### <a name="mac-os"></a>**Mac OS**
+### **<a name="mac-os"></a>Mac OS**
 
-Voor macOS moet u OpenSSL, dit is een vereiste voor .NET Core die gebruikmaakt van de mssql-extensie installeren. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
+Voor macOS moet u OpenSSL, dit is een vereiste voor .NET Core die gebruikmaakt van de mssql-extensie installeren. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
 
 Er is geen speciale configuratie vereist.
 
-### <a name="windows"></a>**Windows**
+### **<a name="windows"></a>Windows**
 
 Er is geen speciale configuratie vereist.
 
@@ -83,13 +83,13 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 
 Stel de taalmodus in Visual Studio Code in op **SQL** om mssql-opdrachten en T-SQL IntelliSense in te schakelen.
 
-1. Open een nieuw Visual Studio Code venster. 
+1. Open een nieuw Visual Studio Code venster.
 
-2. Druk op **Ctrl**+**N**. Hiermee wordt een nieuw bestand met tekst zonder opmaak geopend. 
+2. Druk op **Ctrl**+**N**. Hiermee wordt een nieuw bestand met tekst zonder opmaak geopend.
 
 3. Selecteer **Tekst zonder opmaak** in de rechterbenedenhoek van de statusbalk.
 
-4. Selecteer in de vervolgkeuzelijst **Taalmodus selecteren** die wordt geopend de optie **SQL**. 
+4. Selecteer in de vervolgkeuzelijst **Taalmodus selecteren** die wordt geopend de optie **SQL**.
 
 ## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 
@@ -97,7 +97,6 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 > [!IMPORTANT]
 > Zorg ervoor dat u de server- en aanmeldingsgegevens bij de hand hebt, voordat u verdergaat. Wanneer u de verbindingsprofielgegevens gaat invoeren, moet u ervoor zorgen dat de focus op Visual Studio Code blijft, omdat u anders opnieuw moet beginnen met het maken van het verbindingsprofiel.
->
 
 1. Druk in Visual Studio Code op **Ctrl+Shift+P** (of **F1**) om het opdrachtenpalet te openen.
 
@@ -105,17 +104,17 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 3. Selecteer **Verbindingsprofiel maken**.
 
-4. Volg de aanwijzingen op om de verbindingseigenschappen voor het nieuwe profiel op te geven. Wanneer u een waarde hebt opgegeven, kiest u **Enter** om door te gaan. 
+4. Volg de aanwijzingen op om de verbindingseigenschappen voor het nieuwe profiel op te geven. Wanneer u een waarde hebt opgegeven, kiest u **Enter** om door te gaan.
 
    | Eigenschap       | Voorgestelde waarde | Beschrijving |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
    | **Databasenaam** | mySampleDatabase | De database waarmee verbinding moet worden gemaakt. |
-   | **Verificatie** | SQL-aanmelding| In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
+   | **Authentication** | SQL-aanmelding| In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
    | **Gebruikersnaam** | Gebruikersnaam | De gebruikersnaam van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    | **Wachtwoord (SQL-aanmelding)** | Wachtwoord | Het wachtwoord van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    | **Wachtwoord opslaan?** | Ja of nee | Selecteer **Ja** als u het wachtwoord niet elke keer wilt invoeren. |
-   | **Voer een naam in voor dit profiel** | Een profielnaam, zoals **mySampleProfile** | Een opgeslagen profiel zorgt ervoor dat de verbinding sneller tot stand komt bij toekomstige aanmeldingen. | 
+   | **Voer een naam in voor dit profiel** | Een profielnaam, zoals **mySampleProfile** | Een opgeslagen profiel zorgt ervoor dat de verbinding sneller tot stand komt bij toekomstige aanmeldingen. |
 
    Wanneer uw profiel is gemaakt, wordt er een melding weergegeven dat het profiel is gemaakt en verbonden is.
 
@@ -144,22 +143,22 @@ Voer de volgende Transact-SQL-[INSERT](https://msdn.microsoft.com/library/ms1743
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-           , [StandardCost]
-           , [ListPrice]
-           , [SellStartDate]
-           )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-           ,100
-           ,100
-           ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Druk op **Ctrl**+**Shift**+**E** om een nieuwe rij in de tabel `Product` in te voegen.

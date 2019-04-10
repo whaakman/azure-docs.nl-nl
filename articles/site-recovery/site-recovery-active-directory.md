@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821385"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358044"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Herstel na noodgevallen instellen voor Active Directory en DNS
 
@@ -106,9 +106,9 @@ Wanneer u een testfailover hebt gestart, niet alle domeincontrollers in het test
 Vanaf Windows Server 2012, [extra veiligheidsmaatregelen zijn ingebouwd in Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Met deze beveiligingen bescherming van gevirtualiseerde domeincontrollers op basis van USN-terugdraaiacties als de onderliggende hypervisor-platform ondersteunt **VM-GenerationID**. Azure ondersteunt **VM-GenerationID**. Domeincontrollers met Windows Server 2012 of later op Azure virtuele machines hebben als gevolg hiervan, deze aanvullende veiligheidsmaatregelen nemen.
 
 
-Wanneer **VM-GenerationID** opnieuw wordt ingesteld, de **InvocationID** waarde van de AD DS-database is ook opnieuw instellen. Bovendien de RID-groep is verwijderd en SYSVOL is gemarkeerd als niet-bindende. Zie voor meer informatie, [Inleiding tot virtualisatie van Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) en [veilig virtualiseren DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+Wanneer **VM-GenerationID** opnieuw wordt ingesteld, de **InvocationID** waarde van de AD DS-database is ook opnieuw instellen. Bovendien de RID-groep is verwijderd en sysvol-map is gemarkeerd als niet-bindende. Zie voor meer informatie, [Inleiding tot virtualisatie van Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) en [veilig virtualiseren DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Failover wordt uitgevoerd naar Azure kan leiden tot **VM-GenerationID** opnieuw in te stellen. Opnieuw instellen van **VM-GenerationID** aanvullende veiligheidsmaatregelen nemen wordt geactiveerd wanneer de domain controller virtuele machine wordt gestart in Azure. Dit kan leiden tot een *aanzienlijke vertraging* om Meld u aan bij de virtuele machine van de domain controller.
+Failover wordt uitgevoerd naar Azure kan leiden tot **VM-GenerationID** opnieuw in te stellen. Opnieuw instellen van **VM-GenerationID** aanvullende veiligheidsmaatregelen nemen wordt geactiveerd wanneer de domain controller virtuele machine wordt gestart in Azure. Dit kan leiden tot een *aanzienlijke vertraging* kunt aanmelden bij de virtuele machine van de domain controller.
 
 Omdat deze domeincontroller alleen in een test-failover gebruikt wordt, veiligheidsmaatregelen voor virtualisatie niet noodzakelijk. Om ervoor te zorgen dat de **VM-GenerationID** waarde voor de virtuele machine van de domain controller niet wijzigen, kunt u de waarde van de volgende DWORD naar **4** in de lokale domeincontroller:
 
@@ -128,11 +128,11 @@ Als de virtualisatiebeveiliging geactiveerd na een testfailover, ziet u mogelijk
 
     ![Wijziging van de aanroep-ID](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL en NETLOGON-shares zijn niet beschikbaar.
+* Map SYSVOL en NETLOGON-shares zijn niet beschikbaar.
 
-    ![SYSVOL-share](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol-map delen](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol-map](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR-databases worden verwijderd.
 
@@ -146,7 +146,7 @@ Als de virtualisatiebeveiliging geactiveerd na een testfailover, ziet u mogelijk
 >
 >
 
-1. Voer bij de opdrachtprompt de volgende opdracht om te controleren of SYSVOL en NETLOGON-mappen worden gedeeld:
+1. Voer bij de opdrachtprompt de volgende opdracht om te controleren of de map sysvol en NETLOGON-map worden gedeeld:
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Als de vorige voorwaarden wordt voldaan, is het waarschijnlijk dat de domeincont
     * Hoewel u kunt beter geen [FRS-replicatie](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), als u FRS-replicatie, volgt u de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [met behulp van de registersleutel BurFlags om opnieuw te initialiseren van File Replication-Service](https://support.microsoft.com/kb/290762).
 
         Zie het blogbericht voor meer informatie over BurFlags [D2 en D4: Wat is het voor? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Als u replicatie voor DFS-replicatie gebruikt, moet u de stappen voor een bindende terugzetbewerking uitvoeren. Het proces wordt beschreven in [een bindende en niet-bindende synchronisatie afdwingen voor DFSR gerepliceerd SYSVOL (like "D4/D2' voor FRS)](https://support.microsoft.com/kb/2218556).
+    * Als u replicatie voor DFS-replicatie gebruikt, moet u de stappen voor een bindende terugzetbewerking uitvoeren. Het proces wordt beschreven in [een bindende en niet-bindende synchronisatie van DFSR gerepliceerd sysvol-map (zoals ' D4/D2' voor FRS) afdwingen](https://support.microsoft.com/kb/2218556).
 
         U kunt ook de PowerShell-functies gebruiken. Zie voor meer informatie, [DFSR-SYSVOL gezaghebbende/niet-bindende terugzetbewerking PowerShell functies](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

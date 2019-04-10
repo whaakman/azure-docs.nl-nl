@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888499"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357944"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -37,7 +37,7 @@ Het vCore-model biedt drie Servicelagen voor algemeen gebruik, flexibele en bedr
 
 De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 
-||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
+||**Algemeen doel**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
 |---|---|---|---|
 |Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|De meeste zakelijke workloads met uiterst schaalbare opslag en leesschaal vereisten|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
@@ -76,8 +76,8 @@ Met de Azure Hybrid Benefit kunt u alleen betaalt voor de onderliggende Azure-in
 
 - Instellen of bijwerken van het licentietype met behulp van Azure CLI:
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [AZ sql db maken](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [AZ sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
   - [AZ sql mi maken](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
   - [AZ sql mi-update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
@@ -107,10 +107,10 @@ De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's:
 |Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
 |Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|
 |Standard|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Standard|Downgrade uitvoeren|Primaire moeten eerst migreren|
-|Premium|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Bedrijfskritiek|Standard|Downgrade|Primaire moeten eerst migreren|
+|Premium|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
 |Algemeen doel|Premium|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Algemeen doel|Downgrade uitvoeren|Primaire moeten eerst migreren|
+|Bedrijfskritiek|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
 |Algemeen doel|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
 ||||
 

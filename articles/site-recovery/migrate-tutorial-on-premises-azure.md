@@ -5,58 +5,45 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360364"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357969"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
-Behalve dat u de service [Azure Site Recovery](site-recovery-overview.md) kunt gebruiken om herstel na noodgevallen van on-premises machines en virtuele Azure-machines te beheren en te organiseren met als doel de bedrijfscontinuïteit te waarborgen, en deze service kunt gebruiken voor herstel na een noodgeval (BCDR), kunt u Site Recovery ook gebruiken om de migratie van on-premises machines naar Azure te beheren.
+
+In dit artikel wordt beschreven hoe u on-premises machines migreren naar Azure, met behulp van de [Azure Site Recovery](site-recovery-overview.md). Site Recovery is over het algemeen gebruikt om te beheren en te organiseren van herstel na noodgevallen van on-premises machines en virtuele Azure-machines. Echter kan deze ook worden gebruikt voor de migratie. Migratie maakt gebruik van dezelfde stappen als herstel na noodgevallen met één uitzondering. Bij de migratie is machines Failover-overschakeling uitvoeren van uw on-premises site de laatste stap. In tegenstelling tot herstel na noodgevallen, niet kan u een failback naar on-premises beschikken in een migratiescenario.
 
 
-Deze zelfstudie laat u zien hoe u on-premises VM's en fysieke servers naar Azure migreert met Site Recovery. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat u zien hoe u on-premises VM's en fysieke servers naar Azure migreert met Site Recovery. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een replicatiedoel selecteren
-> * De bron- en doelomgeving instellen
+> * Instellen van de bron en doel-omgeving voor migratie
 > * Een replicatiebeleid instellen
 > * Replicatie inschakelen
 > * Een testfailover uitvoeren om te controleren of alles goed werkt
 > * Een eenmalige failover uitvoeren naar Azure
 
-Dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid:
-
-1. [Azure voorbereiden](tutorial-prepare-azure.md)
-2. On-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md)- of [Hyper-V](hyper-v-prepare-on-premises-tutorial.md)-servers voorbereiden.
-
-Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware](vmware-azure-architecture.md) of [Hyper-V](hyper-v-azure-architecture.md) te bekijken.
 
 > [!TIP]
-> Wilt u deelnemen aan onze nieuwe ervaring voor zonder agent voor virtuele VMware-machines migreren naar Azure? [Kom meer te](https://aka.ms/migrateVMs-signup).
-
-## <a name="prerequisites"></a>Vereisten
-
-Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
+> De service Azure Migrate biedt nu een Preview-versie voor een nieuwe, zonder agent-ervaring voor VMware-VM's migreren naar Azure. [Kom meer te](https://aka.ms/migrateVMs-signup).
 
 
-## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
+## <a name="before-you-start"></a>Voordat u begint
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klik op **Een resource maken** > **Beheerhulpprogramma's** > **Backup en Site Recovery**.
-3. Bij **Naam** geeft u de beschrijvende naam **ContosoVMVault** op. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
-4. Maak een resourcegroep met de naam **ContosoRG**.
-5. Geef een Azure-regio op. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund.
-6. Als u de kluis snel wilt kunnen openen via het dashboard, klikt u op **Vastmaken aan dashboard** en vervolgens op **Maken**.
+Houd er rekening mee dat de apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 
-   ![Nieuwe kluis](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
-De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** en op de hoofdpagina van **Recovery Services-kluizen**.
+## <a name="prepare-azure-and-on-premises"></a>Azure en on-premises voorbereiden
+
+1. Azure voorbereiden, zoals beschreven in [in dit artikel](tutorial-prepare-azure.md). Hoewel dit artikel wordt beschreven voorbereidende stappen voor herstel na noodgevallen, zijn de stappen ook geldig voor migratie.
+2. On-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md)- of [Hyper-V](hyper-v-prepare-on-premises-tutorial.md)-servers voorbereiden. Als u fysieke machines migreert bent, moet u geen voor te bereiden. Alleen controleren of de [ondersteuningsmatrix](vmware-physical-azure-support-matrix.md).
 
 
 ## <a name="select-a-replication-goal"></a>Een replicatiedoel selecteren
@@ -72,9 +59,11 @@ Selecteer wat u wilt repliceren en waarnaar u wilt repliceren.
 
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-- De bronomgeving [instellen](vmware-azure-tutorial.md#set-up-the-source-environment) voor VMware-VM's.
-- De bronomgeving [instellen](physical-azure-disaster-recovery.md#set-up-the-source-environment) voor fysieke servers.
-- De bronomgeving [instellen](hyper-v-azure-tutorial.md#set-up-the-source-environment) voor Hyper-V-VM's.
+**Scenario** | **Details**
+--- | --- 
+VMware | Instellen van de [bronomgeving](vmware-azure-set-up-source.md), en stel de [configuratieserver](vmware-azure-deploy-configuration-server.md).
+Fysieke machine | [Instellen van](physical-azure-set-up-source.md) de omgeving en de configuratie van een bronserver.
+Hyper-V | Instellen van de [bronomgeving](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> Instellen van de [bronomgeving](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) voor Hyper-V implementeren met System Center VMM.
 
 ## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
 
@@ -82,20 +71,26 @@ Selecteer en controleer doelbronnen.
 
 1. Klik op **Infrastructuur voorbereiden** > **Doel** en selecteer het Azure-abonnement dat u wilt gebruiken.
 2. Geef het Resource Manager-implementatiemodel op.
-3. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
+3. Site Recovery controleert of de Azure-resources.
+    - Als u VMware-machines of fysieke servers migreren wilt, Site Recovery controleert of dat u hebt een Azure-netwerk waarin de Azure VM's geplaatst worden moeten nadat ze na een failover worden gemaakt.
+    - Als u Hyper-V-machines migreert bent, Site Recovery controleert of dat u hebt een compatibel Azure storage-account en het netwerk.
+4. Als Hyper-V-machines worden beheerd door System Center VMM u migreert waarnaar, stelt u [netwerktoewijzing](hyper-v-vmm-azure-tutorial.md#configure-network-mapping).
 
 ## <a name="set-up-a-replication-policy"></a>Een replicatiebeleid instellen
 
-- [Beleid voor replicatie](vmware-azure-tutorial.md#create-a-replication-policy) voor VMware-VM's instellen.
-- [Beleid voor replicatie](physical-azure-disaster-recovery.md#create-a-replication-policy) voor fysieke servers instellen.
-- [Beleid voor replicatie](hyper-v-azure-tutorial.md#set-up-a-replication-policy) voor Hyper-V-VM's instellen.
-
+**Scenario** | **Details**
+--- | --- 
+VMware | Instellen van een [replicatiebeleid](vmware-azure-set-up-replication.md) voor VMware-VM's.
+Fysieke machine | Instellen van een [replicatiebeleid](physical-azure-disaster-recovery.md#create-a-replication-policy) voor fysieke computers.
+Hyper-V | Instellen van een [replicatiebeleid](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> Instellen van een [replicatiebeleid](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy) voor Hyper-V implementeren met System Center VMM.
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-- [Replicatie inschakelen](vmware-azure-tutorial.md#enable-replication) voor VMware VM's.
-- [Replicatie inschakelen](physical-azure-disaster-recovery.md#enable-replication) voor fysieke servers.
-- Replicatie inschakelen voor Hyper-V-VM's [met](hyper-v-vmm-azure-tutorial.md#enable-replication) of [zonder VMM](hyper-v-azure-tutorial.md#enable-replication).
+**Scenario** | **Details**
+--- | --- 
+VMware | [Replicatie inschakelen](vmware-azure-enable-replication.md) voor VMware VM's.
+Fysieke machine | [Replicatie inschakelen](physical-azure-disaster-recovery.md#enable-replication) voor fysieke computers.
+Hyper-V | [Replicatie inschakelen](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Replicatie inschakelen](hyper-v-vmm-azure-tutorial.md#enable-replication) voor Hyper-V implementeren met System Center VMM.
 
 
 ## <a name="run-a-test-migration"></a>Een testmigratie uitvoeren
@@ -160,8 +155,13 @@ Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproce
 - Werk eventuele interne documentatie bij met de nieuwe locatie en het nieuwe IP-adres van de Azure VM's.
 
 
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. U kunt nu [noodherstel instellen](azure-to-azure-replicate-after-migration.md) voor een secundaire Azure-regio voor de Azure VM's.
+In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. Nu
+
+> [!div class="nextstepaction"]
+> [Herstel na noodgevallen instellen](azure-to-azure-replicate-after-migration.md) naar een secundaire Azure-regio voor de Azure VM's.
 
   

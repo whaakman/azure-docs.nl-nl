@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216931"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358411"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -149,7 +149,7 @@ Versleuteling biedt een krachtig mechanisme om te beschermen en uw gevoelige geg
 In SQL-Database, standaard, worden uw gegevens in rust in de gegevens en logboekbestanden bestanden op het opslagsubsysteem volledig en altijd versleuteld [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Uw back-ups zijn eveneens versleuteld. Met TDE er zijn geen wijzigingen aan de kant van de toepassing die toegang heeft tot deze gegevens vereist. De versleuteling en ontsleuteling gebeuren transparant; daarom de naam.
 Voor het beveiligen van uw gevoelige gegevens die onderweg zijn en at-rest, SQL Database biedt een functie, genaamd [altijd versleuteld (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE is een vorm van clientversleuteling waarmee gevoelige kolommen in uw database worden gecodeerd (zodat ze zich in de gecodeerde tekst voor databasebeheerders en niet-geautoriseerde gebruikers). De server ontvangt begint met de versleutelde gegevens. De sleutel voor Always Encrypted worden ook opgeslagen op de client, zodat alleen geautoriseerde clients kunnen de gevoelige kolommen ontsleutelen. De server en de gegevensbeheerders zien niet de gevoelige gegevens omdat de versleutelingssleutels worden opgeslagen op de client. AE versleutelt gevoelige kolommen in de tabel end-to-end van niet-geautoriseerde clients naar de fysieke schijf. AE ondersteunt gelijkheid vergelijkingen vandaag, zodat de DBA kunnen blijven opvragen versleutelde kolommen als onderdeel van de SQL-opdrachten. Altijd versleutelde kan worden gebruikt met een verscheidenheid aan sleutelarchief opties, zoals [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows-certificaatarchief en lokale hardware security modules.
 
-|**Kenmerken**|**Altijd versleuteld**|**Transparent Data Encryption**|
+|**Kenmerken**|**Altijd versleuteld**|**Transparante gegevensversleuteling**|
 |---|---|---|
 |**Versleuteling span**|End-to-end|Inactieve gegevens|
 |**Database-server kunt krijgen tot gevoelige gegevens**|Nee|Ja, omdat versleuteling voor de data-at-rest|
@@ -203,11 +203,11 @@ Express Route kunt u ook om uit te breiden tot 2 x de Bandbreedtelimiet die u vo
 
 - [Inleiding in Express Route](../expressroute/expressroute-introduction.md)
 - [Vereisten](../expressroute/expressroute-prerequisites.md)
-- [Werkstromen](../expressroute/expressroute-workflows.md)
+- [Workflows](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Van alle wettelijke eisen die compatibel is met SQL-Database, en hoe helpt die met de naleving van mijn eigen organisatie
 
-SQL-Database is compatibel met een scala aan om. Als u de meest recente set om dat wordt voldaan, gaat u naar de [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) en inzoomen op de ingebouwde die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de compatibele Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kunnen worden gecertificeerd als een compatibele service, dit de compatibiliteit van de service van uw organisatie helpt, maar kan deze niet automatisch garanderen.
+SQL-Database is compatibel met een scala aan om. Als u de meest recente set om die door SQL Database is voldaan, gaat u naar de [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) en inzoomen op de ingebouwde die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de voldoen aan het beleid Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kunnen worden gecertificeerd als een compatibele service, dit de compatibiliteit van de service van uw organisatie helpt, maar kan deze niet automatisch garanderen.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligente database controleren en onderhoud na de migratie
 

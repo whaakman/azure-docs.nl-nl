@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358250"
 ---
 # <a name="sizes-for-cloud-services"></a>Groottes voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor rolinstanties van Cloud Services (webrollen en werkrollen). Het biedt ook overwegingen voor de implementatie moet letten bij het plannen van deze resources te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte zijn beschikbaar op de [prijzen voor Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
@@ -205,7 +205,7 @@ Hier volgt een voorbeeld voor het instellen van de grootte van de rol moet Stand
 
 ## <a name="changing-the-size-of-an-existing-role"></a>De grootte van een bestaande rol wijzigen
 
-Als de aard van uw workload wordt gewijzigd of de nieuwe VM-grootten beschikbaar komen, kunt u de grootte van uw rol wijzigen. Om dit te doen, moet u de VM-grootte wijzigen in het servicedefinitiebestand (zoals hierboven), uw Cloudservice verpakken en implementeren. Het is niet mogelijk om te wijzigen van VM-grootten rechtstreeks vanuit de portal of PowerShell.
+Als de aard van uw workload wordt gewijzigd of de nieuwe VM-grootten beschikbaar komen, kunt u de grootte van uw rol wijzigen. Om dit te doen, moet u de VM-grootte wijzigen in het servicedefinitiebestand (zoals hierboven), uw Cloudservice verpakken en implementeren.
 
 >[!TIP]
 > U kunt met andere VM-grootten voor uw rol in verschillende omgevingen worden gebruikt (bijvoorbeeld) testen van Visual Studio-productie). Een manier om te doen dit is de definitie van meerdere service (.csdef) om bestanden te maken in uw project, maakt u verschillende cloud service-pakketten per omgeving tijdens uw geautomatiseerde build met behulp van het hulpprogramma CSPack. Zie voor meer informatie over de elementen van een pakket voor cloud services en hoe ze worden gemaakt, [wat is de cloud services-model en hoe ik dit pakket?](cloud-services-model-and-package.md)

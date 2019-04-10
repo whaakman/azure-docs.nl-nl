@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762769"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358842"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Een bestaand virtueel netwerk configureren voor Azure SQL Database Managed Instance
 
@@ -25,10 +25,9 @@ Azure SQL Database Managed Instance moet worden geïmplementeerd in een Azure [v
 
 Als een van de volgende gevallen geldt voor u zijn, kunt u valideren en wijzigen van uw netwerk met behulp van het script in dit artikel wordt uitgelegd:
 
-* U hebt een nieuw subnet die nog niet is geconfigureerd.
-* Je niet zeker weet dat het subnet wordt uitgelijnd met de [vereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* U wilt controleren of het subnet nog steeds voldoet aan de [vereisten voor de](sql-database-managed-instance-connectivity-architecture.md#network-requirements) nadat u wijzigingen hebt aangebracht.
-
+- U hebt een nieuw subnet die nog niet is geconfigureerd.
+- Je niet zeker weet dat het subnet wordt uitgelijnd met de [vereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- U wilt controleren of het subnet nog steeds voldoet aan de [vereisten voor de](sql-database-managed-instance-connectivity-architecture.md#network-requirements) nadat u wijzigingen hebt aangebracht.
 
 > [!Note]
 > U kunt een beheerd exemplaar maken alleen in virtuele netwerken die zijn gemaakt via het Azure Resource Manager-implementatiemodel. Azure-netwerken die zijn gemaakt via het klassieke implementatiemodel worden niet ondersteund. Grootte van het gatewaysubnet berekenen door de richtlijnen in de [bepaalt de grootte van het subnet voor beheerde instanties](sql-database-managed-instance-determine-size-vnet-subnet.md) artikel. U kunt de grootte van het subnet kan niet wijzigen nadat u de resources binnen implementeren.

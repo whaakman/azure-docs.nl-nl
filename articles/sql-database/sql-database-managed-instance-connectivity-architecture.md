@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358279"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
 
 In dit artikel wordt uitgelegd communicatie in een beheerd exemplaar voor Azure SQL Database. Ook wordt beschreven connectiviteitsarchitectuur en hoe de onderdelen van verkeer naar het beheerd exemplaar te regelen.  
 
@@ -117,7 +117,6 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 
 > [!IMPORTANT]
 > Hoewel de vereiste beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438 1440 en 1452, deze poorten worden beveiligd door een ingebouwde firewall. Zie voor meer informatie, [bepalen de eindpuntadres management](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Als u transactionele replicatie in een beheerd exemplaar gebruiken, en als u een exemplaar in de database als een publisher of een distributor, opent poort 445 (TCP uitgaand) in van het subnet beveiligingsregels voor verbindingen. Deze poort krijgt toegang tot de Azure-bestandsshare.
 

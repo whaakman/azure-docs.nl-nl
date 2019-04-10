@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa1e9749040c61f8c6a52f3635b7b8aa13a0cdff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834775"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Zelfstudie: Azure Active Directory-integratie met MobileIron
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van MobileIron te configureren in Azure AD, moet u MobileIron vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om MobileIron vanuit de galerie toe te voegen:**
+**Als u wilt toevoegen MobileIron uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -101,13 +101,13 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u de toepassing in de door  **IDP geïnitieerde** modus wilt configureren:
+4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van MobileIron](common/idp-intiated.png)
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.mobileiron.com/<key>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -194,7 +194,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij MobileIron, moeten ze worden ingericht voor MobileIron.  
 In het geval van MobileIron is dat een handmatige taak.
 
-**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
 
 1. Meld u als beheerder aan bij de bedrijfssite van MobileIron.
 
@@ -222,9 +222,9 @@ Wanneer u in het toegangsvenster op de tegel MobileIron klikt, wordt u automatis
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

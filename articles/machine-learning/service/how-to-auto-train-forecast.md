@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357247"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
 In dit artikel leert u hoe u met het trainen van een time series regressie prognosemodel met geautomatiseerde machine learning in Azure Machine Learning-service. Configureren van een Voorspellend model is vergelijkbaar met het instellen van een standard regressiemodel met behulp van geautomatiseerde machine learning, maar bepaalde configuratie-opties en de voorverwerking stappen bestaan voor het werken met time series-gegevens. De volgende voorbeelden ziet u hoe aan:
 
 * Gegevens voorbereiden voor de time series modelleren
-* Configureren van specifieke time series-parameters in een [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object
+* Configureren van specifieke time series-parameters in een [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
 * Uitvoeren van voorspellingen met time series-gegevens
 
 ## <a name="prerequisites"></a>Vereisten

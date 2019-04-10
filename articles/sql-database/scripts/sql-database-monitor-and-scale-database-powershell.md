@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 34e5876df36a48b0ca70979346afdd89b674a813
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349481"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359488"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell gebruiken voor het controleren en schalen van één Azure SQL-database
 
@@ -33,15 +33,14 @@ Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
-> [!TIP]
+> [!NOTE]
 > Zie voor een volledige lijst met metrische gegevens, [ondersteunde metrische gegevens](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
-
 > [!TIP]
 > Gebruik [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) naar de status van databasebewerkingen halen en gebruik [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) om een database-update-bewerking te annuleren.
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
+Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

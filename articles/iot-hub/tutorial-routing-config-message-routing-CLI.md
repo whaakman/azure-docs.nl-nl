@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 53a0645c42255d5f741d31c411ca70e1e009febc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661578"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360293"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Zelfstudie: De Azure CLI gebruiken voor het configureren van IoT Hub-berichtroutering
 
@@ -147,7 +147,7 @@ Nu dat de basis resources zijn ingesteld, kunt u de routering van berichten kunt
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Gebruik voor het maken van een eindpunt routering [az iot hub routering-eindpunt maken](/cli/azure/iot/hub/routing-endpoint.md?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Gebruik voor het maken van de bericht-route voor het eindpunt [az iot hub route maken](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Gebruik voor het maken van een eindpunt routering [az iot hub routering-eindpunt maken](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Gebruik voor het maken van de bericht-route voor het eindpunt [az iot hub route maken](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
 ### <a name="route-to-a-storage-account"></a>Doorsturen naar een opslagaccount
 

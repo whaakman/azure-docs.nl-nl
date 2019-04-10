@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: fbea3daec3d9ccac81f246d3dc762fc80cb4b18a
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7f3afa59b4c8eaaeaf54576eb9fcaad626749683
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759438"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358910"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Verbinding maken met de API van Media Services v3 - Node.js
 
@@ -51,7 +51,7 @@ In dit artikel wordt beschreven hoe u verbinding maken met de Azure Media Servic
 
 De volgende pakketten moeten worden opgegeven:
 
-|Pakket|Beschrijving|
+|Pakket|Description|
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Controleer of u de meest recente pakket met Azure Media Services, [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|Storage-SDK. Gebruikt bij het uploaden van bestanden naar de activa.|
@@ -127,6 +127,5 @@ node index.js
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Media Services-concepten](concepts-overview.md)
-- [Snelstartgids]()
-- [Naslaginformatie over Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
+- [Naslaginformatie over node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)<br>

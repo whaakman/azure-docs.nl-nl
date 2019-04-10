@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261051"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359049"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -157,7 +157,7 @@ Zie voor meer informatie, [aan de slag met gegevensdetectie en classificatie](sq
 
 ### <a name="compliance"></a>Naleving
 
-Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
+Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

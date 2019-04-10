@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010733"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278867"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -661,7 +661,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Blueprint/blueprints/versions/read | Alle blauwdrukken lezen |
 > | Bewerking | Microsoft.Blueprint/blueprints/versions/write | Blauwdrukken maken of bijwerken |
 > | Bewerking | Microsoft.Blueprint/blueprints/write | Blauwdrukken maken of bijwerken |
-> | Bewerking | Microsoft.Blueprint/register/action | Hiermee wordt de Azure Blueprint-resourceprovider geregistreerd |
+> | Bewerking | Microsoft.Blueprint/register/action | Hiermee wordt de Azure Blueprints-resourceprovider geregistreerd |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1204,7 +1204,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.Compute/locations/publishers/artifacttypes/types/read | Hiermee worden de eigenschappen van een VMExtension-type opgehaald |
 > | Bewerking | Microsoft.Compute/locations/publishers/artifacttypes/types/versions/read | Hiermee worden de eigenschappen van een VMExtension-versie opgehaald |
 > | Bewerking | Microsoft.Compute/locations/publishers/read | De eigenschappen van een uitgever ophalen |
-> | Bewerking | Microsoft.Compute/locations/runCommands/read | Hiermee wordt een lijst gemaakt van de beschikbare opdrachten op de locatie |
+> | Bewerking | Microsoft.Compute/locations/runCommands/read | Hiermee wordt een lijst gemaakt van de beschikbare uitvoeropdrachten op de locatie |
 > | Bewerking | Microsoft.Compute/locations/usages/read | Hiermee worden servicelimieten en huidige gebruikshoeveelheden opgehaald voor de rekenresources van het abonnement op een locatie |
 > | Bewerking | Microsoft.Compute/locations/vmSizes/read | Hiermee wordt een lijst weergegeven met de beschikbare grootten van virtuele machines op een locatie |
 > | Bewerking | Microsoft.Compute/operations/read | Hiermee wordt een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.Compute-resourceprovider |

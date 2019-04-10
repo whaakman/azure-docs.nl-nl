@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c4e87e365e11084a7088522f64abef238d04b715
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271481"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357986"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Veelgestelde vragen - Hyper-V naar Azure-noodherstel
 
@@ -29,6 +29,31 @@ Tijdens de replicatie, gegevens worden gerepliceerd naar Azure storage en betaal
 
 ## <a name="azure"></a>Azure
 
+### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Wat moet ik in Hyper-V om replicatie met Site Recovery?
+
+Wat u voor de Hyper-V-hostserver nodig hebt, is afhankelijk van het implementatiescenario. Controleer de lijst met vereisten voor Hyper-V in:
+
+* [Replicating Hyper-V VMs (without VMM) to Azure (Virtuele Hyper-V-machines (zonder VMM) repliceren naar Azure)](site-recovery-hyper-v-site-to-azure.md)
+* [Replicating Hyper-V VMs (with VMM) to Azure (Virtuele Hyper-V-machines (met VMM) repliceren naar Azure)](site-recovery-vmm-to-azure.md)
+* [Replicating Hyper-V VMs to a secondary datacenter (Virtuele Hyper-V-machines repliceren naar een secundair datacenter)](site-recovery-vmm-to-vmm.md)
+* Als u repliceert naar een secundair datacenter meer informatie over [ondersteunde gastbesturingssystemen voor Hyper-V-machines](https://technet.microsoft.com/library/mt126277.aspx).
+* Als u naar Azure repliceert, Site Recovery biedt ondersteuning voor alle gastbesturingssystemen die worden [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+
+### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Kan ik virtuele machines beveiligen als Hyper-V wordt uitgevoerd op een clientbesturingssysteem?
+Nee, virtuele machines moeten zich bevinden op een Hyper-V-hostserver die wordt uitgevoerd op een ondersteunde Windows-servercomputer. Als u wilt beveiligen van een clientcomputer kan u deze als een fysieke machine repliceert [Azure](site-recovery-vmware-to-azure.md) of een [secundair datacenter](site-recovery-vmware-to-vmware.md).
+
+### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Moeten Hyper-V-hosts zich in de VMM-clouds?
+Als u repliceren naar een secundair datacenter, wilt en vervolgens de Hyper-V-machines moeten zich op Hyper-V-hosts servers die zich bevinden in een VMM-cloud. Als u repliceren naar Azure wilt, kunt u virtuele machines repliceren met of zonder VMM-clouds. [Lees meer](tutorial-hyper-v-to-azure.md) over Hyper-V-replicatie naar Azure.
+
+
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan ik virtuele machines van de tweede generatie Hyper-V repliceren naar Azure?
+Ja. Site Recovery converteert van generatie 2 naar generatie 1 tijdens de failover. Bij de failback wordt de machine geconverteerd naar generatie 2. [Meer informatie](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+
+
+### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Kan ik Site Recovery met VMM implementeren als ik maar één VMM-server heb?
+
+Ja. Kunt u virtuele machines in Hyper-V-servers in de VMM-cloud naar Azure repliceren, of u kunt repliceren tussen VMM-clouds op dezelfde server. On-premises naar on-premises replicatie, wordt u aangeraden dat er een VMM-server in de primaire en secundaire sites. 
+
 ### <a name="what-do-i-need-in-azure"></a>Wat moet ik in Azure?
 U moet een Azure-abonnement, een Recovery Services-kluis, een storage-account en een virtueel netwerk. De kluis, de storage-account en het netwerk moeten zich in dezelfde regio bevinden.
 
@@ -43,7 +68,7 @@ Nee, Site Recovery gerepliceerde gegevens niet worden onderschept, en heeft geen
 
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Kunnen we de metagegevens van on-premises bewaren binnen een geografische regio's?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Kunnen we de metagegevens van on-premises bewaren binnen een geografische regio?
 Ja. Wanneer u een kluis in een regio maken, zorgen we dat alle metagegevens die wordt gebruikt door Site Recovery blijft binnen een geografische grens van die regio.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Wordt replicatie met Site Recovery versleuteld?
@@ -75,7 +100,7 @@ Ja, Site Recovery biedt ondersteuning voor geclusterde Hyper-V-hosts. Houd reken
 - Alle knooppunten van het cluster moeten worden geregistreerd bij dezelfde kluis.
 - Als u VMM niet gebruikt, moeten alle Hyper-V-hosts in het cluster worden toegevoegd aan de dezelfde Hyper-V-site.
 - U installeert de Azure Site Recovery Provider en Recovery Services-agent op elke Hyper-V-host in het cluster, en elke host toevoegt aan een Hyper-V-site.
-- Er zijn geen specifieke stappen moet worden uitgevoerd op het cluster.
+- Er zijn geen specifieke stappen moeten worden uitgevoerd op het cluster.
 - Als u het hulpprogramma Deployment Planner voor Hyper-V uitvoert, verzamelt het hulpprogramma de profielgegevens in het knooppunt dat wordt uitgevoerd en waarop de virtuele machine wordt uitgevoerd. Het hulpprogramma kan niet alle gegevens verzamelen uit een knooppunt dat uitgeschakeld, maar deze wordt bijgehouden dat knooppunt. Nadat het knooppunt actief is, start het hulpprogramma voor verzamelen van de profielgegevens van de virtuele machine van het (als de virtuele machine deel uit van de lijst van de virtuele machine profiel maakt en wordt uitgevoerd op het knooppunt).
 - Als een virtuele machine op een Hyper-V-host in een Site Recovery-kluis gemigreerd naar een andere Hyper-V-host in hetzelfde cluster of naar een zelfstandige host, wordt niet replicatie voor de virtuele machine beïnvloed. De Hyper-V-host moet voldoen aan [vereisten](hyper-v-azure-support-matrix.md#on-premises-servers), en worden geconfigureerd in een Site Recovery-kluis. 
 
@@ -127,7 +152,7 @@ Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines n
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
-Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet. 
+Wanneer u naar Azure repliceren, bereikt replicatieverkeer in de openbare eindpunten van een Azure Storage-account. Zo kunt u alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
 
@@ -187,7 +212,7 @@ Na een failover, kunt u Azure-VM's openen via een beveiligde internetverbinding,
 Azure is ontworpen voor herstelbaarheid. Site Recovery is ontworpen voor failover naar een secundaire Azure-datacenter, in overeenstemming met de Azure SLA. Wanneer een failover optreedt, zorgen wij ervoor dat uw metagegevens en kluizen binnen dezelfde geografische regio die u hebt gekozen voor uw kluis blijven.
 
 ### <a name="is-failover-automatic"></a>Vindt failover automatisch plaats?
-[Failover](site-recovery-failover.md) wordt niet automatisch uitgevoerd. Initiëren van failover met één klik in de portal of kunt u [PowerShell](/powershell/module/az.siterecovery) dat een failover wordt geactiveerd.
+[Failover](site-recovery-failover.md) wordt niet automatisch uitgevoerd. Initiëren van failover met één klik in de portal of kunt u [PowerShell](/powershell/module/az.recoveryservices) dat een failover wordt geactiveerd.
 
 ### <a name="how-do-i-fail-back"></a>Hoe ik failback?
 
@@ -199,7 +224,7 @@ Nadat uw on-premises infrastructuur opnieuw actief is, kunt u failover terug. Fa
     - Volledige download: Met deze optie gegevens gesynchroniseerd tijdens de failover. Deze optie wordt de hele schijf gedownload. Het is sneller omdat er geen controlesommen worden berekend, maar er meer downtime is. Gebruik deze optie als u hebt zijn met de replica virtuele Azure-machines gedurende een bepaalde periode, of als de on-premises VM is verwijderd.
 
 2. U kunt selecteren voor failover naar dezelfde virtuele machine of een andere virtuele machine. U kunt opgeven dat Site Recovery de virtuele machine maken te als deze nog niet bestaat.
-3. Nadat de initiële synchronisatie is voltooid, selecteert u om de failover te voltooien. Nadat deze is voltooid, kunt u zich aanmelden op de on-premises-VM om te controleren of dat alles werkt zoals verwacht. In de Azure-portal, kunt u zien dat de Azure VM's zijn gestopt.
+3. Nadat de initiële synchronisatie is voltooid, selecteert u om de failover te voltooien. Nadat deze is voltooid, kunt u aanmelden bij de on-premises VM om te controleren of dat alles werkt zoals verwacht. In de Azure-portal, kunt u zien dat de Azure VM's zijn gestopt.
 4. U geeft de failover voor het voltooien van en toegang tot de workload via de on-premises VM opnieuw.
 5. Nadat de werkbelastingen terug zijn mislukt, schakelt u omgekeerde replicatie, zodat de on-premises VM's naar Azure opnieuw repliceren.
 

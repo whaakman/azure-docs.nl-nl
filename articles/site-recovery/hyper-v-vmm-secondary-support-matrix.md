@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310605"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360793"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van Hyper-V-machines naar een secundaire site
 
@@ -99,7 +99,7 @@ Multipath (MPIO) | Ja
 
 ## <a name="vaults"></a>Kluizen
 
-**Actie** | **Ondersteund**
+**Bewerking** | **Ondersteund**
 --- | --- 
 Verplaatsen van kluizen andere resourcegroepen (binnen of tussen abonnementen) |  Nee
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen abonnementen) | Nee
@@ -108,7 +108,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen
 
 De Provider coördineert de communicatie tussen VMM-servers. 
 
-**Latest** | **Updates**
+**Meest recent** | **Updates**
 --- | --- 
 5.1.19 ([beschikbaar is via de portal](https://aka.ms/downloaddra) | [Nieuwste functies en correcties](https://support.microsoft.com/kb/3155002)
 

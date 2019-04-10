@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010505"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360185"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -36,7 +36,7 @@ Verschillende aankopen modellen zijn beschikbaar in Azure SQL Database-implement
 
 De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contrast.
 
-|**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
+|**Aankopen model**|**Description**|**Ideaal voor**|
 |---|---|---|
 |Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.|
 |Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Het op vCore gebaseerde aankoopmodel kunt u gebruiken [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) te krijgen van de kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
@@ -50,11 +50,11 @@ De kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing.
 
 ## <a name="storage-costs"></a>Opslagkosten
 
-Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. 
+Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt.
 
 Zeven dagen aan geautomatiseerde back-ups van uw databases worden standaard naar RA-GRS-standaardblobopslag gekopieerd. De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. De grootte van het transactielogboek is afhankelijk van de wijzigingssnelheid van de database. U kunt gratis gebruik maken van opslagruimte ter waarde van 100% van de databasegrootte. Voor aanvullend verbruik van back-upopslag worden GB/maand berekend.
 
-Zie voor meer informatie over prijzen voor gegevensopslag, de [prijzen](https://azure.microsoft.com/pricing/details/sql-database/single/) pagina. 
+Zie voor meer informatie over prijzen voor gegevensopslag, de [prijzen](https://azure.microsoft.com/pricing/details/sql-database/single/) pagina.
 
 ## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
@@ -71,7 +71,7 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresour
 > **De volgende beperkingen regio:** Zie voor de huidige lijst met ondersteunde regio's, [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Converteren naar het vCore-aanschafmodel kan als uw individuele database of elastische pool meer dan 300 dtu's verbruikt, de kosten verminderen. Als u converteren wilt, kunt u uw API naar keuze gebruiken of met behulp van de Azure-portal, zonder uitvaltijd kunt converteren. Echter conversie is niet vereist en niet automatisch gebeurt. Als het op DTU gebaseerde aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het op DTU gebaseerde aankoopmodel naar het vCore-aanschafmodel wilt, selecteert u de grootte van de compute met behulp van de volgende vuistregels: 
+Converteren naar het vCore-aanschafmodel kan als uw individuele database of elastische pool meer dan 300 dtu's verbruikt, de kosten verminderen. Als u converteren wilt, kunt u uw API naar keuze gebruiken of met behulp van de Azure-portal, zonder uitvaltijd kunt converteren. Echter conversie is niet vereist en niet automatisch gebeurt. Als het op DTU gebaseerde aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het op DTU gebaseerde aankoopmodel naar het vCore-aanschafmodel wilt, selecteert u de grootte van de compute met behulp van de volgende vuistregels:
 
 - Elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik
 - Elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek

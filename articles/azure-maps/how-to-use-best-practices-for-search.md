@@ -2,17 +2,17 @@
 title: Hoe u kunt zoeken efficiënt gebruik van de service Azure Maps Search | Microsoft Docs
 description: Meer informatie over het gebruik van aanbevolen procedures voor search met behulp van de Azure Maps Search-service
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3a9c5ad92494dd82500c4faee82c119e99346c7a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288154"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358141"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search-Service
 
@@ -83,7 +83,7 @@ Bij het uitvoeren van een zoekopdracht omgekeerde geocode met [omgekeerde API vo
 **Voorbeeld van een aanvraag:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 **Reactie:**
@@ -240,14 +240,20 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="uri-encoding-to-handle-special-characters"></a>URI-codering voor het afhandelen van speciale tekens 
 
-Om te zoeken tussen straat adressen, dat wil zeggen, 1st Avenue & Union straat, Seattle, speciaal teken ' &' moet worden gecodeerd voordat de aanvraag wordt verzonden. We raden tekengegevens in een URI-codering waarbij alle tekens zijn gecodeerd met een '%'-teken en hexadecimale waarde overeenkomt met de UTF-8-teken twee tekens.
+Om te zoeken tussen adressen, dat wil zeggen '1st Avenue & Union straat, Seattle', speciaal teken '&' moet worden gecodeerd voordat de aanvraag wordt verzonden. We raden tekengegevens in een URI-codering waarbij alle tekens zijn gecodeerd met een '%'-teken en hexadecimale waarde overeenkomt met de UTF-8-teken twee tekens.
 
 **Voorbeelden van het gebruik**:
 
 Search-adres ophalen:
 
 ```
-query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
+query=1st Avenue & E 111th St, New York
+```
+
+ moeten worden gecodeerd als:
+
+```
+query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -315,7 +321,7 @@ Laten we een [POI categorie zoeken](https://docs.microsoft.com/rest/api/maps/sea
 **Voorbeeldquery:**
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 **Reactie:**
@@ -402,72 +408,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                 }
             ]
         },
-        {
-            "type": "POI",
-            "id": "US/POI/p0/7728133",
-            "score": 5.663,
-            "dist": 1330.1278248163273,
-            "info": "search:ta:840539001100326-US",
-            "poi": {
-                "name": "76",
-                "phone": "+(1)-(425)-7472126",
-                "brands": [
-                    {
-                        "name": "76"
-                    }
-                ],
-                "url": "www.76.com/",
-                "classifications": [
-                    {
-                        "code": "PETROL_STATION",
-                        "names": [
-                            {
-                                "nameLocale": "en-US",
-                                "name": "petrol station"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "address": {
-                "streetNumber": "2421",
-                "streetName": "148th Ave NE",
-                "municipalitySubdivision": "Redmond, Bellevue",
-                "municipality": "Redmond, Bellevue",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "postalCode": "98007",
-                "countryCode": "US",
-                "country": "United States Of America",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "2421 148th Ave NE, Bellevue, WA 98007",
-                "countrySubdivisionName": "Washington"
-            },
-            "position": {
-                "lat": 47.63187,
-                "lon": -122.14365
-            },
-            "viewport": {
-                "topLeftPoint": {
-                    "lat": 47.63277,
-                    "lon": -122.14498
-                },
-                "btmRightPoint": {
-                    "lat": 47.63097,
-                    "lon": -122.14232
-                }
-            },
-            "entryPoints": [
-                {
-                    "type": "main",
-                    "position": {
-                        "lat": 47.63186,
-                        "lon": -122.14313
-                    }
-                }
-            ]
-        },
+        ...,
         {
             "type": "POI",
             "id": "US/POI/p0/7727106",
@@ -559,31 +500,31 @@ Laten we een zoekaanvraag adres naar de Azure-kaarten [search-service](https://d
 **Voorbeeldquery:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-We hebben verder een overzicht van de reactie van onderstaande structuur. De resultaattypen van de resultaatobjecten in het antwoord zijn verschillend. Als u zorgvuldig dat u ziet dat er drie verschillende typen resultaatobjecten ziet, die punt adres, het adres en Cross-adres zijn. U ziet dat adres met de zoekactie geen koeriersbedrijven geretourneerd. De `Score` parameter voor elk antwoordobject geeft aan dat de relatieve overeenkomende score scores van andere objecten in hetzelfde antwoord. Zie [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) voor meer informatie over parameters voor antwoord-object.
+We hebben verder een overzicht van de reactie van onderstaande structuur. De resultaattypen van de resultaatobjecten in het antwoord zijn verschillend. Als u zorgvuldig dat u ziet dat er drie verschillende typen resultaatobjecten ziet, die zijn "Punt adres", "Adres" en 'Cross straat'. U ziet dat adres met de zoekactie geen koeriersbedrijven geretourneerd. De `Score` parameter voor elk antwoordobject geeft aan dat de relatieve overeenkomende score scores van andere objecten in hetzelfde antwoord. Zie [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) voor meer informatie over parameters voor antwoord-object.
 
 **Ondersteunde typen resultaat:**
 
-**Punt-adres:** Punten op een kaart met een specifiek adres met een straatnaam en een nummer. Het hoogste niveau van de nauwkeurigheid van de gegevens beschikbaar voor adressen. 
+* **Punt-adres:** Punten op een kaart met een specifiek adres met een straatnaam en een nummer. Het hoogste niveau van de nauwkeurigheid van de gegevens beschikbaar voor adressen. 
 
-**Adresbereik:**  Voor sommige Streets (straten) zijn er adres punten die worden geïnterpoleerd vanaf het begin en einde van de straat; Deze punten worden weergegeven als de adresbereiken. 
+* **Adresbereik:**  Voor sommige Streets (straten) zijn er adres punten die worden geïnterpoleerd vanaf het begin en einde van de straat; Deze punten worden weergegeven als de adresbereiken. 
 
-**Geografie:** Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats. 
+* **Geografie:** Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats. 
 
-**PIJL - (punten van belang):** Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.
+* **PIJL - (punten van belang):** Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.
 
-**Adres:** Weergave van Streets (straten) op de kaart. Adressen worden omgezet in de breedtegraad/lengtegraad-coördinaat van de straat die het adres bevat. Het huisnummer kan niet worden verwerkt. 
+* **Adres:** Weergave van Streets (straten) op de kaart. Adressen worden omgezet in de breedtegraad/lengtegraad-coördinaat van de straat die het adres bevat. Het huisnummer kan niet worden verwerkt. 
 
-**Cross-adres:** Snijpunten. In de vorm van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
+* **Cross-adres:** Snijpunten. In de vorm van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
 
 **Reactie:**
 
 ```JSON
 {
     "summary": {
-        "query": "400 broad st seattle wa",
+        "query": "400 broad street seattle wa",
         "queryType": "NON_NEAR",
         "queryTime": 129,
         "numResults": 6,

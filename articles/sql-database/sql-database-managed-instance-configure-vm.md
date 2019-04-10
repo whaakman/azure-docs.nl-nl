@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, srbozovi, bonova
+ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997914"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360501"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
 
-In deze Quick Start laat zien hoe u een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance configureren met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) 
+In deze Quick Start laat zien hoe u een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance configureren met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Een nieuw subnet in het VNet beheerd exemplaar maken
 
-De volgende stappen maakt een nieuw subnet in het beheerde exemplaar VNet, zodat een virtuele machine van Azure met het beheerde exemplaar verbinden kunt. De Managed Instance-subnet is toegewezen aan beheerde instanties. U kunt alle andere resources, zoals virtuele machines van Azure, in dat subnet maken. 
+De volgende stappen maakt een nieuw subnet in het beheerde exemplaar VNet, zodat een virtuele machine van Azure met het beheerde exemplaar verbinden kunt. De Managed Instance-subnet is toegewezen aan beheerde instanties. U kunt alle andere resources, zoals virtuele machines van Azure, in dat subnet maken.
 
 1. Open de resourcegroep voor het beheerde exemplaar dat u hebt gemaakt in de [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md) Quick Start. Selecteer het virtuele netwerk voor uw beheerde exemplaar.
 
@@ -46,21 +46,21 @@ De volgende stappen maakt een nieuw subnet in het beheerde exemplaar VNet, zodat
 3. Vul het formulier in met behulp van de informatie in deze tabel in:
 
    | Instelling| Voorgestelde waarde | Description |
-   | ---------------- | ----------------- | ----------- | 
-   | **Naam** | Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
+   | ---------------- | ----------------- | ----------- |
+   | **Name** | Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
    | **Adresbereik (CIDR-blok)** | Een geldig bereik | De standaardwaarde is handig voor deze Quick Start.|
    | **Netwerkbeveiligingsgroep** | Geen | De standaardwaarde is handig voor deze Quick Start.|
    | **Routetabel** | Geen | De standaardwaarde is handig voor deze Quick Start.|
    | **Service-eindpunten** | 0 geselecteerd | De standaardwaarde is handig voor deze Quick Start.|
    | **Delegatie van subnet** | Geen | De standaardwaarde is handig voor deze Quick Start.|
- 
+
    ![Nieuwe Managed Instance-subnet voor VM-client](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
 4. Selecteer **OK** dit aanvullende subnet maken in het beheerde exemplaar VNet.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Een virtuele machine maken in het nieuwe subnet in het VNet
 
-De volgende stappen laten zien hoe u een virtuele machine maken in het nieuwe subnet verbinding maken met het beheerde exemplaar. 
+De volgende stappen laten zien hoe u een virtuele machine maken in het nieuwe subnet verbinding maken met het beheerde exemplaar.
 
 ## <a name="prepare-the-azure-virtual-machine"></a>De Azure-machine voorbereiden
 
@@ -78,11 +78,11 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
    | ---------------- | ----------------- | ----------- |
    | **Abonnement** | Een geldig abonnement | Moet een abonnement waarmee u machtiging voor het maken van nieuwe resources hebt. |
    | **Resourcegroep** |De resourcegroep die u hebt opgegeven in de [beheerd exemplaar maken](sql-database-managed-instance-get-started.md) Quick Start.|Deze resourcegroep moet het abonnement waarin het VNet bestaat.|
-   | **Locatie** | De locatie voor de resourcegroep | Deze waarde is ingevuld op basis van de geselecteerde resourcegroep. | 
-   | **Naam van virtuele machine**  | Een geldige naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
-   |**Gebruikersnaam van beheerder**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.<br>U gebruikt deze gebruikersnaam telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).| 
+   | **Locatie** | De locatie voor de resourcegroep | Deze waarde is ingevuld op basis van de geselecteerde resourcegroep. |
+   | **Naam van de virtuele machine**  | Een geldige naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
+   |**Gebruikersnaam van beheerder**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.<br>U gebruikt deze gebruikersnaam telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>U gebruikt dit wachtwoord telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
-   | **Grootte van virtuele Machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
+   | **Grootte van de virtuele machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
    | **Locatie**|[resourceGroup () .location].| Deze waarde niet te wijzigen. |
    | **Virtuele-netwerknaam**|Het virtuele netwerk waarin u het beheerde exemplaar gemaakt.|
    | **Subnetnaam**|De naam van het subnet dat u in de vorige procedure hebt gemaakt| Kies geen het subnet waarin u het beheerde exemplaar gemaakt.|
@@ -108,31 +108,31 @@ In de volgende stappen wordt uitgelegd hoe u verbinding maakt met uw nieuwe virt
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. Selecteer **Verbinden**. 
-   
-   Er wordt een Remote Desktop Protocol (RDP-bestand)-formulier weergegeven met het openbare IP-adres en poort nummer voor de virtuele machine. 
+2. Selecteer **Verbinden**.
+
+   Er wordt een Remote Desktop Protocol (RDP-bestand)-formulier weergegeven met het openbare IP-adres en poort nummer voor de virtuele machine.
 
    ![RDP-formulier](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
 3. Selecteer **RDP-bestand downloaden**.
- 
+
    > [!NOTE]
    > U kunt ook SSH verbinding maken met uw virtuele machine.
 
 4. Sluit de **verbinding maken met virtuele machine** formulier.
-5. Open het gedownloade RDP-bestand om verbinding met de VM te maken. 
+5. Open het gedownloade RDP-bestand om verbinding met de VM te maken.
 6. Wanneer u hierom wordt gevraagd, selecteert u **Connect**. Op een Mac hebt u een RDP-client nodig, zoals deze [Extern-bureaubladclient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) uit de Mac App Store.
 
-6. Voer de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine en kies vervolgens **OK**.
+7. Voer de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine en kies vervolgens **OK**.
 
-7. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Kies **Ja** of **doorgaan** om door te gaan met de verbinding.
+8. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Kies **Ja** of **doorgaan** om door te gaan met de verbinding.
 
 U bent verbonden met uw virtuele machine in het dashboard Serverbeheer.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>SSMS gebruiken voor verbinding met het beheerde exemplaar
 
 1. Open in de virtuele machine, SQL Server Management Studio (SSMS).
- 
+
    Het duurt een paar minuten om te openen, moet de configuratie te voltooien, aangezien dit de eerste keer SSMS is gestart.
 2. In de **verbinding maken met Server** dialoogvenster vak, voer de volledig gekwalificeerde **hostnaam** voor uw beheerde exemplaar in de **servernaam** vak. Selecteer **SQL Server-verificatie**, Geef uw gebruikersnaam en wachtwoord en selecteer vervolgens **Connect**.
 

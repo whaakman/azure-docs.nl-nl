@@ -10,71 +10,71 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cd643185fb4647b19082980edfd333c507aab8a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266253"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358215"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
-Maak een cloud-gebaseerde notebookserver en gebruik vervolgens deze code waarmee waarden zich in de Azure Machine Learning-service uit te voeren [werkruimte](concept-azure-machine-learning-architecture.md). Uw werkruimte is het fundamentele blok in de cloud die u gebruiken om te experimenten, te trainen en implementeren van machine learning-modellen met Machine Learning. 
+In dit artikel gebruikt u Azure-notitieblokken code die wordt vastgelegd in de Azure Machine Learning-service uit te voeren [werkruimte](concept-azure-machine-learning-architecture.md). Uw werkruimte is het fundamentele blok in de cloud die u gebruiken om te experimenten, te trainen en implementeren van machine learning-modellen met Machine Learning. 
 
-Deze quickstart laat zien hoe u een cloudresource maken in uw Azure Machine Learning-werkruimte, geconfigureerd met de Python-omgeving die nodig zijn om uit te voeren van Azure Machine Learning. Als u wilt gebruiken in plaats daarvan uw eigen omgeving, Zie [Quick Start: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning](quickstart-run-local-notebook.md).  
+In deze snelstart wordt gebruikgemaakt van cloudresources en er is geen installatie vereist. Als u wilt gebruiken in plaats daarvan uw eigen omgeving, Zie [Quick Start: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning](quickstart-run-local-notebook.md).  
  
 In deze snelstart voert u de volgende acties uit:
 
-* Maken van een werkstation
-* Een Jupyter-Notebook-server op uw werkstation starten
-* Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
-* Uitvoeren van het notitieblok.
-* Bekijk de geregistreerde foutwaarden in uw werkruimte.  Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+* Verbinding maken met uw werkruimte met Python in een Jupyter-notebook. De notebook bevat code voor een schatting van pi en logboeken voor fouten bij elke iteratie. 
+* Bekijk de geregistreerde foutwaarden in uw werkruimte.
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisite"></a>Vereiste
 
 1. [Een Azure Machine Learning-werkruimte maken](setup-create-workspace.md#portal) als u dit niet hebt.
 
-1. Open de werkruimte in de [Azure-portal](https://portal.azure.com/).  Als u niet zeker weet hoe u uw werkruimte niet vinden in de portal, Zie hoe u [vinden van uw werkruimte](how-to-manage-workspace.md#view).
+1. Open de werkruimte in de [Azure-portal](https://portal.azure.com/).  Zie hoe u [vinden van uw werkruimte](how-to-manage-workspace.md#view).
 
-## <a name="create-a-workstation"></a>Maken van een werkstation 
+## <a name="use-your-workspace"></a>Gebruik van uw werkruimte
 
-Een laptop-werkstation kunt u een cloud-platform voor Jupyter-notitieblokken die vooraf is geconfigureerd met alles wat die u nodig hebt om uit te voeren van Azure Machine Learning-service. U kunt dit platform aan de slag met behulp van Jupyter notebooks maken vanuit uw werkruimte.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-1. Selecteer op de pagina van uw werkruimte in Azure portal **laptop werkstation** aan de linkerkant.
 
-1. Selecteer **notitieblokken maken in een werkstation met Azure Machine Learning (Preview)**
+
+Meer informatie over hoe u een werkruimte kunt beheren van machine learning-scripts. In deze sectie voert u de volgende stappen uit:
+
+* Een notitieblok openen in Azure Notebooks.
+* Code uitvoeren die enkele vastgelegde waarden maakt.
+* De vastgelegde waarden in uw werkruimte weergeven.
+
+Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+
+### <a name="open-a-notebook"></a>Een notitieblok openen 
+
+[Azure Notebooks](https://notebooks.azure.com) biedt een gratis cloudplatform voor Jupyter-notebooks dat vooraf is geconfigureerd met alles wat u nodig hebt om Machine Learning uit te voeren. U kunt dit platform aan de slag met behulp van de werkruimte van uw Azure Machine Learning-service starten vanuit uw werkruimte.
+
+1. Selecteer op de pagina overzicht van werkruimte **ophalen gestart Azure notitieblokken** om te proberen uw eerste experiment in Azure-notitieblokken.  Azure Notebooks is een afzonderlijke service waarmee u Jupyter-notebooks gratis kunt uitvoeren in de cloud.  Wanneer u deze koppeling naar de service gebruikt, wordt informatie over hoe u verbinding maakt met uw werkruimte toegevoegd aan de bibliotheek die u in Azure Notebooks maakt.
 
    ![De werkruimte verkennen](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
-1. De **laptops** sectie bevat een overzicht van alle cloud-gebaseerde notebook-servers die beschikbaar zijn in uw werkruimte.  Hier kunt u ook deze resources beheren en te verwijderen wanneer ze niet langer nodig zijn. 
+1. Meld u aan bij Azure Notebooks.  Meld u aan met hetzelfde account dat u hebt gebruikt om u aan te melden bij de Microsoft Azure-portal. Mogelijk moet in uw organisatie [beheerderstoestemming](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) worden verkregen voordat u zich kunt aanmelden.
 
-1. Selecteer **toevoegen werkstation** te maken van een laptop-werkstation.
+1. Nadat u zich hebt aangemeld, wordt er een nieuw tabblad geopend en wordt er een `Clone Library`-prompt weergegeven. Wanneer u deze bibliotheek kloont, wordt een verzameling notebooks en andere bestanden in uw Azure Notebooks-account geladen.  Met deze bestanden kunt u de mogelijkheden van Azure Machine Learning verkennen.
 
-     ![Selecteer toevoegen-werkstation](./media/quickstart-run-cloud-notebook/add-workstation.png)
+1. Schakel het selectievakje **Openbaar** uit zodat u uw werkruimtegegevens niet met anderen deelt.
 
-1. In de sectie toevoegen Notebook werkstation geven uw werkstation een **Compute naam** en selecteer een **Rekentype**. Selecteer vervolgens **Maken**.
+1. Selecteer **Klonen**.
 
-    ![Maken van nieuwe werkstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+   ![Een bibliotheek klonen](./media/quickstart-run-cloud-notebook/clone.png)
 
-    > [!NOTE]
-    > Uw werkstation duurt ongeveer twee minuten om te maken. Wanneer u klaar bent, worden de statusupdates van de 'Running' en koppelingen naar Jupyter en Jjupyterlab weergegeven.
+1. Als u ziet dat de projectstatus is gestopt, klikt u op **Uitvoeren op gratis computer** om de gratis notebookserver te gebruiken.
 
-## <a name="launch-jupyter-web-interface"></a>Jupyter-webinterface starten
-
-Nadat uw werkstation is gemaakt, gebruik u de sectie laptops om te starten van de Jupyter-webinterface.
-
-* Selecteer **Jupyter** of **Jupyter Lab** in de **starten** kolom voor uw werkstation.
-
-    ![Jupyter-notebookserver starten](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
-
-    Hiermee wordt de notebook-server wordt gestart en wordt de startpagina van de server in een nieuw browsertabblad geopend.  De server bevat voorbeeldnotitieblokken die u kunt gebruiken om aan de slag met Azure Machine Learning-service.
+    ![Uitvoeren op gratis compute](./media/quickstart-run-cloud-notebook/run-project.png)
 
 ### <a name="run-the-notebook"></a>Het notitieblok uitvoeren
 
-Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw werkruimte.
+In de lijst met bestanden voor dit project, ziet u het bestand `config.json`. Dit configuratiebestand bevat informatie over de werkruimte die u hebt gemaakt in de Microsoft Azure-portal.  Met dit bestand kan uw code verbinding maken met en gegevens toevoegen aan uw werkruimte.
 
 1. Selecteer **01.run experiment.ipynb** om het notebook te openen.
 
@@ -82,7 +82,9 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
     ![Wachten tot de kernel is gestart](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. Nadat de kernel is gestart, voert u de cellen één voor één uit met behulp van **Shift + Enter**. U kunt ook **Cellen** > **Alles uitvoeren** selecteren om het hele notebook uit te voeren. Wanneer er een asterisk (__*__) naast een cel, de cel nog steeds wordt uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal.  
+1. Nadat de kernel is gestart, voert u de cellen één voor één uit met behulp van **Shift + Enter**. U kunt ook **Cellen** > **Alles uitvoeren** selecteren om het hele notebook uit te voeren. Als er een sterretje, __*__, naast een cel staat, wordt de cel nog uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal. 
+
+1. Volg de instructies in het notebook om uw Azure-abonnement te verifiëren.
 
 Nadat u de uitvoering van alle cellen in de notebook hebt voltooid, kunt u de vastgelegde waarden weergeven in uw werkruimte.
 
@@ -106,16 +108,9 @@ Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waa
 
 U kunt de resourcegroep ook bewaren en slechts één werkruimte verwijderen. Bekijk de eigenschappen van de werkruimte en selecteer **Verwijderen**.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt voltooid u de volgende:
-
-* Maken van een werkstation
-* Een Jupyter-Notebook-server op uw werkstation starten
-* Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
-* Uitvoeren van het notitieblok.
-* Bekijk de geregistreerde foutwaarden in uw werkruimte.  Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+U hebt de resources gemaakt die u nodig hebt om mee te experimenteren en om modellen te implementeren. U hebt ook code uitgevoerd in een notitieblok. U hebt ook de uitvoeringsgeschiedenis van die code in uw werkruimte in de cloud onderzocht.
 
 Voor een diepgaande werkstroomervaring volgt u de zelfstudies over Machine Learning om een ​​model te trainen en te implementeren:  
 

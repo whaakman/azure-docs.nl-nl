@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266440"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358227"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back-up en herstel van versleutelde virtuele Azure-machine
 
@@ -31,7 +31,7 @@ Azure Backup biedt ondersteuning voor back-up van virtuele Azure-machines waarvo
 Azure Backup kunt back-up en herstellen van virtuele Azure-machines met behulp van ADE met en zonder de Azure AD-app, zoals samengevat in de volgende tabel.
 
 **Type VM-schijf** | **ADE (BEK/dm-crypt)** | **ADE en KEK-sleutel**
---- | --- | --- 
+--- | --- | ---
 **Unmanaged** | Ja | Ja
 **Managed**  | Ja | Ja
 
@@ -95,14 +95,14 @@ Er zijn bovendien een aantal dingen die u moet uitvoeren in sommige gevallen:
 8. Als u Azure Key Vault, op de pagina van de kluis, ziet u een bericht dat Azure Backup nodig alleen-lezen toegang tot de sleutels en geheimen in de Key Vault heeft.
 
     - Als u dit bericht ontvangt, is geen actie vereist.
-    
+
         ![Toegang OK](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Als u dit bericht ontvangt, moet u machtigingen instellen, zoals beschreven in de [onderstaande procedure](#provide-permissions).
-    
+
         ![Waarschuwing voor toegang](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Klik op **back-up inschakelen** voor het implementeren van het back-upbeleid in de kluis en back-up inschakelen voor de geselecteerde virtuele machines. 
+9. Klik op **back-up inschakelen** voor het implementeren van het back-upbeleid in de kluis en back-up inschakelen voor de geselecteerde virtuele machines.
 
 
 ## <a name="trigger-a-backup-job"></a>Een back-uptaak activeert
@@ -129,18 +129,18 @@ Machtigingen instellen:
 1. Selecteer in de Azure portal, **alle services**, en zoek naar de **Key vaults**.
 2. Selecteer de sleutelkluis die is gekoppeld aan de versleutelde VM u back-up.
 3. Selecteer **toegangsbeleid** > **nieuwe toevoegen**.
-4. Selecteer **Selecteer principal**, en typ vervolgens **back-up Management**. 
+4. Selecteer **Selecteer principal**, en typ vervolgens **back-up Management**.
 5. Selecteer **back-up van Managementservice** > **Selecteer**.
 
     ![Selectie van de Backup-service](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. In **toegangsbeleid toevoegen** > **configureren met sjabloon (optioneel)**, selecteer **Azure Backup**.
     - De vereiste machtigingen zijn ingevuld voor **sleutelmachtigingen** en **geheime machtigingen**.
-    - Als uw virtuele machine is versleuteld met behulp van **BEK alleen**, verwijdert u de selectie voor **sleutelmachtigingen** omdat u alleen machtigingen voor geheimen nodig hebt. 
+    - Als uw virtuele machine is versleuteld met behulp van **BEK alleen**, verwijdert u de selectie voor **sleutelmachtigingen** omdat u alleen machtigingen voor geheimen nodig hebt.
 
     ![Azure back-up selecteren](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Klik op **OK**. **Back-up van Service Management** wordt toegevoegd aan **toegangsbeleid**. 
+6. Klik op **OK**. **Back-up van Service Management** wordt toegevoegd aan **toegangsbeleid**.
 
     ![Toegangsbeleid](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ U herstellen versleutelde virtuele machines als volgt:
 
 Wanneer u problemen ondervindt, controleert u
 
-- [Veelvoorkomende fouten](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) wanneer back-up en herstellen van virtuele Azure-machines versleuteld.
-- [Algemene](backup-azure-vms-troubleshoot.md) problemen met virtuele Azure-machine.
+- [Veelvoorkomende fouten](backup-azure-vms-troubleshoot.md) wanneer back-up en herstellen van virtuele Azure-machines versleuteld.
 - [Azure VM agent/back-up-extensie](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problemen.

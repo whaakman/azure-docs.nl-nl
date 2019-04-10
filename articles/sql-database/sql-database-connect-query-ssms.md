@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447752"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359983"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
@@ -33,9 +33,9 @@ In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g]
   | Maken| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
-  |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
+  | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Verbinding van een virtuele machine](sql-database-managed-instance-configure-vm.md)|
+  |||[De connectiviteit van ter plekke](sql-database-managed-instance-configure-p2s.md)
+  |Gegevens laden|Adventure Works geladen volgens de quickstart|[Herstellen van Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -44,7 +44,7 @@ In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g]
 
 ## <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 
-Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd. 
+Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
@@ -58,7 +58,7 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 
 ## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 
-In SMSS maakt u verbinding met uw Azure SQL Database-server. 
+In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 > [!IMPORTANT]
 > Een Azure SQL Database-server luistert naar poort 1433. Om verbinding te maken met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
@@ -68,12 +68,12 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
 2. Voer de volgende informatie in:
 
-   | Instelling      | Voorgestelde waarde    | Description | 
-   | ------------ | ------------------ | ----------- | 
+   | Instelling      | Voorgestelde waarde    | Beschrijving |
+   | ------------ | ------------------ | ----------- |
    | **Servertype** | Database-engine | Vereiste waarde. |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
-   | **Verificatie** | SQL Server-verificatie | In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
-   | **Aanmelding** | Gebruikers-id voor het beheerdersaccount voor de server | De gebruikers-id van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
+   | **Authentication** | SQL Server-verificatie | In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
+   | **Aanmelden** | Gebruikers-id voor het beheerdersaccount voor de server | De gebruikers-id van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    | **Wachtwoord** | Het wachtwoord voor het serverbeheerdersaccount | Het wachtwoord van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    ||||
 
@@ -83,7 +83,7 @@ In SMSS maakt u verbinding met uw Azure SQL Database-server.
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Selecteer **Verbinden**. Het venster Objectverkenner wordt geopend. 
+4. Selecteer **Verbinden**. Het venster Objectverkenner wordt geopend.
 
 5. Als u de objecten van de database wilt weergeven, vouwt u **Databases** uit en vouwt u vervolgens **mySampleDatabase** uit.
 
@@ -140,15 +140,14 @@ Voer deze Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx
 1. Vervang de vorige query door deze.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Selecteer **Uitvoeren**. Het volgende resultaat weergegeven. 
+
+2. Selecteer **Uitvoeren**. Het volgende resultaat weergegeven.
 
    ![Resultaat](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>Gegevens bijwerken
 
 Voer deze [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-code voor het wijzigen van het nieuwe product.
@@ -188,8 +187,6 @@ Voer deze Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx
 - Zie [Verbinding maken en query's uitvoeren met Python](sql-database-connect-query-python.md) als u verbinding wilt maken en query's wilt uitvoeren met Python.
 - Zie [Verbinding maken en query's uitvoeren met Ruby](sql-database-connect-query-ruby.md) als u verbinding wilt maken en query's wilt uitvoeren met Ruby.
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

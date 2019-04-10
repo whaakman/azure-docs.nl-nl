@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338153"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278391"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Zelfstudie: Een toepassing registreren in Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Als u dit nog niet hebt gemaakt uw eigen [Azure AD B2C-Tenant](tutorial-create-t
 
 ## <a name="create-a-client-secret"></a>Een clientgeheim maken
 
-Als u geen toepassing een code voor een token uitwisselt, moet u het toepassingsgeheim van een maken.
+Als uw toepassing een code voor een token uitwisselt, moet u het toepassingsgeheim van een maken.
 
 1. Selecteer **sleutels** en klik vervolgens op **sleutel genereren**.
 2. Selecteer **opslaan** om de sleutel weer te geven. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.

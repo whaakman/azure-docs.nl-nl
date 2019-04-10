@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882324"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357614"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Statische toegangsbeperkingen voor Azure App Service #
 
@@ -85,3 +85,9 @@ De JSON-syntaxis voor het vorige voorbeeld is:
         "name": "allowed access"
       }
     ],
+
+## <a name="function-app-ip-restrictions"></a>Functie-App-IP-beperkingen
+
+IP-beperkingen zijn beschikbaar voor zowel functie-Apps met dezelfde functionaliteit als App Service-plannen. Houd er rekening mee dat IP inschakelen beperkingen wordt uitgeschakeld portal code-editor voor eventuele niet-toegestane IP-adressen.
+
+[Hier voor meer informatie](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

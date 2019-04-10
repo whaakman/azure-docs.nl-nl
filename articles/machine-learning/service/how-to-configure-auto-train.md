@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541142"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358304"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -26,7 +26,7 @@ Voor voorbeelden van een geautomatiseerde voor machine learning gebruikt, raadpl
 
 Configuratie-opties zijn beschikbaar in geautomatiseerde machine learning:
 
-* Selecteer het type experiment: Classificatie, regressie of prognoses
+* Selecteer het type experiment: Classificatie, regressie of Timeseries-prognoses
 * De gegevensbron, indelingen en ophalen van gegevens
 * Kies uw compute-doel: lokale of externe
 * Geautomatiseerde machine learning-experiment-instellingen
@@ -39,22 +39,22 @@ Voordat u uw experiment, moet u het type van machine learning probleem, u het op
 
 Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven. DNN algoritmen zijn beschikbaar tijdens de training, stel geautomatiseerde ML DNN modellen niet samen.
 
-Classificatie | Regressie | Prognose
+Classificatie | Regressie | Time Series-prognoses
 |-- |-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastische Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastische Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Licht GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Versterking van kleurovergang](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslissingsstructuur](https://scikit-learn.org/stable/modules/tree.html#regression)
 [K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K dichtstbijzijnde Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Lineaire SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[C-Support Vector classificatie (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-Support Vector classificatie (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Willekeurige Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Zeer willekeurige structuren](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN lineaire classificatie](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Lineaire regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Lineaire regressor zijn](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Gegevensbron en indeling
@@ -112,7 +112,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` script kan retourneren:
 
-Sleutel | Type |    Sluiten elkaar wederzijds uit met | Description
+Sleutel | Type | Sluiten elkaar wederzijds uit met    | Description
 ---|---|---|---
 X | Pandas Dataframe of Numpy matrix | data_train, label, kolommen |  Alle functies te trainen met
 Y | Pandas Dataframe of Numpy matrix |   label   | Voeg een label te trainen met gegevens. Voor de classificatie moet een matrix van gehele getallen zijn.
@@ -191,6 +191,7 @@ Voorbeelden zijn:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
+        blacklist_models='XGBoostClassifier',
         X=X,
         y=y,
         n_cross_validations=2)
@@ -202,55 +203,25 @@ Voorbeelden zijn:
         task='regression',
         max_time_sec=600,
         iterations=100,
+        whitelist_models='kNN regressor'
         primary_metric='r2_score',
         X=X,
         y=y,
         n_cross_validations=5)
     ```
 
-Er zijn drie verschillende `task` parameterwaarden die bepalen van de lijst met algoritmen om toe te passen.  Gebruik de `whitelist` of `blacklist` parameters voor het verder aanpassen iteraties met de beschikbare algoritmen wilt opnemen of uitsluiten.
-* Classificatie
-    * LogisticRegression
-    * SGD
-    * MultinomialNaiveBayes
-    * BernoulliNaiveBayes
-    * SVM
-    * LinearSVM
-    * KNN
-    * DecisionTree
-    * RandomForest
-    * ExtremeRandomTrees
-    * LightGBM
-    * GradientBoosting
-    * TensorFlowDNN
-    * TensorFlowLinearClassifier
-    * XGBoostClassifier
-* Regressie
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
-* Prognose
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
+De drie verschillende `task` parameterwaarden bepalen de lijst met algoritmen om toe te passen.  Gebruik de `whitelist` of `blacklist` parameters voor het verder aanpassen iteraties met de beschikbare algoritmen wilt opnemen of uitsluiten. De lijst met ondersteunde modellen kan worden gevonden op [SupportedAlgorithms klasse](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+
+## <a name="primary-metric"></a>Primaire metrische gegevens
+De primaire metric; zoals wordt weergegeven in de bovenstaande voorbeelden bepaalt de metrische gegevens moet worden gebruikt tijdens het trainen van het model voor optimalisatie. De primaire metrische gegevens die u kunt selecteren, wordt bepaald door het taaktype dat u kiest. Hieronder vindt u een lijst met beschikbare metrische gegevens.
+
+|Classificatie | Regressie | Time Series-prognoses
+|-- |-- |--
+|accuracy| spearman_correlation | spearman_correlation
+|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
+|average_precision_score_weighted | r2_score | r2_score
+|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
+|precision_score_weighted |
 
 ## <a name="data-pre-processing-and-featurization"></a>Gegevens vooraf verwerken en parametrisatie
 
@@ -269,7 +240,7 @@ Als u `preprocess=True`, de volgende gegevens voorverwerkingsstappen automatisch
 
 ## <a name="time-series-forecasting"></a>Time Series-prognoses
 Voor time series prognoses taaktype hebt u aanvullende parameters te definiëren.
-1. time_horizon_name - dit is een vereiste parameter waarin de naam van de kolom zijn gedefinieerd in uw trainingen met datum/tijd gegevensreeks. 
+1. time_column_name - dit is een vereiste parameter waarin de naam van de kolom zijn gedefinieerd in uw trainingen met datum/tijd gegevensreeks. 
 1. max_horizon - Hiermee definieert u de hoeveelheid tijd die u wilt om te voorspellen op basis van de periodiciteit van de trainingsgegevens. Zo hebt u trainingsgegevens met dagelijkse tijd korrels, definieert u hoe ver uit in de dagen die u wilt dat het model te trainen voor.
 1. grain_column_names - Hiermee definieert u de naam van de kolommen die afzonderlijke time series-gegevens in uw trainingsgegevens bevatten. Als u bent verkoopprognoses van een bepaalde merk door store, zou u kolommen store en merk definiëren als uw kolommen tijdsinterval.
 
@@ -324,7 +295,6 @@ Er enkele opties kunt u definiëren voor het voltooien van uw experiment.
 1. Afgesloten na een tijdsduur - experiment_timeout_minutes gebruiken in de instellingen die u kunt opgeven hoe lang in minuten moet een experiment blijven uitvoeren.
 1. Sluit af nadat een score is bereikt - met behulp van experiment_exit_score die kunt u de experiement voltooid zodra een score op basis van uw primaire meetwaarde is bereikt.
 
-
 ## <a name="explore-model-metrics"></a>Model metrische gegevens verkennen
 U kunt uw resultaten weergeven in een widget of een inline als u zich in een notitieblok. Zie [bijhouden en evalueren van modellen](how-to-track-experiments.md#view-run-details) voor meer informatie.
 
@@ -355,7 +325,7 @@ recall_score_micro|Intrekken is het percentage van de elementen in een bepaalde 
 recall_score_weighted|Intrekken is het percentage van de elementen in een bepaalde klasse daadwerkelijk die goed zijn gelabeld. Gewogen is het rekenkundige gemiddelde van terugroeping voor elke objectklasse, gewogen door het aantal waar elke klasse-instanties|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|gemiddelde = "gewogen"|
 weighted_accuracy|Gewogen nauwkeurigheid is nauwkeurigheid waarin het gewicht gegeven aan elk voorbeeld gelijk is aan het aandeel van true-exemplaren in dat de waarde true voorbeeldklasse|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is gelijk aan het aandeel van die klasse voor elk element in de doel-vector|
 
-### <a name="regression-and-forecasting-metrics"></a>Regressie worden gevolgd en voorspeld metrische gegevens
+### <a name="regression-and-time-series-forecasting-metrics"></a>Regressie en -tijd reeks prognose van metrische gegevens
 De volgende metrische gegevens worden opgeslagen in elke iteratie een regressie of prognoses taak.
 
 |Gegevens|Description|Berekening|Extra Parameters

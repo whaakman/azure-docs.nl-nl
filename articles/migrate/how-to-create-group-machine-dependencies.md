@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280907"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360347"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -121,21 +121,21 @@ Nadat de groep is gemaakt, is het aanbevolen om agents te installeren op alle co
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Query uitvoeren op afhankelijkheidsgegevens van Azure Monitor-Logboeken
 
-Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics-werkruimte die is gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) logboeken over de Serviceoverzicht-gegevenstabellen opvragen in Azure Monitor. 
+Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in de Log Analytics-werkruimte die is gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) logboeken over de Serviceoverzicht-gegevenstabellen opvragen in Azure Monitor. 
 
 De Kusto-query's uitvoeren:
 
 1. Nadat u de agents hebt geïnstalleerd, gaat u naar de portal en klik op **overzicht**.
 2. In **overzicht**, gaat u naar **Essentials** sectie van het project en klik op de naam van de werkruimte is opgegeven bij **OMS-werkruimte**.
 3. Klik op de pagina van de Log Analytics-werkruimte **algemene** > **logboeken**.
-4. Schrijf de query om afhankelijkheidsgegevens met behulp van Azure Monitor-logboeken te verzamelen. Voorbeeldquery's voor het verzamelen van afhankelijkheidsgegevens zijn beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Schrijf de query om afhankelijkheidsgegevens met behulp van Azure Monitor-logboeken te verzamelen. Voorbeeldquery's niet vinden in de volgende sectie.
 5. Voer de query uit door te klikken op uitvoeren. 
 
 [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) over het schrijven van Kusto-query's. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Voorbeeld van Azure Monitor logboekregistratie van query 's
 
-Hieronder vindt u voorbeeld-query's die u gebruiken kunt om afhankelijkheidsgegevens te extraheren. Houd er rekening mee dat de query's kunnen worden aangepast voor het extraheren van uw voorkeur gegevenspunten. Een volledige lijst van de velden in gegevensrecords van afhankelijkheid is beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Hieronder vindt u voorbeeld-query's die u gebruiken kunt om afhankelijkheidsgegevens te extraheren. U kunt de query's om uit te pakken van uw voorkeur gegevenspunten wijzigen. Een volledige lijst van de velden in gegevensrecords van afhankelijkheid is beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Zoek meer voorbeeldquery's [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Binnenkomende verbindingen op een set van machines samenvatten
 

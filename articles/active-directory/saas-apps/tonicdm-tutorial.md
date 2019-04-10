@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 104acda9521ff52af809fc79b1dfd12e4769e87b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Zelfstudie: Azure Active Directory-integratie met TonicDM
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met TonicDM, moet u de v
 
     ![TonicDM domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://tonicdm.com/`
+    a. In de **aanmeldings-URL** tekstvak typt u een URL: `https://tonicdm.com/`
 
     b. Typ een URL in het vak **Id (Entiteits-id)**: `https://tonicdm.com/saml/metadata`
 
@@ -191,9 +191,9 @@ Wanneer u op de tegel TonicDM in het toegangsvenster, moet u worden automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: e302a4edc54b98f0dd731f65d0d45aa592cc72ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66a08ad674477da478ec7037833fe4cb836f9bb0
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076765"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357027"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -113,4 +113,4 @@ U hebt nu een toepassing met meerdere containers waarin elke container afzonderl
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over teamontwikkeling in Dev Spaces](team-development-netcore-visualstudio.md)
+> [Meer informatie over teamontwikkeling in Dev-ruimten](team-development-netcore-visualstudio.md)
