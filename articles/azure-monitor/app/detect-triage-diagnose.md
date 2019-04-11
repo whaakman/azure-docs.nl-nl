@@ -15,7 +15,7 @@ ms.date: 09/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
 ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56673339"
@@ -103,7 +103,7 @@ Het e-mailbericht toont haar of er een bepaald soort uitzondering is opgetreden,
 
 Marcella neemt contact op met de leidinggevende van het databaseteam op basis van deze e-mail. Deze vertelt haar dat zijn team in het afgelopen half uur een hotfix heeft uitgebracht, en dat het schema daardoor wellicht ietwat is veranderd....
 
-Het probleem wordt mogelijk zelfs nog binnen vijftien minuten nadat het optrad, opgelost, en zelfs nog voordat de logs zijn bestudeerd. Maar Marcela klikt op de koppeling waarmee Application Insights wordt geopend. Ze gaat hiermee rechtstreeks naar een mislukte aanvraag en ze ziet de mislukte databaseaanroep in de bijbehorende lijst met afhankelijkheidsaanroepen.
+Het probleem wordt mogelijk zelfs nog binnen vijftien minuten nadat het optrad, opgelost en zelfs nog voordat de logboeken zijn bestudeerd. Maar Marcela klikt op de koppeling waarmee Application Insights wordt geopend. Ze gaat hiermee rechtstreeks naar een mislukte aanvraag en ze ziet de mislukte databaseaanroep in de bijbehorende lijst met afhankelijkheidsaanroepen.
 
 ![mislukte aanvraag](./media/detect-triage-diagnose/23.png)
 

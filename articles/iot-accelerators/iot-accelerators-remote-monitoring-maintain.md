@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie over het gebruik van waarschuwingen en het verhelpen van problemen met apparaten met de oplossing voor externe controle - Azure | Microsoft Docs
-description: In deze zelfstudie ziet u hoe u waarschuwingen kunt gebruiken om problemen te identificeren en op te lossen met apparaten die zijn verbonden met de oplossingsverbetering voor externe controle.
+title: Zelfstudie over het gebruik van waarschuwingen en het verhelpen van problemen met apparaten met de externe bewakingsoplossing - Azure | Microsoft Docs
+description: In deze zelfstudie ziet u hoe u waarschuwingen kunt gebruiken om problemen te identificeren en op te lossen met apparaten die zijn verbonden met de verbetering voor de externe bewakingsoplossing.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54451712"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Zelfstudie: Problemen met apparaten opsporen en oplossen
 
-In deze zelfstudie gebruikt u de oplossingsverbetering voor externe controle om problemen met verbonden IoT-apparaten te identificeren en te herstellen. U gebruikt waarschuwingen op het dashboard van de oplossingsverbetering om problemen te identificeren. Vervolgens voert u externe taken uit om deze problemen op te lossen.
+In deze zelfstudie gebruikt u de verbetering voor de externe bewakingsoplossing om problemen met verbonden IoT-apparaten te identificeren en te herstellen. U gebruikt waarschuwingen op het dashboard van de oplossingsverbetering om problemen te identificeren. Vervolgens voert u externe taken uit om deze problemen op te lossen.
 
 Contoso test momenteel in de praktijk een nieuw **Prototypeapparaat**. Als Contoso-operator merkt u, tijdens het testen, dat voor het **Prototypeapparaat** onverwacht een temperatuurwaarschuwing wordt geactiveerd op het dashboard. U moet nu het gedrag onderzoeken van het **Prototypeapparaat** waarvoor de waarschuwing wordt weergegeven, en het probleem oplossen.
 
@@ -86,4 +86,4 @@ U kunt controleren of de temperatuur van het apparaat is afgenomen door de telem
 
 In deze zelfstudie hebt u gezien hoe u waarschuwingen kunt gebruiken om problemen met apparaten te identificeren en welke acties u kunt ondernemen om de problemen op deze apparaten op te lossen. Ga verder met de praktische artikelen voor informatie over het verbinden van een echt apparaat met de oplossingsverbetering.
 
-Nu u hebt geleerd hoe u problemen met apparaten aanpakt, is de volgende stap die we willen voorstellen het [verbinden van uw apparaat met de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).
+Nu u hebt geleerd hoe u problemen met apparaten aanpakt, is de volgende stap die we willen voorstellen het [verbinden van uw apparaat met de verbetering voor de externe bewakingsoplossing](iot-accelerators-connecting-devices.md).

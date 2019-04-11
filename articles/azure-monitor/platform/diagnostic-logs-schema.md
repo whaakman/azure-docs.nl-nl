@@ -92,7 +92,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Batch/batchAccounts|ServiceLog|Servicelogboeken|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee worden de metrische gegevens van het eindpunt opgehaald, zoals bandbreedte, uitgaand verkeer enzovoort.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|
-|Microsoft.CognitiveServices/accounts|Controleren|Controlelogboeken|
+|Microsoft.CognitiveServices/accounts|Controleren|Auditlogboeken|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Aanvraag- en antwoordlogboeken|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API-server|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
@@ -103,9 +103,9 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.DataFactory/factories|ActivityRuns|Uitvoeringen van pijplijn activiteitenlogboek|
 |Microsoft.DataFactory/factories|PipelineRuns|Pijplijnuitvoeringen log|
 |Microsoft.DataFactory/factories|TriggerRuns|Triggeruitvoeringen log|
-|Microsoft.DataLakeAnalytics/accounts|Controleren|Controlelogboeken|
+|Microsoft.DataLakeAnalytics/accounts|Controleren|Auditlogboeken|
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken van de aanvraag|
-|Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
+|Microsoft.DataLakeStore/accounts|Controleren|Auditlogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken van de aanvraag|
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL-Server-logboeken|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-logboeken|
@@ -138,7 +138,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
 |Microsoft.IoTSpaces/Graph|Inkomend verkeer|Inkomend verkeer|
 |Microsoft.IoTSpaces/Graph|Uitgaand verkeer|Uitgaand verkeer|
-|Microsoft.KeyVault/vaults|AuditEvent|Controlelogboeken|
+|Microsoft.KeyVault/vaults|AuditEvent|Auditlogboeken|
 |Microsoft.Logic/workflows|WorkflowRuntime|Diagnostische gebeurtenissen van de workflowruntime|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Gebeurtenissen van integratieaccounts bijhouden|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Netwerkbeveiligingsgroepgebeurtenis|
@@ -185,7 +185,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Sql/servers/databases|Time-outs|Time-outs|
 |Microsoft.Sql/servers/databases|blokken|blokken|
 |Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
-|Microsoft.Sql/servers/databases|Controleren|Controlelogboeken|
+|Microsoft.Sql/servers/databases|Controleren|Auditlogboeken|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Controlegebeurtenis voor SQL-beveiliging|
 |Microsoft.Sql/servers/databases|DmsWorkers|DMS werknemers|
 |Microsoft.Sql/servers/databases|ExecRequests|Exec aanvragen|

@@ -124,7 +124,7 @@ De volgende stappen doorlopen het omleiden van de toepassingslogboeken van de st
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
-In dit stadium hebt u geleerd hoe fouten kunt opsporen en toegang kunt krijgen tot uw toepassingslogboeken tijdens het ontwikkelen van uw Service Fabric Java-toepassingen.
+U hebt nu geleerd hoe u fouten kunt opsporen en toegang kunt krijgen tot uw toepassingslogboeken tijdens het ontwikkelen van uw Service Fabric Java-toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

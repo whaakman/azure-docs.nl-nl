@@ -69,7 +69,7 @@ Wanneer de **Status** eenmaal *Uitvoeren* is, gaat u naar de FQDN van de contain
 
 Gefeliciteerd! Als u slechts enkele instellingen configureert, hebt u een openbaar toegankelijke toepassing in Azure Container Instances geïmplementeerd.
 
-## <a name="view-container-logs"></a>Containerlogbestanden bekijken
+## <a name="view-container-logs"></a>Containerlogboeken ophalen
 
 Het weergeven van de logboeken voor een exemplaar van de container is handig bij het oplossen van problemen met de container of de toepassing die wordt uitgevoerd.
 

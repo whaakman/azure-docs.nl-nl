@@ -296,7 +296,7 @@ ms.locfileid: "59051032"
                                                         <br><br>
                                                         <h3><a href="reports-monitoring/index.yml">Rapporten en controle</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/concept-audit-logs.md">Controlelogboeken</a><br>
+                                                            <a href="reports-monitoring/concept-audit-logs.md">Auditlogboeken</a><br>
                                                             <a href="reports-monitoring/concept-sign-ins.md">Aanmeldingslogboeken</a><br>
                                                             <a href="reports-monitoring/reference-sign-ins-error-codes.md">Naslaginformatie over foutcodes voor aanmelding</a><br>
                                                             <a href="reports-monitoring/index.yml"><i>Meer informatie &gt;</i></a>

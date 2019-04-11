@@ -16,7 +16,7 @@ ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
 ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53102143"
@@ -42,7 +42,7 @@ In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meti
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in het linkerdeelvenster **Waarschuwingen** en klik vervolgens bovenaan de pagina op **Nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.<br><br> ![Nieuwe waarschuwingsregel maken](./media/tutorial-response/alert-rule-02.png)<br>
-3. Ga naar de sectie **Waarschuwing maken** en selecteer uw werkruimte van Log Analytics als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.<br><br> ![Waarschuwing maken - stap 1](./media/tutorial-response/alert-rule-03.png)<br>
+3. Ga naar de sectie **Waarschuwing maken** en selecteer uw Log Analytics-werkruimte als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.<br><br> ![Waarschuwing maken - stap 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Klik in de sectie **Waarschuwingscriteria** op **Criteria toevoegen** om onze opgeslagen query te selecteren en geef vervolgens logica op die de waarschuwingsregel volgt.  Selecteer in het deelvenster **Signaallogica configureren** de optie *Azure VMs - Processor Utilization* in de lijst.  Het deelvenster wordt bijgewerkt met de configuratie-instellingen voor de waarschuwing.  Bovenaan ziet u de resultaten voor de afgelopen 30 minuten van het geselecteerde signaal en de zoekquery zelf.  
 5. Configureer de waarschuwing met de volgende gegevens:  
    a. Selecteer in de vervolgkeuzelijst **Gebaseerd op** de optie **Meting van metrische gegevens**.  Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query met een waarde die de opgegeven drempelwaarde overschrijdt.  

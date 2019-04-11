@@ -11,7 +11,7 @@ ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
 ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54329817"
@@ -20,7 +20,7 @@ ms.locfileid: "54329817"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In deze zelfstudie wordt uitgelegd hoe u een bestandsshare in Azure kunt maken en deze aan elke agent en master van de DC/OS-cluster kunt koppelen. Als u een bestandsshare maakt, kunt u gemakkelijker bestanden, zoals configuratie-, toegangs- en logboekbestanden, in uw cluster delen. In deze zelfstudie worden de volgende taken uitgevoerd:
+In deze zelfstudie wordt uitgelegd hoe u een bestandsshare in Azure kunt maken en deze aan elke agent en master van de DC/OS-cluster kunt koppelen. Als u een bestandsshare maakt, kunt u gemakkelijker bestanden, zoals configuratie-, toegangs- en logboeken, in uw cluster delen. In deze zelfstudie worden de volgende taken uitgevoerd:
 
 > [!div class="checklist"]
 > * Een Azure-opslagaccount maken

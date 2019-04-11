@@ -78,7 +78,7 @@ Key Vault wordt in Azure gebruikt als beveiligd archief om scenario's te vereenv
 -  De functionaliteit [altijd versleuteld]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) in SQL server en Azure SQL Database
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 
-Key Vault zelf kan worden geïntegreerd met opslagaccounts, Event Hubs en Log Analytics.
+Key Vault zelf kan worden geïntegreerd met opslagaccounts, Event Hubs en logboekanalyses.
 
 ## <a name="next-steps"></a>Volgende stappen
 

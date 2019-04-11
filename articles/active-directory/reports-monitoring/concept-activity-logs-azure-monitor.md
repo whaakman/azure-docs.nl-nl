@@ -53,10 +53,10 @@ U kunt versturen Azure AD controleren logboeken en aanmelden logboeken naar uw A
 U hebt het volgende nodig om deze functie te gebruiken:
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/free/).
-* Een [licentie](https://azure.microsoft.com/pricing/details/active-directory/) voor Azure AD Free, Basic, Premium 1 of Premium 2 voor toegang tot de Azure AD-controlelogboeken in Azure Portal. 
+* Een [licentie](https://azure.microsoft.com/pricing/details/active-directory/) voor Azure AD Free, Basic, Premium 1 of Premium 2 voor toegang tot de Azure AD-auditlogboeken in de Azure-portal. 
 * Een Azure AD-tenant.
 * Een gebruiker die een **globale beheerder** of **beveiligingsbeheerder** voor de Azure-tenant is.
-* Een [licentie](https://azure.microsoft.com/pricing/details/active-directory/) voor Azure AD Premium 1 of Premium 2 voor toegang tot de Azure AD-aanmeldingslogboeken in Azure Portal. 
+* Een [licentie](https://azure.microsoft.com/pricing/details/active-directory/) voor Azure AD Premium 1 of Premium 2 voor toegang tot de Azure AD-aanmeldingslogboeken in de Azure-portal. 
 
 Afhankelijk van waarnaar u uw auditlogboekgegevens wilt doorsturen, hebt u het volgende nodig:
 

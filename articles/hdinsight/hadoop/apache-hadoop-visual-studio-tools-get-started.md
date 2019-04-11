@@ -237,7 +237,7 @@ U kunt selecteren uit de taakgrafiek **details van de uitvoering van taak** om o
 
 
 ### <a name="view-hive-jobs"></a>Hive-taken weergeven
-U kunt taakquery's, taakuitvoer, logboekbestanden van taken en Yarn-logboekbestanden voor Hive-taken weergeven.
+U kunt taakquery's, taakuitvoer, logboeken van taken en Yarn-logboeken voor Hive-taken weergeven.
 
 In de meest recente versie van de hulpprogramma's kunt u in uw Hive-taken kijken door Yarn-logboeken te verzamelen en zichtbaar te maken. Een Yarn-logboek kan u helpen bij het onderzoeken van prestatieproblemen. Zie [Programmacode gebruiken om toegang te krijgen tot HDInsight-toepassingslogboeken](../hdinsight-hadoop-access-yarn-app-logs-linux.md) voor informatie over hoe HDInsight Yarn-logboeken verzamelt.
 

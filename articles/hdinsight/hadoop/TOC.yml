@@ -166,7 +166,7 @@ items:
       maintainContext: true
     - name: Aanbevelingen genereren met Apache Mahout
       href: apache-hadoop-mahout-linux-mac.md
-    - name: Application Insights-logboekbestanden met telemetrie analyseren
+    - name: Application Insights-logboeken met telemetrie analyseren
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
     - name: Geavanceerde analyse voor HDInsight

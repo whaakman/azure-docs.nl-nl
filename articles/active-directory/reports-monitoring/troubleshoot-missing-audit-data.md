@@ -24,13 +24,13 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437234"
 ---
-# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Problemen oplossen: ontbrekende gegevens in de activiteitenlogboeken van Azure Active Directory 
+# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Problemen oplossen: Ontbrekende gegevens in de activiteitenlogboeken van Azure Active Directory 
 
-## <a name="i-cant-find-audit-logs-for-recent-actions-in-the-azure-portal"></a>Ik kan geen controlelogboeken vinden voor recente bewerkingen in de Azure-portal
+## <a name="i-cant-find-audit-logs-for-recent-actions-in-the-azure-portal"></a>Ik kan geen auditlogboeken vinden voor recente bewerkingen in de Azure-portal
 
 ### <a name="symptoms"></a>Symptomen
 
-Ik heb enkele acties uitgevoerd in Azure Portal en had verwacht de auditlogboeken voor deze acties te zien op de blade `Activity logs > Audit Logs`, maar ik kan ze niet vinden.
+Ik heb enkele acties uitgevoerd in de Azure-portal en had verwacht de auditlogboeken voor deze acties te zien op de blade `Activity logs > Audit Logs`, maar ik kan ze niet vinden.
 
  ![Rapportage](./media/troubleshoot-missing-audit-data/01.png)
  
@@ -89,7 +89,7 @@ Zie [Bewaarbeleid Azure Active Directory-rapporten](reference-reports-data-reten
 
 ### <a name="resolution"></a>Oplossing
 
-U hebt twee opties om de gegevens langer dan 30 dagen te bewaren. U kunt de [API's van de rapportagefunctie van Azure AD](concept-reporting-api.md) gebruiken om de gegevens via programmacode op te halen en op te slaan in een database. Een alternatief is om controlelogboeken te integreren in een SIEM-systeem van derden, zoals Splunk of SumoLogic.
+U hebt twee opties om de gegevens langer dan 30 dagen te bewaren. U kunt de [API's van de rapportagefunctie van Azure AD](concept-reporting-api.md) gebruiken om de gegevens via programmacode op te halen en op te slaan in een database. Een alternatief is om auditlogboeken te integreren in een SIEM-systeem van derden, zoals Splunk of SumoLogic.
 
 ## <a name="next-steps"></a>Volgende stappen
 

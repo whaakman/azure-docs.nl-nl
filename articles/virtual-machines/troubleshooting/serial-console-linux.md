@@ -140,7 +140,7 @@ Toegang tot de seriële console is beperkt tot gebruikers die beschikken over ee
 ### <a name="channel-security"></a>Beveiliging van het kanaal
 Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
 
-### <a name="audit-logs"></a>Controlelogboeken
+### <a name="audit-logs"></a>Auditlogboeken
 Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.
 
 > [!CAUTION]

@@ -103,7 +103,7 @@ U kunt het probleem oplossen door de eigenschap **external** en de optionele sec
 Zie [oplossen van problemen met gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor stappen voor het oplossen van problemen bij het kopiëren van/naar een on-premises gegevens opslaan met behulp van de Data Management Gateway.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Probleem: On-demand HDInsight inrichten mislukt
-Wanneer u een gekoppelde service van het type HDInsightOnDemand, moet u een linkedServiceName opgeven die naar een Azure Blob-opslag verwijst. De service Data Factory gebruikt deze opslag om logboekbestanden en ondersteunende bestanden voor het HDInsight-cluster op aanvraag op te slaan.  Soms mislukt het inrichten van een HDInsight-cluster op aanvraag en wordt de volgende fout weergegeven:
+Wanneer u een gekoppelde service van het type HDInsightOnDemand, moet u een linkedServiceName opgeven die naar een Azure Blob-opslag verwijst. De Data Factory-service gebruikt deze opslag om logboeken en ondersteunende bestanden voor het HDInsight-cluster op aanvraag op te slaan.  Soms mislukt het inrichten van een HDInsight-cluster op aanvraag en wordt de volgende fout weergegeven:
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.

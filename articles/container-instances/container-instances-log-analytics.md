@@ -9,7 +9,7 @@ ms.date: 07/17/2018
 ms.author: danlep
 ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
 ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56879701"
@@ -33,7 +33,7 @@ Voor het inschakelen van logboekregistratie voor uw containerexemplaren hebt u h
 
 Azure Container Instances heeft toestemming nodig om gegevens te verzenden naar uw Log Analytics-werkruimte. U kunt deze machtiging verlenen en de mogelijkheid tot logboekregistratie inschakelen als u de Log Analytics-werkruimte-id en een van de sleutels ervan opgeeft (primaire of secundaire) op het moment dat u de containergroep maakt.
 
-De Log Analytics-werkruimte-ID en de primaire sleutel verkrijgt u als volgt:
+De Log Analytics-werkruimte-id en de primaire sleutel verkrijgt u als volgt:
 
 1. Navigeer in Azure Portal naar uw Log Analytics-werkruimte.
 1. Selecteer **Geavanceerde instellingen** bij **INSTELLINGEN**.
@@ -109,7 +109,7 @@ U ziet nu enkele resultaten die door de query `search *` worden weergegeven. Als
 
 ![Resultaten van zoekopdrachten in logboeken in Azure Portal][log-search-01]
 
-## <a name="query-container-logs"></a>Query's uitvoeren op containerlogbestanden
+## <a name="query-container-logs"></a>Query's uitvoeren op containerlogboeken
 
 Azure Monitor-logboeken bevat een uitgebreide [querytaal] [ query_lang] voor het ophalen van gegevens uit mogelijk duizenden regels aan logboekuitvoer.
 

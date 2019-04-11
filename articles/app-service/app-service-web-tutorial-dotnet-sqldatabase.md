@@ -330,7 +330,7 @@ Probeer opnieuw taakitems toe te voegen en selecteer **Gereed**, dan moeten ze w
 Alle bestaande taakitems worden nog steeds weergegeven. Als u de ASP.NET Core-toepassing opnieuw publiceert, blijven bestaande gegevens in SQL Database behouden. En met Code First Migrations wordt alleen het gegevensschema gewijzigd. De bestaande gegevens blijven ongewijzigd.
 
 
-## <a name="stream-application-logs"></a>Toepassingslogbestanden streamen
+## <a name="stream-application-logs"></a>Toepassingslogboeken streamen
 
 U kunt traceringsberichten rechtstreeks vanuit uw Azure-app streamen met Visual Studio.
 

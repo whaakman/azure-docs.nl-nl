@@ -11,7 +11,7 @@ ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54433342"
@@ -28,7 +28,7 @@ In deze zelfstudie beschrijven we hoe u uw Azure-omgeving configureert voor het 
 
 > [!div class="checklist"]
 > * Een opslagaccount maken om bewakingsgegevens op te slaan
-> * Abonnementslogboeken naar het opslagaccount doorsturen
+> * Abonnementlogboeken naar het opslagaccount doorsturen
 > * Resourcegegevens naar het opslagaccount doorsturen
 > * Gegevens van virtuele machines (als gast-OS) naar het opslagaccount doorsturen
 > * De bewakingsgegevens in het opslagaccount weergeven
@@ -44,7 +44,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 U moet eerst een opslagaccount instellen waarin de bewakingsgegevens worden gearchiveerd. Daarvoor [volgt u deze stappen](../../storage/common/storage-quickstart-create-account.md).
 
-## <a name="route-subscription-logs-to-the-storage-account"></a>Abonnementslogboeken naar het opslagaccount doorsturen
+## <a name="route-subscription-logs-to-the-storage-account"></a>Abonnementlogboeken naar het opslagaccount doorsturen
 
 U bent nu klaar om uw Azure-omgeving in te stellen zodat bewakingsgegevens worden doorgestuurd naar een opslagaccount. We gaan eerst gegevens op abonnementsniveau (in het Azure-activiteitenlogboek) configureren om deze door te sturen naar het opslagaccount. Het [ **Azure-activiteitenlogboek** ](../../azure-monitor/platform/activity-logs-overview.md) bevat een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. U kunt ernaar zoeken in Azure Portal om te bepalen *wie* *welke* resources heeft gemaakt, bijgewerkt of verwijderd en *wanneer* dat is gebeurd.
 
@@ -172,7 +172,7 @@ U hebt nu ingesteld dat bewakingsgegevens in een opslagaccount kunnen worden gea
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-1. Ga terug naar de sectie **Activiteitenlogboek exporteren** in de voorgaande stap, **Abonnementslogboeken naar het opslagaccount doorsturen**, en klik op **Opnieuw instellen**.
+1. Ga terug naar de sectie **Activiteitenlogboek exporteren** in de voorgaande stap, **Abonnementslogboeken naar het opslagaccount doorsturen** en klik op **Opnieuw instellen**.
 
 2. Navigeer naar de sectie **Diagnostische instellingen**, klik op de resource waarvoor u een diagnostische instelling hebt gemaakt in de voorgaande stap, **Resourcegegevens doorsturen naar het opslagaccount**, zoek naar de instelling die u hebt gemaakt, klik op de knop **Instelling bewerken** en klik op **Verwijderen**.
 
@@ -189,7 +189,7 @@ In deze zelfstudie hebt u geleerd hoe u gegevens uit uw Azure-omgeving (abonneme
 
 > [!div class="checklist"]
 > * Een opslagaccount maken om bewakingsgegevens op te slaan
-> * Abonnementslogboeken naar het opslagaccount doorsturen
+> * Abonnementlogboeken naar het opslagaccount doorsturen
 > * Resourcegegevens naar het opslagaccount doorsturen
 > * Gegevens van virtuele machines (als gast-OS) naar het opslagaccount doorsturen
 > * De bewakingsgegevens in het opslagaccount weergeven

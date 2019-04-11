@@ -1,5 +1,5 @@
 ---
-title: Een IoT-cloudoplossing voor externe controle proberen - Azure | Microsoft Docs
+title: Een externe IoT-bewakingsoplossing in de cloud proberen - Azure | Microsoft Docs
 description: In deze snelstart implementeert u de Azure IoT-oplossingsverbetering voor externe controle. Vervolgens meldt u zich aan bij het oplossingsdashboard.
 author: dominicbetts
 manager: timlt
@@ -16,11 +16,11 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58792498"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: een cloudoplossing voor bewaking op afstand proberen
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: Een externe bewakingsoplossing in de cloud proberen
 
-In deze snelstart ziet u hoe u de Azure IoT-oplossingsverbetering voor externe controle implementeert. In deze cloudoplossing gebruikt u de pagina **Dashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de pagina **Onderhoud** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
+In deze quickstart ziet u hoe u de Azure IoT-verbetering voor de externe bewakingsoplossing implementeert. In deze cloudoplossing gebruikt u de pagina **Dashboard** om gesimuleerde apparaten te visualiseren in een kaart, en de pagina **Onderhoud** om te reageren op een waarschuwing van een gesimuleerde koelunit. U kunt deze oplossingsverbetering gebruiken als uitgangspunt voor uw eigen implementatie of als leermiddel.
 
-Met de eerste implementatie wordt de oplossingsverbetering geconfigureerd voor een bedrijf met de naam Contoso. Als operator bij Contoso beheert u een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de oplossingsverbetering voor externe controle.
+Met de eerste implementatie wordt de oplossingsverbetering geconfigureerd voor een bedrijf met de naam Contoso. Als operator bij Contoso beheert u een selectie met verschillende typen apparaten, zoals koelunits, geïmplementeerd in verschillende fysieke omgevingen. Vanaf een koelunit worden telemetriegegevens over de temperatuur, vochtigheid en druk verzonden naar de verbetering van de externe bewakingsoplossing.
 
 In deze quickstart implementeert een **Basic** versie van de oplossingsversneller voor test-en demonstratiedoeleinden die kosten minimaliseert. Zie voor meer informatie over de verschillende versies kunt u implementeren, [Basic en standard-implementaties](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
@@ -40,28 +40,28 @@ Klik op de tegel **Externe bewaking**. Klik op de pagina **Externe bewaking**  o
 
 Kies  **C# Microservices** als de **implementatieopties**. De Java en C# implementaties hebben de dezelfde functies.
 
-Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm**.
+Voer een unieke **Oplossingsnaam** in voor de verbetering voor de externe bewakingsoplossing. Voor deze quickstart noemen we die van ons **contoso-rm**.
 
 Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze quickstart maken we gebruik van **US - oost**.
 U kunt **Visual Studio Enterprise** kiezen, maar u moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn om dit te doen.
 
 Klik op **Maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 
-![Details voor de oplossing voor externe controle](./media/quickstart-remote-monitoring-deploy/createform.png)
+![Details van de externe bewakingsoplossing](./media/quickstart-remote-monitoring-deploy/createform.png)
 
 ## <a name="sign-in-to-the-solution"></a>Aanmelden bij de oplossing
 
-Wanneer de implementatie in uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de oplossingsverbetering voor externe controle.
+Wanneer de implementatie in uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de versneller voor de externe bewakingsoplossing.
 
-Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsverbetering voor externe controle:
+Klik op de pagina **Ingerichte oplossingen** op de nieuwe verbetering voor de externe bewakingsoplossing:
 
 ![Nieuwe oplossing kiezen](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsverbetering voor externe controle. Kies **Go to your solution accelerator** (Ga naar uw oplossingsversneller) om uw oplossingsversneller voor externe bewaking weer te geven:
+In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de verbetering voor de externe bewakingsoplossing. Kies **Go to your solution accelerator** (Ga naar uw oplossingsversneller) om uw verbetering voor de externe bewakingsoplossing weer te geven:
 
 ![Deelvenster Oplossing](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
-Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsdashboard voor externe controle wordt weergegeven in de browser:
+Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het dashboard voor de externe bewakingsoplossing wordt weergegeven in de browser:
 
 [![Oplossingsdashboard](./media/quickstart-remote-monitoring-deploy/solutiondashboard-inline.png)](./media/quickstart-remote-monitoring-deploy/solutiondashboard-expanded.png#lightbox)
 
@@ -129,7 +129,7 @@ De waarde in de statuskolom wordt gewijzigd in **Gesloten**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent verder te gaan met de zelfstudies, laat u de oplossingsverbetering voor externe controle geïmplementeerd.
+Als u van plan bent verder te gaan met de zelfstudies, laat u de verbetering voor de externe bewakingsoplossing geïmplementeerd.
 
 Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard) door de oplossingsverbetering te selecteren en op **Oplossing verwijderen** te klikken:
 
@@ -140,7 +140,7 @@ Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pag
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In de snelstart hebt u de oplossingsverbetering voor externe controle geïmplementeerd en een controletaak voltooid met behulp van gesimuleerde apparaten in de Contoso-standaardimplementatie.
+In de quickstart hebt u de verbetering voor de externe bewakingsoplossing geïmplementeerd en een controletaak voltooid met behulp van gesimuleerde apparaten in de Contoso-standaardimplementatie.
 
 Ga verder naar de volgende zelfstudie voor meer informatie over de oplossingsverbetering die gebruikmaakt van gesimuleerde apparaten.
 

@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie over apparaten configureren in een oplossing voor externe bewaking - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u apparaten beheert die zijn verbonden met de oplossingsverbetering voor Externe bewaking.
+title: Zelfstudie over apparaten configureren in een externe bewakingsoplossing - Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u apparaten beheert die zijn verbonden met de verbetering voor de externe bewakingsoplossing.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "58183387"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
-In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te configureren en bewaken. U voegt een nieuw apparaat toe aan de oplossingsverbetering en configureert het apparaat.
+In deze zelfstudie gebruikt u de verbetering voor de externe bewakingsoplossing om de verbonden IoT-apparaten te configureren en bewaken. U voegt een nieuw apparaat toe aan de oplossingsverbetering en configureert het apparaat.
 
-Contoso heeft nieuwe machines besteld om de capaciteit van een van de faciliteiten uit te breiden. Terwijl u wacht op de levering van de nieuwe machines, wilt u een simulatie uitvoeren om het gedrag van uw oplossing te testen. Om de simulatie uit te voeren, voegt u een nieuw gesimuleerd apparaat toe aan de oplossingsverbetering voor Externe bewaking. Vervolgens test u of dit gesimuleerde apparaat goed reageert op configuratie-updates. Hoewel in deze zelfstudie gebruik wordt gemaakt van gesimuleerde apparaten, kan een apparaatontwikkelaar directe methoden implementeren op een [fysiek apparaat dat is verbonden met de oplossingsverbetering voor externe bewaking](iot-accelerators-connecting-devices.md).
+Contoso heeft nieuwe machines besteld om de capaciteit van een van de faciliteiten uit te breiden. Terwijl u wacht op de levering van de nieuwe machines, wilt u een simulatie uitvoeren om het gedrag van uw oplossing te testen. Om de simulatie uit te voeren, voegt u een nieuw gesimuleerd apparaat toe aan de verbetering voor de externe bewakingsoplossing. Vervolgens test u of dit gesimuleerde apparaat goed reageert op configuratie-updates. Hoewel in deze zelfstudie gebruik wordt gemaakt van gesimuleerde apparaten, kan een apparaatontwikkelaar directe methoden implementeren op een [fysiek apparaat dat is verbonden met de verbetering voor de externe bewakingsoplossing](iot-accelerators-connecting-devices.md).
 
 In deze zelfstudie hebt u:
 
@@ -123,7 +123,7 @@ Nu kan de Contoso-operator apparaten opvragen op basis van het operationele team
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd u hoe u apparaten kunt configureren en beheren die verbonden zijn met de oplossingsversneller voor externe bewaking. Ga door naar de volgende zelfstudie voor meer informatie over het gebruik van de oplossingsverbetering voor het zoeken van de hoofdoorzaak van een onverwachte waarschuwing.
+In deze zelfstudie hebt u geleerd u hoe u apparaten kunt configureren en beheren die verbonden zijn met de verbetering voor de externe bewakingsoplossing. Ga door naar de volgende zelfstudie voor meer informatie over het gebruik van de oplossingsverbetering voor het zoeken van de hoofdoorzaak van een onverwachte waarschuwing.
 
 > [!div class="nextstepaction"]
 > [Een analyse uitvoeren van de hoofdoorzaak van een waarschuwing](iot-accelerators-remote-monitoring-root-cause-analysis.md)

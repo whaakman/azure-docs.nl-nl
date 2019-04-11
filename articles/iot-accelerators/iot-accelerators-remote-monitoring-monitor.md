@@ -1,6 +1,6 @@
 ---
 title: Zelfstudie over het bewaken van uw IoT-apparaten met een Azure-oplossing - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u uw IoT-apparaten kunt bewaken met behulp van de oplossingsversneller voor externe bewaking.
+description: In deze zelfstudie leert u hoe u uw IoT-apparaten kunt bewaken met behulp van de verbetering voor de externe bewakingsoplossing.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "58173818"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Zelfstudie: Uw IoT-apparaten bewaken
 
-In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te bewaken. Gebruik het dashboard van de oplossing om telemetrie, apparaatgegevens, waarschuwingen en KPI's weer te geven.
+In deze zelfstudie gebruikt u de verbetering voor de externe bewakingsoplossing om de verbonden IoT-apparaten te bewaken. Gebruik het dashboard van de oplossing om telemetrie, apparaatgegevens, waarschuwingen en KPI's weer te geven.
 
-In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor trucks die telemetriegegevens over de locatie, de snelheid en de temperatuur van de lading verzenden. De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als operator van Contoso is het uw taak om de locatie en het gedrag van een van uw trucks (truck-02) in het veld te bewaken.
+In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor trucks die telemetriegegevens over de locatie, de snelheid en de temperatuur van de lading verzenden. De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de verbetering voor de externe bewakingsoplossing. Als operator van Contoso is het uw taak om de locatie en het gedrag van een van uw trucks (truck-02) in het veld te bewaken.
 
 In deze zelfstudie hebt u:
 
@@ -97,7 +97,7 @@ Dezelfde filters die de tijdsduur instellen voor meldingen en regelen welke appa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u de pagina **Dashboard** in de oplossingsversneller voor externe bewaking gebruikt om de gesimuleerde trucks te filteren en bewaken. Voor informatie over het gebruik van de oplossingsversneller voor het detecteren van problemen met uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
+In deze zelfstudie hebt u geleerd hoe u de pagina **Dashboard** in de verbetering voor de externe bewakingsoplossing gebruikt om de gesimuleerde trucks te filteren en bewaken. Voor informatie over het gebruik van de oplossingsversneller voor het detecteren van problemen met uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing](iot-accelerators-remote-monitoring-automate.md)

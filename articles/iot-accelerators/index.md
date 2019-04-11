@@ -53,7 +53,7 @@ Lees hier hoe u de IoT-oplossingsversnellers gebruikt. In deze artikelen leest u
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Overzicht van de oplossingsversneller voor externe bewaking</h3>
+                        <h3>Overzicht van de verbetering voor de externe bewakingsoplossing</h3>
                     </div>
                 </div>
             </div>

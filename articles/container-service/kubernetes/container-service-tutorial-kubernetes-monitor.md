@@ -11,7 +11,7 @@ ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001616"
@@ -30,7 +30,7 @@ U kunt gebruikmaken van meerdere Kubernetes-bewakingsoplossingen, zowel van Micr
 In deze zelfstudie, deel zeven van zeven, komen de volgende taken aan bod:
 
 > [!div class="checklist"]
-> * Werkruimte-instellingen voor Log Analytics ophalen
+> * Instellingen voor Log Analytics-werkruimte ophalen
 > * Log Analytics-agents instellen op de Kubernetes-knooppunten
 > * Toegang tot de bewakingsgegevens in de Log Analytics-portal of de Azure-portal
 
@@ -163,7 +163,7 @@ Zie de [Azure Log Analytics-documentatie](../../azure-monitor/log-query/log-quer
 In deze zelfstudie hebt u uw Kubernetes-cluster gecontroleerd met Log Analytics. Behandelde taken zijn:
 
 > [!div class="checklist"]
-> * Werkruimte-instellingen voor Log Analytics ophalen
+> * Instellingen voor Log Analytics-werkruimte ophalen
 > * Log Analytics-agents instellen op de Kubernetes-knooppunten
 > * Toegang tot de bewakingsgegevens in de Log Analytics-portal of de Azure-portal
 

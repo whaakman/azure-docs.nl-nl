@@ -10,14 +10,14 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
 ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2019
 ms.locfileid: "56653592"
 ---
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de oplossingsversneller voor externe bewaking geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
+Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de versneller voor de externe bewakingsoplossing geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
 
 [![Telemetrie onderbreken](./media/iot-accelerators-tutorial-cleanup/togglesimulation-inline.png)](./media/iot-accelerators-tutorial-cleanup/togglesimulation-expanded.png#lightbox)
 

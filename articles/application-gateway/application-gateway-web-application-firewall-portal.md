@@ -162,7 +162,7 @@ In dit voorbeeld zijn we IIS installeren op de virtuele machines alleen voor het
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor of Event Hub gebruiken om gegevens vast te leggen.
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen.
 
 1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Storage** en selecteer vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.

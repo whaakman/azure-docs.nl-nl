@@ -190,13 +190,13 @@ Breng de volgende wijzigingen in *template.json* aan:
 
 Implementeer de sjabloon met de nieuwe wijzigingen om het huidige cluster bij te werken. U ziet de log analytics-resources in uw resourcegroep wanneer deze is voltooid. Als het cluster klaar is, implementeert u er de containertoepassing in. In de volgende stap, wordt het bewaken van de containers ingesteld.
 
-## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Container Monitoring Solution toevoegen aan de Log Analytics-werkruimte
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Containerbewakingsoplossing toevoegen aan de Log Analytics-werkruimte
 
-Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Container Monitoring Solution* en maakt u een Containers-resource (onder de categorie Controle en beheer).
+Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Containerbewakingsoplossing* en maakt u een Containers-resource (onder de categorie Bewaking + Management).
 
 ![Containers-oplossing toevoegen](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Als u wordt gevraagd de *Log Analytics-werkruimte*, selecteer de werkruimte die is gemaakt in de resourcegroep en klik op **maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken met de Log Analytics-agent gestart. 
+Als u wordt gevraagd de *Log Analytics-werkruimte*, selecteer de werkruimte die is gemaakt in de resourcegroep en klik op **maken**. Hierdoor wordt een *Containerbewakingsoplossing* aan uw werkruimte toegevoegd en wordt automatisch het verzamelen van Docker-logboeken en -statistieken met de Log Analytics-agent gestart. 
 
 Ga terug naar uw *resourcegroep*, waar u nu de pas toegevoegde bewakingsoplossing moet kunnen zien. Als u erin klikt, moet op de startpagina het aantal containerinstallatiekopieën dat wordt uitgevoerd, worden weergegeven.
 

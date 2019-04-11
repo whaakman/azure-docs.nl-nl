@@ -10,7 +10,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 9d948164177b7acd2df722078ae590f409c8e795
 ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54036508"
@@ -35,7 +35,7 @@ De Cassandra-API stelt u in staat om gegevens te gebruiken die zijn opgeslagen i
 
 **Keuze in consistentie**: Azure Cosmos DB biedt de keuze uit vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Deze consistentieniveaus zijn: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze goed gedefinieerde, praktische en intuïtieve consistentieniveaus kunnen ontwikkelaars een nauwkeurige balans vinden tussen de consistentie, beschikbaarheid en latentie. Lees het artikel [consistentieniveaus](consistency-levels.md) voor meer informatie. 
 
-**Op bedrijfsniveau**: Azure Cosmos DB biedt [nalevingscertificeringen](https://www.microsoft.com/trustcenter) om ervoor te zorgen dat het platform veilig kan worden gebruikt. Azure Cosmos DB biedt ook versleuteling van niet-actieve en actieve gegevens, een IP-firewall, en auditlogboeken voor beheeractiviteiten.
+**Op bedrijfsniveau**: Azure Cosmos DB biedt [nalevingscertificeringen](https://www.microsoft.com/trustcenter) om ervoor te zorgen dat het platform veilig kan worden gebruikt. Azure Cosmos DB biedt ook versleuteling van niet-actieve en actieve gegevens, een IP-firewall en auditlogboeken voor beheeractiviteiten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

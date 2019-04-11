@@ -34,9 +34,9 @@ items:
   expanded: true
 - name: Zelfstudies
   items:
-  - name: Gegevens analyseren in Log Analytics
+  - name: Gegevens analyseren in logboekanalyse
     href: learn/tutorial-viewdata.md
-  - name: Gegevens visualiseren in Log Analytics
+  - name: Gegevens visualiseren in logboekanalyse
     href: learn/tutorial-logs-dashboards.md
   - name: Metrische gegevens en logboekgegevens van het platform archiveren
     href: learn/tutorial-archive-data.md
@@ -549,7 +549,7 @@ items:
           href: insights/container-insights-analyze.md
         - name: Bewaking uitschakelen
           href: insights/container-insights-optout.md
-        - name: Live containerlogboekbestanden bekijken
+        - name: Live containerlogboeken bekijken
           href: insights/container-insights-live-logs.md
         - name: Waarschuwingen
           href: insights/container-insights-alerts.md

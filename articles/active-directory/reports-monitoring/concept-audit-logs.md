@@ -44,7 +44,7 @@ In dit artikel biedt een overzicht van het controlerapport.
 * Gebruikers in de **Security beheerder**, **Beveiligingslezer**, **rapportlezer** of **hoofdbeheerder** rollen
 * Bovendien kunnen hun eigen auditactiviteiten zien in alle gebruikers (niet-beheerders)
 
-## <a name="audit-logs"></a>Controlelogboeken
+## <a name="audit-logs"></a>Auditlogboeken
 
 De Azure AD-audit-logboeken bieden records van systeemactiviteiten voor naleving. Voor toegang tot het controlerapport, selecteer **auditlogboeken** in de **activiteit** sectie van **Azure Active Directory**. Houd er rekening mee dat auditlogboeken met een latentie van maximaal een uur, hebben kunnen zodat deze activiteit controlegegevens worden weergegeven in de portal nadat u de taak hebt voltooid die lang kan duren.
 
@@ -74,7 +74,7 @@ Selecteer een item in de lijstweergave voor meer gedetailleerde informatie.
 ![Controlelogboeken](./media/concept-audit-logs/details.png "Controlelogboeken")
 
 
-## <a name="filtering-audit-logs"></a>Controlelogboeken filteren
+## <a name="filtering-audit-logs"></a>Auditlogboeken filteren
 
 U kunt de controlegegevens op de volgende velden filteren:
 
@@ -153,14 +153,14 @@ U kunt ook kiezen voor het downloaden van de gefilterde gegevens, maximaal 250.0
 
 ![Controlelogboeken](./media/concept-audit-logs/download.png "Controlelogboeken")
 
-## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar controlelogboeken
+## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar auditlogboeken
 
 Naast **Azure Active Directory** biedt de Azure Portal twee extra beginpunten voor gegevenscontrole:
 
 - Gebruikers en groepen
 - Bedrijfstoepassingen
 
-### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
+### <a name="users-and-groups-audit-logs"></a>Auditlogboeken voor gebruikers en groepen
 
 Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
 
@@ -188,7 +188,7 @@ Als u alleen bekijken van controlegegevens met betrekking tot groepen wilt, vind
 
 ![Controlelogboeken](./media/concept-audit-logs/groups.png "Controlelogboeken")
 
-### <a name="enterprise-applications-audit-logs"></a>Controlelogboeken voor bedrijfstoepassingen
+### <a name="enterprise-applications-audit-logs"></a>Auditlogboeken voor bedrijfstoepassingen
 
 Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
 

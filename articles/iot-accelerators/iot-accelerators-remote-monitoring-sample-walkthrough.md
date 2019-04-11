@@ -15,7 +15,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58176133"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller voor externe bewaking
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Overzicht van de verbetering voor de externe bewakingsoplossing
 
 Externe bewaking [oplossingsverbetering](../iot-accelerators/about-iot-accelerators.md) een end-to-end oplossing voor prestatiecontrole voor meerdere machines geïmplementeerd op verafgelegen locaties bevinden. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en [aanpassen](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) te voldoen aan uw eigen specifieke zakelijke vereisten.
 

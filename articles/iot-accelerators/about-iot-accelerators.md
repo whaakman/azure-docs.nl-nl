@@ -34,7 +34,7 @@ Er zijn momenteel vier oplossingsversnellers beschikbaar die u kunt implementere
 
 ### <a name="remote-monitoring"></a>Externe bewaking
 
-Gebruik de [Remote Monitoring-oplossingsversneller](iot-accelerators-remote-monitoring-sample-walkthrough.md) voor het verzamelen van telemetriegegevens van externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
+Gebruik de [verbetering voor de externe bewakingsoplossing](iot-accelerators-remote-monitoring-sample-walkthrough.md) voor het verzamelen van telemetriegegevens van externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
 
 U kunt het dashboard voor externe controle gebruiken om de telemetrie van verbonden apparaten te bekijken, nieuwe apparaten in te richten of de firmware op verbonden apparaten bij te werken:
 
@@ -91,7 +91,7 @@ Zie [Inleiding tot de Azure IoT-referentiearchitectuur](iot-accelerators-archite
 
 U kunt de oplossingsverbeteringen implementeren op de site [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators#) of door gebruik te maken van de opdrachtregel.
 
-U kunt de oplossingsverbetering voor externe controle implementeren in de volgende configuraties:
+U kunt de verbetering voor de externe bewakingsoplossing implementeren in de volgende configuraties:
 
 * **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices in diverse virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.

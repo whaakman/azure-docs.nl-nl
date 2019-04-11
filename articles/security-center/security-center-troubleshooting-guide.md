@@ -29,7 +29,7 @@ Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanaliste
 >
 
 ## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
-In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](../azure-monitor/platform/activity-logs-overview.md) van het onderdeel met de fout te raadplegen. Met controlelogboeken kunt u het volgende bepalen:
+In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](../azure-monitor/platform/activity-logs-overview.md) van het onderdeel met de fout te raadplegen. Met auditlogboeken kunt u het volgende bepalen:
 
 * Welke bewerkingen er hebben plaatsgevonden
 * Wie de bewerking heeft gestart

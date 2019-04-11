@@ -163,7 +163,7 @@ In de Gebruiksrechtovereenkomst-blade ziet u de aantallen gebruikers die al dan 
     ![Geschiedenis-deelvenster weergeven](./media/terms-of-use/view-history-pane.png)
 
 ## <a name="view-azure-ad-audit-logs"></a>Auditlogboeken weergeven Azure AD
-Als u aanvullende activiteiten wilt bekijken, bevat Azure AD Gebruiksrechtovereenkomst auditlogboeken. Elke toestemming van de gebruiker activeert een gebeurtenis in de auditlogboeken die zijn opgeslagen voor **30 dagen**. U kunt deze logboeken bekijken in de portal of downloaden als CSV-bestand.
+Als u aanvullende activiteiten wilt bekijken, bevat de gebruiksrechtovereenkomst van Azure AD auditlogboeken. Elke toestemming van de gebruiker activeert een gebeurtenis in de auditlogboeken die zijn opgeslagen voor **30 dagen**. U kunt deze logboeken bekijken in de portal of downloaden als CSV-bestand.
 
 Aan de slag met Azure AD controlelogboeken, gebruikt u de volgende procedure:
 
@@ -179,7 +179,7 @@ Aan de slag met Azure AD controlelogboeken, gebruikt u de volgende procedure:
 
     U kunt ook op **Downloaden** klikken om de informatie te downloaden naar een CSV-bestand voor lokaal gebruik.
 
-    ![Controlelogboeken](./media/terms-of-use/audit-logs-tou.png)
+    ![Auditlogboeken](./media/terms-of-use/audit-logs-tou.png)
 
     Als u een logboek klikt, wordt een deelvenster met details van de extra activiteiten wordt weergegeven.
 

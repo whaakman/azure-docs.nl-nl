@@ -1,6 +1,6 @@
 ---
 title: Apparaten die zijn verbonden met Externe bewaking bulksgewijs beheren - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u de apparaten die zijn verbonden met een oplossing met Externe bewaking bulksgewijs kunt beheren.
+description: In deze zelfstudie leert u hoe u de apparaten die zijn verbonden met een externe bewakingsoplossing bulksgewijs kunt beheren.
 author: aditidugar
 manager: philmea
 ms.service: iot-accelerators
@@ -17,9 +17,9 @@ ms.locfileid: "59009664"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Zelfstudie: Uw verbonden apparaten bulksgewijs beheren
 
-In deze zelfstudie gebruikt u de oplossingsverbetering voor Externe bewaking om de configuratie van uw verbonden apparaten bulksgewijs te beheren.
+In deze zelfstudie gebruikt u de verbetering voor de externe bewakingsoplossing om de configuratie van uw verbonden apparaten bulksgewijs te beheren.
 
-Als operator bij Contoso moet u een groep apparaten configureren met een nieuwe firmwareversie. U wilt de firmware niet op elk apparaat afzonderlijk bijwerken. Om de firmware op een groep apparaten bij te werken, kunt u apparaatgroepen en automatisch apparaatbeheer gebruiken in de oplossingsverbetering voor Externe bewaking. Elk apparaat dat u aan de apparaatgroep toevoegt, ontvangt de meest recente firmware zodra het apparaat online komt.
+Als operator bij Contoso moet u een groep apparaten configureren met een nieuwe firmwareversie. U wilt de firmware niet op elk apparaat afzonderlijk bijwerken. Om de firmware op een groep apparaten bij te werken, kunt u apparaatgroepen en automatisch apparaatbeheer gebruiken in de verbetering voor de externe bewakingsoplossing. Elk apparaat dat u aan de apparaatgroep toevoegt, ontvangt de meest recente firmware zodra het apparaat online komt.
 
 In deze zelfstudie hebt u:
 
@@ -27,7 +27,7 @@ In deze zelfstudie hebt u:
 > * Een apparaatgroep maken
 > * De firmware voorbereiden en hosten
 > * Een apparaatconfiguratie maken in de Azure-portal
-> * Een apparaatconfiguratie importeren in uw oplossing voor Externe bewaking
+> * Een apparaatconfiguratie importeren in uw externe bewakingsoplossing
 > * De configuratie implementeren op de apparaten in de apparaatgroep
 > * De implementatie bewaken
 
@@ -41,9 +41,9 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsverbetering voor externe controle in uw Azure-abonnement nodig.
+Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de verbetering voor de externe bewakingsoplossing in uw Azure-abonnement nodig.
 
-Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
+Als u de verbetering voor de externe bewakingsoplossing nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een externe bewakingsoplossing in de cloud implementeren](quickstart-remote-monitoring-deploy.md).
 
 U hebt een Azure-opslagaccount nodig om de firmwarebestanden op te slaan. U kunt een bestaand opslagaccount gebruiken of [een nieuw opslagaccount maken](../storage/common/storage-quickstart-create-account.md) in uw abonnement.
 
@@ -59,17 +59,17 @@ Voordat u begint:
 * Controleer of de [bootloader op uw IoT DevKit-apparaat versie 1.4.0 of hoger](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) is.
 * Controleer of de SDK van IoT DevKit dezelfde versie heeft als de bootloader. U kunt de SDK van IoT DevKit bijwerken met behulp van de Azure IoT Workbench in VS Code. Open het opdrachtenpalet en voer de **Arduino: Bord Manager**. Zie [Prepare the development environment](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment) (De ontwikkelomgeving voorbereiden) voor meer informatie.
 
-U hebt ook minimaal één IoT DevKit-apparaat met de oplossingsverbetering voor Externe bewaking nodig. Als u nog geen IoT DevKit-apparaat hebt verbonden, zie dan [Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md) (MXChip IoT DevKit AZ3166 verbinden met de IoT oplossingsverbetering voor Externe bewaking).
+U hebt ook minimaal één IoT DevKit-apparaat met de verbetering voor de externe bewakingsoplossing nodig. Als u nog geen IoT DevKit-apparaat hebt verbonden, zie dan [Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md) (MXChip IoT DevKit AZ3166 verbinden met de IoT-verbetering voor de externe bewakingsoplossing).
 
 ## <a name="navigate-to-the-dashboard"></a>Naar het dashboard navigeren
 
-Als u het dashboard van de oplossing voor externe controle wilt weergeven in uw browser, navigeert u eerst naar [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators#dashboard). Mogelijk wordt u gevraagd u aan te melden met de referenties van uw Azure-abonnement.
+Als u het dashboard van de externe bewakingsoplossing wilt weergeven in uw browser, navigeert u eerst naar [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators#dashboard). Mogelijk wordt u gevraagd u aan te melden met de referenties van uw Azure-abonnement.
 
-Klik vervolgens op **Starten** op de tegel voor de oplossingsverbetering voor externe controle die u hebt geïmplementeerd in de [Snelstart](quickstart-remote-monitoring-deploy.md).
+Klik vervolgens op **Starten** op de tegel van de verbetering voor de externe bewakingsoplossing die u hebt geïmplementeerd in de [Snelstart](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="create-a-device-group"></a>Een apparaatgroep maken
 
-Als u de firmware automatisch wilt bijwerken op een groep apparaten, moeten de apparaten lid zijn van een apparaatgroep in uw oplossing voor Externe bewaking:
+Als u de firmware automatisch wilt bijwerken op een groep apparaten, moeten de apparaten lid zijn van een apparaatgroep in uw externe bewakingsoplossing:
 
 1. Selecteer op de pagina **Apparaten** alle **IoT DevKit**-apparaten die u hebt verbonden met de oplossingsverbetering. Klik vervolgens op **Taken**.
 
@@ -204,7 +204,7 @@ U gebruikt dit configuratiebestand in de volgende sectie.
 
 ## <a name="import-a-configuration"></a>Een configuratie importeren
 
-In deze sectie importeert u de apparaatconfiguratie als een pakket in de oplossingsverbetering voor Externe bewaking. Normaal gesproken wordt deze taak voltooid door een operator.
+In deze sectie importeert u de apparaatconfiguratie als een pakket in de verbetering voor de externe bewakingsoplossing. Normaal gesproken wordt deze taak voltooid door een operator.
 
 1. Navigeer in de webgebruikersinterface van Externe bewaking naar de pagina **Pakketten** en klik op **+ Nieuw pakket**:
 

@@ -88,7 +88,7 @@ items:
     items:
     - name: CPU en geheugengebruik bewaken
       href: container-instances-monitor.md
-    - name: Containerlogbestanden en gebeurtenissen ophalen
+    - name: Containerlogboeken en gebeurtenissen ophalen
       href: container-instances-get-logs.md
     - name: Logboekregistratie met Azure Log Analytics
       href: container-instances-log-analytics.md

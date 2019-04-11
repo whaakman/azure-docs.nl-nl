@@ -24,7 +24,7 @@ Azure Stream Analytics is een gebeurtenissen verwerkende engine waarmee u grote 
 Hier volgen enkele voorbeelden waarbij Azure Stream Analytics kan worden gebruikt: 
 
 * Sensorenfusie voor het Internet of Things (IoT) en realtime analytische gegevens voor apparaattelemetrie
-* Weblogs/clickstream-analyses op internet
+* Weblogboeken/clickstream-analyses op internet
 * Georuimtelijke analyses voor fleetmanagement en zelfrijdende auto’s
 * Op afstand bewaken en predictief onderhoud van hoogwaardige middelen
 * Realtime analyse van Point of Sale-gegevens voor voorraadbeheer en anomaliedetectie

@@ -43,7 +43,7 @@ De volgende tabel bevat de latentie-informatie voor activiteitenrapporten.
 
 | Rapport | Latentie (95e percentiel) |Latentie (99%)|Tijdsbereik waarbinnen logboeken worden gerapporteerd|
 | :-- | --- | --- | --- |
-| Controlelogboeken | 2 minuten  | 5 minuten  | 2-60 minuten |
+| Auditlogboeken | 2 minuten  | 5 minuten  | 2-60 minuten |
 | Aanmeldingen | 2 minuten  | 5 minuten | 2-120 minuten |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?

@@ -26,7 +26,7 @@ De mapstructuur van de on-premises Apache Hadoop File System (HDFS) kan opnieuw 
 
 ### <a name="azure-storage"></a>Azure Storage
 
-HDInsight-clusters kunnen de blob-container in Azure Storage gebruiken als het standaardbestandssysteem of een extra bestandssysteem. De prijscategorie Standard storage-account wordt ondersteund voor gebruik met HDInsight-clusters. De Premier laag wordt niet ondersteund. In de standaard-blobcontainer worden clusterspecifieke gegevens opgeslagen, zoals taakgeschiedenis en logboekbestanden. Het delen van een blobcontainer als het standaardbestandssysteem voor meerdere clusters wordt niet ondersteund.
+HDInsight-clusters kunnen de blob-container in Azure Storage gebruiken als het standaardbestandssysteem of een extra bestandssysteem. De prijscategorie Standard storage-account wordt ondersteund voor gebruik met HDInsight-clusters. De Premier laag wordt niet ondersteund. In de standaard blobcontainer worden clusterspecifieke gegevens opgeslagen, zoals taakgeschiedenis en logboeken. Het delen van een blobcontainer als het standaardbestandssysteem voor meerdere clusters wordt niet ondersteund.
 
 De storage-accounts die zijn gedefinieerd in het proces voor het maken en de bijbehorende sleutels worden opgeslagen in `%HADOOP_HOME%/conf/core-site.xml` op de clusterknooppunten. Ze kunnen ook toegankelijk in de sectie 'Aangepaste core site' in HDFS-configuratie in de Ambari-UI. De opslagaccountsleutel standaard is versleuteld en een aangepaste ontsleuteling-script wordt gebruikt voor het ontsleutelen van de sleutels voordat het wordt doorgegeven aan de Hadoop-daemons. De taken, zoals Hive, MapReduce, Hadoop-streaming en Pig, voert een beschrijving van opslagaccounts en metagegevens bevatten.
 

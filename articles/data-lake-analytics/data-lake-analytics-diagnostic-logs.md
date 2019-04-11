@@ -148,7 +148,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
 | StartTime |String |Het tijdstip waarop de server de aanvraag ontvangen |
 | EndTime |String |Het tijdstip waarop de server een antwoord verzonden |
 
-### <a name="audit-logs"></a>Controlelogboeken
+### <a name="audit-logs"></a>Auditlogboeken
 
 Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeling. Elke blob heeft een basis-object met de naam **records** die een matrix met objecten logboek bevat.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: afwijkingen aan de rand detecteren in een oplossing - Azure | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u uw IoT Edge-apparaten kunt bewaken met behulp van de oplossingsverbetering voor Externe bewaking.
+description: In deze zelfstudie leert u hoe u uw IoT Edge-apparaten kunt bewaken met behulp van de verbetering voor de externe bewakingsoplossing.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -16,13 +16,13 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58166749"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: afwijkingen aan de rand detecteren met de oplossingsverbetering voor externe bewaking
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: Afwijkingen aan de rand detecteren met de verbetering voor de externe bewakingsoplossing
 
-In deze zelfstudie configureert u de oplossing voor externe bewaking om te reageren op afwijkingen die worden gedetecteerd door een IoT Edge-apparaat. Met IoT Edge-apparaten kunt u telemetrie aan de rand verwerken om de hoeveelheid telemetrie te verminderen die naar de oplossing wordt verzonden en om sneller te kunnen reageren op gebeurtenissen op apparaten. Voor meer informatie over de voordelen van verwerking aan de rand raadpleegt u [Wat is Azure IoT Edge](../iot-edge/about-iot-edge.md).
+In deze zelfstudie configureert u de externe bewakingsoplossing om te reageren op afwijkingen die worden gedetecteerd door een IoT Edge-apparaat. Met IoT Edge-apparaten kunt u telemetrie aan de rand verwerken om de hoeveelheid telemetrie te verminderen die naar de oplossing wordt verzonden en om sneller te kunnen reageren op gebeurtenissen op apparaten. Voor meer informatie over de voordelen van verwerking aan de rand raadpleegt u [Wat is Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
-Deze zelfstudie gebruikt een gesimuleerde jaknikker om u te laten kennismaken met randverwerking met externe bewaking. De jaknikker wordt beheerd door een organisatie met de naam Contoso en is verbonden met de oplossingsverbetering voor Externe bewaking. Sensoren op de jaknikker meten temperatuur en druk. Operators bij Contoso weten dat een abnormale toename in de temperatuur ervoor kan zorgen dat de jaknikker vertraagt. Operators bij Contoso hoeven de temperatuur van het apparaat niet te bewaken wanneer deze binnen het normale bereik ligt.
+Deze zelfstudie gebruikt een gesimuleerde jaknikker om u te laten kennismaken met randverwerking met externe bewaking. De jaknikker wordt beheerd door een organisatie met de naam Contoso en is verbonden met de verbetering voor de externe bewakingsoplossing. Sensoren op de jaknikker meten temperatuur en druk. Operators bij Contoso weten dat een abnormale toename in de temperatuur ervoor kan zorgen dat de jaknikker vertraagt. Operators bij Contoso hoeven de temperatuur van het apparaat niet te bewaken wanneer deze binnen het normale bereik ligt.
 
-Contoso wil een intelligente randmodule voor de jaknikker implementeren waarmee afwijkingen in de temperatuur worden gedetecteerd. Een andere randmodule stuurt waarschuwingen naar de oplossing voor externe bewaking. Wanneer een waarschuwing wordt ontvangen, kan een Contoso-operator een onderhoudstechnicus sturen. Contoso kan ook een geautomatiseerde actie configureren, zoals het verzenden van een e-mailbericht, die moet worden uitgevoerd wanneer de oplossing een waarschuwing ontvangt.
+Contoso wil een intelligente randmodule voor de jaknikker implementeren waarmee afwijkingen in de temperatuur worden gedetecteerd. Een andere randmodule stuurt waarschuwingen naar de externe bewakingsoplossing. Wanneer een waarschuwing wordt ontvangen, kan een Contoso-operator een onderhoudstechnicus sturen. Contoso kan ook een geautomatiseerde actie configureren, zoals het verzenden van een e-mailbericht, die moet worden uitgevoerd wanneer de oplossing een waarschuwing ontvangt.
 
 In het volgende diagram worden de belangrijke onderdelen in het zelfstudiescenario weergegeven:
 
@@ -53,14 +53,14 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="add-an-iot-edge-device"></a>Een IoT Edge-apparaat toevoegen
 
-Er zijn twee stappen voor het toevoegen van een IoT Edge-apparaat aan de oplossingsverbetering voor Externe bewaking. In deze sectie leest u hoe u ze gebruikt:
+Er zijn twee stappen voor het toevoegen van een IoT Edge-apparaat aan de verbetering voor de externe bewakingsoplossing. In deze sectie leest u hoe u ze gebruikt:
 
 * Een IoT Edge-apparaat toevoegen op de pagina **Device Explorer** in de webgebruikersinterface van externe bewaking.
 * De IoT Edge-runtime installeren op een Linux-VM.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Een IoT Edge-apparaat toevoegen aan uw oplossing
 
-Als u een IoT Edge-apparaat wilt toevoegen aan de oplossingsverbetering voor Externe bewaking, gaat u naar de pagina **Device Explorer** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
+Als u een IoT Edge-apparaat wilt toevoegen aan de verbetering voor de externe bewakingsoplossing, gaat u naar de pagina **Device Explorer** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
 
 In het deelvenster **Nieuw apparaat** kiest u **IoT Edge-apparaat** en voert u **oil-pump** in als de apparaat-id. Voor de overige instellingen kunt u de standaardwaarden gebruiken. Klik vervolgens op **Toepassen**:
 
@@ -68,7 +68,7 @@ In het deelvenster **Nieuw apparaat** kiest u **IoT Edge-apparaat** en voert u *
 
 Noteer de apparaatverbindingsreeks. U hebt deze nodig in de volgende sectie van de zelfstudie.
 
-Wanneer u een apparaat registreert bij de IoT-hub in de oplossingsverbetering voor externe controle, wordt het apparaat weergegeven op de pagina **Device Explorer** in de webgebruikersinterface:
+Wanneer u een apparaat registreert bij de IoT-hub in de verbetering voor de externe bewakingsoplossing, wordt het apparaat weergegeven op de pagina **Device Explorer** in de webgebruikersinterface:
 
 [![Nieuw IoT Edge-apparaat](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
@@ -139,7 +139,7 @@ Een Edge-apparaat vereist dat de Edge-runtime is geïnstalleerd. In deze zelfstu
 
     Zorg dat u de verbindingsreeks tussen dubbele aanhalingstekens plaatst.
 
-U hebt nu de IoT Edge-runtime geïnstalleerd en geconfigureerd op een Linux-apparaat. Verderop in deze zelfstudie gebruikt u de oplossing voor Externe bewaking om IoT Edge-modules te implementeren op dit apparaat.
+U hebt nu de IoT Edge-runtime geïnstalleerd en geconfigureerd op een Linux-apparaat. Verderop in deze zelfstudie gebruikt u de externe bewakingsoplossing om IoT Edge-modules te implementeren op dit apparaat.
 
 ## <a name="create-an-edge-manifest"></a>Een Edge-manifest maken
 
@@ -148,7 +148,7 @@ Om de jaknikker te simuleren, moet u de volgende modules toevoegen aan uw Edge-a
 * Temperatuursimulatiemodule;
 * Anomaliedetectie in Azure Stream Analytics.
 
-De volgende stappen laten zien hoe u een Edge-implementatiemanifest maakt dat deze modules bevat. Verderop in deze zelfstudie importeert u dit manifest als een pakket in de oplossingsverbetering voor Externe bewaking.
+De volgende stappen laten zien hoe u een Edge-implementatiemanifest maakt dat deze modules bevat. Verderop in deze zelfstudie importeert u dit manifest als een pakket in de verbetering voor de externe bewakingsoplossing.
 
 ### <a name="create-the-azure-stream-analytics-job"></a>De Azure Stream Analytics-taak maken
 
@@ -199,9 +199,9 @@ U hebt nu een Stream Analytics-taak gedefinieerd die wordt gevoerd op uw Edge-ap
 
 ### <a name="create-the-iot-edge-deployment"></a>De IoT Edge-implementatie maken
 
-Vervolgens maakt u een IoT Edge-implementatiemanifest dat de modules definieert die op uw Edge-apparaat moeten worden uitgevoerd. In de volgende sectie importeert u dit manifest als een pakket in de oplossingsverbetering voor Externe bewaking.
+Vervolgens maakt u een IoT Edge-implementatiemanifest dat de modules definieert die op uw Edge-apparaat moeten worden uitgevoerd. In de volgende sectie importeert u dit manifest als een pakket in de verbetering voor de externe bewakingsoplossing.
 
-1. Navigeer in de Azure-portal naar de IoT Hub in uw oplossing voor Externe bewaking. U vindt de IoT Hub in de resourcegroep met dezelfde naam als uw oplossing voor Externe bewaking.
+1. Navigeer in de Azure-portal naar de IoT Hub in uw externe bewakingsoplossing. U vindt de IoT Hub in de resourcegroep met dezelfde naam als uw externe bewakingsoplossing.
 
 1. Klik in de IoT Hub op **IoT Edge** in de sectie **Automatisch apparaatbeheer**. Klik op **Een IoT Edge-implementatie toevoegen**.
 
@@ -249,7 +249,7 @@ U hebt nu een IoT Edge-manifest te importeren in de oplossing voor externe contr
 
 ## <a name="import-a-package"></a>Een pakket importeren
 
-In deze sectie importeert u het Edge-manifest als een pakket in de oplossingsverbetering voor Externe bewaking.
+In deze sectie importeert u het Edge-manifest als een pakket in de verbetering voor de externe bewakingsoplossing.
 
 1. Navigeer in de webgebruikersinterface van Externe bewaking naar de pagina **Pakketten** en klik op **+ Nieuw pakket**:
 
@@ -331,7 +331,7 @@ Als u operators wilt waarschuwen wanneer de drempelwaarde is bereikt, kunt u een
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd u hoe u een IoT Edge-apparaat toevoegt en configureert in de oplossingsverbetering voor Externe bewaking. Zie de volgende instructiegids voor meer informatie over het werken met IoT Edge-pakketten in de oplossing voor Externe bewaking:
+In deze zelfstudie hebt u geleerd u hoe u een IoT Edge-apparaat toevoegt en configureert in de verbetering voor de externe bewakingsoplossing. Zie de volgende instructiegids voor meer informatie over het werken met IoT Edge-pakketten in de externe bewakingsoplossing:
 
 > [!div class="nextstepaction"]
 > [Een IoT Edge-pakket importeren in de oplossingsverbetering voor Externe bewaking](iot-accelerators-remote-monitoring-import-edge-package.md)

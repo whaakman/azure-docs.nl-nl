@@ -69,7 +69,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 
 10. Controleer na circa vijftien minuten of er gebeurtenissen in uw Event Hub worden weergegeven. Ga hiervoor vanuit de portal naar de Event Hub en controleer of het aantal **inkomende berichten** groter is dan nul. 
 
-    ![Controlelogboeken](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
+    ![Auditlogboeken](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
 
 ## <a name="access-data-from-your-event-hub"></a>Gegevens openen vanuit de Event Hub
 

@@ -177,7 +177,7 @@ Voer de volgende stappen uit om de ordergeschiedenis te downloaden.
 
 ![Aanmelden bij opslagaccount](media/data-box-portal-admin/logs-in-storage-acct-2.png)
 
-U kunt ook de bewakingsketenlogboeken bekijken die de controlelogboeken en de BOM-bestanden bevatten.
+U kunt ook de bewakingsketenlogboeken bekijken die de auditlogboeken en de BOM-bestanden bevatten.
 
 ![Logboeken in opslagaccounts](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 

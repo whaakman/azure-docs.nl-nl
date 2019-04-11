@@ -211,7 +211,7 @@ Als u wilt weergeven of kopieer de BitLocker-sleutels, moet u de eigenaar van he
 > Hybrid Azure AD gekoppelde Windows 10-apparaten beschikt niet over een eigenaar. Dus als u naar een apparaat door de eigenaar zoekt en deze niet hebt gevonden, zoeken op het apparaat-ID.
 
 
-## <a name="audit-logs"></a>Controlelogboeken
+## <a name="audit-logs"></a>Auditlogboeken
 
 
 Apparaat-activiteiten zijn beschikbaar via de activiteitenlogboeken. Dit bevat activiteiten die zijn geactiveerd door de device registratieservice en door gebruikers:
@@ -224,7 +224,7 @@ Apparaat-activiteiten zijn beschikbaar via de activiteitenlogboeken. Dit bevat a
  
 Uw beginpunt voor de controlegegevens is **auditlogboeken** in de **activiteit** sectie van de **apparaten** pagina.
 
-![Controlelogboeken](./media/device-management-azure-portal/61.png)
+![Auditlogboeken](./media/device-management-azure-portal/61.png)
 
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
@@ -237,11 +237,11 @@ Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
 - De activiteit (wat)
 
-![Controlelogboeken](./media/device-management-azure-portal/63.png)
+![Auditlogboeken](./media/device-management-azure-portal/63.png)
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
  
-![Controlelogboeken](./media/device-management-azure-portal/64.png)
+![Auditlogboeken](./media/device-management-azure-portal/64.png)
 
 
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
@@ -255,7 +255,7 @@ Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is vo
 
 Naast de filters, kunt u zoeken naar specifieke vermeldingen.
 
-![Controlelogboeken](./media/device-management-azure-portal/65.png)
+![Auditlogboeken](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

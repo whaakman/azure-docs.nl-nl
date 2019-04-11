@@ -111,7 +111,7 @@ U kunt de kleur van een van de DevKit-LED's wijzigen met de **LedColor** methode
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent verder te gaan met de zelfstudies, laat u de oplossingsverbetering voor externe controle geïmplementeerd.
+Als u van plan bent verder te gaan met de zelfstudies, laat u de verbetering voor de externe bewakingsoplossing geïmplementeerd.
 
 Als u de oplossingsversneller niet meer nodig hebt, verwijderen van de pagina van de oplossing ingericht door te selecteren en vervolgens te klikken op de oplossing verwijderen:
 

@@ -37,7 +37,7 @@ Er zijn enkele aandachtspunten voor:
   
     Raadpleeg dat de auditlogboeken beschikbaar zijn in de Azure-portal voor schaalgebeurtenissen. Mogelijk is er een schaal omhoog en omlaag die een schalen is overgeslagen. U kunt filteren op 'Schaal'.
   
-    ![Controlelogboeken][audit]
+    ![Auditlogboeken][audit]
 * Zijn uw schaal en scale-out drempels lijkt te veel?
   
     Stel dat u een regel om uit te schalen wanneer Gemiddeld CPU groter is dan 50% meer dan vijf minuten en op schaal in wanneer Gemiddeld CPU is minder dan 50% instellen. Deze instelling wordt een "op en neer" probleem veroorzaken wanneer CPU-gebruik is dicht bij de drempelwaarde met schaalacties voortdurend vergroten of verkleinen van de grootte van de set. Vanwege deze instelling kan probeert de service voor automatisch schalen om te voorkomen dat 'op en neer', die u kunt het manifest als niet schalen. Zorg daarom dat uw scale-out en schaal drempelwaarden zijn lijkt te veel om toe te staan enkele ruimte tussen de schaal.

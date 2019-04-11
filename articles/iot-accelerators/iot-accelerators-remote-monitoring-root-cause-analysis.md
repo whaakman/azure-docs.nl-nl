@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
 ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
 ms.locfileid: "52284558"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Zelfstudie: Een analyse uitvoeren van de hoofdoorzaak van een waarschuwing
 
-In deze zelfstudie leert u hoe u de hoofdoorzaak van een waarschuwing kunt diagnosticeren met behulp van de oplossingsversneller voor externe bewaking. U ziet dat er een waarschuwing is geactiveerd in het dashboard van de oplossing voor externe bewaking; gebruik vervolgens de Azure Time Series Insights-verkenner om de hoofdoorzaak te onderzoeken.
+In deze zelfstudie leert u hoe u de hoofdoorzaak van een waarschuwing kunt diagnosticeren met behulp van de verbetering voor de externe bewakingsoplossing. U ziet dat er een waarschuwing is geactiveerd in het dashboard van de externe bewakingsoplossing; gebruik vervolgens de Azure Time Series Insights-verkenner om de hoofdoorzaak te onderzoeken.
 
-In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor vrachtwagens die telemetriegegevens over de locatie, de hoogte, de snelheid en de temperatuur van de lading verzenden. De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als Contoso-operator moet u begrijpen waarom één van uw vrachtwagens (delivery-truck-02) een waarschuwing voor een lage temperatuur heeft vastgelegd.
+In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor vrachtwagens die telemetriegegevens over de locatie, de hoogte, de snelheid en de temperatuur van de lading verzenden. De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de verbetering voor de externe bewakingsoplossing. Als Contoso-operator moet u begrijpen waarom één van uw vrachtwagens (delivery-truck-02) een waarschuwing voor een lage temperatuur heeft vastgelegd.
 
 In deze zelfstudie hebt u:
 
@@ -88,7 +88,7 @@ Als u wilt bevestigen dat de vrachtwagens andere routes hebben afgelegd, voegt u
 
 ## <a name="create-a-new-rule"></a>Een nieuwe regel maken
 
-Hoewel vrachtwagenroutes doorgaans van tevoren zijn geoptimaliseerd, realiseert u zich dat verkeerspatronen, het weer en andere onverwachte gebeurtenissen tot vertragingen kunnen leiden en dat vrachtwagenchauffeurs naar eigen inzicht op het laatste moment nog de route kunnen veranderen. Aangezien de temperatuur van uw assets in het voertuig echter essentieel is, moet u een aanvullende regel in uw oplossing voor externe bewaking maken. Deze regel moet ervoor zorgen dat u een waarschuwing krijgt als de gemiddelde hoogte in een interval van 1 minuut boven 350 feet komt:
+Hoewel vrachtwagenroutes doorgaans van tevoren zijn geoptimaliseerd, realiseert u zich dat verkeerspatronen, het weer en andere onverwachte gebeurtenissen tot vertragingen kunnen leiden en dat vrachtwagenchauffeurs naar eigen inzicht op het laatste moment nog de route kunnen veranderen. Aangezien de temperatuur van uw assets in het voertuig echter essentieel is, moet u een aanvullende regel in uw externe bewakingsoplossing maken. Deze regel moet ervoor zorgen dat u een waarschuwing krijgt als de gemiddelde hoogte in een interval van 1 minuut boven 350 feet komt:
 
 [![Tabblad Regels voor externe bewaking voor instellen hoogteregel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
@@ -98,7 +98,7 @@ Als u wilt leren hoe u regels maakt en bewerkt, bekijkt u de vorige zelfstudie o
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u gezien hoe u de hoofdoorzaak van een waarschuwing kunt diagnosticeren met behulp van de Time Series Insights-verkenner in combinatie met de oplossingsversneller voor externe bewaking. Voor informatie over het gebruik van de oplossingsversneller voor het detecteren van problemen met uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
+In deze zelfstudie hebt u gezien hoe u de hoofdoorzaak van een waarschuwing kunt diagnosticeren met behulp van de Time Series Insights-verkenner in combinatie met de versneller voor de externe bewakingsoplossing. Voor informatie over het gebruik van de oplossingsversneller voor het detecteren van problemen met uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Apparaatwaarschuwingen gebruiken om problemen te identificeren en verhelpen met apparaten die zijn verbonden met uw bewakingsoplossing](iot-accelerators-remote-monitoring-maintain.md)

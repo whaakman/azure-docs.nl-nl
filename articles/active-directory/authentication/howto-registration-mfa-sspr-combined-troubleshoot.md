@@ -27,7 +27,7 @@ De informatie in dit artikel is bedoeld voor beheerders die het oplossen van pro
 | Gecombineerde security informatie registratie voor meervoudige verificatie en selfservice voor wachtwoord opnieuw instellen van Azure Active Directory (Azure AD) is een openbare preview-functie van Azure AD. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.|
 |     |
 
-## <a name="audit-logs"></a>Controlelogboeken
+## <a name="audit-logs"></a>Auditlogboeken
 
 De gebeurtenissen die zijn vastgelegd voor gecombineerde registratie zijn in de categorie verificatiemethoden in de Azure AD auditlogboeken.
 

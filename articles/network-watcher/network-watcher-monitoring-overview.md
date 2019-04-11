@@ -18,7 +18,7 @@ ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
 ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2019
 ms.locfileid: "56984383"
@@ -37,7 +37,7 @@ Als een eindpunt onbereikbaar wordt, wordt u geïnformeerd over de reden. Mogeli
 
 De verbindingsmonitor biedt ook de minimale, gemiddelde en maximale latentie waargenomen gedurende een bepaalde periode. Nadat u de latentie voor een verbinding hebt vernomen, kunt u de latentie misschien verminderen door uw Azure-resources te verplaatsen naar andere Azure-regio's. Meer informatie over het bepalen van [relatieve latenties tussen Azure-regio's en internetproviders](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) en het controleren van de communicatie tussen een virtuele machine en een eindpunt met [verbindingsmonitor](connection-monitor.md). Als u liever een verbinding test op een bepaald tijdstip in plaats van in de loop van de tijd (wat u doet met een verbindingsmonitor), gebruikt u in plaats hiervan de functionaliteit voor het [oplossen van verbindingsproblemen](#connection-troubleshoot).
 
-Netwerkprestatiemeter is een hybride cloud-gebaseerde oplossing voor netwerkcontrole die u helpt de prestaties van het netwerk tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Daarnaast kunt u hiermee de netwerkverbinding met de service en toepassingseindpunten bewaken, evenals de prestaties van Azure ExpressRoute. Netwerkprestatiemeter detecteert netwerkproblemen, zoals verkeer dat in een zwart gat verdwijnt, routeringsfouten en problemen die niet worden gedetecteerd door conventionele controlemethoden. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. Lees meer over [Netwerkprestatiemeter](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Netwerkprestatiemeter is een hybride cloud-gebaseerde netwerkbewakingsoplossing voor die u helpt de prestaties van het netwerk tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Daarnaast kunt u hiermee de netwerkverbinding met de service en toepassingseindpunten bewaken, evenals de prestaties van Azure ExpressRoute. Netwerkprestatiemeter detecteert netwerkproblemen, zoals verkeer dat in een zwart gat verdwijnt, routeringsfouten en problemen die niet worden gedetecteerd door conventionele controlemethoden. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. Lees meer over [Netwerkprestatiemeter](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Resources in een virtueel netwerk en hun relaties weergeven
 
@@ -93,7 +93,7 @@ Netwerkbeveiligingsgroepen (NSG) kunnen inkomend of uitgaand verkeer naar een ne
 
 ![Verkeersanalyse](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Lees meer over NSG-stroomlogboeken en het implementeren van [verkeersanalyse](traffic-analytics.md) door de zelfstudie [Logboekregistratie van netwerkverkeer naar en van een virtuele machine met Azure Portal](network-watcher-nsg-flow-logging-portal.md) uit te voeren.
+Lees meer over NSG-stroomlogboeken en het implementeren van [verkeersanalyse](traffic-analytics.md) door de zelfstudie [Logboekregistratie van netwerkverkeer naar en van een virtuele machine met de Azure-portal](network-watcher-nsg-flow-logging-portal.md) uit te voeren.
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Diagnostische logboeken voor netwerkresources weergeven
 

@@ -60,10 +60,10 @@ Zo kunt u bijvoorbeeld bepaalde afwijkende databaseactiviteiten detecteren die w
 5. Als u de instelling **Snel combineren** wilt configureren, gaat u naar het tabblad **POWER QUERY** op het lint en selecteert u **Opties** om het gelijknamige dialoogvenster weer te geven. Selecteer het onderdeel Privacy en kies de tweede optie, De privacyniveaus en mogelijk verbeterde prestaties negeren:
    
     ![Navigatievenster](media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png)
-6. Als u SQL-controlelogboeken wilt laden, zorgt u ervoor dat de parameters op het tabblad Instellingen juist zijn ingesteld en selecteert u vervolgens de knop Alles vernieuwen op het tabblad Gegevens van het lint.
+6. Als u SQL-auditlogboeken wilt laden, zorgt u ervoor dat de parameters op het tabblad Instellingen juist zijn ingesteld en selecteert u vervolgens de knop Alles vernieuwen op het tabblad Gegevens van het lint.
    
     ![Navigatievenster](media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png)
-7. De resultaten worden weergegeven in een **afzonderlijk werkblad**, waarmee u een meer gedetailleerde analyse kunt uitvoeren van de afwijkende activiteiten die zijn gedetecteerd om zo de gevolgen van de beveiligingsgebeurtenis in uw toepassing te beperken.
+7. De resultaten worden weergegeven in het **SQL-auditlogboek**, waarmee u een meer gedetailleerde analyse kunt uitvoeren van de afwijkende activiteiten die zijn gedetecteerd om zo de gevolgen van de beveiligingsgebeurtenis in uw toepassing te beperken.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over beveiliging [beveiligen van een datawarehouse](sql-data-warehouse-overview-manage-security.md).

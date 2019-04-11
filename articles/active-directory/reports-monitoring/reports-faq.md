@@ -75,7 +75,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 | Rapport                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
-| Controlelogboeken             | 7 dagen        | 30 dagen             | 30 dagen             |
+| Auditlogboeken             | 7 dagen        | 30 dagen             | 30 dagen             |
 | Aanmeldingen               | N/A           | 30 dagen             | 30 dagen             |
 | Azure MFA Usage        | 30 dagen       | 30 dagen             | 30 dagen             |
 

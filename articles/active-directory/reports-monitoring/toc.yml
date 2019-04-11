@@ -40,7 +40,7 @@ items:
   items:
   - name: Rapporten
     items:
-    - name: Controlelogboeken
+    - name: Auditlogboeken
       href: concept-audit-logs.md
     - name: Aanmeldingslogboeken
       href: concept-sign-ins.md
@@ -76,7 +76,7 @@ items:
       href: howto-integrate-activity-logs-with-log-analytics.md
     - name: Activiteitenlogboeken analyseren in Azure Monitor-logboeken
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: De Log Analytics-weergaven voor Azure AD installeren en gebruiken
+    - name: De logboekanalyseweergaven voor Azure AD installeren en gebruiken
       href: howto-install-use-log-analytics-views.md
     - name: Activiteitenlogboeken met SumoLogic integreren
       href: howto-integrate-activity-logs-with-sumologic.md
@@ -97,7 +97,7 @@ items:
   items:
   - name: Rapporten
     items:
-    - name: API-verwijzing voor controlelogboeken
+    - name: API-verwijzing voor auditlogboeken
       href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
     - name: API-verwijzing voor aanmeldlogboeken
       href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin

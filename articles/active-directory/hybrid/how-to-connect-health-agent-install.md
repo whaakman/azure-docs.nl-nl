@@ -173,7 +173,7 @@ Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD F
 3. Klik rechts op **Huidige logboeken filteren**.
 4. Selecteer onder Gebeurtenisbron **AD FS-controle**.
 
-    En snelle [opmerking over veelgestelde vragen](reference-connect-health-faq.md#operations-questions) voor auditlogboeken.
+    En snelle [opmerking over veelgestelde vragen](reference-connect-health-faq.md#operations-questions) over auditlogboeken.
 
 ![AD FS-auditlogboeken](./media/how-to-connect-health-agent-install/adfsaudit.png)
 

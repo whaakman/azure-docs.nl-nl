@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie over problemen met apparaten detecteren in een oplossing voor externe bewaking - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u regels en acties kunt gebruiken voor het automatisch detecteren van problemen met apparaten op basis van een drempelwaarde in de oplossing voor externe bewaking.
+title: Zelfstudie over problemen met apparaten detecteren in een externe bewakingsoplossing - Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u regels en acties kunt gebruiken voor het automatisch detecteren van problemen met apparaten op basis van een drempelwaarde in de externe bewakingsoplossing.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53598671"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
-In deze zelfstudie configureert u de oplossingsversneller voor externe bewaking om problemen met verbonden IoT-apparaten te detecteren. Voor het detecteren van problemen met uw apparaten voegt u regels toe waarmee meldingen in het dashboard van de oplossing worden gegenereerd.
+In deze zelfstudie configureert u de verbetering voor de externe bewakingsoplossing om problemen met verbonden IoT-apparaten te detecteren. Voor het detecteren van problemen met uw apparaten voegt u regels toe waarmee meldingen in het dashboard van de oplossing worden gegenereerd.
 
-Om u kennis te laten maken met regels en meldingen, maakt de zelfstudie gebruik van een gesimuleerde koeler (chiller). De chiller wordt beheerd door een organisatie met de naam Contoso en is verbonden met de oplossingsversneller voor externe bewaking. Contoso heeft al een regel waarmee een kritieke melding wordt gegenereerd wanneer de druk in een chiller 298 PSI overschrijdt. Als operator bij Contoso wilt u chillers met problematische sensoren identificeren door te zoeken naar initiële drukpieken. U kunt dergelijke apparaten identificeren door een regel toe te voegen waarmee een melding wordt gegenereerd wanneer de druk in de chiller hoger wordt dan 150 PSI.
+Om u kennis te laten maken met regels en meldingen, maakt de zelfstudie gebruik van een gesimuleerde koeler (chiller). De chiller wordt beheerd door een organisatie met de naam Contoso en is verbonden met de verbetering voor de externe bewakingsoplossing. Contoso heeft al een regel waarmee een kritieke melding wordt gegenereerd wanneer de druk in een chiller 298 PSI overschrijdt. Als operator bij Contoso wilt u chillers met problematische sensoren identificeren door te zoeken naar initiële drukpieken. U kunt dergelijke apparaten identificeren door een regel toe te voegen waarmee een melding wordt gegenereerd wanneer de druk in de chiller hoger wordt dan 150 PSI.
 
 U bent ook gevraagd een kritieke melding voor een chiller te maken wanneer in de laatste vijf minuten de gemiddelde vochtigheid in het apparaat hoger was dan 80% en de temperatuur van het apparaat hoger dan 75 graden Fahrenheit.
 
@@ -134,7 +134,7 @@ U kunt slechts één regel tegelijk verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u de pagina **Regels** in de oplossingsversneller voor externe bewaking kunt gebruiken voor het maken en beheren van regels die meldingen in de oplossing activeren. Voor informatie over het gebruik van de oplossingsversneller voor het beheren en configureren van uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
+In deze zelfstudie hebt u geleerd hoe u de pagina **Regels** in de verbetering voor de externe bewakingsoplossing kunt gebruiken voor het maken en beheren van regels die meldingen in de oplossing activeren. Voor informatie over het gebruik van de oplossingsversneller voor het beheren en configureren van uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing](iot-accelerators-remote-monitoring-manage.md)
