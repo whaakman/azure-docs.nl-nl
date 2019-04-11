@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233353"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469604"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Aan de slag met U-SQL in Azure Data Lake Analytics
 U-SQL is een taal die combineert verklarende SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de schaalbare, gedistribueerde query-mogelijkheid van U-SQL kunt u gegevens efficiënter analyseren in relationele winkels, zoals Azure SQL Database. U kunt met U-SQL, ongestructureerde gegevens verwerken door het schema toepassen op lezen en het invoegen van aangepaste logica en UDF's. U-SQL omvat daarnaast uitbreidbaarheid waarmee u heel nauwkeurig bepalen hoe u kunt om uit te voeren op schaal. 
@@ -55,7 +55,7 @@ Met dit script beschikt niet over de transformatiestappen. Deze leest uit de bro
 Let op het vraagteken naast de gegevens typt in het `Duration` veld. Dit betekent dat de `Duration` veld kan niet null zijn.
 
 ### <a name="key-concepts"></a>Belangrijkste concepten
-* **Variabelen voor de rijenset**: elke query-expressie die een rijenset produceert kan worden toegewezen aan een variabele. U-SQL volgt de variabele T-SQL-naamgevingspatroon (`@searchlog`, bijvoorbeeld) in het script.
+* **Variabelen voor de rijenset**: Elke query-expressie die een rijenset produceert kan worden toegewezen aan een variabele. U-SQL volgt de variabele T-SQL-naamgevingspatroon (`@searchlog`, bijvoorbeeld) in het script.
 * De **EXTRAHEREN** trefwoord leest gegevens uit een bestand en bepaalt u het schema op lezen. `Extractors.Tsv` is een ingebouwde U-SQL-extractor voor bestanden van tabblad gescheiden waarden. U kunt aangepaste extractors ontwikkelen.
 * De **uitvoer** schrijft gegevens uit een rijenset naar een bestand. `Outputters.Csv()` is een ingebouwde U-SQL-outputter te maken van een bestand met door komma's gescheiden waarden. U kunt aangepaste outputters ontwikkelen.
 
@@ -117,7 +117,7 @@ Gebruik **Selecteer** rijensets transformeren:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-De WHERE-component gebruikt een [C# Booleaanse expressie](https://msdn.microsoft.com/library/6a71f45d.aspx). De computertaal C#-expressie kunt u uw eigen expressies en functies. U kunt zelfs uitvoeren meer complexe filteren door ze te combineren met logische voegwoorden (and) en disjunctions (or-items).
+De WHERE-component gebruikt een [C# Booleaanse expressie](/dotnet/csharp/language-reference/operators/index). De computertaal C#-expressie kunt u uw eigen expressies en functies. U kunt zelfs uitvoeren meer complexe filteren door ze te combineren met logische voegwoorden (and) en disjunctions (or-items).
 
 Het volgende script maakt gebruik van de methode DateTime.Parse() en een combinatie.
 
@@ -222,8 +222,8 @@ De component die van U-SQL kan worden gebruikt voor de uitvoer beperkt tot groep
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Zie voor aggregatie van geavanceerde scenario's, naslagdocumentatie over de U-SQL voor [statistische analyse- en verwijzen naar functies](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+Zie voor aggregatie van geavanceerde scenario's, naslagdocumentatie over de U-SQL voor [statistische analyse- en verwijzen naar functies](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [U-SQL-scripts ontwikkelen met behulp van Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

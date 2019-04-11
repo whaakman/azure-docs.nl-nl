@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086629"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470794"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van de Azure portal
-Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure Database for PostgreSQL-Server vanaf een opgegeven IP-adres of IP-adresbereik. 
+Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database for PostgreSQL-Server beheren vanaf een opgegeven IP-adres of IP-adresbereik.
+
+Regels voor virtueel netwerk (VNet) kunnen ook worden gebruikt voor het beveiligen van toegang tot uw server. Meer informatie over [maken en beheren van Virtual Network-service-eindpunten en regels met behulp van de Azure-portal](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
@@ -34,7 +36,7 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 
    ![Bing zoeken naar wat Mijn IP is](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Voeg aanvullende adresbereiken. In de firewallregels voor de Azure Database for PostgreSQL, kunt u één IP-adres of een reeks adressen. Als u beperken van de regel moet één IP-adres wilt, typt u hetzelfde adres in het veld voor het eerste IP- en eind-IP. De firewall opent, kunnen beheerders, gebruikers en toepassingen om aan te melden bij elke database op de PostgreSQL-server waarvoor ze geldige aanmeldgegevens hebben.
+4. Voeg aanvullende adresbereiken. In de firewallregels voor de Azure Database for PostgreSQL, kunt u één IP-adres of een reeks adressen. Als u beperken van de regel moet één IP-adres wilt, typt u hetzelfde adres in het veld voor het eerste IP- en eind-IP. De firewall opent, kunnen beheerders, gebruikers en toepassingen voor toegang tot elke database op de PostgreSQL-server waarvoor ze geldige aanmeldgegevens hebben.
 
    ![Azure portal - firewall-regels](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ Herhaal de stappen voor het beheren van de firewall-regels.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Op dezelfde manier, u kunt een script op [maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van Azure CLI](howto-manage-firewall-using-cli.md).
+- Verder te beveiligen, toegang tot uw server door [maken en beheren van Virtual Network-service-eindpunten en regels met behulp van de Azure-portal](howto-manage-vnet-using-portal.md).
 - Zie voor hulp bij het verbinding maken met een Azure Database for PostgreSQL-server, [verbindingsbibliotheken voor Azure Database for PostgreSQL](concepts-connection-libraries.md).

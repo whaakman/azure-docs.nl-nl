@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361490"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470896"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -96,13 +96,15 @@ Wanneer Azure Dev opslagruimten is ingeschakeld op uw AKS-cluster, installeert h
 * Hiermee verwijdert u een Kubernetes-naamruimte met de naam *azds*, indien deze bestaat, en maakt u een nieuwe.
 * Implementeert een Kubernetes-initialisatiefunctie-object.
 
+Hierbij wordt ook de service-principal die gebruikmaakt van uw AKS-cluster voor serviceaanroepen naar andere onderdelen van Azure Dev spaties.
+
 ![Azure Dev spaties voorbereiden cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Als u wilt gebruiken Azure Dev spaties, moet er ten minste één dev-ruimte. Azure Dev opslagruimten maakt gebruik van Kubernetes-naamruimten in uw AKS-cluster voor dev spaties. Als een domeincontroller wordt geïnstalleerd, wordt u gevraagd om te maken van een nieuwe naamruimte met Kubernetes of kies een bestaande naamruimte te gebruiken als uw eerste dev-ruimte. Wanneer een naamruimte is aangewezen als een dev-ruimte, de controller voegt de *azds.io/space=true* label in op die naamruimte om het te identificeren als een dev-ruimte. Nadat u uw cluster hebt voorbereid, is de initiële dev-ruimte u maakt of aanwijzen standaard geselecteerd. Wanneer een spatie is geselecteerd, wordt deze gebruikt door Azure Dev opslagruimten voor het maken van nieuwe werkbelastingen.
 
 De controller maakt standaard een dev-ruimte met de naam *standaard* door het upgraden van de bestaande *standaard* Kubernetes-naamruimten. De client-side-hulpmiddelen kunt u nieuwe dev opslagruimten maken en bestaande dev spaties verwijderen. Vanwege een beperking in Kubernetes, de *standaard* dev ruimte kan niet worden verwijderd. De controller verwijdert u ook een bestaand Kubernetes-naamruimten met de naam *azds* het voorkomen van conflicten met het `azds` opdracht die wordt gebruikt door de client-side-hulpprogramma's.
 
-Het Kubernetes-initialisatiefunctie-object wordt gebruikt om te ' injecteren ' schillen met drie containers tijdens de implementatie voor instrumentatie: een container devspaces-proxy, een devspaces-proxy-init-container en een container devspaces-build. **Alle drie deze containers worden uitgevoerd met toegang tot de hoofdmap van uw AKS-cluster.**
+Het Kubernetes-initialisatiefunctie-object wordt gebruikt om te ' injecteren ' schillen met drie containers tijdens de implementatie voor instrumentatie: een container devspaces-proxy, een devspaces-proxy-init-container en een container devspaces-build. **Alle drie deze containers worden uitgevoerd met toegang tot de hoofdmap van uw AKS-cluster.** Ze ook de service-principal die gebruikmaakt van uw AKS-cluster voor serviceaanroepen naar andere onderdelen van Azure Dev opslagruimten gebruiken.
 
 ![Azure Dev spaties Kubernetes initialisatiefunctie](media/how-dev-spaces-works/kubernetes-initializer.svg)
 

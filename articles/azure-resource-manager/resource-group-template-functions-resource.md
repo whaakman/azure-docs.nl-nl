@@ -4,22 +4,20 @@ description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebru
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866926"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470709"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
 
@@ -29,12 +27,10 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van res
 * [Providers](#providers)
 * [Verwijzing](#reference)
 * [resourceGroup](#resourcegroup)
-* [ResourceId](#resourceid)
+* [resourceId](#resourceid)
 * [abonnement](#subscription)
 
 Waarden van parameters, variabelen of de huidige implementatie Zie [waarde implementatiefuncties](resource-group-template-functions-deployment.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 <a id="listkeys" />
 <a id="list" />
@@ -173,17 +169,19 @@ Het geretourneerde object is afhankelijk van de functie van de lijst die u gebru
 }
 ```
 
-Andere functies van de lijst met hebben verschillende retour bestandsindelingen. Als u wilt zien van de indeling van een functie, opnemen in de uitvoersectie zoals wordt weergegeven in de voorbeeldsjabloon. 
+Andere functies van de lijst met hebben verschillende retour bestandsindelingen. Als u wilt zien van de indeling van een functie, opnemen in de uitvoersectie zoals wordt weergegeven in de voorbeeldsjabloon.
 
 ### <a name="remarks"></a>Opmerkingen
 
 De resource met behulp van de resourcenaam opgeven of de [resourceId functie](#resourceid). Wanneer u een lijst met door de functie in dezelfde sjabloon waarmee de resource waarnaar wordt verwezen, wordt geïmplementeerd, gebruikt u de naam van de resource.
 
+Als u een **lijst** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd. Er treedt een fout als de **lijst** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource is opgeslagen. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een lijst met een resource voorwaardelijk geïmplementeerd.
+
 ### <a name="example"></a>Voorbeeld
 
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) laat zien hoe de primaire en secundaire sleutels uit een opslagaccount in de uitvoersectie geretourneerd. Deze retourneert ook een SAS-token voor het opslagaccount. 
 
-Als u het token SAS-token, geeft u een object voor het verlooptijdstip. Het verlooptijdstip moet in de toekomst. In dit voorbeeld is bedoeld om ziet u hoe u de lijst met functies. Normaal gesproken u zou het SAS-token in de waarde van een resource gebruiken in plaats een uitvoerwaarde terug. Uitvoerwaarden worden opgeslagen in de geschiedenis van de implementatie en niet is beveiligd.
+Als u de SAS-token, geeft u een object voor het verlooptijdstip. Het verlooptijdstip moet in de toekomst. In dit voorbeeld is bedoeld om ziet u hoe u de lijst met functies. Normaal gesproken u zou het SAS-token in de waarde van een resource gebruiken in plaats een uitvoerwaarde terug. Uitvoerwaarden worden opgeslagen in de geschiedenis van de implementatie en niet is beveiligd.
 
 ```json
 {
@@ -246,23 +244,10 @@ Als u het token SAS-token, geeft u een object voor het verlooptijdstip. Het verl
         }
     }
 }
-``` 
-
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
-```
-
-<a id="providers" />
 
 ## <a name="providers"></a>Providers
+
 `providers(providerNamespace, [resourceType])`
 
 Retourneert informatie over een resourceprovider en de ondersteunde resourcetypen. Als u een resourcetype niet opgeeft, retourneert de functie de ondersteunde typen voor de resourceprovider.
@@ -336,21 +321,8 @@ Voor de **Microsoft.Web** resourceprovider en **sites** brontype in het voorgaan
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
-```
-
-<a id="reference" />
-
 ## <a name="reference"></a>Verwijzing
+
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Retourneert een object waarmee de runtimestatus van een resource.
@@ -374,6 +346,8 @@ De functie verwijzing haalt de runtimestatus van een eerder geïmplementeerde re
 De referentie-functie kan alleen worden gebruikt in de eigenschappen van de resourcedefinitie van een en de uitvoersectie van een sjabloon of de implementatie.
 
 Met behulp van de referentie-functie, declareert u impliciet dat een resource afhankelijk van een andere resource is als de bron waarnaar wordt verwezen, is ingericht in dezelfde sjabloon en u naar de resource met de naam (geen resource-ID verwijst). U hoeft niet te gebruiken ook de eigenschap DEPENDSON te maken. De functie wordt niet geëvalueerd totdat de resource waarnaar wordt verwezen, de implementatie is voltooid.
+
+Als u de **verwijzing** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd.  Er treedt een fout als de **verwijzing** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource is opgeslagen. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een referentie met een resource voorwaardelijk geïmplementeerde.
 
 Als u wilt zien de namen van eigenschappen en waarden voor een resourcetype, een sjabloon die wordt geretourneerd van het object in de uitvoersectie te maken. Als u een bestaande resource van dat type hebt, retourneert de sjabloon voor het object zonder nieuwe resources te implementeren. 
 
@@ -514,18 +488,6 @@ Het volledige object verkeert in de volgende indeling:
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
-```
-
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) verwijst naar een opslagaccount die in deze sjabloon is niet geïmplementeerd. Het opslagaccount bestaat al binnen hetzelfde abonnement.
 
 ```json
@@ -550,21 +512,8 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
+## <a name="resourcegroup"></a>resourceGroup
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
-```
-
-<a id="resourcegroup" />
-
-## <a name="resourcegroup"></a>ResourceGroup
 `resourceGroup()`
 
 Retourneert een object dat de huidige resourcegroep vertegenwoordigt. 
@@ -635,21 +584,8 @@ Het vorige voorbeeld retourneert een object in de volgende indeling:
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
-```
-
-<a id="resourceid" />
-
 ## <a name="resourceid"></a>resourceId
+
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Retourneert de unieke id van een resource. U kunt deze functie gebruiken als de resourcenaam van de niet eenduidig of niet ingericht binnen dezelfde sjabloon is. 
@@ -789,21 +725,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | differentSubOutput | Reeks | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | Reeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/servername/databases/databaseName |
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
-```
-
-<a id="subscription" />
-
 ## <a name="subscription"></a>abonnement
+
 `subscription()`
 
 Retourneert informatie over het abonnement voor de huidige implementatie. 
@@ -839,19 +762,8 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
-```
-
-In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
-```
-
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
 * Op een opgegeven aantal keren herhalen bij het maken van een type resource, Zie [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md).

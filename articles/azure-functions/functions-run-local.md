@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009832"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470837"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -466,6 +466,16 @@ De volgende aangepaste container implementatie-opties zijn beschikbaar:
 | **`--max`**  | Hiermee stelt u het maximum aantal exemplaren van de functie-app implementeren op (optioneel). |
 | **`--min`**  | Hiermee stelt u het minimum aantal exemplaren van de functie app implementeren op (optioneel). |
 | **`--config`** | Hiermee stelt u een configuratiebestand voor optionele implementatie. |
+
+## <a name="monitoring-functions"></a>Functions controleren
+
+De aanbevolen manier voor het bewaken van de uitvoering van uw functies is door te integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app maakt met behulp van de Azure CLI, is niet de integratie in uw functie-app in Azure uitgevoerd.
+
+Application Insights inschakelen voor uw functie-app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

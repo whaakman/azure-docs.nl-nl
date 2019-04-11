@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904930"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470964"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
 Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen.
 
 In dit artikel is bedoeld voor gebruikers die bekend zijn met Resource Manager-sjablonen. Het biedt gedetailleerde informatie over de structuur en de syntaxis van de sjabloon. Als u een inleiding wilt tot het maken van een sjabloon, Zie [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Sjabloonindeling
 
@@ -371,7 +368,7 @@ Ophalen van de huidige instellingen met:
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van variabelen. Te testen hoe variabelen worden verwerkt in verschillende scenario's implementeren. 
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
 | [definities van variabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Ziet u de verschillende typen variabelen. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
 | [van configuratievariabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Ziet u het gebruik van een variabele die de configuratiewaarden definieert. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
@@ -496,7 +493,7 @@ Definieert u resources met de volgende structuur:
 
 | De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
-| voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. |
+| voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. Zie [voorwaarde](#condition). |
 | apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
 | type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
 | naam |Ja |Naam van de resource De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. |
@@ -533,6 +530,8 @@ Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebru
 ```
 
 Voor een compleet voorbeeld-sjabloon die gebruikmaakt van de `condition` -element, Zie [VM met een nieuwe of bestaande Virtueelnetwerk, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+Als u een [verwijzing](resource-group-template-functions-resource.md#reference) of [lijst](resource-group-template-functions-resource.md#list) functie met een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd. Er treedt een fout als de functie verwijst naar een resource die niet bestaat. Gebruik de [als](resource-group-template-functions-logical.md#if) functie om ervoor te zorgen dat de functie wordt pas geëvalueerd voor voorwaarden wanneer de resource is geïmplementeerd. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een referentie met een resource voorwaardelijk geïmplementeerde.
 
 ### <a name="resource-names"></a>Namen van voorbeeldresources
 
@@ -783,7 +782,7 @@ U kunt geen gebruiken de `reference` functie in de uitvoersectie van een [genest
 
 ### <a name="output-example-templates"></a>Voorbeeldsjablonen van uitvoer
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
 |[Kopieer variabelen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Complexe variabelen maakt en deze waarden weergeeft. Niet alle resources niet implementeren. |
 |[Openbaar IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Hiermee maakt u een openbaar IP-adres en de uitvoer van de resource-ID. |

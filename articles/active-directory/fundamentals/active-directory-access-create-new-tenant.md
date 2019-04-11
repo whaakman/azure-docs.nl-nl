@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286989"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469077"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snelstartgids: Een nieuwe tenant maken in Azure Active Directory
 U kunt al uw administratieve taken uitvoeren met behulp van de portal van Azure Active Directory (Azure AD), met inbegrip van het maken van een nieuwe tenant voor uw organisatie. 
@@ -60,7 +60,7 @@ Als u deze toepassing niet verder gebruikt, kunt u de tenant met de volgende sta
 
     De tenant en de bijbehorende informatie wordt verwijderd.
 
-    ![Directory-pagina maken met voorbeeldgegevens](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![De overzichtspagina met knop van de directory gemarkeerde verwijderen](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](add-custom-domain.md) voor het wijzigen of toevoegen van meer informatie over extra domeinnamen

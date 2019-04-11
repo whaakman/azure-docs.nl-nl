@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311727"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470352"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -207,6 +207,8 @@ U kunt deze sleutel maken en deze instelt op FALSE, terwijl uw gebruikers zich o
 
 Zoek het zelfondertekende certificaat dat is gemaakt door het installatieprogramma in het certificaatarchief en controleer of de persoonlijke sleutel heeft machtigingen verleend aan gebruiker **netwerkservice**. Het certificaat heeft een naam voor onderwerp van **CN \<tenantid\>, OU = Microsoft NPS-extensie**
 
+Zelfondertekende certificaten die worden gegenereerd door de *AzureMfaNpsExtnConfigSetup.ps1* script hebben ook een geldigheid levensduur van twee jaar. Tijdens het controleren van het certificaat is geïnstalleerd, moet u ook controleren of het certificaat niet is verlopen.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Hoe kan ik controleren of mijn clientcertificaat gekoppeld aan mijn tenant in Azure Active Directory is?
@@ -262,6 +264,14 @@ Controleer of dat AD Connect wordt uitgevoerd en dat de gebruiker aanwezig is in
 
 Controleer of https://adnotifications.windowsazure.com bereikbaar is vanaf de server waarop de NPS-extensie wordt uitgevoerd.
 
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Waarom is verificatie niet werkt, ondanks dat een geldig certificaat aanwezigheid?
+
+Als uw vorige computercertificaat is verlopen, en een nieuw certificaat is gegenereerd, moet u een verlopen certificaten verwijderen. Met verlopen certificaten kunnen problemen veroorzaken met de NPS-extensie starten.
+
+Om te controleren als u een geldig certificaat hebben, controleert u het lokale computeraccount certificaat Store met behulp van MMC en zorg ervoor dat het certificaat heeft de verloopdatum niet doorstaan. Voor het genereren van een nieuw geldig certificaat, voer de stappen onder de sectie '[de PowerShell-script uitvoeren](#run-the-powershell-script)"
+
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en coderingssuites
 
 Het verdient aanbeveling dat oudere en zwakkere coderingssuites worden uitgeschakeld of verwijderd, tenzij dit vereist door uw organisatie. Informatie over het uitvoeren van deze taak vindt u in het artikel [​​SSL/TLS-protocollen en coderingssuites beheren voor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
@@ -272,4 +282,4 @@ Het verdient aanbeveling dat oudere en zwakkere coderingssuites worden uitgescha
 
 - Meer informatie over het integreren [extern bureaublad-Gateway](howto-mfa-nps-extension-rdg.md) en [VPN-servers](howto-mfa-nps-extension-vpn.md) met behulp van de NPS-extensie
 
-- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md) (Foutberichten van de NPS-extensie voor Azure Multi-Factor Authentication oplossen)
+- [Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen](howto-mfa-nps-extension-errors.md)

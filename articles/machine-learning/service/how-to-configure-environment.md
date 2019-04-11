@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426372"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469893"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -320,8 +320,8 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
       
    Houd ook rekening met:
    + In de configuratie van de Automl, bij het gebruik van Azure Databricks Voeg de volgende parameters:
-    1. ```max_concurrent_iterations``` op basis van het aantal worker-knooppunten in uw cluster. 
-    2. ```spark_context=sc``` #databricks/spark standaard spark-context. 
+        1. ```max_concurrent_iterations``` is gebaseerd op het aantal worker-knooppunten in uw cluster. 
+        2. ```spark_context=sc``` is gebaseerd op de standaard-spark-context. 
    + Of als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
 
 Als de installatie is voltooid, worden de geïmporteerde bibliotheek moet eruitzien als een van de volgende:

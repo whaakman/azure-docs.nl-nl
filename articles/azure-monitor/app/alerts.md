@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257158"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469791"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -144,6 +144,24 @@ In deze sectie doorlopen we over het instellen van een waarschuwing voor een que
 10. Ten slotte de gegevens van uw waarschuwing toevoegen (naam, beschrijving, ernst melding). Wanneer u klaar bent, klikt u op **waarschuwingsregel maken** aan de onderkant.
 
     ![Onder Waarschuwingsdetails Typ uw naam waarschuwingsregel, Geef een beschrijving en kies een ernst](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Hoe u afmelden voor klassieke waarschuwing e-mailmeldingen
+
+In deze sectie is van toepassing op **beschikbaarheid van klassieke waarschuwingen**, **Application Insights metrische waarschuwingen**, en zo de **klassieke waarschuwingen voor afwijkingen**.
+
+U ontvangt e-mailmeldingen voor deze klassieke waarschuwingen als een van de volgende van toepassing is:
+
+* Uw e-mailadres wordt vermeld in het veld bericht e-mailadres ontvangers in de instellingen van de waarschuwingsregel.
+
+* De optie voor het verzenden van e-mailmeldingen voor gebruikers met bepaalde functies voor het abonnement is geactiveerd en u ingedrukt betreffende rol voor die bepaalde Azure-abonnement.
+
+![Schermafbeelding van de melding van waarschuwingen](./media/alerts/alert-notification.png)
+
+Voor het beheren van beter uw beveiliging en privacy die algemeen wordt aangeraden dat u expliciet de geadresseerden voor meldingen opgeven voor uw klassieke waarschuwingen in de **melding e-mailontvangers** veld. De optie om alle gebruikers met bepaalde rollen te waarschuwen is voor achterwaartse compatibiliteit opgegeven.
+
+Als u wilt afmelden voor e-mailmeldingen die worden gegenereerd door een bepaalde waarschuwingsregel, verwijdert u uw e-mailadres van de **melding e-mailontvangers** veld.
+
+Als uw e-mailadres niet expliciet wordt vermeld, raden wij aan dat u de optie automatisch aan alle leden van bepaalde functies uitschakelen, en in plaats daarvan alle gebruiker e-mailberichten die u nodig hebt lijst voor het ontvangen van meldingen voor deze waarschuwingsregel in de e-mailmelding ontvangers-veld.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
 

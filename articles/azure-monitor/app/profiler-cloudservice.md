@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895478"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470828"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiel live Azure Cloud Services met Application Insights
 
@@ -33,7 +33,7 @@ Application Insights Profiler wordt geïnstalleerd met de Azure Diagnostics-exte
 
 1. Voeg [Application Insights-SDK voor Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken. Als u Visual Studio te downgraden van de versie van de App Insights-SDK, krijgt u mogelijk een binding omleidings-fout tijdens runtime. Dit komt doordat de "newVersion' in het bestand web.config voor Microsoft.ApplicationInsights moet worden ingesteld op '2.7.2.0' nadat downgraden van de AI-SDK, maar deze niet automatisch bijgewerkt.
+    **De fout in de profiler die wordt geleverd in de WAD voor Cloud Services is, opgelost.** De nieuwste versie van WAD (1.12.2.0) voor Cloud Services werkt met alle recente versies van de App Insights-SDK. Cloud onderhoud plegen aan hosts WAD automatisch wordt bijgewerkt, maar deze niet onmiddellijk plaats. U kunt om af te dwingen een upgrade, opnieuw implementeren van uw service of het knooppunt opnieuw opstarten.
 
 1. Aanvragen voor bijhouden met Application Insights:
 

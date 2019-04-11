@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010088"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470287"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
- In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
+In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
 
 Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteunde scenario's die zijn beschreven inschakelen in de [overzicht van Azure Disk Encryption](azure-security-disk-encryption-overview.md) artikel, zorg ervoor dat u de vereisten hebt voldaan. 
 
@@ -29,10 +29,11 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 ## <a name="bkmk_OSs"></a> Ondersteunde besturingssystemen
 Azure Disk Encryption wordt ondersteund op de volgende besturingssystemen:
 
-- Windows Server-versies: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en hoger versies van Windows kunt u vinden in de Azure-galerie.
-  - Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Installeer de aanmeldhulp vanaf Windows bijwerken met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+- Windows Server-versies: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core en Windows Server 2016 Server core.
+Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Deze installeren via Windows Update met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen (KB2901983).
+- Core van Windows Server 2012 R2 en Windows Server 2016 Core worden ondersteund door Azure Disk Encryption nadat het bdehdcfg-onderdeel is geïnstalleerd op de virtuele machine.
 - Versies van Windows-client: Client voor Windows 8 en Windows 10-client.
-- Azure Disk Encryption is alleen ondersteund op bepaalde Azure-galerie op basis van Linux-server-distributies en versies. Voor de lijst met ondersteunde versies, raadpleegt u de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+- Azure Disk Encryption is alleen ondersteund op bepaalde Azure-galerie op basis van Linux-server-distributies en versies. Voor de lijst met ondersteunde versies, raadpleegt u de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Raadpleeg de [op Azure onderschreven Linux-distributies](../virtual-machines/linux/endorsed-distros.md) voor de lijst met installatiekopieën die worden ondersteund door Microsoft, en met de [wat Linux-distributies biedt ondersteuning voor Azure Disk Encryption?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) in de [Azure Veelgestelde vragen over de versleuteling schijf](azure-security-disk-encryption-faq.md) voor een lijst van ondersteunde versies op basis van de installatiekopie van onderschreven distributies.
 - Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden. Configureren van de resources in verschillende regio's, zorgt ervoor dat een fout opgetreden bij het inschakelen van de Azure Disk Encryption-functie.
 
 ## <a name="bkmk_LinuxPrereq"></a> Aanvullende vereisten voor Linux IaaS-VM 's 

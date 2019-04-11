@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: b3079a7f2e71e26164d96cf167b67f1a60f7a23b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046470"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469740"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Gegevensverschil problemen oplossen met behulp van Azure Data Lake Tools voor Visual Studio
 
@@ -28,7 +28,7 @@ In ons scenario, is de gegevens ongelijkmatig verdeeld over alle btw-onderzoeker
 
 Met behulp van Azure Data Lake Tools voor Visual Studio kunt u vaststellen of uw taak een gegevensverschil probleem is. Als er een probleem bestaat, kunt u deze kunt oplossen door te proberen de oplossingen die in deze sectie.
 
-## <a name="solution-1-improve-table-partitioning"></a>Oplossing 1: Verbeteren tabellen partitioneren
+## <a name="solution-1-improve-table-partitioning"></a>Oplossing 1: Tabelpartities verbeteren
 
 ### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Optie 1: De waarde van de asymmetrische sleutel vooraf filteren
 
@@ -42,15 +42,15 @@ In het voorgaande voorbeeld, als u wilt dat alleen voor het controleren van de w
 
 In plaats van alleen _status_ als een partitiesleutel, kunt u meer dan één sleutel gebruiken voor het partitioneren van. Bijvoorbeeld, kunt u toevoegen _postcode_ als een aanvullende partitiesleutel om te verminderen van de grootte van gegevens-partities en meer gelijkmatig verdelen van de gegevens.
 
-### <a name="option-4-use-round-robin-distribution"></a>Optie 4: Gebruik van round robin-distributie
+### <a name="option-4-use-round-robin-distribution"></a>Optie 4: Round robin-distributie gebruiken
 
-Als u niet een geschikte sleutel voor de partitie en distributie vinden, kunt u proberen te gebruiken van round robin-distributie. Round robin-distributie worden alle rijen gelijk behandeld en willekeurig, worden de tegels in de bijbehorende buckets. De gegevens gelijkmatig verdeeld, maar u verliest deze locatie-informatie, een nadeel van die prestaties van de taak voor bepaalde bewerkingen kan ook worden verminderd. Bovendien, als u cumulatie-instellingen voor de asymmetrische sleutel toch doet, wordt het probleem gegevensverschil behouden. Voor meer informatie over round-robin-distributie, Zie de sectie distributies van U-SQL-tabel in [CREATE TABLE (U-SQL): het maken van een tabel met Schema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
+Als u niet een geschikte sleutel voor de partitie en distributie vinden, kunt u proberen te gebruiken van round robin-distributie. Round robin-distributie worden alle rijen gelijk behandeld en willekeurig, worden de tegels in de bijbehorende buckets. De gegevens gelijkmatig verdeeld, maar u verliest deze locatie-informatie, een nadeel van die prestaties van de taak voor bepaalde bewerkingen kan ook worden verminderd. Bovendien, als u cumulatie-instellingen voor de asymmetrische sleutel toch doet, wordt het probleem gegevensverschil behouden. Voor meer informatie over round-robin-distributie, Zie de sectie distributies van U-SQL-tabel in [CREATE TABLE (U-SQL): Het maken van een tabel met Schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Oplossing 2: Het queryplan verbeteren
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Optie 1: Gebruik de instructie CREATE STATISTICS
 
-U-SQL biedt de instructie CREATE STATISTICS voor tabellen. Deze instructie geeft meer informatie naar het queryoptimalisatieprogramma over de gegevenskenmerken, zoals de verdeling van de waarde, die zijn opgeslagen in een tabel. Voor de meeste query's, wordt het queryoptimalisatieprogramma al de benodigde statistieken voor een hoge kwaliteit queryplan gegenereerd. In sommige gevallen moet u mogelijk de queryprestaties verbeteren door het maken van aanvullende statistieken met CREATE STATISTICS of door het wijzigen van het ontwerp van de query. Zie voor meer informatie de [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) pagina.
+U-SQL biedt de instructie CREATE STATISTICS voor tabellen. Deze instructie geeft meer informatie naar het queryoptimalisatieprogramma over de gegevenskenmerken, zoals de verdeling van de waarde, die zijn opgeslagen in een tabel. Voor de meeste query's, wordt het queryoptimalisatieprogramma al de benodigde statistieken voor een hoge kwaliteit queryplan gegenereerd. In sommige gevallen moet u mogelijk de queryprestaties verbeteren door het maken van aanvullende statistieken met CREATE STATISTICS of door het wijzigen van het ontwerp van de query. Zie voor meer informatie de [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) pagina.
 
 Codevoorbeeld:
 
@@ -59,7 +59,7 @@ Codevoorbeeld:
 >[!NOTE]
 >Statistische gegevens wordt niet automatisch bijgewerkt. Als u de gegevens in een tabel bijwerken zonder opnieuw maken van de statistieken, kunt de prestaties van query's weigeren.
 
-### <a name="option-2-use-skewfactor"></a>Optie 2: SKEWFACTOR gebruiken
+### <a name="option-2-use-skewfactor"></a>Optie 2: Gebruik SKEWFACTOR
 
 Als u wilt de som van de belasting voor elke status, moet u de GROUP BY staat, een benadering die niet voorkomen het probleem gegevensverschil dat-gebruiken. U kunt echter een hint gegevens opgeven in de query voor het identificeren van gegevensverschil-sleutels, zodat het optimalisatieprogramma een uitvoeringsplan voor u voorbereiden kunt.
 
@@ -97,7 +97,7 @@ Codevoorbeeld:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
-### <a name="option-3-use-rowcount"></a>Optie 3: ROWCOUNT gebruiken  
+### <a name="option-3-use-rowcount"></a>Optie 3: Gebruik het aantal rijen  
 Naast SKEWFACTOR, kunt voor specifieke ongelijkmatig sleutel join gevallen, als u weet dat de andere is toegevoegd aan rijenset klein is, u zien het optimalisatieprogramma door toe te voegen een ROWCOUNT-hint in de U-SQL-instructie voor samenvoegen. Op deze manier kunt optimaliseren een broadcast join-strategie om prestaties te verbeteren. Let erop dat het gegevensverschil probleem niet wordt opgelost door het aantal rijen, maar deze extra hulp kan bieden.
 
     OPTION(ROWCOUNT = n)
@@ -126,7 +126,7 @@ Codevoorbeeld:
 
 U kunt een door de gebruiker gedefinieerde operator logische gecompliceerd zijn getroffen soms schrijven en een goed geschreven reducer en combiner een gegevensverschil probleem in sommige gevallen mogelijk beperken.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Optie 1: Een recursieve reducer, indien mogelijk gebruiken
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Optie 1: Gebruik zo mogelijk een reducer recursieve
 
 Een door de gebruiker gedefinieerde reducer wordt standaard uitgevoerd in de modus voor niet-recursieve, wat betekent dat de hoeveelheid werk voor een sleutel wordt gedistribueerd naar een hoekpunt. Maar als uw gegevens is vervormd, de enorme gegevenssets kan worden verwerkt in een hoekpunt en gedurende langere tijd worden uitgevoerd.
 
@@ -167,11 +167,11 @@ Kenmerken van combiner modus:
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Elke rij uitvoer afhankelijk is van één invoer rij vanaf de linkerkant (en mogelijk alle rijen vanaf de rechterkant met dezelfde sleutelwaarde).
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Elke rij van de uitvoer is afhankelijk van één invoer rij vanaf de linkerkant (en mogelijk alle rijen vanaf de rechterkant met dezelfde sleutelwaarde).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): elke rij van de uitvoer is afhankelijk van één invoer rij van het recht (en mogelijk alle rijen vanaf de linkerkant met dezelfde sleutelwaarde).
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): Elke rij van de uitvoer is afhankelijk van één invoer rij van het recht (en mogelijk alle rijen vanaf de linkerkant met dezelfde sleutelwaarde).
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Elke rij uitvoer afhankelijk is van één invoer rij van de links en rechts met dezelfde waarde.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Elke rij van de uitvoer is afhankelijk van één invoer rij van de links en rechts met dezelfde waarde.
 
 Codevoorbeeld:
 

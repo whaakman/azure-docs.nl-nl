@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: a86c3bd85f9d611787a41754f49ee2475ba33a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175775"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469128"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporteren en importeren van Azure Notification Hubs-registraties in bulk
 Er zijn scenario's waarin deze is vereist om te maken of wijzigen van grote aantallen registraties in een notification hub. Sommige van deze scenario's zijn tag updates batch berekeningen te volgen of migreert van een bestaande push-implementatie voor het gebruik van Notification Hubs.
@@ -34,7 +34,7 @@ In deze sectie wordt ervan uitgegaan dat u hebt de volgende entiteiten:
 
 - Een ingerichte notification hub.
 - Een Azure Storage-blob-container.
-- Verwijzingen naar de Azure Storage en Azure Service Bus NuGet-pakketten.
+- Verwijzingen naar de [Azure Storage NuGet-pakket](https://www.nuget.org/packages/windowsazure.storage/) en [Notification Hubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Invoerbestand maken en op te slaan in een blob
 Een bestand voor invoer bevat een lijst met rapporten die zijn geserialiseerd in XML, één per rij. Met de Azure SDK, ziet in het volgende voorbeeld u hoe de registraties serialiseren en te uploaden naar blob-container.
@@ -132,7 +132,7 @@ Deze bestanden bevatten de lijst van geslaagde en mislukte bewerkingen van de ba
 De volgende voorbeeldcode importeert registraties in een notification hub.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

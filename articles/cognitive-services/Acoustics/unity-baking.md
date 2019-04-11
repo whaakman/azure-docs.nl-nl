@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309637"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470335"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project akoestische Unity Bake zelfstudie
 Deze zelfstudie beschrijft akoestische bakken met akoestische in Unity-Project.
@@ -137,7 +137,7 @@ Naam van de scène wordt gebruikt om de verbinding van de scène met opslaan van
 
 1. De **tests** tabblad-knop die wordt gebruikt om deze pagina
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina
-3. Gebruik deze om een oplossing grof of fijn simulatie. Grof is sneller, maar heeft bepaalde compromissen. Zie [kiezen grof vs prima oplossing](#Coarse-vs-Fine-Resolution) hieronder voor meer informatie.
+3. Gebruik deze om een oplossing grof of fijn simulatie. Grof is sneller, maar heeft bepaalde compromissen. Zie [verdient resolutie](bake-resolution.md) hieronder voor meer informatie.
 4. Kies de locatie waar de gegevensbestanden akoestische moeten worden geplaatst met behulp van dit veld. Klik op de knop met '...' voor het gebruik van een map kiezen. De standaardwaarde is **activa/AcousticsData**. Een **Editor** submap ook worden gemaakt onder deze locatie. Zie voor meer informatie over gegevensbestanden [gegevensbestanden](#Data-Files) hieronder.
 5. De gegevensbestanden voor deze scène wordt de naam hier met behulp van het voorvoegsel dat is opgegeven. De standaardwaarde is 'Acoustics_ [scènenaam van de]'.
 6. Nadat de tests zijn berekend, kunt u de bovenstaande besturingselementen wordt uitgeschakeld. Klik op de **wissen** om te wissen van de berekeningen en de besturingselementen inschakelen zodat u kunt opnieuw berekenen met behulp van de nieuwe instellingen.
@@ -145,21 +145,7 @@ Naam van de scène wordt gebruikt om de verbinding van de scène met opslaan van
 
 In deze versie van het Project akoestische tests handmatig kan niet worden geplaatst en moeten worden geplaatst door het geautomatiseerde proces dat is opgegeven de **tests** tabblad.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Grof versus prima oplossing kiezen
-
-Het enige verschil tussen de instellingen voor het omzetten van grove en goed is de frequentie waarmee de simulatie wordt uitgevoerd. Fijn maakt gebruik van een twee keer zo hoog als grof frequentie.
-Terwijl dit misschien eenvoudig lijken, heeft een aantal gevolgen voor de akoestische simulatie:
-
-* De golflengte voor grof twee keer zo lang als fijn is, en daarom de voxels tweemaal zo groot zijn.
-* De tijd van de simulatie is direct gerelateerd aan de voxel grootte, waardoor een grof bake ongeveer 16 keer sneller dan een prima bake.
-* Portals (bijvoorbeeld deuren of windows) kleiner is dan de grootte van de voxel niet kunnen worden gesimuleerd. De grof instelling kan ertoe leiden dat sommige van deze kleinere portals voor het niet worden gesimuleerd; Daarom geeft ze niet geluid via tijdens runtime. U kunt zien als dit gebeurt door het voxels weer te geven.
-* De frequentie van de lagere simulatie resulteert in minder diffraction rond hoeken en randen.
-* Geluid bronnen kunnen zich niet in "gevuld" voxels die voxels die geometry bevatten: dit resulteert in geen geluid. Het is moeilijker te vinden van geluid bronnen, zodat ze niet binnen de grotere voxels van grove vallen dan de instelling van de fijn wordt gebruikt.
-* De grotere voxels wordt inbreuk maken meer bij portals, zoals hieronder wordt weergegeven. De eerste afbeelding is gemaakt met behulp van abrupte, terwijl de tweede is de dezelfde poort met fijn resolutie. Zoals aangegeven door de rode markeringen, moet u er veel minder inbreuk in de poort die met behulp van de instelling van de orde is. De blauwe lijn is de poort, zoals gedefinieerd door de geometrie, terwijl de rode lijn de effectieve akoestische portal gedefinieerd door de grootte van de voxel wordt. Hoe deze indringers wordt afgespeeld uit in een bepaalde situatie is afhankelijk van de volledig op hoe de voxels uitgelijnd met de geometrie van de portal, die wordt bepaald door de grootte en de locaties van de objecten in de scène.
-
-![Schermafbeelding van grove voxels in poort](media/coarse-voxel-doorway.png)
-
-![Schermafbeelding van fijn voxels in poort](media/fine-voxel-doorway.png)
+Zie [verdient resolutie](bake-resolution.md) voor meer informatie over grof vs fijn resolutie.
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Maken van een scène met behulp van Azure Batch
 U kunt maken van een scène met een rekencluster in de cloud met behulp van de Azure Batch-service. De Project akoestische Unity-invoegtoepassing maakt rechtstreeks verbinding met Azure Batch te maken, beheren en een Azure Batch-cluster voor elke bake afbreken. Op de **verdient** tabblad, Voer uw Azure-referenties, selecteer een clustertype van de machine en de grootte en klikt u op **verdient**.
@@ -210,7 +196,7 @@ Een voorbeeld: bij onze tests op een 8-core-machine met Intel Xeon E5-1660 @ 3 G
 Installeren en configureren van Docker op de computer die de simulatie - verwerkt
 1. Installeer de [Docker toolset](https://www.docker.com/products/docker-desktop).
 2. Start de Docker-instellingen, gaat u naar de opties 'Geavanceerd' en configureren van resources op ten minste 8 GB RAM-geheugen. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Schermopname van voorbeeld van Docker-instellingen](media/docker-settings.png)
-3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![Opties voor Screnshot van Docker gedeelde stations](media/docker-shared-drives.png)
+3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![Schermafbeelding van Docker gedeeld station opties](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Lokale bake uitvoeren
 1. Klik op de knop 'Voorbereiden lokale verdient' op de **verdient** tabblad en selecteer een map waarin de invoerbestanden en de uitvoering van scripts worden opgeslagen. U kunt vervolgens de bake uitvoeren op elke computer, zolang deze voldoet aan de minimale hardwarevereisten en waarop Docker is geïnstalleerd door te kopiëren van de map op de computer.

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311550"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470369"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project akoestische Unreal Bake zelfstudie
 Dit document beschrijft het proces voor het indienen van een akoestische bake met de extensie Unreal-editor.
@@ -40,6 +40,8 @@ Het tabblad objecten is het eerste tabblad dat wordt weergegeven wanneer u de mo
 
 Selecteer een of meer objecten in de hele wereld Outliner of gebruik de **selectie** sectie voor hulp bij alle objecten van een specifieke categorie selecteren. Zodra de objecten zijn geselecteerd, gebruikt u de **taggen** sectie toe te passen van de gewenste tag op de geselecteerde objecten.
 
+Als er iets geen heeft **AcousticsGeometry** noch **AcousticsNavigation** label, wordt dit genegeerd in de simulatie. Alleen statische netten, nav netten en landschappen worden ondersteund. Als u iets anders labelen, wordt dit genegeerd.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Ter referentie: De objecten tabblad delen
 
 ![Schermafbeelding van akoestische objecten tabblad in Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Dingen die al dan niet mogen invloed hebben op de akoestische, zoals onzichtbaar
 
 De transformatie van een object op het moment van de berekening van de test (via het tabblad tests hieronder) in de resultaten bake is opgelost. Een van de gemarkeerde objecten in de scène wordt verplaatst, moet de berekening van de test opnieuw uitvoeren en de scène rebaking.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Maken of een navigatie-NET taggen
+### <a name="create-or-tag-a-navigation-mesh"></a>Maken of een navigatie-NET taggen
 
-Een navigatie-NET wordt gebruikt voor test-punten voor simulatie plaatsen. U kunt de Unreal [Nav NET grenzen Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), of u kunt uw eigen mesh navigatie opgeven. U moet ten minste één object als label **akoestische navigatie**.
+Een navigatie-NET wordt gebruikt voor test-punten voor simulatie plaatsen. U kunt de Unreal [Nav NET grenzen Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), of u kunt uw eigen mesh navigatie opgeven. U moet ten minste één object als label **akoestische navigatie**. Als u de Unreal navigatie mesh gebruikt, zorg er dan voor dat u eerst klaar bent.
+
+### <a name="acoustics-volumes"></a>Akoestische Volumes ###
+
+Er is meer, geavanceerde aanpassingen kunt u op uw navigatiegebieden met **akoestische Volumes**. **Akoestische Volumes** zijn, kunt u toevoegen aan uw scène actoren waarmee u kunt gebieden wilt opnemen en negeren van de navigatie-mesh selecteren. De actor wordt aangegeven dat een eigenschap die kan worden uitgewisseld tussen 'Toevoegen' en 'Uitsluiten'. Volumes "Bevatten" Zorg ervoor dat alleen gebieden van de maas navigatie in deze worden beschouwd als en volumes 'Uitsluiten' markeert deze gebieden worden genegeerd. Volumes 'Uitsluiten' altijd na "Toevoegen" volumes toegepast. Zorg ervoor dat op tag **akoestische Volumes** als **akoestische navigatie** het normale proces in het tabblad objecten. Deze actoren zijn ***niet*** automatisch gelabeld.
+
+![Schermafbeelding van akoestische Volume eigenschappen in Unreal](media/unreal-acoustics-volume-properties.png)
+
+Volumes 'Uitsluiten' zijn hoofdzakelijk bedoeld om gedetailleerd beheer op waar u niet wilt opslaan van de tests voor het gebruik van bronnen verstrakking te geven.
+
+![Schermafbeelding van uitsluiten akoestische Volume in Unreal](media/unreal-acoustics-volume-exclude.png)
+
+"Bevatten" volumes zijn handig voor het maken van het handmatige secties van een scène, zoals als u wilt dat het opsplitsen van de scène in meerdere akoestische zones. Hebt u een grote scène, vele kilometers kwadraat en hebt u twee gebieden van belang dat u maken van akoestische wilt op. U kunt twee grote volumes van 'Toevoegen' in de scène tekenen en produceren van ACE-bestanden voor elk van deze één voor één. Klik in game, kunt u trigger volumes in combinatie met het aanroepen van de blauwdruk laden van de juiste ACE-bestand wanneer de speler elke tegel nadert.
+
+**Akoestische Volumes** alleen beperken de navigatie en ***niet*** de geometrie. Elke test binnen een "toevoegen" **akoestische Volume** nog steeds in de benodigde geometrie buiten het volume wordt opgehaald bij het uitvoeren van simulaties wave. Daarom kunnen mag niet er worden eventuele wijzigingen in bedekking of andere akoestische die voortvloeien uit de overschrijding van de ene sectie naar een andere speler.
 
 ## <a name="select-acoustic-materials"></a>Akoestische materiaal selecteren
 
@@ -87,6 +103,7 @@ De tijd weerklank van een bepaald materiaal in een kamer is omgekeerd gerelateer
 4. Geeft het akoestisch materiaal dat het scène-materiaal aan is toegewezen. Klik op een vervolgkeuzelijst als u wilt toewijzen van een scène materiaal op een andere akoestische materiaal.
 5. De coëfficiënt akoestische opname van het materiaal dat is geselecteerd in de vorige kolom bevat. Een waarde van nul betekent precies bij reflectieve (geen opname), terwijl een waarde van 1 betekent precies absorptie (geen weerspiegeling). Het materiaal akoestische (stap #4) te wijzigen van deze waarde wordt bijgewerkt **aangepaste**.
 
+Als u wijzigingen in het materiaal in uw scène aanbrengt, moet u tabbladen in de invoegtoepassing Project akoestische om te zien die wijzigingen doorgevoerd in de **materiaal** tabblad.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Berekenen en listener test locaties bekijken
 
@@ -98,7 +115,7 @@ Na het toewijzen van het materiaal, Ga naar de **tests** tabblad.
 
 1. De **tests** tabblad-knop die wordt gebruikt om deze pagina
 2. Een korte beschrijving van wat u moet doen met behulp van deze pagina
-3. Met deze optie kiest u een resolutie grof of fijn simulatie. Grof is sneller, maar heeft bepaalde compromissen. Zie [grof vs fijn resolutie](#Coarse-vs-Fine-Resolution) hieronder voor meer informatie.
+3. Met deze optie kiest u een resolutie grof of fijn simulatie. Grof is sneller, maar heeft bepaalde compromissen. Zie [verdient resolutie](bake-resolution.md) hieronder voor meer informatie.
 4. Kies de locatie waar de gegevensbestanden akoestische moeten worden geplaatst met behulp van dit veld. Klik op de knop met '...' voor het gebruik van een map kiezen. Zie voor meer informatie over gegevensbestanden [gegevensbestanden](#Data-Files) hieronder.
 5. De gegevensbestanden voor deze scène wordt de naam hier met behulp van het voorvoegsel dat is opgegeven. De standaardwaarde is '_AcousticsData [naam]'.
 6. Klik op de **berekenen** knop voxelize de scène en de test-distributiepuntlocaties te berekenen. Dit wordt dan niet lokaal op uw computer en moet worden uitgevoerd vóór het uitvoeren van een bake. Nadat de tests zijn berekend, de besturingselementen die hierboven wordt uitgeschakeld en deze knop wordt gewijzigd, zodat het zegt **wissen**. Klik op de **wissen** om te wissen van de berekeningen en de besturingselementen inschakelen zodat u kunt opnieuw berekenen met behulp van de nieuwe instellingen.
@@ -147,21 +164,7 @@ Het is belangrijk om te controleren dat test punten overal die in de speler word
 
 ![Schermafbeelding van akoestische tests Preview-versie in Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Fijn Grof Visual Studio-oplossing
-
-Het enige verschil tussen de instellingen voor het omzetten van grove en goed is de frequentie waarmee de simulatie wordt uitgevoerd. Fijn maakt gebruik van een twee keer zo hoog als grof frequentie.
-Terwijl dit misschien eenvoudig lijken, heeft een aantal gevolgen voor de akoestische simulatie:
-
-* De golflengte voor grof twee keer zo lang als fijn is, en daarom de voxels tweemaal zo groot zijn.
-* De tijd van de simulatie is direct gerelateerd aan de voxel grootte, waardoor een grof bake ongeveer 16 keer sneller dan een prima bake.
-* Portals (bijvoorbeeld deuren of windows) kleiner is dan de grootte van de voxel niet kunnen worden gesimuleerd. De grof instelling kan ertoe leiden dat sommige van deze kleinere portals voor het niet worden gesimuleerd; Daarom geeft ze niet geluid via tijdens runtime. U kunt zien als dit gebeurt door het voxels weer te geven.
-* De frequentie van de lagere simulatie resulteert in minder diffraction rond hoeken en randen.
-* Geluid bronnen kunnen zich niet in "gevuld" voxels die voxels die geometry bevatten: dit resulteert in geen geluid. Het is moeilijker geluid bronnen plaatsen, zodat ze niet binnen de grotere voxels van grove vallen dan wanneer u het fijn instelling.
-* De grotere voxels wordt inbreuk maken meer bij portals, zoals hieronder wordt weergegeven. De eerste afbeelding is gemaakt met behulp van abrupte, terwijl de tweede is de dezelfde poort met fijn resolutie. Zoals aangegeven door de rode markeringen, moet u er veel minder inbreuk in de poort die met behulp van de instelling van de orde is. De blauwe lijn is de poort, zoals gedefinieerd door de geometrie, terwijl de rode lijn de effectieve akoestische portal gedefinieerd door de grootte van de voxel wordt. Hoe deze indringers wordt afgespeeld uit in een bepaalde situatie is afhankelijk van de volledig op hoe de voxels uitgelijnd met de geometrie van de portal, die wordt bepaald door de grootte en de locaties van de objecten in de scène.
-
-![Schermafbeelding van grove voxels invullen van een poort in Unreal](media/unreal-coarse-bake.png)
-
-![Schermafbeelding van fijn voxels in een poort in Unreal](media/unreal-fine-bake.png)
+Zie [verdient resolutie](bake-resolution.md) voor meer informatie over grof vs fijn resolutie.
 
 ## <a name="bake-your-level-using-azure-batch"></a>Maken van uw niveau met behulp van Azure Batch
 

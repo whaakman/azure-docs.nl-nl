@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361858"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469367"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>De fabrieksinstellingen van een aangepaste installatiekopie maken in Azure DevTest Labs
 In dit artikel bevat informatie over het instellen van een bewaarbeleid, opschonen van de factory en het oude installatiekopieën terug van alle de andere DevTest Labs in de organisatie. 
@@ -75,5 +75,5 @@ Ook is het eenvoudig om een nieuwe installatiekopie toe te voegen aan uw gegeven
 ## <a name="next-steps"></a>Volgende stappen
 1. [Plannen van uw build en release](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) de factory installatiekopie periodiek wordt uitgevoerd. Hiermee vernieuwt u uw installatiekopieën factory gegenereerd op gezette tijden.
 2. Meer golden afbeeldingen voor uw gegevensfactory maken. U kunt ook overwegen [artefacten maken](devtest-lab-artifact-author.md) extra onderdelen van uw VM-instellingstaken uit een script en de artefacten opnemen in uw factory afbeeldingen.
-4. Maak een [scheiden build/release](/azure/devops/pipelines/overview.md?view=azure-devops-2019) om uit te voeren de **DistributeImages** script afzonderlijk. Wanneer u wijzigingen in Labs.json aanbrengen en afbeeldingen die worden gekopieerd naar de doel-labs zonder opnieuw te maken van alle installatiekopieën opnieuw ophalen, kunt u dit script uitvoeren.
+4. Maak een [scheiden build/release](/azure/devops/pipelines/overview?view=azure-devops-2019) om uit te voeren de **DistributeImages** script afzonderlijk. Wanneer u wijzigingen in Labs.json aanbrengen en afbeeldingen die worden gekopieerd naar de doel-labs zonder opnieuw te maken van alle installatiekopieën opnieuw ophalen, kunt u dit script uitvoeren.
 

@@ -9,22 +9,22 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518725"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471015"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
 [Azure Functions](functions-overview.md) biedt ingebouwde integratie met [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) voor het bewaken van functies. In dit artikel leest u hoe het configureren van Azure Functions voor het verzenden van het systeem gegenereerde logboekbestanden naar Application Insights.
 
-![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
+Het is raadzaam om met behulp van Application Insights, omdat het logboek, prestaties en foutgegevens verzamelt. Automatisch detecteert afwijkende prestaties en bevat krachtige analysehulpmiddelen om u te helpen u problemen identificeren en om te begrijpen hoe uw functies worden gebruikt. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. U kunt zelfs Application Insights gebruiken tijdens het ontwikkelen van lokale functie-app-project. Zie voor meer informatie, [wat is Application Insights?](../azure-monitor/app/app-insights-overview.md)
 
-Azure Functions heeft ook ingebouwde controle die geen gebruik maakt van Application Insights. We raden u Application Insights omdat deze optie biedt meer gegevens en betere manieren om de gegevens te analyseren.
+Als de vereiste instrumentatie van Application Insights is gratis ingebouwd in Azure Functions, hoeft u een geldige instrumentatiesleutel uw functie-app verbinden met een Application Insights-resource is.
 
 ## <a name="application-insights-pricing-and-limits"></a>Prijzen van Application Insights en limieten
 
@@ -34,56 +34,28 @@ U kunt gratis Application Insights-integratie met de functie-Apps uitproberen. E
 
 Voor een functie-app om gegevens te verzenden naar Application Insights, moet deze weten de instrumentatiesleutel van een Application Insights-resource. De sleutel moet zich in een app-instelling met de naam **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-U kunt instellen om deze verbinding in de [Azure-portal](https://portal.azure.com):
+### <a name="new-function-app-in-the-portal"></a>Nieuwe functie-app in de portal
 
-* [Automatisch verbinding maken met een nieuwe functie-app](#new-function-app)
-* [Handmatig verbinding maken met een Application Insights-resource](#manually-connect-an-app-insights-resource)
+Wanneer u [uw functie-app maken in Azure portal](functions-create-first-azure-function.md), Application Insights-integratie is standaard ingeschakeld. De Application Insights-resource heeft dezelfde naam als uw functie-app en deze gemaakt in dezelfde regio of in de dichtstbijzijnde regio.
 
-### <a name="new-function-app"></a>Nieuwe functie-app
-<!-- Add a transitional sentence to introduce the procedure. -->
+Als u wilt controleren van de Application Insights-resource wordt gemaakt, selecteert u deze om uit te breiden de **Application Insights** venster. U kunt wijzigen de **nieuwe resourcenaam** of kies een andere **locatie** in een [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) waar u uw gegevens kunt opslaan.
 
-1. Ga naar de functie-app **maken** pagina.
+![Application Insights inschakelen tijdens het maken van een functie-app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-1. Stel de **Application Insights** overschakelen **op**.
-
-1. Selecteer een **Application Insights-locatie**. Kies de regio die zich het dichtst bij uw functie-app-regio en in een [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) waar u uw gegevens kunt opslaan.
-
-   ![Application Insights inschakelen tijdens het maken van een functie-app](media/functions-monitoring/enable-ai-new-function-app.png)
-
-1. Voer de vereiste gegevens in en selecteer **maken**.
-
-De volgende stap is het [ingebouwde logboekregistratie uitschakelen](#disable-built-in-logging).
-
+Als u ervoor kiest **maken**, een Application Insights-resource wordt gemaakt met uw functie-app met de `APPINSIGHTS_INSTRUMENTATIONKEY` instellen in de toepassingsinstellingen. Alles is klaar om te beginnen.
 
 <a id="manually-connect-an-app-insights-resource"></a>
-### <a name="application-insights-resource"></a>Application Insights-resource 
-<!-- Add a transitional sentence to introduce the procedure. -->
+### <a name="add-to-an-existing-function-app"></a>Toevoegen aan een bestaande functie-app 
 
-1. Maken van de Application Insights-resource. Toepassingstype ingesteld op **algemene**.
+Wanneer u maakt een functie-app via de [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), of [Visual Studio Code](functions-create-first-function-vs-code.md), moet u de Application Insights-resource maken. U kunt vervolgens de instrumentatiesleutel van die resource toevoegen als een toepassingsinstelling van de in uw functie-app.
 
-   ![Maak een Application Insights-resource van het type Algemeen](media/functions-monitoring/ai-general.png)
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-1. Kopieer de instrumentatiesleutel van de **Essentials** pagina van de Application Insights-resource. Verwijzen naar het einde van de weergegeven waarde van de sleutel aan een **Klik om te kopiëren** knop.
-
-   ![De Application Insights-instrumentatiesleutel kopiëren](media/functions-monitoring/copy-ai-key.png)
-
-1. In de functie-app **toepassingsinstellingen** pagina [toevoegen van een app-instelling](functions-how-to-use-azure-function-app-settings.md#settings) hiervoor **nieuwe instelling toevoegen**. Naam van de nieuwe instelling **APPINSIGHTS_INSTRUMENTATIONKEY** en plak de gekopieerde instrumentatiesleutel.
-
-   ![Instrumentatiesleutel toevoegen aan app-instellingen](media/functions-monitoring/add-ai-key.png)
-
-1. Selecteer **Opslaan**.
-
-<!-- Before the next H2 heading, add transitional sentences to summarize why the procedures were necessary. -->
-
-## <a name="disable-built-in-logging"></a>Ingebouwde logboekregistratie uitschakelen
-
-Als u Application Insights inschakelt, schakelt u de ingebouwde logboekregistratie die gebruikmaakt van Azure Storage. De ingebouwde logboekregistratie is handig voor het testen met lichte workloads, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor het bewaken van de productie, wordt aangeraden Application Insights. Als ingebouwde logboekregistratie in productie wordt gebruikt, de record logboekregistratie mogelijk onvolledig vanwege beperkingen in Azure Storage.
-
-Als u wilt ingebouwde logboekregistratie uitschakelen, verwijdert de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure-portal, de **toepassingsinstellingen** sectie van [over het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings). Voordat u de app-instelling verwijderen, zorg ervoor dat er zijn geen bestaande functies in dezelfde functie-app gebruikt de instelling voor Azure Storage-triggers of bindingen.
+Vroege versies van functies gebruikt ingebouwde controle, die niet meer wordt aanbevolen. Bij het inschakelen van Application Insights-integratie voor dergelijke een functie-app, moet u ook [ingebouwde logboekregistratie uitschakelen](#disable-built-in-logging).  
 
 ## <a name="view-telemetry-in-monitor-tab"></a>Telemetrie weergeven in het tabblad Monitor
 
-Na het instellen van Application Insights-integratie zoals wordt weergegeven in de vorige secties, vindt u de telemetrische gegevens in de **Monitor** tabblad.
+Met [Application Insights-integratie ingeschakeld](#enable-application-insights-integration), vindt u telemetriegegevens in de **Monitor** tabblad.
 
 1. Selecteer een functie die ten minste eenmaal uitgevoerd wanneer de Application Insights is geconfigureerd in de pagina functie-app. Selecteer vervolgens de **Monitor** tabblad.
 
@@ -103,13 +75,13 @@ Na het instellen van Application Insights-integratie zoals wordt weergegeven in 
 
    ![Aanroepdetails](media/functions-monitoring/invocation-details-ai.png)
 
-Pagina's (aanroep lijst en aanroepdetails) een koppeling naar de Application Insights Analytics-query die de gegevens worden opgehaald:
+U kunt zien dat beide pagina's hebben een **uitvoeren in Application Insights** koppeling naar de Application Insights Analytics-query die de gegevens worden opgehaald.
 
 ![Uitvoeren in Application Insights](media/functions-monitoring/run-in-ai.png)
 
-![Lijst met Application Insights Analytics aanroep](media/functions-monitoring/ai-analytics-invocation-list.png)
+De volgende query wordt weergegeven. U kunt zien dat de aanroep-lijst beperkt tot de laatste 30 dagen is. De lijst ziet u niet meer dan 20 rijen (`where timestamp > ago(30d) | take 20`). De lijst van de details van aanroepen is voor de afgelopen 30 dagen zonder limiet.
 
-In deze query's ziet u dat de aanroep-lijst beperkt tot de laatste 30 dagen is. De lijst ziet u niet meer dan 20 rijen (`where timestamp > ago(30d) | take 20`). De lijst van de details van aanroepen is voor de afgelopen 30 dagen zonder limiet.
+![Lijst met Application Insights Analytics aanroep](media/functions-monitoring/ai-analytics-invocation-list.png)
 
 Zie voor meer informatie, [telemetriegegevens op te vragen](#query-telemetry-data) verderop in dit artikel.
 
@@ -121,25 +93,17 @@ Voor Application Insights openen vanuit een functie-app in Azure portal, gaat u 
 
 Zie voor meer informatie over het gebruik van Application Insights de [documentatie voor Application Insights](https://docs.microsoft.com/azure/application-insights/). In deze sectie ziet u enkele voorbeelden van hoe u gegevens weergeven in Application Insights. Als u al bekend met Application Insights bent, gaat u rechtstreeks naar [in de secties over het configureren en aanpassen van de telemetriegegevens](#configure-categories-and-log-levels).
 
-In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kunt u grafieken en waarschuwingen die zijn gebaseerd op de metrische gegevens maken. Metrische gegevens behoren het aantal functieaanroepen, uitvoeringstijd en succespercentages.
+![Tabblad van Application Insights-overzicht](media/functions-monitoring/metrics-explorer.png)
 
-![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
+De volgende gebieden van Application Insights kunnen nuttig zijn bij het evalueren van het gedrag, prestaties en fouten in uw functies:
 
-Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren.
-
-![Fouten](media/functions-monitoring/failures.png)
-
-Op de [prestaties](../azure-monitor/app/performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
-
-![Prestaties](media/functions-monitoring/performance.png)
-
-De **Servers** tabblad bevat Resourcegebruik en doorvoer per server. Deze gegevens is handig voor het opsporen van fouten in scenario's waarbij functies worden bogging uw onderliggende resources. Servers worden aangeduid als **rolinstanties in de Cloud**.
-
-![Servers](media/functions-monitoring/servers.png)
-
-De [Live Metrics Stream](../azure-monitor/app/live-stream.md) tabblad bevat metrische gegevens zoals deze gemaakt in realtime.
-
-![Livestream](media/functions-monitoring/live-stream.png)
+| Tab | Description |
+| ---- | ----------- |
+| **[Fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
+| **[Prestaties](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |
+| **Servers** | Gebruik van resources en de doorvoer per server weergeven. Deze gegevens is handig voor het opsporen van fouten in scenario's waarbij functies worden bogging uw onderliggende resources. Servers worden aangeduid als **rolinstanties in de Cloud**. |
+| **[Metrische gegevens](../azure-monitor/app/metrics-explorer.md)** | Maak grafieken en waarschuwingen die zijn gebaseerd op de metrische gegevens. Metrische gegevens behoren het aantal functieaanroepen, uitvoeringstijd en succespercentages. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Metrische gegevens weergeven zoals deze gemaakt in realtime. |
 
 ## <a name="query-telemetry-data"></a>Telemetriegegevens op te vragen
 
@@ -160,12 +124,14 @@ requests
 
 De tabellen die beschikbaar zijn worden weergegeven in de **Schema** tabblad aan de linkerkant. Hier vindt u gegevens die zijn gegenereerd door de functieaanroepen in de volgende tabellen:
 
-* **traceringen**: Logboeken die zijn gemaakt door de runtime en functiecode aan te geven.
-* **aanvragen**: Een aanvraag voor elke functieaanroep.
-* **Uitzonderingen**: Alle uitzonderingen die door de runtime.
-* **customMetrics**: Het aantal geslaagde en mislukte aanroepen, slagingspercentage en duur.
-* **customEvents**: Gebeurtenissen bijgehouden door de runtime, bijvoorbeeld: HTTP-aanvragen die een functie geactiveerd.
-* **performanceCounters**: Informatie over de prestaties van de servers die de functies worden uitgevoerd op.
+| Tabel | Description |
+| ----- | ----------- |
+| **traceringen** | Logboeken die zijn gemaakt door de runtime en functiecode aan te geven. |
+| **aanvragen** | Een aanvraag voor elke functieaanroep. |
+| **uitzonderingen** | Alle uitzonderingen die door de runtime. |
+| **customMetrics** | Het aantal geslaagde en mislukte aanroepen, slagingspercentage en duur. |
+| **customEvents** | Gebeurtenissen bijgehouden door de runtime, bijvoorbeeld: HTTP-aanvragen die een functie geactiveerd. |
+| **PerformanceCounters** | Informatie over de prestaties van de servers die de functies worden uitgevoerd op. |
 
 De andere tabellen zijn voor beschikbaarheidstests en client- en browserbeheer telemetrie. U kunt aangepaste telemetrie om toe te voegen gegevens om ze te implementeren.
 
@@ -180,7 +146,7 @@ De runtime biedt de `customDimensions.LogLevel` en `customDimensions.Category` v
 
 ## <a name="configure-categories-and-log-levels"></a>Configureren van de categorieën en meld u niveaus
 
-U kunt Application Insights gebruiken zonder aangepaste configuratie. De standaardconfiguratie kan resulteren in grote hoeveelheden gegevens. Als u een Azure van Visual Studio-abonnement, kunt u mogelijk uw datalimiet bereikt voor Application Insights. Verderop in dit artikel leert u hoe u voor het configureren en aanpassen van de gegevens die uw functies naar Application Insights verzenden.
+U kunt Application Insights gebruiken zonder aangepaste configuratie. De standaardconfiguratie kan resulteren in grote hoeveelheden gegevens. Als u een Azure van Visual Studio-abonnement, kunt u mogelijk uw datalimiet bereikt voor Application Insights. Verderop in dit artikel leert u hoe u voor het configureren en aanpassen van de gegevens die uw functies naar Application Insights verzenden. Voor een functie-app logboekregistratie is geconfigureerd in de [host.json] bestand.
 
 ### <a name="categories"></a>Categorieën
 
@@ -208,7 +174,7 @@ Meld u niveau `None` in de volgende sectie wordt uitgelegd.
 
 ### <a name="log-configuration-in-hostjson"></a>Logboekconfiguratie van het in host.json
 
-De [host.json](functions-host-json.md) bestand configureert hoeveel logboekregistratie een functie-app wordt verzonden naar Application Insights. Voor elke categorie, geeft u aan het minimale logboek-niveau te verzenden. Er zijn twee voorbeelden: het eerste voorbeeld-doelen de [runtime van Functions versie 2.x](functions-versions.md#version-2x) (.NET Core) en het tweede voorbeeld is voor de versie 1.x-runtime.
+De [host.json] bestand configureert hoeveel logboekregistratie een functie-app wordt verzonden naar Application Insights. Voor elke categorie, geeft u aan het minimale logboek-niveau te verzenden. Er zijn twee voorbeelden: het eerste voorbeeld-doelen de [runtime van Functions versie 2.x](functions-versions.md#version-2x) (.NET Core) en het tweede voorbeeld is voor de versie 1.x-runtime.
 
 ### <a name="version-2x"></a>Versie 2.x
 
@@ -248,12 +214,12 @@ De runtime v2.x gebruikt de [.NET Core logboekregistratie filterhiërarchie](htt
 In dit voorbeeld stelt u de volgende regels:
 
 * Voor logboeken met categorie `Host.Results` of `Function`, alleen verzenden `Error` niveau en van boven naar Application Insights. De logboeken voor `Warning` niveau en hieronder worden genegeerd.
-* Voor de logboeken met categorie `Host.Aggregator`, alle logboeken verzenden naar Application Insights. De `Trace` logboek-niveau is hetzelfde als wat u kunt sommige noemen `Verbose`, maar gebruik `Trace` in de [host.json](functions-host-json.md) bestand.
+* Voor de logboeken met categorie `Host.Aggregator`, alle logboeken verzenden naar Application Insights. De `Trace` logboek-niveau is hetzelfde als wat u kunt sommige noemen `Verbose`, maar gebruik `Trace` in de [host.json] bestand.
 * Voor alle andere logboeken verzenden alleen `Information` niveau en van boven naar Application Insights.
 
-De categoriewaarde in [host.json](functions-host-json.md) bepaalt de logboekregistratie voor alle categorieën die met dezelfde waarde beginnen. `Host` in [host.json](functions-host-json.md) besturingselementen voor logboekregistratie `Host.General`, `Host.Executor`, `Host.Results`, enzovoort.
+De categoriewaarde in [host.json] bepaalt de logboekregistratie voor alle categorieën die met dezelfde waarde beginnen. `Host` in [host.json] besturingselementen voor logboekregistratie `Host.General`, `Host.Executor`, `Host.Results`, enzovoort.
 
-Als [host.json](functions-host-json.md) omvat meerdere categorieën die met de dezelfde tekenreeks beginnen langer die eerst worden vergeleken. Stel dat u wilt dat alles, van de runtime, behalve `Host.Aggregator` om aan te melden bij `Error` niveau, maar u wilt dat `Host.Aggregator` om aan te melden bij de `Information` niveau:
+Als [host.json] omvat meerdere categorieën die met de dezelfde tekenreeks beginnen langer die eerst worden vergeleken. Stel dat u wilt dat alles, van de runtime, behalve `Host.Aggregator` om aan te melden bij `Error` niveau, maar u wilt dat `Host.Aggregator` om aan te melden bij de `Information` niveau:
 
 ### <a name="version-2x"></a>Versie 2.x 
 
@@ -322,7 +288,7 @@ Logboeken geschreven door uw functiecode categorie hebben `Function` en mag logb
 
 ## <a name="configure-the-aggregator"></a>De aggregator configureren
 
-Als in de vorige sectie hebt genoteerd, combineert de runtime gegevens over de functie-uitvoeringen gedurende een bepaalde periode. De standaardperiode is 30 seconden of 1000 wordt uitgevoerd, afhankelijk van wat het eerste komt. U kunt deze instelling in configureren de [host.json](functions-host-json.md) bestand.  Hier volgt een voorbeeld:
+Als in de vorige sectie hebt genoteerd, combineert de runtime gegevens over de functie-uitvoeringen gedurende een bepaalde periode. De standaardperiode is 30 seconden of 1000 wordt uitgevoerd, afhankelijk van wat het eerste komt. U kunt deze instelling in configureren de [host.json] bestand.  Hier volgt een voorbeeld:
 
 ```json
 {
@@ -335,7 +301,7 @@ Als in de vorige sectie hebt genoteerd, combineert de runtime gegevens over de f
 
 ## <a name="configure-sampling"></a>Steekproeven configureren
 
-Application Insights is een [steekproeven](../azure-monitor/app/sampling.md) functie die u beschermen kunt tegen het produceren van te veel telemetriegegevens op tijdstippen van de piekbelasting. Wanneer het aantal binnenkomende telemetriegegevens een opgegeven drempelwaarde overschrijdt, wordt de Application Insights willekeurig negeert een aantal inkomende objecten gestart. De standaardinstelling voor het maximum aantal items per seconde is vijf. U kunt configureren van lijnen in [host.json](functions-host-json.md).  Hier volgt een voorbeeld:
+Application Insights is een [steekproeven](../azure-monitor/app/sampling.md) functie die u beschermen kunt tegen te veel telemetriegegevens produceren op voltooid uitvoeringen soms van piekbelasting. Wanneer het aantal uitvoeringen door een binnenkomende een opgegeven drempelwaarde overschrijdt, wordt de Application Insights willekeurig negeren enkele van de binnenkomende uitvoeringen. De standaardinstelling voor het maximum aantal uitvoeringen per seconde is 20 (vijf in versie 1.x). U kunt configureren van lijnen in [host.json].  Hier volgt een voorbeeld:
 
 ### <a name="version-2x"></a>Versie 2.x 
 
@@ -345,7 +311,7 @@ Application Insights is een [steekproeven](../azure-monitor/app/sampling.md) fun
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 5
+        "maxTelemetryItemsPerSecond" : 20
       }
     }
   }
@@ -465,18 +431,18 @@ using Microsoft.Extensions.Logging;
 
 namespace functionapp0915
 {
-    public static class HttpTrigger2
+    public class HttpTrigger2
     {
-        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
-        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
-        // automatically use that key for all telemetry. It will also enable telemetry correlation
-        // with the current operation.
-        // If you require a custom TelemetryConfiguration, create it initially with
-        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
-        private static TelemetryClient telemetryClient = new TelemetryClient();
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
 
         [FunctionName("HttpTrigger2")]
-        public static Task<IActionResult> Run(
+        public Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest req, ExecutionContext context, ILogger log)
         {
@@ -491,12 +457,12 @@ namespace functionapp0915
             // Track an Event
             var evt = new EventTelemetry("Function called");
             evt.Context.User.Id = name;
-            telemetryClient.TrackEvent(evt);
+            this.telemetryClient.TrackEvent(evt);
 
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
             metric.Context.User.Id = name;
-            telemetryClient.TrackMetric(metric);
+            this.telemetryClient.TrackMetric(metric);
 
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -509,7 +475,7 @@ namespace functionapp0915
                 Success = true
             };
             dependency.Context.User.Id = name;
-            telemetryClient.TrackDependency(dependency);
+            this.telemetryClient.TrackDependency(dependency);
 
             return Task.FromResult<IActionResult>(new OkResult());
         }
@@ -627,58 +593,62 @@ module.exports = function (context, req) {
 
 De `tagOverrides` parametersets de `operation_Id` aan van de functie aanroep-ID. Deze instelling kunt u correlaties zichtbaar maken tussen alle van de automatisch gegenereerde en aangepaste telemetrie voor een bepaalde functie-aanroep.
 
-## <a name="known-issues"></a>Bekende problemen
-<!-- Add a transitional sentence to introduce the section. -->
-
-### <a name="dependencies"></a>Afhankelijkheden
+## <a name="dependencies"></a>Afhankelijkheden
 
 Afhankelijkheden die de functie met andere services heeft weergegeven niet automatisch. U kunt aangepaste code om de afhankelijkheden weer te schrijven. Zie voor voorbeelden van de voorbeeldcode in de [ C# aangepaste telemetrie sectie](#log-custom-telemetry-in-c-functions). De voorbeeldcode resulteert in een *toepassingsoverzicht* in Application Insights die vergelijkbaar is de volgende afbeelding:
 
-![Overzicht van de toepassing](media/functions-monitoring/app-map.png)
+![Overzicht van de toepassing](./media/functions-monitoring/app-map.png)
 
-### <a name="report-issues"></a>Problemen rapporteren
+## <a name="report-issues"></a>Problemen rapporteren
 
 Om een probleem met Application Insights-integratie in Functions te melden of een suggestie of de aanvraag, [maken van een probleem in GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="monitor-without-application-insights"></a>Monitor zonder de Application Insights
+## <a name="streaming-logs"></a>Streaminglogboeken
 
-We raden Application Insights aan voor het bewaken van functies. Biedt meer gegevens en betere manieren om de gegevens te analyseren. Maar als u liever het ingebouwde logboekregistratie-systeem die gebruikmaakt van Azure Storage, kunt u blijven om die methode te gebruiken.
+Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om te zien van logboekgegevens in near-real-time. Hier vindt u een stream van logboekbestanden wordt gegenereerd door uw functies in Azure portal of in een opdrachtregel-sessie op de lokale computer.
 
-### <a name="azure-storage-account-for-logging"></a>Azure Storage-account voor logboekregistratie
+Dit is gelijk aan de uitvoer weergegeven wanneer u uw functies tijdens de foutopsporing [lokale ontwikkeling](functions-develop-local.md). Zie voor meer informatie, [over het streamen van logboeken](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
-Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Selecteer een functie in een functie-app-pagina en selecteer vervolgens de **Monitor** tabblad en bewaar deze op wilt **klassieke weergave**.
+> [!NOTE]
+> Streaminglogboeken ondersteunen slechts één exemplaar van de host functies. Wanneer uw functie wordt geschaald naar meerdere exemplaren, worden gegevens van andere exemplaren niet weergegeven in het logboekstream. De [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights meerdere exemplaren ondersteund. Terwijl u ook in bijna real-time, Stream analytics zijn ook gebaseerd op [voorbeeldgegevens](#configure-sampling).
 
-![Overschakelen naar de klassieke weergave](media/functions-monitoring/switch-to-classic-view.png)
+### <a name="portal"></a>Portal
 
-U een lijst met uitvoeringen van functie. Selecteer een functie wordt uitgevoerd om te controleren van de duur, de invoergegevens, de fouten en het bijbehorende logboekbestanden.
+Als u wilt streaminglogboeken bekijken in de portal, selecteert u de **platformfuncties** tabblad in uw functie-app. Klik vervolgens onder **bewaking**, kiest u **logboekstreaming**.
 
-Als u Application Insights hebt ingeschakeld, kunt u terugkeren naar het gebruik van de ingebouwde logboekregistratie. Application Insights handmatig uitschakelen en selecteer vervolgens de **Monitor** tabblad. Verwijderen om Application Insights-integratie is uitgeschakeld, de `APPINSIGHTS_INSTRUMENTATIONKEY` app-instelling.
+![Streaming logboekbestanden in de portal inschakelen](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
-Zelfs als de **Monitor** tabblad Application Insights-gegevens bevat, kunt u logboekgegevens zien in het bestandssysteem als u nog niet hebt [ingebouwde logboekregistratie uitgeschakeld](#disable-built-in-logging). In de Storage-resource, gaat u naar **bestanden**, en selecteer de file-service voor de functie. Ga vervolgens naar **logboekbestanden** > **toepassing** > **functies** > **functie**  >  **your_function** om te zien van het logboekbestand.
+Hierdoor wordt uw app verbonden met het logboek voor de service en toepassingslogboeken worden weergegeven in het venster. U kunt schakelen tussen **toepassingslogboeken** en **Web server-logboeken**.  
 
-### <a name="real-time-monitoring"></a>Realtime-controle
+![Streaminglogboeken bekijken in de portal](./media/functions-monitoring/streaming-logs-window.png)
 
-U kunt logboekbestanden op een opdrachtregel-sessie op een lokaal werkstation streamen. Gebruik de [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).  
+### <a name="azure-cli"></a>Azure-CLI
 
-Gebruik de volgende opdrachten op zich aanmelden, kiest u uw abonnement en de stream-logboekbestanden voor de Azure CLI:
+U kunt streaminglogboeken inschakelen met behulp van de [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli). Gebruik de volgende opdrachten op zich aanmelden, kiest u uw abonnement en de stream-logboekbestanden voor de Azure CLI:
 
 ```azurecli
 az login
 az account list
 az account set --subscription <subscriptionNameOrId>
-az webapp log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
-Gebruik de volgende opdrachten naar uw Azure-account toevoegen, kiest u uw abonnement en de stream-logboekbestanden voor Azure PowerShell:
+### <a name="azure-powershell"></a>Azure PowerShell
+
+U kunt streaminglogboeken inschakelen met behulp van [Azure PowerShell](/powershell/azure/overview). Gebruik de volgende opdrachten naar uw Azure-account toevoegen, kiest u uw abonnement en de stream-logboekbestanden voor PowerShell:
 
 ```powershell
 Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <function app name> -Tail
+Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-Zie voor meer informatie, [over het streamen van logboeken](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+## <a name="disable-built-in-logging"></a>Ingebouwde logboekregistratie uitschakelen
+
+Als u Application Insights inschakelt, schakelt u de ingebouwde logboekregistratie die gebruikmaakt van Azure Storage. De ingebouwde logboekregistratie is handig voor het testen met lichte workloads, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor het bewaken van de productie, wordt aangeraden Application Insights. Als ingebouwde logboekregistratie in productie wordt gebruikt, de record logboekregistratie mogelijk onvolledig vanwege beperkingen in Azure Storage.
+
+Als u wilt ingebouwde logboekregistratie uitschakelen, verwijdert de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure-portal, de **toepassingsinstellingen** sectie van [over het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings). Voordat u de app-instelling verwijderen, zorg ervoor dat er zijn geen bestaande functies in dezelfde functie-app gebruikt de instelling voor Azure Storage-triggers of bindingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -686,3 +656,5 @@ Zie de volgende bronnen voor meer informatie:
 
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core-logboekregistratie](/aspnet/core/fundamentals/logging/)
+
+[host.json]: functions-host-json.md

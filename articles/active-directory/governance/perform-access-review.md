@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579679"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470607"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Controleer toegang tot groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -46,7 +46,7 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
 1. Klik in de rechterbovenhoek van de pagina op het gebruikerssymbool, waar uw naam en standaardorganisatie worden weergegeven. Als er meerdere organisaties vermeld staan, selecteert u de organisatie waarvoor een toegangsbeoordeling is aangevraagd.
 
-1. Aan de rechterkant van de pagina, klikt u op de **Toegangsbeoordelingen** tegel voor een overzicht van de in behandeling zijnde toegangsbeoordelingen.
+1. Klik op de **Toegangsbeoordelingen** tegel voor een overzicht van de in behandeling zijnde toegangsbeoordelingen.
 
     Als de tegel niet zichtbaar is, zijn er geen toegangsbeoordelingen die voor die organisatie moeten worden uitgevoerd en hoeft er momenteel geen actie te worden ondernomen.
 
@@ -71,11 +71,13 @@ Er zijn twee manieren waarop u kunt goedkeuren of weigeren van toegang:
 
 1. Bekijk de lijst van gebruikers om te bepalen of u wilt goedkeuren of weigeren van de blijvende toegang.
 
-1. Als u wilt goedkeuren of afwijzen elke aanvraag, klikt u op de rij om het te openen om op te geven van de actie te ondernemen.
+1. Als u wilt goedkeuren of afwijzen elke aanvraag, klikt u op de rij voor open een venster om op te geven van de actie te ondernemen.
 
 1. Klik op **goedkeuren** of **weigeren**. Als u niet zeker weet, klikt u op **weet niet**. In dat geval zal leiden tot de gebruiker die het beheren van zijn/haar toegang, maar de selectie, worden weergegeven in de auditlogboeken.
 
     ![Toegangscontrole uitvoeren](./media/perform-access-review/approve-deny.png)
+
+1. Voer een reden in, indien nodig de **reden** vak.
 
     De beheerder van de toegangsbeoordeling mogelijk dat u een reden voor het goedkeuren van blijvende toegang of lidmaatschap van groep opgeven.
 

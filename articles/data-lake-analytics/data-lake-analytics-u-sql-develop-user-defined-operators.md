@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040987"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469621"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's)
 Dit artikel wordt beschreven hoe u voor het ontwikkelen van de gebruiker gedefinieerde operators voor het verwerken van gegevens in een U-SQL-taak.
@@ -115,7 +115,7 @@ Dit artikel wordt beschreven hoe u voor het ontwikkelen van de gebruiker gedefin
 8. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**.
 9. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Submit Script**.
 10. Als u dit nog niet hebt verbonden met uw Azure-abonnement, wordt u gevraagd de referenties van uw Azure-account in te voeren.
-11. Klik op **indienen**. Resultaat van het verzenden en een koppeling naar de taak zijn beschikbaar in het resultatenvenster wanneer het verzenden is voltooid.
+11. Klik op **Submit** Resultaat van het verzenden en een koppeling naar de taak zijn beschikbaar in het resultatenvenster wanneer het verzenden is voltooid.
 12. Klik op de **vernieuwen** om weer te geven van de meest recente taakstatus en het scherm te vernieuwen.
 
 **Om de uitvoer te bekijken**
@@ -124,5 +124,5 @@ Dit artikel wordt beschreven hoe u voor het ontwikkelen van de gebruiker gedefin
 2. Vouw van voorbeelden, uitvoer uit en dubbelklik vervolgens op **Stuurprogramma's.csv**.
 
 ## <a name="see-also"></a>Zie ook
-* [U-SQL-expressies met gebruikerscode uitbreiden](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [U-SQL-expressies met gebruikerscode uitbreiden](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)

@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872893"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469451"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van Azure portal
-Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database voor MySQL-Server vanaf een opgegeven IP-adres of een bereik van IP-adressen. 
+Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database voor MySQL-Server beheren vanaf een opgegeven IP-adres of een bereik van IP-adressen. 
+
+Regels voor virtueel netwerk (VNet) kunnen ook worden gebruikt voor het beveiligen van toegang tot uw server. Meer informatie over [maken en beheren van Virtual Network-service-eindpunten en regels met behulp van de Azure-portal](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in Azure Portal
 
@@ -57,4 +59,5 @@ Herhaal de stappen voor het beheren van de firewall-regels.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Op dezelfde manier, u kunt een script op [maken en beheren van Azure Database voor MySQL-firewallregels met behulp van Azure CLI](howto-manage-firewall-using-cli.md).
-- Zie voor hulp bij het verbinding maken met een Azure Database for MySQL-server, [verbindingsbibliotheken voor Azure Database for MySQL](./concepts-connection-libraries.md)
+- Verder te beveiligen, toegang tot uw server door [maken en beheren van Virtual Network-service-eindpunten en regels met behulp van de Azure-portal](howto-manage-vnet-using-portal.md).
+- Zie voor hulp bij het verbinding maken met een Azure Database for MySQL-server, [verbindingsbibliotheken voor Azure Database for MySQL](./concepts-connection-libraries.md).

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263516"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470256"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-platform en OAuth 2.0-autorisatiecodestroom
 
@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
 | `response_type` | vereist    | Moet bevatten `code` voor de autorisatiecodestroom.       |
-| `redirect_uri`  | Aanbevolen | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | vereist | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | vereist    | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md) dat u wilt dat de gebruiker toe te staan. |
 | `response_mode`   | Aanbevolen | Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. Een van de volgende kan zijn:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` biedt de code als een queryreeks-parameter op uw omleidings-URI. Als u een ID-token met behulp van de impliciete stroom aanvragen, u niet gebruiken `query` zoals opgegeven in de [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Als u alleen de code aanvragen, kunt u `query`, `fragment`, of `form_post`. `form_post` voert een bericht met de code op uw omleidings-URI. Zie voor meer informatie, [OpenID Connect-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De waarde kan ook informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
@@ -242,7 +242,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens zijn korte duur en moet u deze vernieuwen nadat ze zijn verlopen om door te gaan met het openen van bronnen. U kunt dit doen door het indienen van een andere `POST` aanvragen naar de `/token` eindpunt, dit keer met de `refresh_token` in plaats van de `code`.  Vernieuwen van tokens geldig zijn voor alle machtigingen die de client al is toestemming geven voor - dus een vernieuwingstoken dat is uitgegeven voor een aanvraag voor `scope=mail.read` kan worden gebruikt om aan te vragen van een nieuw toegangstoken voor `scope=api://contoso.com/api/UseResource`.  
 
-Vernieuwen van tokens geen opgegeven levensduur. De levensduur van vernieuwingstokens zijn meestal relatief lange. Echter, in sommige gevallen, vernieuwingstokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwachten en verwerken [fouten die zijn geretourneerd door het eindpunt voor token-uitgifte](#error-codes-for-token-endpoint-errors) correct.  Houd er rekening mee vernieuwingstokens worden niet ingetrokken wanneer het voor het nieuwe toegangstokens te verkrijgen. 
+Vernieuwen van tokens geen opgegeven levensduur. De levensduur van vernieuwingstokens zijn meestal relatief lange. Echter, in sommige gevallen, vernieuwingstokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwachten en verwerken [fouten die zijn geretourneerd door het eindpunt voor token-uitgifte](#error-codes-for-token-endpoint-errors) correct. 
+
+Hoewel het vernieuwen van tokens worden niet ingetrokken wanneer het voor het nieuwe toegangstokens te verkrijgen, moet u wordt het oude vernieuwingstoken negeren. De [OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-6) zegt: "De autorisatie-server kan uitgeven van een nieuwe vernieuwingstoken, in dat geval de client moet verwijderen, de oude vernieuwingstoken en vervang deze door het nieuwe vernieuwingstoken. De autorisatie-server kan de oude vernieuwingstoken intrekken na uitgifte van een nieuwe vernieuwingstoken naar de client."  
 
 ```
 // Line breaks for legibility only
@@ -254,7 +256,6 @@ Content-Type: application/x-www-form-urlencoded
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
 ```
@@ -271,8 +272,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | vereist    | Moet `refresh_token` voor deze kant van de autorisatiecodestroom. |
 | `scope`         | vereist    | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de oorspronkelijke authorization_code aanvraag arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het v2.0-eindpunt. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
 | `refresh_token` | vereist    | De refresh_token die u hebt verkregen in het tweede gedeelte van de stroom. |
-| `redirect_uri`  | vereist    |  Een `redirect_uri`geregistreerd op de clienttoepassing. |
-| `client_secret` | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Deze mag niet worden gebruikt in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server.                                                                                                                                                    |
+| `client_secret` | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Deze mag niet worden gebruikt in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server. |
 
 #### <a name="successful-response"></a>Geslaagde reactie
 

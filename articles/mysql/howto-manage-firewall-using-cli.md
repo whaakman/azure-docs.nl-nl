@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2018
+ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103125"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470930"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van de Azure CLI
-Firewallregels op serverniveau kunnen beheerders toegang tot een Azure Database voor MySQL-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MySQL-firewalls, [Azure Database for MySQL server firewall-regels](./concepts-firewall-rules.md)
+Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database voor MySQL-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MySQL-firewalls, [Azure Database for MySQL server firewall-regels](./concepts-firewall-rules.md).
+
+Regels voor virtueel netwerk (VNet) kunnen ook worden gebruikt voor het beveiligen van toegang tot uw server. Meer informatie over [maken en beheren van Virtual Network-service-eindpunten en regels met de Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Vereisten
 * [Installeer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Opdrachten:
 - **weergeven**: De details van een Azure MySQL server firewall-regel weergeven.
 - **Update**: Een firewallregel voor Azure MySQL-server bijwerken.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Meld u aan bij Azure en de lijst met uw Azure Database voor MySQL-Servers
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Aanmelden bij Azure en de lijst met uw Azure Database voor MySQL-Servers
 Veilig verbinding maken met Azure CLI met uw Azure-account met behulp van de **az login** opdracht.
 
 1. Voer de volgende opdracht uit vanaf de opdrachtregel:
@@ -42,7 +44,7 @@ Veilig verbinding maken met Azure CLI met uw Azure-account met behulp van de **a
 
 2. Gebruik een webbrowser om de pagina te openen [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), en voer de code.
 
-3. Meld u via het venster aan met uw Azure-referenties.
+3. Meld u aan met uw Azure-referenties bij de prompt.
 
 4. Nadat uw aanmelding is geautoriseerd, wordt een lijst met abonnementen in de console afgedrukt. Kopieer de ID van het gewenste abonnement om in te stellen van het huidige abonnement te gebruiken. Gebruik de [az account set](/cli/azure/account#az-account-set) opdracht.
     ```azurecli-interactive
@@ -119,3 +121,4 @@ Implementatie is geslaagd wordt er geen uitvoer. Als de mislukt, tekst van foutb
 ## <a name="next-steps"></a>Volgende stappen
 - Meer inzicht [Azure Database for MySQL Server firewall-regels](./concepts-firewall-rules.md).
 - [Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van de Azure-portal](./howto-manage-firewall-using-portal.md).
+- Verder te beveiligen, toegang tot uw server door [maken en beheren van Virtual Network-service-eindpunten en regels met de Azure CLI](howto-manage-vnet-using-cli.md).

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418054"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470063"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux met behulp van een aangepaste installatiekopie maken
 
@@ -65,9 +65,9 @@ Wanneer u de optie `--docker` opneemt, wordt een dockerfile voor het project geg
 
 Wanneer u hierom wordt gevraagd, kiest u een runtime voor de werkrol uit de volgende talen:
 
-* `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
-* `node`: hiermee maakt u een JavaScript-project.
-* `python`: hiermee maakt u een Python-project.
+* `dotnet`: Hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
+* `node`: Hiermee maakt u een JavaScript-project.
+* `python`: Hiermee maakt u een Python-project.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
@@ -255,6 +255,16 @@ AzureWebJobsStorage=$storageConnectionString
 U kunt nu uw functies op Linux in Azure testen.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-application-insights"></a>Application Insights inschakelen
+
+De aanbevolen manier voor het bewaken van de uitvoering van uw functies is door uw functie-app integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app maakt met behulp van de Azure CLI, is niet de integratie in uw functie-app in Azure uitgevoerd.
+
+Application Insights inschakelen voor uw functie-app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
 
 ## <a name="enable-continuous-deployment"></a>Continue implementatie inschakelen
 

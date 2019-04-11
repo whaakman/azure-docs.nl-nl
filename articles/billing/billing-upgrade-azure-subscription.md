@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094225"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469519"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Upgrade van uw gratis proefversie of Azure for Students Starter-abonnement naar betalen per gebruik
 
-Als u hebt een [gratis proefversie](https://azure.microsoft.com/free/), kunt u upgraden naar een [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement in Azure portal. Als u hebt een [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, kunt u upgraden naar [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in het Azure-Accountcentrum.
+Als u hebt een [gratis proefversie](https://azure.microsoft.com/free/) of een [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, kunt u upgraden naar [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in Azure portal. Als u een Azure for Students Starter-abonnement hebt en in aanmerking voor een gratis proefversie komen, kunt u upgraden naar de gratis proefversie.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ Als u hebt een [gratis proefversie](https://azure.microsoft.com/free/), kunt u u
 Wanneer u van een gratis proefabonnement overstapt naar een betaald abonnement, blijft het resterende tegoed gedurende de volledige 30 dagen na het aanmaken van het abonnement beschikbaar. U hebt ook gedurende 12 maanden toegang tot gratis services.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-1. Zoeken op **kosten Management en facturering.**
+1. Zoeken op **abonnementen.**
 
-    ![Schermafbeelding van search](./media/billing-upgrade-azure-subscription/search.png)
+    ![Schermafbeelding van search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Selecteer uw gratis proefabonnement.
 1. Klik in de overzichtsblade abonnement op **abonnement** in de opdrachtbalk.
@@ -63,15 +63,24 @@ Als u wilt [het abonnement overdraagt](billing-subscription-transfer.md) na een 
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Upgrade van uw Azure for Students Starter-abonnement naar betalen per gebruik
 
-1. Meld u aan bij het [Azure-accountcentrum](https://account.windowsazure.com/subscriptions).
+Wanneer u de onderstaande stappen volgt, krijgt we u de optie om te upgraden naar een gratis proefversie als u in aanmerking komen.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com)
+1. Zoeken op **abonnementen.**
+
+    ![Schermafbeelding van search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Selecteer uw Azure for Students Starter-abonnement.
-1. Onder **abonnementsstatus**, klikt u op **nu een upgrade uitvoeren**.
+1. Klik in de overzichtsblade abonnement op **abonnement** in de opdrachtbalk.
 
-    ![Schermafbeelding van upgrade voor studenten](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![Schermafbeelding waarin de knop bijwerken voor studenten](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Voer een naam voor uw abonnement.
+1. Als u een naar betalen per gebruik upgrade uitvoert en nog een betalingswijze wordt gebruikt voor uw abonnement hebt, wordt u gevraagd een toe te voegen.
+1. Mogelijk moet u een telefoonnummer om uw identiteit te verifiëren invoeren.
+1. Typ een naam voor uw abonnement.
+1. Als u een naar betalen per gebruik upgrade uitvoert, kiest u een ondersteuningsplan voor uw abonnement. Zie voor meer informatie over ondersteuningsplannen [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Klik op **nu een upgrade uitvoeren**.
+1. Klik op **Upgrade**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

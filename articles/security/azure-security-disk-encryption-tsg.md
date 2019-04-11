@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838269"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470692"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -49,6 +49,14 @@ Nadat de virtuele machine opnieuw is opgestart in de nieuwe kernel, kan de nieuw
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure Virtual Machineagent en -extensies met versie bijwerken
+
+Azure Disk Encryption-bewerkingen mislukken mogelijk bij de installatiekopieën van virtuele machines met een niet-ondersteunde versie van de Azure VM-Agent. Raadpleeg voor meer informatie, [minimaal versie-ondersteuning voor agents van de virtuele machine in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+De juiste versie van de Microsoft.Azure.Security.AzureDiskEncryption of Microsoft.Azure.Security.AzureDiskEncryptionForLinux guest agent-extensie is ook vereist. Extensie-versies worden onderhouden en automatisch wordt bijgewerkt door het platform als Azure virtuele Machine agent vereisten is voldaan en er een ondersteunde versie van de virtuele machine-agent wordt gebruikt.
+
+De extensie Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux is afgeschaft en wordt niet meer ondersteund.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Kan niet voor het versleutelen van Linux-schijven
 

@@ -147,7 +147,7 @@ items:
     - name: Apache Spark gebruiken om Apache HBase-gegevens te lezen en schrijven
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
-    - name: Application Insights-logboekbestanden met telemetrie analyseren
+    - name: Application Insights-logboeken met telemetrie analyseren
       href: apache-spark-analyze-application-insight-logs.md
   - name: Clusters uitbreiden
     items:

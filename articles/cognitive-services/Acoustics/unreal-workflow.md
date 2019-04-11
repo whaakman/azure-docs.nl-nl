@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316198"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470012"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project akoestische Unreal/Wwise ontwerp zelfstudie
 In deze zelfstudie worden de ontwerp-installatie en de werkstroom voor Project akoestische in Unreal en Wwise beschreven.
@@ -62,11 +62,18 @@ Houd er rekening mee dat de installatie vereiste actor-mixer de gebruikelijke ui
 ![Schermafbeelding van Wwise editor van richtlijnen voor het ontwerpen van stem van Project akoestische](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Afstand afname curven instellen
-Zorg ervoor dat eventuele afname curve die worden gebruikt door de actor-mixers met behulp van Project akoestische hebt zelfgedefinieerde aux verzenden is ingesteld op "uitvoer bus volume." Wwise doet dit om de zojuist gemaakte afname curven standaard. Als u een bestaand project migreert bent, Controleer de instellingen van de curve. 
+Zorg ervoor dat eventuele afname curve die worden gebruikt door de actor-mixers met behulp van Project akoestische hebt zelfgedefinieerde aux verzenden is ingesteld op "uitvoer bus volume." Wwise doet dit om de zojuist gemaakte afname curven standaard. Als u een bestaand project migreert bent, Controleer de instellingen van de curve.
 
 De simulatie Project akoestische heeft standaard een straal van 45 meters om de locatie van de speler. Het algemeen wordt aangeraden de curve afname instelt op-200 dB rond die afstand. Deze afstand is niet een vaste beperking. Voor sommige klinkt wapens kunt u een grotere radius. In dergelijke gevallen is het voorbehoud dat alleen geometrie binnen 45 m van de locatie van de speler wordt opgenomen. Als de speler in een kamer wordt en een geluid bron buiten de ruimte en 100 miljoen opgeslagen is, worden deze goed occluded. Als de bron in een ruimte is en de speler is buiten en 100 miljoen weg, wordt niet deze worden naar behoren occluded.
 
 ![Schermafbeelding van Wwise afname curven](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>Mixer egalisatievoorziening plaatsen ###
+ Een andere dingen die u wilt doen, is een bericht mixer equalizer toevoegen. U kunt de bus Project akoestische behandelen als een typische weerklank-bus (in de standaardmodus voor weerklank) en een filter op om te doen egalisatievoorziening plaatsen. Hier ziet u een voorbeeld hiervan in het voorbeeldproject Project akoestische Wwise.
+
+![Schermafbeelding van Wwise na mixer EQ](media/wwise-post-mixer-eq.png)
+
+Bijvoorbeeld, kunt een hoge pass-filter verwerken van de lage van near field opnames die het boomy, realistisch weerklank. U kunt ook meer controle wilt na bake bereiken door aan te passen de EQ via RTPCs, zodat u kunt de kleur van weerklank op het moment van game wijzigen.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Scène gehele Project akoestische eigenschappen instellen
 
@@ -80,7 +87,7 @@ De actor akoestische ruimte wordt aangegeven dat veel besturingselementen die he
 * **Schaal van cache:** bepaalt de grootte van de cache die wordt gebruikt voor akoestische query's. Een kleinere cache minder RAM-geheugen gebruikt, maar CPU-gebruik voor elke query kan verhogen.
 * **Akoestische ingeschakeld:** Een besturingselement foutopsporing inschakelen snel A / B bij het omschakelen van de simulatie akoestische. Dit besturingselement wordt genegeerd in de verzending van configuraties. De controle is handig voor het vinden van als een bijzondere audio bug zijn afkomstig van de berekeningen akoestische of een ander probleem in het project Wwise.
 * **Afstanden bijwerken:** Gebruik deze optie als u wilt de gegevens vooraf voltooide akoestische voor afstand query's gebruiken. Deze query's zijn vergelijkbaar met ray webcasts, maar ze zijn vooraf berekende dus nemen veel minder CPU. Het gebruik van een voorbeeld is voor discrete weerspiegeling van het dichtstbijzijnde oppervlak voor de listener. Als u wilt volledig gebruikmaken van dit, moet u met code of blauwdruk afstanden query.
-* **Tekenen statistieken:** Terwijl de UE `stat Acoustics` krijgt u met CPU-gegevens, deze status weer ziet u de momenteel geladen kaart, RAM-gebruik, en er nog andere statusinformatie in de rechterbovenhoek van het scherm.
+* **Tekenen statistieken:** Terwijl de UE `stat Acoustics` krijgt u CPU-gegevens, deze status weer ziet u de momenteel geladen ACE-bestand, RAM-gebruik, en er nog andere statusinformatie in de rechterbovenhoek van het scherm.
 * **Tekenen Voxels:** Overlay voxels dicht bij de listener met de voxel grid gebruikt tijdens runtime interpolatie. Als een zender zich in een runtime-voxel, mislukt dit akoestische query's.
 * **Tekenen tests:** De tests voor deze scène weergeven. Ze worden verschillende kleuren, afhankelijk van de load-status.
 * **Tekenen afstanden:** Als de Update afstanden is ingeschakeld, weergegeven dit een vak op het dichtstbijzijnde oppervlak voor de listener in quantized richtingen rond de listener.
@@ -96,6 +103,7 @@ Deze besturingselementen ontwerp zijn gericht op een afzonderlijk onderdeel van 
 * **Aanpassing van outdoorness:** Hiermee bepaalt u hoe buitenshuis de weerklank is. Waarden dichter bij 0 zijn meer de binnenshuis, dichter bij 1 meer buitenshuis. Deze aanpassing is additieve, zodat de binnenshuis, instellen op -1 wordt afdwingen instellen op + 1 afdwingt buitenshuis.
 * **Verzending Db:** Een extra via-de-prikbord geluid renderen met dit volume in combinatie met afname van de regel van zicht op basis van afstand.
 * **NAT-breedteverhouding afstand verdraaien:** Hiermee past u de weerklank kenmerken op de broncomputer alsof het dichter/verder verlaat, zonder gevolgen voor het pad.
+* **Afspelen op het startscherm:** In-/ uitschakelen om op te geven of het geluid moet automatisch op het startscherm van de scène worden afgespeeld. Standaard ingeschakeld.
 * **Akoestische Parameters weergeven:** Gegevens weergeven voor foutopsporing rechtstreeks boven op het onderdeel in het spel. (alleen voor niet-verzending configuraties)
 
 ## <a name="blueprint-functionality"></a>Blauwdruk functionaliteit

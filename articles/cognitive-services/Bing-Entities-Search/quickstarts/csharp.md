@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861448"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469145"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#
 
@@ -29,7 +29,7 @@ Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die
 * Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
     * Het NuGet-pakket installeren in Visual studio:
-        1. Klik met de rechtermuisknop in de oplossing voor beheer
+        1. Klik met de rechtermuisknop in Solution Explorer
         2. Klik op **NuGet-pakketten beheren...**
         3. Zoeken naar **newtonsoft.json** en installeer het pakket
 
@@ -174,7 +174,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Wat is de Bing Entiteiten zoeken-API?](../overview.md )
-* [Naslaghandleiding Bing Entiteiten zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

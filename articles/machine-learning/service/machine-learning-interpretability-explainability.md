@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/04/2019
-ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/09/2019
+ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051798"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469774"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
@@ -34,7 +34,7 @@ De Azure Machine Learning Interpretability SDK omvat technologieën die zijn ont
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
-Azure Machine Learning Interpretability kan worden toegepast voor meer informatie over de algemene gedrag van het model of een specifieke voorspelling. De oude heet algemene uitleg en de laatste heet lokale uitleg.
+Azure Machine Learning Interpretability kan worden toegepast voor meer informatie over de algemene gedrag of specifieke voorspellingen van het model. De oude heet algemene uitleg en de laatste heet lokale uitleg.
 
 Azure Machine Learning Interpretability methoden kunnen ook worden ingedeeld op basis van of de methode model neutraal of specifieke model is. Sommige methoden gericht op bepaalde type modellen. Bijvoorbeeld, de Shapegegevens structuur uitleg alleen van toepassing op modellen op basis van een structuur. Bepaalde methoden voor behandelen het model als een zwart vak, zoals nabootsen uitleg of de Shapegegevens kernel uitleg. Azure Machine Learning Interpretability SDK maakt gebruik van deze verschillende methoden die zijn gebaseerd op gegevenssets, modeltypen en use-cases.
 
@@ -42,7 +42,6 @@ Azure Machine Learning Interpretability retourneert een set met informatie over 
 
 * Globale/lokale relatieve functie urgentie
 * Relatie tussen de functie en voorspelling van de globale/lokale
-* Interactieve visualisaties met voorspellingen, functie functie en voorspelling relatie, en -relatieve belang waarden globaal en lokaal
 
 ## <a name="architecture"></a>Architectuur
 
@@ -70,11 +69,10 @@ __Directe explainers__ afkomstig zijn van geïntegreerde bibliotheken. De SDK wo
 * **LICHTGROEN uitleg**: LICHTGROEN uitleg op basis van LICHTGROEN, gebruikt het status-of-the-art lokale interpreteerbare model-agnostische uitleg (LICHTGROEN)-algoritme om lokale surrogate modellen te maken. In tegenstelling tot de modellen globale surrogate is LICHTGROEN gericht op het lokale surrogate modellen om uit te leggen van afzonderlijke voorspellingen training.
 * **HAN tekst uitleg**: HAN tekst uitleg gebruikt een hiërarchische aandacht-netwerk voor het ophalen van model uitleg van de gegevens voor een bepaalde zwarte doos tekst-model. We het model van de vervangende HAN op de verwachte uitvoer van een bepaalde docent-model te trainen. Na de training wereldwijd in het corpus tekst, hebben we een stap fine-tune voor een bepaald document toegevoegd om te verbeteren van de nauwkeurigheid van de uitleg. HAN maakt gebruik van een in twee richtingen RNN met twee lagen van aandacht, voor de zin en word aandacht. Zodra de DNN is getraind model van de docent en zorgvuldig afgestemd op een bepaald document, kunnen we de importances word extraheren uit de lagen aandacht. We hebben HAN nauwkeuriger is dan LICHTGROEN of Shapegegevens voor tekstgegevens, maar duurder in termen van training, evenals de tijd worden gevonden. We hebben echter verbeteringen in de trainingstijd gemaakt door middel van de gebruiker de optie voor het initialiseren van het netwerk met GloVe woordinsluitingen, hoewel deze nog steeds traag is. De trainingstijd kan aanzienlijk worden verbeterd door het uitvoeren van HAN op een externe Azure-GPU VM. De implementatie van HAN wordt beschreven in 'Hiërarchische aandacht netwerken voor Document-classificatie (Yang markt, 2016)' ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Metagegevens explainers__ automatisch een geschikte direct uitleg selecteren en genereren van de gegevens van de beste uitleg op basis van het opgegeven model en gegevenssets. De metagegevens explainers gebruikmaken van alle bibliotheken (Shapegegevens, LICHTGROEN, GA2M, nagebootst, enzovoort) die we hebben geïntegreerd of die zijn ontwikkeld. Hier volgen de meta-explainers beschikbaar in de SDK:
+__Metagegevens explainers__ automatisch een geschikte direct uitleg selecteren en genereren van de gegevens van de beste uitleg op basis van het opgegeven model en gegevenssets. De metagegevens explainers gebruikmaken van alle bibliotheken (Shapegegevens, LICHTGROEN, nagebootst, enzovoort) die we hebben geïntegreerd of die zijn ontwikkeld. Hier volgen de meta-explainers beschikbaar in de SDK:
 
 * **Tabular Explainer**: Gebruikt in combinatie met tabellaire gegevenssets.
 * **Text Explainer**: Met de tekst gegevenssets gebruikt.
-* **Afbeelding van uitleg** gebruikt in combinatie met de installatiekopie van gegevenssets.
 
 Verder naar META te selecteren van de directe explainers, meta explainers ontwikkelen van aanvullende functies boven op de onderliggende bibliotheken en de snelheid en schaalbaarheid verbeteren via de rechtstreekse explainers.
 
@@ -90,7 +88,6 @@ De informatie die is ingebouwd in `TabularExplainer` meer geavanceerde worden me
 
 * **Samenvatting van de gegevensset initialisatie**. In gevallen waar de snelheid van uitleg belangrijkste is we samenvatten van de gegevensset initialisatie en genereren van een klein aantal representatieve voorbeelden die globale en lokale uitleg wordt versneld.
 * **Sampling van de gegevensset evaluatie**. Als de gebruiker wordt doorgegeven in een groot aantal voorbeelden van de evaluatie, maar niet daadwerkelijk nodig voor al deze moet worden geëvalueerd, kunt u de parameter steekproeven instellen op true om de globale uitleg te versnellen.
-* **KNN snel uitleg**. In het geval waarbij uitleg moet zo snel een enkele scoren/voorspelling kan een KNN-methode worden gebruikt. Tijdens de globale uitleg, blijven zowel de initialisatie-voorbeelden en de bijbehorende top k-functies behouden. Voor het genereren van de uitleg voor elk voorbeeld evaluatie, de methode KNN wordt gebruikt om het meest overeenkomt voorbeeld van de initialisatie-voorbeelden zoeken en het meest overeenkomt voorbeeld top k functies worden geretourneerd als de boven-k-functies voor de evaluatie.
 
 Het volgende diagram toont de relatie tussen de twee sets met direct en metagegevens explainers.
 
@@ -100,7 +97,7 @@ Het volgende diagram toont de relatie tussen de twee sets met direct en metagege
 
 Modellen die zijn getraind op gegevenssets in Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, of `scipy.sparse.csr_matrix` indeling worden ondersteund door de Machine Learning Interpretability SDK.
 
-De uitleg-functies accepteren pijplijnen en modellen als invoer. Als een model is opgegeven, het model moet worden gebruikt voor het implementeren van de voorspellingsfunctie `predict` of `predict_proba` die wordt bevestigd dat het Verdrag Scikit. Als een pijplijn (naam van het script pijplijn) is opgegeven, de functie uitleg wordt ervan uitgegaan dat het script uit te voeren pijplijn een voorspelling retourneert.
+De uitleg-functies accepteren pijplijnen en modellen als invoer. Als een model is opgegeven, het model moet worden gebruikt voor het implementeren van de voorspellingsfunctie `predict` of `predict_proba` die voldoet aan de Scikit-overeenkomst. Als een pijplijn (naam van het script pijplijn) is opgegeven, de functie uitleg wordt ervan uitgegaan dat het script uit te voeren pijplijn een voorspelling retourneert.
 
 ### <a name="local-and-remote-compute-target"></a>Lokale en externe compute-doel
 
@@ -129,13 +126,12 @@ De SDK Interpretability van Machine Learning is ontworpen voor gebruik met zowel
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
-    or
+    ```
+    of
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. De algemene functie belang waarden ophalen.
@@ -154,9 +150,16 @@ De SDK Interpretability van Machine Learning is ontworpen voor gebruik met zowel
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
-    or
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
+    of
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -172,21 +175,14 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -200,6 +196,8 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
 2. Volg de instructies op [instellen van compute-doelen voor modeltraining](how-to-set-up-training-targets.md#amlcompute) voor meer informatie over het instellen van een Azure Machine Learning-Computing als uw compute-doel en het verzenden van uw training uitvoeren.
 
 3. Download de uitleg in uw lokaal Jupyter-notitieblok. 
+    > [!IMPORTANT]
+    > Dingen in contrib niet volledig worden ondersteund. Zodra de experimentele functies volwassen, zullen ze geleidelijk worden verplaatst naar het belangrijkste pakket.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient

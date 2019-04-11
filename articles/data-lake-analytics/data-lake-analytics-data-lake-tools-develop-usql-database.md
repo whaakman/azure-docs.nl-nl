@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898791"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469706"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Een project U-SQL-database gebruiken voor het ontwikkelen van een U-SQL-database voor Azure Data Lake
 
 U-SQL-database biedt een gestructureerde weergaven via niet-gestructureerde gegevens en beheerde gestructureerde gegevens in tabellen. Het biedt ook een systeem voor de productcatalogus algemene metagegevens voor het ordenen van uw gestructureerde gegevens en aangepaste code. De database is het concept, dat deze verwante objecten worden gegroepeerd.
 
-Meer informatie over [U-SQL-database en Data Definition Language (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql). 
+Meer informatie over [U-SQL-database en Data Definition Language (DDL)](/u-sql/data-definition-language-ddl-statements). 
 
 Het project U-SQL-database is een project in Visual Studio waarmee ontwikkelaars kunnen ontwikkelen, beheren en implementeren van de U-SQL-databases, snel en eenvoudig.
 

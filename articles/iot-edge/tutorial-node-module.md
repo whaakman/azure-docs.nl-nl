@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225923"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470947"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Zelfstudie: Een Node.js IoT Edge-module maken en implementeren op een gesimuleerd apparaat
 
@@ -35,8 +35,8 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
-* Als u IoT Edge onder Windows uitvoert: Node.js-modules worden niet door IoT Edge-versie 1.0.5 ondersteund. Zie [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5) (Opmerkingen bij de release 1.0.5) voor meer informatie. Zie [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md) (De IoT Edge-beveiligings-daemon en runtime bijwerken) voor stappen voor het installeren van specifieke versies.
+* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux](quickstart-linux.md).
+* Node.js-modules voor IoT Edge bieden geen ondersteuning voor Windows-containers. 
 
 Cloudresources:
 
@@ -47,6 +47,7 @@ Ontwikkelingsresources:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) voor Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
+   * Als u op een Windows-apparaat ontwikkelt, moet u ervoor zorgen dat Docker is [geconfigureerd voor het gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js en NPM](https://nodejs.org). Het NPM-pakket wordt gedistribueerd met Node.js. Dit betekent dat NMP automatisch wordt geïnstalleerd op de computer wanneer u Node.js downloadt.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
@@ -184,7 +185,7 @@ Elke sjabloon bevat voorbeeldcode. Met deze code worden gesimuleerde sensorgegev
 
 10. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand laat aan de IoT Edge-agent weten welke modules moeten worden geïmplementeerd. In dit geval gaat het om **tempSensor** en **NodeModule**. Het bestand laat de IoT Edge-hub ook weten hoe berichten tussen de modules moeten worden gerouteerd. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
-   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **NodeModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
+   1. Het standaardplatform van uw IoT Edge-apparaat is ingesteld op **amd64** in de VS Code-statusbalk. Dit betekent dat **NodeModule** is ingesteld op de Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** als dit de architectuur van het IoT Edge-apparaat is. 
 
       ![Het installatiekopieplatform van de module bijwerken](./media/tutorial-node-module/image-platform.png)
 
@@ -229,8 +230,9 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 >[!TIP]
 >Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
 >* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure Portal.
->* Hebt u de juiste containeropslagplaats? Open **modules** > **cmodule** > **module.json** en zoek het veld **opslagplaats**. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/nodemodule**. 
->* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code valt standaard terug op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Windows-containers of Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
+>* Hebt u de juiste containeropslagplaats? Open **modules** > **nodemodule** > **module.json** en zoek de **opslagplaats** veld. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/nodemodule**. 
+>* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
+>* Node.js-modules voor IoT Edge bieden geen ondersteuning voor Windows-containers.
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 

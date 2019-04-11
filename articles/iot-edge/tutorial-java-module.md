@@ -9,16 +9,16 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e24894e088f443ca705163c353920e8dd3ff4ca
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266678"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470293"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: een IoT Edge-module in Java ontwikkelen en implementeren op uw gesimuleerde apparaat
 
-U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. U gebruikt het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de quickstarts over het implementeren van Azure IoT Edge op een gesimuleerd apparaat in [Windows](quickstart.md) of [Linux](quickstart-linux.md). In deze zelfstudie leert u het volgende:    
+U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. U gebruikt de gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de implementatie van Azure IoT Edge op een gesimuleerd apparaat in [Linux](quickstart-linux.md) Quick Start. In deze zelfstudie leert u het volgende:    
 
 > [!div class="checklist"]
 > * Visual Studio Code gebruiken om een ​​IoT Edge Java-module te maken op basis van het Azure IoT Edge maven-sjabloonpakket en Azure IoT Java-apparaat-SDK.
@@ -36,8 +36,8 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
-* Versie 1.0.5 van IoT Edge op Windows-apparaten biedt geen ondersteuning voor Java-modules. Zie [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5) (Opmerkingen bij de release 1.0.5) voor meer informatie. Zie [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md) (De IoT Edge-beveiligings-daemon en runtime bijwerken) voor stappen voor het installeren van specifieke versies.
+* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md). 
+* Java-modules voor IoT Edge bieden geen ondersteuning voor Windows-containers. 
 
 Cloudresources:
 
@@ -51,7 +51,7 @@ Ontwikkelingsresources:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks); en [stel de omgevingsvariabele `JAVA_HOME` in](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) om te verwijzen naar uw JDK-installatie.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Als u op een Windows-apparaat ontwikkelt, controleert u of Docker is [geconfigureerd voor het gebruik van Linux of Windows-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers), afhankelijk van het besturingssysteem van uw IoT Edge-apparaat. 
+   * Als u op een Windows-apparaat ontwikkelt, moet u ervoor zorgen dat Docker is [geconfigureerd voor het gebruik van Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
@@ -222,7 +222,7 @@ In het omgevingsbestand worden de referenties voor het containerregister opgesla
 
 12. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand vertelt de IoT Edge agent welke modules te implementeren, en de IoT Edge hub vertelt over het routeren van berichten tussen deze. In dit geval de twee modules zijn **tempSensor** en **JavaModule**. De Visual Studio Code-extensie vult automatisch het overgrote deel van de informatie in die u nodig hebt in de implementatiesjabloon. Controleer echter wel of alles klopt voor uw oplossing: 
 
-   1. Het standaardplatform van uw IoT Edge is ingesteld op **amd64** in de statusbalk van uw VS Code. Dat betekent dat uw **JavaModule** is ingesteld op Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** of **windows-amd64** als dit de architectuur van het IoT Edge-apparaat is. 
+   1. Het standaardplatform van uw IoT Edge is ingesteld op **amd64** in de statusbalk van uw VS Code. Dat betekent dat uw **JavaModule** is ingesteld op Linux amd64-versie van de installatiekopie. Wijzig in de statusbalk het standaardplatform van **amd64** in **arm32v7** als dit de architectuur van het IoT Edge-apparaat is. 
 
       ![Het installatiekopieplatform van de module bijwerken](./media/tutorial-java-module/image-platform.png)
 
@@ -267,7 +267,8 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 >Als u een foutmelding krijgt bij het bouwen en pushen van de module, controleert u het volgende:
 >* Hebt u zich bij Docker in Visual Studio Code aangemeld met de referenties uit uw containerregister? Deze referenties zijn anders dan de referenties die u gebruikt om u aan te melden bij de Azure Portal.
 >* Hebt u de juiste containeropslagplaats? Open **modules** > **JavaModule** > **module.json** en zoek de **opslagplaats** veld. De opslagplaats voor de installatiekopie ziet er ongeveer uit als **\<registryname\>.azurecr.io/javamodule**. 
->* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code valt standaard terug op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Windows-containers of Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
+>* Bouwt u hetzelfde type containers dat door uw ontwikkelcomputer wordt uitgevoerd? Visual Studio Code wordt teruggezet op de Linux amd64-standaardcontainers. Als op uw ontwikkelcomputer Linux arm32v7-containers worden uitgevoerd, werkt u het platform bij op de blauwe statusbalk onder aan het Visual Studio Code-venster, zodat dit overeenkomt met uw containerplatform.
+>* Java-modules voor IoT Edge bieden geen ondersteuning voor Windows-containers.
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 

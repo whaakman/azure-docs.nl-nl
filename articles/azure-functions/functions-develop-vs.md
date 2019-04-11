@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889801"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471032"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -80,7 +80,7 @@ De projectsjabloon, maken een C#-project maakt, installeert de `Microsoft.NET.Sd
 
 * **host.json**: Kunt u de host van de functies configureren. Deze instellingen gelden zowel bij het uitvoeren van lokaal en in Azure. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json.md).
 
-* **local.settings.json**: Instellingen die worden gebruikt bij het uitvoeren van functies lokaal onderhoudt. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [Azure Functions Core Tools](functions-run-local.md). Dit bestand gebruiken om op te geven van de app-instellingen voor variabelen die zijn vereist door uw functies. Een nieuw item toevoegen aan de **waarden** matrix voor elke verbinding die is vereist voor de bindingen voor functions in uw project. Zie voor meer informatie, [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het artikel Azure Functions Core Tools.
+* **local.settings.json**: Instellingen die worden gebruikt bij het uitvoeren van functies lokaal onderhoudt. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [Azure Functions Core Tools](functions-run-local.md). Dit bestand gebruiken om op te geven van de app-instellingen voor omgevingsvariabelen die worden vereist door uw functies. Een nieuw item toevoegen aan de **waarden** matrix voor elke verbinding die is vereist voor de bindingen voor functions in uw project. Zie voor meer informatie, [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het artikel Azure Functions Core Tools.
 
     >[!IMPORTANT]
     >Omdat het bestand local.settings.json kunt geheimen bevat, moet u deze uitgesloten van uw project broncodebeheer. De **naar uitvoermap kopiëren** instellen voor dit bestand altijd moet **kopiëren indien nieuwer**. 
@@ -207,15 +207,11 @@ U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
 
 ## <a name="monitoring-functions"></a>Functions controleren
 
-De aanbevolen manier voor het bewaken van de uitvoering van de functie in Azure is door te integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app tijdens het publiceren van Visual Studio maakt, is niet de integratie in uw functie-app in Azure uitgevoerd. In plaats daarvan krijgt u ingebouwde logboekregistratie, waardoor wordt niet aanbevolen.
+De aanbevolen manier voor het bewaken van de uitvoering van uw functies is door uw functie-app integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app tijdens het publiceren van Visual Studio maakt, is niet de integratie in uw functie-app in Azure uitgevoerd.
 
-Application Insights inschakelen voor uw functie-app in Azure:
+Application Insights inschakelen voor uw functie-app:
 
-1. Maak een Application Insights-exemplaar in de [Azure-portal](https://portal.azure.com) en kopieer de instrumentatiesleutel. Voor meer informatie Zie [handmatig verbinding maken met een App Insights-resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Toevoegen van een app-instelling met de naam `APPINSIGHTS_INSTRUMENTATIONKEY` naar de instellingen voor de functie-app in Azure, zoals beschreven in [functie app-instellingen](#function-app-settings). Deze app-instelling bevat de instrumentatiesleutel die u in de vorige stap hebt gemaakt.
-
-1. Verwijder de `AzureWebJobsDashboard` app-instelling van de functie-app in Azure, dit wordt de ingebouwde logboekregistratie uitgeschakeld.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273580"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469485"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -63,9 +63,9 @@ Klik op **Add**.
 
 ![Cost Management budgetten wordt weergegeven in de Azure-portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een van beide per maand, per kwartaal of jaar duur<sup>1</sup>. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur. Zie voor meer informatie over meldingen [gebruik kosten waarschuwingen](cost-mgt-alerts-monitor-usage-spending.md).
+In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een maandelijks, elk kwartaal, of de jaarlijkse duur. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur. Zie voor meer informatie over meldingen [gebruik kosten waarschuwingen](cost-mgt-alerts-monitor-usage-spending.md).
 
-<sup>1</sup> als u een betalen per gebruik, MSDN of Visual Studio-klant bent van de factureringsperiode van uw factuur voor een abonnement kan niet aan de kalendermaand zijn uitgelijnd. Voor abonnementen en resourcegroepen die deze bucket vallen, kunt u een budget die is afgestemd op uw factuur of kalendermaanden. Selecteer een periode opnieuw instellen van de Factureringsmaand, facturering kwartaal of jaar facturering tijdens het maken voor het maken van een budget dat is afgestemd op uw factuur. Voor het maken van een budget uitgelijnd aan de kalendermaand, selecteert u een periode opnieuw instellen van de maand, kwartaal of jaar tijdens het maken.
+Als u een betalen per gebruik, MSDN of Visual Studio-abonnement hebt, kan het zijn dat uw factuur factureringsperiode niet afgestemd op de kalendermaand. Voor deze typen abonnementen en resourcegroepen, kunt u een budget die afgestemd op uw factuurperiode of kalendermaanden. Selecteer een periode opnieuw instellen van de Factureringsmaand, facturering kwartaal of jaar facturering voor het maken van een budget dat is afgestemd op uw factuurperiode. Voor het maken van een budget uitgelijnd met de kalendermaand, selecteer een periode opnieuw instellen van de maand, kwartaal of per jaar.
 
 Hier volgt een voorbeeld van het maken van een maandelijks budget voor $4500. Een e-mailmelding wordt gegenereerd na het verstrijken van 90% van het budget.
 
