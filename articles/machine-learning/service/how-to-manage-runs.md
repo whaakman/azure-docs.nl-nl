@@ -1,7 +1,7 @@
 ---
 title: Starten, bewaken en annuleren van trainingsuitvoeringen in Python
 titleSuffix: Azure Machine Learning service
-description: Informatie over hoe u kunt starten, status, code en organiseren van uw machine learning-experimenten.
+description: Informatie over het starten, zet de status van de tag en organiseren van uw machine learning-experimenten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
-ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426710"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471491"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starten, bewaken en annuleren van trainingsuitvoeringen in Python
 
@@ -47,7 +47,7 @@ Hebt u het volgende nodig:
 
 <a name="monitor"></a>
 
-## <a name="start-and-status-a-run"></a>Begin- en status van een uitvoering
+## <a name="start-a-run-and-set-its-status"></a>Een uitvoering starten en de status ervan instellen
 
 Instellen van uw experiment door het importeren van de [werkruimte](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [experimenteren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [uitvoeren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), en [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) klassen van de [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) pakket.
 
@@ -101,7 +101,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## <a name="cancel-or-fail-runs"></a>Annuleert of niet wordt uitgevoerd
 
- Als er een fout of uw uitvoering lijkt te duurt lang wilt voltooien, gebruikt u de [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) methode om te stoppen als de uitvoering is voltooid en markeer deze als geannuleerd.
+ Als er een fout of uw uitvoering lijkt te duren wilt voltooien, gebruikt u de [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) methode om te stoppen als de uitvoering is voltooid en markeer deze als geannuleerd.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')

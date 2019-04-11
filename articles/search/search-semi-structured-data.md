@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270456"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471457"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
 
@@ -37,7 +37,7 @@ De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick 
 
 [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken. 
 
-[Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), en vervolgens [maken van een Blob-container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. Omdat u een sleutel en de opslag accountnaam voor de verbinding gebruikt, zorg er dan voor dat van de container openbaar toegangsniveau is ingesteld op 'Container (anonieme leestoegang voor de container)'.
+[Maak een Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) wordt gebruikt voor het opslaan van de voorbeeldgegevens.
 
 [Postman bureaublad-app](https://www.getpostman.com/) wordt gebruikt voor het verzenden van aanvragen naar Azure Search.
 
@@ -57,13 +57,19 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 ## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
-1. Ga naar de voorbeeldgegevens die u hebt gedownload naar uw systeem.
+1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account en de Blob-container en op **uploaden**.
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. Omdat u een sleutel en de opslag accountnaam voor de verbinding gebruikt, zorg er dan voor dat van de container openbaar toegangsniveau is ingesteld op 'Container (anonieme leestoegang voor de container)'.
 
-1. Klik op **Geavanceerd**, voer 'clinical-trials-json' in en upload alle JSON-bestanden die u hebt gedownload.
+   ![Niveau openbare toegang instelt](media/search-semi-structured-data/container-public-access-level.png "niveau openbare toegang instellen")
 
-  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/clinicalupload.png)
+1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk.
+
+   ![Uploaden op de opdrachtbalk](media/search-semi-structured-data/upload-command-bar.png "uploaden op de opdrachtbalk")
+
+1. Navigeer naar de map met de voorbeeldbestanden. Selecteer alle mappen en klik vervolgens op **uploaden**.
+
+   ![Bestanden uploaden](media/search-semi-structured-data/clinicalupload.png "bestanden uploaden")
 
 Nadat de upload is voltooid, worden de bestanden weergegeven in hun eigen submap in de gegevenscontainer.
 
@@ -83,20 +89,22 @@ Voer de volgende drie API-aanroepen uit vanuit de REST-client.
 
 ## <a name="create-a-data-source"></a>Een gegevensbron maken
 
-Een gegevensbron is een Azure Search-object waarmee wordt aangegeven welke gegevens moeten worden geïndexeerd.
+De [Data Source-API maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)maakt een Azure Search-object waarmee wordt aangegeven welke gegevens moeten worden geïndexeerd.
 
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice. Voor deze aanroep hebt u de naam en sleutel van uw opslagaccount nodig. De opslagaccountsleutel vindt u in de **Toegangssleutels** van uw opslagaccount in Azure Portal. De locatie wordt in de volgende afbeelding weergegeven:
+Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice. 
+
+Voor deze aanroep moet de aanvraagtekst bevatten de naam van uw opslagaccount, sleutel van het opslagaccount en de naam van de blob-container. De opslagaccountsleutel vindt u in de **Toegangssleutels** van uw opslagaccount in Azure Portal. De locatie wordt in de volgende afbeelding weergegeven:
 
   ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/storagekeys.png)
 
-Zorg dat u de `[storage account name]` en `[storage account key]` in de hoofdtekst van de aanroep vervangt voordat u de aanroep uitvoert.
+Vervang `[storage account name]`, `[storage account key]`, en `[blob container name]` in de hoofdtekst van de aanroep van voordat de aanroep uitvoert.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -114,8 +122,8 @@ Het antwoord moet er als volgt uitzien:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -124,7 +132,7 @@ Het antwoord moet er als volgt uitzien:
 
 ## <a name="create-an-index"></a>Een index maken
     
-De tweede API-aanroep wordt een Azure Search-index gemaakt. Een index geeft alle parameters en hun kenmerken op.
+De tweede aanroep [API ' Create Index '](https://docs.microsoft.com/rest/api/searchservice/create-data-source), een Azure Search-index te maken die alle doorzoekbare gegevens worden opgeslagen. Een index geeft alle parameters en hun kenmerken op.
 
 De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
 
@@ -214,7 +222,7 @@ Het antwoord moet er als volgt uitzien:
 
 ## <a name="create-and-run-an-indexer"></a>Maken en een indexeerfunctie uitvoeren
 
-Een indexeerfunctie verbindt de gegevensbron, worden gegevens geïmporteerd in de doelzoekindex en biedt optioneel een schema voor het automatiseren van het vernieuwen van gegevens.
+Een indexeerfunctie verbindt de gegevensbron, worden gegevens geïmporteerd in de doelzoekindex en biedt optioneel een schema voor het automatiseren van het vernieuwen van gegevens. De REST-API is [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 De URL voor deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
 
@@ -257,7 +265,11 @@ Het antwoord moet er als volgt uitzien:
 
 ## <a name="search-your-json-files"></a>Uw JSON-bestanden doorzoeken
 
-U kunt nu query's op basis van de index uitgeven. Gebruik voor deze taak [ **Search explorer** ](search-explorer.md) in de portal.
+U kunt beginnen te zoeken als het eerste document wordt geladen. Gebruik voor deze taak [ **Search explorer** ](search-explorer.md) in de portal.
+
+Open de search-service in Azure portal, **overzicht** pagina, vinden de index die u hebt gemaakt in de **indexen** lijst.
+
+Zorg ervoor dat de index die u zojuist hebt gemaakt te kiezen. De API-versie kan worden Preview-versie of een algemeen beschikbare versie. De enige vereiste voor de Preview-versie is voor het indexeren van JSON-matrices.
 
   ![Niet-gestructureerde zoekopdracht](media/search-semi-structured-data/indexespane.png)
 
@@ -283,7 +295,7 @@ De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt AI-algoritmen aan een indexeringspijplijn koppelen. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
+U kunt Cognitive Services AI aangestuurde algoritmen koppelen aan een pijplijn voor indexering. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
-> [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)
+> [Indexeren met AI](cognitive-search-tutorial-blob.md)

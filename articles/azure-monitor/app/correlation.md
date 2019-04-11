@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092715"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471712"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -143,7 +143,7 @@ De [OpenTracing gegevensmodel specificatie](https://opentracing.io/) en Applicat
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` met `span.kind = server`                  |
+| `Request`,  `PageView`                 | `Span` met `span.kind = server`                  |
 | `Dependency`                          | `Span` met `span.kind = client`                  |
 | `Id` van `Request` en `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
@@ -183,6 +183,11 @@ De [Application Insights-SDK voor Java](../../azure-monitor/app/java-get-started
 > Alleen aanroepen via Apache HTTPClient worden ondersteund voor de correlatie-functie. Als u Spring RestTemplate of Feign, kunnen beide worden gebruikt met Apache HTTPClient achter de schermen.
 
 Op dit moment wordt niet automatische context doorgeven voor messaging-technologieën (zoals Kafka, RabbitMQ of Azure Service Bus) ondersteund. Het is echter mogelijk handmatig code voor dergelijke scenario's met behulp van de `trackDependency` en `trackRequest` API's. In deze API's, een afhankelijkheidstelemetrie vertegenwoordigt een bericht wordt in de wachtrij door een producent en de aanvraag een bericht dat wordt verwerkt door een consument. In dit geval beide `operation_id` en `operation_parentId` moeten worden doorgevoerd in de eigenschappen van het bericht.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Telemetriecorrelatie in asynchrone Java-toepassing
+
+Om te kunnen correleren van telemetrie in de asynchrone Spring Boot-toepassing Volg [dit](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) uitgebreide artikel. Hier vindt u hulp voor het instrumenteren van Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) , evenals [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Rolnaam

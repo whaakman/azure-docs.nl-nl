@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 188acaea134a00ca8e2412aafd8515ee26596590
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049986"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471440"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Zelfstudie: Afbeeldingen uploaden naar de Bing visuele zoekopdrachten-API
 
@@ -772,4 +772,5 @@ Voeg de volgende `<style>` sectie aan de `<head>` tag voor de indeling van de we
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: soortgelijke afbeeldingen vinden in eerdere zoekopdrachten met ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Zelfstudie: Vergelijkbare afbeeldingen uit eerdere zoekacties met behulp van ImageInsightsToken zoeken](./tutorial-visual-search-insights-token.md)

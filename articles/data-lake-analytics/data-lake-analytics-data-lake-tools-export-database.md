@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250999"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471406"
 ---
 # <a name="export-a-u-sql-database"></a>Een U-SQL-database exporteren
 
@@ -37,7 +37,7 @@ Alle Data Lake Analytics-accounts die u hebt machtigingen voor worden weergegeve
 
      Als de **exporteren** menu-optie niet beschikbaar is, moet u [bijwerken van het hulpprogramma naar de meest recente versie release](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Stap 2: Configureer de objecten die u wilt exporteren
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Stap 2: Configureren van de objecten die u wilt exporteren
 
 Als u slechts een klein deel van een grote database, kunt u een subset van objecten die u wilt exporteren in de wizard Exporteren kunt configureren. 
 
@@ -51,11 +51,11 @@ In deze stap controleert u of de geselecteerde objecten in de **Export objectenl
 
 U kunt ook andere instellingen voor de doel-export configureren. Beschrijvingen van de configuratie worden weergegeven in de volgende tabel:
 
-|Configuratie|Beschrijving|
+|Configuratie|Description|
 |-------------|-----------|
 |Doelnaam|Deze naam wordt aangegeven waar u de geëxporteerde database-resources. Voorbeelden zijn assembly's, aanvullende bestanden en voorbeeldgegevens. Een map met deze naam wordt gemaakt onder de hoofdmap van uw lokale gegevens.|
-|Projectmap|Dit pad definieert waar u het geëxporteerde U-SQL-script. Alle objectdefinities van de database worden opgeslagen op deze locatie.|
-|Alleen schema|Als u deze optie selecteert, zijn de enige databasedefinities en resources (zoals assembly's en aanvullende bestanden) worden geëxporteerd.|
+|Project Directory|Dit pad definieert waar u het geëxporteerde U-SQL-script. Alle objectdefinities van de database worden opgeslagen op deze locatie.|
+|Schema Only|Als u deze optie selecteert, zijn de enige databasedefinities en resources (zoals assembly's en aanvullende bestanden) worden geëxporteerd.|
 |Schema en gegevens|Als u deze optie selecteert, zijn de databasedefinities, resources en gegevens worden geëxporteerd. De bovenste N rijen van tabellen worden geëxporteerd.|
 |Automatisch naar lokale-Database importeren|Als u deze optie selecteert, wordt de geëxporteerde database wordt automatisch geïmporteerd om de lokale database bij het exporteren is voltooid.|
 
@@ -84,7 +84,7 @@ Op dit moment als u selecteert de **Schema en gegevens** optie in stap 3, het hu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over U-SQL-databases](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
-* [U-SQL-taken testen en controleren op fouten met behulp van lokale uitvoering en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
+* [Meer informatie over U-SQL-databases](/u-sql/data-definition-language-ddl-statements) 
+* [Testen en fouten opsporen in U-SQL-taken met behulp van lokaal uitvoeren en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 

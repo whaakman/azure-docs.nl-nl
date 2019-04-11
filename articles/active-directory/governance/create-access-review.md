@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576192"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471627"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Maken van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -37,11 +37,11 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 1. Aanmelden bij Azure portal en open de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Klik op **besturingselementen**.
+1. Klik in het menu links op **Toegangsbeoordelingen**.
 
 1. Klik op **nieuwe toegangsbeoordeling** naar een nieuwe toegangsbeoordeling maken.
 
-    ![Overzicht van Access - besturingselementen](./media/create-access-review/controls.png)
+    ![Overzicht van Access - besturingselementen](./media/create-access-review/access-reviews.png)
 
 1. De naam van de toegangsbeoordeling. (Optioneel) Geef de beoordeling van een beschrijving. De naam en beschrijving worden weergegeven aan de revisoren.
 
@@ -51,15 +51,15 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
     ![Maken van een toegangscontrole - begin- en einddatums](./media/create-access-review/start-end-dates.png)
 
-1. Als u de toegang tot revisie terugkerende, wijzigen de **frequentie** instellen op basis van **één keer** naar **wekelijkse**, **maandelijkse**,  **Elk kwartaal** of **jaarlijks**, en gebruik de **duur** schuifregelaar of tekst in om te bepalen hoeveel dagen elk onderzoek van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur die u voor een maandelijkse revisie instellen kunt 27 dagen, om te voorkomen dat overlappende beoordelingen.
+1. Als u de toegang tot revisie terugkerende, wijzigen de **frequentie** instellen op basis van **één keer** naar **wekelijkse**, **maandelijkse**,  **Elk kwartaal** of **jaarlijks**. Gebruik de **duur** schuifregelaar of tekst in om te bepalen hoeveel dagen elk onderzoek van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur die u voor een maandelijkse revisie instellen kunt 27 dagen, om te voorkomen dat overlappende beoordelingen.
 
 1. Gebruik de **End** instelling kunt u opgeven hoe de toegang tot de terugkerende beëindigen serie bekijken. De reeks kunt op drie manieren beëindigen: deze continu wordt uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U, Gebruikerbeheerder van een andere of een ander algemeen beheerder kunt stoppen de reeks na het maken van door het veranderen van de datum in de **instellingen**, zodat deze wordt beëindigd op die datum.
 
-1. In de **gebruikers** sectie, geeft u de gebruikers die toegang tot revisie van toepassing op. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de toepassing), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
+1. In de **gebruikers** sectie, geeft u de gebruikers die de toegangsbeoordeling is van toepassing op. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de toepassing), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
 
     ![Een toegangsbeoordeling - gebruikers maken](./media/create-access-review/users.png)
 
-1. In de **groepen** sectie, selecteer een of meer groepen die u wilt controleren van het lidmaatschap van.
+1. In de **groep** sectie, selecteer een of meer groepen die u wilt controleren van het lidmaatschap van.
 
     > [!NOTE]
     > Selecteer meer dan één groep maakt meerdere toegangsbeoordelingen. Bijvoorbeeld, u vijf afzonderlijke toegangsbeoordelingen maken vijf groepen te selecteren.
@@ -112,7 +112,9 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 ## <a name="start-the-access-review"></a>Start de toegangsbeoordeling
 
-Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**.
+Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**. De toegangsbeoordeling wordt weergegeven in de lijst met een indicatie van de status ervan.
+
+![Lijst met toegangsbeoordelingen](./media/create-access-review/access-reviews-list.png)
 
 Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
 
@@ -120,13 +122,15 @@ Als sommige van de revisoren gasten, gasten krijgt een melding via e-mail alleen
 
 ## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
 
-U kunt de voortgang volgen als de revisoren voltooid hun beoordelingen in het dashboard Azure AD in de **Toegangsbeoordelingen** sectie. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](complete-access-review.md).
+U kunt de voortgang volgen de revisoren hun beoordelingen zijn voltooid op de **overzicht** pagina van de toegangsbeoordeling. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](complete-access-review.md).
+
+![Toegangsbeoordelingen wordt uitgevoerd](./media/create-access-review/overview-progress.png)
 
 Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md) om te zien en de resultaten van toepassing.  
 
-Voor het beheren van een reeks toegangsbeoordelingen, gaat u naar de toegangsbeoordeling van **besturingselementen**, en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig. 
+Voor het beheren van een reeks beoordelingen, gaat u naar de toegangsbeoordeling en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig.
 
-Op basis van uw selecties in na voltooiing van de instellingen, auto-toepassing zal worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen. De status van de beoordeling wordt gewijzigd van voltooide via tussenliggende Staten zoals toepassen en tot slot naar status toegepast. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw toepassing in een paar minuten.
+Op basis van uw selecties in **na voltooiing van de instellingen**, wordt automatisch toepassen worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen. De status van de beoordeling wordt gewijzigd van **voltooid** via tussenliggende Staten zoals **toepassen** en tot slot naar status **toegepast**. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw toepassing in een paar minuten.
 
 ## <a name="create-reviews-via-apis"></a>Beoordelingen via API's maken
 

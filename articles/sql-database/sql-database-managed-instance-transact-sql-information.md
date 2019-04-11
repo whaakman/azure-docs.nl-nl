@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358437"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471559"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -217,7 +217,7 @@ Zie voor meer informatie, [ALTER DATABASE SET PARTNER en SET WITNESS](https://do
 
 - Meerdere logboekbestanden worden niet ondersteund.
 - Objecten in het geheugen worden niet ondersteund in de categorie Algemeen gebruik-service.  
-- Er is een limiet van 280 bestanden per exemplaar van algemeen gebruik: maximaal 280 bestanden per database voor de overdracht. Gegevens- en logboekbestanden bestanden in het algemeen doel laag worden geteld naar deze limiet. [Kritieke bedrijfslaag ondersteunt 32.767 bestanden per database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Er is een limiet van 280 bestanden per exemplaar van algemeen gebruik: maximaal 280 bestanden per database voor de overdracht. Gegevens- en logboekbestanden bestanden in het algemeen doel laag worden geteld naar deze limiet. [Kritieke bedrijfslaag ondersteunt 32.767 bestanden per database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Database mag geen bestandsgroepen met filestream-gegevens bevatten.  Herstellen mislukt als .bak bevat `FILESTREAM` gegevens.  
 - Elk bestand is in Azure Blob-opslag geplaatst. I/o- en doorvoer per bestand, is afhankelijk van de grootte van elk afzonderlijk bestand.  
 
@@ -467,7 +467,6 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 - `@@SERVICENAME` retourneert NULL, omdat het concept van de service die voor SQL Server niet van toepassing op een beheerd exemplaar bestaat. Zie [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` wordt ondersteund. Retourneert NULL als Azure AD-aanmelding niet in sys.syslogins is. Zie [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` wordt niet ondersteund. Retourneert onjuiste gegevens (tijdelijke bekend probleem). Zie [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` en andere functies van de ingebouwde datum/tijd retourneert altijd tijd in UTC-tijdzone. Zie [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Bekende problemen en beperkingen
 
@@ -494,7 +493,7 @@ Dit wordt dit duidelijk gemaakt onder bepaalde omstandigheden, vanwege een speci
 
 In dit voorbeeld bestaande databases blijven werken en zonder problemen kan groeien zolang er nieuwe bestanden worden niet toegevoegd. Echter nieuwe databases kunnen niet worden gemaakt of hersteld omdat er niet voldoende ruimte voor nieuwe schijfstations, zelfs als de totale grootte van alle databases niet aan de grootte van het exemplaar komt. De fout die wordt geretourneerd is in dat geval niet wissen.
 
-U kunt [aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) systeemweergaven gebruiken. Als u verbinding probeert u deze limiet te [leeg en verwijder enkele van de kleinere bestanden met de instructie DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of schakel over naar [laag bedrijfskritiek die niet is deze limiet](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+U kunt [aantal resterende bestanden identificeren](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) systeemweergaven gebruiken. Als u verbinding probeert u deze limiet te [leeg en verwijder enkele van de kleinere bestanden met de instructie DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) of schakel over naar [laag bedrijfskritiek waarop deze limiet niet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van de SAS-sleutel tijdens de database herstellen
 
@@ -567,11 +566,11 @@ De IP-adres van het lokale exemplaar kunnen niet worden omgezet in CLR-modules g
 
 **Tijdelijke oplossing**: Context-verbindingen indien mogelijk in CLR-module gebruiken.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE versleuteld databases bieden geen ondersteuning voor back-ups van de gebruiker geïnitieerde
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>TDE versleuteld databases met de service beheerde sleutel bieden geen ondersteuning voor back-ups van de gebruiker geïnitieerde
 
-Kan niet worden uitgevoerd `BACKUP DATABASE ... WITH COPY_ONLY` voor een database die is versleuteld met transparante gegevensversleuteling (TDE). TDE zorgt ervoor dat de back-ups moeten worden versleuteld met sleutels voor interne TDE en de sleutel kan niet worden geëxporteerd, zodat u het niet mogelijk om terug te zetten van de back-up.
+Kan niet worden uitgevoerd `BACKUP DATABASE ... WITH COPY_ONLY` voor een database die is versleuteld met service beheerde transparante gegevensversleuteling (TDE). Beheerde service TDE zorgt ervoor dat de back-ups moeten worden versleuteld met interne TDE-sleutel en de sleutel kan niet worden geëxporteerd, zodat u het niet mogelijk om terug te zetten van de back-up.
 
-**Tijdelijke oplossing**: Gebruik automatische back-ups en point-in-time-restore, of schakel versleuteling uit op de database.
+**Tijdelijke oplossing**: Gebruik automatische back-ups en terugzetten van de punt-in-time, of gebruik [klant beheerd (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) in plaats daarvan in- of uitschakelen van versleuteling op de database.
 
 ## <a name="next-steps"></a>Volgende stappen
 

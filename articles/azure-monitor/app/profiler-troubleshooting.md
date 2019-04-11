@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855670"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471525"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -67,9 +67,15 @@ Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het f
 Voor de Profiler goed te laten werken:
 * Uw web-app service-plan moet Basic-laag of hoger.
 * Uw web-app moet Application Insights is ingeschakeld.
-* Uw web-app moet de **APPINSIGHTS_INSTRUMENTATIONKEY** app-instelling is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
-* Uw web-app moet de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling gedefinieerd en ingesteld op 1.0.0.
-* Uw web-app moet de **DiagnosticServices_EXTENSION_VERSION** appinstelling die is gedefinieerd en de waarde die is ingesteld op ~ 3.
+* Uw web-app moet beschikken over de volgende appinstellingen:
+
+    |App-instelling    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor u Application Insights-resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * De **ApplicationInsightsProfiler3** webtaak moet worden uitgevoerd. Om te controleren of de webtaak:
    1. Ga naar [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. In de **extra** in het menu **WebJobs-Dashboard**.  
@@ -93,12 +99,13 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als u
 1. Stel **.NET Framework-versie** naar **v4.6**.
 
 1. Stel **AlwaysOn** naar **op**.
+1. Maken van deze appinstellingen:
 
-1. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
-
-1. Voeg de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling en stel de waarde in op 1.0.0.
-
-1. Voeg de **DiagnosticServices_EXTENSION_VERSION** app-instelling en stel de waarde in op ~ 3.
+    |App-instelling    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor u Application Insights-resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Te veel actieve profilering sessies
 
@@ -124,7 +131,7 @@ Profiler wordt uitgevoerd als een continue webjob in de web-app. U kunt openen d
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Oplossen van problemen met de Profiler en Azure Diagnostics
 
-  >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken. Als u Visual Studio te downgraden van de versie van de App Insights-SDK, krijgt u mogelijk een binding omleidings-fout tijdens runtime. Dit komt doordat de "newVersion' in het bestand web.config voor Microsoft.ApplicationInsights moet worden ingesteld op '2.7.2.0' nadat downgraden van de AI-SDK, maar deze niet automatisch bijgewerkt.
+>**De fout in de profiler die wordt geleverd in de WAD voor Cloud Services is, opgelost.** De nieuwste versie van WAD (1.12.2.0) voor Cloud Services werkt met alle recente versies van de App Insights-SDK. Cloud onderhoud plegen aan hosts WAD automatisch wordt bijgewerkt, maar deze niet onmiddellijk plaats. U kunt om af te dwingen een upgrade, opnieuw implementeren van uw service of het knooppunt opnieuw opstarten.
 
 Als u wilt zien of de Profiler juist is geconfigureerd door Azure Diagnostics, moet u de volgende drie dingen doen: 
 1. Controleer eerst of de inhoud van de Azure Diagnostics-configuratie die zijn geïmplementeerd zijn wat u verwacht. 

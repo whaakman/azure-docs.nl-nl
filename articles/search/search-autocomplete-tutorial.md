@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 7c06489af7c418a437c2e7a8714c89bee1414c2b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357959"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471729"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Voorbeeld: Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
 
@@ -164,7 +164,7 @@ Open de **HomeController.cs** bestand in de map domeincontrollers.
 
 Het eerste wat u ziet misschien ook is een methode aan de bovenkant van de klasse met de naam `InitSearch`. Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt. Zie voor meer informatie, [over het gebruik van Azure Search via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-U ziet de suggesties-functie op regel 41. Deze is gebaseerd op de [DocumentsOperationsExtensions.Suggest methode](/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+U ziet de suggesties-functie op regel 41. Deze is gebaseerd op de [DocumentsOperationsExtensions.Suggest methode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

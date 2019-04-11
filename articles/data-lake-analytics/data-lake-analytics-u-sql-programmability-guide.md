@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835449"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471083"
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Zie voor meer informatie over het gebruik van appliers in een SELECT-expressie [U-SQL Selecteer selecteren in de CROSS APPLY en OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+Zie voor meer informatie over het gebruik van appliers in een SELECT-expressie [U-SQL Selecteer selecteren in de CROSS APPLY en OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 De gebruiker gedefinieerde applier basisklasse-definitie is als volgt:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Zie voor meer informatie, [expressie COMBINEREN (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Zie voor meer informatie, [expressie COMBINEREN (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 Voor het definiëren van een gebruiker gedefinieerde combiner, moeten we maken de `ICombiner` interface met de [`SqlUserDefinedCombiner`] kenmerk, die optioneel voor de definitie van een gebruiker gedefinieerde Combiner is.
 
@@ -1877,7 +1877,7 @@ Invoer rijensets worden doorgegeven als **links** en **rechts** `IRowset` type i
 
 Voor cachedoeleinden, maken we een lijst met\<T\> soort geheugenstructuur als gevolg hiervan van een LINQ uitvoering van de query, specifiek lijst <`IRow`>. Het type anonieme gegevens kan worden gebruikt tijdens de opsomming ook.
 
-Zie [Inleiding tot LINQ-query's (C#)](https://msdn.microsoft.com/library/bb397906.aspx) voor meer informatie over het LINQ-query's, en [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) voor meer informatie over IEnumerable\<T\> interface.
+Zie [Inleiding tot LINQ-query's (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) voor meer informatie over het LINQ-query's, en [IEnumerable\<T\> Interface](/dotnet/api/system.collections.generic.ienumerable-1) voor meer informatie over IEnumerable\<T\> interface.
 
 De werkelijke waarden ophalen uit de binnenkomende `IRowset`, gebruiken we de methode voor Get() `IRow` interface.
 
