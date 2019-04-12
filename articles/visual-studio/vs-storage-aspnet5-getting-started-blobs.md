@@ -106,7 +106,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Als u wilt de blobs in een container te vermelden, eerste get een containerverwijzing, roept u vervolgens de `ListBlobsSegmentedAsync` methode voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde `IListBlobItem`, dit casten naar een `CloudBlockBlob`, `CloudPageBlob`, of `CloudBlobDirectory` object. Als u niet weet het blobtype wat, kunt u typecontrole gebruiken om te bepalen welke dit casten naar.
+Als u de blobs in een container in een lijst wilt plaatsen, haal dan eerst een containerverwijzing op, vervolgens roept u de methode `ListBlobsSegmentedAsync` aan voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden van een geretourneerd `IListBlobItem`, zet deze om naar een `CloudBlockBlob`, `CloudPageBlob`, of `CloudBlobDirectory` object. Als u het blobtype niet weet, kunt u een typecontrole gebruiken om te bepalen waar u deze naar kunt omzetten.
 
 ```cs
 BlobContinuationToken token = null;
