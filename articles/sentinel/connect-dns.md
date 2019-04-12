@@ -1,6 +1,6 @@
 ---
-title: DNS-gegevens in Azure Sentinel Preview verzamelen | Microsoft Docs
-description: Meer informatie over het verzamelen van DNS-gegevens in Azure Sentinel.
+title: Verbinding maken met de DNS-gegevens in Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u DNS-gegevens in Azure Sentinel verbindt.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530413"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489739"
 ---
 # <a name="connect-your-domain-name-server"></a>Verbinding maken met uw DNS-server
 
@@ -29,7 +29,7 @@ ms.locfileid: "57530413"
 
 U kunt een Server DNS (Domain Name) die worden uitgevoerd op Windows Azure Sentinel verbinden. Dit wordt gedaan door het installeren van een agent op de DNS-machine. Met behulp van DNS registreert, krijgt u beveiliging, prestaties en bewerkingen met betrekking tot inzicht in de DNS-infrastructuur van uw organisatie door te verzamelen, analyseren, en correleren van analytische en auditlogboeken en andere gerelateerde gegevens uit de DNS-servers.
 
-Wanneer u DNS-logboekverzameling inschakelt kunt u het volgende doen:
+Wanneer u verbinding met het DNS-inschakelt, kunt u het volgende doen:
 - Clients identificeren die op te lossen schadelijke domeinnamen
 - Verlopen bronrecords identificeren
 - Vaak opgevraagde domeinnamen en DNS-clients dremepelwaarde identificeren
@@ -38,11 +38,11 @@ Wanneer u DNS-logboekverzameling inschakelt kunt u het volgende doen:
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Verzameling van DNS wordt bereikt door het installeren van een agent op de DNS-machine. De agent haalt gebeurtenissen uit de DNS-server en geeft deze door aan de Log Analytics.
+DNS-verbinding wordt gerealiseerd door het installeren van een agent op de DNS-machine. De agent haalt gebeurtenissen uit de DNS-server en geeft deze door aan de Log Analytics.
 
 ## <a name="connect-your-dns-appliance"></a>Verbinding maken met uw DNS-apparaat
 
-1. Selecteer in de portal voor Azure Sentinel **gegevensverzameling** en kies de **DNS** tegel.
+1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors** en kies de **DNS** tegel.
 1. Als uw DNS-machines in Azure:
     1. Klik op **downloaden en installeren van de agent voor Windows-machines**.
     1. In de **virtuele machines** , selecteert u de DNS-machine die u wilt streamen naar Azure Sentinel. Zorg ervoor dat dit is een Windows-VM.

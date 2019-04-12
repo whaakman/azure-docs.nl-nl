@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014125"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496791"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
@@ -63,7 +63,7 @@ Het kan één tot twee uur duren voordat de export voor het eerst wordt uitgevoe
 
 ### <a name="export-schedule"></a>Exportschema
 
-Geplande exports worden beïnvloed door het tijdstip en de dag van de week waarop u de export in eerste instantie maakt. Wanneer u een geplande export maakt, wordt de export uitgevoerd op hetzelfde tijdstip van de dag voor elk volgend exemplaar van de export. Stel, u maakt een dagelijkse export om 13:00 uur. De volgende uitvoer wordt de volgende dag om 13:00 uur uitgevoerd. De huidige tijd is op dezelfde manier van invloed op alle andere exporttypen; ze worden altijd uitgevoerd op hetzelfde moment van de dag als waarop de export in eerste instantie is gemaakt. In een ander voorbeeld maakt u een wekelijkse export op maandag om 16:00 uur. Het volgende rapport wordt de maandag erna om 16:00 uur uitgevoerd. *Geëxporteerde gegevens zijn binnen vier uur na de uitvoeringstijd beschikbaar.*
+Geplande exports worden beïnvloed door het tijdstip en de dag van de week waarop u de export in eerste instantie maakt. Wanneer u een geplande export maakt, wordt de export uitgevoerd op hetzelfde tijdstip van de dag voor elk volgend exemplaar van de export. Stel, u maakt een dagelijkse export om 13:00 uur. De volgende uitvoer wordt de volgende dag om 13:00 uur uitgevoerd. De huidige tijd is op dezelfde manier van invloed op alle andere exporttypen; ze worden altijd uitgevoerd op hetzelfde moment van de dag als waarop de export in eerste instantie is gemaakt. In een ander voorbeeld maakt u een wekelijkse export op maandag om 16:00 uur. Het volgende rapport wordt de maandag erna om 16:00 uur uitgevoerd. *Geëxporteerde gegevens zijn beschikbaar binnen vier uur van de uitvoeringstijd.*
 
 Voor elke export wordt een nieuw bestand gemaakt. Oudere exports worden dus niet overschreven.
 
@@ -74,6 +74,10 @@ Er zijn drie soorten exportopties:
 **Wekelijkse export van kosten voor de afgelopen zeven dagen**: de eerste uitvoer wordt onmiddellijk uitgevoerd. Volgende exports worden op dezelfde weekdag en hetzelfde tijdstip als de eerste export uitgevoerd. De kosten zijn voor de afgelopen zeven dagen.
 
 **Aangepast**: hiermee kunt u wekelijkse en maandelijkse exports plannen met week-tot-datum- en maand-tot-heden-opties. *De eerste uitvoer wordt onmiddellijk uitgevoerd.*
+
+Als u een betalen per gebruik, MSDN of Visual Studio-abonnement hebt, kan het zijn dat uw factuur factureringsperiode niet afgestemd op de kalendermaand. Voor deze typen abonnementen en resourcegroepen, kunt u een uitvoer die afgestemd op uw factuurperiode of kalendermaanden. Voor het maken van een export afgestemd op uw factuur maand, gaat u naar **aangepaste**en selecteer vervolgens **facturering-periode-to-date**.  Selecteer voor het maken van een export uitgelijnd aan de kalendermaand, **maand tot heden**.
+>
+>
 
 ![Nieuwe export: het tabblad Basis toont een aangepaste wekelijkse week-tot-heden-selectie](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
@@ -93,6 +97,7 @@ Het bestand wordt geopend met het programma of de toepassing waarmee bestanden m
 
 ![Voorbeeld van geëxporteerde CSV-gegevens, weergegeven in Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+
 ## <a name="access-exported-data-from-other-systems"></a>Geëxporteerde gegevens gebruiken in externe systemen
 
 Het exporteren van Cost Management-gegevens heeft vaak als doel om deze gegevens in een extern systeem te gebruiken. Denk bijvoorbeeld aan een dashboard of een ander financieel systeem. Omdat al deze systemen sterk van elkaar verschillen, heeft het weinig zin om hier een voorbeeld van te laten zien.  In [Introduction to Azure Storage](../storage/common/storage-introduction.md) (Inleiding tot Azure Storage) kunt u echter aan de slag met het openen van uw gegevens in de door u gebruikte toepassingen.
@@ -108,4 +113,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga naar de volgende zelfstudie, waarin u leert om de efficiëntie te optimaliseren en te verbeteren door inactieve en onderbenutte resources te identificeren.
 
 > [!div class="nextstepaction"]
-> [Aanbevelingen bekijken en hier actie op ondernemen](tutorial-acm-opt-recommendations.md)
+> [Bekijken en reageren op optimalisatie aanbevelingen](tutorial-acm-opt-recommendations.md)

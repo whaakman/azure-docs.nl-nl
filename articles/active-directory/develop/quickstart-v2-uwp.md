@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids voor Azure AD v2 Windows UWP | Microsoft Docs
-description: Leer hoe met een universeel Windows-platform (XAML) een token kan worden opgehaald en een API kan worden aangeroepen die is beveiligd met een Azure Active Directory v2.0-eindpunt.
+title: Microsoft identity platform Windows UWP quickstart | Azure
+description: Ontdek hoe een Universal Windows Platform (XAML)-toepassing kan een toegangstoken en een API die wordt beveiligd door Microsoft identity platform eindpunt aanroepen.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 8c61da6a55b1f4502deee056b29fdbc22ef33514
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360119"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490615"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Quickstart: De Microsoft Graph-API aanroepen vanuit de Universeel Windows-platformtoepasing (UWP)
 
@@ -30,7 +30,7 @@ ms.locfileid: "59360119"
 
 Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Universeel Windows-platform) kan worden gebruikt om gebruikers aan te melden met persoonlijke accounts, en werk- en schoolaccounts, een toegangstoken op te halen en de Microsoft Graph API aan te roepen.
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-uwp/uwp-intro-updated.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-uwp/uwp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
@@ -41,7 +41,7 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 >
-> 1. Ga naar de [Azure-portal - toepassingsregistratie](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)
+> 1. Ga naar de nieuwe [Azure portal - App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) deelvenster.
 > 1. Voer een naam in voor de toepassing en klik op **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
@@ -51,7 +51,8 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 > Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app toe te voegen aan de oplossing:
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)** > **Nieuwe registratie**.
+> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
+> 1. Selecteer **registratie van nieuwe**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `UWP-App-calling-MsGraph`.
 >      - Selecteer in de sectie **Ondersteunde accounttypen** de optie **Accounts in alle organisatiemappen en persoonlijke Microsoft-accounts (bijvoorbeeld Skype, Xbox, Outlook.com**.
@@ -71,29 +72,32 @@ Deze quickstart bevat een codevoorbeeld dat laat zien hoe een UWP-toepassing (Un
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Stap 2: uw Visual Studio-project downloaden
 
- - [Het project voor Visual Studio 2017 downloaden](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Het project voor Visual Studio 2017 downloaden](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
 1. Pak het zip-bestand uit in een lokale map dicht bij de hoofdmap van de schijf, bijvoorbeeld **C:\Azure-Samples**.
-1. Open het project in Visual Studio.
-1. Bewerk **App.Xaml.cs** en vervang de waarden in de velden `ClientId` en `Tenant` door:
+1. Open het project in Visual Studio. U mogelijk gevraagd een UWP-SDK installeren. In dat geval accepteren.
+1. Bewerken **MainPage.Xaml.cs** en vervang de waarden van de `ClientId` veld:
 
     ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    private const string ClientId = "Enter_the_Application_Id_here";
     ```
 
 > [!div renderon="docs"]
 > Waar:
 > - `Enter_the_Application_Id_here` -is de toepassings-Id voor de toepassing die u hebt geregistreerd.
-> - `Enter_the_Tenant_Info_Here` -is een van de onderstaande opties:
->   - Als uw toepassing ondersteunt **mijn organisatie alleen**, vervang deze waarde met de **Tenant-Id** of **tenantnaam** (bijvoorbeeld contoso.onmicrosoft.com)
->   - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
->   - Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met `common`
 >
 > > [!TIP]
-> > Als u de waarden van *Toepassings-id*, *Map-id (tenant)* en *Ondersteunde accounttypen* wilt weten, gaat u naar de **Overzichtspagina**
+> > Zoeken naar de waarden van *toepassings-ID*, gaat u naar de **overzicht** pagina
+
+#### <a name="step-4-run-your-application"></a>Stap 4: Uw toepassing uitvoeren
+
+Als u proberen de Quick Start op uw Windows-computer wilt:
+
+1. In de werkbalk van Visual Studio, kies het juiste platform (waarschijnlijk **x64** of **x86**, niet ARM).
+   > Zien dat het doelapparaat van verandert *apparaat* naar *lokale computer*
+1. Selecteer Foutopsporing | **Starten zonder foutopsporing**
 
 ## <a name="more-information"></a>Meer informatie
 
@@ -101,7 +105,7 @@ Deze sectie biedt meer informatie over de quickstart.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd met Microsoft Azure Active Directory. U kunt MSAL installeren door de volgende opdracht uit te voeren in *Package Manager Console* van Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van beveiligingstokens. De beveiligingstokens worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft Identity-platform voor ontwikkelaars. U kunt MSAL installeren door de volgende opdracht uit te voeren in *Package Manager Console* van Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -Pre
@@ -118,7 +122,9 @@ using Microsoft.Identity.Client;
 Vervolgens initialiseert u MSAL met de volgende code:
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+                                                    .Build();
 ```
 
 > |Waar: ||
@@ -127,38 +133,42 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 
-MSAL biedt twee methoden om tokens te verkrijgen: `AcquireTokenAsync` en `AcquireTokenSilentAsync`.
+MSAL biedt twee methoden die worden gebruikt voor het verkrijgen van tokens interactief: `AcquireTokenInteractive` en `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-In sommige situaties is het nodig om gebruiker via een pop-upvenster te dwingen het Azure AD v2.0-eindpunt te gebruiken om hun referenties te valideren of om toestemming te geven. Voorbeelden zijn:
+In sommige situaties moet afdwingen gebruikers werken interactief met het eindpunt van de Microsoft identity-platform via een pop-upvenster ofwel hun om referenties te valideren of om toestemming te geven. Voorbeelden zijn:
 
 - De eerste keer dat gebruikers zich aanmelden bij de toepassing
 - Wanneer gebruikers mogelijk hun referenties opnieuw moeten opgeven omdat het wachtwoord is verlopen
-- Wanneer via de toepassing toegang wordt aangevraagd tot een resource waarvoor de gebruiker toestemming moet geven
+- Wanneer uw toepassing toegang aanvraagt tot een resource, die de gebruiker moet toestemming geven
 - Wanneer tweeledige verificatie is vereist
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
+authResult = await App.PublicClientApp.AcquireToken(scopes, this)
+                       .ExecuteAsync();
 ```
 
 > |Waar:||
 > |---------|---------|
 > | `scopes` | Bevat de bereiken die worden aangevraagd, bijvoorbeeld `{ "user.read" }` voor Microsoft Graph of `{ "api://<Application ID>/access_as_user" }` voor aangepaste web-API's. |
+> | `this`| Staat voor de WPF-venster dat wordt gebruikt in het midden van het dialoogvenster Aanmelden
 
 #### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 
-U wilt niet dat de gebruiker telkens wanneer deze toegang nodig heeft tot een resource, de referenties moet laten valideren. In de meeste gevallen wilt u tokens ophalen en verlengen zonder tussenkomst van de gebruiker. U kunt de methode `AcquireTokenSilentAsync` voor het verkrijgen van tokens gebruiken voor toegang tot beveiligde resources na de eerste methode `AcquireTokenAsync`:
+U wilt niet dat de gebruiker telkens wanneer deze toegang nodig heeft tot een resource, de referenties moet laten valideren. In de meeste gevallen wilt u tokens ophalen en verlengen zonder tussenkomst van de gebruiker. U kunt de methode `AcquireTokenSilent` voor het verkrijgen van tokens gebruiken voor toegang tot beveiligde resources na de eerste methode `AcquireTokenAsync`:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |Waar: ||
 > |---------|---------|
 > | `scopes` | Bevat de bereiken die worden aangevraagd, bijvoorbeeld `{ "user.read" }` voor Microsoft Graph of `{ "api://<Application ID>/access_as_user" }` voor aangepaste web-API's |
-> | `accounts.FirstOrDefault()` | Geeft de eerste gebruiker in de cache op (MSAL biedt ondersteuning voor meerdere gebruikers in één app) |
+> | `firstAccount` | Hiermee geeft u het eerste gebruikersaccount in de cache (MSAL ondersteunt meerdere gebruikers in een enkele app) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

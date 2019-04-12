@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure IoT OPC UA-Apparaatbeheer | Microsoft Docs
+title: Wat is er dubbele OPC - Azure | Microsoft Docs
 description: Overzicht van de OPC-Twin
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759256"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496808"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Wat is Azure IoT Open Platform-communicatie (OPC)-Apparaatbeheer?
-Azure IoT OPC UA-Apparaatbeheer, ook wel bekend als OPC dubbele, bestaat uit microservices die Azure IoT Edge en IoT-Hub gebruiken om de cloud en het netwerk factory. OPC-Twin voorziet in detectie, registratie en beheer op afstand van industriële apparaten via REST API's. Een OPC Unified-architectuur (OPC UA) SDK, taalneutraal is programmeren en kan worden opgenomen in een serverloze werkstroom vereist OPC dubbele niet. Dit artikel beschrijft de verschillende OPC-dubbele van use cases.
+
+OPC-Twin bestaat uit microservices die Azure IoT Edge en IoT-Hub gebruiken om de cloud en het netwerk factory. OPC-Twin voorziet in detectie, registratie en beheer op afstand van industriële apparaten via REST API's. Een OPC Unified-architectuur (OPC UA) SDK, taalneutraal is programmeren en kan worden opgenomen in een serverloze werkstroom vereist OPC dubbele niet. Dit artikel beschrijft de verschillende OPC-dubbele van use cases.
 
 ## <a name="discovery-and-control"></a>Detectie en beheer
 U kunt OPC dubbele gebruiken voor eenvoudige voor detectie en registratie.
@@ -41,4 +42,4 @@ OPC-Twin kan worden gebruikt met toepassingen die zijn geschreven in elke progra
 U hebt geleerd over OPC dubbel en zijn gebruikt, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Wat is de OPC-kluis](overview-opc-twin-architecture.md)
+> [Wat is OPC Vault?](overview-opc-twin-architecture.md)

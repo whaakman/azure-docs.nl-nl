@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235186"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501586"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars
 
@@ -55,7 +55,6 @@ Waar *{uw zoektermen}* overeenkomen met uw zoekwoorden.
 | Hulpprogramma  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Plak een ID of -toegangstoken moet worden gedecodeerd de claims-namen en waarden. |
-| [Fout code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Plak de foutcode van een ontvangen tijdens het aanmelden of toestemming geven pagina's om mogelijke oorzaken en oplossingen te bekijken. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Een hulpprogramma waarmee u kunt aanvragen en antwoorden op basis van de Microsoft Graph API bekijken. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Plaats een vraag in Stack Overflow

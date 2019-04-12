@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259861"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501141"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
 
 Toegangstokens zodat clients kunnen veilig aanroepen van API's die zijn beveiligd door Azure. Azure Active Directory (Azure AD)-toegangstokens zijn [JWTs](https://tools.ietf.org/html/rfc7519), met Base64 gecodeerde JSON-objecten die zijn ondertekend door Azure. Clients moeten toegang tokens als ondoorzichtige tekenreeksen, als de inhoud van het token zijn bedoeld voor de resource alleen behandeld. Voor validatie en foutopsporing, ontwikkelaars kunnen worden gedecodeerd JWTs met behulp van een site, zoals [jwt.ms](https://jwt.ms). De client kan een toegangstoken ophalen uit een eindpunt (v1.0 of v2.0) met behulp van verschillende protocollen.
 
-Wanneer u een toegangstoken aanvraagt, retourneert Azure AD ook een aantal metagegevens over het toegangstoken voor het gebruiken van uw app. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor deze geldig is. Deze gegevens kan uw app uit te voeren intelligente cachebewerkingen van toegangstokens zonder te parseren van het toegangstoken zelf.
+Wanneer de aanvraag van de client een toegangstoken, Azure AD ook retourneert een aantal metagegevens over het toegangstoken voor het gebruiken van uw app. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor deze geldig is. Deze gegevens kan uw app uit te voeren intelligente cachebewerkingen van toegangstokens zonder te parseren van het toegangstoken zelf.
 
 Als uw toepassing een resource (web-API) die clients de toegang tot aanvragen is kunnen, bieden toegangstokens nuttige informatie voor gebruik bij verificatie en autorisatie, zoals de gebruiker, client, uitgever, machtigingen en meer. 
 
 Zie de volgende secties voor meer informatie over hoe een resource kunt valideren en de claims binnen een toegangstoken gebruiken.
 
-> [!NOTE]
-> Tijdens het testen van uw client-toepassing met een persoonlijk account (zoals hotmail.com of outlook.com), merkt u misschien dat het toegangstoken dat is ontvangen door de client een ondoorzichtige tekenreeks is. Dit is omdat de resource die wordt benaderd verouderde tickets van de beheerde Serviceaccounts (Microsoft-account) die zijn versleuteld en kunnen niet worden geïnterpreteerd door de client heeft aangevraagd.
+> [!Important]
+> Toegangstokens zijn gemaakt op basis van de *doelgroep* van het token, wat betekent dat de toepassing die eigenaar is van de bereiken in het token.  Dit is hoe een instelling voor de resource `accessTokenAcceptedVersion` in de [app-manifest](reference-app-manifest.md#manifest-reference) naar `2` kan een client de v1.0-eindpunt aanroept voor het ontvangen van een toegangstoken v2.0.  Op dezelfde manier, dit is de reden waarom het wijzigen van het toegangstoken [optionele claims](active-directory-optional-claims.md) voor uw client doe niet wijzigen het toegangstoken wanneer ontvangen een token is aangevraagd voor `user.read`, die eigendom is van de resource MS Graph.  
+> Om dezelfde reden bij het testen van uw client-toepassing met een persoonlijk account (zoals hotmail.com of outlook.com), misschien merkt u dat het toegangstoken dat is ontvangen door de client een ondoorzichtige tekenreeks is. Dit is omdat de resource die wordt benaderd verouderde tickets van de beheerde Serviceaccounts (Microsoft-account) die zijn versleuteld en kunnen niet worden geïnterpreteerd door de client heeft aangevraagd.
 
 ## <a name="sample-tokens"></a>Voorbeeld van tokens
 
@@ -74,7 +75,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Description |
+|Claim | Indeling | Beschrijving |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | String | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
@@ -84,7 +85,7 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-| Claim | Indeling | Description |
+| Claim | Indeling | Beschrijving |
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 | `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |

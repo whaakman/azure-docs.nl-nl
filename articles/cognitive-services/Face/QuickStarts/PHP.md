@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630185"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490443"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en PHP
 
@@ -26,6 +26,7 @@ In deze quickstart gebruikt u de Azure Face REST API met PHP om menselijke gezic
 - Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
 - Een code-editor, zoals [Visual Studio Code](https://code.visualstudio.com/download).
 - De PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) pakket.
+- Een PHP-webbrowser is ingeschakeld. Als u hebt niet ingesteld dit, u kunt doen door te installeren en instellen van [XAMPP](https://www.apachefriends.org/) op uw computer.
 
 ## <a name="initialize-the-html-file"></a>Het HTML-bestand initialiseren
 
@@ -290,4 +291,4 @@ Open het bestand in een webbrowser waarvoor PHP is ingeschakeld. U zou een JSON-
 Verken de Face-API's die worden gebruikt om menselijke gezichten in een afbeelding te detecteren, om de gezichten af ​​te bakenen met rechthoeken en kenmerken als leeftijd en geslacht te retourneren.
 
 > [!div class="nextstepaction"]
-> [Face-API's](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face-API 's](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

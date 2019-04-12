@@ -1,5 +1,5 @@
 ---
-title: Over het implementeren van Azure IoT OPC UA device management cloud afhankelijkheden | Microsoft Docs
+title: OPC-Twin cloud afhankelijkheden in Azure implementeren | Microsoft Docs
 description: Klik hier voor meer informatie over het implementeren van OPC dubbele Azure afhankelijkheden.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759446"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491983"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Afhankelijkheden voor lokale ontwikkeling implementeren
 
@@ -52,7 +52,7 @@ Het implementatiescript probeert te registreren van AAD-toepassingen in Azure Ac
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt Apparaatbeheer OPC-services aan een bestaand project geïmplementeerd, volgt de voorgestelde volgende stap:
+Nu dat u dubbele OPC-services aan een bestaand project hebt geïmplementeerd, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het implementeren van modules van de OPC-Apparaatbeheer](howto-opc-twin-deploy-modules.md)
+> [Meer informatie over het implementeren van OPC-Twin-modules](howto-opc-twin-deploy-modules.md)

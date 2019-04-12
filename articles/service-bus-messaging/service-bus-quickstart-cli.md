@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076884"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500631"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Quickstart: De Azure-CLI gebruiken om een Service Bus-wachtrij te maken
-
-Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen (toepassingen hoeven niet op hetzelfde moment online zijn), het overbrengen van status- of gegevenswijzigingen en het verzenden van berichten tussen de toepassingen. 
-
-Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden in verband met het aanvullen en -bijwerken van de voorraad. In dit geval verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij:
-
-![wachtrij](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 In deze quickstart wordt beschreven hoe u berichten verzendt en ontvangt met Service Bus met behulp van Azure CLI en de Service Bus-Java-bibliotheek. Als u ook bent geïnteresseerd in meer technische informatie, dan kunt u [de uitleg lezen](#understand-the-sample-code) van de belangrijkste elementen van de voorbeeldcode.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Vereisten
 Als u nog geen abonnement op Azure hebt, kunt u een [gratis account][] maken voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+Als u de **uitproberen** knop Open Cloud Shell, zich aanmelden bij Azure met behulp van uw referenties. 
 
-Klik op de knop Cloud Shell in het menu in de rechterbovenhoek van Azure Portal en kies **Bash** in de vervolgkeuzelijst **Omgeving selecteren**. 
+Als u de Cloud Shell in uw webbrowser een direct of in de Azure-portal, Ga naar gestart **Bash** als er **PowerShell** in de linkerbovenhoek van de Cloud Shell. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>De Azure-CLI gebruiken om resources te maken
-
-Geef in Cloud-Shell bij de Bash-prompt de volgende opdrachten voor het inrichten van Service Bus-resources. Zorg dat u alle tijdelijke aanduidingen vervangt door de juiste waarden: De Java-voorbeeldcode verwacht dat de naam van de wachtrij BasicQueue is, wijzig deze dus niet. 
+Geef in Cloud-Shell bij de Bash-prompt de volgende opdrachten voor het inrichten van Service Bus-resources. Zorg dat u alle tijdelijke aanduidingen vervangt door de juiste waarden: De Java-voorbeeldcode verwacht dat de naam van de wachtrij BasicQueue is, wijzig deze dus niet. U kunt kopiëren/plakken opdrachten één voor één zodat u de waarden vervangen kunt voordat u ze uitvoert. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,12 +369,12 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
+In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, blijven de zelfstudies in de **berichten verzenden en ontvangen** sectie. 
 
 > [!div class="nextstepaction"]
-> [Inventaris bijwerken met behulp van de Azure-CLI en Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Berichten verzenden en ontvangen](service-bus-dotnet-get-started-with-queues.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Azure-account maakt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview CEF | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel CEF.
+title: CEF-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Azure Sentinel CEF-gegevens.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005610"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489396"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Verbinding maken met de externe oplossing met behulp van Common Event Format
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005610"
 
 U kunt Azure Sentinel verbinden met een externe oplossing waarmee u logboekbestanden opslaan in Syslog. Als uw apparaat kunt u Logboeken opslaan als Syslog Common Event Format (CEF), wordt de integratie met Azure Sentinel kunt u eenvoudig uitvoeren van analyses en query's over de gegevens.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
@@ -59,7 +58,7 @@ U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtue
 ### <a name="deploy-the-agent-in-azure"></a>De agent in Azure implementeren
 
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype. 
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
 
 1. Onder **Linux Syslog-agentconfiguratie**:
    - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke Linux-VM die automatisch is verbonden met uw werkruimte, is. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
@@ -96,7 +95,7 @@ U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtue
 Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
 
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype.
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype.
 1. Maken van een specifieke Linux-VM, onder **Linux Syslog-agentconfiguratie** Kies **handmatige implementatie**.
    1. Onder **de Syslog-agent downloaden en installeren**, selecteer **niet-Azure Linux-machine**. 
    1. In de **Direct agent** scherm die wordt geopend, selecteert **-Agent voor Linux** om te downloaden van de agent of voer deze opdracht uit om het te downloaden op uw Linux-machine:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

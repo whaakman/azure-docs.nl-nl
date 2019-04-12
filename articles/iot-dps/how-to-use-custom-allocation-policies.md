@@ -3,17 +3,17 @@ title: Aangepaste toewijzingsbeleid voor gebruiken met de Azure IoT Hub Device P
 description: Aangepaste toewijzingsbeleid voor gebruiken met de Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 668631cca9fbd6a7968181826f600b1302a67df0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+manager: philmea
+ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482051"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500937"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
@@ -351,23 +351,7 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
 
 Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van een Linux, de configuratie van de virtuele machines in [inrichten voor multitenancy](how-to-provision-multitenant.md).
 
-1. Download de [CMake-bouwsysteem](https://cmake.org/download/). Controleer of het gedownloade binaire bestand met behulp van de cryptografische hash-waarde die overeenkomt met de versie die u hebt gedownload. Er zijn ook de cryptografische hash-waarden gevonden op de downloadkoppeling CMake is al opgegeven.
-
-    Het volgende voorbeeld Windows PowerShell gebruikt om te controleren of de cryptografische hash voor 3.13.4-versie van de x64 MSI-distributiepunt:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    De volgende hash-waarden voor versie 3.13.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Download de [CMake-bouwsysteem](https://cmake.org/download/).
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
@@ -376,7 +360,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+    Deze bewerking kan enkele minuten in beslag nemen.
 
 
 3. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map. 

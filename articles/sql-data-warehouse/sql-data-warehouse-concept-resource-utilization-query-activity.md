@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337563"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492784"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
 Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-bewakingsservices zoals Operations Management Suite (OMS) en Azure Monitor (Logboeken) voor een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure analytics platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
@@ -23,10 +23,7 @@ Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal
 ## <a name="resource-utilization"></a>Resourcegebruik 
 De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data Warehouse. Deze metrische gegevens zijn opgehaald via de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Vanaf November 2018 is het technische team is een probleem veroorzaakt door CPU-percentage en gegevens-IO-percentage en underreport-adressering. Dit zorgt ervoor dat de gebruikte DWU en het percentage aan underreport ook. 
-
-| Naam van meetwaarde                           | Description     | Aggregatietype |
+| Naam van meetwaarde                           | Beschrijving     | Aggregatietype |
 | --------------------------------------- | ---------------- | --------------------------------------- |
 | CPU-percentage                          | CPU-gebruik voor alle knooppunten voor het datawarehouse | Maximum      |
 | Gegevens-I/O-percentage                      | I/o-gebruik voor alle knooppunten voor het datawarehouse | Maximum   |

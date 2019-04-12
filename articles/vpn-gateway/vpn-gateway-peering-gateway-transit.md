@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199627"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492342"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>VPN-gatewayoverdracht configureren voor peering voor virtuele netwerken
 
@@ -37,9 +37,6 @@ In dit document worden twee scenario's beschreven:
 1. Beide virtuele netwerken gebruiken het implementatiemodel van Resource Manager
 2. Het spoke virtuele netwerk is Classic en het hub virtuele netwerk met de gateway is in de Resource Manager
 
-> [!IMPORTANT]  
-> Gateway-doorvoer wordt momenteel ondersteund met wereldwijde vnet-peering in preview. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's, maar niet tussen clouds. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie. 
-
 ## <a name="requirements"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -54,8 +51,8 @@ In het voorbeeld in dit document moeten de volgende resources worden gemaakt:
 Raadpleeg de volgende documenten voor instructies:
 
 1. [Een VPN-gateway in een virtueel netwerk maken](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Peering voor virtuele netwerken maken met hetzelfde implementatiemodel](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Peering voor virtuele netwerken maken met verschillende implementatiemodellen](../virtual-network/create-peering-different-deployment-models.md)
+2. [Peering op virtueel netwerk met hetzelfde implementatiemodel maken](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Maken van peering in virtuele netwerken met verschillende implementatiemodellen](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Machtigingen
 

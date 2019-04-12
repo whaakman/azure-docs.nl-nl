@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260388"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496298"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -54,7 +54,7 @@ Ja. Gast-objecten zijn niet zichtbaar is in uw organisatie globale adreslijst (G
 Absoluut. Zie voor meer informatie, [gastgebruikers toevoegen aan een rol](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Staat Azure AD B2B-samenwerking B2B-gebruikers toegang tot de Azure portal?
-Tenzij een gebruiker de rol van beperkte beheerder of de globale beheerdersrol is toegewezen, wordt niet toegang tot de Azure-portal nodig hebben gebruikers van B2B-samenwerking. Gebruikers van B2B-samenwerking die zijn toegewezen de rol van beperkte beheerder of globale beheerder kunnen echter toegang tot de portal. Ook als een gastgebruiker die een van deze beheerdersrollen is niet toegewezen toegang heeft tot de portal, de gebruiker mogelijk toegang kunnen krijgen tot bepaalde onderdelen van de ervaring. De Gast-gebruikersrol heeft bepaalde machtigingen in de map.
+Tenzij een gebruiker de rol van beperkte beheerder is toegewezen, wordt niet toegang tot de Azure-portal nodig hebben gebruikers van B2B-samenwerking. B2B-samenwerking gebruikers aan wie de rol van beperkte beheerder toegewezen kunnen echter toegang tot de portal. Ook als een gastgebruiker die een van deze beheerdersrollen is niet toegewezen toegang heeft tot de portal, de gebruiker mogelijk toegang kunnen krijgen tot bepaalde onderdelen van de ervaring. De Gast-gebruikersrol heeft bepaalde machtigingen in de map.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan ik toegang tot de Azure-portal voor gastgebruikers blokkeren?
 Ja. Wanneer u dit beleid configureren, Let erop om te voorkomen dat per ongeluk blokkeren van toegang tot de leden en beheerders.

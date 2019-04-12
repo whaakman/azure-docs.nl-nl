@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 2a7734f729c4b1db7e8c0b4571e8792373ee11ae
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ce95e8d0249a886e031e3ae0fe9dd8e20804f391
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203179"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498362"
 ---
 ## <a name="set-up-your-project"></a>Uw project instellen
 
@@ -28,7 +28,7 @@ In deze sectie maakt u een nieuw project om u te laten zien hoe u een Windows De
 De toepassing die u met deze handleiding maakt geeft een knop die wordt gebruikt voor het aanroepen van een grafiek, een ruimte om de resultaten op het scherm weer te geven en een knop Afmelden.
 
 > [!NOTE]
-> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), en gaat u naar de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
+> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip), en gaat u naar de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
 >
 
 Voor het maken van uw toepassing, het volgende doen:
@@ -43,7 +43,7 @@ Voor het maken van uw toepassing, het volgende doen:
 2. Plak de volgende Azure PowerShell-opdracht in het venster Package Manager Console:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
@@ -66,12 +66,28 @@ In deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoa
     ```csharp
     public partial class App : Application
     {
-        //Below is the clientId of your app registration. 
-        //You have to replace the below with the Application Id for your app registration
-        private static string ClientId = "your_client_id_here";
+        static App()
+        {
+            _clientApp = PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .Build();
+        }
 
-        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // You have to replace:
+        // - the content of ClientID with the Application Id for your app registration
+        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        //   - For Work or School account in your org, use your tenant ID, or domain
+        //   - for any Work or School accounts, use `organizations`
+        //   - for any Work or School accounts, or Microsoft personal account, use `common`
+        //   - for Microsoft Personal account, use consumers
+        private static string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
 
+        private static string Tenant = "common";
+
+        private static IPublicClientApplication _clientApp ;
+
+        public static IPublicClientApplication PublicClientApp { get { return _clientApp; } }
     }
     ```
 

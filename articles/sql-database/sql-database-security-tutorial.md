@@ -1,6 +1,6 @@
 ---
 title: Een enkelvoudige of gepoolde database beveiligen in Azure SQL Database | Microsoft Docs
-description: Informatie over technieken en functies voor het beveiligen van een enkelvoudige of gepoolde database in Azure SQL-database.
+description: Een zelfstudie waarin u leert u hoe de informatie over technieken en functies voor het beveiligen van een enkele of gegroepeerde database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893268"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496434"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of gepoolde database beveiligen
+
+In deze zelfstudie leert u het volgende:
+
+> [!div class="checklist"]
+> - Firewallregels op server- en databaseniveau maken
+> - Een Azure Active Directory-beheerder configureren
+> - Gebruikerstoegang beheren met SQL-verificatie, Azure AD-verificatie en beveiligde verbindingsreeksen
+> - Beveiligingsfuncties inschakelen, zoals Advanced Data Security, controle, gegevensmaskering en versleuteling
 
 Azure SQL Database beveiligt gegevens in een enkelvoudige of gepoolde database door:
 
@@ -28,14 +37,6 @@ Azure SQL Database beveiligt gegevens in een enkelvoudige of gepoolde database d
 
 > [!NOTE]
 > Een Azure SQL-database op een beheerd exemplaar wordt beveiligd met behulp van netwerkbeveiligingsregels en privé-eindpunten, zoals beschreven in [Beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-index.yml) en [connectiviteitsarchitectuur](sql-database-managed-instance-connectivity-architecture.md).
-
-U kunt de beveiliging van uw database met een paar eenvoudige stappen verbeteren. In deze zelfstudie leert u het volgende:
-
-> [!div class="checklist"]
-> - Firewallregels op server- en databaseniveau maken
-> - Een Azure Active Directory-beheerder configureren
-> - Gebruikerstoegang beheren met SQL-verificatie, Azure AD-verificatie en beveiligde verbindingsreeksen
-> - Beveiligingsfuncties inschakelen, zoals Advanced Data Security, controle, gegevensmaskering en versleuteling
 
 Zie voor meer informatie de artikelen [Overzicht van Azure SQL Database-beveiliging](/azure/sql-database/sql-database-security-index) en [-mogelijkheden](sql-database-security-overview.md).
 
@@ -142,10 +143,10 @@ Zie voor informatie over het configureren van Azure AD:
 
 - [Uw on-premises identiteiten integreren met Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure ondersteunt nu federatie met Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure ondersteunt nu Federatie met Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Uw Azure AD-directory beheren](../active-directory/fundamentals/active-directory-administer.md)
-- [Azure AD beheren met behulp van PowerShell](/powershell/azure/overview?view=azureadps-2.0)
-- [Voor hybride identiteit benodigde poorten en protocollen](../active-directory/hybrid/reference-connect-ports.md)
+- [Azure AD beheren met PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Hybride identiteit benodigde poorten en protocollen](../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Databasetoegang beheren
 

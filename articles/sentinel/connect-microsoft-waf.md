@@ -1,6 +1,6 @@
 ---
-title: Het verzamelen van gegevens van Microsoft web application firewall in Azure Sentinel Preview | Microsoft Docs
-description: Meer informatie over het verzamelen van Microsoft web application firewall-gegevens in Azure Sentinel.
+title: Verbinding maken met Microsoft web application firewall-gegevens naar Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met Microsoft web application firewall gegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2238060acb60b1be0d06b81f62fb45a7f1c7a9b6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580596"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491027"
 ---
-# <a name="collect-data-from-microsoft-web-application-firewall"></a>Gegevens verzamelen van Microsoft web application firewall
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>Verbinding maken met gegevens van Microsoft web application firewall
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -39,15 +39,15 @@ U kunt de logboeken van de Azure-toepassingsgateway Microsoft web application fi
 Als u Microsoft WAF al hebt, zorg ervoor dat u hebt een bestaande gateway-resource.
 Wanneer Microsoft web application firewall is geïmplementeerd en ophalen van gegevens, gegevens van de waarschuwing kan eenvoudig worden gestreamd naar Azure Sentinel.
     
-5. Selecteer in de portal voor Azure Sentinel **gegevensconnectors**.
-5. Selecteer op de pagina Data connectors de **WAF** tegel.
+1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors**.
+1. Selecteer op de pagina Data connectors de **WAF** tegel.
 1. Ga naar [resource Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) en kies uw WAF.
     1. Selecteer **diagnostische instellingen**.
     1. Selecteer **+ diagnostische instelling toevoegen** onder de tabel.
     1. In de **diagnostische instellingen** pagina, typt u een **naam** en selecteer **verzenden naar Log Analytics**.
     1. Onder **Log Analytics-werkruimte** selecteert u de werkruimte Sentinel van Azure.
     1. Selecteer de typen logboeken die u wilt analyseren. Het wordt aangeraden: ApplicationGatewayAccessLog en ApplicationGatewayFirewallLog.
-6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Microsoft web application firewall waarschuwingen, **AzureDiagnostics**.
+1. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Microsoft web application firewall waarschuwingen, **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u geleerd hoe u verbinding maken met Microsoft web application firewall Sentinel van Azure. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:

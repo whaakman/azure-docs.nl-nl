@@ -3,19 +3,19 @@ title: In deze snelstart wordt uitgelegd hoe u een X.509-apparaat kunt registrer
 description: In deze quickstart wordt gebruikgemaakt van groepsregistraties. In deze snelstart registreert u X.509-apparaten bij Azure IoT Hub Device Provisioning Service met behulp van C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874997"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500869"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snelstart: X.509-apparaten registreren bij Device Provisioning Service met behulp van C#
 
@@ -53,7 +53,7 @@ Voer de volgende stappen uit om deze testhulpmiddelen te gebruiken om certificat
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+   Deze bewerking kan enkele minuten in beslag nemen.
 
    De testhulpmiddelen bevinden zich in de *azure-iot-sdk-c/tools/CACertificates* van de opslagplaats die u hebt gekloond.    
 
@@ -176,4 +176,4 @@ Als u van plan bent om het voorbeeld van de C#-service te verkennen, verwijdert 
 In deze quickstart hebt u een registratiegroep voor een X.509 CA-tussen- of -basiscertificaat gemaakt met Azure IoT Hub Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
  
 > [!div class="nextstepaction"]
-> [Zelfstudies over Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)
+> [Zelfstudies voor Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

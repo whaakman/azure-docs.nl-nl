@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046834"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499849"
 ---
 # <a name="how-to-reprovision-devices"></a>Het opnieuw inrichten van apparaten
 
@@ -27,7 +27,7 @@ Tijdens de levenscyclus van een IoT-oplossing is het gebruikelijk dat apparaten 
 
 * **In quarantaine plaatsen**: Dit is vergelijkbaar met het wijzigen van een oplossing. Een apparaat dat is niet goed functioneert, waarmee is geknoeid of verouderde mogelijk opnieuw worden toegewezen aan een IoT-hub waar mee kunt doen, is bijgewerkt en weer toegang te krijgen in naleving. Zodra het apparaat goed werkt, wordt deze vervolgens terug naar de belangrijkste hub gemigreerd.
 
-Zie voor meer een meer gedetailleerd overzicht van beëindiging, [concepten van IoT Hub Device reprovisoning](concepts-device-reprovision.md).
+Zie voor meer een meer gedetailleerd overzicht van beëindiging, [beëindiging van de concepten van IoT Hub Device](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Het toewijzingsbeleid inschrijving configureren
@@ -93,7 +93,7 @@ Bijvoorbeeld code van het verzenden van aanvragen van een apparaat inrichten tij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer meer Reprovisioning [reprovisoning concepten van IoT Hub-apparaat](concepts-device-reprovision.md) 
+- Zie voor meer meer Reprovisioning [beëindiging van de concepten van IoT Hub Device](concepts-device-reprovision.md) 
 - Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 

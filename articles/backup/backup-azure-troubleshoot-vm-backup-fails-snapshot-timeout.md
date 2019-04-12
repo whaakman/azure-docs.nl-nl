@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286428"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491511"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -51,7 +51,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **Foutcode**: UserErrorRpCollectionLimitReached <br>
 **Foutbericht**: De limiet van het herstelpunt verzameling heeft bereikt. <br>
 * Dit probleem kan optreden als er een vergrendeling op de resourcegroep van de recovery-punt te voorkomen dat automatisch opschonen van het herstelpunt.
-* Dit probleem kan ook gebeuren als meerdere back-ups per dag worden geactiveerd. Op dit moment is het raadzaam van slechts één back-up per dag als de instant RPs zeven dagen worden bewaard en alleen 18 instant RPs kan worden gekoppeld aan een virtuele machine op een bepaald moment. <br>
+* Dit probleem kan ook gebeuren als meerdere back-ups per dag worden geactiveerd. Momenteel wordt slechts één back-up per dag aangeraden als de directe herstelpunten worden bewaard voor 1-5 dagen aan de hand van de momentopname van de geconfigureerde bewaarperiode en alleen 18 instant RPs gekoppeld aan een virtuele machine op een bepaald moment worden kan. <br>
 
 Aanbevolen actie:<br>
 U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virtuele machine en probeer het opnieuw als u wilt opschonen te activeren.

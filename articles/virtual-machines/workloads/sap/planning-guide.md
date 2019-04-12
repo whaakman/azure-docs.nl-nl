@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886128"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501328"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -779,8 +779,6 @@ De Azure-portal is een van drie interfaces voor het beheren van Azure VM-impleme
 
 ![Microsoft Azure portal - overzicht van virtuele machines][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Beheer- en configuratietaken voor de virtuele Machine-instantie zijn mogelijk in Azure portal.
 
@@ -791,9 +789,6 @@ De Azure portal biedt basisfuncties voor het implementeren en configureren van v
 * VHD's uploaden naar Azure
 * Kopiëren van virtuele machines
 
-[comment]: <> (MShermannd TODO hoe zit het met automation-service voor SAP-VM's? )
-[comment]: <> (Implementatie van meerdere virtuele machines besturingssysteem in de tussentijd zorgen mogelijk MSSedusch)
-[comment]: <> (Elk type automation met betrekking tot de implementatie is MSSedusch ook niet mogelijk is met de Azure-portal. Taken, zoals de procedure voor implementatie van meerdere virtuele machines is niet mogelijk via de Azure-portal.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Beheer via Microsoft Azure PowerShell-cmdlets
 
@@ -808,9 +803,8 @@ Klantervaring is tot nu toe PowerShell (PS) is zeker de krachtige hulpprogramma 
 In dit voorbeeld Zie:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO beschrijven nieuwe CLI-opdracht wanneer getest )
-Implementatie van de Azure Monitoring-extensie voor SAP (Zie hoofdstuk [Azure Monitoring oplossing voor SAP] [ planning-guide-9.1] in dit document) is alleen mogelijk via PowerShell of CLI. Daarom is het verplicht te installeren en configureren van PowerShell of CLI bij het implementeren of beheren van een SAP NetWeaver-systeem in Azure.
-  
+
+Implementatie van de Azure Monitoring-extensie voor SAP (Zie hoofdstuk [Azure Monitoring oplossing voor SAP] [ planning-guide-9.1] in dit document) is alleen mogelijk via PowerShell of CLI. Daarom is het verplicht te installeren en configureren van PowerShell of CLI bij het implementeren of beheren van een SAP NetWeaver-systeem in Azure.  
 
 Azure biedt meer functionaliteit, gaan nieuwe PS-cmdlets waarvoor een update van de cmdlets worden toegevoegd. Daarom is het zinvol om te controleren of de Azure-downloadsite ten minste één keer de maand <https://azure.microsoft.com/downloads/> voor een nieuwe versie van de cmdlets. De nieuwe versie is geïnstalleerd op de oudere versie.
 
@@ -1587,7 +1581,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Template
 
-U kunt de voorbeeldsjablonen gebruiken in de azure-quickstart-templates opslagplaats op github.
+U kunt de voorbeeldsjablonen gebruiken in de azure-quickstart-templates opslagplaats op GitHub.
 
 * [Eenvoudige Linux-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Eenvoudige Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1632,13 +1626,13 @@ De cross-premises of in een hybride scenario kan worden ongeveer beschreven, zoa
 
 ![Site-naar-Site-connectiviteit tussen on-premises en Azure-assets][planning-guide-figure-2100]
 
-Het bovenstaande scenario wordt een scenario beschreven waarin de on-premises AD/OpenLDAP en DNS zijn uitgebreid naar Azure. Aan de on-premises, een bepaalde IP-adresbereik is gereserveerd per Azure-abonnement. Het IP-adresbereik wordt toegewezen aan een Azure-netwerk op de Azure-kant.
-
-#### <a name="security-considerations"></a>Beveiligingsoverwegingen
+Het bovenstaande scenario wordt een scenario beschreven waarin het on-premises
 
 De minimale vereiste is het gebruik van protocollen, zoals SSL/TLS beveiligde communicatie voor toegang via de browser of op basis van een VPN-verbindingen voor toegang tot het systeem tot de Azure-services. Verondersteld wordt dat bedrijven anders de VPN-verbinding tussen hun bedrijfsnetwerk en Azure afgehandeld. Sommige bedrijven mogelijk blankly alle poorten geopend. Sommige andere bedrijven mogelijk nauwkeurig wilt in welke poorten die ze nodig hebben om te openen, enzovoort.
 
 In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in feite voldoende om de SAP-gateway-poort te openen.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Service | Poortnaam | Voorbeeld `<nn`> = 01 | Standaardbereik (min-max.) | Opmerking |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1828,7 @@ De installatie van een SAP-Portal in een Azure Virtual machines verschilt niet v
 
 Een speciale implementatiescenario door sommige klanten is de rechtstreekse blootstelling van de SAP-Enterprise-Portal met het Internet, terwijl de virtuele-machinehost is verbonden met het bedrijfsnetwerk via site-naar-site VPN-tunnel of ExpressRoute. U hebt voor een scenario om ervoor te zorgen dat bepaalde poorten geopend en niet wordt geblokkeerd door firewall of netwerk beveiligingsgroep zijn. 
 
-De eerste portal URI is http (s):`<Portalserver`>: 5XX00/irj waar de poort wordt gevormd door 50000 plus (Systemnumber? 100). Standaard portal URI van de SAP-systeem 00 is `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Voor meer informatie, hebt u een overzicht van <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+De eerste portal URI is http (s):`<Portalserver`>: 5XX00/irj waar de poort is samengesteld, zoals beschreven door SAP in <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Eindpuntconfiguratie][planning-guide-figure-2800]
 

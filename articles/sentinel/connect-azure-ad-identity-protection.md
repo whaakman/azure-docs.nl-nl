@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens van Azure AD Identity Protection in Azure Sentinel Preview | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Azure AD Identity Protection.
+title: Azure AD Identity Protection gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met gegevens van Azure AD Identity Protection Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 609aced38b7e30f78d81934867196c568dcc85ca
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239995"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496160"
 ---
-# <a name="collect-data-from-azure-ad-identity-protection"></a>Gegevens verzamelen van Azure AD Identity Protection
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Verbinding maken met gegevens uit Azure AD Identity Protection
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -42,7 +42,7 @@ Als u al Azure AD Identity Protection hebt, zorgt ervoor dat deze [ingeschakeld 
 Als Azure AD Identity Protection is geïmplementeerd en ophalen van gegevens, gegevens van de waarschuwing kan eenvoudig worden gestreamd naar Azure Sentinel.
 
 
-1. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Azure AD Identity Protection** tegel.
+1. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Azure AD Identity Protection** tegel.
 
 2. Klik op **Connect** om te beginnen met het streamen van Azure AD Identity Protection-gebeurtenissen naar Azure Sentinel.
 

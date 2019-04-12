@@ -1,6 +1,6 @@
 ---
-title: Het verzamelen van gegevens in Azure Sentinel Preview Azure Information Protection | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Azure Information Protection.
+title: Azure Information Protection-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met Azure Information Protection-gegevens in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2f970910e19b3c1ed9d262d356c49848f4248b09
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537164"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489825"
 ---
-# <a name="collect-data-from-azure-information-protection"></a>Verzamelen van gegevens van Azure Information Protection
+# <a name="connect-data-from-azure-information-protection"></a>Verbinding maken met gegevens van Azure Information Protection
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -41,7 +41,7 @@ Als u al Azure Information Protection hebt, zorgt ervoor dat deze [ingeschakeld 
 Als Azure Information Protection wordt geïmplementeerd en ophalen van gegevens, gegevens van de waarschuwing kan eenvoudig worden gestreamd naar Azure Sentinel.
 
 
-1. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Azure Information Protection** tegel.
+1. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Azure Information Protection** tegel.
 
 2. Ga naar de [Azure Information Protection-portal](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

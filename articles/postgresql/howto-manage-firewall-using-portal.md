@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470794"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495654"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van de Azure portal
 Firewallregels op serverniveau kunnen worden gebruikt om toegang tot een Azure Database for PostgreSQL-Server beheren vanaf een opgegeven IP-adres of IP-adresbereik.

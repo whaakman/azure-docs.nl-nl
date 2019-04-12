@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203475"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502830"
 ---
 ## <a name="setting-up-your-ios-application"></a>Instellen van uw iOS-toepassing
 
@@ -61,7 +61,7 @@ Kopieer en plak de onderstaande. Met deze opdracht haalt afhankelijkheden in een
 carthage update
 ```
 
-> De bovenstaande procedure wordt gebruikt om te downloaden en bouwen van de Microsoft Authentication Library (MSAL). MSAL verwerkt ophalen, opslaan in cache en gebruikt voor toegang tot API's die zijn beveiligd door de Azure Active Directory v2.0 gebruikerstokens te vernieuwen.
+> De bovenstaande procedure wordt gebruikt om te downloaden en bouwen van de Microsoft Authentication Library (MSAL). MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens gebruikt voor toegang tot API's die zijn beveiligd door Microsoft identity-platform.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>De MSAL-framework toevoegen aan uw toepassing
 

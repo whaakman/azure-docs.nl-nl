@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862842"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505614"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Een beveiligingsmodule op uw IoT Edge-apparaat implementeren
 
@@ -75,8 +75,25 @@ Er zijn drie stappen voor het maken van een IoT Edge-implementatie voor Azure Se
 1. Uit de **Modules toevoegen** tabblad **implementatie Modules** gebied, klikt u op **AzureSecurityCenterforIoT**. 
    
 1. Wijzig de **naam** naar **azureiotsecurity**.
-1. Wijzig de naam van **URI installatiekopie** naar **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Wijzig de **URI installatiekopie** naar **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Controleer of de **Container maken opties** waarde is ingesteld op:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Controleer **de gewenste eigenschappen van de moduledubbel Set** is geselecteerd en de configuratieobject te wijzigen:
       
     ``` json
@@ -89,12 +106,16 @@ Er zijn drie stappen voor het maken van een IoT Edge-implementatie voor Azure Se
 1. Klik op **Opslaan**.
 1. Ga naar de onderkant van het tabblad en selecteer **geavanceerde instellingen voor Edge-Runtime configureren**.
    
-  >[!Note]
-  > Voer **niet** AMQP-communicatie voor de IoT Edge Hub uitschakelen.
-  > Azure Security Center voor IoT-module vereist AMQP-communicatie met IoT Edge Hub.
+   >[!Note]
+   > Voer **niet** AMQP-communicatie voor de IoT Edge Hub uitschakelen.
+   > Azure Security Center voor IoT-module vereist AMQP-communicatie met IoT Edge Hub.
    
-1. Wijzig de **installatiekopie** onder **Edge Hub** naar **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Wijzig de **installatiekopie** onder **Edge Hub** naar **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > Azure Security Center voor IoT-module vereist een gesplitste versie van IoT Edge Hub, op basis van de SDK-versie 1.20.
+   > Door het veranderen van IoT Edge Hub-installatiekopie, zijn u dat uw IoT Edge-apparaat naar de nieuwste stabiele versie vervangen door de Gevorkte versie van IoT Edge Hub, dit wordt niet officieel ondersteund door de IoT Edge-service.
+
 1. Controleer of **opties maken** is ingesteld op: 
          
     ``` json
@@ -137,8 +158,8 @@ Als u een probleem ondervindt, zijn de logboeken voor containers de beste manier
    
    | Name | AFBEELDING |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Als de minimaal containers niet aanwezig zijn vereiste, controleert u als het manifest van uw IoT Edge-implementatie wordt uitgelijnd met de aanbevolen instellingen. Zie voor meer informatie, [implementeren IoT Edge-module](#deployment-using-azure-portal).

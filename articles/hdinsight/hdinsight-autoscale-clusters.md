@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227620"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501005"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (preview)
 
@@ -83,7 +83,7 @@ Zie voor meer informatie over het maken van clusters met Resource Manager-sjablo
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>In- of uitschakelen voor automatisch schalen voor een actieve cluster
 
-U kunt inschakelen of uitschakelen voor automatisch schalen voor HDInsight-clusters die zijn gemaakt na 1 januari 2019 via Azure portal.
+U kunt alleen inschakelen of uitschakelen voor automatisch schalen voor nieuwe HDInsight-clusters.
 
 ## <a name="monitoring"></a>Bewaking
 
@@ -108,8 +108,8 @@ De bovenstaande metrische gegevens worden elke 60 seconden gecontroleerd. Automa
 
 Wanneer de volgende voorwaarden worden gedetecteerd, wordt voor automatisch schalen een scale-up-aanvraag uitgeven:
 
-* Totaal aantal in afwachting van CPU is groter dan de totale vrije CPU voor meer dan 1 minuut.
-* Totaal aantal in afwachting van geheugen is groter dan de totale beschikbare geheugen voor meer dan 1 minuut.
+* Totaal aantal in afwachting van CPU is groter dan de totale vrije CPU voor meer dan 3 minuten.
+* Totaal aantal in afwachting van geheugen is groter dan de totale beschikbare geheugen voor meer dan 3 minuten.
 
 Er wordt berekend dat een bepaald aantal nieuwe worker-knooppunten nodig zijn om te voldoen aan de huidige CPU en geheugen vereisten en vervolgens een omhoog-verzoek verzenden die door dit nummer van de nieuwe worker-knooppunten worden toegevoegd.
 
@@ -120,7 +120,7 @@ Wanneer de volgende voorwaarden worden gedetecteerd, wordt een aanvraag voor oml
 * Totaal aantal in afwachting van CPU is kleiner dan de totale vrije CPU gedurende meer dan 10 minuten.
 * Totaal aantal in afwachting van geheugen is kleiner dan de totale beschikbare geheugen voor meer dan 10 minuten.
 
-Op basis van het aantal uur containers per knooppunt en de huidige CPU en geheugen nodig, verleent voor automatisch schalen een aanvraag voor het verwijderen van een bepaald aantal knooppunten, op te geven welke knooppunten zijn mogelijke kandidaten voor verwijdering. Standaard wordt twee knooppunten verwijderd in een cyclus.
+Op basis van het aantal uur containers per knooppunt en de huidige CPU en geheugen nodig, verleent voor automatisch schalen een aanvraag voor het verwijderen van een bepaald aantal knooppunten, op te geven welke knooppunten zijn mogelijke kandidaten voor verwijdering. Het omlaag schalen wordt geactiveerd buiten gebruik stellen van knooppunten en nadat de knooppunten zich volledig uit bedrijf genomen, ze worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

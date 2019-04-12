@@ -3,17 +3,17 @@ title: Het gebruik van symmetrische sleutels voor het inrichten van verouderde a
 description: Het gebruik van symmetrische sleutels voor het inrichten van verouderde apparaten met uw device provisioning service-exemplaar
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/31/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 543c19056a78a1a14a0861231c9ec97d4e6b93b7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+manager: philmea
+ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486589"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500274"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -53,23 +53,7 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
 
 De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde apparaat probeert de inrichting uit te voeren tijdens de opstartprocedure van het apparaat.
 
-1. Download de [CMake-bouwsysteem](https://cmake.org/download/). Controleer of het gedownloade binaire bestand met behulp van de cryptografische hash-waarde die overeenkomt met de versie die u hebt gedownload. Er zijn ook de cryptografische hash-waarden gevonden op de downloadkoppeling CMake is al opgegeven.
-
-    Het volgende voorbeeld Windows PowerShell gebruikt om te controleren of de cryptografische hash voor 3.13.4-versie van de x64 MSI-distributiepunt:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    De volgende hash-waarden voor versie 3.13.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Download de [CMake-bouwsysteem](https://cmake.org/download/).
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
@@ -78,7 +62,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+    Deze bewerking kan enkele minuten in beslag nemen.
 
 
 3. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map. 
@@ -295,7 +279,7 @@ Let erop dat dit de afgeleide apparaatsleutel opgenomen als onderdeel van de ins
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer meer Reprovisioning [beëindiging van de concepten van IoT Hub Device](concepts-device-reprovision.md) 
-* [Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
+* [Quickstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
 * Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 

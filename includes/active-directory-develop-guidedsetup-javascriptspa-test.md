@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203291"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503269"
 ---
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -35,7 +35,7 @@ Als u Visual Studio niet gebruikt, zorg er dan voor dat uw webserver is gestart.
     ```
 1. Open de browser en typt u http://<span></span>localhost:30662 of http://<span></span>localhost: {poort} waar **poort** is de poort die uw webserver luistert. U ziet de inhoud van uw index.html-bestand en de **aanmelden** knop.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testen met Visual Studio
 
@@ -43,7 +43,7 @@ Als u Visual Studio, zorg ervoor dat u selecteert de project-oplossing en druk o
 
 ## <a name="test-your-application"></a>Uw toepassing testen
 
-Nadat uw index.html-bestand in de browser geladen, klikt u op **aanmelden**. U wordt gevraagd zich aanmelden met het v2.0-eindpunt voor Microsoft Azure Active Directory (Azure AD):
+Nadat uw index.html-bestand in de browser geladen, klikt u op **aanmelden**. U wordt gevraagd zich aanmelden met het eindpunt van de Microsoft identity-platform:
 
 ![Aanmelden bij uw account beveiligd-WACHTWOORDVERIFICATIE JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

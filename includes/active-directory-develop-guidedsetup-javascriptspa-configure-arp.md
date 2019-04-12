@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: f9993058f93cf94ee468a92ac7cbb2d6881e61be
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7a6fa45d0f4ea09fbc84d3185aa0e58db165ac19
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214155"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503258"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>De registratiegegevens van de toepassing toevoegen aan uw app
 
@@ -35,7 +35,7 @@ Configureer de `Redirect URL` veld met de URL voor uw index.html-pagina op basis
 > 2. Kopieer de waarde van **URL** naar het Klembord:<br/> ![Projecteigenschappen](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3. Plak de waarde als een **Omleidings-URL** boven aan deze pagina en selecteer vervolgens **Update**.
 
-<p/>
+<p>
 
 > #### <a name="setting-redirect-url-for-node"></a>Instelling Omleidings-URL voor knooppunt
 > Voor Node.js, kunt u instellen de web server-poort de *server.js* bestand. In deze zelfstudie wordt de poort 30662 ter referentie, maar kunt u een beschikbare poort. Volg de onderstaande instructies voor het instellen van een Omleidings-URL in de registratiegegevens van de toepassing:<br/>

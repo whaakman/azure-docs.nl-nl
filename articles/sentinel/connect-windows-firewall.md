@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens van de Windows firewall in Azure Sentinel Preview | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens van de Windows firewall in Azure Sentinel.
+title: Windows firewall gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met gegevens van Windows firewall Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574837"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494200"
 ---
 # <a name="connect-windows-firewall"></a>Verbinding maken met Windows-firewall
 
@@ -31,12 +31,11 @@ De Windows firewall-connector kunt u eenvoudig verbinding maken met uw Windows F
 
 
 > [!NOTE]
-> 
-> - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="enable-the-connector"></a>De connector inschakelen 
 
-1. Selecteer in de portal voor Azure Sentinel **gegevensverzameling** en klik vervolgens op de **Windows firewall** tegel. 
+1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors** en klik vervolgens op de **Windows firewall** tegel. 
 1. Selecteer welke gegevenstypen die u wilt streamen.
 1. Klik op **Install**.
 6. Zoek voor het gebruik van de relevante schema in Log Analytics voor Windows firewall, **SecurityEvent**.

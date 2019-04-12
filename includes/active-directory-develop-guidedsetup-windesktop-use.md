@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 0b00597deff5a498d54ffcfd9978a68e5b60c5f8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 13497c8be578990b58cd6d6524eb0e945f8619c2
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203187"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498391"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL gebruiken om op te halen van een token voor de Microsoft Graph API
 
@@ -37,41 +37,47 @@ In deze sectie maakt u MSAL gebruiken om op te halen van een token voor de Micro
     public partial class MainWindow : Window
     {
         //Set the API Endpoint to Graph 'me' endpoint
-        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
         //Set the scope for API call to user.read
-        string[] _scopes = new string[] { "user.read" };
+        string[] scopes = new string[] { "user.read" };
+
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+      /// <summary>
+        /// Call AcquireToken - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
             AuthenticationResult authResult = null;
-
             var app = App.PublicClientApp;
             ResultText.Text = string.Empty;
             TokenInfoText.Text = string.Empty;
 
             var accounts = await app.GetAccountsAsync();
+            var firstAccount = accounts.FirstOrDefault();
 
             try
             {
-                authResult = await app.AcquireTokenSilentAsync(_scopes, accounts.FirstOrDefault());
+                authResult = await app.AcquireTokenSilent(scopes, firstAccount)
+                    .ExecuteAsync();
             }
             catch (MsalUiRequiredException ex)
             {
-                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                // A MsalUiRequiredException happened on AcquireTokenSilent.
+                // This indicates you need to call AcquireTokenInteractive to acquire a token
                 System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
                 try
                 {
-                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                    authResult = await app.AcquireTokenInteractive(scopes, this)
+                        .WithAccount(accounts.FirstOrDefault())
+                        .WithPrompt(Prompt.SelectAccount)
+                        .ExecuteAsync();
                 }
                 catch (MsalException msalex)
                 {
@@ -86,12 +92,11 @@ In deze sectie maakt u MSAL gebruiken om op te halen van een token voor de Micro
 
             if (authResult != null)
             {
-                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                ResultText.Text = await GetHttpContentWithToken(graphAPIEndpoint, authResult.AccessToken);
                 DisplayBasicTokenInfo(authResult);
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
         }
-    }
     ```
 
 <!--start-collapse-->
@@ -99,21 +104,21 @@ In deze sectie maakt u MSAL gebruiken om op te halen van een token voor de Micro
 
 #### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-Aanroepen van de `AcquireTokenAsync` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt (bijvoorbeeld wanneer het wachtwoord van een gebruiker is verlopen).
+Aanroepen van de `AcquireTokenInteractive` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt (bijvoorbeeld wanneer het wachtwoord van een gebruiker is verlopen).
 
 #### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 
-De `AcquireTokenSilentAsync` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenAsync` wordt uitgevoerd voor de eerste keer `AcquireTokenSilentAsync` is de gebruikelijke methode om te gebruiken om te verkrijgen van tokens die toegang krijgen beveiligde bronnen voor volgende aanroepen tot omdat aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
+De `AcquireTokenSilent` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenInteractive` wordt uitgevoerd voor de eerste keer `AcquireTokenSilent` is de gebruikelijke methode om te gebruiken om te verkrijgen van tokens die toegang krijgen beveiligde bronnen voor volgende aanroepen tot omdat aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
 
-Uiteindelijk de `AcquireTokenSilentAsync` methode mislukken. Oorzaak van de fout kunnen zijn dat de gebruiker heeft zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
+Uiteindelijk de `AcquireTokenSilent` methode mislukken. Oorzaak van de fout kunnen zijn dat de gebruiker heeft zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-* Er kan een aanroep tegen `AcquireTokenAsync` onmiddellijk. Deze aanroep leidt de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen beschikbaar offline inhoud voor de gebruiker. Het voorbeeld dat is gegenereerd door deze Begeleide instelling volgt dit patroon, die u kunt zien in actie de eerste keer dat u het voorbeeld uitvoert. 
+* Er kan een aanroep tegen `AcquireTokenInteractive` onmiddellijk. Deze aanroep leidt de gebruiker zich aanmeldt. Dit patroon wordt meestal gebruikt in online toepassingen waarbij er geen beschikbaar offline inhoud voor de gebruiker. Het voorbeeld dat is gegenereerd door deze Begeleide instelling volgt dit patroon, die u kunt zien in actie de eerste keer dat u het voorbeeld uitvoert. 
 
 * Omdat er geen gebruiker heeft de toepassing gebruikt `PublicClientApp.Users.FirstOrDefault()` bevat een null-waarde en een `MsalUiRequiredException` uitzondering is opgetreden. 
 
-* De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenAsync`, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt.
+* De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenInteractive`, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt.
 
-* Het kan in plaats daarvan een visuele indicatie opleveren voor gebruikers die een interactieve aanmelding vereist is, zodat ze het juiste moment aan te melden bij kunnen selecteren. Of de toepassing opnieuw kunt proberen `AcquireTokenSilentAsync` later opnieuw. Dit patroon wordt vaak gebruikt wanneer gebruikers de functionaliteit van andere toepassing zonder onderbreking--bijvoorbeeld gebruiken kunnen bij offline-inhoud beschikbaar in de toepassing is. Gebruikers kunnen in dit geval beslissen wanneer ze aanmelden willen bij de toegang tot de beveiligde bron of de verouderde gegevens vernieuwen. U kunt ook de toepassing kunt bepalen om opnieuw te proberen `AcquireTokenSilentAsync` wanneer het netwerk is hersteld na zijn tijdelijk niet beschikbaar.
+* Het kan in plaats daarvan een visuele indicatie opleveren voor gebruikers die een interactieve aanmelding vereist is, zodat ze het juiste moment aan te melden bij kunnen selecteren. Of de toepassing opnieuw kunt proberen `AcquireTokenSilent` later opnieuw. Dit patroon wordt vaak gebruikt wanneer gebruikers de functionaliteit van andere toepassing zonder onderbreking--bijvoorbeeld gebruiken kunnen bij offline-inhoud beschikbaar in de toepassing is. Gebruikers kunnen in dit geval beslissen wanneer ze aanmelden willen bij de toegang tot de beveiligde bron of de verouderde gegevens vernieuwen. U kunt ook de toepassing kunt bepalen om opnieuw te proberen `AcquireTokenSilent` wanneer het netwerk is hersteld na zijn tijdelijk niet beschikbaar.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>De Microsoft Graph-API aanroepen met behulp van het token dat u zojuist hebt verkregen
@@ -205,7 +210,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     {
         TokenInfoText.Text += $"Username: {authResult.Account.Username}" + Environment.NewLine;
         TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
-        TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
     }
 }
 ```

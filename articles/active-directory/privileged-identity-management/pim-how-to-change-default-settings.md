@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576859"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492274"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Azure AD-rolinstellingen in PIM configureren
 
@@ -73,7 +73,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
 * U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office 365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
   
   * Factureringsbeheerder
-  * Beheerder van de cloudtoepassing
+  * Cloudtoepassingsbeheerder
   * Beheerder voor naleving
   * Voorwaardelijke toegang beheerder
   * CRM-servicebeheerder
@@ -83,7 +83,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
   * Globale beheerder
   * Information Protection-beheerder
   * Intune-servicebeheerder
-  * Servicebeheerder van Power BI
+  * Power BI-servicebeheerder
   * Beheerder met bevoorrechte rol
   * Beveiligingsbeheerder
   * SharePoint-servicebeheerder

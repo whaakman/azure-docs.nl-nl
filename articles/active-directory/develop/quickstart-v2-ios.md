@@ -1,5 +1,5 @@
 ---
-title: Snelstart voor Azure AD v2 iOS | Microsoft Docs
+title: Microsoft identity platform iOS quickstart | Azure
 description: Meer informatie over het aanmelden van gebruikers en het uitvoeren van query’s op Microsoft Graph in een systeemeigen iOS-toepassing.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439259"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496126"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een systeemeigen iOS-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439259"
 
 Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-toepassing persoonlijke, werk- en schoolaccounts kan aanmelden, een toegangstoken kan ophalen en de Microsoft Graph API kan aanroepen.
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-ios/ios-intro-updated.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registreren en downloaden
@@ -46,14 +46,14 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
 > Voor het codevoorbeeld voor deze Quick Start om te werken, moet u een antwoord-URL als toevoegen `msal<AppId>://auth` (waarbij msal\<AppId > deze toepassings-Id is).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging voor mij maken]()
+> > [Deze wijziging hebt aangebracht voor mij]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-ios/green-check.png) Uw toepassing is al geconfigureerd met dit kenmerk
+> > ![Al geconfigureerd](media/quickstart-v2-ios/green-check.png) uw toepassing is geconfigureerd met dit kenmerk
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Stap 2: Uw webserver of project downloaden
 
-- [Het XCode-project downloaden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Het XCode-Project downloaden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Stap 3: Het project configureren
 
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |Waar: ||
 > |---------|---------|
 > | `clientId` | De toepassings-id van de toepassing die is geregistreerd in *portal.azure.com* |
-> | `authority` | Het Azure Active Directory v2.0-eindpunt. In de meeste gevallen is dit *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Het eindpunt van Microsoft identity-platform. In de meeste gevallen is dit *https<span/>://login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 
@@ -155,7 +155,7 @@ MSAL biedt twee methoden voor het verkrijgen van tokens: `acquireToken` en `acqu
 
 #### <a name="getting-an-access-token-interactively"></a>Een toegangstoken interactief verkrijgen
 
-In sommige situaties moeten gebruikers worden gedwongen te communiceren met het Azure Active Directory (Azure AD) v2.0-eindpunt, dat tot een contextomschakeling leidt in de systeembrowser om de gebruikersreferenties te valideren of om toestemming te vragen. Voorbeelden zijn:
+In sommige situaties moet gebruikers kunnen communiceren met Microsoft identity platform eindpunt wat tot een context-switch leidt in de browser system ofwel van gebruikers om referenties te valideren of om toestemming te forceren. Voorbeelden zijn:
 
 * De eerste keer dat gebruikers zich aanmelden bij de toepassing
 * Wanneer gebruikers mogelijk hun referenties opnieuw moeten opgeven omdat het wachtwoord is verlopen
@@ -187,9 +187,9 @@ applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicat
 
 Volg de iOS-zelfstudie voor een volledige stapsgewijze handleiding voor het bouwen van toepassingen en nieuwe functies, met inbegrip van een volledige uitleg van deze snelstart.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Leer wat de stappen zijn voor het maken van de toepassing die wordt gebruikt in deze snelstart
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>De stappen voor het maken van de toepassing die wordt gebruikt in deze snelstart
 
 > [!div class="nextstepaction"]
-> [iOS-zelfstudie voor Graph API-aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [IOS-zelfstudie voor Graph API aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

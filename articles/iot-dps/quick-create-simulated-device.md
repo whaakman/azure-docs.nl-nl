@@ -3,18 +3,18 @@ title: Een gesimuleerd TPM-apparaat inrichten voor Azure IoT Hub met behulp van 
 description: In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen. In deze snelstart maakt u een gesimuleerd TPM-apparaat met de SDK voor C voor Azure IoT Hub Device Provisioning Service en richt u het in.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485309"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500189"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd TPM-apparaat inrichten met de Azure IoT C SDK
 
@@ -44,23 +44,7 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) en het voorbeeld van de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-apparaatsimulator te bouwen.
 
-1. Download de [CMake-bouwsysteem](https://cmake.org/download/). Controleer of het gedownloade binaire bestand met behulp van de cryptografische hash-waarde die overeenkomt met de versie die u hebt gedownload. Er zijn ook de cryptografische hash-waarden gevonden op de downloadkoppeling CMake is al opgegeven.
-
-    Het volgende voorbeeld Windows PowerShell gebruikt om te controleren of de cryptografische hash voor 3.13.4-versie van de x64 MSI-distributiepunt:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    De volgende hash-waarden voor versie 3.13.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Download de [CMake-bouwsysteem](https://cmake.org/download/).
 
     Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
@@ -69,7 +53,7 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+    Deze bewerking kan enkele minuten in beslag nemen.
 
 
 3. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map. 
@@ -235,5 +219,5 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 In deze quickstart hebt u een gesimuleerd TPM-apparaat op de computer gemaakt en dit ingericht voor uw IoT-hub met IoT Hub Device Provisioning Service. Als u wilt weten hoe u uw TPM-apparaat programmatisch kunt registreren, gaat u verder met de quickstart voor programmatische registratie van een TPM-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Azure-quickstart: TPM-apparaat registreren bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)
+> [Azure-Quickstart: TPM-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)
 

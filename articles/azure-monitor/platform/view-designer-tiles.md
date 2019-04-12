@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470254"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495325"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper tegels in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -50,10 +50,10 @@ De **getal** tegel zowel het aantal records uit een logbestand-query en een labe
 
 ![Een tegel getal](media/view-designer-tiles/tile-number.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Naast elkaar** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
@@ -71,7 +71,7 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 | Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Eerste tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
@@ -92,7 +92,7 @@ De **ring** tegel geeft één getal met een overzicht van de kolom van een waard
 | Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Donut** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. |
 | **Donut** |**> Center** |
@@ -116,7 +116,7 @@ Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verlo
 | Instelling | Description |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Lijndiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* de x-as-trefwoord wordt gebruikt voor dit tijdsinterval. Als de query geen gebruik maakt van de *interval* #trefwoord, de x-as wordt per uur intervallen. |
 | **Lijndiagram** |**> Y-as** |
@@ -134,7 +134,7 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 
 ![Regel grafiek en een bijschrift tegel](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Description |De tekst die wordt weergegeven onder de naam van de tegel. |

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471647"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493311"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
 Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -29,7 +29,7 @@ Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onder
 >
 > Deze pagina is alleen van toepassing als u een van deze services.
 
-De Azure Diagnostics-extensie wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens, zoals Azure Monitor, Application Insights en Log Analytics. Zie voor meer informatie, [hulpprogramma's van Microsoft Bewakingsoverzicht](../../azure-monitor/overview.md).
+De Azure Diagnostics-extensie wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens, zoals Azure Monitor, met inbegrip van Application Insights en Log Analytics. Zie voor meer informatie, [hulpprogramma's van Microsoft Bewakingsoverzicht](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK en diagnostische gegevens over versies verzending van grafiek  
 

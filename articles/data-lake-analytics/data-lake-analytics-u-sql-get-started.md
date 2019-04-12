@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469604"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488708"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Aan de slag met U-SQL in Azure Data Lake Analytics
 U-SQL is een taal die combineert verklarende SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de schaalbare, gedistribueerde query-mogelijkheid van U-SQL kunt u gegevens efficiënter analyseren in relationele winkels, zoals Azure SQL Database. U kunt met U-SQL, ongestructureerde gegevens verwerken door het schema toepassen op lezen en het invoegen van aangepaste logica en UDF's. U-SQL omvat daarnaast uitbreidbaarheid waarmee u heel nauwkeurig bepalen hoe u kunt om uit te voeren op schaal. 

@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587868"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500835"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Over het gebruik van Service Bus-wachtrijen met Node.js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In dit artikel wordt beschreven hoe u Service Bus-wachtrijen gebruiken met behulp van Node.js. De voorbeelden zijn geschreven in JavaScript en gebruiken van de Node.js-Azure-module. De behandelde scenario's zijn **maken van wachtrijen**, **verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**. Zie voor meer informatie over wachtrijen de [Vervolgstappen](#next-steps) sectie.
+In deze zelfstudie leert u hoe u Node.js-toepassingen voor het verzenden van berichten naar en ontvangen van berichten van een Service Bus-wachtrij maakt. De voorbeelden zijn geschreven in JavaScript en gebruiken van de Node.js-Azure-module. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Als u een wachtrij om te werken met geen hebt, voert u de stappen de [gebruik Azure portal voor het maken van een Service Bus-wachtrij](service-bus-quickstart-portal.md) artikel om een wachtrij te maken.
+    1. Het snel lezen **overzicht** van Service Bus **wachtrijen**. 
+    2. Maken van een Service Bus **naamruimte**. 
+    3. Krijgen de **verbindingsreeks**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > U maakt een **wachtrij** in de Service Bus-naamruimte met behulp van Node.js in deze zelfstudie. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [maken en implementeren van een Node.js-toepassing naar een Azure-Website][Create and deploy a Node.js application to an Azure Website], of [Node.js-Cloudservice] [ Node.js Cloud Service] met behulp van Windows PowerShell.
@@ -114,7 +120,7 @@ Hierna de voorverwerking van de Aanvraagopties, de methode moet aanroepen `next`
 function (returnObject, finalCallback, next)
 ```
 
-In deze callback en na de verwerking de `returnObject` (het antwoord van de aanvraag naar de server), moet ofwel de callback aanroepen `next` als deze bestaat als u wilt doorgaan met het verwerken van andere filters of gewoon aanroepen `finalCallback`, die de service is beëindigd aanroep.
+In deze callback en na de verwerking de `returnObject` (het antwoord van de aanvraag naar de server), moet ofwel de callback aanroepen `next` als deze bestaat als u wilt doorgaan met het verwerken van andere filters of aanroepen `finalCallback`, die de serviceaanroep is beëindigd .
 
 Twee filters die logica voor opnieuw proberen implementeren zijn opgenomen in de Azure SDK voor Node.js, `ExponentialRetryPolicyFilter` en `LinearRetryPolicyFilter`. De volgende code maakt een `ServiceBusService` object die gebruikmaakt van de `ExponentialRetryPolicyFilter`:
 

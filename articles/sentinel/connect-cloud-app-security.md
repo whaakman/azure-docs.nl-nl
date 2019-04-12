@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview Cloud App Security | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Cloud App Security.
+title: Cloud App Security gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Cloud App Security gegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b0033f5f8636053f88825541b8b2cfcbf2fc9f8b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a7dfeed7b52453b38720c21c7d213679b8d2854
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245485"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496366"
 ---
-# <a name="collect-data-from-microsoft-cloud-app-security"></a>Gegevens verzamelen uit de Microsoft Cloud App Security 
+# <a name="connect-data-from-microsoft-cloud-app-security"></a>Verbinding maken met gegevens uit Microsoft Cloud App Security 
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -39,7 +39,7 @@ Als u Cloud App Security al hebt, zorgt ervoor dat deze [ingeschakeld op uw netw
 Als u Cloud App Security is geïmplementeerd en ophalen van uw gegevens, gegevens van de waarschuwing kan eenvoudig worden gestreamd naar Azure Sentinel.
 
 
-1. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Cloud App Security** tegel.
+1. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Cloud App Security** tegel.
 
 2. Klik op **Verbinden**.
 

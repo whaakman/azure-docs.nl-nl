@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239298959efa5c17d2f3d0c0aa5c4c30853c076f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902032"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce
 
@@ -55,9 +56,9 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Salesforce in Azure AD moet u Salesforce vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u Salesforce vanuit de galerie wilt toevoegen, voert u de volgende stappen uit:**
+**Als u wilt toevoegen Salesforce uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** klikt u in het navigatievenster aan de linkerkant op het pictogram **Azure Active Directory**.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -65,13 +66,13 @@ Voor het configureren van de integratie van Salesforce in Azure AD moet u Salesf
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Als u wilt een nieuwe toepassing toevoegen, klikt u op de **nieuwe toepassing** knop aan de bovenkant van het dialoogvenster.
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **Salesforce** in het zoekvak, selecteer **Salesforce** in het deelvenster met resultaten en klik op **Toevoegen** om de toepassing toe te voegen.
+4. Typ in het zoekvak **Salesforce**, selecteer **Salesforce** vanuit het deelvenster resultaat klik vervolgens op de **toevoegen** om toe te voegen van de toepassing.
 
-     ![Salesforce in de lijst met resultaten](common/search-new-app.png)
+    ![Salesforce in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -111,15 +112,15 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Salesforce voert u d
 
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met de volgende indeling:
 
-    Bedrijfsaccount: `https://<subdomain>.my.salesforce.com`
+    Enterprise-account: `https://<subdomain>.my.salesforce.com`
 
-    Ontwikkelaarsaccount: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     b. Typ in het tekstvak **Id** een waarde met de volgende indeling:
 
-    Bedrijfsaccount: `https://<subdomain>.my.salesforce.com`
+    Enterprise-account: `https://<subdomain>.my.salesforce.com`
 
-    Ontwikkelaarsaccount: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en -id. Neem contact op met het [Salesforce-klantondersteuningsteam](https://help.salesforce.com/support) om deze waarden te verkrijgen.
@@ -140,7 +141,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Salesforce voert u d
 
 ### <a name="configure-salesforce-single-sign-on"></a>Eenmalige aanmelding configureren voor Salesforce
 
-1. Open een nieuw tabblad in uw browser en meld u aan bij uw Salesforce-beheerdersaccount.
+1. Open een nieuw tabblad in uw browser en meld u aan uw Salesforce-beheerdersaccount.
 
 2. Klik op **Instellen** onder het **instellingenpictogram** in de rechterbovenhoek van de pagina.
 
@@ -206,8 +207,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon\@yourcompanydomain.extension`. Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -251,9 +251,9 @@ Wanneer u op de Salesforce-tegel in het toegangsvenster klikt, zou u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

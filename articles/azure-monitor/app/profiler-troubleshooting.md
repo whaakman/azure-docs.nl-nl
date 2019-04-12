@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471525"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495393"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -71,7 +71,7 @@ Voor de Profiler goed te laten werken:
 
     |App-instelling    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor u Application Insights-resource    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor uw Application Insights-resource    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Voor de Profiler goed te laten werken:
    
       ![profiler-webjob]   
    
-   1. Selecteer om de details van de webtaak, met inbegrip van het logboek weer te geven de **ApplicationInsightsProfiler2** koppeling.  
+   1. Selecteer om de details van de webtaak, met inbegrip van het logboek weer te geven de **ApplicationInsightsProfiler3** koppeling.  
      De **continue WebJob Details** deelvenster wordt geopend.
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Als u weet niet waarom Profiler niet voor u werkt, kunt u het logboek downloaden
     
 ### <a name="manual-installation"></a>Handmatige installatie
 
-Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als uw omgeving nodig is, kunt u de updates handmatig toepassen. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps. Als u wilt toepassen updates handmatig, door het volgende te doen:
+Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als uw omgeving nodig is, kunt u de updates handmatig toepassen. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps. Updates handmatig toepassen:
 
 1. In de **Web App-beheer** geopend deelvenster **instellingen**.
 
@@ -103,7 +103,7 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. Als u
 
     |App-instelling    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor u Application Insights-resource    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey voor uw Application Insights-resource    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

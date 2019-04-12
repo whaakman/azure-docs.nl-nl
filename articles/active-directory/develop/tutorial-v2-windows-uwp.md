@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 UWP aan de slag | Microsoft Docs
-description: Hoe Universal Windows Platform-toepassingen (UWP) een API die tokens voor toegang door de Azure Active Directory v2.0-eindpunt vereist kunnen aanroepen
+title: Microsoft identity-platform UWP aan de slag | Azure
+description: Toegangstokens hoe Universal Windows Platform-toepassingen (UWP) een API kunnen aanroepen die worden vereist door het eindpunt van Microsoft identity-platform.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,34 +12,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e05faa37baf3c25be70a9500f1131cc0ea9f66
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: cc88535b2332d4e70e383094bdf181d2836752d1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629414"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489995"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Deze handleiding wordt uitgelegd hoe een systeemeigen Universal Windows Platform (UWP)-toepassing kan aanvragen van een toegangstoken en roep vervolgens Microsoft Graph API. De handleiding geldt ook voor andere API's waarvoor access tokens van het Azure Active Directory v2.0-eindpunt.
+Deze handleiding wordt uitgelegd hoe een systeemeigen Universal Windows Platform (UWP)-toepassing kan aanvragen van een toegangstoken en roep vervolgens Microsoft Graph API. De handleiding geldt ook voor andere API's waarvoor toegangstokens van het eindpunt van Microsoft identity-platform.
 
-Aan het einde van deze handleiding, worden in uw toepassing een beveiligde API aanroept met behulp van persoonlijke accounts. Voorbeelden zijn outlook.com, live.com en anderen. Werk-en schoolaccounts aanroepen uw toepassing ook van een bedrijf of organisatie die Azure Active Directory heeft.
+Aan het einde van deze handleiding, worden in uw toepassing een beveiligde API aanroept met behulp van persoonlijke accounts. Voorbeelden zijn outlook.com, live.com en anderen. Werk-en schoolaccounts aanroepen uw toepassing ook van een bedrijf of organisatie die Azure Active Directory (Azure AD) is.
 
 >[!NOTE]
 > Deze handleiding moet Visual Studio 2017 met Universal Windows Platform-ontwikkeling die zijn geïnstalleerd. Zie [instellen](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) voor instructies voor het downloaden en configureren van Visual Studio voor het ontwikkelen van Universal Windows Platform-apps.
 
 ## <a name="how-this-guide-works"></a>De werking van deze handleiding
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze zelfstudie werkt](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze zelfstudie werkt](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
-Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph API of een Web-API die tokens van het Azure Active Directory v2.0-eindpunt accepteert gemaakt. Voor dit scenario wordt een token toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Microsoft Authentication Library (MSAL) wordt gebruikt voor token-aankopen en vernieuwingen.
+In deze handleiding wordt gemaakt voor een UWP-voorbeeldtoepassing die query's van Microsoft Graph API of een Web-API die tokens van het eindpunt van de Microsoft identity-platform accepteert. Voor dit scenario wordt een token toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Microsoft Authentication Library (MSAL) wordt gebruikt voor token-aankopen en vernieuwingen.
 
 ## <a name="nuget-packages"></a>NuGet-pakketten
 
@@ -56,8 +56,7 @@ In deze sectie biedt stapsgewijze instructies voor het integreren van een Window
 Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop die query's Graph API, een knop Afmelden en tekstvakken die de resultaten van de aanroepen weergeven.
 
 > [!NOTE]
-> Wilt u dit voorbeeld van Visual Studio-project in plaats daarvan downloaden? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) en gaat u naar de [toepassingsregistratie](#register-your-application "toepassing registratiestap") stap voor het configureren van de voorbeeldcode voordat deze wordt uitgevoerd.
-
+> Wilt u dit voorbeeld van Visual Studio-project in plaats daarvan downloaden? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) en gaat u naar de [toepassingsregistratie](#register-your-application "toepassing registratiestap") stap voor het configureren van de voorbeeldcode voordat deze wordt uitgevoerd.
 
 ### <a name="create-your-application"></a>Uw toepassing maken
 
@@ -74,30 +73,11 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
 2. Kopieer en plak de volgende opdracht in de **Package Manager Console** venster:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Identity.Client -IncludePrerelease
     ```
 
 > [!NOTE]
-> Met deze opdracht installeert [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL verkrijgt, in de cache opslaat en toegang API's die zijn beveiligd door Azure Active Directory v2.0 tot gebruikerstokens wordt vernieuwd.
-
-## <a name="initialize-msal"></a>MSAL initialiseren
-Deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoals het verwerken van tokens.
-
-1. Open de **App.xaml.cs** -bestand en voeg de referentie voor MSAL toe aan de klasse:
-
-    ```csharp
-    using Microsoft.Identity.Client;
-    ```
-
-2. De volgende twee regels toevoegen aan de klasse van de app (binnen <code>sealed partial class App : Application</code> blokkeren):
-
-    ```csharp
-    // Below is the clientId of your app registration. 
-    // You have to replace the below with the Application Id for your app registration
-    private static string ClientId = "your_client_id_here";
-    
-    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
-    ```
+> Met deze opdracht installeert [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL verkrijgt, in de cache opgeslagen en wordt vernieuwd gebruikerstokens die toegang API's die zijn beveiligd door Microsoft identity-platform tot.
 
 ## <a name="create-your-applications-ui"></a>Gebruikersinterface van uw toepassing maken
 
@@ -129,83 +109,118 @@ In deze sectie ziet u hoe u MSAL om op te halen van een token voor Microsoft Gra
     ```csharp
     using Microsoft.Identity.Client;
     ```
+
 2. Vervang de code van uw <code>MainPage</code> klasse met de volgende code:
 
     ```csharp
     public sealed partial class MainPage : Page
     {
-        // Set the API Endpoint to Graph 'me' endpoint
+        //Set the API Endpoint to Graph 'me' endpoint
         string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
-    
-        // Set the scope for API call to user.read
+
+        //Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
-    
+
+        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // You have to replace:
+        // - the content of ClientID with the Application Id for your app registration
+        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        //   - For Work or School account in your org, use your tenant ID, or domain
+        //   - for any Work or School accounts, use organizations
+        //   - for any Work or School accounts, or Microsoft personal account, use common
+        //   - for Microsoft Personal account, use consumers
+        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";        
+
+        public IPublicClientApplication PublicClientApp { get; } 
+
         public MainPage()
         {
-            this.InitializeComponent();
+          this.InitializeComponent();
+
+          PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AadAuthorityAudience.AzureAdAndPersonalMicrosoftAccount)
+                .WithLogging((level, message, containsPii) =>
+                {
+                    Debug.WriteLine($"MSAL: {level} {message} ");
+                }, LogLevel.Warning, enablePiiLogging:false,enableDefaultPlatformLogging:true)
+                .WithUseCorporateNetwork(true)
+                .Build();
         }
-    
+
         /// <summary>
         /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-            AuthenticationResult authResult = null;
-            ResultText.Text = string.Empty;
-            TokenInfoText.Text = string.Empty;
-    
-            try
-            {
-                var accounts = await App.PublicClientApp.GetAccountsAsync();
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
-            }
-            catch (MsalUiRequiredException ex)
-            {
-                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
-                System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
-    
-                try
-                {
-                    authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
-                }
-                catch (MsalException msalex)
-                {
-                    ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
-                }
-            }
-            catch (Exception ex)
-            {
-                ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
-                return;
-            }
-    
-            if (authResult != null)
-            {
-                ResultText.Text = await GetHttpContentWithToken(graphAPIEndpoint, authResult.AccessToken);
-                DisplayBasicTokenInfo(authResult);
-                this.SignOutButton.Visibility = Visibility.Visible;
-            }
+         AuthenticationResult authResult = null;
+         ResultText.Text = string.Empty;
+         TokenInfoText.Text = string.Empty;
+
+         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.            
+         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false); 
+         IAccount firstAccount = accounts.FirstOrDefault();
+
+         try
+         {
+          authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                                  .ExecuteAsync();
+         }
+         catch (MsalUiRequiredException ex)
+         {
+          // A MsalUiRequiredException happened on AcquireTokenSilent.
+          // This indicates you need to call AcquireTokenInteractive to acquire a token
+          System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+
+          try
+          {
+           authResult = await PublicClientApp.AcquireTokenInteractive(scopes, this)
+                                                      .ExecuteAsync()
+                                                      .ConfigureAwait(false);
+           }
+           catch (MsalException msalex)
+           {
+            await DisplayMessageAsync($"Error Acquiring Token:{System.Environment.NewLine}{msalex}");
+           }
+          }
+          catch (Exception ex)
+          {
+           await DisplayMessageAsync($"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}");
+           return;
+          }
+
+          if (authResult != null)
+          {
+           var content = await GetHttpContentWithToken(graphAPIEndpoint,
+                                                       authResult.AccessToken).ConfigureAwait(false);
+
+           // Go back to the UI thread to make changes to the UI
+           await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+           {
+            ResultText.Text = content;
+            DisplayBasicTokenInfo(authResult);
+            this.SignOutButton.Visibility = Visibility.Visible;
+           });
+          }
         }
-    }
     ```
 
 ### <a name="more-information"></a>Meer informatie
 
 #### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-Een aanroep naar de `AcquireTokenAsync` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt. Een voorbeeld daarvan is wanneer het wachtwoord van een gebruiker is verlopen.
+Een aanroep naar de `AcquireTokenInteractive` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt. Een voorbeeld daarvan is wanneer het wachtwoord van een gebruiker is verlopen.
 
 #### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 
-De `AcquireTokenSilentAsync` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenAsync` voor de eerste keer wordt uitgevoerd en de gebruiker wordt gevraagd om referenties, het `AcquireTokenSilentAsync` methode moet worden gebruikt voor het aanvragen van tokens voor volgende aanroepen omdat het verkrijgen van tokens op de achtergrond. MSAL wordt afgehandeld tokencache en verlenging.
+De `AcquireTokenSilent` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenInteractive` voor de eerste keer wordt uitgevoerd en de gebruiker wordt gevraagd om referenties, het `AcquireTokenSilent` methode moet worden gebruikt voor het aanvragen van tokens voor volgende aanroepen omdat deze tokens op de achtergrond verkrijgt. MSAL wordt afgehandeld tokencache en verlenging.
 
-Uiteindelijk de `AcquireTokenSilentAsync` methode mislukt. Oorzaak van de fout kunnen zijn dat gebruikers hebt zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
+Uiteindelijk de `AcquireTokenSilent` methode mislukt. Oorzaak van de fout kunnen zijn dat gebruikers hebt zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem kan worden omgezet door verlangen dat ze een interactieve actie, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-* Er kan een aanroep tegen `AcquireTokenAsync` onmiddellijk. Deze aanroep leidt de gebruiker zich aanmeldt. Normaal gesproken dit patroon in online toepassingen wordt gebruikt wanneer er geen beschikbare offline inhoud voor de gebruiker is. Het voorbeeld dat is gegenereerd door deze Begeleide instelling volgt het patroon. U wordt het in actie de eerste keer dat u het voorbeeld uitvoert.
+* Er kan een aanroep tegen `AcquireTokenInteractive` onmiddellijk. Deze aanroep leidt de gebruiker zich aanmeldt. Normaal gesproken dit patroon in online toepassingen wordt gebruikt wanneer er geen beschikbare offline inhoud voor de gebruiker is. Het voorbeeld dat is gegenereerd door deze Begeleide instelling volgt het patroon. U wordt het in actie de eerste keer dat u het voorbeeld uitvoert.
   * Omdat er geen gebruiker heeft de toepassing gebruikt `accounts.FirstOrDefault()` bevat een null-waarde en een `MsalUiRequiredException` uitzondering is opgetreden.
-  * De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenAsync`. Deze aanroep leidt de gebruiker zich aanmeldt.
+  * De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenInteractive`. Deze aanroep leidt de gebruiker zich aanmeldt.
 
-* Of in plaats daarvan geeft deze een visuele indicatie voor gebruikers die een interactieve aanmelding vereist is. Vervolgens kunnen ze het juiste moment aan te melden bij selecteren. Of de toepassing opnieuw kunt proberen `AcquireTokenSilentAsync` later opnieuw. Dit patroon wordt vaak gebruikt wanneer gebruikers de functionaliteit van andere toepassing zonder onderbreking kunnen gebruiken. Een voorbeeld is wanneer u offline inhoud is beschikbaar in de toepassing. Gebruikers kunnen in dit geval beslissen wanneer ze aanmelden willen bij de toegang tot de beveiligde bron of de verouderde gegevens vernieuwen. Of anders de toepassing kan beslissen om opnieuw te proberen `AcquireTokenSilentAsync` wanneer het netwerk is hersteld nadat deze tijdelijk niet beschikbaar is.
+* Of in plaats daarvan geeft deze een visuele indicatie voor gebruikers die een interactieve aanmelding vereist is. Vervolgens kunnen ze het juiste moment aan te melden bij selecteren. Of de toepassing opnieuw kunt proberen `AcquireTokenSilent` later opnieuw. Dit patroon wordt vaak gebruikt wanneer gebruikers de functionaliteit van andere toepassing zonder onderbreking kunnen gebruiken. Een voorbeeld is wanneer u offline inhoud is beschikbaar in de toepassing. Gebruikers kunnen in dit geval beslissen wanneer ze aanmelden willen bij de toegang tot de beveiligde bron of de verouderde gegevens vernieuwen. Of anders de toepassing kan beslissen om opnieuw te proberen `AcquireTokenSilent` wanneer het netwerk is hersteld nadat deze tijdelijk niet beschikbaar is.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Microsoft Graph API aanroepen met behulp van het token dat u zojuist hebt verkregen.
 
@@ -226,7 +241,8 @@ Uiteindelijk de `AcquireTokenSilentAsync` methode mislukt. Oorzaak van de fout k
         {
             var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
             // Add the token in Authorization header
-            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            request.Headers.Authorization = 
+              new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             response = await httpClient.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
             return content;
@@ -251,25 +267,31 @@ In deze voorbeeldtoepassing de `GetHttpContentWithToken` methode wordt gebruikt 
     /// <summary>
     /// Sign out the current user
     /// </summary>
-    private void SignOutButton_Click(object sender, RoutedEventArgs e)
+    private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        var accounts = await App.PublicClientApp.GetAccountsAsync();
-        if (accounts.Any())
+        IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync
+                                                              .ConfigureAwait(false);
+        IAccount firstAccount = accounts.FirstOrDefault();
+
+        try
         {
-            try
+            await PublicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
-                this.ResultText.Text = "User has signed-out";
+                ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
-                this.SignOutButton.Visibility = Visibility.Collapsed;
+                    this.SignOutButton.Visibility = Visibility.Collapsed;
+                });
             }
             catch (MsalException ex)
             {
                 ResultText.Text = $"Error signing-out user: {ex.Message}";
             }
         }
-    }
     ```
+
+> [!NOTE]
+> MSAL.NET asynchrone methoden gebruikt om tokens verkrijgen of accounts te manipuleren, en daarom moet u zorgen voor het doen van UI-ed-acties in de UI-thread, dus de `Dispatcher.RunAsync`, en de voorzorgsmaatregelen om aan te roepen `ConfigureAwait(false)`
 
 ### <a name="more-information-on-sign-out"></a>Meer informatie over het afmelden
 
@@ -282,17 +304,15 @@ De toepassing in dit voorbeeld biedt ondersteuning voor één gebruiker. Maar MS
 
     ```csharp
     /// <summary>
-    /// Display basic information contained in the token
+    /// Display basic information contained in the token. Needs to be called from the UI thead.
     /// </summary>
     private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     {
         TokenInfoText.Text = "";
         if (authResult != null)
         {
-            TokenInfoText.Text += $"Name: {authResult.User.Name}" + Environment.NewLine;
-            TokenInfoText.Text += $"Username: {authResult.User.DisplayableId}" + Environment.NewLine;
+            TokenInfoText.Text += $"User Name: {authResult.Account.Username}" + Environment.NewLine;
             TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
-            TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
         }
     }
     ```
@@ -304,19 +324,28 @@ ID-tokens die zijn verkregen **OpenID Connect** bevatten ook een kleine subset v
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
 Nu moet u uw toepassing registreren in de Portal voor Appregistratie Microsoft:
-1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
-2. Voer een naam in voor de toepassing.
-3. Zorg ervoor dat de optie voor **begeleide installatie** is *niet geselecteerd*.
-4. Selecteer **Platforms toevoegen**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
-5. Kopieer de GUID in **toepassings-ID**, gaat u terug naar Visual Studio, open **App.xaml.cs**, en vervang `your_client_id_here` met de toepassings-ID die u zojuist hebt geregistreerd:
 
-    ```csharp
-    private static string ClientId = "your_application_id_here";
-    ```
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Als uw account in meer dan één Azure AD-tenant aanwezig is, selecteert u `Directory + Subscription` in de hoek rechtsboven in het menu boven op de pagina en switch uw portal-sessie met de gewenste Azure AD-tenant.
+1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
+1. Selecteer **registratie van nieuwe**.
+   - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `UWP-App-calling-MSGraph`.
+   - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)**.
+   - Selecteer **Registreren** om de toepassing te maken.
+1. Op de app **overzicht** pagina, zoek de **(client) toepassings-ID** waarde en leg deze vast voor later. Ga terug naar Visual Studio, open **MainPage.xaml.cs**, en vervang de waarde van ClientId met de toepassings-ID die u zojuist hebt geregistreerd:
+1. Selecteer in de lijst van pagina's voor de app, **verificatie**:
+   - In de **omleidings-URI's** | **voorgesteld omleidings-URI's voor de openbare clients (mobiel, desktops)** sectie selectievakje **urn: ietf:wg:oauth:2.0:oob**
+1. Selecteer **Opslaan**.
+1. Selecteer in de lijst van pagina's voor de app **API-machtigingen**
+   - Klik op de **toevoegen van een machtiging** knop en klikt u vervolgens
+   - Zorg ervoor dat de **Microsoft API's** tabblad is geselecteerd
+   - In de *gebruikte Microsoft APIs* sectie, klikt u op **Microsoft Graph**
+   - In de **overgedragen machtigingen** sectie, zorgt u ervoor dat de juiste machtigingen worden gecontroleerd: **User.Read**. Gebruik het zoekvak indien nodig.
+   - Selecteer de **machtigingen toevoegen** knop
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>Geïntegreerde verificatie inschakelen in federatieve domeinen (optioneel)
 
-Om in te schakelen geïntegreerde Windows-verificatie als deze wordt gebruikt met een federatieve Azure Active Directory-domein, moet het toepassingsmanifest aanvullende mogelijkheden inschakelen:
+Windows-Integrated-verificatie inschakelen als deze wordt gebruikt met een federatieve Azure AD-domein, het toepassingsmanifest moet extra mogelijkheden inschakelen:
 
 1. Dubbelklik op **Package.appxmanifest**.
 2. Selecteer de **mogelijkheden** tabblad en zorg ervoor dat de volgende instellingen zijn ingeschakeld:
@@ -325,14 +354,8 @@ Om in te schakelen geïntegreerde Windows-verificatie als deze wordt gebruikt me
     - Particuliere netwerken (Client en Server)
     - Gedeelde gebruikerscertificaten
 
-3. Open **App.xaml.cs** en voeg de volgende regel in de app-constructor:
-
-    ```csharp
-    App.PublicClientApp.UseCorporateNetwork = true;
-    ```
-
 > [!IMPORTANT]
-> [Geïntegreerde Windows-authenticatie](https://aka.ms/msal-net-iwa) niet standaard ingeschakeld voor dit voorbeeld is geconfigureerd. Toepassingen die aanvragen *Ondernemingsverificatie* of *gedeelde gebruikerscertificaten* mogelijkheden vereisen een hoger niveau van controle door de Windows Store. Niet alle ontwikkelaars willen ook het hogere niveau van controle uitvoeren. Schakel deze instelling alleen als u geïntegreerde Windows-verificatie met een federatieve Azure Active Directory-domein.
+> [Geïntegreerde Windows-authenticatie](https://aka.ms/msal-net-iwa) niet standaard ingeschakeld voor dit voorbeeld is geconfigureerd. Toepassingen die aanvragen *Ondernemingsverificatie* of *gedeelde gebruikerscertificaten* mogelijkheden vereisen een hoger niveau van controle door de Windows Store. Niet alle ontwikkelaars willen ook het hogere niveau van controle uitvoeren. Schakel deze instelling alleen als u geïntegreerde Windows-verificatie met een federatieve Azure AD-domein.
 
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -340,30 +363,28 @@ Als u wilt testen van uw toepassing, selecteer F5 om uit te voeren van uw projec
 
 ![De gebruikersinterface van de toepassing](./media/tutorial-v2-windows-uwp/testapp-ui.png)
 
-Wanneer u klaar om te testen bent, selecteert u **Microsoft Graph-API aanroepen**. Gebruik vervolgens een organisatieaccount voor Microsoft Azure Active Directory of een Microsoft-account, zoals live.com of outlook.com, aan te melden bij. Als de eerste keer is, ziet u een venster waarin de gebruiker zich aanmeldt:
+Wanneer u klaar om te testen bent, selecteert u **Microsoft Graph-API aanroepen**. Gebruik vervolgens een Azure AD-organisatieaccount of een Microsoft-account, zoals live.com of outlook.com, aan te melden bij. Als de eerste keer is, ziet u een venster waarin de gebruiker zich aanmeldt:
 
 ![Aanmeldingspagina opgeven](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
 ### <a name="consent"></a>Akkoord
+
 De eerste keer dat u zich aanmeldt bij uw toepassing, krijgt u een vergelijkbaar met de volgende instemmingsscherm. Selecteer **Ja** naar expliciet toestemming voor toegang tot:
 
 ![Het instemmingsscherm toegang](./media/tutorial-v2-windows-uwp/consentscreen.png)
+
 ### <a name="expected-results"></a>Verwachte resultaten
+
 U ziet informatie uit gebruikersprofielen door de Microsoft Graph API-aanroep is geretourneerd op de **API Gespreksresultaten** scherm:
 
 ![API aanroepen resultaten scherm](./media/tutorial-v2-windows-uwp/uwp-results-screen.PNG)
 
-U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenAsync` of `AcquireTokenSilentAsync` in de **Token Info** vak:
+U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenInteractive` of `AcquireTokenSilent` in de **Token Info** vak:
 
-|Eigenschap  |Indeling  |Description |
+|Eigenschap  |Indeling  |Beschrijving |
 |---------|---------|---------|
-|**Naam** |Volledige naam van gebruiker|En achternaam van eerst de gebruiker.|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam waarmee de gebruiker.|
 |**Token is verlopen** |DateTime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
-|**Toegangstoken** |String |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
-
-#### <a name="see-whats-in-the-access-token-optional"></a>Ontdek wat er in het toegangstoken (optioneel)
-De waarde in (optioneel) kopiëren **toegangstoken** en plak deze in https://jwt.ms dit decoderen en bekijkt u de lijst met claims.
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereiken en gedelegeerde machtigingen
 
@@ -377,17 +398,20 @@ Voor toegang tot agenda's van de gebruiker in de context van een toepassing moet
 ## <a name="known-issues"></a>Bekende problemen
 
 ### <a name="issue-1"></a>Probleem 1
-U ontvangt een van de volgende foutberichten weergegeven wanneer u zich aanmelden op uw toepassing in een federatieve Azure Active Directory-domein:
- - Er is geen geldig clientcertificaat gevonden in de aanvraag.
- - Er is geen geldige certificaten gevonden in het certificaatarchief van de gebruiker.
- - Probeer opnieuw een andere verificatiemethode kiezen.
+
+U ontvangt een van de volgende foutberichten weergegeven wanneer u zich aanmelden op uw toepassing in een federatieve Azure AD-domein:
+
+* Er is geen geldig clientcertificaat gevonden in de aanvraag.
+* Er is geen geldige certificaten gevonden in het certificaatarchief van de gebruiker.
+* Probeer opnieuw een andere verificatiemethode kiezen.
 
 **Oorzaak:** Enterprise- en certificaat-mogelijkheden zijn niet ingeschakeld.
 
 **Oplossing:** Volg de stappen in [geïntegreerde verificatie op federatieve domeinen](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Probleem 2
-U hebt ingeschakeld [geïntegreerde verificatie op federatieve domeinen](#enable-integrated-authentication-on-federated-domains-optional) en probeer het Windows Hello gebruiken op een Windows 10-computer aan te melden voor een omgeving met meervoudige verificatie is geconfigureerd. De lijst van certificaten wordt weergegeven. Echter, als u ervoor kiest uw PINCODE moet gebruiken, het venster van de PINCODE wordt nooit weergegeven.
+
+U hebt ingeschakeld [geïntegreerde verificatie op federatieve domeinen](#enable-integrated-authentication-on-federated-domains-optional) en probeer het Windows Hello gebruiken op een Windows 10-computer aan te melden voor een omgeving met multi-factor authentication is geconfigureerd. De lijst van certificaten wordt weergegeven. Echter, als u ervoor kiest uw PINCODE moet gebruiken, het venster van de PINCODE wordt nooit weergegeven.
 
 **Oorzaak:** Dit probleem is een bekende beperking van de webauthenticatiebroker in UWP-toepassingen die worden uitgevoerd op Windows 10 desktop. Het werkt prima op Windows 10 Mobile.
 

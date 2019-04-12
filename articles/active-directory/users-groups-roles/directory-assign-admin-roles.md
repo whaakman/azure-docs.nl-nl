@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48142961e4b6714090441b24e4bd6ca07afaf598
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df0593faaf8b68c793a65312b208fe858804db53
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622243"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496278"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -45,7 +45,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 * **[Authentication-beheerder](#authentication-administrator)**: Gebruikers met deze rol kunnen instellen of referenties in niet-wachtwoord opnieuw instellen. Verificatie-beheerders kunnen vereisen dat gebruikers kunnen opnieuw worden geregistreerd op basis van bestaande niet-wachtwoordreferenties (bijvoorbeeld, MFA of FIDO) en intrekken **MFA herinneren op het apparaat**, waarin wordt gevraagd voor MFA op de volgende aanmelding van gebruikers die zijn niet-beheerders of alleen de volgende rollen toegewezen:
   * Verificatiebeheerder
   * Adreslijstlezers
-  * Gastuitnodiging
+  * Afzender van gastuitnodigingen
   * Berichtencentrum-lezer
   * Rapportenlezer
 
@@ -73,7 +73,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   ----- | ----------
   [Microsoft 365 compliancecentrum](https://protection.microsoft.com) | Beveiligen en beheren van gegevens van uw organisatie via Microsoft 365-services<br>Naleving-waarschuwingen beheren
   [Voor naleving](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Bijhouden, toewijzen en controleer of de activiteiten van de naleving van regelgeving van uw organisatie
-  [Office 365-beveiliging en compliance](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gegevensbeheer beheren<br>Wettelijke informatie en gegevens onderzoek uitvoeren<br>Aanvraag voor het onderwerp van gegevens beheren
+  [Office 365-centrum voor beveiliging en naleving](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gegevensbeheer beheren<br>Wettelijke informatie en gegevens onderzoek uitvoeren<br>Aanvraag voor het onderwerp van gegevens beheren
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Alle Intune-controlegegevens weergeven
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alleen-lezen machtigingen heeft en kunnen waarschuwingen beheren<br>Kunt maken en wijzigen van de beleidsregels voor bestanden en governance-acties voor toestaan<br> De ingebouwde rapporten onder beheer van de gegevens kunt weergeven
 
@@ -96,7 +96,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Apparaatbeheerders](#device-administrators)**: Deze functie is beschikbaar voor toewijzing alleen als een lokale beheerder in [apparaatinstellingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn toegevoegd aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaatobjecten in Azure Active Directory. 
 
-* **[Adreslijstlezers](#directory-readers)**: Dit is een verouderde rol die moet worden toegewezen aan toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Deze moet niet worden toegewezen aan alle gebruikers.
+* **[Adreslijstlezers](#directory-readers)**: Dit is een rol die moet worden toegewezen aan alleen oudere toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Niet toewijzen aan gebruikers.
 
 * **[Directory-Accounts voor synchronisatie](#directory-synchronization-accounts)**: Gebruik geen. Deze rol is wordt automatisch toegewezen aan de Azure AD Connect-service en niet bedoeld of ondersteund voor ander gebruik.
 
@@ -136,7 +136,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Helpdeskbeheerder (wachtwoord)](#helpdesk-administrator)**: Gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden. Helpdesk-beheerders kunnen wachtwoorden opnieuw instellen en vernieuwen van tokens van andere gebruikers die niet-beheerders en alleen de volgende rollen toegewezen ongeldig te maken:
   * Adreslijstlezers
-  * Gastuitnodiging
+  * Afzender van gastuitnodigingen
   * Helpdeskbeheerder
   * Berichtencentrum-lezer
   * Rapportenlezer
@@ -173,7 +173,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   [Microsoft 365 security center](https://protection.microsoft.com) | Beveiligingsbeleid controleren in Microsoft 365-services<br>Beveiligingsrisico's en waarschuwingen beheren<br>Rapporten weergeven
   Identity Protection Center | Alle machtigingen van de rol van Beveiligingslezer<br>Bovendien de mogelijkheid om uit te voeren van alle Identity Protection Center-bewerkingen, met uitzondering van wachtwoorden opnieuw instellen
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alle machtigingen van de rol van Beveiligingslezer<br>**Kan geen** instellingen of Azure AD-roltoewijzingen beheren
-  [Office 365-beveiliging en compliance](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Beveiligingsbeleid beheren<br>Weergeven, onderzoeken en direct reageren op bedreigingen<br>Rapporten weergeven
+  [Office 365-centrum voor beveiliging en naleving](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Beveiligingsbeleid beheren<br>Weergeven, onderzoeken en direct reageren op bedreigingen<br>Rapporten weergeven
   Azure Advanced Threat Protection | Bewaken van en reageren op verdachte activiteit
   Windows Defender ATP en EDR | Rollen toewijzen<br>Computergroepen beheren<br>Detectie van bedreigingen eindpunt en geautomatiseerd herstel configureren<br>Weergeven, onderzoeken en reageren op waarschuwingen
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Weergaven gebruiker, apparaat, inschrijving, configuratie en informatie over toepassingen<br>Kan geen wijzigingen aanbrengen aan Intune
@@ -201,7 +201,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   [Microsoft 365 security center](https://protection.microsoft.com) | Beveiligingsbeleid voor Microsoft 365-services weergeven<br>Weergave beveiligingsrisico's en waarschuwingen<br>Rapporten weergeven
   Identity Protection Center | Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<br><ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde beveiliging tegen bedreigingen<li>Anti-phishing<li>Mailflow regels
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Is alleen-lezen toegang tot alle gegevens in Azure AD PIM opgehaald: Beleid en rapporten voor Azure AD-roltoewijzingen wordt beveiliging beoordeelt en toegang tot gegevens en rapporten voor scenario's behalve Azure AD-roltoewijzing in de toekomst te lezen.<br>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengen. In de PIM-portal of via PowerShell, kan iemand zich in deze rol aanvullende rollen (bijvoorbeeld: globale beheerder of beheerder met bevoorrechte rol), activeren als de gebruiker in aanmerking komt voor deze.
-  [Office 365-beveiliging en compliance](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Beveiligingsbeleid bekijken<br>Weergeven en bedreigingen te onderzoeken<br>Rapporten weergeven
+  [Office 365-centrum voor beveiliging en naleving](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Beveiligingsbeleid bekijken<br>Weergeven en bedreigingen te onderzoeken<br>Rapporten weergeven
   Windows Defender ATP en EDR | Weergeven en onderzoeken van waarschuwingen
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Weergaven gebruiker, apparaat, inschrijving, configuratie en informatie over toepassingen. Kan geen wijzigingen aanbrengen aan Intune.
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alleen-lezen machtigingen heeft en kunnen waarschuwingen beheren
@@ -237,7 +237,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   | --- | --- |
   |Algemene machtigingen|<p>Gebruikers en groepen maken</p><p>Gebruikersweergaven maken en beheren</p><p>Office-ondersteuningstickets beheren<p>Wachtwoordverloopbeleid bijwerken|
   |<p>Op alle gebruikers, met inbegrip van alle beheerders</p>|<p>Licenties beheren</p><p>Eigenschappen van alle gebruikers, behalve de User Principal Name beheren</p>
-  |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Gastuitnodiging<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Gebruikerbeheerder|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
+  |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Afzender van gastuitnodigingen<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Gebruikerbeheerder|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
   
   <b>Belangrijke</b>: Gebruikers met deze rol kunnen wachtwoorden wijzigen voor gebruikers die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie binnen en buiten Azure Active Directory. Wijzigen van het wachtwoord van een gebruiker kan betekenen dat de mogelijkheid om te wordt ervan uitgegaan dat de identiteit en de machtigingen van die gebruiker. Bijvoorbeeld:
   * Registratie van toepassingen en zakelijke toepassing eigenaren, die de referenties van waarvan ze eigenaar apps kunnen beheren. Deze apps kunnen machtigingen in Azure AD privileged en ergens anders niet worden toegekend aan beheerders. Via dit pad voor de beheerder van een gebruiker kan mogelijk wordt ervan uitgegaan dat de identiteit van de eigenaar van een toepassing en vervolgens de identiteit aannemen van een bevoegde toepassing door bij te werken van de referenties voor de toepassing.
@@ -323,7 +323,7 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Werk de basiseigenschappen voor een organisatie bij in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
@@ -341,7 +341,7 @@ Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip 
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
@@ -350,10 +350,10 @@ Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip 
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
+### <a name="cloud-application-administrator"></a>Cloudtoepassingsbeheerder
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve App Proxy.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/applications/audience/update | Werk de eigenschap applications.audience bij in Azure Active Directory. |
 | microsoft.aad.directory/applications/authentication/update | Werk de eigenschap applications.authentication bij in Azure Active Directory. |
@@ -395,7 +395,7 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 ### <a name="cloud-device-administrator"></a>Cloud-apparaatbeheerder
 Volledige toegang om apparaten te beheren in Azure AD.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/auditLogs/allProperties/read | Alle eigenschappen (inclusief bevoegde eigenschappen) lezen in auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | De eigenschap devices.bitLockerRecoveryKeyss lezen in Azure Active Directory. |
@@ -414,7 +414,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Alle resources maken en verwijderen en de standaardeigenschappen in microsoft.aad.cloudAppSecurity lezen en bijwerken. |
 | microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Maak en verwijder administrativeUnits en lees alle eigenschappen in Azure Active Directory en werk deze bij. |
@@ -480,7 +480,7 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
@@ -514,7 +514,7 @@ Kan alle aspecten van het Dynamics 365-product beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
@@ -536,7 +536,7 @@ Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klan
 | microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Beheer alle aspecten van Office 365 Klanten-lockbox |
 
-### <a name="device-administrators"></a>Apparaatadministrators
+### <a name="device-administrators"></a>Apparaatbeheerders
 Gebruikers die zijn toegewezen aan deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
 
 | **Acties** | **Beschrijving** |
@@ -547,7 +547,7 @@ Gebruikers die zijn toegewezen aan deze rol worden toegevoegd aan de groep lokal
 ### <a name="directory-readers"></a>Adreslijstlezers
 Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/administrativeUnits/basic/read | Lees de basiseigenschappen van administrativeUnits in Azure Active Directory. |
 | microsoft.aad.directory/administrativeUnits/members/read | Lees de eigenschap administrativeUnits.members in Azure Active Directory. |
@@ -600,7 +600,7 @@ Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot
 ### <a name="directory-synchronization-accounts"></a>Synchronisatie van Active Directory-Accounts
 Alleen gebruikt door Azure AD Connect-service.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Werk de eigenschap organization.dirSync bij in Azure Active Directory. |
 | microsoft.aad.directory/policies/create | Maak beleid in Azure Active Directory. |
@@ -634,7 +634,7 @@ Alleen gebruikt door Azure AD Connect-service.
 ### <a name="directory-writers"></a>Schrijvers van mappen
 Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Maak groepen in Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Maak groepen in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
@@ -661,7 +661,7 @@ Kan alle aspecten van het product Exchange beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified bijwerken in Azure Active Directory. |
 | microsoft.aad.directory/groups/unified/basic/update | De basiseigenschappen van Office 365-groepen bijwerken. |
@@ -676,10 +676,10 @@ Kan alle aspecten van het product Exchange beheren.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="guest-inviter"></a>Gastuitnodiging
+### <a name="guest-inviter"></a>Afzender van gastuitnodigingen
 Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruikers uitnodigen.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Lees de eigenschap users.appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/users/basic/read | Lees de basiseigenschappen voor gebruikers in Azure Active Directory. |
@@ -695,7 +695,7 @@ Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruik
 ### <a name="helpdesk-administrator"></a>Helpdeskbeheerder
 Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | De eigenschap devices.bitLockerRecoveryKeyss lezen in Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
@@ -714,7 +714,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | Beheer alle aspecten van Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
@@ -730,7 +730,7 @@ Kan alle aspecten van het product Intune beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/contacts/basic/update | Werk de basiseigenschappen voor contactpersonen bij in Azure Active Directory. |
 | microsoft.aad.directory/contacts/create | Maak contactpersonen in Azure Active Directory. |
@@ -762,7 +762,7 @@ Kan alle aspecten van het product Intune beheren.
 ### <a name="license-administrator"></a>Licentiebeheerder
 Kan productlicenties voor gebruikers en groepen beheren.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Beheer licenties voor gebruikers in Azure Active Directory. |
 | microsoft.aad.directory/users/usageLocation/update | Werk de eigenschap users.usageLocation bij in Azure Active Directory. |
@@ -795,7 +795,7 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Berichten lezen in microsoft.office365.messageCenter. |
@@ -866,7 +866,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="power-bi-service-administrator"></a>Servicebeheerder van Power BI
+### <a name="power-bi-service-administrator"></a>Power BI-servicebeheerder
 Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
@@ -874,7 +874,7 @@ Kan alle aspecten van het Power BI-product beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
@@ -886,7 +886,7 @@ Kan alle aspecten van het Power BI-product beheren.
 ### <a name="privileged-authentication-administrator"></a>Bevoorrechte verificatiebeheerder
 Is gemachtigd voor het weergeven, instellen en opnieuw instellen van de gegevens voor de verificatiemethode van elke gebruiker (beheerder of niet-beheerder).
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
 | microsoft.aad.directory/users/strongAuthentication/update | De eigenschappen van sterke verificatie bijwerken, bijvoorbeeld MFA-referentiegegevens. |
@@ -917,7 +917,7 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/auditLogs/allProperties/read | Alle eigenschappen (inclusief bevoegde eigenschappen) lezen in auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Alle eigenschappen (inclusief bevoegde eigenschappen) lezen in signInReports in Azure Active Directory. |
@@ -933,7 +933,7 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/applications/policies/update | Werk de eigenschap applications.policies bij in Azure Active Directory. |
 | microsoft.aad.directory/auditLogs/allProperties/read | Alle eigenschappen (inclusief bevoegde eigenschappen) lezen in auditLogs in Azure Active Directory. |
@@ -962,7 +962,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/auditLogs/allProperties/read | Alle eigenschappen (inclusief bevoegde eigenschappen) lezen in auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | De eigenschap devices.bitLockerRecoveryKeyss lezen in Azure Active Directory. |
@@ -982,7 +982,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
@@ -998,7 +998,7 @@ Kan alle aspecten van de SharePoint-service beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified bijwerken in Azure Active Directory. |
 | microsoft.aad.directory/groups/unified/basic/update | De basiseigenschappen van Office 365-groepen bijwerken. |
@@ -1038,7 +1038,7 @@ Kan communicatieproblemen in Teams oplossen met geavanceerde hulpprogramma's.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
@@ -1066,7 +1066,7 @@ Kan de service Microsoft Teams beheren.
   >
   >
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Lees de eigenschap groups.hiddenMembers in Azure Active Directory. |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified bijwerken in Azure Active Directory. |
@@ -1085,7 +1085,7 @@ Kan de service Microsoft Teams beheren.
 ### <a name="user-administrator"></a>Gebruikerbeheerder
 Kan alle aspecten van gebruikers en groepen beheren, inclusief het opnieuw instellen van wachtwoorden voor bepaalde beheerders.
 
-| **Acties** | **Beschrijving** |
+| **Acties** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/appRoleAssignments/create | Maak appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Verwijder appRoleAssignments in Azure Active Directory. |
@@ -1130,22 +1130,22 @@ Toepassingsontwikkelaar | Toepassingsontwikkelaar | CF1C38E5-3621-4004-A7CB-8796
 Verificatiebeheerder | Verificatiebeheerder | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Factureringsbeheerder | Factureringsbeheerder | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Desktop Analytics-beheerder | Desktop Analytics-beheerder | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Beheerder van de cloudtoepassing | Beheerder van de cloudtoepassing | 158c047a-c907-4556-b7ef-446551a6b5f7
+Cloudtoepassingsbeheerder | Cloudtoepassingsbeheerder | 158c047a-c907-4556-b7ef-446551a6b5f7
 Cloud-apparaatbeheerder | Cloudapparaatbeheerder | 7698a772-787b-4ac8-901f-60d6b08affd2
 Bedrijfsbeheerder | Globale beheerder | 62e90394-69f5-4237-9190-012177145e10
 Beheerder voor naleving | Beheerder voor naleving | 17315797-102d-40b4-93e0-432062caca18
 Voorwaardelijke toegang beheerder | Beheerder voor voorwaardelijke toegang | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM-servicebeheerder | Dynamics 365-beheerder | 44367163-eba1-44c3-98af-f5787879f96a
 Toegangsfiatteur voor Klanten-lockbox | Klanten-Lockbox toegang goedkeurder | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
-Apparaatadministrators | Apparaatbeheerders | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Apparaatbeheerders | Apparaatbeheerders | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Toevoegen | Toevoegen | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Apparaatbeheerders | Device Manager-services | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Gebruikers van apparaten | Gebruikers van apparaten | d405c6df-0af8-4e3b-95e4-4d06e542189e
-Adreslijstlezers | Lezers van mappen | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Synchronisatie van Active Directory-Accounts | Directory-accounts voor synchronisatie | d29b2b05-8046-44ba-8758-1e26182fcf32
-Schrijvers van mappen | Schrijvers van mappen | 9360feb5-f418-4baa-8175-e2a00bac4301
+Adreslijstlezers | Adreslijstlezers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Synchronisatie van Active Directory-Accounts | Adreslijstsynchronisatieaccounts | d29b2b05-8046-44ba-8758-1e26182fcf32
+Schrijvers van mappen | Adreslijstschrijvers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service-beheerder | Exchange-beheerder | 29232cdf-9323-42fd-ade2-1d097af3e4de
-Gastuitnodiging | Gastuitnodiging | 95e79109-95c0-4d8e-aee3-d01accf2d47b
+Afzender van gastuitnodigingen | Afzender van gastuitnodigingen | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdeskbeheerder | Wachtwoordbeheerder | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Information Protection-beheerder | Information Protection-beheerder | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune-servicebeheerder | Intune-beheerder | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1154,10 +1154,10 @@ Lync-servicebeheerder | Skype voor Bedrijven-beheerder | 75941009-915a-4869-abe7
 Berichtencentrum-lezer | Berichtencentrum-lezer | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Laag1-ondersteuning voor partner | Laag1-ondersteuning voor partner | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Laag2-ondersteuning voor partner | Laag2-ondersteuning voor partner | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Servicebeheerder van Power BI | Power BI-beheerder | a9ea8996-122f-4c74-9520-8edcd192826c
+Power BI-servicebeheerder | Power BI-beheerder | a9ea8996-122f-4c74-9520-8edcd192826c
 Bevoorrechte verificatiebeheerder | Bevoorrechte verificatiebeheerder | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
-Beheerder met bevoorrechte rol | Beheerder met bevoorrechte rol | e8611ab8-c189-46e8-94e1-60213ab1f814
-Rapportenlezer | Rapportenreader | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Beheerder met bevoorrechte rol | Beheerder voor bevoorrechte rollen | e8611ab8-c189-46e8-94e1-60213ab1f814
+Rapportenlezer | Rapportenlezer | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Beveiligingsbeheerder | Beveiligingsbeheerder | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Beveiligingslezer | Beveiligingslezer | 5d6b6bb7-de71-4623-b4af-96380a352509
 Beheerder serviceondersteuning | Servicebeheerder | f023fd81-a637-4b56-95fd-791ac0226033

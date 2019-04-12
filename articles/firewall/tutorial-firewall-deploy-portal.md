@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426406"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492308"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -43,6 +43,8 @@ In deze zelfstudie leert u het volgende:
 > * Een regel voor een toepassing voor toegang tot www.google.com configureren
 > * Een netwerkregel configureren om toegang tot externe DNS-servers toe te staan
 > * De firewall testen
+
+U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](deploy-ps.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

@@ -1,6 +1,6 @@
 ---
-title: Gegevens verzamelen Check Point in Azure Sentinel Preview | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Check Point.
+title: Check Point gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Check Point gegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876493"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489173"
 ---
 # <a name="connect-your-check-point-appliance"></a>Verbinding maken met uw apparaat Check Point
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876493"
 U kunt Azure Sentinel verbinden met een apparaat Check Point door op te slaan van de logboekbestanden als Syslog CEF. De integratie met Azure Sentinel kunt u gemakkelijk uitvoeren op analytics en query's voor gegevens van het logboekbestand van Check Point. Zie voor meer informatie over hoe Azure Sentinel gegevens op CEF neemt. [CEF verbinding maken met apparaten](connect-common-event-format.md).
 
 > [!NOTE]
-> - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Stap 1: Verbinding maken met de Check Point-apparaat met behulp van een agent
 
@@ -42,7 +42,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 
 ### <a name="deploy-the-agent-in-azure"></a>De agent in Azure implementeren
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype. 
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
 
 1. Onder **Linux Syslog-agentconfiguratie**:
    - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke virtuele machine die automatisch is verbonden met uw werkruimte. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.

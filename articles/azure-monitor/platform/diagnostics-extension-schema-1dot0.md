@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811525"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492716"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Het Schema van Azure Diagnostics 1.0
 > [!NOTE]
 > Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric en Cloud Services.  Deze pagina is alleen van toepassing als u een van deze services.
 >
 
-Azure Diagnostics wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens, zoals Azure Monitor, Application Insights en Log Analytics.
+Azure Diagnostics wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens, zoals Azure Monitor, met inbegrip van Application Insights en Log Analytics.
 
 Het configuratiebestand van de Azure Diagnostics definieert u waarden die worden gebruikt voor het initialiseren van de Monitor diagnostische gegevens. Dit bestand wordt gebruikt om te initialiseren diagnostische configuratie-instellingen wanneer de monitor diagnostische gegevens wordt gestart.  
 
@@ -113,7 +113,7 @@ Bovenliggend Element: DiagnosticMonitorConfiguration-Element.
 
 Kenmerken:
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferLogLevelFilter**|string|Optioneel. Hiermee geeft u het minimale ernstniveau voor logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**. Andere mogelijke waarden zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **kritieke**.|  
@@ -176,7 +176,7 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
@@ -207,7 +207,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**path**|string|Vereist. Het absolute pad naar de map om te controleren.|  
+|**pad**|string|Vereist. Het absolute pad naar de map om te controleren.|  
 |**expandEnvironment**|booleaans|Vereist. Indien ingesteld op **waar**, omgevingsvariabelen in het pad worden uitgevouwen.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
@@ -217,9 +217,9 @@ Kenmerken:
 
 Kenmerken:  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
-|**De naam**|string|Vereist. De naam van de lokale resource die de map voor het bewaken van bevat.|  
+|**naam**|string|Vereist. De naam van de lokale resource die de map voor het bewaken van bevat.|  
 |**relativePath**|string|Vereist. Het pad relatief ten opzichte van de lokale resource om te controleren.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters-Element  
@@ -230,7 +230,7 @@ Kenmerken:
 
  Kenmerken:  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale hoeveelheid opslag bestandssysteem dat beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
 |**scheduledTransferPeriod**|duur|Optioneel. Hiermee geeft u het interval tussen geplande overdracht van gegevens, naar boven afgerond op de dichtstbijzijnde minuut.<br /><br /> De standaardwaarde is PT0S.|  
@@ -242,7 +242,7 @@ Kenmerken:
 
  Kenmerken:  
 
-|Kenmerk|Type|Description|  
+|Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Vereist. Het pad naar het prestatiemeteritem voor het verzamelen van.|  
 |**sampleRate**|duur|Vereist. De snelheid waarmee het prestatiemeteritem moet worden verzameld.|  
@@ -269,5 +269,5 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**De naam**|string|Vereist. Een XPath-expressie op te geven van het logboek te verzamelen.|  
+|**naam**|string|Vereist. Een XPath-expressie op te geven van het logboek te verzamelen.|  
 

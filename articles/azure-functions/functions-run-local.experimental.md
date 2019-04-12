@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471274"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497097"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -149,7 +149,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
 | **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
@@ -192,7 +192,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 }
 ```
 
-| Instelling      | Description                            |
+| Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
 | **`Values`** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [ `FUNCTIONS_WORKER_RUNTIME` ] instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
@@ -399,7 +399,7 @@ U kunt ook een functie aanroepen via `func run <FunctionName>` en geef de invoer
 
 `func run` ondersteunt de volgende opties:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Inline-inhoud. |
 | **`--debug -d`** | Voeg een debugger toe aan het hostproces voordat u de functie uitvoert.|
@@ -439,7 +439,7 @@ De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als 
 
 Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|

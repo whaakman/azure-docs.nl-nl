@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview Barracuda | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Barracuda.
+title: Barracuda gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met gegevens van Barracuda Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574715"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492835"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Verbinding maken met uw Barracuda-apparaat 
 
@@ -31,11 +31,10 @@ Barracuda Web Application Firewall (WAF)-connector kunt u eenvoudig verbinding m
 
 
 > [!NOTE]
-> 
-> - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configureren en verbinden van Barracuda WAF
-Barracuda Web Application Firewall kunt integreren en logboeken rechtstreeks naar [ASI] via Azure OMS-Server exporteren.
+Barracuda Web Application Firewall kunt integreren en logboeken exporteren rechtstreeks naar Azure Sentinel via Azure OMS-Server.
 1. Ga naar [Barracuda WAF-configuratie stroom](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), en volg de instructies voor het instellen van de verbinding, met behulp van deze parameters:
     - **Werkruimte-ID**: Kopieer de waarde van uw werkruimte-ID van de pagina Azure Sentinel Barracuda-connector.
     - **Primaire sleutel**: Kopieer de waarde van uw primaire sleutel vanaf de pagina Azure Sentinel Barracuda-connector.

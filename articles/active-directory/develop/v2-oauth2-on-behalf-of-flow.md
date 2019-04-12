@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276045"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501592"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-platform en OAuth 2.0 namens-stroom
 
@@ -33,7 +33,7 @@ De OAuth 2.0 namens-stroom (OBO) fungeert de use-case die waar een toepassing ee
 
 > [!NOTE]
 >
-> - Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md). Met name worden bekend clienttoepassingen niet ondersteund voor apps met Microsoft-account (MSA) en Azure AD doelgroepen. Een algemeen patroon toestemming voor OBO werkt dus niet voor clients die zich in zowel persoonlijke en werk-of schoolaccount. Zie voor meer informatie over het afhandelen van deze stap van de stroom, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application).
+> - Het eindpunt van de Microsoft identity-platform biedt geen ondersteuning voor alle scenario's en onderdelen. Meer informatie over om te bepalen of moet u het eindpunt van de Microsoft identity-platform, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md). Met name worden niet bekend clienttoepassingen ondersteund voor apps met Microsoft-account (MSA) en Azure AD doelgroepen. Een algemeen patroon toestemming voor OBO werkt dus niet voor clients die zich in zowel persoonlijke en werk-of schoolaccount. Zie voor meer informatie over het afhandelen van deze stap van de stroom, [krijgen toestemming voor de middelste laag-toepassing](#gaining-consent-for-the-middle-tier-application).
 > - Vanaf mei 2018, bepaalde impliciete stroom afgeleid `id_token` voor OBO stroom kan niet worden gebruikt. Apps van één pagina (kuuroorden) moeten worden verwerkt een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen in plaats daarvan. Zie voor meer informatie over welke clients OBO aanroepen kunnen uitvoeren, [beperkingen](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
@@ -55,7 +55,7 @@ De volgende stappen de stroom OBO vormen en met behulp van het volgende diagram 
 
 ## <a name="service-to-service-access-token-request"></a>Service-naar-service toegangstokenaanvraag
 
-Om aan te vragen een toegangstoken, door een HTTP POST naar het eindpunt van de tenant-specifieke v2.0-token met de volgende parameters te maken.
+Om aan te vragen een toegangstoken, moet u een HTTP POST maken voor de tenant-specifieke Microsoft identity platform token-eindpunt met de volgende parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Krijgen toestemming voor de middelste laag-toepassing
 
-Afhankelijk van de doelgroep voor uw toepassing, kunt u overwegen om verschillende strategieën om ervoor te zorgen dat de stroom OBO voltooid is. In alle gevallen moet is het uiteindelijke doel om ervoor te zorgen goede toestemming krijgt. Hoe dat, maar gebeurt is afhankelijk van welke gebruikers uw toepassing ondersteunt. 
+Afhankelijk van de doelgroep voor uw toepassing, kunt u overwegen om verschillende strategieën om ervoor te zorgen dat de stroom OBO voltooid is. In alle gevallen moet is het uiteindelijke doel om ervoor te zorgen goede toestemming krijgt. Hoe dat, maar gebeurt is afhankelijk van welke gebruikers uw toepassing ondersteunt.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Toestemming voor Azure AD alleen-lezen-toepassingen
 
 #### <a name="default-and-combined-consent"></a>/.Default en gecombineerde toestemming
 
-Voor toepassingen waarvoor alleen aanmelden werk of school-accounts, is de traditionele aanpak voor "Clienttoepassingen bekend" voldoende. De middelste laag-toepassing de client toegevoegd aan de lijst met bekende clients toepassingen in het manifest en vervolgens de client een gecombineerde instemmingsstroom zelf en de middelste laag-toepassing kunt activeren. Op het v2.0-eindpunt, dit wordt gedaan met behulp van de [ `/.default` bereik](v2-permissions-and-consent.md#the-default-scope). Bij het activeren van een instemmingsscherm met behulp van bekende clienttoepassingen en `/.default`, het instemmingsscherm worden machtigingen voor zowel de client op de middelste laag API weergeven en ook vragen welke machtigingen zijn vereist voor de middelste laag-API. De gebruiker heeft ingestemd voor beide toepassingen en vervolgens de stroom OBO werkt.
+Voor toepassingen waarvoor alleen aanmelden werk of school-accounts, is de traditionele aanpak voor "Clienttoepassingen bekend" voldoende. De middelste laag-toepassing de client toegevoegd aan de lijst met bekende clients toepassingen in het manifest en vervolgens de client een gecombineerde instemmingsstroom zelf en de middelste laag-toepassing kunt activeren. Op het eindpunt van Microsoft identity-platform, dit wordt gedaan met behulp van de [ `/.default` bereik](v2-permissions-and-consent.md#the-default-scope). Bij het activeren van een instemmingsscherm met behulp van bekende clienttoepassingen en `/.default`, het instemmingsscherm worden machtigingen voor zowel de client op de middelste laag API weergeven en ook vragen welke machtigingen zijn vereist voor de middelste laag-API. De gebruiker heeft ingestemd voor beide toepassingen en vervolgens de stroom OBO werkt.
 
 Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoonlijke Microsoft-accountsysteem en deze benadering werkt dus niet voor apps die u wilt aanmelden specifiek persoonlijke accounts. Persoonlijke Microsoft-accounts wordt gebruikt als Gast-account in een tenant worden verwerkt met behulp van het Azure AD-systeem en gecombineerde toestemming kunnen doorlopen.
 
@@ -211,7 +211,7 @@ Een tenantbeheerder kan garanderen dat toepassingen kan worden gemachtigd om aan
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Toestemming voor op Azure AD en Microsoft-account-toepassingen
 
-De toestemming-vereisten voor persoonlijke accounts zijn veroorzaakt door beperkingen in het machtigingenmodel voor persoonlijke accounts en het ontbreken van een tenant van bestuur enigszins verschillen van Azure AD. Er is geen tenant toestemming voor tenant-brede en is er de mogelijkheid voor gecombineerde toestemming geven. Dus, andere strategieën aanwezig zelf - Houd er rekening mee dat dit voor toepassingen die alleen nodig werkt voor de ondersteuning van Azure AD-accounts.
+Vanwege de beperkingen in het machtigingenmodel voor persoonlijke accounts en het ontbreken van een geldende tenant, moet aan de vereisten toestemming voor persoonlijke accounts zijn iets anders uit Azure AD. Er is geen tenant toestemming voor tenant-brede en is er de mogelijkheid voor gecombineerde toestemming geven. Dus, andere strategieën aanwezig zelf - Houd er rekening mee dat dit voor toepassingen die alleen nodig werkt voor de ondersteuning van Azure AD-accounts.
 
 #### <a name="use-of-a-single-application"></a>Gebruik van één toepassing
 

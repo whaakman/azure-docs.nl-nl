@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588344"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501107"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Over het gebruik van Service Bus-wachtrijen met Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Deze handleiding wordt beschreven hoe u Service Bus-wachtrijen. De voorbeelden zijn geschreven in Ruby en gebruiken van de Azure gem. De behandelde scenario's zijn **maken van wachtrijen, verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**. Zie voor meer informatie over Service Bus-wachtrijen, de [Vervolgstappen](#next-steps) sectie.
+In deze zelfstudie leert u hoe u Ruby-toepassingen voor het verzenden van berichten naar en ontvangen van berichten van een Service Bus-wachtrij maakt. De voorbeelden zijn geschreven in Ruby en gebruiken van de Azure gem.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [gebruik Azure portal voor het maken van een Service Bus-wachtrij](service-bus-quickstart-portal.md) artikel.
+    1. Het snel lezen **overzicht** van Service Bus **wachtrijen**. 
+    2. Maken van een Service Bus **naamruimte**. 
+    3. Krijgen de **verbindingsreeks**. 
 
-## <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > U maakt een **wachtrij** in de Service Bus-naamruimte met behulp van Ruby in deze zelfstudie. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Een wachtrij maken

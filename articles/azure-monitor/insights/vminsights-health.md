@@ -11,17 +11,18 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c330e36210e97172c8f06bbfc3850210e200777
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260337"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490037"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines"></a>De status van uw virtuele Azure-machines begrijpen 
-Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u voor verschillende voorwaarden met behulp van Azure Monitor bewaakt kan, is niet het ontworpen modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>De status van uw virtuele Azure-machines begrijpen
+
+Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar nog niet hebt opgegeven dat een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines. Terwijl u voor verschillende voorwaarden met behulp van Azure Monitor bewaakt kan, is niet het ontworpen modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen. Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
 
 De algehele status van de Azure-VM weergave en het onderliggende besturingssysteem kunnen worden waargenomen vanuit twee perspectieven met Azure Monitor status van de virtuele machines, rechtstreeks vanuit de virtuele machine of voor alle virtuele machines in een resourcegroep van Azure Monitor.
 
@@ -30,6 +31,7 @@ In dit artikel helpt u begrijpen hoe u snel beoordelen, onderzoeken en oplossen 
 Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-onboard.md).
 
 ## <a name="monitoring-configuration-details"></a>Informatie over de configuratie controleren
+
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 
 
 ### <a name="windows-vms"></a>Virtuele Windows-machines
@@ -76,17 +78,20 @@ In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd
 - Besturingssysteem beschikbaar geheugen (MB)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+
 Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
 ## <a name="introduction-to-health-experience"></a>Inleiding tot de Health-ervaring
+
 Voordat u met behulp van de Health-functie voor een enkele virtuele machine of een groep virtuele machines, is het belangrijk bieden we een korte inleiding, zodat u begrijpt hoe de informatie wordt weergegeven en wat de visualisaties vertegenwoordigen.  
 
 ## <a name="view-health-directly-from-a-virtual-machine"></a>Weergave wordt de status rechtstreeks van een virtuele machine 
+
 Als u de status van een Azure-VM, selecteer **inzichten (preview)** in het linkerdeelvenster van de virtuele machine. Klik op de pagina VM insights **Health** standaard open is en toont de statusweergave van de virtuele machine.  
 
 ![Azure Monitor voor een overzicht van virtuele machines van een geselecteerde Azure-machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-Op de **Health** tabblad onder de sectie **Gast-VM-status**, de tabel ziet u de huidige status van uw virtuele machine en het totale aantal VM-status waarschuwingen die worden gegenereerd door een slecht onderdeel. Raadpleeg de sectie waarschuwingen voor meer informatie over de ervaring voor waarschuwingen.  
+Op de **Health** tabblad onder de sectie **Gast-VM-status**, de tabel ziet u de huidige status van uw virtuele machine en het totale aantal VM-status waarschuwingen die worden gegenereerd door een slecht onderdeel. Zie voor meer informatie, [waarschuwingen](#alerts) voor meer informatie over de waarschuwingen optreden.  
 
 De statussen die is gedefinieerd voor een virtuele machine worden in de volgende tabel beschreven: 
 
@@ -104,6 +109,7 @@ Onder de **status onderdeel** sectie, de tabel ziet u een updatepakket status va
 Bij het openen van status van een Azure-VM met het Windows-besturingssysteem, de status van de top vijf core services worden weergegeven onder de sectie Windows **Core services health**.  Een van de services te selecteren, wordt een pagina weergegeven van de criteria voor beveiligingsstatus controleren dat onderdeel en de status geopend.  Het deelvenster met de eigenschap te klikken op de naam van de criteria voor servicestatus wordt geopend, en vanaf hier kunt u de configuratiegegevens, met inbegrip van de criteria voor beveiligingsstatus heeft een bijbehorende Azure Monitor-waarschuwing gedefinieerd bekijken. Zie voor meer informatie, [status diagnostische gegevens en werken met de criteria voor beveiligingsstatus](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Totale virtuele-machine-perspectief
+
 Als u wilt weergeven voor verzamelen van statussen voor al uw virtuele machines in een resourcegroep in de navigatielijst in de portal, selecteert u **Azure Monitor** en selecteer vervolgens **virtuele Machines (preview)**.  
 
 ![VM-inzichten bewakingsweergave van Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
@@ -147,6 +153,7 @@ Selecteren **weergeven van alle criteria voor beveiligingsstatus** opent een pag
 U kunt inzoomen verder naar beneden om te zien welke instanties zijn niet in orde door te klikken op een waarde onder de **niet in orde onderdeel** kolom.  Klik op de pagina bevat een tabel de onderdelen, die zich in een kritieke status heeft.    
 
 ## <a name="health-diagnostics"></a>Status diagnostische gegevens
+
 Thge **diagnostische gegevens over gezondheid** op de pagina kunt u voor het visualiseren van het statusmodel van een virtuele machine, lijst van alle onderdelen van de virtuele machine, criteria voor beveiligingsstatus, statuswijzigingen, die zijn gekoppeld en andere belangrijke problemen geïdentificeerd door bewaakte onderdelen die betrekking hebben aan de virtuele machine.
 
 ![Voorbeeld van diagnostische gegevens van Health-pagina voor een virtuele machine](./media/vminsights-health/health-diagnostics-page-01.png)
@@ -166,7 +173,7 @@ Diagnostische gegevens over gezondheid ordent statusgegevens in de volgende cate
  
 Alle health criteria gedefinieerd voor een specifiek onderdeel, zoals logische schijf, CPU, enzovoort kunnen worden weergegeven zonder te filteren op de twee categorieën (dat wil zeggen een volledige weergave van alle criteria) of de resultaten te filteren op een categorie bij het selecteren van **beschikbaarheid**  of **prestaties** opties op de pagina. Bovendien de categorie van de criteria kan worden weergegeven naast het in de **Criteria voor beveiligingsstatus** kolom. Als de criteria komt niet overeen met de geselecteerde categorie, ziet het bericht **niet beschikbaar voor de geselecteerde categorie van de criteria voor beveiligingsstatus** in de **Criteria voor beveiligingsstatus** kolom.  
 
-Status van een health-criteria wordt gedefinieerd door een van de vier statussen – *kritieke*, *waarschuwing*, *orde*, en *onbekende*. De eerste drie kunnen worden geconfigureerd, wat betekent dat u kunt de drempelwaarden van de monitors met behulp van de [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Onbekende* is niet kunnen worden geconfigureerd en is gereserveerd voor specifieke scenario's.  
+Status van een health-criteria wordt gedefinieerd door een van de vier statussen – *kritieke*, *waarschuwing*, *orde*, en *onbekende*. De eerste drie kunnen worden geconfigureerd, wat betekent dat u de drempelwaarden van de monitors die rechtstreeks vanuit het deelvenster van de configuratie van de gezondheid van Criteria kunt wijzigen of met behulp van de Azure Monitor REST API [monitor de updatebewerking](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Onbekende* is niet kunnen worden geconfigureerd en is gereserveerd voor specifieke scenario's.  
 
 Diagnostische gegevens statuspagina heeft drie belangrijkste secties:
 
@@ -177,6 +184,7 @@ Diagnostische gegevens statuspagina heeft drie belangrijkste secties:
 ![Secties van diagnostische gegevens van Health-pagina](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>Onderdeelmodel
+
 De meest linkse kolom in de pagina Status diagnostische gegevens is het Onderdeelmodel. Alle onderdelen, die gekoppeld aan de virtuele machine zijn, worden weergegeven in deze kolom, samen met hun huidige status. 
 
 In het volgende voorbeeld worden de gedetecteerde onderdelen schijf, logische schijf, processor, geheugen en besturingssysteem. Meerdere exemplaren van deze onderdelen worden gedetecteerd en weergegeven in deze kolom. De onderstaande afbeelding ziet u bijvoorbeeld dat de virtuele machine heeft twee exemplaren van logische schijven - C: en D:, die zich in een foutloze toestand bevindt.  
@@ -184,19 +192,20 @@ In het volgende voorbeeld worden de gedetecteerde onderdelen schijf, logische sc
 ![Onderdeel voorbeeldmodel weergegeven in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>Criteria voor servicestatus
+
 De middelste kolom in de diagnostische gegevens van Health-pagina wordt de **Criteria voor beveiligingsstatus** kolom. Het statusmodel gedefinieerd voor de virtuele machine wordt weergegeven in een hiërarchische structuur. Het statusmodel van een virtuele machine bestaat uit eenheid en de van statistische gezondheidscriteria.  
 
 ![Voorbeeld van de status criteria die zijn gepresenteerd in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
 Een criterium status meet de status van het bewaakte-exemplaar met bepaalde criteria, wat erop kan een drempelwaarde, de status van een entiteit, enzovoort. Een criterium health heeft twee of drie configureerbare health state drempelwaarden, zoals eerder beschreven. Het criterium health kan op elk gewenst moment worden in slechts één potentiële status. 
 
-De algemene status van een doel wordt bepaald door de status van elk van de health-criteria gedefinieerd in het status-model. Er is een combinatie van criteria voor beveiligingsstatus gericht rechtstreeks op het doel, status-criteria die zijn gericht op onderdelen getotaliseerd in het doel via een criterium cumulatieve status. Deze hiërarchie wordt weergegeven in de **Criteria voor beveiligingsstatus** sectie van de diagnostische gegevens van Health-pagina. Het beleid voor statustotalisatie maakt deel uit van de configuratie van de cumulatieve status criteria (standaard is ingesteld op *slechtste van*). U vindt een lijst van de standaardset van criteria voor beveiligingsstatus uitgevoerd als onderdeel van deze functie onder de sectie [bewaking configuratiedetails](#monitoring-configuration-details).  
+De algemene status van een doel wordt bepaald door de status van elk van de health-criteria gedefinieerd in het status-model. Er is een combinatie van criteria voor beveiligingsstatus gericht rechtstreeks op het doel, status-criteria die zijn gericht op onderdelen getotaliseerd in het doel via een criterium cumulatieve status. Deze hiërarchie wordt weergegeven in de **Criteria voor beveiligingsstatus** sectie van de diagnostische gegevens van Health-pagina. Het beleid voor statustotalisatie maakt deel uit van de configuratie van de cumulatieve status criteria (standaard is ingesteld op *slechtste van*). U vindt een lijst van de standaardset van criteria voor beveiligingsstatus uitgevoerd als onderdeel van deze functie onder de sectie [configuratiedetails bewaking](#monitoring-configuration-details), en kunt u de Azure Monitor REST API [exemplaren - lijst met resources controleren bewerking](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) voor een lijst van alle criteria voor de servicestatus en de gedetailleerde configuratie uitvoeren op basis van de Azure VM-resource.  
 
 **Eenheid** Health criteriumtype kan hebben hun configuratie is gewijzigd door te klikken op de ellips koppeling naar de uiterst rechts en vervolgens **Details weergeven** om de configuratie van deelvenster te openen. 
 
 ![Een voorbeeld van een health criteria configureren](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-Met behulp van het voorbeeld in het deelvenster configuratie voor de geselecteerde status criteria **gemiddelde seconden Per schrijven**, de drempelwaarde kan worden geconfigureerd met een andere numerieke waarde. Het is een monitor voor twee statussen, wat betekent dat deze alleen de wijzigingen van goed in waarschuwing. Andere health-criterium mogelijk drie statussen, waarin u de waarde voor de statusdrempel waarschuwingen en kritieke status kunt configureren.  
+Met behulp van het voorbeeld in het deelvenster configuratie voor de geselecteerde status criteria **gemiddelde seconden Per schrijven**, de drempelwaarde kan worden geconfigureerd met een andere numerieke waarde. Het is een monitor voor twee statussen, wat betekent dat deze alleen de wijzigingen van goed in waarschuwing. Andere health-criterium mogelijk drie statussen, waarin u de waarde voor de statusdrempel waarschuwingen en kritieke status kunt configureren. U kunt ook wijzigen met de drempelwaarde voor de REST-API van Azure Monitor [monitor de updatebewerking](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
 >Configuratiewijzigingen voor de gezondheid van criteria toepassen op één exemplaar wordt toegepast op alle gecontroleerde exemplaren.  Als u bijvoorbeeld **schijf D:-1** en wijzig de **gemiddelde seconden Per schrijven** drempelwaarde, geldt niet voor alleen dat exemplaar, maar alle instanties van andere schijf gedetecteerd en bewaakt op de virtuele machine.
@@ -207,6 +216,7 @@ Met behulp van het voorbeeld in het deelvenster configuratie voor de geselecteer
 Als u meer informatie over de status indicator wilt, Knowledge Base-artikelen worden te identificeren van problemen, oorzaken en oplossingen. Klik op de **informatie weergeven** koppeling op de pagina en er wordt een nieuw tabblad geopend in uw browser waarin het specifieke kennisartikel. Op elk gewenst moment kunt u bekijken alle van de status criterium Knowledge Base-artikelen opgenomen met Azure Monitor voor virtuele machines Health functie [hier](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Statuswijzigingen
+
 De meest rechtse kolom in de diagnostische gegevens van Health-pagina **statuswijzigingen**. Geeft een lijst van alle wijzigingen die zijn gekoppeld aan de criteria voor beveiligingsstatus dat is geselecteerd in de **Criteria voor beveiligingsstatus** sectie of de wijziging in de status van de virtuele machine als een virtuele machine is geselecteerd in de **Onderdeelmodel** of **Criteria voor beveiligingsstatus** kolom van de tabel. 
 
 ![Voorbeeld van de wijzigingen die zijn gepresenteerd in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-statechanges.png)
@@ -214,6 +224,7 @@ De meest rechtse kolom in de diagnostische gegevens van Health-pagina **statuswi
 In deze sectie bestaat uit de status van de criteria en de bijbehorende tijd gesorteerd op basis van de meest recente status bovenaan.   
 
 ### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Koppeling van Onderdeelmodel, Criteria voor servicestatus en status van kolommen wijzigen 
+
 De drie kolommen zijn onderling met elkaar verbonden. Wanneer u de instantie van een gedetecteerde in selecteert de **Onderdeelmodel** sectie de **Criteria voor beveiligingsstatus** sectie naar de onderdeelweergave van dit wordt gefilterd en dienovereenkomstig de **statuswijziging**sectie wordt bijgewerkt op basis van de status van de geselecteerde criteria. 
 
 ![Voorbeeld van het bewaakte exemplaar en de resultaten selecteren](./media/vminsights-health/health-diagnostics-vm-example-01.png)
@@ -223,19 +234,20 @@ In het bovenstaande voorbeeld, wanneer u selecteert **schijf - 1 D:**, de struct
 Als u wilt een bijgewerkte status zien, kunt u de diagnostische gegevens van Health-pagina vernieuwen door te klikken op de **vernieuwen** koppeling.  Als er een update aan de status van de health-criterium op basis van het vooraf gedefinieerde polling-interval, wordt deze taak kunt u om te voorkomen dat de wachtrij en geeft de status van de meest recente.  De **Criteria status** een filter is zodat u kunt het bereik van de resultaten op basis van de geselecteerde status - *orde*, *waarschuwing*, *kritieke*, *Onbekende*, en *alle*.  De **laatst bijgewerkt** tijd in de rechterbovenhoek vertegenwoordigt de laatste tijd wanneer de diagnostische gegevens van Health-pagina is vernieuwd.  
 
 ## <a name="alerts"></a>Waarschuwingen
+
 Azure Monitor voor de functie van de status van de virtuele machines worden geïntegreerd met [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en genereert een waarschuwing wanneer de status van de vooraf gedefinieerde criteria van goed in in een slechte status wijzigt als de voorwaarde wordt gedetecteerd. Waarschuwingen worden gecategoriseerd op basis van ernst - Sev 0 t/m 4, met Sev 0 staat voor het hoogste ernstniveau.  
 
 Totale aantal VM-status waarschuwingen op basis van ernst worden gecategoriseerd is beschikbaar op de **Health** dashboard onder de sectie **waarschuwingen**. Wanneer u het totale aantal waarschuwingen ofwel het nummer overeenkomt met een ernstniveau selecteert de **waarschuwingen** pagina wordt geopend en geeft een lijst van alle waarschuwingen die overeenkomen met uw selectie.  Bijvoorbeeld, als u hebt geselecteerd de rij die overeenkomt met **ernst niveau 1**, ziet u de volgende weergave:
 
 ![Voorbeeld van alle ernst niveau 1-waarschuwingen](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-Op de **waarschuwingen** pagina, het heeft niet alleen een bereik om weer te geven van waarschuwingen die overeenkomen met uw selectie, maar ook worden gefilterd op **resourcetype** alleen health u waarschuwingen wilt weergeven die worden gegenereerd door de bron van de virtuele machine.  Dit wordt weergegeven in de lijst met waarschuwingen, onder de kolom **Doelresource**, waarbij u hier ziet u de Azure-VM die de waarschuwing is gegeven voor wanneer de status van bepaalde-criteria niet in orde voorwaarde is voldaan.  
+Op de **waarschuwingen** pagina, het heeft niet alleen een bereik om weer te geven van waarschuwingen die overeenkomen met uw selectie, maar ook worden gefilterd op **resourcetype** alleen health u waarschuwingen wilt weergeven die worden gegenereerd door de bron van de virtuele machine.  Deze wordt weergegeven in de lijst met waarschuwingen, onder de kolom **Doelresource**, waarbij u hier ziet u de Azure-VM die de waarschuwing is gegeven voor wanneer de status van bepaalde-criteria niet in orde voorwaarde is voldaan.  
 
 Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te worden opgenomen in deze weergave, zoals waarschuwingen op basis van Logboeken-query's of metrische die waarschuwingen u normaal zou weergeven uit het standaardbeleid voor Azure Monitor [alle waarschuwingen](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina. 
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-|Kolom |Description | 
+|Kolom |Beschrijving | 
 |-------|------------| 
 |Abonnement |Selecteer een Azure-abonnement. Alleen waarschuwingen in het geselecteerde abonnement zijn opgenomen in de weergave. | 
 |Resourcegroep |Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. | 
@@ -267,7 +279,7 @@ De benadering die wordt gebruikt in elk voorbeeld wordt met behulp van [ARMClien
 
 #### <a name="enable-or-disable-alert-rule"></a>In- of uitschakelen van waarschuwingsregel
 
-Inschakelen of uitschakelen van een waarschuwingsregel voor de criteria van een specifieke status, de eigenschap van de criteria health *alertGeneration* moet worden gewijzigd met een waarde van **uitgeschakelde** of **ingeschakeld**. Om te identificeren de *monitorId* van de criteria van een bepaalde status, het volgende voorbeeld wordt beschreven hoe query's uitvoeren voor die waarde voor de criteria **logische Schijf\gemiddelde schijf seconden Per Transfer**.
+Inschakelen of uitschakelen van een waarschuwing voor de criteria van een specifieke status, de eigenschap van de criteria health *alertGeneration* moet worden gewijzigd met een waarde van **uitgeschakelde** of **ingeschakeld**. Om te identificeren de *monitorId* van de criteria van een bepaalde status, het volgende voorbeeld wordt beschreven hoe query's uitvoeren voor die waarde voor de criteria **logische Schijf\gemiddelde schijf seconden Per Transfer**.
 
 1. Typ in een terminalvenster **armclient.exe aanmelding**. In dat geval vraagt u zich aanmeldt bij Azure.
 
@@ -277,14 +289,49 @@ Inschakelen of uitschakelen van een waarschuwingsregel voor de criteria van een 
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
     ```
 
-    Het volgende voorbeeld ziet de uitvoer van deze opdracht. Noteer de waarde van *MonitorId* rood gemarkeerd. Deze waarde is vereist voor de volgende stap waar moeten we de ID van de health-criteria opgeven en de eigenschap voor het maken van een waarschuwing wijzigen.
+    Het volgende voorbeeld ziet de uitvoer van deze opdracht. Noteer de waarde van *MonitorId*. Deze waarde is vereist voor de volgende stap waar moeten we de ID van de health-criteria opgeven en de eigenschap voor het maken van een waarschuwing wijzigen.
 
-    ![Voorbeeld van de monitor-ID voor de criteria voor servicestatus ophalen](./media/vminsights-health/get-monitor-identifier-01.png)
+    ```
+    "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "name": "ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "type": "Microsoft.WorkloadMonitor/virtualMachines/monitors"
+    },
+    {
+      "properties": {
+        "description": "Monitor the performance counter LogicalDisk\\Avg Disk Sec Per Transfer",
+        "monitorId": "Microsoft_LogicalDisk_AvgDiskSecPerTransfer",
+        "monitorName": "Microsoft.LogicalDisk.AvgDiskSecPerTransfer",
+        "monitorDisplayName": "Average Logical Disk Seconds Per Transfer",
+        "parentMonitorName": null,
+        "parentMonitorDisplayName": null,
+        "monitorType": "Unit",
+        "monitorCategory": "PerformanceHealth",
+        "componentTypeId": "LogicalDisk",
+        "componentTypeName": "LogicalDisk",
+        "componentTypeDisplayName": "Logical Disk",
+        "monitorState": "Enabled",
+        "criteria": [
+          {
+            "healthState": "Warning",
+            "comparisonOperator": "GreaterThan",
+            "threshold": 0.1
+          }
+        ],
+        "alertGeneration": "Enabled",
+        "frequency": 1,
+        "lookbackDuration": 17,
+        "documentationURL": "https://aka.ms/Ahcs1r",
+        "configurable": true,
+        "signalType": "Metrics",
+        "signalName": "VMHealth_Avg. Logical Disk sec/Transfer"
+      },
+      "etag": null,
+    ```
 
 3. Typ de volgende opdracht om te wijzigen de *alertGeneration* eigenschap.
 
     ```
-    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
 4. Typ de GET-opdracht in stap 2 wordt gebruikt om te controleren of de waarde van de eigenschap is ingesteld op **uitgeschakelde**.  
@@ -313,7 +360,25 @@ Azure Monitor voor virtuele machines Health biedt ondersteuning voor SMS- en e-m
 
     De uitvoer moet eruitzien als het volgende:
     
-    ![Voorbeeld van uitvoer van Get-notificationSettings](./media/vminsights-health/get-notification-config-status.png)
+    ```
+    {
+      "value": [
+        {
+          "properties": {
+            "actionGroupResourceIds": [
+              "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourceGroups/Lab/providers/microsoft.insights/actionGroups/Lab-IT%20Ops%20Notify"
+            ]
+          },
+          "etag": null,
+          "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/notificationSettings/default",
+          "name": "notificationSettings/default",
+          "type": "Microsoft.WorkloadMonitor/virtualMachines/notificationSettings"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Voor het identificeren van knelpunten en het algehele gebruik met de prestaties van uw VM's, Zie [weergave Azure VM-prestaties](vminsights-performance.md), of als u afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](vminsights-maps.md). 

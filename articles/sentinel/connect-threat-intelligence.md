@@ -1,5 +1,5 @@
 ---
-title: Verzamelen van gegevens van bedreigingsinformatie in Azure Sentinel Preview | Microsoft Docs
+title: Gegevens van bedreigingsinformatie verbinden met Azure Sentinel Preview | Microsoft Docs
 description: Meer informatie over hoe u verbinding maken met gegevens van bedreigingsinformatie Sentinel van Azure.
 documentationcenter: na
 author: rkarlin
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400634"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494830"
 ---
-# <a name="collect-data-from-threat-intelligence-providers"></a>Gegevens verzamelen van threat intelligence providers 
+# <a name="connect-data-from-threat-intelligence-providers"></a>Verbinding maken met gegevens van threat intelligence providers 
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -44,7 +44,7 @@ U kunt Logboeken van Threat intelligence providers streamen naar Azure Sentinel 
 
 1. Als u al een provider van threat intelligence, zorg ervoor dat u bladert u naar uw toepassing TIP en toestemming geven om te indicatoren naar Microsoft verzenden en geeft u de service als Azure Sentinel worden.  
 
-2. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Bedreigingsinformatie** tegel.
+2. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Bedreigingsinformatie** tegel.
 
 3. Klik op **Verbinden**. 
 

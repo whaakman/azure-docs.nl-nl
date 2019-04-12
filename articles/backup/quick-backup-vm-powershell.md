@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906069"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489379"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Een back-up van een virtuele machine maken in Azure met PowerShell
 
@@ -29,7 +29,7 @@ In deze snelstartgids AZ moduleversie 1.0.0 van Azure PowerShell vereist of hoge
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Aanmelden en registreren
+## <a name="sign-in-and-register"></a>Aanmelden en registreren
 
 1. Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzAccount` en volg de instructies op het scherm.
 
@@ -53,10 +53,10 @@ Wanneer u de kluis maken:
 - Als u dit gebruikt [voorbeeldscript](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) voor het maken van de virtuele machine, de resourcegroep is **myResourceGroup**, de virtuele machine is ***myVM**, de resources bevinden zich de **Europa West**  regio.
 - Azure Backup verwerkt automatisch de opslag voor back-ups van gegevens. De kluis maakt standaard gebruik [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy-grs.md). Geo-redundantie zorgt ervoor dat back-ups van gegevens naar een secundaire Azure-regio grote afstand van de primaire regio worden gerepliceerd.
 
-Nu een kluis maken.
+Nu een kluis maken:
 
 
-1. Gebruik de [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)om de kluis te maken:
+1. Gebruik de [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) om de kluis te maken:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -114,7 +114,7 @@ Back-ups uitgevoerd volgens de planning die is opgegeven in de back-upbeleid. U 
 - Na de eerste back-up van elke back-uptaak worden incrementele herstelpunten gemaakt.
 - Incrementele herstelpunten zijn efficiënt qua opslag en tijd aangezien ze alleen wijzigingen bevatten die sinds de laatste back-up zijn doorgevoerd.
 
-Als u wilt uitvoeren van een ad-hoc back-up, gebruikt u de[back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Als u wilt uitvoeren van een ad-hoc back-up, gebruikt u de [back-up-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
 - Geeft u een container in de kluis waarin de back-upgegevens met [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Elke VM voor back-up wordt als een item beschouwd. Voor het starten van een back-uptaak u informatie verkrijgen over de virtuele machine met [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -162,7 +162,7 @@ Als u niet meer nodig voor back-up van de virtuele machine, kunt u het opschonen
 - Als u wilt voor het uitproberen van het herstellen van de virtuele machine, gaat u het opschonen van.
 - Als u een bestaande VM hebt gebruikt, kunt u de laatste overslaan [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet de resourcegroep en VM intact laten.
 
-Schakel de beveiliging, verwijdert u de herstelpunten en de kluis. U de resourcegroep en de bijbehorende VM-resources als volgt verwijderen:
+Schakel de beveiliging, verwijdert u de herstelpunten en de kluis. Verwijder de resourcegroep en de bijbehorende VM-resources als volgt:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

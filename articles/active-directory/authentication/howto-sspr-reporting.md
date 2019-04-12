@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369527"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493056"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
 
@@ -118,7 +118,7 @@ De volgende lijst wordt deze activiteit in detail uitgelegd:
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
 * **Beschrijving van de activiteit**: Geeft aan dat een beheerder een namens een gebruiker vanuit de Azure-portal voor wachtwoordherstel uitgevoerd.
-* **Activiteit actor**: De beheerder van het wachtwoord opnieuw instellen van namens een andere gebruiker of beheerder uitgevoerd. Moet een globale beheerder, wachtwoordbeheerder, Gebruikerbeheerder, of helpdesk-beheerder.
+* **Activiteit actor**: De beheerder van het wachtwoord opnieuw instellen van namens een andere gebruiker of beheerder uitgevoerd. Moet een wachtwoordbeheerder, beheerder of helpdesk-beheerder.
 * **Doel van de activiteit**: De gebruiker waarvan het wachtwoord is opnieuw ingesteld. De gebruiker kan een eindgebruiker of een andere beheerder zijn.
 * **Status van de activiteit**:
   * _Geslaagd_: Geeft aan dat een beheerder is opnieuw ingesteld wachtwoord van een gebruiker.
@@ -176,16 +176,16 @@ De volgende lijst wordt deze activiteit in detail uitgelegd:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Hoe ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
+* [Stel uw wachtwoord opnieuw in of wijzig het](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registreer u voor selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md).
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
-* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
+* [Welke gegevens worden gebruikt door selfservice voor Wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)
-* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
-* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
-* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor Wachtwoordherstel?](concept-sspr-policy.md)
+* [Wat is wachtwoord terugschrijven en waarom dit van belang deze?](howto-sspr-writeback.md)
+* [Wat zijn alle van de opties in selfservice voor Wachtwoordherstel en wat die betekenen?](concept-sspr-howitworks.md)
+* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die werd niet is beantwoord](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Voorbeeld van SSPR-Activiteitencontrole registreert in Azure AD"

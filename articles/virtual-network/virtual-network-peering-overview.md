@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Meer informatie over peering in virtuele netwerken in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880420"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489978"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -80,7 +80,6 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 
 De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
 - Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.
-- U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
 
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 
 

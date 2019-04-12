@@ -1,21 +1,19 @@
 ---
 title: Azure Data Factory gegevenstransformatie stroom Pivot toewijzen
-description: Azure Data Factory gegevenstransformatie stroom Pivot toewijzen
+description: Gegevens uit rijen naar kolommen met behulp van Azure Data Factory toewijzing Flow Pivot gegevenstransformatie van draaipunt
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569889"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490184"
 ---
-# <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure Data Factory gegevenstransformatie stroom Pivot toewijzen
-
+# <a name="azure-data-factory-pivot-transformation"></a>Azure data factory pivot transformatie
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Gebruik Pivot in ADF-gegevensstroom als een aggregatie waarbij een of meer groeperende kolommen zijn afzonderlijke rijwaarden omgezet in afzonderlijke kolommen heeft. U kunt in principe rijwaarden draaien in nieuwe kolommen (gegevens omzetten in metagegevens).
@@ -32,7 +30,7 @@ Stel eerst de kolommen die u groeperen wilt op voor de aggregatie pivot. U kunt 
 
 ![Opties van draaipunt](media/data-flow/pivot3.png "3 van draaipunt")
 
-De Pivot-sleutel is de kolom die ADF uit de rij wordt Schakel over naar de kolom. Elke unieke waarde in de gegevensset voor dit veld wordt standaard Schakel over naar een kolom. U kunt echter (optioneel) de waarden uit de gegevensset die u wilt Schakel over naar kolomwaarden invoeren.
+De Pivot-sleutel is de kolom die ADF uit de rij wordt Schakel over naar de kolom. Elke unieke waarde in de gegevensset voor dit veld wordt standaard Schakel over naar een kolom. U kunt echter (optioneel) de waarden uit de gegevensset die u wilt Schakel over naar kolomwaarden invoeren. Dit is de kolom die bepalen de nieuwe kolommen die worden gemaakt.
 
 ## <a name="pivoted-columns"></a>Gedraaide kolommen
 
@@ -54,9 +52,20 @@ Om in te stellen de aggregatie die u wilt gebruiken voor de pivot-waarden, klikt
 
 De ADF gegevens Flow expressietaal gebruiken om te beschrijven van de transformaties gedraaide kolom in de opbouwfunctie voor expressies: https://aka.ms/dataflowexpressions.
 
+## <a name="pivot-metadata"></a>De metagegevens van de draaitabel
+
+De Pivot-transformatie worden nieuwe kolomnamen die dynamisch op basis van de binnenkomende gegevens zijn produceren. De sleutel Pivot produceert de waarden voor elke nieuwe kolomnaam. Als u geen afzonderlijke waarden opgeven en wilt maken van dynamische kolomnamen voor elke unieke waarde in de Pivot-sleutel, de gebruikersinterface wordt niet weergegeven voor de metagegevens in inspecteren en er is geen kolom doorgeven aan de Sink-transformatie. Als u waarden voor de sleutel Pivot hebt ingesteld, klikt u vervolgens ADF de namen van de nieuwe kolommen kunt bepalen en de kolomnamen worden die u in het inspecteren en Sink-toewijzing.
+
+### <a name="landing-new-columns-in-sink"></a>Nieuwe kolommen terechtkomen in Sink
+
+Zelfs met dynamische kolomnamen in de draaitabel, kunt u nog steeds uw nieuwe kolomnamen en waarden in uw doelarchief sink. Alleen ingesteld 'Schema Drift toestaan' op in de Sink-instellingen. De naam van de nieuwe dynamische wordt niet weergegeven in de kolommetagegevens van de, maar de schemaoptie drift kunt u de gegevens komt.
+
+### <a name="view-metadata-in-design-mode"></a>Metagegevens weergeven in de ontwerpmodus
+
+Als u wilt weergeven van de nieuwe kolomnamen als metagegevens in inspecteren en u wilt zien van de kolommen die expliciet wordt doorgegeven aan de Sink-transformatie, stelt u expliciete waarden op het tabblad Pivot-sleutel.
+
 ### <a name="how-to-rejoin-original-fields"></a>Het oorspronkelijke velden weer
-> [!NOTE]
-> De Pivot-transformatie wordt alleen de kolommen die worden gebruikt in de aggregatie, de groepering en de pivot actie van het project. Als u opnemen van de andere kolommen uit de vorige stap in de stroom wilt, gebruikt u een nieuwe vertakking in de vorige stap en het patroon self-join om de stroom verbinding met de oorspronkelijke metagegevens te gebruiken.
+De Pivot-transformatie wordt alleen de kolommen die worden gebruikt in de aggregatie, de groepering en de pivot actie van het project. Als u opnemen van de andere kolommen uit de vorige stap in de stroom wilt, gebruikt u een nieuwe vertakking in de vorige stap en het patroon self-join om de stroom verbinding met de oorspronkelijke metagegevens te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

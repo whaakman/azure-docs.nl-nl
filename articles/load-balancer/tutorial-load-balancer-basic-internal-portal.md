@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105298"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489311"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Zelfstudie: Interne-verkeersbelasting verdelen met een Basic-load balancer in Azure Portal
 
@@ -95,11 +95,10 @@ Maak met behulp van de portal een interne Basic-load balancer. De naam en het IP
     | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
     | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
-    | Type          | Selecteer **Openbaar**.                                        |
+    | Type          | selecteer **Intern**.                                        |
     | SKU           | Selecteer **Basic**.                          |
     | Virtueel netwerk           | Selecteer *MyVNet*.                          |    
-| Openbaar IP-adres | Selecteer **Nieuw maken**. |
-    | Toewijzing van openbaar IP-adres              | Selecteer **Statisch**.   |
+    | IP-adrestoewijzing              | Selecteer **Statisch**.   |
     | Privé IP-adres|typ een adres dat zich in de adresruimte van uw virtuele netwerk en subnet bevindt, bijvoorbeeld *10.3.0.7*.  |
 
 3. Klik op het tabblad **Beoordelen en maken** op **Maken**. 
@@ -113,7 +112,7 @@ In dit gedeelte configureert u de instellingen van de load balancer voor een bac
 
 De load balancer gebruikt een backend-adresgroep om verkeer te distribueren over de virtuele machines. De back-endadresgroep bevat de IP-adressen van de virtuele netwerkinterfaces (NIC's) die zijn verbonden met de load balancer. 
 
-**Voor het maken van een back-endadresgroep bevat die VM1 en VM2:**
+**Voor het maken van een back-end-adresgroep bevat die VM1 en VM2:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -142,7 +141,7 @@ De load balancer gebruikt een backend-adresgroep om verkeer te distribueren over
 
 U gebruikt een statustest om de load balancer toe te staan de status van uw virtuele machine te bewaken. De statustest voegt dynamisch VM's toe aan de load balancer-rotatie of verwijdert ze, op basis van hun reactie op statuscontroles. 
 
-**Voor het maken van een statustest om de status van de VM's te bewaken:**
+**Een statustest voor het controleren van de status van de virtuele machines maken:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -167,7 +166,7 @@ Een load balancer-regel bepaalt hoe het verkeer over de VM's wordt verdeeld. De 
 
 De load balancer-regel met de naam **myLoadBalancerRuleWeb** luistert op poort 80 van de front-end **LoadBalancerFrontEnd**. Met de regel wordt netwerkverkeer naar de back-endadresgroep **myBackEndPool** verzonden, ook op poort 80. 
 
-**Een load balancer-regel maken, gaat als volgt:**
+**De load balancer-regel maken:**
 
 1. Selecteer **Alle resources** in het linkermenu en selecteer vervolgens **MyLoadBalancer** in de lijst met resources.
    
@@ -200,7 +199,7 @@ Maak eerst verbinding met alle drie de virtuele machines via Extern bureaublad.
 >[!NOTE]
 >Standaard hebben de virtuele machines al de **Extern bureaublad**-poort geopend om toegang via Extern bureaublad toe te staan. 
 
-**Met Extern bureaublad naar de VM's gaat als volgt:**
+**Met extern bureaublad (RDP) bij de virtuele machines:**
 
 1. Selecteer in de portal **Alle resources** in het menu aan de linkerkant. Selecteer in de lijst met resources elke afzonderlijke VM in de resourcegroep **MyResourceGroupLB**.
    
@@ -223,7 +222,7 @@ Gebruik op elke back-endserver PowerShell om IIS te installeren en de standaard 
 >[!NOTE]
 >U kunt ook de **wizard Rollen en functies toevoegen** in **Serverbeheer** gebruiken om IIS te installeren. 
 
-**Als u IIS wilt installeren en de standaardwebpagina wilt bijwerken met behulp van PowerShell, gaat u als volgt te werk:**
+**IIS installeren en bijwerken van de standaardwebpagina met PowerShell:**
 
 1. Start vanuit het **startmenu** op MyVM1 en MyVM2 **Windows PowerShell**. 
 

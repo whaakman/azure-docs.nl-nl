@@ -1,5 +1,5 @@
 ---
-title: Snelstart Azure AD v2.0 ASP.NET Core-web-app | Microsoft Docs
+title: Snelstartgids voor ASP.NET Core web-apps voor Microsoft identity-platform | Azure
 description: Informatie over het implementeren van Microsoft-aanmelding in een ASP.NET Core-web-app met behulp van OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005649"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505344"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snelstart: aanmelding met Microsoft toevoegen aan een ASP.NET Core-web-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005649"
 
 In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (hotmail.com, outlook.com, anderen) en werk- en schoolaccounts kan aanmelden vanuit een willekeurig exemplaar van Azure Active Directory (Azure AD).
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,17 @@ public void ConfigureServices(IServiceCollection services)
 
 Met de methode `AddAuthentication` wordt de service geconfigureerd voor het toevoegen van verificatie op basis van cookies. Deze verificatie wordt gebruikt in browserscenario's én om vragen te sturen naar OpenID Connect. 
 
-Met de regel die `.AddAzureAd` bevat, wordt de Azure AD-verificatie toegevoegd aan uw toepassing. Deze wordt dan geconfigureerd voor aanmelding met het Azure AD v2.0-eindpunt.
+De regel die `.AddAzureAd` wordt de verificatie van Microsoft identity-platform wordt toegevoegd aan uw toepassing. Er wordt dan geconfigureerd voor aanmelding met behulp van het eindpunt van de Microsoft identity-platform.
 
 > |Waar  |  |
 > |---------|---------|
 > | ClientId  | Toepassings-id (client-id) van de toepassing die is geregistreerd in de Azure-portal. |
 > | Instantie | Het STS-eindpunt voor gebruikersverificatie. Meestal is dit <https://login.microsoftonline.com/{tenant}/v2.0> voor openbare cloud, waarbij {tenant} de naam is van uw tenant, uw tenant-id of *common* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants) |
 > | TokenValidationParameters | Een lijst met parameters voor de validatie van tokens. In dit geval is `ValidateIssuer` ingesteld op `false` om aan te geven dat aanmeldingen vanaf persoonlijke, werk- of schoolaccounts kunnen worden geaccepteerd. |
+
+
+> [!NOTE]
+> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In realtime toepassingen die u nodig hebt voor het valideren van de verlener raadpleegt u de voorbeelden om te begrijpen hoe u dat doet.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Een controller of de methode van een controller beveiligen
 
@@ -154,8 +158,7 @@ U kunt een controller of controllermethoden beveiligen met behulp van het kenmer
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de GitHub-opslagplaats van deze ASP.NET Core-quickstart voor meer informatie, inclusief instructies over het toevoegen van verificatie aan een gloednieuwe ASP.NET Core-webtoepassing:
+Bekijk de GitHub-opslagplaats voor deze zelfstudie voor ASP.NET Core voor meer informatie en instructies over hoe u verificatie toevoegen aan een nieuwe ASP.NET Core Web-toepassing, over het aanroepen van Microsoft Graph en andere Microsoft-APIs, over het aanroepen van uw eigen API's toevoegen autorisatie, hoe u om aan te melden gebruikers in nationale clouds, of met sociale identiteiten en meer:
 
 > [!div class="nextstepaction"]
-> [Codevoorbeeld voor ASP.NET Core Web-App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [Zelfstudie voor ASP.NET Core Web-App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

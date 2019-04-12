@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265246"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490634"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -39,20 +39,11 @@ Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machi
 - Details: Gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
 - Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
-Als u in een omgeving met tenants implementeert, als volgt één manier om in te stellen deze:
+Als u in een omgeving met meerdere tenants implementeren wilt en wil graag bereik door de map van virtuele machines voor een enkele tenant, kunt u de VM-map niet rechtstreeks selecteren wanneer scoping verzameling in Azure Migrate. Hieronder vindt u instructies voor het bereik detectie door de map van virtuele machines:
 
-1. Maken van een gebruiker per tenant en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan alle virtuele machines die horen bij een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang tot alleen tenant-specifieke virtuele machines heeft.
-2. U RBAC instelt voor gebruikers van andere tenant zoals beschreven in het volgende voorbeeld voor 1 gebruiker en gebruiker #2:
-
-    - In **gebruikersnaam** en **wachtwoord**, geef de referenties van het kenmerk alleen-lezen-account dat door de collector wordt gebruikt voor het detecteren van virtuele machines in
-    - Datacenter1 - geven alleen-lezen machtigingen voor 1 gebruiker en gebruiker nr. 2. Deze machtigingen op alle onderliggende objecten niet worden doorgevoerd omdat u machtigingen hebt ingesteld op afzonderlijke virtuele machines.
-
-      - VM1 (Tenant #1) (alleen-lezen-machtiging voor 1 gebruiker)
-      - VM2 (Tenant #1) (alleen-lezen-machtiging voor 1 gebruiker)
-      - VM3 (Tenant #2) (alleen-lezen-machtiging voor gebruiker nr. 2)
-      - VM4 (Tenant #2) (alleen-lezen-machtiging voor gebruiker nr. 2)
-
-   - Als u detectie met behulp van referenties voor 1 gebruiker uitvoert, wordt u alleen VM1 en VM2 gedetecteerd.
+1. Maak een gebruiker per tenant en alleen-lezen machtigingen toewijzen aan alle virtuele machines die horen bij een bepaalde tenant. 
+2. Deze gebruiker alleen-lezen toegang verlenen tot alle bovenliggende objecten waar de virtuele machines worden gehost. Alle bovenliggende objecten - host, de map van hosts, cluster, map van clusters - in de hiërarchie tot aan het datacenter zijn om op te nemen. U hoeft niet de machtigingen op alle onderliggende objecten doorgeven.
+3. Gebruik de referenties voor detectie selecteren datacenter als *Collection Scope*. Het instellen van RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang tot alleen tenant-specifieke virtuele machines heeft.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Plan uw migratieprojecten en detecties
 
@@ -97,7 +88,7 @@ Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Meer dan 1500 machines in een enkele vCenter-Server
 
-Als u meer dan 1500 virtuele machines in een enkele vCenter-Server hebt, moet u de detectie splitsen in meerdere migration-projecten. Als u wilt splitsen detecties, kunt u gebruikmaken van de Scope-veld in het apparaat en geef de host, cluster, map, of het datacenter die u wilt detecteren. Bijvoorbeeld, hebt u twee mappen in vCenter Server, een met 1000 VM's (Map1) en andere met 800 VM's (Folder2), kunt u in het veld scope om op te splitsen de detecties tussen deze mappen.
+Als u meer dan 1500 virtuele machines in een enkele vCenter-Server hebt, moet u de detectie splitsen in meerdere migration-projecten. Als u wilt splitsen detecties, kunt u gebruikmaken van de Scope-veld in het toestel en geef de host, de cluster, de map van hosts, de map van clusters of datacenter die u wilt detecteren. Bijvoorbeeld, hebt u twee mappen in vCenter Server, een met 1000 VM's (Map1) en andere met 800 VM's (Folder2), kunt u in het veld scope om op te splitsen de detecties tussen deze mappen.
 
 **Continue detectie:** In dit geval moet u twee collector toestellen maken voor de eerste collector, geef het bereik als Map1 en verbinden met de eerste migratieproject. U kunt parallel te leren kennen Folder2 met behulp van de tweede collector-apparaat en deze verbinden met de tweede migration-project.
 

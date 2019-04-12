@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361458"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496092"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -41,8 +41,8 @@ Meer informatie over back-up [met behulp van een back-upserver](backup-architect
 **Bewerking** | **Ondersteuning**
 --- | ---
 Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
-Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-Back-up van een virtuele machine die VM afsluiten/offline/om te zoeken | Ondersteund.<br/><br/> Is een crash-consistente momentopname alleen, niet toepassingsconsistent is.
+Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Maak een back-up van een virtuele machine wordt die afgesloten of offline virtuele machine | Ondersteund.<br/><br/> Is een crash-consistente momentopname alleen, niet toepassingsconsistent is.
 Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. Geen actie vereist.
 Back-up van beheerde schijven na het inschakelen van de groep resourcevergrendeling | Wordt niet ondersteund.<br/><br/> Azure Backup kan de oudere herstelpunten voor de resource niet verwijderen en back-ups mislukken na het verstrijken van de maximumlimiet van herstelpunten wordt gestart.
 Back-upbeleid voor een virtuele machine wijzigen | Ondersteund.<br/><br/> De virtuele machine wordt een back-worden gemaakt met behulp van het schema en de retentie-instellingen in het nieuwe beleid. Als de retentie-instellingen worden uitgebreid, worden de bestaande herstelpunten gemarkeerd en bewaard. Als ze worden beperkt, wordt de bestaande herstelpunten worden verwijderd in de eerstvolgende opschoontaak en uiteindelijk verwijderd.
@@ -149,8 +149,7 @@ Maak een back-up van virtuele machines die zijn geïmplementeerd in een [schaals
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Gepubliceerd door Microsoft, van derden) |  Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit een aangepaste installatiekopie (derde) |   Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die worden gemigreerd naar Azure  | Ondersteund.<br/><br/> Als u wilt back-up van de virtuele machine, moet de VM-agent worden geïnstalleerd op de gemigreerde machine.
-Back-up van virtuele machines consistentie | niet ondersteund. <br/><br/>Azure Backup biedt geen ondersteuning voor meerdere VM's.
-
+Back-up van Multi-VM-consistentie | Azure Backup biedt geen consistentie van gegevens en toepassingen op meerdere virtuele machines.
 
 
 ## <a name="vm-storage-support"></a>Ondersteuning voor VM-opslag
@@ -166,7 +165,7 @@ Schijven met Write Accelerator is ingeschakeld | Wordt niet ondersteund.<br/><br
 Back-up van ontdubbelde schijven | Wordt niet ondersteund.
 Schijf toevoegen aan beveiligde virtuele machine | Ondersteund.
 Grootte van de schijf op beveiligde virtuele machine wijzigen | Ondersteund.
-Gedeelde opslag| Back-ups van virtuele machines met CSV- of Scale-Out bestandsserver wordt niet aanbevolen. CSV-schrijvers zijn waarschijnlijk zal mislukken.
+Gedeelde opslag| Back-ups van virtuele machines met Cluster Shared Volume (CSV) of Scale-Out bestandsserver wordt niet aanbevolen. CSV-schrijvers zijn waarschijnlijk zal mislukken tijdens back-up. Bij het terugzetten, schijven met CSV-volumes mogelijk niet afkomstig is van.
 
 > [!NOTE]
 > Azure Backup biedt geen ondersteuning voor striped schijven. Grootte van de schijf wordt niet aanbevolen door Azure Backup.

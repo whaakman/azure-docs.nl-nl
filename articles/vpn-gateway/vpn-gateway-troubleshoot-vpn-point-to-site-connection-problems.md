@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630469"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492376"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Probleemoplossing: Problemen met Azure point-to-site-verbinding
 
@@ -57,6 +57,35 @@ Zie voor meer informatie over het installeren van het clientcertificaat [generer
 
 > [!NOTE]
 > Wanneer u het certificaat importeert, schakel niet het **sterke beveiliging met persoonlijke sleutel inschakelen** optie.
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>De netwerkverbinding tussen uw computer en de VPN-server kan niet worden gemaakt omdat de externe server niet reageert
+
+### <a name="symptom"></a>Symptoom
+
+Wanneer u probeert en verbinding maken met een virtueel Azure-netwerk gteway met IKEv2 op Windows, kunt u het volgende foutbericht krijgt:
+
+**De netwerkverbinding tussen uw computer en de VPN-server kan niet worden gemaakt omdat de externe server niet reageert**
+
+### <a name="cause"></a>Oorzaak
+ 
+ Het probleem doet zich voor als de versie van Windows biedt geen ondersteuning voor IKE fragmentatie
+ 
+### <a name="solution"></a>Oplossing
+
+IKEv2 wordt ondersteund op Windows 10 en Server 2016. Als u IKEv2 wilt gebruiken, moet u lokaal updates installeren en een registersleutelwaarde instellen. Besturingssysteemversies voor Windows 10 worden niet ondersteund en kunnen alleen SSTP gebruiken.
+
+Windows 10 of Server 2016 voorbereiden voor IKEv2:
+
+1. Installeer de update.
+
+   | Versie van het besturingssysteem | Date | Aantal/koppeling |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 versie 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 versie 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Version 1709 | 22 maart 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. De registersleutelwaarde instellen. Maak of stel de REG_DWORD-sleutel 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload' in het register in op 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Fout bij de VPN-client: Het ontvangen bericht is onverwacht of onjuist ingedeeld
 
@@ -107,7 +136,7 @@ Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-
 
 U ontvangt de volgende strekking weergegeven:
 
-**Fout bij het downloaden van het bestand. Doel-URI is niet opgegeven.**
+**Fout bij het downloaden van het bestand. Er is geen doel-URI opgegeven.**
 
 ### <a name="cause"></a>Oorzaak 
 
@@ -123,7 +152,7 @@ Het type van de VPN-gateway moet **VPN**, en de VPN-type moet **RouteBased**.
 
 Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-client, ontvangt u de volgende strekking weergegeven:
 
-**Aangepast script (om bij te werken uw routeringstabel) is mislukt. (Error 8007026f)**
+**Aangepast script (om bij te werken uw routeringstabel) is mislukt. (Fout 8007026f)**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -203,7 +232,7 @@ Dit probleem treedt op omdat de naam van het certificaat een ongeldig teken, zoa
 
 Wanneer u probeert te downloaden van het VPN-clientconfiguratiepakket, ontvangt u de volgende strekking weergegeven:
 
-**Downloaden van het bestand is mislukt. Details van fout: 503-fout. De server is bezet.**
+**Het bestand kan niet worden gedownload. Details van fout: 503-fout. De server is bezet.**
  
 ### <a name="solution"></a>Oplossing
 

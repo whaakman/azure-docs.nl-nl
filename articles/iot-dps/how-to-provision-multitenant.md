@@ -3,17 +3,17 @@ title: Over het inrichten van apparaten voor multitenancy in de Azure IoT Hub De
 description: Over het inrichten van apparaten voor multitenancy met uw device provisioning service-exemplaar
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544440"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500733"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -208,7 +208,7 @@ In deze sectie wordt u de Azure IoT C SDK op elke virtuele machine klonen. De SD
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+    Deze bewerking kan enkele minuten in beslag nemen.
 
 1. Voor beide VM's, maakt u een nieuwe **cmake** map in de opslagplaats en de wijzigingen in die map.
 
@@ -420,7 +420,7 @@ Verwijderen van de resourcegroep met de naam:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer meer Reprovisioning [reprovisoning concepten van IoT Hub-apparaat](concepts-device-reprovision.md) 
+- Zie voor meer meer Reprovisioning [beëindiging van de concepten van IoT Hub Device](concepts-device-reprovision.md) 
 - Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 

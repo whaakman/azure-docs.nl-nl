@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview Fortinet | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Fortinet.
+title: De Fortinet gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met gegevens Fortinet Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883213"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492119"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Verbinding maken met uw apparaat Fortinet 
 
@@ -42,7 +42,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 
 ### <a name="deploy-the-agent-in-azure"></a>De agent in Azure implementeren
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype. 
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
 
 1. Onder **Linux Syslog-agentconfiguratie**:
    - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke virtuele machine die automatisch is verbonden met uw werkruimte, is. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
@@ -79,7 +79,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
 
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype.
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype.
 1. Maken van een specifieke Linux-VM, onder **Linux Syslog-agentconfiguratie** Kies **handmatige implementatie**.
    1. Onder **de Syslog-agent downloaden en installeren**, selecteer **niet-Azure Linux-machine**. 
    1. In de **Direct agent** scherm die wordt geopend, selecteert **-Agent voor Linux** om te downloaden van de agent of voer deze opdracht uit om het te downloaden op uw Linux-machine:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

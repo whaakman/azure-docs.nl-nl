@@ -1,29 +1,31 @@
 ---
-title: 'Machine learning in de cloud: Voorwaarden en -architectuur'
+title: Architectuur en belangrijke concepten
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over de architectuur, -terminologie en concepten van Azure Machine Learning-service. Ook leert u over de algemene werkstroom van het gebruik van de service en de Azure-services die worden gebruikt door Azure Machine Learning-service.
+description: Meer informatie over de architectuur, voorwaarden, concepten en werkstroom van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269126"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489944"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
-In dit artikel beschrijft de architectuur en concepten voor Azure Machine Learning-service. De belangrijkste onderdelen van de service en de algemene werkstroom voor het gebruik van de service worden weergegeven in het volgende diagram:
+Meer informatie over de architectuur, de concepten en de werkstroom voor Azure Machine Learning-service. De belangrijkste onderdelen van de service en de algemene werkstroom voor het gebruik van de service worden weergegeven in het volgende diagram:
 
 [![Awerkstroom en zure Machine Learning-service-architectuur](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-De werkstroom volgt in het algemeen in deze volgorde:
+## <a name="workflow"></a>Werkstroom
+
+De machine learning-werkstroom volgt in het algemeen in deze reeks:
 
 1. Machine learning-scripts in Trainingen ontwikkelen **Python**.
 1. Maken en configureren van een **compute-doel**.

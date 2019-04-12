@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470837"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495529"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -138,7 +138,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
 | **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
@@ -296,7 +296,7 @@ De `host` opdracht is alleen vereist in versie 1.x.
 
 `func host start` ondersteunt de volgende opties:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Er is geen huidige project build voordat u doen. Voor dotnet projecten. Standaard is ingesteld op false. Versie 2.x alleen. |
 | **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. |
@@ -435,7 +435,7 @@ Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van t
 
 Opties voor het volgende project publiceren worden alleen ondersteund in versie 2.x:
 
-| Optie     | Description                            |
+| Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |

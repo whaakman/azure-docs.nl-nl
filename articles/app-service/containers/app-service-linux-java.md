@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803512"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500461"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -69,9 +69,13 @@ Zie voor meer informatie, [Streaminglogboeken met de Azure CLI](../troubleshoot-
 
 ### <a name="app-logging"></a>App-registratie
 
-Schakel [toepassingslogboeken](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via Azure portal of [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service configureren voor de standard-console-uitvoer en foutstromen standard-console van uw toepassing schrijven naar de lokale bestandssysteem of Azure Blob Storage. Logboekregistratie voor het lokale bestandssysteem voor App Service exemplaar uitgeschakeld 12 uur nadat deze is geconfigureerd. Als u langere bewaartermijn nodig hebt, configureert u de toepassing naar uitvoer schrijven naar een Blob storage-container.
+Schakel [toepassingslogboeken](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via Azure portal of [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service configureren voor de standard-console-uitvoer en foutstromen standard-console van uw toepassing schrijven naar de lokale bestandssysteem of Azure Blob Storage. Logboekregistratie voor het lokale bestandssysteem voor App Service exemplaar uitgeschakeld 12 uur nadat deze is geconfigureerd. Als u langere bewaartermijn nodig hebt, configureert u de toepassing naar uitvoer schrijven naar een Blob storage-container. Uw Java- en Tomcat-app-logboeken kunnen u vinden in de `/home/LogFiles/Application/` directory.
 
 Als uw toepassing gebruikmaakt van [Logback](https://logback.qos.ch/) of [Log4j](https://logging.apache.org/log4j) voor tracering, kunt u doorsturen deze traceringen ter beoordeling naar Azure Application Insights met behulp van de logboekregistratie framework configuratie-instructies in [Traceerlogboeken in Application Insights Java verkennen](/azure/application-insights/app-insights-java-trace-logs).
+
+### <a name="troubleshooting-tools"></a>Hulpprogramma's voor probleemoplossing
+
+De ingebouwde Java-installatiekopieën op basis van de [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) besturingssysteem. Gebruik de `apk` Pakketbeheer voor het installeren van eventuele problemen oplossen-hulpprogramma's of opdrachten.
 
 ## <a name="customization-and-tuning"></a>Aanpassing en afstemmen
 
@@ -81,31 +85,34 @@ Azure App Service voor Linux ondersteunt buiten het vak afstemmen en aanpassen v
 - [Een aangepast domein instellen](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [SSL inschakelen](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Een CDN toevoegen](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [De Kudu-site configureren](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Java runtime-opties instellen
 
-Toegewezen geheugen of andere JVM-runtime-opties instellen in de Tomcat- en Java SE-omgevingen, stelt u de JAVA_OPTS zoals hieronder wordt weergegeven als een [toepassingsinstelling](/azure/app-service/web-sites-configure#app-settings). App Service Linux geeft deze instelling als een omgevingsvariabele aan de Java-runtime wanneer deze wordt gestart.
+Toegewezen geheugen of andere JVM-runtime-opties instellen in de Tomcat- en Java SE-omgevingen, maakt u een [toepassingsinstelling](/azure/app-service/web-sites-configure#app-settings) met de naam `JAVA_OPTS` met de opties. App Service Linux geeft deze instelling als een omgevingsvariabele aan de Java-runtime wanneer deze wordt gestart.
 
-In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` die bevat de aanvullende instellingen, zoals `$JAVA_OPTS -Xms512m -Xmx1204m`.
+In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` die bevat de aanvullende instellingen, zoals `-Xms512m -Xmx1204m`.
 
-Voor het configureren van de app-instelling van de Azure App Service Linux Maven-invoegtoepassing toevoegen/waarde-codes in de sectie Azure-invoegtoepassing. Het volgende voorbeeld wordt een specifieke minimale en maximale Java heapsize:
+Voor het configureren van de app-instelling van de Maven-invoegtoepassing toevoegen/waarde-codes in de sectie Azure-invoegtoepassing. Het volgende voorbeeld wordt een specifieke minimale en maximale Java heapsize:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Ontwikkelaars van één toepassing uitvoert met een implementatiesite in hun App Service-plan kunnen de volgende opties gebruiken:
 
-- Instanties van B1 en S1:-Xms1024m-Xmx1024m
-- Instanties van B2 en S2:-Xms3072m-Xmx3072m
-- B3 en S3-instanties:-Xms6144m-Xmx6144m
+- Instanties van B1 en S1: `-Xms1024m -Xmx1024m`
+- Instanties van B2 en S2: `-Xms3072m -Xmx3072m`
+- B3 en S3-exemplaren: `-Xms6144m -Xmx6144m`
 
 Wanneer de instellingen voor de heap afstemmen, bekijk de details van uw App Service-plan en rekening gehouden met meerdere toepassingen en implementatiesite moeten vinden van de optimale toewijzing van geheugen.
+
+Als u een JAR-toepassing implementeert, wordt de naam van `app.jar` zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar `app.jar`, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de Portal.
 
 ### <a name="turn-on-web-sockets"></a>Websockets inschakelen
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>Standaard-tekencodering instellen
 
-In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` met waarde `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` met waarde `-Dfile.encoding=UTF-8`.
 
 U kunt ook de app-instelling met behulp van de App Service-Maven-invoegtoepassing configureren. De instelling naam / waarde-tags toevoegen in de configuratie van de invoegtoepassing:
 
@@ -134,10 +141,14 @@ U kunt ook de app-instelling met behulp van de App Service-Maven-invoegtoepassin
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>Time-out voor opstarten aanpassen
+
+Als uw Java-toepassing erg groot is, moet u de tijdslimiet voor opstarten vergroten. Om dit te doen, maakt u een toepassingsinstelling `WEBSITES_CONTAINER_START_TIME_LIMIT` en stel deze in op het aantal seconden dat App Service voordat een time-out optreedt wachten moet. De maximumwaarde is `1800` seconden.
 
 ## <a name="secure-applications"></a>Beveiligde toepassingen
 

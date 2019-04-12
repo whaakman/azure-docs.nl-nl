@@ -1,5 +1,5 @@
 ---
-title: Gebruik Azure AD v2.0 aan te melden bij de gebruikers met behulp van ROPC | Microsoft Docs
+title: Gebruik Microsoft identity-platform aan te melden bij de gebruikers met behulp van ROPC | Azure
 description: Ondersteuning voor browser zonder verificatie van stromen met behulp van de resource-eigenaar wachtwoord-referentietoekenning.
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274179"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499934"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 en de wachtwoordreferenties van OAuth 2.0-resource-eigenaar
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-platform en de wachtwoordreferenties van OAuth 2.0-resource-eigenaar
 
-Azure Active Directory (Azure AD) ondersteunt de [wachtwoordreferenties van resource-eigenaar (ROPC) verlenen](https://tools.ietf.org/html/rfc6749#section-4.3), waarmee een toepassing aan te melden bij de gebruikers hun wachtwoord direct kan verwerken. De stroom ROPC vereist een hoge mate van blootstelling van vertrouwen en de gebruiker en ontwikkelaars gebruik deze stroom alleen wanneer de andere, beter te beveiligen, stromen kunnen niet worden gebruikt.
+Microsoft identity-platform ondersteunt de [wachtwoordreferenties van resource-eigenaar (ROPC) verlenen](https://tools.ietf.org/html/rfc6749#section-4.3), waarmee een toepassing aan te melden bij de gebruikers hun wachtwoord direct kan verwerken. De stroom ROPC vereist een hoge mate van blootstelling van vertrouwen en de gebruiker en ontwikkelaars gebruik deze stroom alleen wanneer de andere, beter te beveiligen, stromen kunnen niet worden gebruikt.
 
-> [!Important]
-> * De Azure AD v2.0-eindpunt biedt alleen ondersteuning voor ROPC voor Azure AD-tenants, geen persoonlijke accounts. Dit betekent dat u een tenant-specifieke eindpunt moet gebruiken (`https://login.microsoftonline.com/{TenantId_or_Name}`) of de `organizations` eindpunt.
+> [!IMPORTANT]
+> * Het eindpunt van de Microsoft identity-platform ondersteunt alleen ROPC voor Azure AD-tenants, geen persoonlijke accounts. Dit betekent dat u een tenant-specifieke eindpunt moet gebruiken (`https://login.microsoftonline.com/{TenantId_or_Name}`) of de `organizations` eindpunt.
 > * Persoonlijke accounts die worden uitgenodigd voor een Azure AD-tenant niet ROPC gebruiken.
 > * Accounts waarvoor geen wachtwoorden kunnen niet aanmelden via ROPC. Voor dit scenario raden wij aan dat u een andere stroom voor uw app in plaats daarvan.
 > * Als gebruikers multi-factor authentication (MFA) gebruiken moeten voor aanmelding bij de toepassing, wordt deze in plaats daarvan geblokkeerd.
@@ -44,10 +44,17 @@ Het volgende diagram toont de ROPC-stroom.
 
 De stroom ROPC is één aanvraag&mdash;deze stuurt de client-id en de referenties van gebruiker aan de id-provider en ontvangt u vervolgens de tokens in. De client moet het e-mailadres (UPN) van de gebruiker en het wachtwoord voordat u aanvragen. De client moet direct na de aanvraag is gelukt, veilig vrijgeven van de referenties van de gebruiker uit het geheugen. Het moet nooit opslaan.
 
+> [!TIP]
+> Probeer deze aanvraag wordt uitgevoerd in Postman.
+> [![Uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -79,7 +86,7 @@ Hier volgt een voorbeeld van een geslaagde respons token:
 }
 ```
 
-| Parameter | Indeling | Description |
+| Parameter | Indeling | Beschrijving |
 | --------- | ------ | ----------- |
 | `token_type` | String | Altijd ingesteld op `Bearer`. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn deze parameter de scopes die het toegangstoken is ongeldig voor. |
@@ -96,11 +103,11 @@ Als de gebruiker de juiste gebruikersnaam of wachtwoord is niet opgegeven of de 
 
 | Fout | Description | Clientactie |
 |------ | ----------- | -------------|
-| `invalid_grant` | De verificatie is mislukt | De referenties zijn onjuist of de client geen toestemming voor de aangevraagde bereiken. Als de scopes niet zijn verleend, een `consent_required` suberror wordt geretourneerd. Als dit het geval is, moet de client de gebruiker doorsturen naar een interactieve prompt met behulp van een webweergave of in de browser. |
+| `invalid_grant` | De verificatie is mislukt | De referenties zijn onjuist of de client geen toestemming voor de aangevraagde bereiken. Als de scopes niet zijn verleend, een `consent_required` fout wordt geretourneerd. Als dit het geval is, moet de client de gebruiker doorsturen naar een interactieve prompt met behulp van een webweergave of in de browser. |
 | `invalid_request` | De aanvraag is niet goed samengesteld. | Het machtigingstype wordt niet ondersteund op de `/common` of `/consumers` verificatie contexten.  Gebruik `/organizations` in plaats daarvan. |
 | `invalid_client` | De app is niet goed ingesteld | Dit kan gebeuren als de `allowPublicClient` eigenschap niet is ingesteld op ' True ' in de [toepassingsmanifest](reference-app-manifest.md). De `allowPublicClient` eigenschap is nodig omdat de toekenning ROPC beschikt niet over een omleidings-URI. Azure AD kan niet vaststellen of de app een openbare client-toepassing of een vertrouwelijke client-toepassing, tenzij de eigenschap is ingesteld. Houd er rekening mee dat ROPC wordt alleen ondersteund voor openbare client-apps. |
 
 ## <a name="learn-more"></a>Meer informatie
 
 * ROPC uitproberen voor zelf met behulp van de [console voorbeeldtoepassing](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [v2.0 beperkingen](active-directory-v2-limitations.md).
+* Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md).

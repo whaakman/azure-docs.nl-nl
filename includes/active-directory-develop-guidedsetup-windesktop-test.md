@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214032"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503212"
 ---
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -39,14 +39,13 @@ De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor 
 
 ### <a name="view-application-results"></a>Resultaten van de toepassing weergeven
 
-Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenAsync` of `AcquireTokenSilentAsync` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
+Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenInteractive` of `AcquireTokenSilent` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
 
-|Eigenschap  |Indeling  |Description |
+|Eigenschap  |Indeling  |Beschrijving |
 |---------|---------|---------|
-|**Naam** |Volledige naam van gebruiker |En achternaam van eerst de gebruiker.|
-|**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.|
-|**Token is verlopen** |DateTime |De tijd waarop het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
-|**Toegangstoken** |String |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
+
+|**Gebruikersnaam**  | <span> user@domain.com </span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren. | | **Token verloopt** | Datum/tijd | De tijd waarop het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token naar behoefte. |
+
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereiken en gedelegeerde machtigingen

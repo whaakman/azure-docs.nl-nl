@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057568"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489808"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Apparaatverificatie met behulp van x.509-CA-certificaten
 
@@ -40,7 +40,7 @@ Voor productie-omgeving, wordt u aangeraden dat u een X.509-CA-certificaat uit e
 
 U kunt ook een zelfondertekend X.509-CA voor experimenten of voor gebruik in gesloten IoT-netwerken maken.
 
-Ongeacht hoe u uw X.509-CA-certificaat verkrijgen, zorg ervoor dat u de bijbehorende persoonlijke sleutel geheim te houden en beveiligd te allen tijde.  Dit is nodig voor de vertrouwensrelatie van de opbouw van vertrouwen in de X.509-CA-verificatie. 
+Ongeacht hoe u uw X.509-CA-certificaat verkrijgen, zorg ervoor dat u de bijbehorende persoonlijke sleutel geheim te houden en beveiligd te allen tijde.  Dit is nodig voor de vertrouwensrelatie van de opbouw van vertrouwen in de X.509-CA-verificatie.
 
 Meer informatie over het [maken van een zelf-ondertekende CA-certificaat](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), die u kunt gebruiken om te experimenten in de beschrijving van deze functie.
 
@@ -48,7 +48,9 @@ Meer informatie over het [maken van een zelf-ondertekende CA-certificaat](https:
 
 De eigenaar van een X.509-CA-certificaat kunt cryptografisch een tussenliggende CA die een andere tussenliggende CA op zijn beurt kan zich aanmelden en enzovoort, totdat de laatste tussenliggende CA wordt beëindigd dit proces door een apparaat te ondertekenen. Het resultaat is een trapsgewijze keten van certificaten bekend als een certificaatketen van de vertrouwensrelatie. In de praktijk speelt dit uit als de overdracht van de vertrouwensrelatie voor de ondertekening van apparaten. Deze overdracht is belangrijk omdat het een cryptografisch variabele bewakingsketen vaststelt en delen van ondertekeningssleutels voorkomt.
 
-![IMG-Generic-CERT-Chain-of-Trust](./media/generic-cert-chain-of-trust.png)
+![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+Het certificaat voor apparaten (ook wel een leaf-certificaat) moet de *onderwerpnaam* ingesteld op de **apparaat-ID** die is gebruikt bij de IoT-apparaat wordt geregistreerd bij de Azure IoT Hub. Deze instelling is vereist voor verificatie.
 
 Lees hier hoe u [maken van een certificaatketen](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) zoals bij het aanmelden van apparaten wordt uitgevoerd.
 

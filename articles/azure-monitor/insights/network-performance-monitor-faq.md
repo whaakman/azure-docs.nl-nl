@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734552"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496961"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734552"
 
 In dit artikel bevat de antwoorden op veelgestelde vragen over (Netwerkprestatiemeter) in Azure
 
-[Netwerkprestatiemeter](/azure/networking/network-monitoring-overview) is een cloud-gebaseerde [hybride netwerkbewaking](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) oplossing waarmee u netwerkprestaties tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Ook kunt u verbinding met het netwerk te bewaken [service en toepassing eindpunten](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) en [de prestaties van Azure ExpressRoute controleren](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Netwerkprestatiemeter](/azure/networking/network-monitoring-overview) is een cloud-gebaseerde [hybride netwerkbewaking](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) oplossing waarmee u netwerkprestaties tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Ook kunt u verbinding met het netwerk te bewaken [service en toepassing eindpunten](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) en [de prestaties van Azure ExpressRoute controleren](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. 
 

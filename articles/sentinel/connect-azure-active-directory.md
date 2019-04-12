@@ -1,6 +1,6 @@
 ---
-title: Azure AD-gegevens in Azure Sentinel Preview verzamelen | Microsoft Docs
-description: Meer informatie over het verzamelen van Azure Active Directory-gegevens in Azure Sentinel.
+title: Verbinding maken met Azure AD-gegevens naar Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Azure Active Directory-gegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575127"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494881"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Verzamelen van gegevens uit Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Verbinding maken met gegevens uit Azure Active Directory
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -38,7 +38,7 @@ Azure Sentinel kunt u het verzamelen van gegevens uit [Azure Active Directory](.
 
 ## <a name="connect-to-azure-ad"></a>Verbinding maken met Azure AD
 
-1. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Azure Active Directory** tegel.
+1. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Azure Active Directory** tegel.
 
 2. Klik naast de logboeken die u wilt streamen naar Azure Sentinel op **Connect**.
 

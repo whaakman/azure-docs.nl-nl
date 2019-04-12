@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180599"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490356"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Kennismaken met de oplossingsversneller Verbonden factory
 
@@ -73,7 +73,7 @@ OPC Publisher Module wordt verbonden met de OPC UA-servers van de stations en wo
 
 1. Converteert de knooppuntgegevens naar JSON-indeling.
 1. Hiermee versleutelt u de JSON.
-1. De JSON verzendt naar IoT Hub als OPC UA Pub/Sub-berichten.
+1. De JSON naar IoT Hub als OPC UA pub/sub-berichten verzendt.
 
 OPC Publisher Module vereist slechts één uitgaande HTTPS-poort (443) en kan gebruikmaken van de bestaande bedrijfsinfrastructuur.
 
@@ -230,7 +230,7 @@ De web-app geïmplementeerd als onderdeel van de oplossingsversnellers bevat een
 U kunt verder aan de slag gaan met IoT-oplossingsversnellers door de volgende artikelen te lezen:
 
 * [Machtigingen op de site azureiotsolutions.com][lnk-permissions]
-* [Een gateway implementeren in Windows of Linux voor de oplossingsversneller Verbonden factory](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Een gateway implementeren op Windows of Linux voor de oplossingsverbetering voor verbonden Factory](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md) (Implementatie ter referentie van OPC Publisher).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905984"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505631"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics-werkruimte in Azure Monitor
 
 ![Azure-activiteitenlogboeken symbool](./media/collect-activity-logs/activity-log-analytics.png)
 
-De oplossing Activity Log Analytics helpt u bij het analyseren en te zoeken naar de [Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md) in al uw Azure abonnementen. De Azure-activiteitenlogboek wordt een logboek dat inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen biedt. Het activiteitenlogboek was voorheen bekend als *auditlogboeken* of *operationele logboeken* omdat deze dat deze gebeurtenissen voor uw abonnementen meldt.
+De oplossing Activity Log Analytics helpt u bij het analyseren en te zoeken naar de [Azure-activiteitenlogboek](activity-logs-overview.md) in al uw Azure abonnementen. De Azure-activiteitenlogboek wordt een logboek dat inzicht in de bewerkingen die worden uitgevoerd voor resources in uw abonnementen biedt. Het activiteitenlogboek was voorheen bekend als *auditlogboeken* of *operationele logboeken* omdat deze dat deze gebeurtenissen voor uw abonnementen meldt.
 
 Met het activiteitenlogboek, kunt u bepalen de *wat*, *die*, en *wanneer* voor (PUT, POST, DELETE schrijfbewerkingen) die voor de resources in uw abonnement. U kunt ook de status van de bewerkingen en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen lees (GET)-bewerkingen of bewerkingen voor resources die gebruikmaken van het klassieke implementatiemodel.
 
@@ -52,28 +52,39 @@ In tegenstelling tot de meeste andere Azure Monitor-oplossingen, is niet-gegeven
 
 | Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
-| [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
-| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
-| [SCOM-beheergroep](../../azure-monitor/platform/om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
+| [Windows-agents](agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
+| [Linux-agents](../learn/quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
+| [Beheergroep System Center Operations Manager](om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents die rapporteren aan een Operations Manager-beheergroep. |
 | [Azure Storage-account](collect-azure-metrics-logs.md) | Nee | De oplossing verzamelt geen gegevens uit Azure storage. |
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Voor toegang tot Azure-activiteitenlogboekinformatie, moet u een Azure-abonnement hebben.
+Voor toegang tot Azure-activiteitenlogboekinformatie, moet u een Azure-abonnement hebben.
+
+De oplossing is ook vereist dat de volgende twee resourceproviders worden geregistreerd in uw abonnement:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Zie voor meer informatie over het registreren of te controleren of ze zijn geregistreerd, [Azure resourceproviders en typen](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configuratie
 
 Voer de volgende stappen uit voor het configureren van de oplossing Activity Log Analytics voor uw werkruimten.
 
-1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../../azure-monitor/insights/solutions.md).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+
+2. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../insights/solutions.md).
+
 2. Configureer de activiteitenlogboeken naar uw Log Analytics-werkruimte.
     1. In de Azure-portal, selecteert u uw werkruimte en klik vervolgens op **Azure-activiteitenlogboek**.
     2. Klik op de naam van het abonnement voor elk abonnement.  
+        
         ![Abonnement toevoegen](./media/collect-activity-logs/add-subscription.png)
+    
     3. In de *SubscriptionName* blade, klikt u op **Connect**.  
+    
         ![Verbinding maken met abonnement](./media/collect-activity-logs/subscription-connect.png)
-
-Meld u bij Azure portal een Azure-abonnement verbinden met uw werkruimte.  
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
@@ -98,5 +109,5 @@ Gegevens van een activiteitenlogboek wordt alleen weergegeven *nadat* u uw activ
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maak een [waarschuwing](../../azure-monitor/platform/alerts-metric.md) wanneer een bepaalde activiteit gebeurt.
-- Gebruik [zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens uit uw activiteitenlogboeken weer te geven.
+- Maak een [waarschuwing](../platform/alerts-metric.md) wanneer een bepaalde activiteit gebeurt.
+- Gebruik [zoeken in logboeken](../log-query/log-query-overview.md) om gedetailleerde gegevens uit uw activiteitenlogboeken weer te geven.

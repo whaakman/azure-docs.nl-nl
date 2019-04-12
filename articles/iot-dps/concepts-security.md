@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046891"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490269"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepten van IoT Hub Device Provisioning Service-beveiliging 
 
@@ -77,7 +77,11 @@ Een tussenliggende certificaat is een X.509-certificaat, dat is ondertekend door
 
 ### <a name="end-entity-leaf-certificate"></a>Einde-entiteit 'leaf'-certificaat
 
-De leaf-certificaat of eindentiteitscertificaat, identificeert de certificaathouder. Het basiscertificaat in de certificaatketen en nul of meer tussenliggende certificaten heeft. Het leaf-certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen. Unieke wijze identificeert het apparaat aan de provisioning-service en wordt soms aangeduid als het certificaat voor apparaten. Tijdens verificatie wordt het apparaat de persoonlijke sleutel die is gekoppeld aan dit certificaat gebruikt om te reageren op een bewijs van bezit uitdaging van de service. Zie voor meer informatie, [verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+De leaf-certificaat of eindentiteitscertificaat, identificeert de certificaathouder. Het basiscertificaat in de certificaatketen en nul of meer tussenliggende certificaten heeft. Het leaf-certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen. Unieke wijze identificeert het apparaat aan de provisioning-service en wordt soms aangeduid als het certificaat voor apparaten. Tijdens verificatie wordt het apparaat de persoonlijke sleutel die is gekoppeld aan dit certificaat gebruikt om te reageren op een bewijs van bezit uitdaging van de service.
+
+Blad certificaten die worden gebruikt met een [afzonderlijke inschrijving](./concepts-service.md#individual-enrollment) post hebben een vereiste dat de **onderwerpnaam** moet worden ingesteld op de registratie-ID van de vermelding voor afzonderlijke registratie. Blad certificaten die worden gebruikt met een [registratiegroep](./concepts-service.md#enrollment-group) vermelding moet de **onderwerpnaam** ingesteld op de gewenste apparaat-ID die wordt weergegeven in de **registratie Records** voor het geverifieerde apparaat in de registratiegroep.
+
+Zie voor meer informatie, [verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Apparaattoegang tot de inrichtingsservice met X.509-certificaten
 

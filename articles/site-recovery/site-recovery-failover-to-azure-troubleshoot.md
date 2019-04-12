@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889689"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492852"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Fouten bij het uitvoeren van een failover VM met VMware of fysieke machine naar Azure oplossen
 
@@ -77,9 +77,9 @@ Handmatig wijzigen het opstarttype van de stuurprogramma's voor **Windows Guest 
 Als de **Connect** knop op de failover-VM in Azure is uitgeschakeld en u bent niet verbonden met Azure via een Express Route of Site-naar-Site VPN-verbinding, vervolgens
 
 1. Ga naar **virtuele machine** > **netwerken**, klik op de naam van de netwerkinterface vereist.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IP-configuraties](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om in te schakelen openbaar IP-adres, klikt u op **inschakelen**. ![IP inschakelen](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klik op **vereiste instellingen configureren** > **nieuw**. ![Maak een nieuwe](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Klik op **vereiste instellingen configureren** > **nieuw**. ![Nieuwe maken](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Voer de naam van het openbare adres, kiest u de standaardopties voor **SKU** en **toewijzing**, klikt u vervolgens op **OK**.
 6. Nu, om de wijzigingen hebt opgeslagen, klikt u op **opslaan**.
 7. De deelvensters sluiten en vervolgens naar **overzicht** sectie van de virtuele machine verbinding maken/RDP.
@@ -132,8 +132,10 @@ De Azure Site Recovery-Masterdoel registratie bij de configuratieserver is mislu
  
 Deze fout wordt aangegeven door de volgende tekenreeksen in het installatielogboek: 
 
-RegisterHostStaticInfo opgetreden uitzondering config/talwrapper.cpp(107) [post] CurlWrapper bericht is mislukt: server: 10.38.229.221, poort: 443, phpUrl: request_handler.php, beveiligde: true, ignoreCurlPartialError: false met de volgende fout: [op curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] kan niet aanvraag: (35) - SSL verbinding maken met de fout. 
- 
+```
+RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+```
+
 Het probleem kunt oplossen:
  
 1. Open een opdrachtprompt op de configuratieserver virtuele machine en controleer of de proxy-instellingen met de volgende opdrachten:

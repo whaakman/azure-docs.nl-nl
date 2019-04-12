@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c2fc406fa864fe2f67ded4ea98ad14475944671a
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270457"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500342"
 ---
 # <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie in C#: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
@@ -56,7 +56,7 @@ REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel n
 
 1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-1.. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
 ![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
@@ -87,7 +87,7 @@ In deze stap maakt u een externe gegevensbron die een indexeerfunctie kan verken
 
 In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of database is en u maakt beide in stap 2. Als u een bestaande resource hebt, kunt u de tabel hotels er desgewenst aan toevoegen vanaf stap 4.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
+1. [Meld u aan bij Azure portal](https://portal.azure.com/). 
 
 2. Zoekt of maakt u een **Azure SQL Database** om een groep database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
 
@@ -99,7 +99,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
    ![De pagina SQL-database](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Klik op de opdrachtbalk op **Extra** > **Query-editor**.
+4. Klik in het navigatievenster op **Query-editor (preview)**.
 
 5. Klik op **Aanmelden** en voer de gebruikersnaam en het wachtwoord van de serverbeheerder in.
 
@@ -137,7 +137,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-Uw code is nu gereed om te worden samengesteld en uitgevoerd. Voordat u dat doet, moet u even de tijd nemen om de definities van de index en de indexeerfuncties voor dit voorbeeld te bestuderen. De relevante code staat in twee bestanden:
+Zodra de gegevens en configuratie-instellingen zijn gemaakt, wordt het voorbeeld programma **DotNetHowToIndexers.sln** is gereed om te bouwen en uitvoeren. Voordat u dat doet, moet u even de tijd nemen om de definities van de index en de indexeerfuncties voor dit voorbeeld te bestuderen. De relevante code staat in twee bestanden:
 
   + **hotel.cs**, dat het schema bevat dat de index definieert
   + **Program.cs**, dat de functies bevat die de structuren in uw service maken en beheren
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 Een schema kan ook andere elementen bevatten, zoals scoreprofielen om een zoekscore te verbeteren, aangepaste analysefuncties en andere constructies. In dit geval is het schema echter beperkt gedefinieerd en bestaat het alleen uit velden in de voorbeeldgegevenssets.
 
-In deze zelfstudie haalt de indexeerfunctie gegevens op uit één gegevensbron. In de praktijk kunt u meerdere indexeerfuncties koppelen aan de dezelfde index en zo een geconsolideerde doorzoekbare index van meerdere gegevensbronnen en indexeerfuncties maken. U kunt dezelfde combinatie van index en indexeerfunctie gebruiken, waarbij alleen de gegevensbronnen verschillen, of één index gebruiken met verschillende combinaties van indexeerfunctie en gegevensbron, afhankelijk van waar u flexibiliteit nodig hebt.
+In deze zelfstudie haalt de indexeerfunctie gegevens op uit één gegevensbron. In de praktijk, kunt u meerdere indexeerfuncties koppelen aan de dezelfde index, het maken van een geconsolideerde doorzoekbare index van meerdere gegevensbronnen. U kunt dezelfde combinatie van index en indexeerfunctie gebruiken, waarbij alleen de gegevensbronnen verschillen, of één index gebruiken met verschillende combinaties van indexeerfunctie en gegevensbron, afhankelijk van waar u flexibiliteit nodig hebt.
 
 ### <a name="in-programcs"></a>In Program.cs
 
-Het hoofdprogramma bevat functies voor de drie representatieve gegevensbronnen. Als we ons alleen richten op Azure SQL Database, vallen de volgende objecten op:
+Het hoofdprogramma bevat de logica voor het maken van een client, een index, een gegevensbron en een indexeerfunctie. De code controleert op en verwijdert bestaande resources met dezelfde naam, waarbij ervan wordt uitgegaan dat u dit programma meerdere keren uitvoert.
+
+Het object voor de bron is geconfigureerd met instellingen die specifiek voor Azure SQL database-resources zijn, met inbegrip van [incrementele indexeren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) voor het gebruik van de ingebouwde [wijzigen detectie functies](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) van Azure SQL. De demo hotels database in Azure SQL is een 'voorlopig verwijderen' kolom met de naam **IsDeleted**. Wanneer deze kolom is ingesteld op true in de database, de indexeerfunctie Hiermee verwijdert u de bijbehorende document uit de Azure Search-index.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-In Azure Search zijn de objecten die u onafhankelijk kunt weergeven, configureren of verwijderen indexen, indexeerfuncties en gegevensbronnen (respectievelijk *hotels*, *azure-sql-indexer* en *azure-sql*). 
-
-De kolom *AzureSqlHighWaterMarkColumnName* verdient een speciale vermelding omdat deze gegevens voor detectie van wijzigingen bevat die door de indexeerfunctie worden gebruikt om te bepalen of een rij is gewijzigd sinds de laatste indexering. [Beleid voor detectie van wijzigingen](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) wordt alleen ondersteund in indexeerfuncties en verschilt per gegevensbron. Voor Azure SQL Database kunt u kiezen uit twee soorten beleid, afhankelijk van de vereisten voor de database.
-
-De volgende code toont de methoden in Program.cs die worden gebruikt om een gegevensbron en indexeerfunctie te maken. De code controleert op en verwijdert bestaande resources met dezelfde naam, waarbij ervan wordt uitgegaan dat u dit programma meerdere keren uitvoert.
+Een indexeerfunctie-object is platformonafhankelijk, waarbij configuratie, plannen en aanroepen zijn hetzelfde, ongeacht de bron. In dit voorbeeld van de indexeerfunctie bevat een schema, een optie voor opnieuw instellen die wordt gewist indexeerfunctie geschiedenis en roept een methode voor het maken en de indexeerfunctie direct uitvoeren.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Merk op dat API-aanroepen van de indexeerfunctie platformneutraal zijn, behalve in het geval van [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet), dat aangeeft welke type verkenner moet worden aangeroepen.
+
 
 ## <a name="run-the-indexer"></a>De indexeerfunctie uitvoeren
 
@@ -236,12 +256,10 @@ Klik in de Azure Portal op de overzichtspagina van de zoekservice op **Search Ex
 
 Alle indexeerfuncties, inclusief de functie die u zojuist via programmacode hebt gemaakt, worden vermeld in de portal. U kunt de definitie van een indexeerfunctie openen en de gegevensbron ervan weergeven of een vernieuwingsschema configureren om nieuwe en gewijzigde rijen op te halen.
 
-1. Open de overzichtspagina van uw Azure Search-service.
-2. Schuif omlaag naar de tegels met **indexeerfuncties** en **gegevensbronnen**.
-3. Klik op een tegel om een lijst met resources te openen. U kunt afzonderlijke indexeerfuncties of gegevensbronnen selecteren om configuratie-instellingen weer te geven of te wijzigen.
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, klikt u op de koppelingen voor **indexen**, **indexeerfuncties**, en **gegevens Bronnen**.
+3. Selecteer de afzonderlijke objecten weergeven of wijzigen van configuratie-instellingen.
 
    ![Tegels met indexeerfuncties en gegevensbronnen](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

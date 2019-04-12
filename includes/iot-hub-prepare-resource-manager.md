@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 74f15452c7def068403b97b11e784170835edc18
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59472343"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502776"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Voorbereiden om Azure Resource Manager-aanvragen te verifiëren
 U moet verifiëren dat de bewerkingen die u uitvoert op resources met behulp van de [Azure Resource Manager] [ lnk-authenticate-arm] met Azure Active Directory (AD). Er is de eenvoudigste manier om dit configureren met PowerShell of Azure CLI.

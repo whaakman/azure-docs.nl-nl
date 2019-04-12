@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553397"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503016"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | --- | --- |
 | Virtuele netwerken |1000 |
 | Subnetten per virtueel netwerk |3.000 |
-| Virtueel netwerk-peerings per virtueel netwerk |100 |
+| Virtueel netwerk-peerings per virtueel netwerk |500 |
 | DNS-servers per virtueel netwerk |20 |
 | Privé-IP-adressen per virtueel netwerk |65,536 |
 | Privé-IP-adressen per netwerkinterface |256 |
@@ -68,7 +68,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Openbare IP-adressen - dynamisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
-| Openbare IP-adressen - statisch | 200 voor Basic. |Neem contact op met ondersteuning. |
+| Openbare IP-adressen - statisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
 | Openbare IP-adressen - statisch | 200 voor Standard.|Neem contact op met ondersteuning. |
 | Openbare IP-voorvoegsel grootte (preview) | /28 | /28 |
 

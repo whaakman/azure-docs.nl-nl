@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/08/2018
+ms.date: 03/27/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882787"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501056"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>Procedure: Geef optioneel claims voor uw Azure AD-app (Preview)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
 
 Deze functie wordt gebruikt door ontwikkelaars van toepassingen om op te geven welke claims dat ze willen in tokens die aan hun toepassing worden gestuurd. U kunt optioneel claims te gebruiken:
 
@@ -32,34 +32,28 @@ Deze functie wordt gebruikt door ontwikkelaars van toepassingen om op te geven w
 - Het gedrag van bepaalde claims die Azure AD in tokens retourneert wijzigen.
 - Toevoegen en toegang tot aangepaste claims voor uw toepassing.
 
-> [!NOTE]
-> Deze mogelijkheid is momenteel in openbare preview. Wees voorbereid om terug te keren of eventuele wijzigingen te verwijderen. De functie is beschikbaar in alle Azure AD-abonnement tijdens de openbare preview. Wanneer de functie algemeen beschikbaar komt, kunnen sommige aspecten van de functie echter een Azure AD premium-abonnement vereist.
+Zie voor de lijsten met standard claims, de [toegangstoken](access-tokens.md) en [id_token](id-tokens.md) claims documentatie. 
 
-Zie voor een lijst van standaard claims en hoe ze worden gebruikt in tokens, de [basisprincipes van tokens die zijn uitgegeven door Azure AD](v1-id-and-access-tokens.md).
-
-Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) is token kleinere om optimale prestaties door clients. Als gevolg hiervan meerdere claims voorheen opgenomen in de toegang en de ID-tokens zijn niet meer aanwezig zijn in v2.0-tokens en moeten worden gevraagd om specifiek op basis van de per toepassing.
+Hoewel u optionele claims worden ondersteund in zowel v1.0 en v2.0 indeling tokens, evenals SAML-tokens, beschikt over de meeste van de waarde bij het verplaatsen van v1.0 naar versie 2.0. Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) is token kleinere om optimale prestaties door clients. Als gevolg hiervan meerdere claims voorheen opgenomen in de toegang en de ID-tokens zijn niet meer aanwezig zijn in v2.0-tokens en moeten worden gevraagd om specifiek op basis van de per toepassing.
 
 **Tabel 1: Toepasselijkheid**
 
-| Accounttype | V1.0-eindpunt | V2.0-eindpunt  |
+| Accounttype | V1.0 tokens | V2.0-tokens  |
 |--------------|---------------|----------------|
-| Persoonlijke Microsoft-account  | N.V.T. - RPS Tickets in plaats daarvan worden gebruikt | Binnenkort ondersteuning |
-| Azure AD-account          | Ondersteund                          | Ondersteund met aanvullende opmerkingen |
+| Persoonlijke Microsoft-account  | N/A  | Ondersteund|
+| Azure AD-account      | Ondersteund | Ondersteund |
 
-> [!IMPORTANT]
-> Apps die ondersteuning bieden voor zowel persoonlijke accounts en Azure AD (geregistreerd via de [portal voor app-registratie](https://apps.dev.microsoft.com)) optioneel claims kan niet worden gebruikt. Apps die zijn geregistreerd voor alleen Azure AD met behulp van het v2.0-eindpunt kunnen beschikt echter over de optionele claims die ze in het manifest wordt aangevraagd. In de Azure-portal, kunt u de toepassing manifest editor in de bestaande **App-registraties** ervaring voor het bewerken van de optionele claims. Echter, deze functionaliteit is nog niet beschikbaar met behulp van de editor van het manifest toepassing in de nieuwe **(Preview) van de App-registraties** optreden.
+## <a name="v10-and-v20-optional-claims-set"></a>V1.0 en V2.0 optioneel claims ingesteld
 
-## <a name="standard-optional-claims-set"></a>Standard optioneel claims instellen
-
-De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld. Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](#configuring-custom-claims-via-directory-extensions)hieronder. Bij het toevoegen van claims voor de **toegangstoken**, dit geldt voor toegangstokens aangevraagd *voor* de toepassing (een web-API), niet de *door* de toepassing. Dit zorgt ervoor dat, ongeacht de toegang tot uw API-client de juiste gegevens aanwezig in het toegangstoken dat ze gebruiken is voor verificatie op basis van uw API.
+De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld. Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](#configuring-directory-extension-optional-claims)hieronder. Bij het toevoegen van claims voor de **toegangstoken**, dit geldt voor toegangstokens aangevraagd *voor* de toepassing (een web-API), niet de *door* de toepassing. Dit zorgt ervoor dat, ongeacht de toegang tot uw API-client de juiste gegevens aanwezig in het toegangstoken dat ze gebruiken is voor verificatie op basis van uw API.
 
 > [!NOTE]
-> De meeste van deze claims kan worden opgenomen in JWTs voor v1.0 en v2.0-tokens, maar geen SAML-tokens, tenzij anders is aangegeven in de kolom Type Token. Bovendien, terwijl optioneel claims worden alleen ondersteund voor AAD-gebruikers momenteel, wordt MSA-ondersteuning toegevoegd. Wanneer MSA optioneel claims ondersteuning op het v2.0-eindpunt heeft, wordt de kolom Type gebruiker geven als een claim beschikbaar voor een AAD- of MSA-gebruikers is. 
+> De meeste van deze claims kan worden opgenomen in JWTs voor v1.0 en v2.0-tokens, maar geen SAML-tokens, tenzij anders is aangegeven in de kolom Type Token. Consumenten-accounts ondersteunen slechts een subset van deze claims, gemarkeerd in de kolom 'Type gebruiker'.  Veel van de claims die worden vermeld niet van toepassing op gebruikers van de consument (ze dus er is geen tenant hebben `tenant_ctry` heeft geen waarde).  
 
-**Tabel 2: Standard optioneel claimset**
+**Tabel 2: V1.0 en optionele V2.0 claim instellen**
 
-| Name                        | Description   | Tokentype | Gebruikerstype | Opmerkingen  |
-|-----------------------------|----------------|------------|-----------|--------|
+| Name                       |  Description   | Tokentype | Gebruikerstype | Opmerkingen  |
+|----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tijd wanneer de gebruiker laatste geverifieerd. Zie de OpenID Connect-specificatie.| JWT        |           |  |
 | `tenant_region_scope`      | De regio van de resource-tenant | JWT        |           | |
 | `home_oid`                 | Voor gastgebruikers, de object-ID van de gebruiker in de starttenant van de gebruiker.| JWT        |           | |
@@ -70,23 +64,23 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 | `enfpolids`                | Afgedwongen beleid voor id's. Een lijst van het beleid voor id's die zijn geëvalueerd voor de huidige gebruiker. | JWT |  |  |
 | `vnet`                     | Informatie over VNET-aanduiding. | JWT        |           |      |
 | `fwd`                      | IP-adres.| JWT    |   | Het oorspronkelijke IPv4-adres van de aanvragende client (binnen een VNET) toegevoegd |
-| `ctry`                     | Land van gebruiker | JWT |           | Azure AD-retourneert de `ctry` optionele claim als deze aanwezig is en de waarde van de claim een standaard twee letters landnummer, zoals FR, JP en SZ is. |
+| `ctry`                     | Land van gebruiker | JWT |  | Azure AD-retourneert de `ctry` optionele claim als deze aanwezig is en de waarde van de claim een standaard twee letters landnummer, zoals FR, JP en SZ is. |
 | `tenant_ctry`              | Land van de tenant van de resource | JWT | | |
 | `xms_pdl`          | Gewenste gegevenslocatie   | JWT | | Voor meerdere geografische gebieden tenants is dit de 3-letterige code met de geografische regio waarin die de gebruiker zich bevindt. Zie voor meer informatie de [Azure AD Connect-documentatie over de gewenste gegevenslocatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Bijvoorbeeld: `APC` voor Azië en Stille Oceaan. |
 | `xms_pl`                   | Gebruiker gewenste taal  | JWT ||De gebruiker de taal, bij voorkeur als instellen. Afkomstig uit de starttenant, in de Gast-scenario's. LLE CC opgemaakt ("en-us '). |
 | `xms_tpl`                  | Tenant van de taal van voorkeur| JWT | | De resource-tenant de taal, bij voorkeur als instellen. Opgemaakte LLE ('en'). |
 | `ztdid`                    | Zero-touch-implementatie-ID | JWT | | De apparaat-id die wordt gebruikt voor [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-|`email`                     | De adresseerbare e-mailadres voor deze gebruiker, als de gebruiker een heeft.  | JWT, SAML | | Deze waarde is standaard opgenomen als de gebruiker een gast in de tenant.  Voor beheerde gebruikers (die in de tenant), moet deze worden gevraagd via deze optionele claim of, op v2.0 alleen met het bereik OpenID.  Voor beheerde gebruikers het e-mailadres moet worden ingesteld in de [Office-beheerportal](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | De adresseerbare e-mailadres voor deze gebruiker, als de gebruiker een heeft.  | JWT, SAML | MSA, AAD | Deze waarde is standaard opgenomen als de gebruiker een gast in de tenant.  Voor beheerde gebruikers (die in de tenant), moet deze worden gevraagd via deze optionele claim of, op v2.0 alleen met het bereik OpenID.  Voor beheerde gebruikers het e-mailadres moet worden ingesteld in de [Office-beheerportal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Accountstatus gebruikers in de tenant. | JWT, SAML | | Als de gebruiker een lid van de tenant is, is de waarde `0`. Als ze een gast zijn, is de waarde `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Hoewel deze claim automatisch geïnstalleerd wordt, kunt u deze kunt opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker Gast koppelen.  |
 
 ### <a name="v20-optional-claims"></a>Optionele claims v2.0
 
-Deze claims worden altijd in de tokens v1.0 opgenomen, maar niet opgenomen in v2.0-tokens, tenzij aangevraagd. Deze claims zijn alleen van toepassing voor JWTs (ID-tokens en Tokens voor toegang). 
+Deze claims worden altijd in de Azure AD-tokens v1.0 opgenomen, maar niet opgenomen in v2.0-tokens, tenzij aangevraagd. Deze claims zijn alleen van toepassing voor JWTs (ID-tokens en Tokens voor toegang). 
 
 **Tabel 3: V2.0-alleen optioneel claims**
 
-| JWT Claim     | Name                            | Beschrijving                                | Opmerkingen |
+| JWT Claim     | Name                            | Description                                | Opmerkingen |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adres                      | De client heeft aangemeld vanaf het IP-adres.   |       |
 | `onprem_sid`  | On-premises beveiligings-id |                                             |       |
@@ -94,9 +88,11 @@ Deze claims worden altijd in de tokens v1.0 opgenomen, maar niet opgenomen in v2
 | `pwd_url`     | URL van wijzigen wachtwoord             | Een URL die de gebruiker bezoeken kan om hun wachtwoord te wijzigen.   |   |
 | `in_corp`     | Inside Corporate Network        | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als ze niet, niet de claim is opgenomen.   |  Op basis van de [vertrouwde IP-adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips) instellingen in MFA.    |
 | `nickname`    | Bijnaam                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. | 
-| `family_name` | Achternaam                       | Biedt de achternaam, achternaam, of familienaam van de gebruiker zoals gedefinieerd in de Azure AD-gebruiker-object. <br>"family_name": "Kleefstra" |       |
-| `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op de Azure AD-gebruiker-object.<br>'given_name': "Frank"                   |       |
-| `upn`       | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
+| `family_name` | Achternaam                       | Bevat de laatste naam, de achternaam of familienaam van de gebruiker gedefinieerd in het gebruikersobject. <br>"family_name": "Kleefstra" | Ondersteund in beheerde Serviceaccounts en AAD   |
+| `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject.<br>'given_name': "Frank"                   | Ondersteund in beheerde Serviceaccounts en AAD  |
+| `upn`         | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
+| `sid`         | Sessie-id                      | GUID-sessie-id, die wordt gebruikt voor het bijhouden van verificatiesessie met beheerde Serviceaccounts. | MSA.  Niet worden opgenomen voor Azure AD-accounts. | 
+
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims
 
@@ -104,7 +100,7 @@ Sommige optionele claims kunnen worden geconfigureerd voor het wijzigen van de m
 
 **Tabel 4: Waarden voor het configureren van optionele claims**
 
-| Naam van eigenschap  | Aanvullende eigenschapsnaam | Description |
+| Naam van eigenschap  | Aanvullende eigenschapsnaam | Beschrijving |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan worden gebruikt voor SAML- en JWT antwoorden en v1.0 en v2.0-tokens. |
 |                | `include_externally_authenticated_upn`  | Bevat de UPN die is opgeslagen in de resource-tenant van de Gast. Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -187,16 +183,16 @@ Als dit wordt ondersteund door een specifieke claim, kunt u ook het gedrag van h
 | `source`               | Edm.String              | De bron (directory-object) van de claim. Er zijn vooraf gedefinieerde claims en de gebruiker gedefinieerde claims van extensie-eigenschappen. Als de waarde null is, is de claim een vooraf gedefinieerde optioneel claim. Als waarde voor de gebruiker is, is de waarde in de naameigenschap van de extensie-eigenschap van het gebruikersobject. |
 | `essential`            | Edm.Boolean             | Als de waarde true is, is de claim die is opgegeven door de client die nodig zijn om te controleren of een goede autorisatie-ervaring voor de specifieke taak die is aangevraagd door de eindgebruiker. De standaardwaarde is false.                                                                                                             |
 | `additionalProperties` | Verzameling (Edm.String) | Aanvullende eigenschappen van de claim. Als een eigenschap in deze verzameling bestaat, wijzigt u over de werking van de optionele claim die in de eigenschap name is opgegeven.                                                                                                                                               |
-## <a name="configuring-custom-claims-via-directory-extensions"></a>Aangepaste claims via mapextensies configureren
+## <a name="configuring-directory-extension-optional-claims"></a>Directory-extensie optioneel claims configureren
 
 Naast de standaard optioneel claims is ingesteld, kunt u ook tokens om op te nemen van directory-schema-uitbreidingen configureren. Zie voor meer informatie, [Directory-schema-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Deze functie is handig voor het koppelen van aanvullende informatie die uw app, bijvoorbeeld gebruiken kunt, een extra id of een belangrijke configuratie-optie die de gebruiker heeft ingesteld. 
 
 > [!Note]
 > Directory-schema-uitbreidingen zijn een functie van AAD alleen-lezen, dus als uw toepassing manifest van de aanvragen voor een aangepaste extensie- en een MSA-gebruiker meldt zich aan bij uw app, worden deze extensies, niet geretourneerd. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>Waarden voor het configureren van aanvullende optionele claims
+### <a name="directory-extension-formatting"></a>Directory-extensie opmaak
 
-Gebruik de volledige naam van de extensie voor extensiekenmerken (in de indeling: `extension_<appid>_<attributename>`) in het toepassingsmanifest. De `<appid>` moet overeenkomen met de id van de aanvraag om de claim. 
+Gebruik de volledige naam van de extensie voor extensiekenmerken (in de indeling: `extension_<appid>_<attributename>`) in het toepassingsmanifest. De `<appid>` moet overeenkomen met de ID van de aanvraag om de claim. 
 
 Binnen de JWT, wordt deze claims worden verzonden met de volgende indeling: `extn.<attributename>`.
 
@@ -216,7 +212,7 @@ Er zijn meerdere opties beschikbaar voor het bijwerken van de eigenschappen van 
 1. Selecteer **App-registraties** vanaf de linkerzijde.
 1. De toepassing die u wilt configureren van optionele claims voor in de lijst en klik op het niet vinden.
 1. Klik op de toepassingspagina **Manifest** om het manifest inline-editor te openen. 
-1. U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Het manifest volgt het schema voor de [Toepassingsentiteit](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), en het manifest één keer opgeslagen automatische-indelingen. Nieuwe elementen worden toegevoegd aan de `OptionalClaims` eigenschap.
+1. U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Het manifest volgt het schema voor de [Toepassingsentiteit](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest), en het manifest één keer opgeslagen automatische-indelingen. Nieuwe elementen worden toegevoegd aan de `OptionalClaims` eigenschap.
 
       ```json
       "optionalClaims": 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882900"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491284"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -113,7 +113,7 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 - <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. Peering van virtuele netwerken in verschillende regio's wordt ook aangeduid als *wereldwijde VNet-Peering*. 
 - Bij het maken van een wereldwijde peering, worden de gekoppelde virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, China-cloud-regio's of Government cloud-regio's. U kan niet koppelen tussen clouds. Bijvoorbeeld, kan niet een VNet in Azure openbare cloud worden gekoppeld aan een VNet in Azure China-cloud.
 - Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor zowel, VNet-Peering en wereldwijde VNet-Peering.
-- U kunt externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken in de Preview-versie. De Preview-versie is beschikbaar in alle Azure-regio's, China-cloud-regio's en Government cloud-regio's. Er is geen opname in de whitelist is vereist. U kunt in de Preview-versie via de CLI, PowerShell, sjablonen of API testen. Portal wordt niet ondersteund in de Preview-versie.
+- U kunt externe gateways gebruiken of toestaan van gateway-doorvoer in wereldwijd gekoppelde virtuele netwerken en lokaal gekoppelde virtuele netwerken.
 - De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
 - De virtuele netwerken die u op hetzelfde niveau moeten niet-overlappende IP-adresruimten hebben.
 - U kan niet-adresbereiken aan toevoegen of verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, de peering verwijderen, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. -Adresbereiken aan toevoegen of verwijderen-adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).

@@ -1,10 +1,10 @@
 ---
 title: Metrische gegevens van Azure SQL-Database en diagnostische logboekregistratie | Microsoft Docs
-description: Informatie over het configureren van Azure SQL Database voor het opslaan van statistieken van resource gebruik en de query kan worden uitgevoerd.
+description: Informatie over het inschakelen van diagnostische gegevens in Azure SQL Database voor het opslaan van informatie over het gebruik van resources en Uitvoeringsstatistieken query.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426484"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490065"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
+
+In dit onderwerp leert u hoe u logboekregistratie van diagnostische gegevens telemetrie voor Azure SQL Database via Azure portal, PowerShell, Azure CLI, Azure Monitor REST API en Azure Resource Manager-sjabloon configureren. Deze diagnostische gegevens kan worden gebruikt om te meten van gebruik van resources en Uitvoeringsstatistieken query. 
 
 Individuele databases, gepoolde databases in elastische pools en databases van de instantie in een beheerd exemplaar kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
 
@@ -438,7 +440,7 @@ Details van telemetrie beschikbaar voor alle logboeken worden vermeld in de onde
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: ResourceUsageStats |
+|Category|De naam van de categorie. Altijd: ResourceUsageStats |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: MANAGEDINSTANCES |
 |SubscriptionId|Abonnement-GUID voor de database |
@@ -463,7 +465,7 @@ Details van telemetrie beschikbaar voor alle logboeken worden vermeld in de onde
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics |
+|Category|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics |
 |OperationName|Naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -514,7 +516,7 @@ Meer informatie over [gegevens voor Query Store runtime-statistieken](https://do
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: QueryStoreWaitStatistics |
+|Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics |
 |OperationName|Naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -552,7 +554,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQ |
-|Categorie|De naam van de categorie. Altijd: Fouten |
+|Category|De naam van de categorie. Altijd: Fouten |
 |OperationName|Naam van de bewerking. Altijd: ErrorEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -581,7 +583,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: DatabaseWaitStatistics |
+|Category|De naam van de categorie. Altijd: DatabaseWaitStatistics |
 |OperationName|Naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -603,14 +605,14 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="time-outs-dataset"></a>Time-outs gegevensset
 
-|Eigenschap|Description|
+|Eigenschap|Beschrijving|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: Time-outs |
+|Category|De naam van de categorie. Altijd: Time-outs |
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -626,14 +628,14 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="blockings-dataset"></a>Blockings gegevensset
 
-|Eigenschap|Description|
+|Eigenschap|Beschrijving|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: blokken |
+|Category|De naam van de categorie. Altijd: blokken |
 |OperationName|Naam van de bewerking. Altijd: BlockEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -657,7 +659,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |TimeGenerated [UTC] |Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: Deadlocks |
+|Category|De naam van de categorie. Altijd: Deadlocks |
 |OperationName|Naam van de bewerking. Altijd: DeadlockEvent |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
@@ -671,14 +673,14 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="automatic-tuning-dataset"></a>Automatische afstemming gegevensset
 
-|Eigenschap|Description|
+|Eigenschap|Beschrijving|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is vastgelegd |
 |Type|Altijd: AzureDiagnostics |
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT.SQL |
-|Categorie|De naam van de categorie. Altijd: AutomaticTuning |
+|Category|De naam van de categorie. Altijd: AutomaticTuning |
 |Resource|Naam van de resource |
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID voor de database |

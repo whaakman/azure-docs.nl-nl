@@ -12,28 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: f226b9b802bca47cc6fd7b9cdec550b23c7c88d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 958dc02ecc744f89badee851467f2e78190287cd
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890811"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501022"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Over het gebruik van Service Bus-wachtrijen met Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-In dit artikel wordt het gebruik van de Service Bus-wachtrijen beschreven. De voorbeelden zijn geschreven in Java en gebruik de [Azure SDK voor Java][Azure SDK for Java]. De behandelde scenario's zijn **maken van wachtrijen**, **verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**.
+In deze zelfstudie leert u hoe u Java-toepassingen voor berichten te verzenden en ontvangen van berichten van een Service Bus-wachtrij maakt. 
 
 > [!NOTE]
 > U vindt Java-voorbeelden op GitHub in de [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Als u een wachtrij om te werken met geen hebt, voert u de stappen de [gebruik Azure portal voor het maken van een Service Bus-wachtrij](service-bus-quickstart-portal.md) artikel om een wachtrij te maken.
+    1. Het snel lezen **overzicht** van Service Bus **wachtrijen**. 
+    2. Maken van een Service Bus **naamruimte**. 
+    3. Krijgen de **verbindingsreeks**.
+    4. Maken van een Service Bus **wachtrij**.
+3. Installeer [Azure SDK voor Java][Azure SDK for Java]. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
 Zorg ervoor dat u hebt geïnstalleerd het [Azure SDK voor Java] [ Azure SDK for Java] voordat u dit voorbeeld maakt. Als u Eclipse gebruikt, kunt u de [Azure Toolkit voor Eclipse] [ Azure Toolkit for Eclipse] waarin de Azure SDK voor Java. Vervolgens kunt u toevoegen de **Microsoft Azure-bibliotheken voor Java** aan uw project:

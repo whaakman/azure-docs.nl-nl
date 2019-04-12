@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens in Azure Sentinel Preview Cisco | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens in Azure Sentinel Cisco.
+title: Cisco-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Leer hoe u verbinding maken met Cisco gegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883902"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495699"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Verbinding maken met uw Cisco ASA-apparaat 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883902"
 U kunt Azure Sentinel verbinden met een Cisco ASA-apparaat. Cisco ASA is systeemeigen geïntegreerd met Azure Sentinel voor opname van gegevens, zodat zelfs als uw Cisco-apparaat niet Logboeken opslaan als CEF, deze Azure Sentinel neemt op dezelfde manier als die CEF-logboeken worden verwerkt. De integratie met Azure Sentinel kunt u gemakkelijk uitvoeren op analytics en query's voor gegevens van het logboekbestand van Cisco ASA. 
 
 > [!NOTE]
-> - Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
+> Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Stap 1: Verbinding maken met uw Cisco ASA-apparaat met behulp van een agent
 
@@ -42,7 +42,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 
 ### <a name="deploy-the-agent-in-azure"></a>De agent in Azure implementeren
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype. 
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
 
 1. Onder **Linux Syslog-agentconfiguratie**:
    - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke virtuele machine die automatisch is verbonden met uw werkruimte, is. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
@@ -79,7 +79,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
 
 
-1. Klik in de portal voor Azure Sentinel **gegevensverzameling** en selecteer het apparaattype.
+1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype.
 1. Maken van een specifieke Linux-VM, onder **Linux Syslog-agentconfiguratie** Kies **handmatige implementatie**.
    1. Onder **de Syslog-agent downloaden en installeren**, selecteer **niet-Azure Linux-machine**. 
    1. In de **Direct agent** scherm die wordt geopend, selecteert **-Agent voor Linux** om te downloaden van de agent of voer deze opdracht uit om het te downloaden op uw Linux-machine:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

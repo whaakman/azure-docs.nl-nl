@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471457"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489224"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
 
@@ -37,9 +37,9 @@ De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick 
 
 [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken. 
 
-[Maak een Azure storage-account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) wordt gebruikt voor het opslaan van de voorbeeldgegevens.
+[Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens.
 
-[Postman bureaublad-app](https://www.getpostman.com/) wordt gebruikt voor het verzenden van aanvragen naar Azure Search.
+[Postman bureaublad-app](https://www.getpostman.com/) voor het verzenden van aanvragen naar Azure Search.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) bevat de gegevens in deze zelfstudie gebruikt. Download en pak deze uit dit bestand in een eigen map. Data is afkomstig uit [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), geconverteerd naar JSON voor deze zelfstudie.
 
@@ -295,7 +295,7 @@ De snelste manier om op te schonen na een zelfstudie is de resourcegroep met de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt Cognitive Services AI aangestuurde algoritmen koppelen aan een pijplijn voor indexering. Als volgende stap kunt u verdergaan met de volgende zelfstudie.
+Er zijn verschillende benaderingen en meerdere opties voor indexeren van JSON-blobs. Als volgende stap, bekijk en test de verschillende opties om te zien wat het beste werkt voor uw scenario.
 
 > [!div class="nextstepaction"]
-> [Indexeren met AI](cognitive-search-tutorial-blob.md)
+> [Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)

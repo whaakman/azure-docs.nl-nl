@@ -1,6 +1,6 @@
 ---
-title: Syslog-gegevens in Azure Sentinel Preview verzamelen | Microsoft Docs
-description: Meer informatie over het verzamelen van Syslog-gegevens in Azure Sentinel.
+title: Syslog-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Azure Sentinel Syslog-gegevens.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9144f20eae5a925ad88054e972c99ae024bcefe3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447299"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496519"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met de externe oplossing met behulp van Syslog
 
@@ -30,18 +30,18 @@ ms.locfileid: "57447299"
 U kunt een on-premises apparaat die ondersteuning biedt voor Syslog naar Azure Sentinel verbinden. Dit wordt gedaan met behulp van een agent die is gebaseerd op een Linux-machine tussen het apparaat en Azure Sentinel. Als uw Linux-machine in Azure, kunt u de logboeken van uw apparaat of toepassing naar een toegewezen werkruimte voor u maken in Azure en verbindt dit streamen. Als uw Linux-machine zich niet in Azure, kunt u de logboeken van uw apparaat streamen naar een toegewezen on-premises virtuele machine of computer waarop u de Agent voor Linux installeren. 
 
 > [!NOTE]
-> Als uw apparaat Syslog CEF ondersteunt, de verbinding volledig is en u moet deze optie kiest en volg de instructies in [verzamelen van gegevens van CEF](connect-common-event-format.md).
+> Als uw apparaat Syslog CEF ondersteunt, de verbinding volledig is en u moet deze optie kiest en volg de instructies in [verbinding te maken van gegevens van CEF](connect-common-event-format.md).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Syslog-verzameling wordt gerealiseerd met behulp van een agent voor Linux. Standaard ontvangt de agent voor Linux gebeurtenissen van de Syslog-daemon via UDP, maar in gevallen waarin een Linux-machine worden verwacht voor het verzamelen van een groot aantal Syslog-gebeurtenissen, zoals wanneer een Linux-agent er gebeurtenissen van andere apparaten ontvangen is, de configuratie is gewijzigd in gebruik van TCP-transport tussen de Syslog-daemon en de agent.
+Syslog-verbinding wordt gerealiseerd met behulp van een agent voor Linux. Standaard ontvangt de agent voor Linux gebeurtenissen van de Syslog-daemon via UDP, maar in gevallen waarin een Linux-machine worden verwacht voor het verzamelen van een groot aantal Syslog-gebeurtenissen, zoals wanneer een Linux-agent er gebeurtenissen van andere apparaten ontvangen is, de configuratie is gewijzigd in gebruik van TCP-transport tussen de Syslog-daemon en de agent.
 
 ## <a name="connect-your-syslog-appliance"></a>Verbinding maken met uw Syslog-apparaat
 
-1. Selecteer in de portal voor Azure Sentinel **gegevensverzameling** en kies de **Syslog** tegel.
+1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors** en kies de **Syslog** tegel.
 2. Als uw Linux-machine niet binnen Azure valt, downloadt en installeert de Azure-Sentinel **-Agent voor Linux** op uw apparaat. 
 1. Als u in Azure werkt, selecteert of maakt een virtuele machine die in de werkruimte van Azure Sentinel die toegewezen is aan het ontvangen van Syslog-berichten. Selecteer de virtuele machine in Azure Sentinel werkruimten en klikt u op **Connect** boven aan het linkerdeelvenster.
-3. Klik op **configureren van de logboeken te verzamelen** terug in de Syslog-connector-instellingen. 
+3. Klik op **configureren van de logboeken worden verbonden** terug in de Syslog-connector-instellingen. 
 4. Klik op **Druk hier om de configuratieblade te openen**.
 1. Selecteer **gegevens** en vervolgens **Syslog**.
    - Zorg ervoor dat elke faciliteit die u verzendt door Syslog is in de tabel. Voor elke functie wilt u controleren, stelt u een prioriteit. Klik op **Toepassen**.

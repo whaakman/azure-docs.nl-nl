@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652311"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494624"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logboek metrische gegevens tijdens de training wordt uitgevoerd in Azure Machine Learning
 
@@ -217,37 +217,9 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
    run = experiment.submit(src)
    ```
 
-## <a name="cancel-a-run"></a>Een uitvoering annuleren
+## <a name="manage-a-run"></a>Een uitvoering beheren
 
-ALTER een uitvoering is ingediend, kunt u deze annuleren, zelfs als u de objectverwijzing verloren hebt als u weet de naam van het experiment wat en id. 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-Momenteel wordt alleen ScriptRun en PipelineRun typen bieden ondersteuning voor de annuleringsbewerking.
-
-Bovendien kunt u een uitvoeren via de CLI met behulp van de volgende opdracht uit:
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+De [starten, bewaken en annuleren trainingsuitvoeringen](how-to-manage-runs.md) artikel worden de specifieke Azure Machine Learning-werkstromen voor het beheren van uw experimenten gemarkeerd.
 
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
 
@@ -417,7 +389,7 @@ Voorbeeld 2: Een model te veel confident ![een model te veel confident](./media/
 
 ### <a name="regression"></a>Regressie
 Voor elke regressiemodel u bouwen met behulp van de geautomatiseerde machine learning-mogelijkheden van Azure Machine Learning, ziet u de volgende grafieken: 
-+ [Voorspelde vs. De waarde True](#pvt)
++ [Voorspelde vs. True](#pvt)
 + [Histogram van dit](#histo)
 
 <a name="pvt"></a>
@@ -450,9 +422,9 @@ Urgentie van de functie biedt een score die aangeeft hoe waardevol elke functie 
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:
-* [How-to-use-azureml/training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [How-to-use-azureml/training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [How-to-use-azureml/training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: fbdc6ca8a9d93c090c1cfda9dec41b948d95c6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904913"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495342"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services Computer Vision SDK voor Python
 
@@ -216,12 +216,13 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Tekst uit een afbeelding ophalen
 
-U kunt handgeschreven of gedrukte tekst uit een afbeelding ophalen. Hiervoor zijn twee aanroepen aan de SDK nodig: [`recognize_text`][ref_computervisionclient_recognize_text] en [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. De aanroep recognize_text is asynchroon. Controleer eerst in de resultaten van de aanroep get_text_operation_result of de eerste aanroep is voltooid met [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] voordat u de tekstgegevens extraheert. De resultaten bevatten de tekst en de coördinaten van het begrenzingsvak voor de tekst.
+U kunt handgeschreven of gedrukte tekst uit een afbeelding ophalen. Hiervoor twee verzoeken aan de SDK: [ `batch_read_file` ](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) en [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). De aanroep van `batch_read_file` asynchroon is. In de resultaten van de `get_read_operation_result` aanroepen, moet u controleren als de eerste aanroep is voltooid met [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] voordat de gegevens te extraheren. De resultaten bevatten de tekst en de coördinaten van het begrenzingsvak voor de tekst.
 
 ```Python
 # import models
 from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
@@ -230,7 +231,7 @@ custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -239,16 +240,17 @@ operationId = operationLocation[idLocation:]
 
 # SDK call
 while True:
-    result = client.get_text_operation_result(operationId)
+    result = client.get_read_operation_result(operationId)
     if result.status not in ['NotStarted', 'Running']:
         break
     time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
+    for textResult in result.recognition_results:
+        for line in textResult.lines:
+            print(line.text)
+            print(line.bounding_box)
 ```
 
 ### <a name="generate-thumbnail"></a>Miniatuur genereren
@@ -314,12 +316,6 @@ except HTTPFailure as e:
 
 Tijdens het werken met de [ComputerVisionClient] [ ref_computervisionclient] -client, kunnen er tijdelijke fouten die worden veroorzaakt door [frequentielimieten] [ computervision_request_units] afgedwongen door de service of andere tijdelijke problemen zoals netwerkstoringen. Raadpleeg voor meer informatie over het verwerken van dit soort fouten [Patroon voor opnieuw proberen][azure_pattern_retry] in de handleiding Cloudontwerppatronen en de verwante [Patroon Circuitonderbreker][azure_pattern_circuit_breaker].
 
-### <a name="more-sample-code"></a>Meer voorbeeldcode
-
-Enkele voorbeelden voor de Computer Vision SDK voor Python zijn beschikbaar in de GitHub-opslagplaats van de SDK. Deze voorbeelden bieden voorbeeldcode voor aanvullende scenario's die vaak voorkomen bij het werken met Computer Vision:
-
-* [recognize_text][recognize-text]
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
@@ -329,7 +325,7 @@ Enkele voorbeelden voor de Computer Vision SDK voor Python zijn beschikbaar in d
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
+[azure_cli]: https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -350,7 +346,7 @@ Enkele voorbeelden voor de Computer Vision SDK voor Python zijn beschikbaar in d
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
+[computervision_resource]: https://azure.microsoft.com/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 
@@ -364,8 +360,6 @@ Enkele voorbeelden voor de Computer Vision SDK voor Python zijn beschikbaar in d
 
 [ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
-
 [ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
 [ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -376,6 +370,3 @@ Enkele voorbeelden voor de Computer Vision SDK voor Python zijn beschikbaar in d
 [ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
 
 [computervision_request_units]:https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-

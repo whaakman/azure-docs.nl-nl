@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841103"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492801"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
@@ -41,8 +41,9 @@ De agent voor Linux en Windows wordt niet alleen voor het verbinden met Log Anal
 ## <a name="supported-windows-operating-systems"></a>Ondersteunde Windows-besturingssystemen
 De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
 
-* Windows Server 2008 R2 of hoger
-* Windows 7 SP1 en hoger.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016, versie 1709 en 1803
+* Windows 7 SP1 en hoger
 
 ## <a name="supported-linux-operating-systems"></a>Ondersteunde Linux-besturingssystemen
 In deze sectie bevat informatie over de ondersteunde Linux-distributies.    
@@ -104,7 +105,8 @@ Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na
 |proxyhost | Adres of FQDN-naam van de proxy-server/Log Analytics-gateway |
 |poort | Optionele poortnummer voor de proxy-server/Log Analytics-gateway |
 
-Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
+Bijvoorbeeld:
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Als u speciale tekens zoals "\@" in uw wachtwoord, ontvangt u een proxy-verbindingsfout omdat de waarde is niet juist geparseerd.  U kunt dit probleem omzeilen, codeert u het wachtwoord in de URL met behulp van een hulpprogramma zoals [URLDecode](https://www.urldecoder.org/).  

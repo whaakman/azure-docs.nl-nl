@@ -1,6 +1,6 @@
 ---
-title: IBM DB2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP | Microsoft Docs
-description: IBM DB2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
+title: IBM Db2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP | Microsoft Docs
+description: IBM Db2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e746b5fa964249c3a3d34df5805cc1008c7fe77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014926"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496859"
 ---
-# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>IBM DB2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
+# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>IBM Db2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -158,7 +158,7 @@ ms.locfileid: "58014926"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "58014926"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -310,10 +310,10 @@ ms.locfileid: "58014926"
 
 
 
-Met Microsoft Azure, kunt u uw bestaande SAP-toepassing uitvoeren op IBM DB2 voor Linux, UNIX- en Windows (LUW) om virtuele machines van Azure te migreren. Met SAP on IBM DB2 voor LUW, beheerders en ontwikkelaars kunnen nog steeds gebruiken de dezelfde ontwikkelings- en beheerprogramma's, die on-premises beschikbaar zijn.
-Algemene informatie over het uitvoeren van SAP Business Suite op IBM DB2 voor LUW gevonden in de SAP Community netwerk (SCN) op <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
+Met Microsoft Azure, kunt u uw bestaande SAP-toepassing uitvoeren op IBM Db2 voor Linux, UNIX- en Windows (LUW) om virtuele machines van Azure te migreren. Met SAP on IBM Db2 voor LUW, beheerders en ontwikkelaars kunnen nog steeds gebruiken de dezelfde ontwikkelings- en beheerprogramma's, die on-premises beschikbaar zijn.
+Algemene informatie over het uitvoeren van SAP Business Suite op IBM Db2 voor LUW gevonden in de SAP Community netwerk (SCN) op <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
-Zie voor meer informatie over en updates voor SAP op DB2 voor LUW op Azure, SAP-notitie [2233094]. 
+Zie voor meer informatie over en updates voor SAP op Db2 voor LUW op Azure, SAP-notitie [2233094]. 
 
 De zijn uitgebracht voor verschillende artikelen op de werkbelasting van SAP op Azure.  Het verdient aanbeveling om te starten [SAP-workloads op Azure - aan de slag](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) en kies vervolgens het gebied van belang
 
@@ -336,19 +336,19 @@ De volgende SAP-opmerkingen zijn gerelateerd aan SAP op Azure met betrekking tot
 Als een pull-aanvraag gelezen in dit document, u moet lezen hebben het document [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) evenals andere handleidingen in de [SAP-workloads op Azure-documentatie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 
-## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM DB2 voor Linux, UNIX- en ondersteuning voor Windows-versie
-SAP op IBM DB2 voor LUW op Microsoft Azure-Services voor virtuele Machine wordt ondersteund vanaf DB2 versie 10,5.
+## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 voor Linux, UNIX- en ondersteuning voor Windows-versie
+SAP op IBM Db2 voor LUW op Microsoft Azure-Services voor virtuele Machine wordt ondersteund vanaf Db2 versie 10,5.
 
 Raadpleeg voor informatie over ondersteunde SAP-producten en typen Azure VM's, SAP-notitie [1928533].
 
-## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 voor Linux, UNIX- en Windows-configuratie-instructies voor SAP-installaties in Azure VM 's
+## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 voor Linux, UNIX- en Windows-configuratie-instructies voor SAP-installaties in Azure VM 's
 ### <a name="storage-configuration"></a>Opslagconfiguratie
 Alle databasebestanden moeten worden opgeslagen op het NTFS-bestandssysteem op basis van rechtstreeks aangesloten schijven. Deze schijven zijn gekoppeld aan de Azure VM en zijn gebaseerd in Azure pagina-BLOB-opslag (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) of Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Alle soorten netwerkstations of externe shares zijn de volgende Azure-Bestandsservices **niet** ondersteund voor databasebestanden: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Met behulp van schijven op basis van Azure Storage voor Page-BLOB of Managed Disks, de instructies in aangebracht [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) zijn van toepassing op implementaties met de DB2-DBMS ook.
+Met behulp van schijven op basis van Azure Storage voor Page-BLOB of Managed Disks, de instructies in aangebracht [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) zijn van toepassing op implementaties met de Db2-DBMS ook.
 
 Zoals eerder in het algemene gedeelte van het document is uitgelegd, bestaan de quota voor de doorvoer van de IOPS voor Azure-schijven. De exacte quota zijn afhankelijk van het type virtuele machine die wordt gebruikt. Een lijst met typen VM's met hun quota vindt [hier (Linux)] [ virtual-machines-sizes-linux] en [hier (Windows)][virtual-machines-sizes-windows].
 
@@ -358,12 +358,14 @@ Prestatieoverwegingen, ook verwijzen naar hoofdstuk 'Veiligheid van gegevens en 
 
 U kunt ook Windows opslaggroepen (alleen beschikbaar in Windows Server 2012 en hoger) gebruiken zoals wordt beschreven [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) om te maken van een grote logisch apparaat over meerdere schijven.
 
-Voor de schijven die de DB2-opslagpaden voor uw mappen sapdata en saptmp bevat, moet u een fysieke Schijfsectorgrootte van 512 KB. Wanneer u opslaggroepen van Windows gebruikt, moet u de opslaggroepen handmatig via de opdrachtregelinterface met de parameter `-LogicalSectorSizeDefault`. Zie voor meer informatie, <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Voor Azure-VM uit de M-serie, kan de latentie schrijven naar de transactielogboeken worden teruggebracht door factoren, vergeleken met Azure Premium Storage-prestaties bij het gebruik van Azure Write Accelerator. Daarom moet u Azure Write Accelerator implementeren voor de virtuele harde schijven die het volume voor de transactielogboeken DB2 vormen. Meer informatie vindt u in het document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Voor de schijven die de Db2-opslagpaden voor uw mappen sapdata en saptmp bevat, moet u een fysieke Schijfsectorgrootte van 512 KB. Wanneer u opslaggroepen van Windows gebruikt, moet u de opslaggroepen handmatig via de opdrachtregelinterface met de parameter `-LogicalSectorSizeDefault`. Zie voor meer informatie, <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+
+Voor Azure-VM uit de M-serie, kan de latentie schrijven naar de transactielogboeken worden teruggebracht door factoren, vergeleken met Azure Premium Storage-prestaties bij het gebruik van Azure Write Accelerator. Daarom moet u Azure Write Accelerator implementeren voor de virtuele harde schijven die het volume voor de transactielogboeken Db2 vormen. Meer informatie vindt u in het document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 ### <a name="backuprestore"></a>Back-up maken/terugzetten
-De back-up/herstel-functionaliteit voor IBM DB2 voor LUW wordt ondersteund op dezelfde manier als op de standaard Windows Server-besturingssystemen en Hyper-V.
+De back-up/herstel-functionaliteit voor IBM Db2 voor LUW wordt ondersteund op dezelfde manier als op de standaard Windows Server-besturingssystemen en Hyper-V.
 
 U moet ervoor zorgen dat er een geldige database back-upstrategie in plaats. 
 
@@ -379,24 +381,26 @@ Voor het verhogen van het aantal doelen om naar te schrijven, kunnen twee opties
 * Met behulp van meer dan één doeldirectory het schrijven van de back-up
 
 >[!NOTE]
->DB2 op Windows biedt geen ondersteuning voor de Windows VSS-technologie. Als gevolg hiervan kan niet de toepassing consistente VM back-up van Azure Backup-Service worden gebruikt voor de DBMS DB2 wordt geïmplementeerd in virtuele machines.
+>Db2 op Windows biedt geen ondersteuning voor de Windows VSS-technologie. Als gevolg hiervan kan niet de toepassing consistente VM back-up van Azure Backup-Service worden gebruikt voor de DBMS Db2 wordt geïmplementeerd in virtuele machines.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Hoge beschikbaarheid en herstel na noodgevallen
 Microsoft Cluster Server (MSCS) wordt niet ondersteund.
 
-Herstel na noodgevallen (HADR) voor hoge beschikbaarheid DB2 wordt ondersteund. Als de virtuele machines van de HA-configuratie naamomzetting werkt hebt, niet de instellingen in Azure afwijken van elke instelling die on-premises wordt uitgevoerd. Het verdient niet afhankelijk zijn van alleen IP-adresomzetting.
+Herstel na noodgevallen (HADR) voor hoge beschikbaarheid Db2 wordt ondersteund. Als de virtuele machines van de HA-configuratie naamomzetting werkt hebt, niet de instellingen in Azure afwijken van elke instelling die on-premises wordt uitgevoerd. Het verdient niet afhankelijk zijn van alleen IP-adresomzetting.
 
 Gebruik geen Geo-replicatie voor de opslagaccounts die opslaan van de schijven van de database. Raadpleeg voor meer informatie het document [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Versneld netwerken
-Voor DB2-implementaties op Windows, is het raadzaam de Azure-functionaliteit van versnelde netwerken gebruiken zoals wordt beschreven in het document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Houd ook rekening met de aanbevelingen [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md). 
+Voor Db2-implementaties op Windows, is het raadzaam de Azure-functionaliteit van versnelde netwerken gebruiken zoals wordt beschreven in het document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Houd ook rekening met de aanbevelingen [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md). 
 
 
 ### <a name="specifics-for-linux-deployments"></a>Gegevens voor Linux-implementaties
 Als het huidige quotum IOP's per schijf voldoende is, is het mogelijk voor het opslaan van de databasebestanden op één enkele schijf. Terwijl u altijd van de gegevensbestanden en logbestanden van transacties op verschillende schijven VHD's scheiden moet.
 
 U kunt ook als de IOPS- of i/o-doorvoer van één Azure-VHD niet voldoende is, kunt u LVM (Logical Volume Manager) of MDADM zoals beschreven in het document [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de SAP-werkbelasting](dbms_guide_general.md)om te maken van een grote logisch apparaat over meerdere schijven.
-Voor de schijven die de DB2-opslagpaden voor uw mappen sapdata en saptmp bevat, moet u een fysieke Schijfsectorgrootte van 512 KB.
+Voor de schijven die de Db2-opslagpaden voor uw mappen sapdata en saptmp bevat, moet u een fysieke Schijfsectorgrootte van 512 KB.
+
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
 ### <a name="other"></a>Overige

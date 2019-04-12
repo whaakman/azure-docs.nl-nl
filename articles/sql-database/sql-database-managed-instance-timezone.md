@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471865"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489687"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Tijdzone in beheerd exemplaar voor Azure SQL Database
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Tijdzone in beheerd exemplaar voor Azure SQL Database (Preview)
 
 Met behulp van Coordinated Universal Time (UTC) is een aanbevolen procedure voor de gegevenslaag van oplossingen voor cloudopslag, Azure SQL Database Managed Instance biedt een keuze uit tijdzone om te voldoen aan de behoeften van de bestaande toepassingen die opslaan van waarden voor datum en tijd en datum gesprek en de tijdfuncties bij een impliciete context van een bepaalde tijdzone.
 
@@ -72,7 +72,7 @@ Indien niet opgegeven, wordt de tijdzone worden ingesteld op UTC.
 
 ## <a name="checking-the-time-zone-of-instance"></a>Controle van de tijdzone van exemplaar
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) functie geeft als resultaat een weergavenaam van de tijdzone van het exemplaar.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) functie geeft als resultaat een weergavenaam van de tijdzone van het exemplaar.
 
 ## <a name="cross-feature-considerations"></a>Overwegingen voor cross-functie
 

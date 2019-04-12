@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 198968d0d8abfc42b977e41b5f59e3aebac66bcc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0699bc284233f259fc345b9b2b97b9dda8820454
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107902"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491932"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Een web-app handmatig schalen met behulp van PowerShell
 
@@ -40,7 +40,7 @@ Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure Powe
 Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruikt om de resourcegroep, web-app en alle gerelateerde resources te verwijderen.
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>Uitleg van het script

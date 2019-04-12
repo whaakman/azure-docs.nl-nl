@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181483"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494762"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Preview - beveiligd verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
 Wanneer u een moderne, op basis van microservices-toepassingen in Kubernetes uitvoeren, wilt u meestal om te bepalen welke onderdelen met elkaar kunnen communiceren. Het principe van minimale bevoegdheden moet worden toegepast op hoe verkeer tussen de schillen in een cluster Azure Kubernetes Service (AKS stromen kan). Stel dat u waarschijnlijk wilt blokkeren van verkeer rechtstreeks naar de back-end-toepassingen. De *netwerkbeleid* functie in Kubernetes kunt u regels definiëren voor inkomend en uitgaand verkeer tussen de schillen in een cluster.
 
-Calico, een open-source-netwerk- en netwerk-beveiligingsoplossing die is opgericht door Tigera, biedt een netwerk groepsbeleid-engine die beleidsregels voor Kubernetes netwerk kunt implementeren. Dit artikel leest u hoe de beleidsengine Calico netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS.
+Dit artikel leest u hoe de beleidsengine netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS. Deze functie is momenteel beschikbaar als preview-product.
 
 > [!IMPORTANT]
 > AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
@@ -27,7 +27,7 @@ Calico, een open-source-netwerk- en netwerk-beveiligingsoplossing die is opgeric
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.56 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 Voor het maken van een AKS-cluster die netwerkbeleid kunt gebruiken, moet u eerst een functievlag voor uw abonnement inschakelen. Om u te registreren de *EnableNetworkPolicy* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Alle schillen in een AKS-cluster kunnen verzenden en ontvangen van verkeer zonder beperkingen in de standaard. U kunt regels waarmee de verkeersstroom definiëren voor een betere beveiliging. Back-end-toepassingen zijn vaak alleen blootgesteld aan de vereiste front-end-services, bijvoorbeeld. Of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
 
-Beleid voor netwerken worden Kubernetes-resources die u kunnen de verkeersstroom tussen schillen beheren. U kunt toestaan of weigeren van verkeer op basis van instellingen, zoals toegewezen labels, naamruimte of verkeer poort. Beleid voor netwerken zijn gedefinieerd zoals YAML-manifesten. Deze beleidsregels kunnen worden opgenomen als onderdeel van een bredere manifest dat ook een implementatie of de service maakt zijn.
+Network Policy is een Kubernetes-specificatie die toegangsbeleid voor de communicatie tussen schillen definieert. Met behulp van beleid voor netwerken, definieert u een geordende reeks regels voor het verzenden en ontvangen van verkeer en deze toepassen op een verzameling van schillen die overeenkomen met een of meer label selectoren.
+
+Deze beleidsregels van het netwerk zijn gedefinieerd zoals YAML-manifesten. Netwerkbeleid kunnen worden opgenomen als onderdeel van een bredere manifest dat ook een implementatie of -service maakt.
+
+### <a name="network-policy-options-in-aks"></a>Opties voor netwerk in AKS
+
+Azure biedt twee manieren voor het implementeren van beleid voor netwerken. Kies voor een netwerk beleidsoptie wanneer u een AKS-cluster maakt. De beleidsoptie kan niet worden gewijzigd nadat het cluster is gemaakt:
+
+* De implementatie van Azure, met de naam *voor Azure-netwerk*.
+* *Calico netwerkbeleid*, een open-source-netwerk en de netwerk-beveiligingsoplossing die is opgericht door [Tigera][tigera].
+
+Beide implementaties maken gebruik van Linux *IPTables* om af te dwingen van het opgegeven beleid. Beleidsregels zijn vertaald in sets met toegestane en niet-toegestane IP-paren. Deze paren worden vervolgens als IPTable filterregels geprogrammeerd.
+
+Netwerkbeleid werkt alleen met de optie Azure CNI (Geavanceerd). Implementatie verschilt voor de twee opties:
+
+* *Azure netwerkbeleid* -de Azure CNI stelt u een brug in de VM-host voor intra-knooppunt netwerken. De filters gebruiken om regels worden toegepast wanneer de pakketten worden verzonden via de brug.
+* *Calico netwerkbeleid* -de Azure CNI stelt u lokale kernel-routes voor het verkeer intra-knooppunt. Het beleid wordt toegepast op de netwerkinterface van de schil.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Verschillen tussen Azure en Calico beleid en de bijbehorende mogelijkheden
+
+| Mogelijkheid                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Ondersteunde platforms                      | Linux                      | Linux                       |
+| Netwerkopties ondersteund             | Azure CNI                  | Azure CNI                   |
+| Naleving van Kubernetes-specificatie | Alle beleidstypen ondersteund |  Alle beleidstypen ondersteund |
+| Aanvullende functies                      | Geen                       | Uitgebreid beleid model die bestaat uit een beleid voor globale netwerken, Global Network instellen en Host-eindpunt. Voor meer informatie over het gebruik van de `calicoctl` CLI voor het beheren van deze uitgebreide functies, Zie [calicoctl gebruiker verwijzing][calicoctl]. |
+| Ondersteuning                                  | Ondersteund door Azure-ondersteuning en de Engineering-team | Calico communityondersteuning. Zie voor meer informatie over de ondersteuning van aanvullende betaalde [Project Calico ondersteuningsopties][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Een AKS-cluster maken en inschakelen van beleid voor netwerken
 
 Beleid voor netwerken in actie, laten we zien maken en vouw vervolgens in een beleid dat verkeersstroom definieert:
 
@@ -59,9 +87,7 @@ Beleid voor netwerken in actie, laten we zien maken en vouw vervolgens in een be
 * Toestaan van verkeer op basis van de schil labels.
 * Toestaan van verkeer op basis van de naamruimte.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Een AKS-cluster maken en inschakelen van beleid voor netwerken
-
-Netwerkbeleid kan alleen worden ingeschakeld wanneer het cluster is gemaakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen. 
+Eerst gaan we een AKS-cluster die ondersteuning biedt voor beleid voor netwerken maken. De functie voor netwerk-beleid kan alleen worden ingeschakeld wanneer het cluster is gemaakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen.
 
 Voor het gebruik van beleid voor netwerken met een AKS-cluster, moet u de [Azure CNI invoegtoepassing] [ azure-cni] en uw eigen virtuele netwerk en subnetten definiëren. Zie voor meer informatie over het plannen van de vereiste subnet bereiken, [geavanceerde netwerken configureren][use-advanced-networking].
 
@@ -71,6 +97,7 @@ Het volgende voorbeeldscript:
 * Maakt een Azure Active Directory (Azure AD) service-principal voor gebruik met het AKS-cluster.
 * Toegewezen *Inzender* machtigingen voor de AKS-cluster service-principal in het virtuele netwerk.
 * Hiermee maakt u een AKS-cluster in het opgegeven virtuele netwerk en kunt netwerkbeleid.
+    * De *azure* beleidsoptie netwerk wordt gebruikt. Als u wilt gebruiken in plaats daarvan Calico als de optie voor netwerk, gebruikt u de `--network-policy calico` parameter.
 
 Geef uw eigen veilige *SP_PASSWORD*. U kunt vervangen de *RESOURCE_GROUP_NAME* en *clusternaam* variabelen:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 Het duurt een paar minuten om het cluster te maken. Wanneer het cluster gereed is, configureert u `kubectl` verbinding maken met uw Kubernetes-cluster met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht. Met deze opdracht worden referenties gedownload en configureert u de Kubernetes-CLI voor het gebruik ervan:
@@ -454,6 +481,9 @@ Zie voor meer informatie over het beleid, [Kubernetes netwerkbeleidsregels][kube
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

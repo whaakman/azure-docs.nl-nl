@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242595"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500495"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Het gebruik van Service Bus-wachtrijen met Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In dit artikel wordt het gebruik van de Service Bus-wachtrijen beschreven. De voorbeelden zijn geschreven in Python en gebruik de [Python Azure Service Bus-pakket][Python Azure Service Bus package]. De behandelde scenario's zijn **maken van wachtrijen, verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**.
+In deze zelfstudie leert u hoe u Python-toepassingen voor het verzenden van berichten naar en ontvangen van berichten van een Service Bus-wachtrij maakt. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [gebruik Azure portal voor het maken van een Service Bus-wachtrij](service-bus-quickstart-portal.md) artikel.
+    1. Het snel lezen **overzicht** van Service Bus **wachtrijen**. 
+    2. Maken van een Service Bus **naamruimte**. 
+    3. Krijgen de **verbindingsreeks**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Om Python te installeren of de [Python Azure Service Bus-pakket][Python Azure Service Bus package], Zie de [Python-installatiehandleiding](../python-how-to-install.md).
-> 
-> Zie de volledige documentatie over Service Bus-Python SDK [hier](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > U maakt een **wachtrij** in de Service Bus-naamruimte met behulp van Python in deze zelfstudie. 
+1. Python installeren of de [Python Azure Service Bus-pakket][Python Azure Service Bus package], Zie de [Python-installatiehandleiding](../python-how-to-install.md). Zie de volledige documentatie over Service Bus-Python SDK [hier](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 De **ServiceBusClient** object kunt u werken met wachtrijen. Voeg de volgende code aan de bovenkant van een Python-bestand waarin u wilt programmatisch toegang verkrijgen tot de Service Bus:

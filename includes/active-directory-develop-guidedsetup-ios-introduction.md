@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203472"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502841"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>De Microsoft Graph-API aanroepen vanuit een iOS-toepassing
 
-Deze handleiding wordt beschreven hoe een toepassing systeemeigen iOS (Swift) API's waarvoor access tokens van het v2.0-eindpunt voor Microsoft Azure Active Directory (Azure AD) kunt aanroepen. De handleiding wordt uitgelegd hoe u voor toegangstokens verkrijgen en ze gebruiken in aanroepen naar de Microsoft Graph API en andere API's.
+Deze handleiding wordt beschreven hoe een toepassing systeemeigen iOS (Swift) API's waarvoor toegangstokens van het eindpunt van Microsoft identity-platform kunt aanroepen. De handleiding wordt uitgelegd hoe u voor toegangstokens verkrijgen en ze gebruiken in aanroepen naar de Microsoft Graph API en andere API's.
 
 Nadat u de oefeningen in deze handleiding hebt voltooid, kan uw toepassing een beveiligde API oproept vanuit een bedrijf of organisatie die Azure AD is. Uw toepassing kunt maken van beveiligde API-aanroepen met behulp van persoonlijke accounts, zoals outlook.com, live.com en andere, evenals de werk-of schoolaccount.
 
@@ -34,13 +34,13 @@ Nadat u de oefeningen in deze handleiding hebt voltooid, kan uw toepassing een b
 
 ## <a name="how-this-guide-works"></a>De werking van deze handleiding
 
-![Laat zien hoe de voorbeeld-app wordt gegenereerd door deze zelfstudie werkt](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
+![Laat zien hoe de voorbeeld-app wordt gegenereerd door deze zelfstudie werkt](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
-In deze handleiding kan de voorbeeld-App een iOS-toepassing om op te vragen van de Microsoft Graph API of een web-API die tokens van het Azure AD v2.0-eindpunt accepteert. In dit scenario voor een token wordt toegevoegd aan de HTTP-aanvragen met behulp van de **autorisatie** header. Ophalen van tokens en vernieuwing worden afgehandeld door de Microsoft Authentication Library (MSAL).
+In deze handleiding kan de voorbeeld-App een iOS-toepassing om op te vragen van de Microsoft Graph API of een web-API die tokens van het eindpunt van de Microsoft identity-platform accepteert. In dit scenario voor een token wordt toegevoegd aan de HTTP-aanvragen met behulp van de **autorisatie** header. Ophalen van tokens en vernieuwing worden afgehandeld door de Microsoft Authentication Library (MSAL).
 
 ### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Verwerken van token ophalen voor toegang tot beveiligde web-API 's
 
-Nadat de gebruiker zich verifieert, wordt in de voorbeeld-App een token ontvangt. Het token wordt gebruikt om op te vragen van de Microsoft Graph API of een web-API die wordt beveiligd door de Azure AD v2.0-eindpunt.
+Nadat de gebruiker zich verifieert, wordt in de voorbeeld-App een token ontvangt. Het token wordt gebruikt om op te vragen van de Microsoft Graph API of een web-API die wordt beveiligd door het eindpunt van de Microsoft identity-platform.
 
 API's, zoals Microsoft Graph, vereisen een toegangstoken voor toegang tot bepaalde resources. Tokens zijn vereist voor het lezen van het profiel van een gebruiker, toegang tot de agenda van een gebruiker, een e-mail verzenden, enzovoort. Uw toepassing kan een toegangstoken aanvragen met behulp van MSAL en API-bereiken op te geven. Het toegangstoken wordt toegevoegd aan de HTTP **autorisatie** koptekst voor elke aanroep die op basis van de beveiligde bron plaatsvindt.
 

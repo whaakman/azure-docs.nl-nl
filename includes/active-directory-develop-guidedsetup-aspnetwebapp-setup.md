@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203591"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505798"
 ---
 ## <a name="set-up-your-project"></a>Uw project instellen
 
@@ -51,12 +51,13 @@ In deze sectie bevat de stappen voor het installeren en configureren van de veri
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>De verificatiepijplijn configureren
+
 De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-Opstartklasse OpenID Connect-verificatie configureren. Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.
 
 > [!TIP]
 > Ga als volgt te werk als uw project geen `Startup.cs`-bestand bevat in de hoofdmap:
 > 1. Met de rechtermuisknop op de hoofdmap van het project: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Noem deze `Startup.cs`
+> 2. Geef het de naam `Startup.cs`
 >
 >> Zorg dat de geselecteerde klasse een OWIN-opstartklasse is, en geen C#-standaardklasse. Verzeker u hiervan door te kijken of `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` wordt weergegeven boven de naamruimte.
 
@@ -113,10 +114,10 @@ De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-O
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-O
         }
     }
     ```
+
+> [!NOTE]
+> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In realtime toepassingen die u nodig hebt voor het valideren van de verlener raadpleegt u de voorbeelden om te begrijpen hoe u dat doet.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Meer informatie

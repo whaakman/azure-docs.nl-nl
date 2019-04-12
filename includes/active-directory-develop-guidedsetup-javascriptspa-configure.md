@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 1eaae979f030d3044b44c46bedee2bd9e3346784
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203296"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502728"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -39,7 +39,7 @@ ms.locfileid: "58203296"
 > Voor Node.js, kunt u instellen de web server-poort de *server.js* bestand. In deze zelfstudie wordt de poort 30662 ter referentie, maar kunt u een beschikbare poort. Volg de onderstaande instructies voor het instellen van een Omleidings-URL in de registratiegegevens van de toepassing:<br/>
 > - Ga terug naar de *Toepassingsregistratie* en stel `http://localhost:30662/` als een `Redirect URL`, of gebruik `http://localhost:[port]/` als u een aangepaste TCP-poort (waar *[poort]* is de aangepaste TCP-poortnummer).
 
-<p/>
+<p>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Visual Studio-instructies voor het verkrijgen van de omleidings-URL
 > Volg deze stappen voor het verkrijgen van de omleidings-URL:
@@ -54,14 +54,15 @@ ms.locfileid: "58203296"
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-Vervang <code>Enter the application Id here</code> met de toepassings-ID die u zojuist hebt geregistreerd.
-</li>
-</ol>
+    Waar:
+    - `Enter_the_Application_Id_here` -is de **(client) toepassings-ID** voor de toepassing die u hebt geregistreerd.
+    - `Enter_the_Tenant_Info_Here` -is ingesteld op een van de volgende opties:
+       - Als uw toepassing **Alleen accounts in deze organisatiemap** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+       - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
+       - Als uw toepassing ondersteunt **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**, vervang deze waarde met `common`

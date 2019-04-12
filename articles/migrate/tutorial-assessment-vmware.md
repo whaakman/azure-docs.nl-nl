@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313104"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490315"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -98,7 +98,7 @@ Controleer of het .OVA-bestand veilig is voordat u het implementeert.
 1. Open op de machine waarop u het bestand hebt gedownload een opdrachtvenster voor beheerders.
 2. Gebruik de volgende opdracht om de hash voor het OVA-bestand te genereren:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Voorbeeld van gebruik: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. De gegenereerde hash moet overeenkomen met deze instellingen.
 
 #### <a name="continuous-discovery"></a>Continue detectie
@@ -195,6 +195,9 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Geef in **User name** en **Password** de alleen-lezen accountreferenties op die de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
     - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. Lees [hier](how-to-scale-assessment.md) meer over hoe u een grotere omgeving kunt detecteren.
 
+       > [!NOTE]
+       > **Omvang verzameling** bevat alleen de mappen van hosts en clusters. Mappen van virtuele machines worden niet rechtstreeks geselecteerd als bereik van de verzameling. U kunt echter met een vCenter-account dat toegang tot de afzonderlijke virtuele machines heeft detecteren. [Meer informatie](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) over het bereik naar een map van virtuele machines.
+
 7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
 8. In **Voortgang van verzamelen weergeven** kunt u de detectiestatus controleren. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector) meer over welke gegevens worden verzameld door de collector Azure Migrate.
 
@@ -267,7 +270,7 @@ Elke prestatie-evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarhei
 
 Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
 
-   **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**
+   **Beschikbaarheid van de gegevenspunten** | **Betrouwbaarheidsclassificatie**
    --- | ---
    0%-20% | 1 ster
    21%-40% | 2 sterren

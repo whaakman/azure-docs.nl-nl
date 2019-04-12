@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: zawad
+ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86424a7c797dfd7e73ad5f0e56929616d9653b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170972"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500478"
 ---
-# <a name="understanding-azure-ad-application-consent-experiences"></a>Inzicht krijgen in Azure AD-toepassing toestemming ervaringen
+# <a name="understanding-azure-ad-application-consent-experiences"></a>Inzicht in ervaringen met Azure AD-toepassingtoestemming
 
 Meer dat informatie over de Azure Active Directory (Azure AD)-toepassing toestemming geven gebruikerservaring. Zodat u kunt op intelligente wijze beheren van toepassingen voor uw organisatie en/of toepassingen met een meer naadloze ervaring voor toestemming ontwikkelen.
 
@@ -85,4 +85,5 @@ Hier volgen de ervaring toestemming van een gebruiker in de algemene toestemming
 
 ## <a name="next-steps"></a>Volgende stappen
 - Een stapsgewijze overzicht van [hoe de Azure AD-toestemmingsframework toestemming implementeert](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Lees voor meer diepgang [hoe het toestemmingsframework kunt gebruiken in een toepassing met meerdere tenants](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementeren 'gebruiker' en 'admin' toestemming, ondersteunt meer geavanceerde toepassingen met meerdere lagen.
+- Lees voor meer diepgang [hoe het toestemmingsframework kunt gebruiken in een toepassing met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md) implementeren 'gebruiker' en 'admin' toestemming, ondersteunt meer geavanceerde toepassingen met meerdere lagen.
+- Informatie over [configureren van de app-uitgeversdomein](howto-configure-publisher-domain.md).

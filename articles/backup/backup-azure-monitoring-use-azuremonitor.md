@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258578"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494556"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -109,7 +109,7 @@ Het belangrijkste aspect is de activerende voorwaarde van de waarschuwing. Te kl
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-De Kusto-query, indien nodig bewerken, selecteert u de juiste drempelwaarde (die bepaalt wanneer de waarschuwing wordt geactiveerd), de juiste periode (tijdvenster waarvoor de query wordt uitgevoerd), en de frequentie. Voor bijvoorbeeld: Voor bijvoorbeeld: Als de drempelwaarde groter dan 0 is, de periode 5 minuten is en de frequentie 5 minuten is, wordt klikt u vervolgens de regel omgezet als 'Voer de query uit om de 5 minuten voor de laatste 5 minuten en als het aantal resultaten groter dan 0 is, stuur me een de geselecteerde actiegroep'
+De Kusto-query, indien nodig bewerken, selecteert u de juiste drempelwaarde (die bepaalt wanneer de waarschuwing wordt geactiveerd), de juiste periode (tijdvenster waarvoor de query wordt uitgevoerd), en de frequentie. Voor bijvoorbeeld: Als de drempelwaarde groter dan 0 is, de periode 5 minuten is en de frequentie 5 minuten is, wordt klikt u vervolgens de regel omgezet als 'Voer de query uit om de 5 minuten voor de laatste 5 minuten en als het aantal resultaten groter dan 0 is, stuur me een de geselecteerde actiegroep'
 
 #### <a name="action-group-integration"></a>Integratie met actie
 

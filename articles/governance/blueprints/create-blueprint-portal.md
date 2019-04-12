@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260660"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505682"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definiëren en toewijzen van een blauwdruk in de portal
 
@@ -41,116 +41,117 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
    ![Een blauwdruk maken vanaf de pagina van de definities van blauwdruk](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Geef een **blauwdruknaam** zoals **MyBlueprint**. (Gebruik maximaal 48 letters en cijfers, maar er zijn geen spaties of speciale tekens). Laat **beschrijving van blauwdruk** voorlopig leeg. 
-   
+1. Geef een **blauwdruknaam** zoals **MyBlueprint**. (Gebruik maximaal 48 letters en cijfers, maar er zijn geen spaties of speciale tekens). Laat **beschrijving van blauwdruk** voorlopig leeg.
+
 1. In de **definitielocatie** vak, selecteer het weglatingsteken aan de rechterkant, selecteer de [beheergroep](../management-groups/overview.md) of abonnement waarvoor u wilt opslaan van de blauwdruk en kies **Selecteer**.
 
 1. Controleer of de gegevens juist zijn. De **blauwdruknaam** en **definitielocatie** velden kunnen later worden gewijzigd. Selecteer vervolgens **volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
-1. Een roltoewijzing toevoegen op het abonnementsniveau van: 
+1. Een roltoewijzing toevoegen op het abonnementsniveau van:
 
-   a. Selecteer de **+ toevoegen artefact** rij onder **abonnement**. De **toevoegen artefact** venster wordt geopend aan de rechterkant van de browser. 
-   
-   b. Selecteer **roltoewijzing** voor **type artefact**. 
-   
-   c. Onder **rol**, selecteer **Inzender**. Laat de **gebruiker, app of groep toevoegen** vak met het selectievakje waarmee een dynamische parameter. 
-   
-   d. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
+   1. Selecteer de **+ toevoegen artefact** rij onder **abonnement**. De **toevoegen artefact** venster wordt geopend aan de rechterkant van de browser.
+
+   1. Selecteer **roltoewijzing** voor **type artefact**.
+
+   1. Onder **rol**, selecteer **Inzender**. Laat de **gebruiker, app of groep toevoegen** vak met het selectievakje waarmee een dynamische parameter.
+
+   1. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
 
    ![Roltoewijzing voor een artefact blauwdruk](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > De meeste artefacten ondersteuning voor parameters. Een parameter die een waarde is toegewezen tijdens het maken van de blauwdruk is een *statische parameter*. Als de parameter is toegewezen tijdens de blauwdruktoewijzing, is het een *dynamische parameter*. Zie [Blauwdrukparameters](./concepts/parameters.md) voor meer informatie.
 
-1. Een beleidstoewijzing toevoegen op het abonnementsniveau van: 
+1. Een beleidstoewijzing toevoegen op het abonnementsniveau van:
 
-   a. Selecteer de **+ toevoegen artefact** rij onder de roltoewijzingsartefact. 
-   
-   b. Selecteer **beleidstoewijzing** voor **type artefact**. 
-   
-   c. Wijziging **Type** naar **ingebouwde**. In **zoeken**, voer **tag**. 
-   
-   d. Klik buiten het veld **Zoeken** om de filtering weer te geven. Selecteer **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**. 
-   
-   e. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
+   1. Selecteer de **+ toevoegen artefact** rij onder de roltoewijzingsartefact.
 
-1. Selecteer de rij van de beleidstoewijzing **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**. 
+   1. Selecteer **beleidstoewijzing** voor **type artefact**.
+
+   1. Wijziging **Type** naar **ingebouwde**. In **zoeken**, voer **tag**.
+
+   1. Klik buiten het veld **Zoeken** om de filtering weer te geven. Selecteer **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**.
+
+   1. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
+
+1. Selecteer de rij van de beleidstoewijzing **tag en bijbehorende standaardwaarde toepassen op resourcegroepen**.
 
 1. Het venster voor de parameters voor het artefact als onderdeel van de blauwdrukdefinitie wordt geopend en kunt instellen dat de parameters voor alle toewijzingen (statische parameters) op basis van deze blauwdruk in plaats van tijdens de toewijzing (dynamische parameters). In dit voorbeeld maakt gebruik van dynamische parameters tijdens de blauwdruktoewijzing, dus laat de standaardwaarden en selecteer **annuleren**.
 
-1. Voeg een resourcegroep toe op het abonnementsniveau van: 
+1. Voeg een resourcegroep toe op het abonnementsniveau van:
 
-   a. Selecteer de **+ toevoegen artefact** rij onder **abonnement**. 
-   
-   b. Selecteer **resourcegroep** voor **type artefact**. 
-   
-   c. Laat de **artefact weergavenaam**, **groepsnaam voor Accountresources**, en **locatie** selectievakjes leeg, maar zorg ervoor dat het selectievakje is ingeschakeld voor elke eigenschap parameter om ze te maken dynamische parameters. 
-   
-   d. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
+   1. Selecteer de **+ toevoegen artefact** rij onder **abonnement**.
 
-1. Een sjabloon onder de resourcegroep toevoegen: 
+   1. Selecteer **resourcegroep** voor **type artefact**.
 
-   a. Selecteer de **+ toevoegen artefact** rij onder de **ResourceGroup** vermelding. 
-   
-   b. Selecteer **Azure Resource Manager-sjabloon** voor **type artefact**, stel **artefact weergavenaam** naar **StorageAccount**, en laat u  **Beschrijving** leeg. 
-   
-   c. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon. Nadat u de sjabloon plakken, selecteert u de **Parameters** tabblad en merk op dat de sjabloonparameters **Opslagaccounttype** en **locatie** zijn gedetecteerd. Elke parameter is automatisch gedetecteerd en gevuld, maar geconfigureerd als een dynamische parameter. 
-   
-   > [!IMPORTANT]
-   > Als u de sjabloon importeren wilt, zorgt u ervoor dat het bestand alleen JSON is en bevat geen HTML-code. Zorg ervoor dat u hebt geselecteerd wanneer u die naar een URL op GitHub verwijst bent, **RAW** om op te halen van het pure JSON-bestand en niet de HTML ingepakt om weer te geven op GitHub. Er treedt een fout op als de geïmporteerde sjabloon geen zuivere JSON is.
+   1. Laat de **artefact weergavenaam**, **groepsnaam voor Accountresources**, en **locatie** selectievakjes leeg, maar zorg ervoor dat het selectievakje is ingeschakeld voor elke eigenschap parameter om ze te maken dynamische parameters.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
 
-   d. Schakel de **Opslagaccounttype** selectievakje en houd er rekening mee dat de vervolgkeuzelijst bevat alleen de waarden die zijn opgenomen in het Resource Manager-sjabloon onder **allowedValues**. Selecteer het vak waarde weer instellen op een dynamische parameter. 
-   
-   e. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
+1. Een sjabloon onder de resourcegroep toevoegen:
+
+   1. Selecteer de **+ toevoegen artefact** rij onder de **ResourceGroup** vermelding.
+
+   1. Selecteer **Azure Resource Manager-sjabloon** voor **type artefact**, stel **artefact weergavenaam** naar **StorageAccount**, en laat u  **Beschrijving** leeg.
+
+   1. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon.
+      Nadat u de sjabloon plakken, selecteert u de **Parameters** tabblad en merk op dat de sjabloonparameters **Opslagaccounttype** en **locatie** zijn gedetecteerd. Elke parameter is automatisch gedetecteerd en gevuld, maar geconfigureerd als een dynamische parameter.
+
+      > [!IMPORTANT]
+      > Als u de sjabloon importeren wilt, zorgt u ervoor dat het bestand alleen JSON is en bevat geen HTML-code. Zorg ervoor dat u hebt geselecteerd wanneer u die naar een URL op GitHub verwijst bent, **RAW** om op te halen van het pure JSON-bestand en niet de HTML ingepakt om weer te geven op GitHub. Er treedt een fout op als de geïmporteerde sjabloon geen zuivere JSON is.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Schakel de **Opslagaccounttype** selectievakje en houd er rekening mee dat de vervolgkeuzelijst bevat alleen de waarden die zijn opgenomen in het Resource Manager-sjabloon onder **allowedValues**. Selecteer het vak waarde weer instellen op een dynamische parameter.
+
+   1. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
 
    ![Resource Manager-sjabloon voor het artefact blauwdruk](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ In [een blauwdruk maken](#create-a-blueprint), u niet hebt een beschrijving opge
 
 1. Selecteer **Volgende : artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
-1. Een roltoewijzing onder de resourcegroep toevoegen: 
+1. Een roltoewijzing onder de resourcegroep toevoegen:
 
-   a. Selecteer de **+ toevoegen artefact** rij direct onder de **ResourceGroup** vermelding. 
-   
-   b. Selecteer **roltoewijzing** voor **type artefact**. 
-   
-   c. Onder **rol**, selecteer **eigenaar**, en schakel het selectievakje onder de **gebruiker, app of groep toevoegen** vak. 
-   
-   d. Zoek en selecteer een gebruiker, app of groep toe te voegen. Dit artefact maakt gebruik van een statische parameterset hetzelfde in elke toewijzing van deze blauwdruk. 
-   
+   1. Selecteer de **+ toevoegen artefact** rij direct onder de **ResourceGroup** vermelding.
+
+   1. Selecteer **roltoewijzing** voor **type artefact**.
+
+   1. Onder **rol**, selecteer **eigenaar**, en schakel het selectievakje onder de **gebruiker, app of groep toevoegen** vak.
+
+   1. Zoek en selecteer een gebruiker, app of groep toe te voegen. Dit artefact maakt gebruik van een statische parameterset hetzelfde in elke toewijzing van deze blauwdruk.
+
    e. Selecteer **toevoegen** dit artefact toevoegen aan de blauwdruk.
 
    ![Tweede roltoewijzing voor de blauwdruk artefact](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Nadat een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonneme
 
    Als er ondersteunde Enterprise-aanbiedingen beschikbaar zijn via [Azure Billing](../../billing/index.md), wordt de koppeling **Nieuw** onder het vak **Abonnement** geactiveerd. Volg deze stappen:
 
-   a. Selecteer de **nieuw** koppeling naar een nieuw abonnement in plaats van bestaande toepassingen selecteren.
+   1. Klik op de koppeling **Nieuw** om een nieuw abonnement te maken in plaats van een bestaand abonnement te selecteren.
 
-   b. Geef een **weergavenaam** voor het nieuwe abonnement op.
+   1. Geef een **weergavenaam** voor het nieuwe abonnement op.
 
-   c. Selecteer de beschikbare **bieden** uit de vervolgkeuzelijst.
+   1. Selecteer de beschikbare **bieden** uit de vervolgkeuzelijst.
 
-   d. Gebruik het beletselteken om te selecteren de [beheergroep](../management-groups/index.md) er is een onderliggend element van het abonnement.
+   1. Gebruik het beletselteken om te selecteren de [beheergroep](../management-groups/index.md) er is een onderliggend element van het abonnement.
 
-   e. Selecteer **Maken** onderaan de pagina.
+   1. Selecteer **Maken** onderaan de pagina.
 
    ![Een abonnement voor een abonnement van de toewijzing van blauwdruk maken](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Nadat een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonneme
 1. Voor **ResourceGroup**, bieden een **naam** van **StorageAccount** en een **locatie** van **VS-Oost 2** uit de vervolgkeuzelijst.
 
    > [!NOTE]
-   > Voor elke artefact die u tijdens de blauwdrukdefinitie onder de resourcegroep hebt toegevoegd, wordt dit artefact zodat deze overeenkomt met de resourcegroep of het object dat u met implementeert ingesprongen weergegeven. Artefacten die niet worden parameters of geen parameters worden gedefinieerd op toewijzing hebben worden alleen voor contextuele informatie weergegeven.
+   > Voor elke artefact die u tijdens de blauwdrukdefinitie onder de resourcegroep hebt toegevoegd, wordt dit artefact zodat deze overeenkomt met de resourcegroep of het object dat u met implementeert ingesprongen weergegeven.
+   > Artefacten die niet worden parameters of geen parameters worden gedefinieerd op toewijzing hebben worden alleen voor contextuele informatie weergegeven.
 
 1. Op de Azure Resource Manager-sjabloon **StorageAccount**, selecteer **Standard_GRS** voor de **Opslagaccounttype** parameter.
 
@@ -294,7 +296,8 @@ Als u een blauwdruktoewijzing van de niet meer nodig hebt, het verwijderen van e
 1. Met de rechtermuisknop op de blauwdruk die u wilt verwijderen en selecteer **verwijderen blauwdruk**. Selecteer vervolgens **Ja** in het bevestigingsvenster.
 
 > [!NOTE]
-> Een blauwdruk bij deze methode verwijderen, verwijdert u ook alle gepubliceerde versies van de geselecteerde blauwdruk. Als u wilt verwijderen van een enkele versie, de blauwdruk openen, selecteert u de **gepubliceerde versies** tabblad, selecteert u de versie die u wilt verwijderen en selecteer vervolgens **deze versie verwijderen**. U kunt ook een blauwdruk niet verwijderen totdat u alle blauwdruktoewijzing van deze blauwdrukdefinitie hebt verwijderd.
+> Een blauwdruk bij deze methode verwijderen, verwijdert u ook alle gepubliceerde versies van de geselecteerde blauwdruk.
+> Als u wilt verwijderen van een enkele versie, de blauwdruk openen, selecteert u de **gepubliceerde versies** tabblad, selecteert u de versie die u wilt verwijderen en selecteer vervolgens **deze versie verwijderen**. U kunt ook een blauwdruk niet verwijderen totdat u alle blauwdruktoewijzing van deze blauwdrukdefinitie hebt verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

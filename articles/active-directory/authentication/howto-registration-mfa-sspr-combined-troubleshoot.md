@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262564"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489190"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Het oplossen van gecombineerde security informatie registratie (preview)
 
@@ -154,7 +154,7 @@ Voer de volgende opdracht, biedt het script en de gebruiker bestandslocaties in 
 
 Schakel de preview-ervaring voor uw gebruikers de volgende stappen uit:
 
-1. Aanmelden bij de Azure portal aan als een globale beheerder of Gebruikerbeheerder.
+1. Meld u aan de Azure-portal als de Gebruikersbeheerder van een.
 2. Ga naar **Azure Active Directory** > **gebruikersinstellingen** > **beheren van instellingen voor toegang tot deelvenster preview-functies**.
 3. Onder **gebruikers kunnen preview-functies gebruiken voor het registreren en beheren van beveiligingsgegevens**, de kiezer ingesteld op **geen**, en selecteer vervolgens **opslaan**.
 

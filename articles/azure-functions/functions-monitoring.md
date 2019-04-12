@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471015"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495682"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -97,7 +97,7 @@ Zie voor meer informatie over het gebruik van Application Insights de [documenta
 
 De volgende gebieden van Application Insights kunnen nuttig zijn bij het evalueren van het gedrag, prestaties en fouten in uw functies:
 
-| Tab | Description |
+| Tab | Beschrijving |
 | ---- | ----------- |
 | **[Fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
 | **[Prestaties](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |

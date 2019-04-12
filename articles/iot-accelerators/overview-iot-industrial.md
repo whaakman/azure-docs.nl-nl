@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256376"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491745"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Wat is industriële IoT (IIoT)
 
@@ -23,7 +23,7 @@ IIoT is het industriële Internet of Things. IIoT verbetert industriële effici�
 
 Verbeter uw operationele productiviteit en winstgevendheid met een oplossingsverbetering voor verbonden factory's. Laat uw industriële uitrusting en apparaten verbinding maken in de cloud en bewaak deze—inclusief de machines die al op de werkvloer werkzaam zijn. Analyseer uw IoT-gegevens voor inzichten waarmee u de prestaties van de gehele werkvloer kunt verbeteren.
 
-Te verminderen de tijdrovend proces van toegang tot factory floor machines met Azure IoT OPC UA device management (OPC dubbele) en richt u uw tijd op het bouwen van IIoT oplossingen. Het beheren van certificaten en industriële activa-integratie met Azure IoT OPC UA-Certificaatbeheer (OPC-kluis) te stroomlijnen en erop vertrouwen dat asset connectiviteit is beveiligd. Deze microservices bieden een REST-achtige API boven [industriële IoT Azure-onderdelen](https://github.com/Azure/azure-iiot-opc-ua). De service-API biedt u beheer van edge-module-functionaliteit. 
+De tijdrovend proces van toegang tot factory floor machines met OPC-Twin verminderen en de tijd richten op het bouwen van oplossingen voor IIoT. Stroomlijn van Certificaatbeheer en industriële activa-integratie met de OPC-kluis en erop vertrouwen dat asset connectiviteit is beveiligd. Deze microservices bieden een REST-achtige API boven [industriële IoT Azure-onderdelen](https://github.com/Azure/azure-iiot-opc-ua). De service-API biedt u beheer van edge-module-functionaliteit. 
 
 ![Industriële IoT-beveiligingsoverzicht](media/overview-iot-industrial/overview.png)
 
@@ -39,11 +39,11 @@ Als u niet bekend bent met de werking van Azure IoT Edge-modules, begint u met d
 
 ## <a name="factory-floor-connectivity"></a>Factory floor connectiviteit
 
-Azure IoT OPC UA-Apparaatbeheer, ook wel bekend als OPC dubbele, is een IIoT-onderdeel dat automatiseert de detectie van en de registratie en beheer op afstand van industriële apparaten via REST API's biedt. OPC-Twin maakt gebruik van Azure IoT Edge en IoT Hub om de cloud en het netwerk factory verbinding te maken. OPC-Twin kunnen ontwikkelaars IIoT richten op het IIoT toepassingen bouwen zonder u zorgen te maken over hoe u veilig toegang krijgen tot de on-premises computers.
+OPC-Twin is een IIoT-onderdeel dat automatiseert de detectie van en de registratie en beheer op afstand van industriële apparaten via REST API's biedt. OPC-Twin maakt gebruik van Azure IoT Edge en IoT Hub om de cloud en het netwerk factory verbinding te maken. OPC-Twin kunnen ontwikkelaars IIoT richten op het IIoT toepassingen bouwen zonder u zorgen te maken over hoe u veilig toegang krijgen tot de on-premises computers.
 
 ## <a name="security"></a>Beveiliging
 
-Azure IoT OPC UA-Certificaatbeheer of OPC-kluis is een implementatie van OPC UA globale detectie Server (GDS) die u kunt configureren, te registreren en beheren van de levenscyclus van het certificaat voor OPC UA-server en clienttoepassingen in de cloud. OPC-Vault vereenvoudigt de implementatie en het onderhoud van de beveiligde activa-verbinding in de industrie ruimte. Door het automatiseren van Certificaatbeheer kunnen OPC kluis factory operators van de handmatige en complexe processen die zijn gekoppeld aan de connectiviteit en Certificaatbeheer.
+OPC-kluis is een implementatie van OPC UA globale detectie Server (GDS) die u kunt configureren, te registreren en beheren van de levenscyclus van het certificaat voor OPC UA-server en clienttoepassingen in de cloud. OPC-Vault vereenvoudigt de implementatie en het onderhoud van de beveiligde activa-verbinding in de industrie ruimte. Door het automatiseren van Certificaatbeheer kunnen OPC kluis factory operators van de handmatige en complexe processen die zijn gekoppeld aan de connectiviteit en Certificaatbeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 

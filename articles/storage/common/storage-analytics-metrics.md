@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259751"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489280"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics metrics (klassiek)
 
@@ -75,7 +75,7 @@ Volg deze stappen voor het inschakelen van metrische gegevens in de [Azure-porta
 De [Azure-portal](https://portal.azure.com) wordt niet op dit moment kunt u configureren minuut metrische gegevens in uw storage-account; u moet inschakelen minuut metrische gegevens met behulp van PowerShell of via een programma.
 
 > [!NOTE]
->  Houd er rekening mee dat de Azure-portal is niet op dit moment kunt u minuut metrische gegevens in uw storage-account configureren. U moet inschakelen minuut metrische gegevens met behulp van PowerShell of via een programma.  
+>  Houd er rekening mee dat de Azure-portal is niet op dit moment kunt u minuut metrische gegevens in uw storage-account configureren. U moet inschakelen minuut metrische gegevens met behulp van PowerShell of via een programma.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Inschakelen van metrische gegevens van Storage met behulp van PowerShell  
 U kunt PowerShell gebruiken op uw lokale machine metrische opslaggegevens in uw storage-account configureren met behulp van de Azure PowerShell-cmdlet **Get-AzureStorageServiceMetricsProperty** om op te halen van de huidige instellingen en de cmdlet  **Set-AzureStorageServiceMetricsProperty** om de huidige instellingen te wijzigen.  
@@ -148,7 +148,7 @@ Volledige details van de schema's vindt u voor deze tabellen aan [tabelschema va
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**partitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Beschikbaarheid**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**Tijdstempel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Beschikbaarheid**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

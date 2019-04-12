@@ -1,10 +1,10 @@
 ---
-title: Prestatiemeteritems voor shard-toewijzingsbeheer
+title: Prestatiemeteritems voor het volgen van de prestaties van de shard-Toewijzingsbeheer maken
 description: ShardMapManager klasse- en afhankelijke routering van prestatiemeteritems
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,18 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895173"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494915"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Prestatiemeteritems voor shard-toewijzingsbeheer
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Prestatiemeteritems voor het volgen van de prestaties van de shard-Toewijzingsbeheer maken
+
+Prestatiemeteritems worden gebruikt voor het bijhouden van de prestaties van [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) bewerkingen. Deze items zijn toegankelijk in de Prestatiemeter onder het ' Elastic Database: Categorie van shard Management'.
 
 U kunt de prestaties van vastleggen een [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md), met name wanneer u [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md). Items worden gemaakt met de methoden van de klasse Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Items worden gebruikt voor het bijhouden van de prestaties van [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) bewerkingen. Deze items zijn toegankelijk in de Prestatiemeter onder het ' Elastic Database: Categorie van shard Management'.
 
 **Voor de meest recente versie:** Ga naar [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Zie ook [een app voor het gebruik van de meest recente-clientbibliotheek voor elastic database upgraden](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -67,7 +68,7 @@ De prestatiemeteritems wordt bijgewerkt door alle cachebewerkingen die worden ui
 
 ### <a name="see-also"></a>Zie ook
 
-[Overzicht over functies voor Elastic Database](sql-database-elastic-scale-introduction.md)  
+[Functieoverzicht van elastic Database](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

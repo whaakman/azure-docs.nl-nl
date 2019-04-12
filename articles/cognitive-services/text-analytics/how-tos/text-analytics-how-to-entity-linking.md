@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339377"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505572"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -56,7 +56,7 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 | Hoeveelheid      | Temperatuur   | "32 degrees"    |
 | DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
 | DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
-| Datum en tijd     | Time          | "8 am", "8:00"  | 
+| DateTime      | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
 | DateTime      | TimeRange     | "18: 00 uur tot 19: 00"     | 
 | DateTime      | Duur      | '1 minuut en 45 seconden'   | 
@@ -96,7 +96,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 + Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Stel het HTTP-eindpunt voor het ophalen van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities` bevatten
++ Stel het HTTP-eindpunt voor het ophalen van de entiteit. Het omvat de `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
@@ -287,11 +287,11 @@ In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van Text Analytics](../overview.md)  
+ [Text Analytics-overzicht](../overview.md)  
  [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
  [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Text Analytics-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Tekstanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

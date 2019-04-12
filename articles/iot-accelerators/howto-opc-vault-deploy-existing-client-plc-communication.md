@@ -1,6 +1,6 @@
 ---
-title: Beveiligen de communicatie van OPC-Client en de OPC-PLC met behulp van Azure IoT OPC UA-Certificaatbeheer | Microsoft Docs
-description: Beveiligen de communicatie van OPC-Client en de OPC-PLC hun handtekeningcertificaten met behulp van de CA van de OPC-kluis.
+title: Beveiligen de communicatie van OPC-client en de OPC-PLC met OPC-kluis - Azure | Microsoft Docs
+description: Beveiligen de communicatie van OPC-client en de OPC-PLC hun handtekeningcertificaten met behulp van de CA van de OPC-kluis.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759455"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493994"
 ---
-# <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>De communicatie van OPC-Client en de OPC-PLC beveiligen
+# <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>De communicatie van OPC-client en de OPC-PLC beveiligen
 
-Azure IoT OPC UA Certificaatbeheer, ook weten als OPC-kluis is een micro service die u configureren kunt, registreren, en beheren van de levenscyclus van certificaten voor OPC UA-server en client-toepassingen in de cloud. In dit artikel laat zien hoe de communicatie van OPC-Client en de OPC-PLC beveiligen door het ondertekenen van certificaten met behulp van de CA van de OPC-kluis.
+OPC-kluis is een microservice die u kunt configureren, te registreren en beheren van de levenscyclus van certificaten voor OPC UA-server en clienttoepassingen in de cloud. In dit artikel laat zien hoe de communicatie van OPC-client en de OPC-PLC beveiligen door het ondertekenen van certificaten met behulp van de CA van de OPC-kluis.
 
-In de volgende instellingen test de OPC-Client de verbinding met de OPC-PLC. Standaard is niet de connectiviteit mogelijk, omdat de beide onderdelen niet met de juiste certificaten zijn ingericht. Als een OPC UA-component nog niet met een certificaat ingericht is, genereert een zelfondertekend certificaat bij het opstarten. Het certificaat kan echter worden ondertekend door een certificeringsinstantie (CA) en worden geïnstalleerd in het OPC UA-onderdeel. Nadat dit is gebeurd voor OPC-Client en de OPC-PLC, wordt de verbinding is ingeschakeld. De volgende werkstroom wordt het proces beschreven. Sommige achtergrondinformatie over OPC UA-beveiliging vindt u [dit document](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) technisch document. De volledige gegevens vindt u in de OPC UA-specificatie.
+In de volgende instellingen test de OPC-client de verbinding met de OPC-PLC. Standaard is niet de connectiviteit mogelijk, omdat de beide onderdelen niet met de juiste certificaten zijn ingericht. Als een OPC UA-component nog niet met een certificaat ingericht is, genereert een zelfondertekend certificaat bij het opstarten. Het certificaat kan echter worden ondertekend door een certificeringsinstantie (CA) en worden geïnstalleerd in het OPC UA-onderdeel. Nadat dit is gebeurd voor OPC-client en de OPC-PLC, wordt de verbinding is ingeschakeld. De volgende werkstroom wordt het proces beschreven. Sommige achtergrondinformatie over OPC UA-beveiliging vindt u [dit document](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) technisch document. De volledige gegevens vindt u in de OPC UA-specificatie.
 
 Testbed: De volgende omgeving is geconfigureerd voor het testen.
 
 OPC-kluis scripts:
-- Beveiligde communicatie van OPC-Client en de OPC-PLC door hun handtekeningcertificaten met behulp van de CA van de OPC-kluis.
+- Beveiligde communicatie van OPC-client en de OPC-PLC door hun handtekeningcertificaten met behulp van de CA van de OPC-kluis.
 
 > [!NOTE]
 > Zie voor meer informatie, de GitHub [opslagplaats](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -49,7 +49,7 @@ docker-compose -f connecttest.yml up
 
 **Verificatie**
 
-Controleer in het logboek dat er geen certificaten geïnstalleerd op de eerste keer opstarten zijn. Hier de logboekuitvoer van OPC PLC (vergelijkbaar zien voor de OPC-Client):...
+Controleer in het logboek dat er geen certificaten geïnstalleerd op de eerste keer opstarten zijn. Hier de logboekuitvoer van OPC PLC (vergelijkbaar zien voor de OPC-client):...
 ```
 opcplc-123456 | [20:51:32 INF] Trusted issuer store contains 0 certs
 opcplc-123456 | [20:51:32 INF] Trusted issuer store has 0 CRLs.
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 Als u certificaten die zijn gerapporteerd ziet, volgt u de bovenstaande voorbereidende stappen en verwijderen van de docker-volumes.
 
-Controleer of dat de verbinding met de OPC-PLC is mislukt. Hier ziet u de volgende uitvoer in de OPC-Client zich uitvoer:
+Controleer of dat de verbinding met de OPC-PLC is mislukt. Hier ziet u de volgende uitvoer in de uitvoer van de OPC-client:
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -71,7 +71,7 @@ De reden voor de fout is dat het certificaat niet vertrouwd wordt. Dit betekent 
 ## <a name="sign-and-install-certificates-in-opc-ua-components"></a>Meld u aan en installeert u certificaten in de OPC UA-onderdelen
 
 **Voorbereiding**
-1. Ga naar de logboekuitvoer van stap 1 en ophalen van 'CreateSigningRequest gegevens' voor de OPC-PLC en de OPC-Client. De uitvoer wordt hier alleen voor OPC PLC weergegeven:
+1. Ga naar de logboekuitvoer van stap 1 en ophalen van 'CreateSigningRequest gegevens' voor de OPC-PLC en de OPC-client. De uitvoer wordt hier alleen voor OPC PLC weergegeven:
 
     ```
     opcplc-123456 | [20:51:32 INF] ----------------------- CreateSigningRequest information ------------------
@@ -121,7 +121,7 @@ De reden voor de fout is dat het certificaat niet vertrouwd wordt. Dit betekent 
     > [!NOTE] 
     > Vervang de tekenreeksen die zijn ingevoerd als optie waarden Base64 tekenreeksen die u opgehaald via de website.
 
-Herhaal het volledige proces beginnen met `Register New` (stap 3 hierboven) voor de OPC-Client. Er zijn alleen de volgende punten u moet rekening mee moet houden:
+Herhaal het volledige proces beginnen met `Register New` (stap 3 hierboven) voor de OPC-client. Er zijn alleen de volgende punten u moet rekening mee moet houden:
 
 - Gebruik de logboekuitvoer van de `opcclient`.
 - Selecteer `Client` als ApplicationType tijdens de registratie.
@@ -160,7 +160,7 @@ opcplc-123456 | [20:54:39 INF] Application certificate is for ApplicationUri 'ur
  ```
 Het toepassingscertificaat is er en ondertekend door een CA.
 
-Controleer of in het logboek zijn nu certificaten die zijn geïnstalleerd. Hieronder volgt de logboekuitvoer van OPC PLC en OPC-Client heeft een vergelijkbare uitvoer.
+Controleer of in het logboek zijn nu certificaten die zijn geïnstalleerd. Hieronder volgt de logboekuitvoer van OPC PLC en OPC-client heeft een vergelijkbare uitvoer.
 ```
 opcplc-123456 | [20:54:39 INF] Trusted issuer store contains 1 certs
 opcplc-123456 | [20:54:39 INF] 01: Subject 'CN=Azure IoT OPC Vault CA, O=Microsoft Corp.' (thumbprint: BC78F1DDC3BB5D2D8795F3D4FF0C430AD7D68E83)
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 De verlener van het toepassingscertificaat is de CA `CN=Azure IoT OPC Vault CA, O=Microsoft Corp.` en de OPC-PLC ook alle certificaten die zijn ondertekend door deze CA vertrouwt.
 
 
-Controleer of de verbinding met de OPC-PLC is gemaakt en de OPC-Client gegevens van OPC PLC kan lezen. Hier ziet u de volgende uitvoer in de OPC-Client zich uitvoer:
+Controleer of de verbinding met de OPC-PLC is gemaakt en de OPC-client gegevens van OPC PLC kan lezen. Hier ziet u de volgende uitvoer in de uitvoer van de OPC-client:
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,10 +189,10 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-Als u deze uitvoer ziet, klikt u vervolgens de OPC-PLC is nu vertrouwen OPC-Client en vice versa, aangezien beide hebben nu certificaten die zijn ondertekend door een Certificeringsinstantie en beide vertrouwde certificaten die door deze CA ondertekend.
+Als u deze uitvoer ziet, klikt u vervolgens de OPC-PLC is nu vertrouwen OPC-client en vice versa, aangezien beide nu de certificaten die zijn ondertekend door een Certificeringsinstantie hebben en vertrouwensrelatie certificaten die door deze CA ondertekend.
 
 > [!NOTE] 
-> Hoewel we de eerste twee verificatiestappen alleen voor OPC PLC, moeten de OPC-Client ook worden geverifieerd.
+> Hoewel we de eerste twee verificatiestappen alleen voor OPC PLC, moeten de OPC-client ook worden geverifieerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen

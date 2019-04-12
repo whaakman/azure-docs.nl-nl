@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884304"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494745"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profileren van ASP.NET Core Azure Linux-web-apps met Application Insights Profiler
 
@@ -39,21 +39,40 @@ De volgende instructies zijn van toepassing op alle omgevingen voor Windows, Lin
 
 1. Open een opdrachtpromptvenster op uw computer. De volgende instructies werken voor alle omgevingen voor Windows, Linux en Mac-ontwikkeling.
 
-2. Een ASP.NET Core MVC-webtoepassing maken:
+1. Een ASP.NET Core MVC-webtoepassing maken:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Wijzig de werkmap in de hoofdmap voor het project.
+1. Wijzig de werkmap in de hoofdmap voor het project.
 
-4. NuGet-pakket voor het verzamelen van de Profiler-traceringen toevoegen:
+1. NuGet-pakket voor het verzamelen van de Profiler-traceringen toevoegen:
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Toevoegen van een regel met code in de **HomeController.cs** sectie willekeurige vertraging een paar seconden:
+1. Application Insights in Program.cs inschakelen:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Inschakelen van Profiler in Startup.cs:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. Toevoegen van een regel met code in de **HomeController.cs** sectie willekeurige vertraging een paar seconden:
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ De volgende instructies zijn van toepassing op alle omgevingen voor Windows, Lin
             }
     ```
 
-6. Opslaan en uw wijzigingen aan in de lokale opslagplaats:
+1. Opslaan en uw wijzigingen aan in de lokale opslagplaats:
 
     ```
         git init
@@ -143,10 +162,7 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![De app-instellingen configureren](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     Wanneer de app-instellingen worden gewijzigd, wordt de site automatisch opnieuw opgestart. Nadat de nieuwe instellingen worden toegepast, voert u de Profiler onmiddellijk voor twee minuten. Vervolgens wordt de Profiler gedurende twee minuten om het uur uitgevoerd.
 
@@ -160,16 +176,8 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
 
 ## <a name="known-issues"></a>Bekende problemen
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>De actie inschakelen in het deelvenster Profiler configuratie werkt niet
-
-> [!NOTE]
-> Als u uw app met behulp van App Service op Linux hosten, moet u niet opnieuw in de Profiler in te schakelen de **prestaties** deelvenster in de Application Insights-portal. U kunt het NuGet-pakket opnemen in uw project en de Application Insights instellen **iKey** waarde in de instellingen van uw web-app zodat de Profiler.
-
-Als u de werkstroom inschakelen voor volgt [Application Insights Profiler voor Windows](./profiler.md) en selecteer **inschakelen** in de **Profiler configureren** deelvenster, ontvangt u een foutbericht. De actie inschakelen probeert de Windows-versie van de Profiler-agent installeren op de Linux-omgeving.
-
-We werken aan een oplossing voor dit probleem.
-
-![Probeer niet opnieuw inschakelen van de Profiler in het deelvenster prestaties](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>De knop nu profiel werkt niet voor Linux-Profiler
+De Linux-versie van de App Insights profiler biedt nog geen ondersteuning op aanvraag profilering nu gebruik van het profiel knop.
 
 
 ## <a name="next-steps"></a>Volgende stappen

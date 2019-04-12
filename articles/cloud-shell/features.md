@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.author: damaerte
-ms.openlocfilehash: fe04c5450ecd2c21affa5cbb89c627bc30cf7b6f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903451"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500614"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
@@ -57,7 +57,7 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 
 ## <a name="tools"></a>Hulpprogramma's
 
-|Categorie   |Name   |
+|Category   |Name   |
 |---|---|
 |Hulpprogramma's voor Linux            |Bash<br> zsh<br> Sh<br> tmux<br> graven<br>               |
 |Azure-hulpprogramma 's            |[Azure CLI](https://github.com/Azure/azure-cli) en [Azure klassieke CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -76,7 +76,7 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 |Aan de slag         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 en 3.5 (standaard)|
 
 ## <a name="next-steps"></a>Volgende stappen

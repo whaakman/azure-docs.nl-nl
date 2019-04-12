@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439293"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501357"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Traceringsberichten Azure IoT-apparaat-naar-cloud met gedistribueerde tracering (preview)
 
@@ -34,9 +34,9 @@ In dit artikel gebruikt u de [Azure IoT device-SDK voor C](./iot-hub-device-sdk-
 
 - De Preview-versie van gedistribueerde tracering is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
-  - **Noord-Europa**
-  - **Zuidoost-Azië**
-  - **VS-West 2**
+  - **Europa - noord**
+  - **Azië - zuidoost**
+  - **US - west 2**
 
 - In dit artikel wordt ervan uitgegaan dat u bekend bent met berichten over telemetrie verzenden naar uw IoT-hub. Zorg ervoor dat u hebt voltooid, de [verzenden van telemetrie C snelstartgids](./quickstart-send-telemetry-c.md).
 
@@ -98,7 +98,7 @@ Deze instructies zijn voor het bouwen van het voorbeeld op Windows. Zie voor and
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
+    Deze bewerking kan enkele minuten in beslag nemen.
 
 1. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map.
 
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Voorbeeld van de logboeken zoals aangegeven in Log Analytics:
 
-| TimeGenerated | OperationName | Categorie | Niveau | CorrelationId | DurationMs | Properties |
+| TimeGenerated | OperationName | Category | Niveau | CorrelationId | DurationMs | Properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informatief | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informatief | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

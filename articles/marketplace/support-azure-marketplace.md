@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620816"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491335"
 ---
 # <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
 Hier volgt een lijst met opties voor ondersteuning voor de Marketplace.  
@@ -38,9 +38,8 @@ Open een ticket bij Microsoft [marketplace publisher ondersteuning](https://supp
 
 ## <a name="technical"></a>Technisch  
 
-| Ondersteuning van kanaal | Description |  
+| Ondersteuning van kanaal | Beschrijving |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack-omgeving voor de ondersteuning van Partners met technische problemen. Er zijn over 350 + Partners momenteel werken in deze omgeving. |  
 | MSDN-forums: Marketplace zich bevindt op [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum voor Microsoft Developer Network. |  
 | Stack Overflow: Azure dat zich bevindt in [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-omgeving zodanig dat deze oplossingen en vragen over alles met betrekking tot Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace vinden op [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager zich bevindt op [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtuele Machines op Azure te vinden op [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers in Azure te vinden op [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 | Ondersteuning voor AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Ondersteuning voor Dynamics-Apps publiceren |

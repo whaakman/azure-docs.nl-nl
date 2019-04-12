@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0e07e371afaa239ca423f4266557cd2f55aa3a55
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403150"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495255"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -48,9 +48,9 @@ Het toepassingsmanifest configureren:
 > [!NOTE]
 > Als u niet zien de **Voorbeeldwaarde** kolom na de **beschrijving**, het browservenster maximaliseren en schuiven/Veeg tot u ziet de **Voorbeeldwaarde** kolom.
 
-| Sleutel  | Waardetype | Description  | Voorbeeldwaarde |
+| Sleutel  | Waardetype | Beschrijving  | Voorbeeldwaarde |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de toegang van een token versie werd verwacht door de resource. Hiermee wijzigt u de versie en indeling van de JWT die onafhankelijk van het eindpunt of de client gebruikt voor het aanvragen van het toegangstoken worden geproduceerd.<br/><br/>Het eindpunt dat wordt gebruikt, v1.0 of versie 2.0, wordt gekozen door de client en heeft alleen gevolgen voor de versie van id_tokens. Resources moeten expliciet configureren `accesstokenAcceptedVersion` om aan te geven van de ondersteunde access token-indeling.<br/><br/>Mogelijke waarden voor `accesstokenAcceptedVersion` 1, 2 of null zijn. Als de waarde null is, is dit standaard ingesteld op 1, wat overeenkomt met het eindpunt v1.0. | `2` |
+| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de toegang van een token versie werd verwacht door de resource. Hiermee wijzigt u de versie en indeling van de JWT die onafhankelijk van het eindpunt of de client gebruikt voor het aanvragen van het toegangstoken worden geproduceerd.<br/><br/>Het eindpunt dat wordt gebruikt, v1.0 of versie 2.0, wordt gekozen door de client en heeft alleen gevolgen voor de versie van id_tokens. Resources moeten expliciet configureren `accesstokenAcceptedVersion` om aan te geven van de ondersteunde access token-indeling.<br/><br/>Mogelijke waarden voor `accesstokenAcceptedVersion` 1, 2 of null zijn. Als de waarde null is, is dit standaard ingesteld op 1, wat overeenkomt met het eindpunt v1.0. <br/><br/>Als `signInAudience` is `AzureADandPersonalMicrosoftAccount`, de waarde moet liggen `2` | `2` |
 | `allowPublicClient` | booleaans | Hiermee geeft u de alternatieve toepassingstype. Azure AD bepaalt het type van de replyUrlsWithType standaard. Er zijn bepaalde scenario's waar Azure AD het client-app-type kan niet bepalen (bijvoorbeeld [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) stroom waar de HTTP-aanvraag zonder een URL-omleiding plaatsvindt). In deze gevallen wordt het toepassingstype op basis van de waarde van deze eigenschap worden geïnterpreteerd door Azure AD. Als deze waarde is ingesteld op waar het alternatieve toepassingstype is ingesteld als openbare client, zoals een geïnstalleerde app die wordt uitgevoerd op een mobiel apparaat. De standaardwaarde is false, wat inhoudt dat de terugval toepassingstype vertrouwelijke client, zoals web-app. | `false` |
 | `appId` | Id-reeks | Hiermee geeft u de unieke id voor de app die is toegewezen aan een app door Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Het type matrix | Hiermee geeft u de verzameling toepassingsrollen die mogelijk zijn gedeclareerd in een app. Deze rollen kunnen worden toegewezen aan gebruikers, groepen of service-principals. Zie voor meer voorbeelden en informatie [app-rollen in uw toepassing toevoegen en deze ontvangen in het token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

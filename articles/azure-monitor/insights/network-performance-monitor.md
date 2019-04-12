@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006769"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489721"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -33,7 +33,7 @@ Network Performance Monitor biedt drie brede mogelijkheden:
 
 * [Prestatiemeter](network-performance-monitor-performance-monitor.md): U kunt de netwerkconnectiviteit controleren voor cloudimplementaties en on-premises locaties, meerdere datacenters en filialen en met meerdere lagen, essentiële toepassingen of microservices. Met Prestatiemeter, kunt u netwerkproblemen detecteren voordat gebruikers klagen.
 
-* [Monitor voor connectiviteit](network-performance-monitor-service-endpoint.md): U kunt de connectiviteit van uw gebruikers controleren met de services die u interesseren, bepalen welke infrastructuur is in het pad en identificeren waar netwerkknelpunten optreden. U kunt informatie over storingen voordat uw gebruikers weten en ziet de exacte locatie van de problemen binnen het netwerkpad. 
+* [Monitor voor connectiviteit](network-performance-monitor-service-connectivity.md): U kunt de connectiviteit van uw gebruikers controleren met de services die u interesseren, bepalen welke infrastructuur is in het pad en identificeren waar netwerkknelpunten optreden. U kunt informatie over storingen voordat uw gebruikers weten en ziet de exacte locatie van de problemen binnen het netwerkpad. 
 
     Deze mogelijkheid kunt u op basis van HTTP, HTTPS, TCP- en ICMP om te controleren in het verleden of in realtime de beschikbaarheid en reactietijd van uw service uit te voeren. U kunt ook de bijdrage van het netwerk in pakketverlies en latentie controleren. Met een netwerk-topologie-kaart, kunt u network vertragingen isoleren. U kunt identificeren probleem punten die op het netwerkpad van het knooppunt naar de service, met latentiegegevens voor elke hop plaatsvinden. Met ingebouwde tests kunt u de netwerkverbinding met Office 365 en Dynamics CRM zonder eventuele meteen controleren. Met deze functie kunt u de netwerkverbinding met een TCP-compatibele eindpunt, zoals websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases bewaken.
 
@@ -83,7 +83,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
     > Het script configureert alleen Windows Firewall lokaal. Als u de firewall van een netwerk hebt, zorg ervoor dat het verkeer dat bestemd is voor de TCP-poort die wordt gebruikt door Network Performance Monitor geeft.
 
     >[!NOTE]
-    > U hoeft te worden uitgevoerd de [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell-script voor Service-Eindpuntbewaking.
+    > U hoeft te worden uitgevoerd de [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell-script voor de Connectiviteitsmonitor-Service.
 
     
 
@@ -115,7 +115,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
     
    **Monitor voor connectiviteit**: De mogelijkheid biedt ingebouwde vooraf geconfigureerde tests voor het controleren van de netwerkverbinding met Office 365 en Dynamics 365 van uw agents. Kies de Office 365 en Dynamics 365-services die u wenst te bewaken door de selectievakjes ernaast in te schakelen. Als u de agents van waaruit u wilt controleren, selecteert u **Agents toevoegen**. Als u niet wilt dat met deze mogelijkheid of later instellen, geen Kies iets en selecteer **opslaan en doorgaan**.
 
-   ![Service-Eindpuntbewaking weergeven](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Connectiviteitsmonitor voor service-weergave](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **ExpressRoute Monitor**: Selecteer **nu detecteren** voor het detecteren van alle ExpressRoute particuliere peerings die zijn verbonden met de virtuele netwerken in het Azure-abonnement is gekoppeld met deze Log Analytics-werkruimte. 
 
@@ -152,7 +152,7 @@ Alle knooppunten waarop een agent geïnstalleerd op deze worden weergegeven op d
 De mogelijkheden die u wilt configureren:
 
 - [Prestatiemeter](network-performance-monitor-performance-monitor.md#configuration)
-- [Service-Eindpuntbewaking](network-performance-monitor-performance-monitor.md#configuration)
+- [Bewaking van serviceverbinding](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute-bewaking](network-performance-monitor-expressroute.md#configuration)
 
  

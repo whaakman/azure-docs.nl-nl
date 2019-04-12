@@ -1,5 +1,5 @@
 ---
-title: Over het implementeren van Azure IoT OPC UA device management-module helemaal | Microsoft Docs
+title: Over het implementeren van OPC-Twin-module voor Azure maken | Microsoft Docs
 description: Over het implementeren van OPC dubbele helemaal.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759409"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491353"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC-Twin-Module en afhankelijkheden helemaal implementeren
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC-Twin-module en afhankelijkheden helemaal implementeren
 
-De OPC-Apparaatdubbel-module wordt uitgevoerd op IoT Edge en verschillende edge services levert aan de OPC-Apparaatdubbel en de Register-services. 
+De OPC-Twin-module wordt uitgevoerd op IoT Edge en biedt verschillende edge-services naar de apparaatdubbel OPC en Registerservices. 
 
 Er zijn verschillende opties voor het implementeren van modules naar uw [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) daartussen-Gateway
 
@@ -109,7 +109,7 @@ De eenvoudigste manier om de modules implementeren naar een Azure IoT Edge-gatew
 
 ### <a name="prerequisites"></a>Vereisten
 
-1. De OPC UA-Apparaatbeheer implementeren [afhankelijkheden](howto-opc-twin-deploy-dependencies.md) en de resulterende `.env` bestand. Houd er rekening mee de geïmplementeerde `hub name` van de `PCS_IOTHUBREACT_HUB_NAME` variabele in de resulterende `.env` bestand.
+1. Implementeren van het OPC-dubbele [afhankelijkheden](howto-opc-twin-deploy-dependencies.md) en de resulterende `.env` bestand. Houd er rekening mee de geïmplementeerde `hub name` van de `PCS_IOTHUBREACT_HUB_NAME` variabele in de resulterende `.env` bestand.
 
 2. Registreren en start een [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) of [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge-gateway en noteer de `device id`.
 
@@ -189,7 +189,7 @@ De eenvoudigste manier om de modules implementeren naar een Azure IoT Edge-gatew
    ```
 
    De `device id` parameter is hoofdlettergevoelig. De inhoud parameter verwijst naar de implementatie van het manifest-bestand dat u hebt opgeslagen. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![AZ IoT Edge set-modules uitvoer](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Nadat u hebt modules geïmplementeerd op uw apparaat, vindt u alle mappen met de volgende opdracht:
 
@@ -205,7 +205,7 @@ Voor problemen bij probleemoplossing en foutopsporing uit voeren is handig om ui
 
 ### <a name="prerequisites"></a>Vereisten
 
-1. De OPC UA-Apparaatbeheer implementeren [afhankelijkheden](howto-opc-twin-deploy-dependencies.md).
+1. Implementeren van het OPC-dubbele [afhankelijkheden](howto-opc-twin-deploy-dependencies.md).
 
 2. Installeer [Docker CE (18.02.0+)](https://www.docker.com/community-edition) op [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) of [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

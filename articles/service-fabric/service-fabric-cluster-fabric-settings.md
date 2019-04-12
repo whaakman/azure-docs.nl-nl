@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361541"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501294"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -403,10 +403,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(5)|Dynamisch|Interval in seconden opgeven. Het Opschoningsinterval voor toegestaan voor registratie van het toepassingstype tijdens de automatische toepassing type opschoning.|
 |AzureStorageMaxConnections | Int, de standaardwaarde is 5000 |Dynamisch|Het maximale aantal gelijktijdige verbindingen naar azure storage. |
 |AzureStorageMaxWorkerThreads | int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
 |AzureStorageOperationTimeout | Tijd in seconden, de standaardwaarde is 6000 |Dynamisch|Interval in seconden opgeven. Time-out voor xstore bewerking is voltooid. |
-|CleanupApplicationPackageOnProvisionSuccess|BOOL, standaard is ingesteld op FALSE |Dynamisch|Deze configuratie of het automatisch opschonen van het toepassingspakket op geslaagde inrichten uitgeschakeld. |
+|CleanupApplicationPackageOnProvisionSuccess|BOOL, standaard is ingesteld op FALSE |Dynamisch|Hiermee schakelt het automatisch opschonen van het toepassingspakket op geslaagde inrichten of. |
 |CleanupUnusedApplicationTypes|BOOL, standaard is ingesteld op FALSE |Dynamisch|Deze configuratie kan bij inschakeling automatisch registratie versies van een niet-gebruikte toepassingstype wordt de meest recente drie niet-gebruikte versies, waardoor de schijfruimte die wordt ingenomen door de installatiekopieopslag bijsnijden overgeslagen. Het opruimen van de automatische aan het einde van geslaagde inrichten voor dat specifieke app-type wordt geactiveerd en periodiek eenmaal per dag voor alle toepassingstypen wordt ook uitgevoerd. Aantal niet-gebruikte versies overslaan kan worden geconfigureerd met behulp van de parameter 'MaxUnusedAppTypeVersionsToKeep'. |
 |DisableChecksumValidation | BOOL, de standaardinstelling is false |Statisch| Deze configuratie kan we controlesomvalidatie tijdens het inrichten van de toepassing uit te schakelen. |
 |DisableServerSideCopy | BOOL, de standaardinstelling is false |Statisch|Deze configuratie- of serverzijde kopie van het toepassingspakket op de ImageStore tijdens het inrichten van de toepassing uitgeschakeld. |

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188965"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492085"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -50,7 +50,7 @@ De volgende velden en conventies van toepassing op zowel VMConnection en VMBound
 
 Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een opgegeven interval van één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 |Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
@@ -108,11 +108,11 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
-|Description |Beschrijving van de waargenomen bedreiging. |
+|Beschrijving |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
 |Betrouwbaarheid |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
@@ -125,7 +125,12 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 ### <a name="ports"></a>Poorten 
 Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer of verkeer kunnen mogelijk worden geaccepteerd, maar niet actief zijn tijdens de periode reporting worden geschreven naar de tabel VMBoundPort.  
 
-Gegevens worden standaard niet geschreven in deze tabel. Als u wilt dat gegevens die naar deze tabel geschreven, stuur een e-mail naar vminsights@microsoft.com samen met uw werkruimte-ID en de regio van de werkruimte.   
+>[!NOTE]
+>Azure Monitor voor virtuele machines biedt geen ondersteuning voor het verzamelen en poortgegevens vastleggen in een Log Analytics-werkruimte in de volgende regio's:  
+>- US - oost  
+>- Europa -west
+>
+> Het verzamelen van deze gegevens is ingeschakeld in de andere [ondersteunde regio's](vminsights-onboard.md#log-analytics) voor Azure Monitor voor virtuele machines. 
 
 Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
 

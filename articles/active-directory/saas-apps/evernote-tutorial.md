@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854701"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Zelfstudie: Integratie van Microsoft Azure Active Directory met Evernote
 
@@ -51,9 +51,9 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de configuratie van Evernote in Microsoft Azure Active Directory te configureren, moet u Evernote vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-**Als u Evernote vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Evernote uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** klikt u in het navigatievenster aan de linkerkant op het pictogram **Azure Active Directory**.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -61,11 +61,11 @@ Om de configuratie van Evernote in Microsoft Azure Active Directory te configure
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Als u wilt een nieuwe toepassing toevoegen, klikt u op de **nieuwe toepassing** knop aan de bovenkant van het dialoogvenster.
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Evernote**, selecteer **Evernote** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ in het zoekvak **Evernote**, selecteer **Evernote** vanuit het deelvenster resultaat klik vervolgens op de **toevoegen** om toe te voegen van de toepassing.
 
      ![Evernote in de lijst met resultaten](common/search-new-app.png)
 
@@ -101,7 +101,7 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te con
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus, de volgende stap uitvoeren:
 
     ![Informatie over eenmalige aanmelding van domeinen en URL’s van Evernote](common/idp-identifier.png)
 
@@ -117,7 +117,17 @@ Om eenmalige aanmelding van Microsoft Azure Active Directory met Evernote te con
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-7. In de sectie **Evernote instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+7. Wijzig de **ondertekening** opties, klikt u op de **bewerken** te openen de **SAML-handtekeningcertificaat** dialoogvenster.
+
+    ![image](common/edit-certificate.png) 
+
+    ![image](./media/evernote-tutorial/samlassertion.png)
+
+    a. Selecteer de **aanmelding SAML-antwoord en -bewering** optie voor **ondertekening optie**.
+
+    b. Klik op **Opslaan**.
+
+8. In de sectie **Evernote instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -169,8 +179,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -207,7 +216,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 Als u gebruikers van Microsoft Azure Active Directory de mogelijkheid wilt bieden om zich aan te melden bij Evernote, moeten ze worden ingericht voor Evernote.  
 In het geval van Evernote is inrichten een handmatige taak.
 
-**Voer de volgende stappen uit om een gebruikersaccount in te richten:**
+**Ga als volgt te werk om een gebruikersaccount in te richten:**
 
 1. Meld u bij uw Evernote-bedrijfssite als beheerder aan.
 
@@ -233,9 +242,9 @@ Wanneer u in het toegangsvenster op de tegel Evernote klikt, zou u automatisch m
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

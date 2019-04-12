@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9f80f1a8d02352daa663ee5ea4fa9287e0e8580e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893789"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490959"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs-Uitvoerbinding voor Azure Functions
 
@@ -25,6 +25,9 @@ In dit artikel wordt uitgelegd hoe u pushmeldingen verzenden met behulp van [Azu
 Azure Notification Hubs moeten worden geconfigureerd voor het Platform meldingen Service (PNS) u wilt gebruiken. Zie voor meer informatie over het verkrijgen van pushmeldingen in uw client-app van Notification Hubs, [aan de slag met Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) en selecteer uw doelplatform voor de client in de vervolgkeuzelijst aan de bovenkant van de pagina.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!IMPORTANT]
+> Google heeft [Google Cloud Messaging (GCM) en vervangen door Firebase Cloud Messaging (FCM) afgeschaft](https://developers.google.com/cloud-messaging/faq). Deze Uitvoerbinding biedt geen ondersteuning voor FCM. Voor het verzenden van meldingen met FCM, gebruiken de [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) rechtstreeks in uw functie of gebruik [Sjabloonmeldingen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
@@ -197,37 +200,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---gcm-native"></a>Voorbeeld: systeemeigen GCM
-
-In dit voorbeeld C# script laat zien hoe een systeemeigen GCM-melding te verzenden. 
-
-```cs
-#r "Microsoft.Azure.NotificationHubs"
-#r "Newtonsoft.Json"
-
-using System;
-using Microsoft.Azure.NotificationHubs;
-using Newtonsoft.Json;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
-    // a "name" value.
-    //
-    // The JSON format for a native GCM notification is ...
-    // { "data": { "message": "notification message" }}  
-
-    log.Info($"Sending GCM notification of a new user");    
-    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
-                                        user.name + ")\" }}";
-    log.Info($"{gcmNotificationPayload}");
-    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
-}
-```
-
 ## <a name="example---wns-native"></a>Voorbeeld: systeemeigen WNS
 
 In dit voorbeeld C# script ziet u hoe u typen die zijn gedefinieerd de [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) voor het verzenden van een systeemeigen pop-upmelding met WNS. 
@@ -281,7 +253,7 @@ De parameters van constructor en eigenschappen van het kenmerk worden beschreven
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `NotificationHub` kenmerk:
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** |N.v.t.| Moet worden ingesteld op 'notificationHub'. |
 |**richting** |N.v.t.| Moet worden ingesteld op 'out'. | 
@@ -289,7 +261,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**tagExpression** |**TagExpression** | Code-expressies kunnen u opgeven dat meldingen worden geleverd aan een set met apparaten die zijn geregistreerd voor het ontvangen van meldingen die overeenkomen met de tagexpressie.  Zie voor meer informatie, [Routering en tag expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | De naam van de resource voor notification hub in Azure portal. |
 |**verbinding** | **connectionStringSetting** | De naam van een app-instelling met een verbindingsreeks Notification Hubs.  De verbindingsreeks moet worden ingesteld op de *DefaultFullSharedAccessSignature* waarde voor de notification hub. Zie [verbindingsinstellingen voor tekenreeks](#connection-string-setup) verderop in dit artikel.|
-|**Platform** | **Platform** | De eigenschap platform geeft het clientplatform uw doelen melding. Standaard, als de eigenschap platform wordt weggelaten uit de Uitvoerbinding kunnen Sjabloonmeldingen worden gebruikt om u te richten op elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen voor het verzenden van cross-platform kunt verzenden met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Als de waarde, **platform** moet een van de volgende waarden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APN's en de melding ontvangen in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een app Kindle [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, dat de nieuwe versie van GCM is, wordt ook ondersteund. Zie voor meer informatie, [pushmeldingen verzenden naar Android met Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie, [aan de slag met Notification Hubs voor Windows Universal Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie, [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**Platform** | **Platform** | De eigenschap platform geeft het clientplatform uw doelen melding. Standaard, als de eigenschap platform wordt weggelaten uit de Uitvoerbinding kunnen Sjabloonmeldingen worden gebruikt om u te richten op elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen voor het verzenden van cross-platform kunt verzenden met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Als de waarde, **platform** moet een van de volgende waarden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APN's en de melding ontvangen in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een app Kindle [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie, [aan de slag met Notification Hubs voor Windows Universal Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie, [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -307,7 +279,7 @@ Hier volgt een voorbeeld van een binding Notification Hubs in een *function.json
       "tagExpression": "",
       "hubName": "my-notification-hub",
       "connection": "MyHubConnectionString",
-      "platform": "gcm"
+      "platform": "apns"
     }
   ],
   "disabled": false

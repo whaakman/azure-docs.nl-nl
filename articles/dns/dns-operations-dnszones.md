@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: victorh
-ms.openlocfilehash: 2cdf6ea0a992c996f4aeeb117c440e94b55ff8a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d3bb37998a037dcb878a988d4aa01245584ca82
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961957"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496417"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Over het beheren van DNS-Zones met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI van Azure classic](dns-operations-dnszones-cli-nodejs.md)
+> * [Klassieke versie van Azure CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure-CLI](dns-operations-dnszones-cli.md)
 
 Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van Azure PowerShell. U kunt ook beheren met uw DNS-zones met behulp van de platformoverschrijdende [Azure CLI](dns-operations-dnszones-cli.md) of de Azure-portal.
@@ -166,7 +166,7 @@ Omdat de standaardwaarde voor `$ConfirmPreference` `High` is, wordt standaard al
 
 U kunt de huidige instelling van `$ConfirmPreference` overschrijven met behulp van de parameter `-Confirm`. Als u `-Confirm` of `-Confirm:$True` opgeeft, vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u `-Confirm:$False` opgeeft, wordt u niet om bevestiging gevraagd.
 
-Zie [over voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables) voor meer informatie over `-Confirm` en `$ConfirmPreference`.
+Zie [over voorkeursvariabelen](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1) voor meer informatie over `-Confirm` en `$ConfirmPreference`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

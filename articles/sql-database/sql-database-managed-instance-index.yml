@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Een beheerd exemplaar in Azure SQL Database is een volledig beheerde SQL Server Database Engine-instantie die wordt gehost in Azure-cloud. Dit is de beste PaaS-optie voor het migreren van SQL Server-database naar de cloud. Informatie over het maken en gebruiken van Managed Instance met onze snelstartgidsen, zelfstudies en voorbeelden.'
@@ -78,6 +78,7 @@ sections:
           - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">ingebouwde firewall</a>.
           - html: '(Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Opnieuw te maken verwijderde databases met behulp van PowerShell</a>'
           - html: 'Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.'
+          - html: '(Preview) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configureren tijdzone</a> tijdens het maken van het exemplaar.'
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph

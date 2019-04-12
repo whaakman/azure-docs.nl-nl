@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 188cb21688ee092db426e51c6ae327def3ff02d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919202"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503154"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "58919202"
 | DNS-servers per abonnement |9 |100 |
 | Gereserveerde IP-adressen per abonnement |20 |100 |
 | [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |256 |256 |
-
+| Lengte van de naam van abonnement (tekens) | 64 | 64 |
 
 <sup>1</sup>extra kleine instanties tellen als één vCPU voor de limiet van de vCPU ondanks met behulp van een gedeeltelijke CPU-kern.
 

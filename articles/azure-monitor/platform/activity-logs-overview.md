@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650288"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496876"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -95,19 +95,11 @@ Een **Logboekprofiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. M
 * Welke gebeurteniscategorieën (schrijven, verwijderen, actie) moeten worden verzonden. *De betekenis van 'categorie' in Logboekprofielen en gebeurtenissen in activiteitenlogboeken verschilt. In het Logboekprofiel vertegenwoordigt 'Categorie' het bewerkingstype (schrijven, verwijderen, actie). De eigenschap 'categorie' vertegenwoordigt in een activiteitenlogboek-gebeurtenis, de bron- of type gebeurtenis (bijvoorbeeld, beheer, ServiceHealth, waarschuwing, en meer).*
 * Welke regio's (locaties) moeten worden geëxporteerd. Zorg ervoor dat 'global', omdat veel gebeurtenissen in het activiteitenlogboek algemene gebeurtenissen zijn.
 * Hoe lang het activiteitenlogboek worden bewaard in een Storage-Account.
-    - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
+    - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 365 zijn.
     - Als Logboeken opslaan in een Storage-Account is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), bewaarbeleid worden ingesteld, maar hebben het bewaarbeleid geen effect.
     - Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account.
 
 U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde abonnement als een dat Logboeken verzendt. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
-
-> [!NOTE]
->  U gegevens naar een opslagaccount die zich achter een beveiligd virtueel netwerk kan momenteel niet archiveren.
-
-> [!WARNING]
-> De indeling van de logboekgegevens in de storage-account gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade met activiteitenlogboek in de portal. Ze kunnen ook programmatisch te worden geconfigureerd [met behulp van de Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets of CLI. Een abonnement kan slechts één logboekprofiel hebben.
 
@@ -146,14 +138,14 @@ Get-AzLogProfile
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Eigenschap | Vereist | Description |
+| Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
 | Name |Ja |Naam van uw logboekprofiel. |
 | StorageAccountId |Nee |Resource-ID van het Opslagaccount waarnaar het activiteitenlogboek moeten worden opgeslagen. |
 | serviceBusRuleId |Nee |Service Bus-regel-ID voor de Service Bus-naamruimte hebt gemaakt in eventhubs hebben. Een tekenreeks zijn met deze indeling is: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. |
 | RetentionInDays |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorie |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
+| Category |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
 
 #### <a name="remove-a-log-profile"></a>Een logboekprofiel verwijderen
 

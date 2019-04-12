@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Informatie over het maken van een virtueel netwerk dat peering tussen virtuele netwerken die zijn gemaakt via Resource Manager en die aanwezig zijn in verschillende Azure-abonnementen.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403457"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492291"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
 
@@ -28,8 +28,8 @@ De stappen voor het maken van een virtueel netwerk-peering zijn verschillend, af
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
 |[Beide in Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
-|[Een Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
-|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
+|[Eén in Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
+|[Eén in Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
 
 Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Als u verbinding maken met virtuele netwerken die zijn beide gemaakt via het klassieke implementatiemodel wilt, kunt u een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om de virtuele netwerken te verbinden.
 
@@ -39,7 +39,9 @@ U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI)
 
 ## <a name="portal"></a>Maken van de peering - Azure portal
 
-Als de virtuele netwerken die u wilt koppelen in abonnementen die gekoppeld aan andere Azure Active Directory-tenants zijn, volg de stappen in de CLI en PowerShell-sectie van dit artikel. Portal biedt geen ondersteuning voor virtuele netwerken die behoren tot de abonnementen van verschillende Active Directory-Tenants.
+Als de virtuele netwerken die u wilt koppelen in abonnementen die gekoppeld aan andere Azure Active Directory-tenants zijn, volg de stappen in de CLI en PowerShell-sectie van dit artikel. Portal biedt geen ondersteuning voor virtuele netwerken die behoren tot de abonnementen van verschillende Active Directory-Tenants. 
+
+Houd er rekening mee dat Cloud Shell heeft met beperkingen in het schakelen tussen abonnementen en tenants dit VNet-Peering of wereldwijde VNet-Peering tussen vnet's die behoren tot abonnementen in verschillende Azure Active Directory-Tenants niet werkt. Gebruik PowerShell of CLI.
 
 De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van buiten de portal en slaat u de stappen voor het toewijzen van machtigingen voor een andere gebruiker aan de virtuele netwerken.
 

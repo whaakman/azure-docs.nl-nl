@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262496"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489619"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
 
-Inschakelen van de controle van uw .NET en .NET Core op basis van webtoepassingen die worden uitgevoerd in Azure App Services is nu eenvoudiger dan ooit. Dat u eerder hebt u nodig hebt om een site-extensie handmatig installeren, worden de nieuwste extensie/agent nu in de installatiekopie van het app service standaard ingebouwd. In dit artikel wordt u stapsgewijs door het inschakelen van bewaking van Application Insights, evenals voorlopige richtlijnen voor het automatiseren van het proces voor grootschalige implementaties.
+Inschakelen van de controle van uw .NET en .NET Core op basis van webtoepassingen die worden uitgevoerd op [Azure App Services](https://docs.microsoft.com/azure/app-service/) is nu eenvoudiger dan ooit. Dat u eerder hebt u nodig hebt om een site-extensie handmatig installeren, worden de nieuwste extensie/agent nu in de installatiekopie van het app service standaard ingebouwd. In dit artikel wordt u stapsgewijs door het inschakelen van bewaking van Application Insights, evenals voorlopige richtlijnen voor het automatiseren van het proces voor grootschalige implementaties.
 
 > [!NOTE]
 > Handmatig toevoegen van een Application Insights-extensie voor site via **ontwikkeltools** > **extensies** is afgeschaft. Deze methode van de installatie van de extensie is afhankelijk van handmatige updates voor elke nieuwe versie. De nieuwste stabiele versie van de extensie is nu [vooraf](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) als onderdeel van de installatiekopie van het App Service. De bestanden bevinden zich in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` en worden automatisch bijgewerkt met elke stabiele versie. Als u de agent op basis van-instructies voor het inschakelen van bewaking volgt hieronder, de afgeschafte extensie automatisch worden verwijderd voor u.

@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: Cognitive Services API's aanroepen in een indexering pijplijn - Azure Search"
-description: Stap door een voorbeeld van het ophalen van gegevens, natuurlijke taal en afbeelding AI verwerken in Azure Search indexeren voor ophalen van gegevens en -transformaties via JSON-blobs.
+title: "Zelfstudie: Cognitive Services REST-API's aanroepen in een indexering pijplijn - Azure Search"
+description: Stap door een voorbeeld van het ophalen van gegevens, natuurlijke taal en afbeelding AI verwerken in Azure Search indexeren voor ophalen van gegevens en -transformaties via JSON-blobs met Postman en de REST-API.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 088dcd366d526d08f236fb48340c6bbe18fe267c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261918"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501209"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren pijplijn (Preview)
 
@@ -43,31 +43,37 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
+De volgende services, hulpprogramma's en gegevens worden gebruikt in deze zelfstudie. 
+
 [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
+
+[Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens.
 
 [Postman bureaublad-app](https://www.getpostman.com/) wordt gebruikt voor het maken van de REST-aanroepen naar Azure Search.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Een Azure Search api-sleutel en het eindpunt ophalen
+[Voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestaat uit een verzameling kleine bestanden van verschillende typen. 
+
+## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
 REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-1. In de Azure-portal in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://my-service-name.search.windows.net`.
+1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-2. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
 ![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
 Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service instellen en voorbeeldgegevens laden
+## <a name="prepare-sample-data"></a>Voorbeeldgegevens voorbereiden
 
 De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens moeten afkomstig zijn van een ondersteund type gegevensbron van een [Azure Search-indexeerfunctie](search-indexer-overview.md). Houd er rekening mee dat Azure Table Storage niet wordt ondersteund voor cognitief zoeken. In dit voorbeeld gebruiken we blobopslag om meerdere inhoudstypen te laten zien.
 
-1. [Download de voorbeeldgegevens](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) die bestaan uit een kleine set van verschillende typen bestanden. 
+1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
 
-1. [Aanmelden voor Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), een opslagaccount maken, opent u de services Blob's en een container maken. De storage-account maken in dezelfde regio als de Azure Search.
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden.
 
-1. Klik in de container die u hebt gemaakt op **Uploaden** om de voorbeeldbestanden te uploaden die u in een vorige stap hebt gedownload.
+1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk voor het uploaden van de voorbeeldbestanden die u hebt gedownload in de vorige stap.
 
    ![Bronbestanden in Azure-blobopslag](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ De verrijkingspijplijn haalt gegevens uit Azure-gegevensbronnen. Brongegevens mo
 
 Er zijn andere manieren om de verbindingsreeks op te geven, zoals een Shared Access Signature bieden. Zie [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials) (Azure Blob Storage indexeren) voor meer informatie over referenties voor gegevensbronnen.
 
+## <a name="set-up-postman"></a>Postman instellen
+
+Start Postman en stel een HTTP-aanvraag in. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
+
+De aanvraagmethoden die worden gebruikt in deze zelfstudie zijn **POST**, **plaatsen**, en **ophalen**. De headersleutels zijn 'Content-type' ingesteld op ' application/json' en 'api-sleutel' ingesteld op geen Administrator-code van uw Azure Search-service. In de hoofdtekst plaatst u de werkelijke inhoud van uw aanroep. 
+
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
+
+We gebruiken Postman om vier API-aanroepen naar uw search-service om te kunnen maken van een gegevensbron, een set vaardigheden, een index en een indexeerfunctie maken. De gegevensbron bevat een verwijzing naar uw opslagaccount en uw JSON-gegevens. Uw zoekservice maakt de verbinding tijdens het laden van de gegevens.
+
+
 ## <a name="create-a-data-source"></a>Een gegevensbron maken
 
 Nu dat uw services en bronbestanden zijn voorbereid, kunt u de onderdelen van uw indexeringspijplijn samenstellen. Begin met een [gegevensbronobject](https://docs.microsoft.com/rest/api/searchservice/create-data-source) dat Azure Search vertelt hoe het externe gegevens moet ophalen.
 
-Gebruik voor deze zelfstudie de REST API en een hulpprogramma dat HTTP-aanvragen kan formuleren en verzenden, zoals PowerShell, Postman of Fiddler. Geef in de aanvraagheader de naam van de service op die u hebt gebruikt bij het maken van de Azure Search-service en de API-sleutel die is gegenereerd voor uw zoekservice. Geef in de aanvraagbody de naam van de blobcontainer en de verbindingsreeks op.
+Geef in de aanvraagheader de naam van de service op die u hebt gebruikt bij het maken van de Azure Search-service en de API-sleutel die is gegenereerd voor uw zoekservice. Geef in de aanvraagbody de naam van de blobcontainer en de verbindingsreeks op.
 
 ### <a name="sample-request"></a>Voorbeeldaanvraag
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 Verzend de aanvraag. Het online hulpprogramma zou een 201-statuscode moeten retourneren om de succesvolle uitvoering te bevestigen. 
 
-Aangezien dit uw eerste aanvraag is, controleert u Azure Portal om te bevestigen dat de gegevensbron in Azure Search is gemaakt. Controleer op de dashboardpagina van de zoekservice of de tegel Gegevensbronnen een nieuw item heeft. U moet mogelijk een paar minuten wachten tot de portalpagina is vernieuwd. 
+Aangezien dit uw eerste aanvraag is, controleert u Azure Portal om te bevestigen dat de gegevensbron in Azure Search is gemaakt. Controleer of dat de lijst met gegevensbronnen heeft een nieuw item op de dashboardpagina van search-service. U moet mogelijk een paar minuten wachten tot de portalpagina is vernieuwd. 
 
   ![Tegel Gegevensbronnen in de portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Tegel Gegevensbronnen in de portal")
 
@@ -116,13 +133,13 @@ Als u een 403- of 404-fout krijgt, controleert u de constructie van de aanvraag:
 
 ## <a name="create-a-skillset"></a>Een set vaardigheden maken
 
-In deze stap definieert u een reeks verrijkingsstappen die u op uw gegevens wilt toepassen. We noemen elke verrijkingsstap een *vaardigheid* en de reeks verrijkingsstappen een *set vaardigheden*. In deze zelfstudie wordt gebruikgemaakt van [vooraf gedefinieerde cognitieve vaardigheden](cognitive-search-predefined-skills.md) voor de set vaardigheden:
+In deze stap definieert u een reeks verrijkingsstappen die u op uw gegevens wilt toepassen. We noemen elke verrijkingsstap een *vaardigheid* en de reeks verrijkingsstappen een *set vaardigheden*. Deze zelfstudie wordt gebruikgemaakt van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) voor de vaardigheden:
 
 + [Taaldetectie](cognitive-search-skill-language-detection.md) om de taal van de inhoud vast te stellen.
 
 + [Tekst splitsen](cognitive-search-skill-textsplit.md) om grote inhoud in kleinere stukken op te delen voordat u de vaardigheid voor sleuteltermextractie aanroept. Sleuteltermextractie accepteert invoeren van 50.000 tekens of minder. Enkele voorbeeldbestanden moeten worden opgesplitst om aan deze limiet te voldoen.
 
-+ [Herkenning van benoemde entiteiten](cognitive-search-skill-named-entity-recognition.md) voor het extraheren van de namen van organisaties uit inhoud van de blobcontainer.
++ [Herkenning van entiteit](cognitive-search-skill-entity-recognition.md) voor het uitpakken van de namen van organisaties van de inhoud in de blob-container.
 
 + [Sleuteltermextractie](cognitive-search-skill-keyphrases.md) voor het ophalen van de belangrijkste sleuteltermen. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 Verzend de aanvraag. Het online hulpprogramma zou een 201-statuscode moeten retourneren om de succesvolle uitvoering te bevestigen. 
 
-#### <a name="about-the-request"></a>Over de aanvraag
+#### <a name="explore-the-request-body"></a>De aanvraagbody verkennen
 
 U ziet hoe de vaardigheid voor sleuteltermextractie op elke pagina wordt toegepast. Door de context op ```"document/pages/*"``` in te stellen, voert u deze verrijker uit voor elk onderdeel van de matrix document/pagina's (voor elke pagina in het document).
 
@@ -306,11 +323,13 @@ Zie [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/s
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Een indexeerfunctie maken, velden toewijzen en transformaties uitvoeren
 
-Tot nu toe hebt u een gegevensbron, een set vaardigheden en een index gemaakt. Deze drie onderdelen gaan deel uitmaken van een [indexeerfunctie](search-indexer-overview.md) die de onderdelen combineert in één meervoudige bewerking. Als u deze in een indexeerfunctie wilt combineren, moet u veldtoewijzingen definiëren. Veldtoewijzingen maken deel uit van de definitie van de indexeerfunctie en voeren de transformaties uit wanneer u de aanvraag verzendt.
+Tot nu toe hebt u een gegevensbron, een set vaardigheden en een index gemaakt. Deze drie onderdelen gaan deel uitmaken van een [indexeerfunctie](search-indexer-overview.md) die de onderdelen combineert in één meervoudige bewerking. Als u deze in een indexeerfunctie wilt combineren, moet u veldtoewijzingen definiëren. 
 
-Bij niet-verrijkt indexeren biedt de definitie van de indexeerfunctie een optioneel gedeelte *fieldMappings* als de veldnamen of gegevenstypen niet exact overeenkomen, of als u een functie wilt gebruiken.
++ De fieldMappings worden verwerkt voordat de vaardigheden, toewijzing van de bronvelden uit de gegevensbron naar de doelvelden in een index. Als de veldnamen en typen identiek aan beide uiteinden zijn, zijn er is geen toewijzing is vereist.
 
-Voor werkbelastingen voor cognitief zoeken met een verrijkingspijplijn, heeft een indexeerfunctie *outputFieldMappings* nodig. Deze toewijzingen worden gebruikt wanneer een intern proces (de verrijkingspijplijn) de bron van de veldwaarden is. Gedrag dat uniek is voor *outputFieldMappings* omvat de mogelijkheid voor het gebruiken van complexe typen die zijn gemaakt als onderdeel van verrijking (via de vaardigheid shaper). Bovendien kunnen er veel elementen per document zijn (bijvoorbeeld meerdere organisaties in een document). De constructie *outputFieldMappings* kan ervoor zorgen dat het systeem verzamelingen van elementen 'plat maakt' in één record.
++ De outputFieldMappings worden verwerkt na de vaardigheden, verwijst naar een sourceFieldNames die niet tot documenten kraken of verrijking gemaakt. De targetFieldName is een veld in een index.
+
+Naast het installeren van de invoer voor uitvoer, kunt u ook veldtoewijzingen gebruiken om af te vlakken gegevensstructuren. Zie voor meer informatie, [verrijkt velden toewijzen aan een doorzoekbare index](cognitive-search-output-field-mapping.md).
 
 ### <a name="sample-request"></a>Voorbeeldaanvraag
 
@@ -378,7 +397,7 @@ Deze stap kan enkele minuten in beslag nemen. De gegevensset is klein, maar anal
 > [!TIP]
 > Het maken van een indexeerfunctie roept de pijplijn aan. Als er problemen zijn met het bereiken van de gegevens, het toewijzen van invoeren en uitvoeren of de volgorde van bewerkingen, worden ze in deze fase weergegeven. Mogelijk moet u eerst objecten verwijderen om de pijplijn opnieuw uit te voeren met code- of scriptwijzigingen. Zie [Reset and re-run](#reset) (Opnieuw instellen en uitvoeren) voor meer informatie.
 
-### <a name="explore-the-request-body"></a>De aanvraagbody verkennen
+#### <a name="explore-the-request-body"></a>De aanvraagbody verkennen
 
 Het script stelt ```"maxFailedItems"``` op -1 in, wat de indexeerengine de opdracht geeft om fouten tijdens het importeren van gegevens te negeren. Dit is nuttig omdat de demo-gegevensbron maar een paar documenten bevat. Voor een grotere gegevensbron zou u de waarde op groter dan 0 instellen.
 

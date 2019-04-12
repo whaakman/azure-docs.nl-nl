@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470726"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493022"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Azure Monitor
 Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -170,7 +170,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 
 ![Twee tijdlijnen en lijst weergeven](media/view-designer-parts/view-two-timelines-list.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -263,7 +263,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 
 ![Regel grafiek en een lijst weergeven](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -299,7 +299,7 @@ De stack van lijndiagram weergegeven drie afzonderlijke lijndiagrammen, met meer
 
 ![Stapel lijndiagrammen](media/view-designer-parts/view-stack-line-charts.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -342,7 +342,7 @@ Een sparkline is een kleine lijndiagram waarin de waarde van een lijstitem na ve
 
 De volgende tabel beschrijft de instellingen voor sparklines:
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. |
 | Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: De laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Max.: De maximale waarde voor de serie over het tijdsinterval.</li><li>Min: De minimumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |

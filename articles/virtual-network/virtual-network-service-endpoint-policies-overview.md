@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652583"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494166"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Beleid voor service-eindpunten voor virtuele netwerken (preview)
 
@@ -24,7 +24,7 @@ Met beleid voor service-eindpunten voor Virtual Network (VNet) kunt u via servic
 
 Deze functie is beschikbaar als __preview__ voor de volgende Azure-services en regio's:
 
-__Azure Storage__: WestCentralUS, WestUS2.
+__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 Voor de nieuwste updates over de preview gaat u naar de pagina [Updates voor Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -35,13 +35,13 @@ Voor de nieuwste updates over de preview gaat u naar de pagina [Updates voor Azu
 
 Het beleid voor service-eindpunten voor virtuele netwerken biedt de volgende voordelen:
 
-- __Verbeterde beveiliging voor uw verkeer van Virtual Network naar Azure-services__
+- __Verbeterde beveiliging voor uw Virtueelnetwerk-verkeer naar Azure-Services__
 
   Met [Azure-servicetags voor netwerkbeveiligingsgroepen](https://aka.ms/servicetags) kunt u het uitgaande verkeer van virtuele netwerken beperken tot bepaalde Azure-services. Hiermee wordt er echter verkeer doorgelaten naar alle resources van die Azure-service. 
   
   Met beleid voor eindpunten kunt u de uitgaande toegang van virtuele netwerken nu beperken tot alleen bepaalde Azure-resources. Dit zorgt ervoor dat u de beveiliging van de gegevens die worden geraadpleegd in uw virtuele netwerk veel nauwkeuriger kunt beheren. 
 
-- __Schaalbaar beleid met hoge beschikbaarheid voor het filteren van verkeer naar Azure-services__
+- __Schaalbare, maximaal beschikbare beleidsregels voor het filteren van verkeer van Azure-service__
 
    Beleid voor eindpunten zorgt voor horizontaal schaalbare oplossingen met hoge beschikbaarheid, waarmee het verkeer van virtuele netwerken naar Azure-services kan worden gefilterd via service-eindpunten. Er is geen extra overhead vereist voor het onderhoud van centrale netwerkapparatuur voor dit verkeer in uw virtuele netwerken.
 

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173365"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490908"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal
 
-Als een globale beheerder of een gebruiker aan wie een van de beperkte beheerder directory-rollen is toegewezen, kunt u de Azure-portal kunt gebruiken om uit te nodigen gebruikers van B2B-samenwerking. U kunt gastgebruikers ook kunnen naar de map, een groep of een toepassing kunt uitnodigen. Nadat u een gebruiker via een van deze methoden uitnodigen, account van de uitgenodigde gebruiker is toegevoegd aan Azure Active Directory (Azure AD), met een gebruikerstype van *Gast*. De gastgebruiker moet vervolgens de uitnodiging voor toegang tot resources inwisselen.
+Als een gebruiker die een van de beperkte beheerder directory-rollen is toegewezen, kunt u de Azure-portal kunt gebruiken om uit te nodigen gebruikers van B2B-samenwerking. U kunt gastgebruikers ook kunnen naar de map, een groep of een toepassing kunt uitnodigen. Nadat u een gebruiker via een van deze methoden uitnodigen, account van de uitgenodigde gebruiker is toegevoegd aan Azure Active Directory (Azure AD), met een gebruikerstype van *Gast*. De gastgebruiker moet vervolgens de uitnodiging voor toegang tot resources inwisselen.
 
 Nadat u een gastgebruiker aan de directory toevoegen, u kunt ofwel de gastgebruiker een directe koppeling sturen naar een gedeelde app of de gastgebruiker kunt klikken op de URL voor inschrijving in de uitnodiging per e-mail. Zie voor meer informatie over het proces inwisselen [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md).
 
@@ -31,7 +31,7 @@ Nadat u een gastgebruiker aan de directory toevoegen, u kunt ofwel de gastgebrui
 
 Gebruikers van B2B-samenwerking toevoegen aan de directory, de volgende stappen uit:
 
-1. Meld u als een Azure AD-administrator aan bij de [Azure Portal](https://portal.azure.com).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een gebruiker die is toegewezen aan een van de beperkte beheerder directory-rollen.
 2. Selecteer in het navigatiedeelvenster **Azure Active Directory**.
 3. Onder **Beheren**, selecteer **Gebruikers**.
 4. Selecteer **Nieuwe gastgebruiker**.

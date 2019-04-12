@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884501"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505665"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -59,7 +59,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 
    * **Interne**: de API Management-gateway en developer-portal zijn alleen toegankelijk vanuit het virtuele netwerk via een interne load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
 
-     ![Persoonlijke peering][api-management-vnet-private]`
+     ![Persoonlijke peering][api-management-vnet-private]
 
      U ziet nu een lijst met alle regio's waar uw API Management-service is ingericht. Selecteer een VNET en subnet voor elke regio. De lijst is gevuld met zowel klassieke als Resource Manager virtuele netwerken die beschikbaar zijn in uw Azure-abonnementen die zijn ingesteld in de regio die u wilt configureren.
 
@@ -154,7 +154,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * Voor andere van API Management service-afhankelijkheden die geforceerde tunnels te gebruiken zijn, hun manier om de hostnaam niet omzetten en contact opnemen met het eindpunt moet zijn. Deze omvatten
+  * Voor andere afhankelijkheden van de API Management-service die geforceerde tunnels te gebruiken, moet er een manier om de hostnaam niet omzetten en contact opnemen met het eindpunt. Deze omvatten
       - Metrische gegevens en statuscontrole
       - Azure-portal diagnostische gegevens
       - SMTP-Relay

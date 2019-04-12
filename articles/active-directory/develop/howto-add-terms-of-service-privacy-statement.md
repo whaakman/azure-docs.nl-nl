@@ -1,5 +1,5 @@
 ---
-title: Gebruiksrechtovereenkomst en privacyverklaring voor Azure AD-apps | Microsoft Docs
+title: Gebruiksrechtovereenkomst en privacyverklaring voor apps | Azure
 description: Meer informatie over hoe u de gebruiksvoorwaarden en privacyverklaring voor apps die zijn geregistreerd voor het gebruik van Azure AD kunt configureren.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193506"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500294"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Gebruiksrechtovereenkomst en privacyverklaring voor geregistreerde Azure Active Directory-apps
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedure: Gebruiksvoorwaarden en privacyverklaring voor een app configureren
 
 Ontwikkelaars die ontwikkelen en beheren van apps die met Azure Active Directory (Azure AD) en Microsoft-accounts integreren moeten koppelingen met de gebruiksvoorwaarden en privacyverklaring van de app bevatten. De gebruiksvoorwaarden en privacyverklaring worden opgehaald voor gebruikers via de ervaring van de gebruiker toestemming. Ze helpen uw gebruikers weten dat ze uw app kunnen vertrouwen. De gebruiksvoorwaarden en privacyverklaring zijn vooral van cruciaal belang voor gebruikersgerichte apps met meerdere tenants--apps die worden gebruikt door meerdere mappen of beschikbaar zijn voor alle Microsoft-account.
 
@@ -44,10 +44,10 @@ De volgende voorbeelden ziet de gebruiker toestemming geven ervaring wanneer de 
 
 Voordat u koppelingen naar van uw app en de gebruiksvoorwaarden en privacyverklaring instructie documenten toevoegen, controleert u dat de URL's de volgende richtlijnen hanteren.
 
-| Richtlijn     | Description                           |
+| Richtlijn     | Beschrijving                           |
 |---------------|---------------------------------------|
 | Indeling        | Geldige URL                             |
-| Geldige schema 's | HTTP en HTTPS</br>We raden aan HTTPS |
+| Geldige schema 's | HTTP en HTTPS<br/>We raden aan HTTPS |
 | Maximumlengte    | 2048 tekens                       |
 
 Voorbeelden: `https://myapp.com/terms-of-service` en `https://myapp.com/privacy-statement`

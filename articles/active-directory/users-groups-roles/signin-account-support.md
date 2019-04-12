@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62c4d56fbfca34ff6291863149b078f7ddc6680
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288589"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491592"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Aanmeldingsopties voor Microsoft-accounts in Azure Active Directory
 
-De Microsoft 365-aanmeldingspagina voor Azure Active Directory (Azure AD) biedt ondersteuning voor een of beide van werk of schoolaccounts en Microsoft-accounts, afhankelijk van de situatie, ter ondersteuning van:
+De Microsoft 365-aanmeldingspagina voor Azure Active Directory (Azure AD) biedt ondersteuning voor werk of schoolaccounts en Microsoft-accounts, maar afhankelijk van de situatie van de gebruiker, wordt een of andere of beide. Bijvoorbeeld, ondersteunt de aanmeldingspagina van Azure AD:
 
 * Apps die aanmeldingen vanaf beide typen account accepteren
 * Organisaties die gasten accepteren
@@ -32,7 +32,7 @@ U kunt zien als uw organisatie gebruikmaakt van pagina biedt ondersteuning voor 
 
 ![Verschil tussen de account aanmelden pagina 's](./media/signin-account-support/ui-prompt.png)
 
-[Aanvullende opties voor aanmelden werkt alleen voor persoonlijke Microsoft-accounts](index.yml) , maar kan niet worden gebruikt voor het aanmelden met werk of school-accountresources.
+[Aanvullende opties voor aanmelden werkt alleen voor persoonlijke Microsoft-accounts](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) , maar kan niet worden gebruikt voor het aanmelden met werk of school-accountresources.
 
 ## <a name="next-steps"></a>Volgende stappen
 

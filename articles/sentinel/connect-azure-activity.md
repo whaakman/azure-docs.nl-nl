@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van gegevens van de Azure-activiteit in Azure Sentinel Preview | Microsoft Docs
-description: Meer informatie over het verzamelen van gegevens van de Azure-activiteit in Azure Sentinel.
+title: Azure-activiteitsgegevens verbinden met Azure Sentinel Preview | Microsoft Docs
+description: Informatie over het verbinden met Azure-activiteitsgegevens Sentinel van Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 42ce8d06489cfacf7ba9bb3de1425224b5df95e7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240572"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494675"
 ---
-# <a name="collect-data-from-azure-activity-log"></a>Gegevens verzamelen over Azure-activiteitenlogboek
+# <a name="connect-data-from-azure-activity-log"></a>Verbinding maken met gegevens uit Azure-activiteitenlogboek
 
 > [!IMPORTANT]
 > Azure Sentinel is momenteel in openbare preview.
@@ -37,7 +37,7 @@ U kunt de logboeken van streamen [Azure-activiteitenlogboek](../azure-monitor/pl
 
 ## <a name="connect-to-azure-activity-log"></a>Verbinding maken met Azure-activiteitenlogboek
 
-1. Selecteer in Azure Sentinel, **gegevensverzameling** en klik vervolgens op de **Azure-activiteitenlogboek** tegel.
+1. Selecteer in Azure Sentinel, **gegevensconnectors** en klik vervolgens op de **Azure-activiteitenlogboek** tegel.
 
 2. Selecteer de abonnementen die u wilt streamen naar Azure Sentinel in het logboekvenster Azure-activiteit. 
 

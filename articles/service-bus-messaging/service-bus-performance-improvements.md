@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848569"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501634"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Aanbevolen procedures voor prestatieverbeteringen met Service Bus-berichten
 
@@ -127,6 +127,19 @@ De totale doorvoersnelheid voor een wachtrij of abonnement veelgevraagde bericht
 De time-to-live (TTL) eigenschap van een bericht wordt gecontroleerd door de server op het moment dat de server wordt het bericht naar de client verzonden. De client controleert niet de berichteigenschap TTL-waarde wanneer het bericht wordt ontvangen. In plaats daarvan kan het bericht worden ontvangen, zelfs als de TTL van het bericht is verlopen terwijl het bericht in de cache door de client opgeslagen is.
 
 Veelgevraagde heeft geen invloed op het aantal factureerbare berichten bewerkingen en is alleen beschikbaar voor de Service Bus-client-protocol. Het HTTP-protocol biedt geen ondersteuning voor veelgevraagde. Veelgevraagde is beschikbaar voor zowel asynchrone als synchrone bewerkingen ontvangen.
+
+## <a name="prefetching-and-receivebatch"></a>Veelgevraagde en ReceiveBatch
+
+Hoewel de concepten van meerdere berichten samen veelgevraagde hebben vergelijkbare semantiek tot het verwerken van berichten in een batch (ReceiveBatch), zijn er enkele kleine verschillen die er rekening mee moeten worden gehouden bij het gebruik van deze samen.
+
+Prefetch is een configuratie (of de modus) op de client (QueueClient en SubscriptionClient) en ReceiveBatch is een bewerking (die request response-semantiek heeft).
+
+Tijdens het gebruik van functies vervolgens tegelijk, houd rekening met de volgende gevallen:
+
+* Prefetch moet groter zijn dan of gelijk zijn aan het aantal berichten dat u verwacht te ontvangen van ReceiveBatch.
+* Prefetch mag maximaal n/3 maal het aantal berichten verwerkt per seconde, waarbij n staat voor de standaardduur van de vergrendeling.
+
+Er zijn enkele uitdagingen met met een greedy benadering (dat wil zeggen houden het aantal prefetch zeer hoog), omdat dit betekent dat het bericht is gekoppeld aan een bepaalde ontvanger. De aanbeveling is om te proberen prefetch van waarden tussen de drempelwaarden die hierboven worden vermeld en empirisch identificeren wat past.
 
 ## <a name="multiple-queues"></a>Meerdere wachtrijen
 

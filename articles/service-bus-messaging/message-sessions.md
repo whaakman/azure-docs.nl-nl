@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497836"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500138"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: eerste, eerst out (FIFO) 
 
@@ -51,7 +51,7 @@ Sessies bieden gelijktijdige ongedaan maken multiplexing van interleaved bericht
 
 Een [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) ontvanger is gemaakt door de client accepteert van een sessie. Het clientaanroepen van de [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) of [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In het model reactieve callback, wordt een sessie-handler geregistreerd.
 
-Wanneer de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is geaccepteerd en terwijl deze wordt gehouden door een client, dat de client een exclusieve vergrendeling op alle berichten met een van deze sessie bevat [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) die zijn opgenomen in de wachtrij of abonnement, en ook voor alle berichten met die **SessionId** die nog steeds binnenkomen, terwijl de sessie wordt gehouden.
+Wanneer de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is geaccepteerd en terwijl deze wordt gehouden door een client, dat de client een exclusieve vergrendeling op alle berichten met een van deze sessie bevat [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) die zijn opgenomen in de wachtrij of abonnement, en ook voor alle berichten met die **SessionId** die nog steeds binnenkomen, terwijl de sessie wordt gehouden.
 
 De vergrendeling wordt vrijgegeven wanneer **sluiten** of **CloseAsync** worden genoemd, of wanneer de vergrendeling is verlopen in gevallen waarin de toepassing kan niet worden uitgevoerd van de bewerking sluiten. De sessievergrendeling moet worden behandeld, zoals een exclusieve vergrendeling voor een bestand, wat betekent dat de toepassing u de sessie sluit moet als u deze niet meer nodig heeft en/of alle verdere berichten niet verwacht.
 

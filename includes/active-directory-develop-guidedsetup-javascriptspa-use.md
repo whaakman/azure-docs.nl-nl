@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: e228c49d4ad8e691e59f76a9b6fb9013f7b1bb3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 68598d4bb7fb9fd928a7b664e6ce0c02220ca4bb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890916"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502995"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden bij de gebruiker
 
@@ -124,19 +124,19 @@ if (!isIE) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-Nadat een gebruiker op de **aanmelden** knop voor het eerst de `signIn` methodeaanroepen `loginPopup` aan te melden bij de gebruiker. Resultaat van deze methode is bij het openen van een pop-upvenster met de *Microsoft Azure Active Directory v2.0-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
+Nadat een gebruiker op de **aanmelden** knop voor het eerst de `signIn` methodeaanroepen `loginPopup` aan te melden bij de gebruiker. Resultaat van deze methode is bij het openen van een pop-upvenster met de *Microsoft identity platform endpoint* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
 
 De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding aanroepen `acquireTokenSilent` en/of `acquireTokenPopup` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph-API voor profielgegevens van de gebruiker. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld GitHub") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory v2.0-eindpunt: enkele voorbeelden zijn:
+Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Microsoft identity platform endpoint – enkele voorbeelden zijn:
 
 - Gebruikers moeten mogelijk hun referenties opnieuw opgeven omdat het wachtwoord is verlopen
 - Uw toepassing vraagt toegang tot een resource waarvoor de gebruiker toestemming moet geven
 - Wanneer verificatie in twee stappen is vereist
 
-Aanroepen van de *acquireTokenPopup(scope)* resulteert in een pop-upvenster (of *acquireTokenRedirect(scope)* leidt gebruikers omleiden naar de Azure Active Directory v2.0-eindpunt) waar gebruikers moeten communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
+Aanroepen van de *acquireTokenPopup(scope)* resulteert in een pop-upvenster (of *acquireTokenRedirect(scope)* leidt gebruikers omleiden naar het eindpunt van de Microsoft identity-platform) waar gebruikers moeten communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
 
 #### <a name="getting-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 

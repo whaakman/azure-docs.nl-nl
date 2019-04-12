@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778005"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500682"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Deze zelfstudie bestaat uit de volgende stappen:
-
-1. Een Service Bus-naamruimte maken met de Azure-portal.
-2. Een Service Bus-wachtrij maken met de Azure-portal.
-3. Schrijf een .NET Core-consoletoepassing om een set berichten naar de wachtrij te verzenden.
-4. Schrijf een .NET Core-consoletoepassing om deze berichten van de wachtrij te ontvangen.
+In deze zelfstudie maakt u .NET Core-consoletoepassingen berichten te verzenden en ontvangen van berichten van een Service Bus-wachtrij. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 1. [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](https://www.visualstudio.com/vs) of hoger.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
-2. Een Azure-abonnement.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Als u een wachtrij om te werken met geen hebt, voert u de stappen de [gebruik Azure portal voor het maken van een Service Bus-wachtrij](service-bus-quickstart-portal.md) artikel om een wachtrij te maken.
+    1. Het snel lezen **overzicht** van Service Bus **wachtrijen**. 
+    2. Maken van een Service Bus **naamruimte**. 
+    3. Krijgen de **verbindingsreeks**. 
+    4. Maken van een Service Bus **wachtrij**. 
 
 ## <a name="send-messages-to-the-queue"></a>Berichten naar de wachtrij verzenden
 
@@ -206,7 +197,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
 
 ## <a name="receive-messages-from-the-queue"></a>Berichten ontvangen uit de wachtrij
 
-Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert u het **Microsoft.Azure.ServiceBus** NuGet-pakket, zoals ook met de voorgaande verzendtoepassing is gedaan.
+Voor het ontvangen van de berichten die u hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert de **Microsoft.Azure.ServiceBus** NuGet-pakket, vergelijkbaar met de voorgaande verzendtoepassing.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Schrijven van code voor het ontvangen van berichten van de wachtrij
 

@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045238"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499798"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Quickstart: Azure PowerShell gebruiken om een Service Bus-wachtrij te maken
-Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.
-
-![wachtrij](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 In deze quickstart wordt beschreven hoe u berichten naar een Service Bus-wachtrij verzendt en van de wachtrij ontvangt. U gebruikt daarbij PowerShell om een berichtennaamruimte te maken en binnen deze naamruimte een wachtrij te maken. Ook wordt beschreven hoe u de autorisatiereferenties binnen die naamruimte kunt verkrijgen. De procedure laat vervolgens zien hoe u berichten naar deze wachtrij verzendt en van de wachtrij ontvangt met behulp van de [.NET Standard-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voordat u begint.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 
-- [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](https://www.visualstudio.com/vs) of hoger.
+- Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voordat u begint. 
+- [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](https://www.visualstudio.com/vs) of hoger. Visual Studio kunt u een voorbeeld waarmee berichten verzonden en ontvangen van berichten uit een wachtrij maken. Het voorbeeld is het testen van de wachtrij die u hebt gemaakt in de portal. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
 
-Voor deze snelstart moet u de nieuwste versie van Azure PowerShell uitvoeren. Als u Azure PowerShell wilt installeren of upgraden, raadpleegt u [Azure PowerShell installeren en configureren][].
+Voor deze snelstart moet u de nieuwste versie van Azure PowerShell uitvoeren. Als u Azure PowerShell wilt installeren of upgraden, raadpleegt u [Azure PowerShell installeren en configureren][]. Als u bekend met Azure Cloud Shell bent, kunt u deze kunt gebruiken zonder de Azure PowerShell installeren op uw computer. Zie voor meer informatie over Azure Cloud Shell [overzicht van Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 1. Installeer eerst de PowerShell-module van Service Bus, als u dat nog niet hebt gedaan:
 
@@ -130,7 +128,7 @@ Deze sectie bevat meer informatie over de werking van de voorbeeldcode.
 
 ### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 
-De verbindingsreeks en de naam van de wachtrij worden als opdrachtregelargumenten doorgegeven aan de methode `Main()`. `Main()` verklaart de twee tekenreeksvariabelen die voor het opslaan van deze waarden:
+De naam van de connection string en wachtrij worden doorgegeven aan de `Main()` methode als opdrachtregelargumenten. `Main()` verklaart de twee tekenreeksvariabelen die voor het opslaan van deze waarden:
 
 ```csharp
 static void Main(string[] args)
@@ -167,7 +165,7 @@ De methode `Main()` start vervolgens de asynchrone berichtenlus `MainAsync()`.
 
 ### <a name="message-loop"></a>Berichtenlus
 
-De methode MainAsync() maakt een wachtrijclient met de opdrachtregelargumenten, roept een ontvangende berichtenhandler met de naam `RegisterOnMessageHandlerAndReceiveMessages()` aan, en verzendt de berichtenreeks:
+De methode MainAsync() maakt de client van een wachtrij met de opdrachtregelargumenten, roept een ontvangende berichtenhandler met de naam `RegisterOnMessageHandlerAndReceiveMessages()`, en de set berichten verzonden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
+In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, blijven de zelfstudies in de **berichten verzenden en ontvangen** sectie. 
 
 > [!div class="nextstepaction"]
-> [Update-inventaris met behulp van Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Berichten verzenden en ontvangen](service-bus-dotnet-get-started-with-queues.md)
 
 [Azure-account maakt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure PowerShell installeren en configureren]: /powershell/azure/install-Az-ps

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051883"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490993"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 
 1. Selecteer *op* voor **Status**
-2. Selecteer een bestaand opslagaccount voor het opslaan van de logboeken van de stroom in. Als u wilt voor het opslaan van de gegevens altijd, stel de waarde op *0*. Worden er kosten voor Azure Storage voor het opslagaccount.
-3. Stel **retentie** aan het aantal dagen dat u wilt voor het opslaan van gegevens voor.
-4. Selecteer *op* voor **Traffic Analytics Status**.
-5. Selecteer een bestaande Log Analytics-werkruimte of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet aanwezig zijn in een van de ondersteunde regio's en zijn bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Monitor upgrade naar nieuwe zoekopdrachten in logboeken](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Selecteer *versie 2* voor **Flow logboeken versie**. Versie 2 bevat een flow-sessie als statistieken (Bytes en pakketten)
+3. Selecteer een bestaand opslagaccount voor het opslaan van de logboeken van de stroom in. Als u wilt voor het opslaan van de gegevens altijd, stel de waarde op *0*. Worden er kosten voor Azure Storage voor het opslagaccount.
+4. Stel **retentie** aan het aantal dagen dat u wilt voor het opslaan van gegevens voor.
+5. Selecteer *op* voor **Traffic Analytics Status**.
+6. Selecteer een bestaande werkruimte van Log Analytics (OMS), of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet bestaan in een van de [ondersteunde regio's](#supported-regions) en bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    De Log Analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
-6. Selecteer **Opslaan**.
+    De log analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
+7. Selecteer **Opslaan**.
 
-    ![Selectie van het opslagaccount, Log Analytics-werkruimte en inschakelen voor Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Selectie van het opslagaccount, Log Analytics-werkruimte en inschakelen voor Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van traffic analytics voor. Gegevens uit logboeken van de stroom wordt verzonden naar de werkruimte, dus zorg ervoor dat de lokale wetten en regelgeving in uw land/regio toestaan dat de opslag van gegevens in de regio waar de werkruimte zich bevindt.
 
@@ -300,7 +301,7 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
     ![Dashboard met daarop virtuele netwerkdistributie](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - De topologie van het virtuele netwerk bevat de bovenste lint voor selectie van parameters, zoals een virtueel netwerk van (Inter virtueel netwerk verbindingen/actief/inactief), externe verbindingen, actieve stromen en schadelijke stromen van het virtuele netwerk.
-- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resourcegroepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET enzovoort), Flow richting (inkomend, uitgaand), de Status Flow (toegestaan, geblokkeerd) vnet's (doelgroepen en verbonden), verbindingstype (Peering of Gateway - P2S- en S2S) en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
+- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resourcegroepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET, enzovoort), de stroomrichting (inkomend, uitgaand), de Status van de stroom (toegestaan, geblokkeerd), VNETs (gericht en verbonden), het verbindingstype (Peering of Gateway - P2S- en S2S), en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
 - De topologie van het virtuele netwerk bevat de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), toepassingsprotocol en netwerkbeveiligingsgroepen, bijvoorbeeld:
 
     ![Virtuele netwerktopologie verkeer distributie en flow details weergeven](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

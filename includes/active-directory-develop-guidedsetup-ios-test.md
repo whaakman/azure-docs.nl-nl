@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 918e4016f638555bfe2dbaeaa849e963e352c78e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e48aaa03463bb968ec366b27308ca908aab30d99
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203460"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502686"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>De Microsoft Graph-API vanaf uw iOS-toepassing uitvoeren van query's testen
 
@@ -36,7 +36,8 @@ De eerste keer dat u zich aanmelden bij uw toepassing, bent u gevraagd te geven 
 ![Geef uw toestemming voor toegang tot toepassingen](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### <a name="view-application-results"></a>Resultaten van de toepassing weergeven
-Nadat u zich hebt aangemeld, ziet u de gegevens van uw gebruikersprofiel geretourneerd door de Microsoft Graph API-aanroep in de **logboekregistratie** sectie. 
+
+Nadat u zich hebt aangemeld, ziet u de gegevens van uw gebruikersprofiel geretourneerd door de Microsoft Graph API-aanroep in de **logboekregistratie** sectie.
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereiken en gedelegeerde machtigingen

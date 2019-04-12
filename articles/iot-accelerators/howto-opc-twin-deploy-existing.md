@@ -1,5 +1,5 @@
 ---
-title: Over het implementeren van Azure IoT OPC UA device management-module aan een bestaand project | Microsoft Docs
+title: Een OPC-Twin-module implementeren op een bestaande Azure-project | Microsoft Docs
 description: Over het implementeren van OPC dubbele aan een bestaand project.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255883"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493243"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC-Twin implementeren op een bestaand project
 
-De OPC-Apparaatdubbel-module wordt uitgevoerd op IoT Edge en verschillende edge services levert aan de OPC-Apparaatdubbel en de Register-services. 
+De OPC-Twin-module wordt uitgevoerd op IoT Edge en verschillende edge services levert aan de OPC-Twin en de Register-services. 
 
-De OPC-Apparaatdubbel micro service vergemakkelijkt de communicatie tussen factory operators en OPC UA-serverapparaten op de werkvloer via een OPC dubbele IoT Edge-module. OPC UA-services (bladeren, lezen, schrijven en uitvoeren) via de REST-API wordt aangegeven dat de micro-service. 
+De OPC-Twin micro service vergemakkelijkt de communicatie tussen factory operators en OPC UA-serverapparaten op de werkvloer via een OPC dubbele IoT Edge-module. OPC UA-services (bladeren, lezen, schrijven en uitvoeren) via de REST-API wordt aangegeven dat de micro-service. 
 
-De OPC UA-Apparaatregister micro-service biedt toegang tot geregistreerde OPC UA-toepassingen en de bijbehorende eindpunten. Operators en beheerders kunnen registreren en registratie van nieuwe OPC UA-toepassingen en bladeren van een bestaande, met inbegrip van de eindpunten. Naast de toepassing en het eindpunt management verzamelt de registry-service ook geregistreerde OPC Device Twin IoT Edge-modules. De service-API biedt u beheer van edge-module-functionaliteit, bijvoorbeeld starten of stoppen van detectie (scannen services) of nieuwe eindpunt dubbels die kunnen worden benaderd via de OPC-Twin micro-service activeren.
+De OPC UA-apparaat register microservice biedt toegang tot geregistreerde OPC UA-toepassingen en de bijbehorende eindpunten. Operators en beheerders kunnen registreren en registratie van nieuwe OPC UA-toepassingen en bladeren van een bestaande, met inbegrip van de eindpunten. Naast de toepassing en het eindpunt management verzamelt de registry-service ook geregistreerde OPC dubbele IoT Edge-modules. De service-API biedt u beheer van edge-module-functionaliteit, bijvoorbeeld starten of stoppen van detectie (scannen services) of nieuwe eindpunt dubbels die kunnen worden benaderd via de OPC-Twin micro-service activeren.
 
-De kern van de module is de identiteit van de Supervisor. De supervisor beheert eindpunt dubbele, overeenkomt met de OPC UA-server-eindpunten die zijn geactiveerd met behulp van de bijbehorende API van de OPC UA-register. Dit eindpunt dubbels vertalen OPC UA-JSON heeft ontvangen van de OPC-Twin micro service wordt uitgevoerd in de cloud in de OPC UA binaire berichten, die worden verzonden via een stateful beveiligd kanaal naar het beheerde eindpunt. De supervisor biedt ook detectieservices apparaat detectie gebeurtenissen naar de service OPC UA-apparaat voorbereiden verzenden voor de verwerking, waar deze gebeurtenissen leiden tot updates aan de OPC UA-register.  Dit artikel ziet u hoe u de OPC-Twin-module implementeert in een bestaand project. 
+De kern van de module is de identiteit van de Supervisor. De supervisor beheert eindpunt dubbele, overeenkomt met de OPC UA-server-eindpunten die zijn geactiveerd met behulp van de bijbehorende API van de OPC UA-register. Dit eindpunt dubbels vertalen OPC UA-JSON heeft ontvangen van de OPC-Twin micro service wordt uitgevoerd in de cloud in de OPC UA binaire berichten, die worden verzonden via een stateful beveiligd kanaal naar het beheerde eindpunt. De supervisor biedt ook detectieservices apparaat detectie gebeurtenissen naar de OPC UA device onboarding-service verzenden voor de verwerking, waar deze gebeurtenissen leiden tot updates aan de OPC UA-register.  Dit artikel ziet u hoe u de OPC-Twin-module implementeert in een bestaand project. 
 
 > [!NOTE]
 > Zie voor meer informatie over de details van de implementatie en instructies, de GitHub [opslagplaats](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ Het implementatiescript probeert te registreren twee AAD-toepassingen in Azure A
 2. U kunt ook een persoonlijke AAD-tenant in een ander abonnement implementeren, het script nogmaals starten en selecteren om deze te gebruiken.
 
 > [!WARNING]
-> NOOIT doorgaan zonder verificatie.  Als u ervoor kiest om dit te doen, kan iedereen toegang tot uw OPC-Apparaatbeheer-eindpunten van het Internet niet-geverifieerde.   U kunt altijd de ["local" Implementatieoptie](howto-opc-twin-deploy-dependencies.md) om te testen.
+> NOOIT doorgaan zonder verificatie.  Als u ervoor kiest om dit te doen, kan iedereen toegang tot uw OPC-Twin-eindpunten van het Internet niet-geverifieerde.   U kunt altijd de ["local" Implementatieoptie](howto-opc-twin-deploy-dependencies.md) om te testen.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Een demo All-in-one industriële IoT-services implementeren
 

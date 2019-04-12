@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469638"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495034"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Een beheerd exemplaar van Azure SQL Database maken
 
@@ -42,7 +42,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 
 4. Vul het formulier voor het **Met SQL beheerd exemplaar** in met behulp van de gegevens in onderstaande tabel:
 
-   | Instelling| Voorgestelde waarde | Description |
+   | Instelling| Voorgestelde waarde | Beschrijving |
    | ------ | --------------- | ----------- |
    | **Abonnement** | Uw abonnement | Een abonnement met toestemming voor het maken van nieuwe resources. |
    |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen.|
@@ -52,6 +52,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
    |**Sortering**|De sortering die u wilt gebruiken voor uw beheerde exemplaar|Als u SQL Server-databases wilt migreren, moet u de bronsortering `SELECT SERVERPROPERTY(N'Collation')` controleren en die waarde gebruiken. Zie [Server-level collations](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) (Sorteringen op serverniveau) voor informatie over sorteringen.|
    |**Locatie**|De locatie waarop u het beheerde exemplaar wilt maken|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
    |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een geldig virtueel netwerk en subnet.| Als een netwerk/subnet niet beschikbaar is is moet worden [gewijzigd om te voldoen aan de netwerkvereisten](sql-database-managed-instance-configure-vnet-subnet.md) voordat u deze als een doel voor de nieuwe beheerde exemplaar selecteren. Zie [Een VNet configureren voor een beheerd exemplaar](sql-database-managed-instance-connectivity-architecture.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
+   |**Verbindingstype**|Kiezen tussen de Proxy- en omleidings-verbindingstype|Zie voor meer informatie over verbindingstypen [Azure SQL-verbindingsbeleid](sql-database-connectivity-architecture.md#connection-policy).|
    |**Resourcegroep**|Een nieuwe of bestaande resourcegroep|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen.|
 
    ![formulier voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904760"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500376"
 ---
 # <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
 
@@ -58,6 +58,18 @@ De werkstroom is eenvoudig: u dient gegevens in die u wilt analyseren en verwerk
 Uitvoer wordt geretourneerd als één JSON-document met de resultaten van elk tekstdocument dat u hebt geplaatst, op basis van de id. U kunt de resultaten vervolgens analyseren, visualiseren of categoriseren in inzichten waarvoor een actie kan worden uitgevoerd.
 
 Gegevens worden niet opgeslagen in uw account. Bewerkingen die door de Text Analytics-API worden uitgevoerd zijn staatloos. Dat betekent dat de tekst die u opgeeft, wordt verwerkt en de resultaten direct worden geretourneerd.
+
+## <a name="text-analytics-for-multiple-programming-experience-levels"></a>Text Analytics voor meerdere programmeren ervaring niveaus
+
+U kunt beginnen met de Tekstanalyse-API in uw processen, zelfs als u geen veel ervaring in programmeren. Gebruik deze zelfstudies voor meer informatie over hoe u de API kunt gebruiken om tekst te analyseren op verschillende manieren aanpassen aan uw ervaring. 
+
+* Minimale programmering vereist:
+    * [Gebruik de Tekstanalyse-API en Microsoft Flow voor het identificeren van het gevoel van opmerkingen in een Yammer-groep](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Power BI integreren met de Tekstanalyse-API voor het analyseren van feedback van klanten](tutorials/tutorial-power-bi-key-phrases.md)
+* De ervaring voor programmeren aanbevolen:
+    * [Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Tekst vertalen, sentiment analyseren en spraak bootsen een Flask-app bouwen](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+
 
 <a name="supported-languages"></a>
 

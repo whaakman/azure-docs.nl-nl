@@ -1,5 +1,5 @@
 ---
-title: Over het implementeren van Azure IoT OPC UA certificate management-module helemaal | Microsoft Docs
+title: Over het implementeren van de module OPC-kluis maken - Azure | Microsoft Docs
 description: Klik hier voor meer informatie over het OPC-kluis implementeert helemaal.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759427"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496893"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>OPC-kluis implementeert helemaal
+# <a name="deploy-opc-vault-from-scratch"></a>OPC Vault helemaal vanaf het begin implementeren
 
-Azure IoT OPC UA Certificaatbeheer, ook weten als OPC-kluis is een microservice die configureren kunt, registreren, en de levenscyclus van het certificaat voor de OPC UA-server en client-toepassingen in de cloud beheren. Dit artikel laat u het OPC-kluis implementeert helemaal.
+OPC-kluis is een microservice die u kunt configureren, te registreren en beheren van de levenscyclus van het certificaat voor OPC UA-server en clienttoepassingen in de cloud. Dit artikel laat u het OPC-kluis implementeert helemaal.
 
 ## <a name="configuration-and-environment-variables"></a>Configuratie en omgevingsvariabelen
 

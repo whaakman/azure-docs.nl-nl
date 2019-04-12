@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884792"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492359"
 ---
 # <a name="connect-data-sources"></a>Verbinding maken met gegevensbronnen
 
@@ -34,15 +34,15 @@ Aan het ingebouwde Azure-Sentinel moet u eerst verbinding maken met uw gegevensb
 
 ![Gegevens collectors](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Methoden voor het verzamelen van gegevens
+## <a name="data-connection-methods"></a>Methoden voor de verbinding
 
-De volgende gegevens verzameling methoden worden ondersteund door Azure Sentinel:
+De volgende gegevens verbindingsmethoden worden ondersteund door Azure Sentinel:
 
 - **Microsoft-services**:<br> Microsoft-services zijn systeemeigen, aangesloten gebruik te maken van de basis voor out-en-klare integratie van Azure, de volgende oplossingen kunnen worden verbonden met slechts een paar klikken:
     - [Office 365](connect-office-365.md)
     - [Azure AD controleren, logboeken en -aanmeldingen](connect-azure-active-directory.md)
     - [Azure Activity](connect-azure-activity.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
+    - [Azure AD-identiteitsbeveiliging](connect-azure-ad-Identity-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
@@ -52,13 +52,13 @@ De volgende gegevens verzameling methoden worden ondersteund door Azure Sentinel
 
 - **Externe oplossingen via API**: Sommige gegevensbronnen zijn verbonden met behulp van API's die worden geleverd door de verbonden gegevensbron. De meeste beveiligingstechnologieën bieden doorgaans een reeks API's via welke gebeurtenislogboeken kunnen worden opgehaald. De API's verbinding maken met Azure Sentinel en specifieke gegevenstypen verzamelen en ze verzenden naar Azure Log Analytics. Apparaten die zijn verbonden via de API zijn onder andere:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Externe oplossingen via agent**: Azure Sentinel kan worden verbonden met alle andere gegevensbronnen die real-time logboek streamen met de Syslog-protocol, via een agent kunnen uitvoeren. <br>De meeste apparaten maken gebruik van het Syslog-protocol om gebeurtenisberichten te verzenden met het logboek zelf en gegevens over het logboek. De indeling van de logboeken is, maar de meeste apparaten ondersteunen de standaard Common Event Format (CEF). <br>De agent Sentinel van Azure, die is gebaseerd op de OMS-agent, zet CEF opgemaakt logboeken naar een indeling die door Log Analytics kan worden opgenomen. Afhankelijk van het apparaattype, wordt de agent rechtstreeks op het apparaat, of op een eigen Linux-server geïnstalleerd. De agent voor Linux gebeurtenissen vanuit de Syslog-daemon ontvangt via UDP, maar in gevallen waarin een Linux-machine voor het verzamelen van een groot aantal Syslog-gebeurtenissen worden verwacht, ze via TCP worden verzonden vanuit de Syslog-daemon naar de agent en van daaruit naar Log Analytics.
     - Firewalls, proxy's en -eindpunten:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
-        - [De Fortinet](connect-fortinet.md)
+        - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
         - [Andere CEF-apparaten](connect-common-event-format.md)
         - [Andere apparaten Syslog](connect-syslog.md)
