@@ -224,7 +224,7 @@ items:
           href: platform/diagnostic-logs-append-blobs.md
         - name: VM-gast naar opslag voor metrische gegevens
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-        - name: VM-schaalsetgast naar opslag voor metrische gegevens
+        - name: Virtuele-machineschaalsetgast naar opslag voor metrische gegevens
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: Klassieke VM-gast naar opslag voor metrische gegevens
           href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -581,8 +581,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: Prestatiemeter
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service-eindpunt
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Bewaking van serviceverbinding
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Prijzen
@@ -658,8 +658,9 @@ items:
   - name: Gegevens visualiseren
     items:
     - name: Weergaven
-      href: platform/view-designer.md
       items:
+      - name: Designer weergeven
+        href: platform/view-designer.md
       - name: Naslaginformatie voor tegels
         href: platform/view-designer-tiles.md
       - name: Naslaginformatie voor visualisatieonderdelen
@@ -864,9 +865,9 @@ items:
         href: platform/autoscale-common-scale-patterns.md
       - name: Automatisch schalen met een aangepaste meetwaarde
         href: platform/autoscale-custom-metric.md
-      - name: VM-schaalsets automatisch schalen met Resource Manager-sjablonen
+      - name: Virtuele-machineschaalsets automatisch schalen met Resource Manager-sjablonen
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Machines automatisch schalen in een VM-schaalset
+      - name: Virtuele machines in een VM Scale Set automatisch schalen
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Webhooks en e-mailmeldingen configureren voor automatisch schalen
         href: platform/autoscale-webhook-email.md
@@ -1071,9 +1072,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261153"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491097"

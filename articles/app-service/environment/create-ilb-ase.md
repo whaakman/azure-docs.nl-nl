@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101530"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494658"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -176,7 +176,7 @@ Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te teste
 
 5. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. (Of ga naar de app-naam die bij uw domein hoort.)
 
-6. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
+6. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
 
     Het IP-adres voor de ILB wordt vermeld bij **IP-adressen**. Deze lijst bevat ook de IP-adressen die worden gebruikt voor het externe VIP-adres en voor binnenkomend beheerverkeer.
 

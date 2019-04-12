@@ -1,6 +1,6 @@
 ---
-title: Snelstart voor Azure AD v2 Android | Microsoft Docs
-description: Informatie over hoe Android-toepassingen een API kunnen aanroepen die toegangstokens nodig heeft van Azure Active Directory v2.0-eindpunt
+title: Microsoft identity-platform Android Quick Start | Azure
+description: Informatie over hoe Android-toepassingen een waarvoor toegangstokens door Microsoft identity platform eindpunt API kan aanroepen.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862757"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495308"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862757"
 
 Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassing persoonlijke, werk- en schoolaccounts kan aanmelden, een toegangstoken kan ophalen en de Microsoft Graph API kan aanroepen.
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-android/android-intro-updated.png)
+![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Vereisten**
@@ -47,7 +47,7 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
 > Uw app registreren
-> 1. Ga naar de [Azure Portal - Toepassingsregistratie (preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
+> 1. Ga naar de nieuwe [Azure portal - App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) deelvenster.
 > 1. Voer een naam in voor de toepassing en selecteer **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
@@ -58,7 +58,8 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)** > **Nieuwe registratie**.
+> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
+> 1. Selecteer **registratie van nieuwe**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `Android-Quickstart`.
 >      - Klik op de `Register` knop.
@@ -137,7 +138,7 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Vervang * door de *toepassings-id voor uw toepassing. Als u de *toepassings-id* wilt zoeken, gaat u naar de pagina *Overzicht*.
+> 1. Vervang `<ENTER_THE_APPLICATION_ID_HERE>` door de *toepassings-id* voor uw toepassing. Als u de *toepassings-id* wilt zoeken, gaat u naar de pagina *Overzicht*.
 
 ## <a name="more-information"></a>Meer informatie
 
@@ -145,7 +146,7 @@ Lees de volgende secties voor meer informatie over deze snelstart.
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd met Microsoft Azure AD (Azure Active Directory). U kunt Gradle gebruiken om deze te installeren door het volgende toe te voegen in **Gradle-Scripts** > **build.gradle (Module: app)** onder **Afhankelijkheden**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform. U kunt Gradle gebruiken om deze te installeren door het volgende toe te voegen in **Gradle-Scripts** > **build.gradle (Module: app)** onder **Afhankelijkheden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL heeft twee methoden die worden gebruikt voor het verkrijgen van tokens: `ac
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
-In sommige situaties moeten gebruikers worden gedwongen te communiceren met Azure AD v2.0-eindpunt. Dit leidt tot een contextomschakeling in de systeembrowser om de referenties van de gebruiker te valideren of om toestemming te vragen. Voorbeelden zijn:
+In sommige situaties moet gebruikers kunnen communiceren met Microsoft identity platform eindpunt, waardoor het in een context overschakelen naar de browser van het systeem een van de gebruikers om referenties te valideren of om toestemming te forceren. Voorbeelden zijn:
 
 * De eerste keer dat gebruikers zich aanmelden bij de toepassing
 * Wanneer gebruikers mogelijk hun referenties opnieuw moeten opgeven omdat het wachtwoord is verlopen

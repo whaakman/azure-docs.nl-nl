@@ -4,7 +4,7 @@ items:
   items:
   - name: Wat is Project Acoustics?
     href: what-is-acoustics.md
-- name: Quickstarts
+- name: Snelstartgidsen
   items:
   - name: Quickstart met Unity
     href: unity-quickstart.md
@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: Zelfstudies
   items:
-  - name: Werkstroom voor Unity-ontwerp
-    href: unity-workflow.md
-  - name: Werkstroom voor Unreal/Wwise-ontwerp
-    href: unreal-workflow.md
-  - name: Akoestische simulaties maken met Unity
-    href: unity-baking.md
-  - name: Akoestische simulaties maken met Unreal/Wwise
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: Akoestische simulaties maken met Unity
+      href: unity-baking.md
+    - name: Werkstroom voor Unity-ontwerp
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: Akoestische simulaties maken met Unreal/Wwise
+      href: unreal-baking.md
+    - name: Werkstroom voor Unreal/Wwise-ontwerp
+      href: unreal-workflow.md
 - name: Concepten
   items:
   - name: Ontwerpconcepten met akoestische simulatie
     href: design-process.md
+  - name: Bake-resolutie
+    href: bake-resolution.md
 - name: Procedures
   items:
   - name: Een Azure Batch-account maken
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: Bekende problemen
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138216"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495631"

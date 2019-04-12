@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204896"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492699"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory
+
 U kunt als beheerder, het wachtwoord van een gebruiker opnieuw als het wachtwoord is vergeten, als de gebruiker toegang tot een apparaat wordt geblokkeerd, of als de gebruiker een wachtwoord nooit hebt ontvangen.
 
 >[!Note]
@@ -32,7 +33,7 @@ U kunt als beheerder, het wachtwoord van een gebruiker opnieuw als het wachtwoor
 
 ## <a name="to-reset-a-password"></a>Een wachtwoord opnieuw instellen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als een globale beheerder, gebruikerbeheerder of wachtwoordbeheerder. Zie voor meer informatie over de beschikbare rollen [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als een beheerder of wachtwoordbeheerder. Zie voor meer informatie over de beschikbare rollen [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, zoekt en selecteert u de gebruiker die het opnieuw instellen moet en selecteer vervolgens **wachtwoord opnieuw instellen**.
 
@@ -50,6 +51,7 @@ U kunt als beheerder, het wachtwoord van een gebruiker opnieuw als het wachtwoor
     >Het tijdelijke wachtwoord verloopt nooit. De volgende keer dat de gebruiker zich aanmeldt, wordt het wachtwoord nog steeds werken, ongeacht hoeveel tijd is verstreken sinds het tijdelijke wachtwoord is gegenereerd.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nadat u het wachtwoord van de gebruiker opnieuw instelt hebt, kunt u de volgende basis-processen uitvoeren:
 
 - [Toevoegen of verwijderen van gebruikers](add-users-azure-active-directory.md)
