@@ -1,4 +1,4 @@
----
+﻿---
 title: Aan de slag met blob storage en Visual Studio verbonden services (ASP.NET Core) | Microsoft Docs
 description: Aan de slag met Azure Blob-opslag in een Visual Studio ASP.NET Core-project nadat u een opslagaccount met behulp van Visual Studio verbonden services hebt gemaakt
 services: storage
@@ -160,7 +160,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 Zie [Quickstart: blobs uploaden, downloaden, en lijst met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) voor andere manieren om het opslaan van blobs als bestanden.
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
-
+Als u een blob wilt verwijderen, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DeleteAsync` aanroepen:
 Als u een blob wilt verwijderen, moet u eerst een verwijzing naar de blob krijgen en vervolgens de methode `DeleteAsync` aanroepen:
 
 ```cs
