@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095667"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545091"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Apache Hadoop in HDInsight
 
@@ -27,7 +27,7 @@ Apache Hadoop-streaming is een hulpprogramma waarmee u MapReduce-taken met behul
 
 ## <a name="net-on-hdinsight"></a>.NET in HDInsight
 
-__HDInsight op basis van Linux__ clusters gebruik [Mono (https://mono-project.com) ](https://mono-project.com) .NET-toepassingen uit te voeren. Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono geleverd bij HDInsight [HDInsight onderdeel versies](../hdinsight-component-versioning.md). Voor het gebruik van een specifieke versie van Mono, Zie de [installeren of bijwerken Mono](../hdinsight-hadoop-install-mono.md) document.
+__HDInsight op basis van Linux__ clusters gebruik [Mono (https://mono-project.com) ](https://mono-project.com) .NET-toepassingen uit te voeren. Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono geleverd bij HDInsight [HDInsight onderdeel versies](../hdinsight-component-versioning.md). 
 
 Zie voor meer informatie over de Mono-compatibiliteit met versies van .NET Framework [Mono-compatibiliteit](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -143,7 +143,7 @@ namespace reducer
 
 Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/reducer.exe` bestand in de projectmap.
 
-## <a name="upload-to-storage"></a>Uploaden naar storage
+## <a name="upload-to-storage"></a>Uploaden naar opslag
 
 1. Open in Visual Studio, **Server Explorer**.
 

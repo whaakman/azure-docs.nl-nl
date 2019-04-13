@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729352"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547141"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Toewijzing van gegevensstroom Schema afwijking
 
@@ -26,7 +26,7 @@ Als u wilt beveiligen tegen Schema Drift, is het belangrijk dat u hebt de facili
 * Definieer transformatieparameters die met gegevenspatronen in plaats van de vastgelegde velden en waarden werken kunnen
 * Expressies die padpatronen binnenkomende velden begrijpen, in plaats van met de naam velden definiëren
 
-In Azure Data Factory gegevensstroom, worden die faciliteiten opgehaald via deze werkstroom:
+## <a name="how-to-implement-schema-drift"></a>Het implementeren van schema-afwijking
 
 * Kies 'Schema Drift toestaan' in uw bron-transformatie
 
@@ -67,3 +67,10 @@ U kunt dit allemaal met het voorbeeld Azure Data Factory-gegevensstroom "Taxi De
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Toegang tot nieuwe kolommen downstream
+
+Wanneer u nieuwe kolommen met een kolom patronen genereert, kunt u toegang tot deze nieuwe kolommen later in uw stroom gegevenstransformaties met behulp van de functie van de expressie 'byName'.
+
+## <a name="next-steps"></a>Volgende stappen
+
+In de [gegevens Flow expressietaal](data-flow-expression-functions.md) vindt u aanvullende faciliteiten voor kolom-patronen en schema-drift inclusief 'byName' en 'byPosition'.

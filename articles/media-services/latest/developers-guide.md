@@ -13,24 +13,26 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044403"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543626"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's
 
 Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-ref) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van [Media Services versie 3](https://aka.ms/ams-v3-rest-sdk) is gebaseerd op de OpenAPI-specificatie (voorheen bekend als een Swagger).
 
-In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, documentatie. Het bevat ook nuttige informatie voor andere ontwikkelomgevingen.
+Controleer voordat u begint met het ontwikkelen, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md).
 
 > [!NOTE]
 > De Azure Media Services v3-SDK's zijn niet noodzakelijkerwijs thread-veilig. Bij het ontwikkelen van een toepassing met meerdere threads, moet u uw eigen logica voor het synchroniseren van thread voor het beveiligen van de client of het gebruik van een nieuw object AzureMediaServicesClient per thread toevoegen. Ook moet u voorzichtig met multithreading problemen geïntroduceerd door optionele objecten die worden geleverd door uw code aan de client (zoals een instantie van HttpClient in .NET).
+
+In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, andere documentaion.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,9 +40,9 @@ Als u wilt beginnen met het ontwikkelen met Media Services, hebt u het volgende 
 
 - Een actief Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 - [Meer informatie over basisconcepten](concepts-overview.md)
-- [Een Media Services-account maken - CLI](create-account-cli-how-to.md)
+- [Een Azure Media Services-account maken - CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Begin te ontwikkelen met SDK 's
+## <a name="start-developing-with-sdks"></a>Begin met ontwikkelen met SDK's
 
 ### <a name="net"></a>.NET
 

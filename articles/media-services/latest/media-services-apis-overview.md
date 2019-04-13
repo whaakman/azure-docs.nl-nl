@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492138"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546395"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
 Dit artikel worden de regels die betrekking hebben op entiteiten en API's bij het ontwikkelen met Media Services v3.
+
+## <a name="accessing-the-azure-media-services-api"></a>Toegang tot de Azure mediaservices API
+
+Voor toegang tot de Azure Media Services-resources, moet u de verificatie van service-principal voor de Azure Active Directory (AD). De API van Azure Media Services is vereist dat de gebruiker of toepassing die de REST-API maakt aanvragen hebben toegang tot de resource van Azure Media Services-account (meestal een de **Inzender** of **eigenaar** de rol). Zie voor meer informatie, [rollen gebaseerd toegangsbeheer voor Media Services-accounts](rbac-overview.md).
+
+In plaats van het maken van een service-principal, kunt u overwegen beheerde identiteiten voor Azure-resources voor toegang tot de API van Media Services via Azure Resource Manager. Zie voor meer informatie over beheerde identiteiten voor Azure-resources, [wat is beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### <a name="azure-ad-service-principal"></a>Azure AD-service-principal 
+
+Als u een Azure AD-toepassing en service principal, wordt de toepassing heeft zich in een eigen tenant. Nadat u de toepassing maakt, geeft u de app **Inzender** of **eigenaar** rollen gebaseerde toegang tot het Media Services-account. 
+
+Als u niet zeker weet of u gemachtigd bent om te maken van een Azure AD-toepassing, Zie [vereiste machtigingen](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+In de volgende afbeelding ziet geven de getallen de stroom van de aanvragen in chronologische volgorde:
+
+![Middelste laag apps](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. Een app voor de middelste laag vraagt een toegangstoken van Azure AD dat de volgende parameters heeft:  
+
+   * Azure AD-tenant-eindpunt.
+   * Media Services-resource-URI.
+   * Resource-URI voor de REST-mediaservices.
+   * Waarden van Azure AD-toepassing: de client-ID en clientgeheim.
+   
+   Als u de gewenste waarden, Zie [toegang tot Azure Media Services-API met de Azure CLI](access-api-cli-how-to.md)
+
+2. Het Azure AD-toegangstoken wordt verzonden naar de middelste laag.
+4. De middelste laag stuurt de aanvraag naar de Azure REST-API voor Media met de Azure AD-token.
+5. De middelste laag wordt in de gegevens van Media Services.
 
 ## <a name="naming-conventions"></a>Naamconventies
 
@@ -30,17 +59,6 @@ Namen van Azure Media Services v3-resources (bijvoorbeeld activa, taken, transfo
 Namen van Media Services-resources mogen niet de volgende tekens bevatten: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', enkele aanhalingstekens of besturingstekens. Alle andere tekens zijn toegestaan. De maximale lengte van een resourcenaam is 260 tekens. 
 
 Zie [Naamvereisten](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) en [Naamconventies](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor meer informatie over Azure Resource Manager-naamgeving.
-
-## <a name="v3-api-design-principles-and-rbac"></a>ontwerpprincipes van v3 API en RBAC
-
-Een van de belangrijkste principes van de API v3 is het beter beveiligen van de API. V3 API's retourneren geen geheimen of referenties op **ophalen** of **lijst** bewerkingen. De sleutels zijn altijd null, leeg of opgeschoond uit het antwoord. De gebruiker moet een aparte actie-methode voor het ophalen van geheimen of referenties aan te roepen. De **lezer** rol bewerkingen kan niet worden aangeroepen, zodat bewerkingen zoals Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets kan niet worden aangeroepen. Afzonderlijke acties kunt u meer gedetailleerde RBAC-beveiligingsrechten instellen in een aangepaste rol indien gewenst.
-
-Zie voor meer informatie:
-
-- [Definities van de ingebouwde rol](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [RBAC gebruiken om toegang te beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Op rollen gebaseerd toegangsbeheer voor Media Services-accounts](rbac-overview.md)
-- [Ophalen van beleid voor belangrijke inhoud - .NET](get-content-key-policy-dotnet-howto.md).
 
 ## <a name="long-running-operations"></a>Langlopende bewerkingen
 
@@ -71,4 +89,4 @@ Zie [filteren, bestellen en van Azure Media Services-entiteiten](entities-overvi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's](developers-guide.md)
+[Begin te ontwikkelen met Media Services v3 API met behulp van SDK's / hulpprogramma 's](developers-guide.md)

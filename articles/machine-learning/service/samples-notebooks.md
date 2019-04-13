@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451787"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548585"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
 
@@ -50,50 +50,6 @@ Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 Met de instructies uit de quickstart installeert u de pakketten die u nodig hebt om de quickstart en zelfstudienotebooks uit te voeren.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Setup van Gautomatiseerde Machine Learning 
-
-_Deze stappen gelden alleen voor de notebooks in de map **how-to-use-azureml/automated-machine-learning**._
-
-U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving installeren en tegelijk een werkruimte maken met de volgende instructies. 
-
-1. Installeer [Mini-conda](https://conda.io/miniconda.html). Kies 3.7 of hoger. Volg de aanwijzingen voor de installatie. 
-   >[!NOTE]
-   >U kunt een bestaande conda gebruiken mits deze versie 4.4.10 of hoger is. Gebruik `conda -V` om de versie weer te geven. U kunt een conda-versie bijwerken met deze opdracht: `conda update conda`. Het is niet nodig om specifiek mini-conda te installeren.
-
-1. Download de voorbeeldnotebooks uit [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) als een zip en pak de inhoud uit naar een lokale map. De Automated machine learning-notebooks staan de map `how-to-use-azureml/automated-machine-learning`.
-
-1. Stel een nieuwe Conda-omgeving in. 
-   1. Open een Conda-opdrachtprompt op uw lokale computer.
-   
-   1. Navigeer naar de bestanden die u hebt uitgepakt naar uw lokale computer.
-   
-   1. Open de map **automated-machine-learning**.
-   
-   1. Voer `automl_setup.cmd` uit in de conda-prompt voor Windows, of het `.sh`-bestand voor uw besturingssysteem. Het uitvoeren kan ongeveer tien minuten duren.
-
-      Het installatiescript:
-      + Maakt een nieuwe Conda-omgeving
-      + Installeert de benodigde pakketten
-      + Configureert de widget
-      + Start een Jupyter-notebook
-      
-   >[!NOTE]
-   > Het script gebruikt de naam van de conda-omgeving als een optionele parameter. De standaardnaam van de conda-omgeving is `azure_automl`. De exacte opdracht is afhankelijk van het besturingssysteem. Dit is handig als u een nieuwe omgeving maakt of een upgrade naar een nieuwe versie uitvoert. Zo kunt u 'automl_setup.cmd azure_automl_sandbox' te maken van een omgeving naam azure_automl_sandbox. 
-      
-1. Als het script is voltooid, wordt de startpagina van een Jupyter-notebook weergegeven in uw browser.
-
-1. Ga naar het pad waar u de notebooks hebt opgeslagen. 
-
-1. Open de map automated-machine-learning en open vervolgens de notebook **configuration.ipynb**. 
-
-1. Voer de cellen in de notebook uit om Machine Learning Services Resource Provider te registreren en een werkruimte te maken.
-
-U bent nu klaar om de notebooks die zijn opgeslagen op uw lokale computer te openen en uit te voeren.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279615"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528132"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -29,6 +29,8 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Nieuwe functies**
   + De SDK van Azure Machine Learning biedt nu ondersteuning voor Python 3.7.
+  + Azure Machine Learning DNN loopt nu opgeven ingebouwde ondersteuning voor meerdere versie. Bijvoorbeeld, `TensorFlow`  estimator accepteert nu een `framework_version` parameter en gebruikers kunnen versie '1.10' of '1.12' opgeven. Voor een lijst van de versies die worden ondersteund door de huidige release van SDK, belt u `get_supported_versions()` op de gewenste framework-klasse (bijvoorbeeld `TensorFlow.get_supported_versions()`).
+  Zie voor een lijst van de versies die worden ondersteund door de meest recente release van SDK, de [DNN Estimator documentatie](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning Data Prep SDK v1.1.1
 
@@ -57,7 +59,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
 
-+ **Wijzigingen die fouten veroorzaken**
++ **Belangrijke wijzigingen**
   + Het concept van het gegevenspakket Prep is gedeprecieerd en wordt niet meer ondersteund. In plaats van meerdere gegevensstromen in één pakket permanent worden gemaakt, kunt u gegevensstromen afzonderlijk behouden.
     + Gebruiksaanwijzing: [Voor het openen en opslaan van gegevensstromen notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
 
@@ -164,7 +166,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Prep SDK v1.0.8
 
-+ **Opgeloste fouten**
++ **Oplossingen voor problemen**
   + De prestaties van het ophalen van gegevens profielen aanzienlijk verbeterd.
   + Kleine problemen opgelost met betrekking tot rapportage van fouten.
   
@@ -198,7 +200,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Prep SDK v1.0.6
 
-+ **Opgeloste fouten**
++ **Oplossingen voor problemen**
   + Probleem opgelost met het lezen van openbare leesbare Azure Blob-containers in Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
@@ -214,7 +216,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
   + De mogelijkheid om te controleren of het retourtype van bepaalde expressies type van de consistentie en mislukt het vroeg is toegevoegd.
   + U kunt nu aanroepen `parse_json` voor het parseren van waarden in een kolom als JSON-objecten en ze naar meerdere kolommen wilt uitbreiden.
 
-+ **Opgeloste fouten**
++ **Oplossingen voor problemen**
   + Een opgelost die zijn vastgelopen `set_column_types` in Python 3.5.2 gebruikt.
   + Een opgelost die zijn vastgelopen bij het verbinden met de gegevensopslag met behulp van een AML-installatiekopie.
 
@@ -242,7 +244,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 > We raden u aan om een nieuwe werkruimte voor het gebruik van Azure Machine Learning-Computing. Er is een externe kans dat gebruikers bij het maken van Azure Machine Learning-Computing van een bestaande werkruimte ziet mogelijk een fout. Bestaande compute in uw werkruimte moet blijven werken niet beïnvloed.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK voor Python v1.0.2
-+ **Wijzigingen die fouten veroorzaken**
++ **Belangrijke wijzigingen**
   + Met deze release, worden ondersteuning voor het maken van een virtuele machine van Azure Machine Learning verwijderd. U kunt nog steeds een bestaande VM-cloud koppelen of een externe on-premises server. 
   + Ondersteuning voor BatchAI, die allemaal moeten worden ondersteund door Azure Machine Learning-Computing nu worden ook verwijderd.
 
@@ -253,7 +255,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
     + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 
 
-+ **Bijgewerkt**
++ **bijgewerkt**
   + Voor machine learning-pijplijnen:
     + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) accepteert nu runconfig
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) nu gekopieerd naar en van een SQL-gegevensbron
@@ -262,7 +264,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning-Dataprep SDK v0.5.2
-+ **Wijzigingen die fouten veroorzaken** 
++ **Belangrijke wijzigingen** 
   * `SummaryFunction.N` is gewijzigd in `SummaryFunction.Count`.
   
 + **Oplossingen voor problemen**
@@ -300,7 +302,7 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning-SDK voor Python v0.1.80
 
-+ **Wijzigingen die fouten veroorzaken** 
++ **Belangrijke wijzigingen** 
   * *azureml.Train.widgets* naamruimte is verplaatst naar *azureml.widgets*.
   * *azureml.core.compute.AmlCompute* Hiermee wordt de volgende klassen - vervangen *azureml.core.compute.BatchAICompute* en *azureml.core.compute.DSVMCompute*. De laatste klasse wordt verwijderd in toekomstige releases. De klasse AmlCompute heeft nu een eenvoudiger definitie gewoon moet een vm_size en de max_nodes en wordt uw cluster vanaf 0 naar de max_nodes automatisch schalen wanneer een job wordt verzonden. Onze [voorbeeld notitieblokken](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) zijn bijgewerkt met deze informatie en geeft u voorbeelden van het gebruik. We hopen u, zoals deze vereenvoudiging en nog veel meer interessante functies komen in een latere versie.
 
@@ -341,7 +343,7 @@ De Azure-portal voor de Azure Machine Learning-service heeft de volgende updates
 
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK voor Python v0.1.74
 
-+ **Wijzigingen die fouten veroorzaken** 
++ **Belangrijke wijzigingen** 
   * * Workspace.compute_targets, gegevensopslag, experimenten, afbeeldingen, modellen en *webservices* zijn eigenschappen in plaats van methoden. Vervang bijvoorbeeld *Workspace.compute_targets()* met *Workspace.compute_targets*.
   * *Run.get_context* Hiermee wordt vervangen *Run.get_submitted_run*. De laatste methode wordt verwijderd in toekomstige releases.
   * *PipelineData* klasse verwacht nu een datastore-object als een parameter in plaats van datastore_name. Op deze manier *pijplijn* default_datastore in plaats van default_datastore_name accepteert.
@@ -391,7 +393,7 @@ De Azure-portal voor de Azure Machine Learning-service heeft de volgende updates
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
 
-+ **Wijzigingen die fouten veroorzaken**
++ **Belangrijke wijzigingen**
   * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services geretourneerde woordenlijst, lijst met eerder zijn geretourneerd. Zie [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-documentatie.
 
   * Geautomatiseerde Machine Learning verwijderd genormaliseerde gemiddelde vierkant fout van de primaire metrische gegevens.

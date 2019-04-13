@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489585"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544920"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -85,16 +85,18 @@ Voorbereiden van uw AKS-cluster bestaat uit:
 * Inschakelen van Azure Dev spaties over het gebruik van uw cluster `az aks use-dev-spaces`
 
 Zie voor meer informatie over het maken en configureren van een AKS-cluster voor Azure Dev spaties, een van de aan de slag-handleidingen:
-* [Aan de slag in Azure Dev Spaces met behulp van Java](get-started-java.md)
-* [Aan de slag in Azure Dev Spaces met behulp van .NET Core en Visual Studio](get-started-netcore-visualstudio.md)
-* [Aan de slag in Azure Dev Spaces met behulp van .NET Core](get-started-netcore.md)
-* [Aan de slag in Azure Dev Spaces met behulp van Node.js](get-started-nodejs.md)
+* [Aan de slag met Azure Dev-ruimten met Java](get-started-java.md)
+* [Aan de slag met Azure Dev-ruimten met .NET Core en Visual Studio](get-started-netcore-visualstudio.md)
+* [Aan de slag met Azure Dev-ruimten met .NET Core](get-started-netcore.md)
+* [Aan de slag met Azure Dev-ruimten met behulp van Node.js](get-started-nodejs.md)
 
 Wanneer Azure Dev opslagruimten is ingeschakeld op uw AKS-cluster, installeert het de controller voor uw cluster. De controller is een afzonderlijke Azure-resources buiten het cluster en doet het volgende aan resources in uw cluster:
 
 * Hiermee maakt of een Kubernetes-naamruimten wilt gebruiken als een spatie dev Hiermee wordt aangegeven.
 * Hiermee verwijdert u een Kubernetes-naamruimte met de naam *azds*, indien deze bestaat, en maakt u een nieuwe.
-* Implementeert een Kubernetes-initialisatiefunctie-object.
+* Implementeert een Kubernetes-webhook-configuratie.
+* Hiermee wordt een webhook toelating-server geïmplementeerd.
+    
 
 Hierbij wordt ook de service-principal die gebruikmaakt van uw AKS-cluster voor serviceaanroepen naar andere onderdelen van Azure Dev spaties.
 
@@ -104,9 +106,9 @@ Als u wilt gebruiken Azure Dev spaties, moet er ten minste één dev-ruimte. Azu
 
 De controller maakt standaard een dev-ruimte met de naam *standaard* door het upgraden van de bestaande *standaard* Kubernetes-naamruimten. De client-side-hulpmiddelen kunt u nieuwe dev opslagruimten maken en bestaande dev spaties verwijderen. Vanwege een beperking in Kubernetes, de *standaard* dev ruimte kan niet worden verwijderd. De controller verwijdert u ook een bestaand Kubernetes-naamruimten met de naam *azds* het voorkomen van conflicten met het `azds` opdracht die wordt gebruikt door de client-side-hulpprogramma's.
 
-Het Kubernetes-initialisatiefunctie-object wordt gebruikt om te ' injecteren ' schillen met drie containers tijdens de implementatie voor instrumentatie: een container devspaces-proxy, een devspaces-proxy-init-container en een container devspaces-build. **Alle drie deze containers worden uitgevoerd met toegang tot de hoofdmap van uw AKS-cluster.** Ze ook de service-principal die gebruikmaakt van uw AKS-cluster voor serviceaanroepen naar andere onderdelen van Azure Dev opslagruimten gebruiken.
+De Kubernetes webhook toelating-server wordt gebruikt voor het invoeren van schillen met drie containers tijdens de implementatie voor instrumentatie: een container devspaces-proxy, een devspaces-proxy-init-container en een container devspaces-build. **Alle drie deze containers worden uitgevoerd met toegang tot de hoofdmap van uw AKS-cluster.** Ze ook de service-principal die gebruikmaakt van uw AKS-cluster voor serviceaanroepen naar andere onderdelen van Azure Dev opslagruimten gebruiken.
 
-![Azure Dev spaties Kubernetes initialisatiefunctie](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure Dev spaties Kubernetes webhook toelating-server](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 De container devspaces-proxy is een sidecar-container die verantwoordelijk is voor alle TCP-verkeer van en naar de container van de toepassing en helpt uitvoeren routering. De container devspaces-proxy HTTP-berichten wordt omgeleid als bepaalde spaties worden gebruikt. Bijvoorbeeld, kunt u routeren van HTTP-berichten tussen toepassingen in de bovenliggende en onderliggende spaties. Alle niet-HTTP-verkeer wordt doorgegeven via devspaces-proxy niet gewijzigd. De container devspaces-proxy ook registreert alle inkomende en uitgaande HTTP-berichten en stuurt deze naar de client-hulpprogramma's als traceringen. Deze traceringen kunnen vervolgens worden weergegeven door de ontwikkelaar te inspecteren van het gedrag van de toepassing.
 
@@ -117,7 +119,7 @@ De container devspaces-build is een container init en beschikt over de project-b
 > [!NOTE]
 > Azure Dev opslagruimten maakt gebruik van hetzelfde knooppunt van uw toepassing container bouwen en uitvoeren. Azure Dev spaties heeft een externe container registry als gevolg hiervan niet nodig voor het bouwen en uitvoeren van uw toepassing.
 
-Het object van de initialisatiefunctie Kubernetes luistert naar een nieuwe pod dat gemaakt in het AKS-cluster. Als deze pod wordt geïmplementeerd voor een naamruimte met de *azds.io/space=true* label, wordt deze pod injects met de extra containers. De container devspaces-build is alleen opgenomen als de container van de toepassing wordt uitgevoerd met behulp van de client-side-hulpprogramma's.
+De Kubernetes-webhook toelating server luistert naar eventuele nieuwe pod dat gemaakt in het AKS-cluster. Als deze pod wordt geïmplementeerd voor een naamruimte met de *azds.io/space=true* label, wordt deze pod injects met de extra containers. De container devspaces-build is alleen opgenomen als de container van de toepassing wordt uitgevoerd met behulp van de client-side-hulpprogramma's.
 
 Nadat u uw AKS-cluster hebt voorbereid, kunt u de client-side-tooling voor het voorbereiden en uw code in uw dev-ruimte worden uitgevoerd.
 
@@ -221,7 +223,7 @@ Op een meer gedetailleerd niveau, dit is wat er gebeurt tijdens het uitvoeren va
 1. Bestanden worden gesynchroniseerd vanuit de computer van de gebruiker naar een Azure-bestandsopslag die uniek is voor de AKS-cluster van de gebruiker. De broncode, Helm-diagram en -configuratiebestanden worden geüpload. Meer informatie over het synchronisatieproces zijn beschikbaar in de volgende sectie.
 1. De controller maakt een aanvraag om een nieuwe sessie te starten. Deze aanvraag bevat verschillende eigenschappen, met inbegrip van een unieke ID, de naam van ruimte, pad naar de broncode en een vlag voor foutopsporing.
 1. De controller vervangt de *$(tag)* tijdelijke aanduiding in het Helm-diagram met de unieke sessie-ID en de Helm-grafiek voor uw service wordt geïnstalleerd. Het toevoegen van dat een verwijzing naar de unieke sessie-ID aan de Helm-grafiek kan de container geïmplementeerd in het AKS-cluster voor deze specifieke sessie te worden teruggekoppeld naar de sessie-aanvraag en informatie die is gekoppeld.
-1. De initialisatiefunctie Kubernetes object tijdens de installatie van de Helm-grafiek wordt meer containers aan van uw toepassing pod voor instrumentatie en toegang tot de broncode van uw project toegevoegd. De devspaces-proxy en devspaces-proxy-init-containers worden toegevoegd om HTTP-tracering en ruimte routering te bieden. De devspaces-build-container wordt toegevoegd aan de schil voorzien van toegang tot het Docker-exemplaar en de project-broncode voor het bouwen van uw toepassing container.
+1. Tijdens de installatie van het Helm-diagram, wordt de server van Kubernetes webhook toelating extra containers aan van uw toepassing pod voor instrumentatie en toegang tot de broncode van uw project toegevoegd. De devspaces-proxy en devspaces-proxy-init-containers worden toegevoegd om HTTP-tracering en ruimte routering te bieden. De devspaces-build-container wordt toegevoegd aan de schil voorzien van toegang tot het Docker-exemplaar en de project-broncode voor het bouwen van uw toepassing container.
 1. Wanneer de schil van de toepassing wordt gestart, worden de devspaces-build-container en devspaces-proxy-init-container gebruikt voor het bouwen van de container van de toepassing. De App-container en de devspaces proxy-containers worden vervolgens gestart.
 1. Nadat de container van de toepassing is gestart, de client-side-functionaliteit maakt gebruik van de Kubernetes *poort-zone voor forward* functionaliteit te bieden voor HTTP-toegang tot uw toepassing http://localhost. Uw ontwikkelcomputer verbinding dit doorsturen via poort met de service in uw dev-ruimte.
 1. Wanneer alle containers in de schil hebt gestart, wordt de service wordt uitgevoerd. Op dit moment begint de client-side-functionaliteit om de HTTP-traceringen, stdout en stderr streamen. Deze informatie wordt weergegeven door de client-side-functionaliteit voor ontwikkelaars.

@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478828"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551541"
 ---
 > [!IMPORTANT]
 > **Synchronisatie van wachtwoordhashes met Azure AD Domain Services inschakelen voordat u de taken in dit artikel hebt voltooid.**
 >
-> Volg de instructies hieronder, afhankelijk van het type gebruikers in uw Azure AD-directory. Voltooi beide sets instructies als u een combinatie van alleen in de cloud en gesynchroniseerde gebruikersaccounts in uw Azure AD-directory.
+> Volg de instructies hieronder, afhankelijk van het type gebruikers in uw Azure AD-directory. Voltooi beide sets instructies als u een combinatie van alleen in de cloud en gesynchroniseerde gebruikersaccounts in uw Azure AD-directory. Kunt u mogelijk niet de volgende bewerkingen uitvoeren als u probeert een B2B-Gast-account (bijvoorbeeld uw gmail- of MSA van een andere id-provider waarmee we) te gebruiken omdat er geen het wachtwoord voor deze gebruikers die zijn gesynchroniseerd met het beheerde domein als deze Gast-account in de map zijn. De volledige informatie over deze accounts met inbegrip van hun wachtwoord zou buiten Azure AD en als deze gegevens niet in Azure AD zijn daarom deze komt niet zelfs ophalen die zijn gesynchroniseerd met het beheerde domein. 
 > - [Instructies voor gebruikersaccounts die alleen in de cloud](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instructies voor gebruikersaccounts die zijn gesynchroniseerd vanuit een on-premises directory](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

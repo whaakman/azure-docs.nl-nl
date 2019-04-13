@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895886"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549709"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -94,9 +94,9 @@ Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende typen w
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Type |Het type van de actie.  De mogelijke waarden zijn momenteel waarschuwings- en Webhook. |
-| Name |Weergavenaam voor de waarschuwing. |
-| Versie |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
+| `Type` |Het type van de actie.  De mogelijke waarden zijn momenteel waarschuwings- en Webhook. |
+| `Name` |Weergavenaam voor de waarschuwing. |
+| `Version` |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
 
 ### <a name="retrieving-actions"></a>Bij het ophalen van acties
 
@@ -154,8 +154,8 @@ Drempelwaarden hebben de eigenschappen in de volgende tabel.
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Operator |Operator voor de voor drempelwaardevergelijking. <br> gt = groter dan <br> lt = minder dan |
-| Waarde |De waarde voor de drempelwaarde. |
+| `Operator` |Operator voor de voor drempelwaardevergelijking. <br> gt = groter dan <br> lt = minder dan |
+| `Value` |De waarde voor de drempelwaarde. |
 
 Bijvoorbeeld, kunt u een gebeurtenisquery met een Interval van 15 minuten, een periode van 30 minuten en een drempelwaarde van meer dan 10. In dit geval wordt de query wordt uitgevoerd om de 15 minuten, en een waarschuwing wordt geactiveerd als het 10 gebeurtenissen die zijn gemaakt via een reeks van 30 minuten geretourneerd.
 
@@ -187,9 +187,9 @@ Log Analytics kunt u uw waarschuwingen te classificeren in categorieën, waarmee
 
 |Ernstniveau van log Analytics  |Ernstniveau van waarschuwingen van Azure  |
 |---------|---------|
-|kritiek |Sev 0|
-|waarschuwing |Sev 1|
-|Informatief | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 Hieronder volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde en ernst. 
 
@@ -284,7 +284,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die i
 Door standaardacties, volgt u de standaardsjabloon en de indeling voor meldingen. Maar gebruiker bepaalde acties kunt aanpassen, zelfs als ze worden beheerd door Actiegroepen. Op dit moment is aanpassing mogelijk dat het onderwerp van E-mail en Webhook-nettolading.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>E-mailonderwerp voor actiegroep aanpassen
-Standaard is het e-mailonderwerp voor waarschuwingen: Melding <AlertName> voor <WorkspaceName>. Maar dit kan worden aangepast, zodat u kunt specifieke woorden of tags - kunt u eenvoudig gebruikmaken van filterregels in uw postvak in. De informatie aanpassen per e-mail verzenden-header moeten verzenden, samen met ActionGroup-details conform onderstaand voorbeeld.
+Standaard is het e-mailonderwerp voor waarschuwingen: Melding `<AlertName>` voor `<WorkspaceName>`. Maar dit kan worden aangepast, zodat u kunt specifieke woorden of tags - kunt u eenvoudig gebruikmaken van filterregels in uw postvak in. De informatie aanpassen per e-mail verzenden-header moeten verzenden, samen met ActionGroup-details conform onderstaand voorbeeld.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

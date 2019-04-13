@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234676"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547340"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Kies de prijscategorie van Azure Maps rechts
 
@@ -29,7 +29,7 @@ De Prijscategorieën S0 en S1 verschillende hoeveelheden doorvoer van gegevens w
 
 | Mogelijkheid                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Search                                  |        ✓           |     ✓    |
+| Zoeken (fwd/rev geocodering, nuttige plaatsen)  |        ✓           |     ✓    |
 | Batch geocodering (preview)              |                   |     ✓    |
 | Veelhoeken van zoekopdracht          |                   |     ✓    |
 | Routering                                 |        ✓           |     ✓    |

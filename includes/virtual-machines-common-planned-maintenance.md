@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805756"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551477"
 ---
 Azure werkt periodiek een platform voor het verbeteren van de betrouwbaarheid, prestaties en beveiliging van de host-infrastructuur voor virtuele machines. Deze updates kunnen variëren van het patchen van software-onderdelen in de hosting-omgeving, netwerkonderdelen, upgraden naar het buiten gebruik stellen van hardware. De meeste van deze updates bevatten geen invloed hebben op de gehoste virtuele machines. Er zijn echter gevallen waar updates hebben invloed en Azure kiest de minste krachtige methode voor updates:
 
@@ -27,9 +27,9 @@ Ontvangt u in de VM-melding over toekomstig onderhoud met behulp van de geplande
 
 Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Meldingen gepland onderhoud verwerken' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Geheugen onderhoud met statusbehoud
+## <a name="maintenance-not-requiring-a-reboot"></a>Onderhoud niet opnieuw opstarten vereist
 
-Het doel voor de meeste updates van niet-rebootful is minder dan tien seconden onderbreken voor de virtuele machine. In bepaalde gevallen geheugen onderhoud met statusbehoud worden mechanismen gebruikt die de virtuele machine gedurende maximaal 30 seconden onderbroken en behoudt u het geheugen in RAM-geheugen. De virtuele machine wordt vervolgens hervat en wordt de klok van de virtuele machine automatisch gesynchroniseerd. Azure is steeds met behulp van technologieën voor livemigratie en verbeteren van geheugen onderhoud mechanisme voor het verminderen van de onderbrekingsduur te behouden.
+Het doel voor de meeste onderhoud dat geen herstart vereist is minder dan tien seconden onderbreken voor de virtuele machine. In bepaalde gevallen geheugen onderhoud met statusbehoud worden mechanismen gebruikt die de virtuele machine gedurende maximaal 30 seconden onderbroken en behoudt u het geheugen in RAM-geheugen. De virtuele machine wordt vervolgens hervat en wordt de klok van de virtuele machine automatisch gesynchroniseerd. Azure is steeds met behulp van technologieën voor livemigratie en verbeteren van geheugen onderhoud mechanisme voor het verminderen van de onderbrekingsduur te behouden.
 
 Deze onderhoudsbewerkingen niet rebootful zijn toegepast foutdomein door foutdomein en voortgang is gestopt als er health waarschuwingssignalen worden ontvangen. 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651120"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544021"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaallabs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe u maken en verwijderen van een leslokaallab. Deze leest u ook alle leslokaallabs weergeven in een lab-account. 
@@ -28,7 +28,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
 ## <a name="create-a-classroom-lab"></a>Een leslokaallab maken
 
-1. Navigeer naar de [Azure Lab Services-website](https://labs.azure.com). 
+1. Navigeer naar de [Azure Lab Services-website](https://labs.azure.com). Houd er rekening mee dat Internet Explorer 11 wordt nog niet ondersteund. 
 2. Selecteer **aanmelden**. Selecteer of typ een **gebruikers-ID** dat wil zeggen een lid van de **Labmaker** rol in het lab-account en wachtwoord invoeren. Azure Lab Services ondersteunt organisatieaccounts en Microsoft-accounts. 
 3. Voer in het venster **Nieuw lab** de volgende acties uit: 
     1. Geef een **naam** voor uw lab op. 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918005"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527282"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text-API v2.0
 
@@ -45,7 +45,7 @@ Als u wilt vermijden grof taalgebruik in de vertaling, ongeacht de aanwezigheid 
 |ProfanityAction    |Bewerking |Voorbeeld van de bron (Japans)  |Voorbeeld van de vertaling (Engels)  |
 |:--|:--|:--|:--|
 |NoAction   |Standaard. Hetzelfde als de instelling van de optie. Grof taalgebruik geeft van bron naar doel.        |彼はジャッカスです。     |Hij is een jackass.   |
-|Gemarkeerd     |Grof woorden omringd door de XML-tags <profanity> en </profanity>.     |彼はジャッカスです。 |Hij is een <profanity>jackass</profanity>.    |
+|Gemarkeerd     |Grof woorden omringd door de XML-tags \<grof taalgebruik > en \</profanity >.       |彼はジャッカスです。 |Hij is een \<grof taalgebruik > jackass\</profanity >.  |
 |Deleted    |Grof woorden worden verwijderd uit de uitvoer zonder vervanging.     |彼はジャッカスです。 |Hij is een.   |
 
     
@@ -181,7 +181,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |Autorisatie|(empty)) |Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als het App-id-veld of de autorisatie-header niet is opgegeven.|koptekst|string|
@@ -222,7 +222,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |landinstelling|(leeg) |Vereist. Een tekenreeks die een combinatie van een ISO 639 kleine cultuur van twee letters-code die is gekoppeld aan een taal en een code van de twee letters, hoofdletters subcultuur ISO 3166 voor lokalisatie van de taalnamen van de of een ISO 639-code in kleine letters cultuur op zichzelf.|query|string|
@@ -256,7 +256,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)  |Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
@@ -289,7 +289,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
@@ -357,7 +357,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |tekst|(leeg)|Vereist. Een tekenreeks met tekst waarvan de taal is kan worden geïdentificeerd. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query| string|
@@ -412,7 +412,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
@@ -446,7 +446,7 @@ Type van de inhoud van de reactie: aanvraag: xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype   |
+|Parameter|Value|Description|Parametertype|Gegevenstype   |
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |originalText|(leeg)|Vereist. Een tekenreeks met de tekst voor de omzetting van. De tekenreeks heeft een maximale lengte van 1000 tekens.|query|string|
@@ -523,7 +523,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |Autorisatie|(leeg)|Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als het App-id-veld of de autorisatie-header niet is opgegeven.|koptekst|string|
@@ -556,7 +556,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)  |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query| string|
 |tekst|(leeg)   |Vereist. Een tekenreeks die de tekst om te splitsen in zinnen aangeeft. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
@@ -650,7 +650,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |tekst|(leeg)|Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
@@ -770,7 +770,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |Autorisatie  |(leeg)    |Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|

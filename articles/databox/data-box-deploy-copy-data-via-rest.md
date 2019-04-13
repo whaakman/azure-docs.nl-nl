@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751613"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527979"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 
@@ -79,7 +79,7 @@ Gebruik Azure Portal om het certificaat te downloaden.
 
 1. Meld u aan bij Azure Portal.
 2. Ga naar uw Data Box-bestelling en ga vervolgens naar **Algemeen > Apparaatdetails**.
-3. Ga onder **Apparaatreferenties** naar **API-toegang** tot het apparaat. Klik op **Downloaden**. Er wordt een certificaatbestand (**<your order name>.cer**) gedownload. **Sla** dit bestand op. U installeert dit certificaat op de client- of hostcomputer waarmee u verbinding maakt met het apparaat.
+3. Ga onder **Apparaatreferenties** naar **API-toegang** tot het apparaat. Klik op **Downloaden**. Deze actie downloadt een  **\<de ordernaam van uw > .cer** certificaatbestand. **Sla** dit bestand op. U installeert dit certificaat op de client- of hostcomputer waarmee u verbinding maakt met het apparaat.
 
     ![Certificaat downloaden in Azure Portal](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  

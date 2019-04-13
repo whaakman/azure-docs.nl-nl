@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501464"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549536"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -31,7 +31,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/delete | Organisatie-eenheid Container verwijderen |
@@ -47,7 +47,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -57,7 +57,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Addons/operations/read | Haalt ondersteund RP-bewerkingen. |
 > | Bewerking | Microsoft.Addons/register/action | Het opgegeven abonnement registreren bij Microsoft.Addons |
@@ -69,7 +69,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/action | Een nieuw forest maken voor de tenant. |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Hiermee haalt alle servers voor de opgegeven naam. |
@@ -552,7 +552,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C-mapresource verwijderen |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C-mapresource weergeven |
@@ -564,7 +564,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AzureStack/Operations/read | De eigenschappen van een resource provider-bewerking opgehaald |
 > | Bewerking | Microsoft.AzureStack/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.AzureStack |
@@ -581,7 +581,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Batch/batchAccounts/applications/delete | Hiermee verwijdert u een toepassing |
 > | Bewerking | Microsoft.Batch/batchAccounts/applications/read | Een lijst met toepassingen of haalt u de eigenschappen van een toepassing |
@@ -644,7 +644,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Alle blauwdrukartefacten lezen |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
@@ -666,7 +666,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.BotService/botServices/channels/delete | Verwijderen van een Bot-Service |
 > | Bewerking | Microsoft.BotService/botServices/channels/read | Lees een Botservice |
@@ -715,7 +715,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Capacity/appliedreservations/read | Alle reserveringen lezen |
 > | Bewerking | Microsoft.Capacity/calculateprice/action | De prijs van een reservering berekenen |
@@ -810,7 +810,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Delete | Een bestaand certificaat verwijderen |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | De lijst met certificaten ophalen |
@@ -834,7 +834,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicCompute/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicCompute/checkDomainNameAvailability/action | Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is. |
@@ -1026,7 +1026,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicStorage/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | Hiermee wordt gecontroleerd of een opslagaccount beschikbaar is. |
@@ -1092,57 +1092,43 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Een lijst met opgegeven gezichten verwijderen. De face-gerelateerde afbeeldingen in de lijst met face wordt verwijderd, te. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Een gezicht uit een lijst met face verwijderen door de opgegeven faceListId en persisitedFaceId. De gerelateerde gezicht wordt verwijderd, te. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Een gezicht toevoegen aan een lijst opgegeven face maximaal 1000 gezichten. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Ophalen van de lijst van een gezicht faceListId, naam, userData en gezichten in de lijst met face.
-Face-lijsten faceListId, naam en userData lijst. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Een leeg vlak-lijst maken met de gebruiker opgegeven faceListId, naam en een optionele userData. Maximaal 64 gezichten zijn lijsten toegestaan
-Gegevens van een lijst gezicht, met inbegrip van de naam en userData bijwerken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Ophalen van de lijst van een gezicht faceListId, naam, userData en gezichten in de lijst met face. Face-lijsten faceListId, naam en userData lijst. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Een leeg vlak-lijst maken met de gebruiker opgegeven faceListId, naam en een optionele userData. Een lijst met mogen maximaal 64 gezichten updategegevens van een lijst gezicht, met inbegrip van de naam en userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Face id van de zoekgezicht, om te zoeken naar de gelijkende gezichten uit een face id-matrix, een face-lijst of een grote face gegeven. faceId |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | Kandidaat gezichten in groepen op basis van gelijkenis face verdelen. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | 1-op-veel-identificatie naar de dichtstbijzijnde overeenkomen met de specifieke persoon zoekgezicht van een Persoonsgroep of een grote Persoonsgroep vinden. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Een lijst met opgegeven grote gezichten verwijderen. De face-gerelateerde afbeeldingen in de lijst met grote face wordt verwijderd, te. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Een gezicht uit een lijst met grote face verwijderen door de opgegeven largeFaceListId en persisitedFaceId. De gerelateerde gezicht wordt verwijderd, te. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Persistente gezichten in grote face lijst met largeFaceListId en persistedFaceId ophalen.
-Overzicht van de gezichten persistedFaceId en userData in een opgegeven grote face-lijst. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Een gezicht toevoegen aan een opgegeven grote face-lijst, tot 1.000.000 gezichten.
-Een opgegeven gezicht userData veld in een lijst met grote face bijwerken door de persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Ophalen van de lijst van een grote face largeFaceListId, naam, userData.
-Gegevens van de grote face-lijsten van largeFaceListId, namen en userData weer te geven. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Persistente gezichten in grote face lijst met largeFaceListId en persistedFaceId ophalen. Overzicht van de gezichten persistedFaceId en userData in een opgegeven grote face-lijst. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Een gezicht toevoegen aan een opgegeven grote face-lijst, tot 1.000.000 gezichten. Een opgegeven gezicht userData veld in een lijst met grote face bijwerken door de persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Ophalen van de lijst van een grote face largeFaceListId, naam, userData. Gegevens van de grote face-lijsten van largeFaceListId, namen en userData weer te geven. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Een grote face lijst training taak indienen. Training is een belangrijke stap die alleen een lijst getrainde grote face kunt gebruiken. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Controleer de status grote face lijst training voltooid of nog steeds lopende. LargeFaceList Training is een asynchrone bewerking |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Maak een lege grote face-lijst met de gebruiker opgegeven largeFaceListId, naam en een optionele userData.
-Gegevens van een grote face-lijst, met inbegrip van de naam en userData bijwerken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Maak een lege grote face-lijst met de gebruiker opgegeven largeFaceListId, naam en een optionele userData. Gegevens van een grote face-lijst, met inbegrip van de naam en userData bijwerken. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Een bestaande Persoonsgroep grote met opgegeven personGroupId verwijderen. Persistente gegevens in deze Persoonsgroep grote worden verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Maak een nieuwe persoon in een opgegeven grote Persoonsgroep. Face toevoegen aan deze persoon, neem contact op met |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Een bestaande persoon verwijderen uit een grote Persoonsgroep. Alle persoonsgegevens die zijn opgeslagen en face-installatiekopieën in de persoon die vermelding worden verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Een gezicht verwijderen van een persoon in een grote Persoonsgroep. Face-gegevens- en afbeeldingsbestanden die betrekking hebben op deze vermelding face worden, eveneens verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | Persoon face gegevens worden opgehaald. Het gezicht persistente persoon is opgegeven door de largePersonGroupId, personId en persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in een grote Persoonsgroep voor gezichts-id of verifiëren. De installatiekopie van zijn getroffen
-Update een persoon die permanent van face userData veld. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon.
-Gegevens van alle personen in de Persoonsgroep opgegeven grote, met inbegrip van personId, naam, userData en persistedFaceIds weer te geven. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in een grote Persoonsgroep voor gezichts-id of verifiëren. Als u wilt omgaan met de installatiekopie van de Update van een persoon die permanent van face userData veld. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon. Gegevens van alle personen in de Persoonsgroep opgegeven grote, met inbegrip van personId, naam, userData en persistedFaceIds weer te geven. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Werk de naam of userData van een persoon. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | De gegevens van een die grote Persoonsgroep, met inbegrip van de naam en het userData ophalen. Deze API retourneert grote persoon informatie over de groep
-Lijst met alle bestaande grote personengroepen van largePesonGroupId, naam, en userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | De gegevens van een die grote Persoonsgroep, met inbegrip van de naam en het userData ophalen. Deze API retourneert grote persoon groepsinformatie lijst met alle bestaande largePesonGroupId, naam en userData van de die grote personengroepen. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Een persoon die grote groep training taak indienen. Training is een belangrijke stap die alleen een persoon met grote groep kunt gebruiken. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Grote persoon groep trainingsstatus voltooid of nog steeds voortdurend controleren. LargePersonGroup Training is een asynchrone bewerking |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Maak een nieuwe die grote Persoonsgroep met de gebruiker opgegeven largePersonGroupId, naam en optionele userData.
-De naam van een bestaande grote Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Maak een nieuwe die grote Persoonsgroep met de gebruiker opgegeven largePersonGroupId, naam en optionele userData. De naam van een bestaande grote Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Een bestaande groep personen met de opgegeven personGroupId verwijderen. Persistente gegevens in deze Persoonsgroep worden verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Maak een nieuwe persoon in een bepaalde persoon-groep. Face toevoegen aan deze persoon, neem contact op met |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Een bestaande persoon verwijderen uit de Persoonsgroep van een. Alle persoonsgegevens die zijn opgeslagen en face-installatiekopieën in de persoon die vermelding worden verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Een gezicht verwijderen van een persoon in de Persoonsgroep van een. Face-gegevens- en afbeeldingsbestanden die betrekking hebben op deze vermelding face worden, eveneens verwijderd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Persoon face gegevens worden opgehaald. Het gezicht persistente persoon is opgegeven door de personGroupId, personId en persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in de Persoonsgroep van een voor gezichts-id of verifiëren. De installatiekopie van meerdere zijn getroffen
-Update een persoon die permanent van face userData veld. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon.
-Lijst van alle personen informatie in de Persoonsgroep opgegeven, met inbegrip van personId, naam, userData en persistedFaceIds van geregistreerd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in de Persoonsgroep van een voor gezichts-id of verifiëren. Om u te bekommeren om de installatiekopie van meerdere Update een persoon die permanent van face userData veld. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon. Lijst van alle personen informatie in de Persoonsgroep opgegeven, met inbegrip van personId, naam, userData en persistedFaceIds van geregistreerd. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Werk de naam of userData van een persoon. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Naam van de groep persoon en userData ophalen. Als u de informatie onder deze personGroup persoon, gebruikt
-Lijst met de pesonGroupId, de naam en de userData personengroepen. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Naam van de groep persoon en userData ophalen. Voor informatie onder deze personGroup persoon, gebruikt u de pesonGroupId, de naam en de userData lijst personengroepen. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Een persoon groep training taak indienen. Training is een belangrijke stap die alleen de groep van een persoon kunt gebruiken. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Persoon groep trainingsstatus voltooid of nog steeds voortdurend controleren. PersonGroup Training is een asynchrone bewerking geactiveerd |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Maak een nieuwe Persoonsgroep met opgegeven personGroupId, de naam en de gebruiker opgegeven userData.
-De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Maak een nieuwe Persoonsgroep met opgegeven personGroupId, de naam en de gebruiker opgegeven userData. De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Controleer of twee gezichten horen bij een dezelfde persoon of een gezicht is of een persoon. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/listKeys/action | Een lijst met sleutels maken |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Hiermee haalt u de voorspelling gepubliceerde eindpunt voor de opgegeven query. |
@@ -1349,7 +1335,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerRegistry/checkNameAvailability/read | Controleert of de naam van het containerregister beschikbaar voor gebruik is. |
 > | Bewerking | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | Microsoft.ContainerRegistry meldt dat virtuele netwerk of subnet wordt verwijderd |
@@ -1414,7 +1400,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerService/containerServices/delete | Hiermee wordt een containerservice verwijderd |
 > | Bewerking | Microsoft.ContainerService/containerServices/read | Een containerservice ophalen |
@@ -1785,7 +1771,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/computePolicies/delete | Een compute-beleid niet verwijderen. |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | Informatie ophalen over een compute-beleid. |
@@ -2181,7 +2167,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DocumentDB/databaseAccountNames/read | Controleert op beschikbaarheid van de naam. |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/backup/action | Een aanvraag indient bij de back-up configureren |
@@ -2299,7 +2285,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.EventHub/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.EventHub/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -2359,7 +2345,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Features/features/read | Hiermee kunt u de functies van een abonnement ophalen. |
 > | Bewerking | Microsoft.Features/operations/read | Hiermee haalt u de lijst met bewerkingen op. |
@@ -2416,7 +2402,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Insights/ActionGroups/Delete | Een actiegroep verwijderen |
 > | Bewerking | Microsoft.Insights/ActionGroups/Read | Een actiegroep lezen |
@@ -2714,7 +2700,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.IoTSpaces/Graph/delete | Hiermee verwijdert u Microsoft.IoTSpaces Graph-resource |
 > | Bewerking | Microsoft.IoTSpaces/Graph/read | Haalt de Microsoft.IoTSpaces Graph-resource (s) |
@@ -2789,7 +2775,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LabServices/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.LabServices/labAccounts/delete | Lab-accounts verwijderen. |
@@ -2861,7 +2847,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LocationServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een locatie-Services-Account. |
 > | Bewerking | Microsoft.LocationServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
@@ -2873,7 +2859,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Gegevens lezen uit de tabel ADAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Gegevens lezen uit de tabel ADReplicationResult |
@@ -3133,7 +3119,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Verplaatsen van een Machine Learning-toezegging Plan koppeling |
 > | Bewerking | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Een Machine Learning-toezegging Plan koppeling lezen |
@@ -3160,7 +3146,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Hosting-account verwijderen |
@@ -3183,7 +3169,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningServices/locations/computeoperationsstatus/read | Hiermee wordt de status van een bepaalde compute-bewerking opgehaald |
 > | Bewerking | Microsoft.MachineLearningServices/locations/usages/read | Gebruiksrapport voor aml compute-resources in een abonnement |
@@ -3203,7 +3189,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedIdentity/register/action | Hiermee wordt het abonnement voor de beheerde identiteit-resourceprovider geregistreerd |
 > | Bewerking | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | RBAC-actie voor het toewijzen van een bestaande gebruiker toegewezen identiteit aan een resource |
@@ -3238,7 +3224,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Management/checkNameAvailability/action | Controleert of de naam van de opgegeven beheergroep geldig en uniek is. |
 > | Bewerking | Microsoft.Management/getEntities/action | Lijst met alle entiteiten (beheergroepen, abonnementen, enzovoort) voor de geverifieerde gebruiker. |
@@ -3269,7 +3255,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Hiermee wordt een overeenkomst geretourneerd. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Hiermee wordt een ondertekende overeenkomst geaccepteerd. |
@@ -3281,7 +3267,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/delete | Biedt een DELETE-bewerking op de bron van een klassieke dev-service. |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/listSecrets/action | Hiermee haalt u een klassieke dev servicesleutels resource management. |
@@ -3293,7 +3279,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MarketplaceOrdering/agreements/offers/plans/cancel/action | Annuleren van een overeenkomst voor een bepaalde marketplace-item |
 > | Bewerking | Microsoft.MarketplaceOrdering/agreements/offers/plans/read | Retourneert een overeenkomst voor een bepaalde marketplace-item |
@@ -3372,7 +3358,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Migrate/locations/assessmentOptions/read | Hiermee worden de evaluatieopties opgehaald die op de opgegeven locatie beschikbaar zijn |
 > | Bewerking | Microsoft.Migrate/locations/checknameavailability/action | Controleert de beschikbaarheid van de naam van de resource voor het betreffende abonnement op de opgegeven locatie |
@@ -3399,7 +3385,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MixedReality/register/action | Hiermee wordt een abonnement geregistreerd voor de resourceprovider voor Mixed Reality. |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
@@ -3823,7 +3809,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Hiermee wordt gecontroleerd of de resourcenaam voor de naamruimte beschikbaar is binnen de NotificationHub-service. |
 > | Bewerking | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen. |
@@ -4173,7 +4159,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
@@ -4195,7 +4181,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Portal/consoles/delete | Hiermee wordt het Cloud Shell-exemplaar verwijderd. |
 > | Bewerking | Microsoft.Portal/consoles/read | Hiermee wordt het Cloud Shell-exemplaar gelezen. |
@@ -4229,7 +4215,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is een interne bewerking die wordt gebruikt door de service |
@@ -4612,7 +4598,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ServiceBus/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.ServiceBus/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -4723,7 +4709,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.SignalRService/locations/checknameavailability/action | Controleert of een naam beschikbaar voor gebruik met een nieuwe SignalR-service is |
 > | Bewerking | Microsoft.SignalRService/locations/operationresults/signalr/read | De status van een bewerking asynchorous opvragen |
@@ -4767,7 +4753,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Sql/checkNameAvailability/action | Controleer of de opgegeven server naam beschikbaar is voor het inrichten van over de hele wereld voor een bepaald abonnement. |
 > | Bewerking | Microsoft.Sql/instancePools/delete | Hiermee verwijdert u een exemplaar van toepassingen |
@@ -5107,7 +5093,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Storage/checknameavailability/read | Hiermee controleert u of een accountnaam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Hiermee wordt aan Microsoft.Storage doorgegeven dat het virtuele netwerk of subnet wordt verwijderd |
@@ -5211,7 +5197,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/delete | Hiermee verwijdert u de Access Control Records |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
@@ -5386,7 +5372,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StreamAnalytics/locations/quotas/Read | Lezen Stream Analytics-Abonnementquotum |
 > | Bewerking | Microsoft.StreamAnalytics/operations/Read | Stream Analytics-bewerkingen lezen |
@@ -5436,7 +5422,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
 > | Bewerking | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |
@@ -5484,7 +5470,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftweb"></a>microsoft.web
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | microsoft.web/apimanagementaccounts/apiacls/read | Api Management-Accounts Apiacls ophalen. |
 > | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Api Management Accounts API's Apiacls verwijderen. |
@@ -5887,7 +5873,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
+> | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.WorkloadMonitor/components/read | Hiermee haalt u onderdelen voor de resource |
 > | Bewerking | Microsoft.WorkloadMonitor/componentsSummary/read | Overzicht van onderdelen opgehaald |

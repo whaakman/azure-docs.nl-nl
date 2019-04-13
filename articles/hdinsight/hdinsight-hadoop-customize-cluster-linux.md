@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885567"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545328"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Azure HDInsight-clusters aanpassen met behulp van scriptacties
 
@@ -37,7 +37,7 @@ Als u een HDInsight-cluster, iemand met minimaal Inzender-toegang tot het Azure-
 
 Haal meer informatie over het werken met toegangsbeheer:
 
-* [Aan de slag met toegangsbeheer in de Azure-portal](../role-based-access-control/overview.md)
+* [Aan de slag met toegangsbeheer in Azure Portal](../role-based-access-control/overview.md)
 * [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understand-script-actions"></a>Scriptacties begrijpen
@@ -152,7 +152,6 @@ HDInsight biedt scripts voor het installeren van de volgende onderdelen in HDIns
 | Presto installeren |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Zie [installeren en gebruiken Presto op HDInsight Hadoop-gebaseerde clusters](hdinsight-hadoop-install-presto.md). |
 | Giraph installeren |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Zie [Apache Giraph installeren op HDInsight Hadoop-clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive-bibliotheken vooraf laden |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Zie [aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster](hdinsight-hadoop-add-hive-libraries.md). |
-| Mono installeren of bijwerken | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Zie [installeren of bijwerken Mono op HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Een scriptactie tijdens het maken van clusters gebruiken
 

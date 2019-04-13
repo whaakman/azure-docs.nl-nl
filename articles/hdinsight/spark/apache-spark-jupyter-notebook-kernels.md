@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084095"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527469"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook op Apache Spark-clusters in Azure HDInsight 
 
@@ -69,7 +69,7 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    
     U kunt de vooraf ingestelde contexten in plaats daarvan rechtstreeks in uw toepassing gebruiken.
 
-- **Cel-magics**. De PySpark-kernel biedt enkele vooraf gedefinieerde "kunt", die zijn speciale opdrachten die u met aanroepen kunt `%%` (bijvoorbeeld `%%MAGIC` <args>). De magic-opdracht moet de eerste woord in een codecel en toestaan voor meerdere regels van inhoud. Het magische woord moet het eerste woord in de cel. Toevoegen van voordat de Magic-pakket, zelfs commentaar, veroorzaakt een fout.     Zie voor meer informatie over magics [hier](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Cel-magics**. De PySpark-kernel biedt enkele vooraf gedefinieerde "kunt", die zijn speciale opdrachten die u met aanroepen kunt `%%` (bijvoorbeeld `%%MAGIC` `<args>`). De magic-opdracht moet de eerste woord in een codecel en toestaan voor meerdere regels van inhoud. Het magische woord moet het eerste woord in de cel. Toevoegen van voordat de Magic-pakket, zelfs commentaar, veroorzaakt een fout.     Zie voor meer informatie over magics [hier](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     De volgende tabel geeft een lijst van de andere magics die beschikbaar zijn via de kernels.
 

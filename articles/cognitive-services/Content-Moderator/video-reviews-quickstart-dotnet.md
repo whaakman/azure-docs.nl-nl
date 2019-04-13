@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758259"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527367"
 ---
 # <a name="create-video-reviews-using-net"></a>Maak video beoordelingen met behulp van .NET
 
@@ -166,7 +166,7 @@ Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoRev
 **CreateVideoReviews** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
 1. De naam van uw Content Moderator-team.
-1. Een **IList<CreateVideoReviewsBodyItem>**  object. Elke **CreateVideoReviewsBodyItem** object vertegenwoordigt een video beoordeling. In deze Quick Start maakt een beoordeling op een tijdstip.
+1. Een **IList\<CreateVideoReviewsBodyItem >** object. Elke **CreateVideoReviewsBodyItem** object vertegenwoordigt een video beoordeling. In deze Quick Start maakt een beoordeling op een tijdstip.
 
 **CreateVideoReviewsBodyItem** heeft een aantal eigenschappen. Ten minste, moet u de volgende eigenschappen instellen:
 - **Inhoud**. De URL van de video moet worden gecontroleerd.
@@ -224,18 +224,18 @@ U videoframes toevoegen aan een video bekijken met **ContentModeratorClient.Revi
 1. Een tekenreeks met een MIME-type moet ' application/json'.
 1. De naam van uw Content Moderator-team.
 1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
-1. Een **IList<VideoFrameBodyItem>**  object. Elke **VideoFrameBodyItem** object vertegenwoordigt een video frame.
+1. Een **IList\<VideoFrameBodyItem >** object. Elke **VideoFrameBodyItem** object vertegenwoordigt een video frame.
 
 **VideoFrameBodyItem** heeft de volgende eigenschappen:
 - **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in de video van waaruit u de video-frame gehaald.
 - **FrameImage**. De URL van de video-frame.
-- **Metadata**. IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
+- **Metadata**. An IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
 - **reviewRecommended**. Waar, als een menselijke beoordeling van het kader van de video wordt aanbevolen.
 - **adultScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van inhoud voor volwassenen in het kader van de video.
 - **a**. True als de video inhoud voor volwassenen bevat.
 - **racyScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van ongepaste inhoud in de video-frame.
 - **r**. Waar als de video-frame ongepaste inhoud bevat.
-- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is gewoon een sleutel/waarde-paar. Een toepassing kan deze tags gebruiken om te organiseren videoframes.
+- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is gewoon een sleutel/waarde-paar. Een toepassing kan deze tags gebruiken om te organiseren videoframes.
 
 > [!NOTE]
 > In deze snelstartgids genereert willekeurige waarden voor de **adultScore** en **racyScore** eigenschappen. In een productietoepassing, zou u deze waarden uit de [service voor videotoezicht](video-moderation-api.md)geïmplementeerde als een Azure Media Service.

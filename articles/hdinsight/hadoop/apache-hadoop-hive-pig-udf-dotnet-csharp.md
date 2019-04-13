@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202704"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545570"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig streaming van Apache Hadoop in HDInsight
 
@@ -46,8 +46,6 @@ Beide Hive en Pig gegevens kan worden doorgegeven in externe toepassingen voor v
 * __HDInsight op basis van Linux__ -clusters met [Mono (https://mono-project.com) ](https://mono-project.com) .NET-toepassingen uit te voeren. Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6.
 
     Zie voor meer informatie over de Mono-compatibiliteit met versies van .NET Framework [Mono-compatibiliteit](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    Voor het gebruik van een specifieke versie van Mono, Zie de [installeren of bijwerken Mono](../hdinsight-hadoop-install-mono.md) document.
 
 * __HDInsight op basis van Windows__ -clusters gebruiken de Microsoft .NET CLR .NET-toepassingen uit te voeren.
 
@@ -154,7 +152,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 3. Sla **Program.cs**, en bouw het project.
 
-## <a name="upload-to-storage"></a>Uploaden naar storage
+## <a name="upload-to-storage"></a>Uploaden naar opslag
 
 1. Open in Visual Studio, **Server Explorer**.
 

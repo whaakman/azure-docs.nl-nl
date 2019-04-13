@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 62b526950367987e26c1c67394bc0720ae895fa6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983792"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547019"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen
 
@@ -92,6 +92,8 @@ De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er
 **NSG Flow logboekregistratie inschakelen op alle nsg's die zijn gekoppeld aan een resource**: Stroom logboekregistratie in Azure is geconfigureerd op de NSG-resource. Een stroom alleen worden gekoppeld aan een NSG-regel. In scenario's waarbij meerdere nsg's worden gebruikt, raden wij of NSG-stroomlogboeken is ingeschakeld op alle nsg's toegepast van de resource-subnet of netwerkinterface om ervoor te zorgen dat al het verkeer wordt vastgelegd. Zie [hoe verkeer wordt geëvalueerd](../virtual-network/security-overview.md#how-traffic-is-evaluated) voor meer informatie over Netwerkbeveiligingsgroepen. 
 
 **Logboekregistratie kosten Flow**: NSG-stroomlogboeken wordt in rekening gebracht op het volume van de logboeken die wordt geproduceerd. Intensief verkeersvolume kan resulteren in grote stroom logboekvolume en de bijbehorende kosten. Prijzen voor log Stroomlogboeken omvat niet de onderliggende kosten van opslag. Met de functie voor het beleid van retentie met NSG Flow logboekregistratie kan resulteren in een groot aantal opslagbewerkingen en de bijbehorende kosten. Als u de functie voor retentie beleid vereist, wordt u aangeraden dat u deze waarde ingesteld op 0. Zie [prijzen voor Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) en [prijzen voor Azure Storage](https://azure.microsoft.com/en-us/pricing/details/storage/) voor meer informatie.
+
+**Inkomende stromen die zijn geregistreerd via internet IP-adressen aan virtuele machines zonder openbare IP-adressen**: Virtuele machines die geen openbaar IP-adres toegewezen via een openbaar IP-adres dat is gekoppeld aan de NIC als een openbaar IP op exemplaarniveau of die deel uitmaken van een basisversie van load balancer back-end-pool, gebruik [SNAT standaard](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) en een IP-adres toegewezen door Azure om uitgaande connectiviteit mogelijk te maken. Als gevolg hiervan, ziet u mogelijk de logboekvermeldingen stroom voor stromen van internet IP-adressen, als de stroom is dat is bestemd voor een poort in het bereik van poorten voor SNAT toegewezen. Hoewel Azure wordt niet toegestaan om deze stromen aan de virtuele machine, wordt de poging wordt geregistreerd en wordt weergegeven in de netwerk-Watcher NSG stroomlogboek standaard. Het is raadzaam dat ongewenste Binnenkomend internetverkeer expliciet worden geblokkeerd met de NSG.
 
 ## <a name="sample-log-records"></a>Voorbeeld van records in logboek registreren
 

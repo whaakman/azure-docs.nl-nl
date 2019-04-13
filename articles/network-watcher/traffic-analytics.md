@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490993"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545396"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -369,3 +369,8 @@ Hebt u schadelijk verkeer in uw omgeving? Waar wordt deze die afkomstig zijn van
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 Vindt u antwoorden op veelgestelde vragen, [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md).
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
+- Zie voor meer informatie over het schema en de details van Traffic Analytics verwerken, [Traffic analytics schema](traffic-analytics-schema.md).

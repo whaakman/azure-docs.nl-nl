@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4ece2dc1df3d29a3024c7efe15dd8cecfd9666db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663856"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528183"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster kant. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook worden ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -640,7 +640,7 @@ Andere API-aanroepen die kunnen zitten zijn op de **IReplicator** interface. Bij
 
 - **IReplicator.CatchupReplicaSet**: Deze waarschuwing geeft aan dat er twee dingen. Er zijn onvoldoende van replica's. Als u wilt zien als dit het geval is, bekijkt u de status van de replica van de replica's in de partitie of het statusrapport System.FM voor een vastgelopen herconfiguratie. Of de replica's zijn bewerkingen niet bevestigd. De PowerShell-cmdlet `Get-ServiceFabricDeployedReplicaDetail` kan worden gebruikt om de voortgang van alle replica's te bepalen. Het probleem wordt veroorzaakt door replica's waarvan `LastAppliedReplicationSequenceNumber` waarde bevindt zich achter een van de primaire `CommittedSequenceNumber` waarde.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: Deze waarschuwing wijst op een probleem in het bouwproces. Zie voor meer informatie, [levenscyclus van Replica](service-fabric-concepts-replica-lifecycle.md). Het kan zijn vanwege een onjuiste configuratie van de replicatie-adres. Zie voor meer informatie, [stateful Reliable Services configureren](service-fabric-reliable-services-configuration.md) en [bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md). Het kan ook een probleem op het externe knooppunt zijn.
+- **IReplicator.BuildReplica (\<externe ReplicaId >)**: Deze waarschuwing wijst op een probleem in het bouwproces. Zie voor meer informatie, [levenscyclus van Replica](service-fabric-concepts-replica-lifecycle.md). Het kan zijn vanwege een onjuiste configuratie van de replicatie-adres. Zie voor meer informatie, [stateful Reliable Services configureren](service-fabric-reliable-services-configuration.md) en [bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md). Het kan ook een probleem op het externe knooppunt zijn.
 
 ### <a name="replicator-system-health-reports"></a>Replicatie systeemstatusrapporten
 **De replicatiewachtrij is vol:**

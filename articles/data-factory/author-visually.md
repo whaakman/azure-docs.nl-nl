@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853083"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526908"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -61,12 +61,12 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 | Instelling | Description | Value |
 |:--- |:--- |:--- |
 | **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
-| **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
-| **Organisatie van de Azure-opslagplaatsen** | De naam van uw Azure-opslagplaatsen-organisatie. U vindt de naam van uw Azure-opslagplaatsen organisatie op `https://{organization name}.visualstudio.com`. U kunt [aanmelden bij uw organisatie Azure-opslagplaatsen](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en -opslagplaatsen en projecten weergegeven. | <your organization name> |
-| **ProjectName** | De naam van uw Azure-opslagplaatsen-project. U vindt de naam van uw Azure-opslagplaatsen project op `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
-| **RepositoryName** | De naam van uw Azure-opslagplaatsen code-opslagplaats. Projecten voor Azure opslagplaatsen bevatten de Git-opslagplaatsen voor het beheren van uw broncode als uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats, die al in uw project. | <your Azure Repos code repository name> |
-| **Samenwerking vertakking** | Uw Azure-opslagplaatsen samenwerking vertakking die wordt gebruikt voor publicatie. Dit is standaard `master`. Deze instelling wijzigen in het geval u wilt publiceren van bronnen van een andere vertakking. | <your collaboration branch name> |
-| **Hoofdmap** | De hoofdmap in de vertakking van uw Azure-opslagplaatsen samenwerking. | <your root folder name> |
+| **Azure Active Directory** | De naam van uw Azure AD-tenant. | `<your tenant name>` |
+| **Organisatie van de Azure-opslagplaatsen** | De naam van uw Azure-opslagplaatsen-organisatie. U vindt de naam van uw Azure-opslagplaatsen organisatie op `https://{organization name}.visualstudio.com`. U kunt [aanmelden bij uw organisatie Azure-opslagplaatsen](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en -opslagplaatsen en projecten weergegeven. | `<your organization name>` |
+| **ProjectName** | De naam van uw Azure-opslagplaatsen-project. U vindt de naam van uw Azure-opslagplaatsen project op `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
+| **RepositoryName** | De naam van uw Azure-opslagplaatsen code-opslagplaats. Projecten voor Azure opslagplaatsen bevatten de Git-opslagplaatsen voor het beheren van uw broncode als uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats, die al in uw project. | `<your Azure Repos code repository name>` |
+| **Samenwerking vertakking** | Uw Azure-opslagplaatsen samenwerking vertakking die wordt gebruikt voor publicatie. Dit is standaard `master`. Deze instelling wijzigen in het geval u wilt publiceren van bronnen van een andere vertakking. | `<your collaboration branch name>` |
+| **Hoofdmap** | De hoofdmap in de vertakking van uw Azure-opslagplaatsen samenwerking. | `<your root folder name>` |
 | **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **canvas voor ontwerpen** in een Azure-opslagplaatsen Git-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 
 #### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Configuratiemethode 2 (Azure-opslagplaatsen Git-opslagplaats): UX canvas voor ontwerpen

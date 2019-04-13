@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496961"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546235"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -40,7 +40,7 @@ Hieronder ziet u de Platformvereisten voor NPM van verschillende mogelijkheden:
 - NPM van ExpressRoute-bewaking mogelijkheid ondersteunt alleen Windows server (2008 SP1 of hoger) besturingssysteem.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan ik Linux-machines als de bewaking van knooppunten in NPM gebruiken?
-De mogelijkheid voor het bewaken van netwerken met behulp van knooppunten op basis van Linux is momenteel in private preview. Contact opnemen met uw Account Manager voor meer informatie. Nadat u de werkruimte-ID opgeeft, we gaan en de mogelijkheid inschakelen. Linux-agents bewakingsmogelijkheid alleen voor de NPM van Prestatiemeter functionaliteit bieden, en zijn niet beschikbaar voor de Connectiviteitsmonitor voor Service- en ExpressRoute-bewaking mogelijkheden
+De mogelijkheid voor het bewaken van netwerken met behulp van op basis van Linux-knooppunten is momenteel in preview. Contact opnemen met uw Account Manager voor meer informatie. Nadat u de werkruimte-ID opgeeft, we gaan en de mogelijkheid inschakelen. Linux-agents bewakingsmogelijkheid alleen voor de NPM van Prestatiemeter functionaliteit bieden, en zijn niet beschikbaar voor de Connectiviteitsmonitor voor Service- en ExpressRoute-bewaking mogelijkheden
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Wat zijn de vereisten van de grootte van de knooppunten moet worden gebruikt voor het bewaken via NPM?
 Voor het uitvoeren van de NPM-oplossing op knooppunt VM's voor het bewaken van netwerken, moet de knooppunten ten minste 500 MB geheugen en één kern. U hoeft niet te gebruiken van afzonderlijke knooppunten voor het uitvoeren van NPM. De oplossing kunt uitvoeren op de knooppunten waarop andere werkbelastingen die erop worden uitgevoerd. De oplossing heeft de mogelijkheid om te stoppen van het bewakingsproces in het geval het maakt gebruik van meer dan 5% CPU.

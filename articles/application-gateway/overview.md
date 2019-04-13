@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225532"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546847"
 ---
 # <a name="what-is-azure-application-gateway"></a>Wat is Azure Application Gateway?
 
@@ -118,9 +118,12 @@ Zie voor meer informatie, [WebSocket-ondersteuning](https://docs.microsoft.com/a
 
 ## <a name="rewrite-http-headers-public-preview"></a>HTTP-headers opnieuw genereren (openbare preview)
 
-Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Als u deze HTTP-headers opnieuw genereert, kan dat u helpen diverse belangrijke scenario's te realiseren, bijvoorbeeld het toevoegen van beveiligingsgerelateerde headervelden zoals HSTS/X-XSS-beveiliging, of het verwijderen van de antwoordheadervelden die gevoelige informatie kunnen onthullen, zoals de naam van de back-endserver. 
+HTTP-headers kunnen de client en server om door te geven aanvullende informatie met de aanvraag of het antwoord. Voor het herschrijven van deze HTTP-headers, kunt u verschillende belangrijke scenario's, zoals uitvoeren:
+- Toe te voegen beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging.
+- Antwoord-headervelden kunnen gevoelige informatie onthullen verwijderd.
+- Informatie over de poort van de koptekst X doorgestuurd voor verwijdering.
 
-Application Gateway ondersteunt nu de mogelijkheid om headers van zowel de inkomende HTTP-aanvragen als de uitgaande HTTP-antwoorden opnieuw te genereren. U kunt headers van HTTP-aanvragen en -antwoorden toevoegen, verwijderen of bijwerken terwijl aanvraag- en antwoordpakketten zich verplaatsen tussen de client en back-endpools. U kunt zowel standaardheadervelden (gedefinieerd in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) als niet-standaardheadervelden opnieuw genereren.  
+Application Gateway ondersteunt de mogelijkheid voor het toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders, terwijl de aanvraag en respons pakketten tussen de client en de back-end-pools verplaatsen. Het biedt u ook de mogelijkheid om toe te voegen voorwaarden om te controleren of dat de opgegeven headers worden herschreven alleen als aan bepaalde voorwaarden wordt voldaan.
 
 Zie [HTTP-headers opnieuw genereren](rewrite-http-headers.md) voor meer informatie over deze openbare preview-functie.
 

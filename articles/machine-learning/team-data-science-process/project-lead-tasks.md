@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854786"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527007"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Taken voor het project leiden in Team Data Science Process
 
@@ -150,7 +150,7 @@ Als u Azure DevOps als het platform voor het hosten van code, meestal de _HTTPS-
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Als u Azure DevOps als het platform voor het hosten van code, meestal de _SSH URL van de projectopslagplaats_ _ssh is: / / < naam van Azure DevOps-Services\>@< naam van Azure DevOps-Services\>. visualstudio.com:22/<Your Project Name>/\_git / < naam van uw project opslagplaats\>. In dit voorbeeld hebben we ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Als u Azure DevOps als het platform voor het hosten van code, meestal de _SSH URL van de projectopslagplaats_ _ssh is: / / < naam Azure DevOps-Services\>@< naam Azure DevOps-Services\>.visualstudio.com:22/ < naam van uw Project\>/\_git / < naam van uw project-opslagplaats\>. In dit voorbeeld hebben we ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Kopieer de inhoud van D3 naar D5 
 

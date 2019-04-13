@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877289"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527418"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Beveiliging-Frame: Uitzonderingsbeheer | Oplossingen 
 | Product/Service | Artikel |
@@ -201,7 +201,7 @@ Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over he
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Dialoogvenster van de instellingen voor ASP.NET-foutpagina's bewerken](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of een functieconfiguratie (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht dat wordt gegenereerd. Beheerders kunnen kiezen of een bericht van de toepassing moet worden weergegeven voor de client, de gedetailleerd foutbericht naar de client of het gedetailleerde foutbericht op dat alleen localhost. De <customErrors> tag op in het bestand web.config heeft drie modi:</p><ul><li>**Op:** Hiermee geeft u op dat aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Uitgeschakeld:** Hiermee geeft u op dat aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Ingesteld op RemoteOnly:** Hiermee geeft u op dat aangepaste fouten worden alleen weergegeven op de externe clients, en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat de tag een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
+| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of een functieconfiguratie (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht dat wordt gegenereerd. Beheerders kunnen kiezen of een bericht van de toepassing moet worden weergegeven voor de client, de gedetailleerd foutbericht naar de client of het gedetailleerde foutbericht op dat alleen localhost. De `<customErrors>` tag op in het bestand web.config heeft drie modi:</p><ul><li>**Op:** Hiermee geeft u op dat aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Uitgeschakeld:** Hiermee geeft u op dat aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Ingesteld op RemoteOnly:** Hiermee geeft u op dat aangepaste fouten worden alleen weergegeven op de externe clients, en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat de tag een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
 
 ## <a id="deployment"></a>Implementatiemethode voor instellen naar de handelsversie in IIS
 

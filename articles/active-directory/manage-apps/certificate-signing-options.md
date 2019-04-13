@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915992"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549334"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie-apps in Azure Active Directory voor Certificaatondertekening
 
@@ -49,7 +49,7 @@ Azure AD biedt ondersteuning voor twee algoritmes voor ondertekening en veilige 
 
 * **SHA-1**. Dit algoritme is ouder en wordt dit beschouwd als minder veilig dan het SHA-256. Als een toepassing alleen dit algoritme voor ondertekening ondersteunt, kunt u deze optie in de **algoritme voor ondertekening** vervolgkeuzelijst. Azure AD vervolgens ondertekent het SAML-antwoord met het algoritme SHA-1.
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>De opties voor Certificaatondertekening en handtekeningalgoritme-certificaat wijzigen
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Opties voor ondertekening en handtekeningalgoritme-certificaat wijzigen
 
 Als het SAML-certificaat van een toepassing opties voor ondertekening en het algoritme voor ondertekening certificaat wijzigen, selecteert u de betreffende toepassing:
 

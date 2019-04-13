@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
-ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488436"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528098"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup Server gebruiken om de gegevens die u een back-naar een Recovery Services-kluis hebt gemaakt te herstellen. Het proces voor het doen dus is geïntegreerd in de beheerconsole voor Azure Backup Server en is vergelijkbaar met de werkstroom herstellen voor andere onderdelen van Azure Backup.
@@ -85,7 +85,7 @@ Gegevens herstellen vanaf een Azure Backup-Server:
 | 1. |Deze server is niet geregistreerd bij de kluis die is opgegeven via de kluisreferentie. |**Oorzaak:** Deze fout treedt op wanneer het kluisreferentiebestand geselecteerd behoort niet tot de Recovery Services-kluis die zijn gekoppeld aan Azure Backup Server waarop het herstel wordt uitgevoerd. <br> **Oplossing:** Download het kluisreferentiebestand van de Recovery Services-kluis waarbij de Azure Backup Server is geregistreerd. |
 | 2. |De herstelbare gegevens zijn niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** Er zijn dat geen andere Azure back-up-Servers geregistreerd bij de Recovery Services-kluis of de servers zijn de metagegevens van de nog niet geüpload of de geselecteerde server is niet een Azure Backup-Server (ook wel Windows Server of Windows-Client). <br> **Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt de metagegevens voor alle de beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
 | 3. |Er zijn geen andere DPM-server is geregistreerd bij deze kluis. |**Oorzaak:** Er zijn geen andere Azure Backup-Servers die zijn geregistreerd bij de kluis van waaruit het herstel is een poging wordt gedaan.<br>**Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.<br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt u de metagegevens voor alle beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
-| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die is gekoppeld aan de volgende server: **<server name>** |**Oorzaak:** De wachtwoordzin voor versleuteling gebruikt bij het versleutelen van de gegevens van de Azure Backup-Server-gegevens die wordt hersteld, komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is om de gegevens te ontsleutelen. Daarom mislukt het herstellen.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan de gegevens wordt hersteld. |
+| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die is gekoppeld aan de volgende server:  **\<servernaam >** |**Oorzaak:** De wachtwoordzin voor versleuteling gebruikt bij het versleutelen van de gegevens van de Azure Backup-Server-gegevens die wordt hersteld, komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is om de gegevens te ontsleutelen. Daarom mislukt het herstellen.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan de gegevens wordt hersteld. |
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486815"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549684"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Een transactioneel consistente kopie van een Azure SQL database kopiëren
 
@@ -90,10 +90,16 @@ Met deze opdracht kopieert Database1 op server1 naar een nieuwe database met de 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Beide servers firewalls moeten worden geconfigureerd dat binnenkomende verbindingen van de IP-adres van de client de opdracht T-SQL-exemplaar.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Een database verplaatsen tussen abonnementen
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Een SQL-database kopiëren naar een ander abonnement
 
-In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-servers** en selecteer vervolgens de server die als host fungeert voor uw database in de lijst. Klik op **verplaatsen**, en kies vervolgens de resources wilt verplaatsen en het abonnement om naar te verplaatsen.
+U kunt de descrbed stappen in de vorige sectie om te kopiëren van uw database naar een SQL Database-server in een ander abonnement gebruiken. Zorg ervoor dat u een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase en deze lid is van de rol dbmanager of de principal-aanmelding op serverniveau. 
+
+> [!NOTE]
+> De [Azure-portal](https://portal.azure.com) ondersteunt geen kopiëren naar een ander abonnement omdat Portal de ARM-API aanroept en de abonnement-certificaten gebruikt voor toegang tot beide servers die betrokken zijn bij geo-replicatie.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>De voortgang van de bewerking kopiëren
 

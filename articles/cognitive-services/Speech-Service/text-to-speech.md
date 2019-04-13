@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263108"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549502"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -56,7 +56,7 @@ Deze tabel bevat de kernfuncties voor tekst naar spraak:
 \* *Deze services zijn beschikbaar met behulp van het eindpunt cris.ai. Zie [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> Het eindpunt van de Text to Speech implementeert beperking waarmee aanvragen voor 25 per vijf seconden wordt beperkt. Wanneer bandbreedtebeperking optreedt, moet u een melding via berichtkoppen.
+> De aangepaste spraak-eindpunten die aanvragen voor 25 per vijf seconden beperkt netwerkbeperking te implementeren. Wanneer bandbreedtebeperking optreedt, moet u een melding via berichtkoppen.
 
 ## <a name="get-started-with-text-to-speech"></a>Aan de slag met tekst naar spraak
 
@@ -88,10 +88,10 @@ Voorbeeldcode voor tekst naar spraak is beschikbaar op GitHub. Deze voorbeelden 
 ## <a name="reference-docs"></a>Referentiedocumenten
 
 * [Speech-SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [REST-API: Spraak-naar-tekst](rest-speech-to-text.md)
-* [REST-API: Tekst naar spraak](rest-text-to-speech.md)
-* [REST-API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
+* [Spraak apparaten SDK](speech-devices-sdk.md)
+* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875183"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549726"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse IP-firewall-regels
 
@@ -153,7 +153,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
-| Cmdlet | Niveau | Description |
+| Cmdlet | Niveau | Beschrijving |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Retourneert de huidige firewallregels op serverniveau |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Maakt een nieuwe firewallregel op serverniveau |
@@ -193,7 +193,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>Beheren van IP-firewallregels op serverniveau met behulp van REST-API
 
-| API | Niveau | Description |
+| API | Niveau | Beschrijving |
 | --- | --- | --- |
 | [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) (Lijst met firewallregels) |Server |Geeft de huidige niveau van de server IP-firewall-regels |
 | [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Hiermee maken of bijwerken van de IP-firewallregels op serverniveau |
@@ -249,6 +249,7 @@ Houd rekening met de volgende punten als toegang tot de service Microsoft Azure 
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Controleer of dat uw zakelijke netwerkomgeving kunt binnenkomende communicatie van de Compute-IP-adresbereiken (inclusief SQL-bereiken) die worden gebruikt door de Microsoft Azure-Datacenters. Kan het nodig zijn aan lijst met geaccepteerde zijn deze IP-adressen, Zie [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Zie voor een snel starten voor het maken van een IP-firewallregel op serverniveau [maken van een Azure SQL database](sql-database-single-database-get-started.md).
 - Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit open-source toepassingen of toepassingen van derden raadpleegt u [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snelstartcodevoorbeelden voor clients met SQL Database).
 - Zie voor informatie over de extra poorten die u mogelijk nodig hebt om te openen, de **SQL-Database: Buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md)

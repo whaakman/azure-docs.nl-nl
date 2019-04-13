@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860708"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549678"
 ---
 # <a name="schema-format"></a>Schema-indeling
 
@@ -41,16 +41,16 @@ Kenmerknamen zijn hoofdlettergevoelig id's die beginnen met een letter en bestaa
 
 Hieronder volgt een lijst met ondersteunde kenmerk gegevenstypen:
 
-| Type | Description | Bewerkingen | Voorbeeld |
+| Type | Beschrijving | Bewerkingen | Voorbeeld |
 |------|-------------|------------|---------|
-| String | Tekenreeks (1-1024 tekens) | is gelijk aan, starts_with | "Hallo wereld" |
-| Int32 | 32-bits geheel getal | gelijk aan, starts_with, is_between | 2016 |
-| Int64 | 64-bits geheel getal | gelijk aan, starts_with, is_between | 9876543210 |
-| Double | Dubbele precisie drijvende-kommawaarde | gelijk aan, starts_with, is_between | 1.602e-19 |
-| Date | Datum (1400-01-01 op 9999-12-31) | equals, is_between | '2016-03-14' |
-| Guid | Unieke id | is gelijk aan | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Intern gecomprimeerde gegevens met niet-geïndexeerde | *Geen* | 'Elke persoon en iedere organisatie op de planeet om meer te bereiken maken' |
-| Samengestelde | Samenstelling van meerdere onderliggende kenmerken| *N.v.t.* | {"Naam": "harry shum", "Relatie": "microsoft"} |
+| `String` | Tekenreeks (1-1024 tekens) | is gelijk aan, starts_with | "Hallo wereld" |
+| `Int32` | 32-bits geheel getal | gelijk aan, starts_with, is_between | 2016 |
+| `Int64` | 64-bits geheel getal | gelijk aan, starts_with, is_between | 9876543210 |
+| `Double` | Dubbele precisie drijvende-kommawaarde | gelijk aan, starts_with, is_between | 1.602e-19 |
+| `Date` | Datum (1400-01-01 op 9999-12-31) | equals, is_between | '2016-03-14' |
+| `Guid` | Unieke id | is gelijk aan | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Intern gecomprimeerde gegevens met niet-geïndexeerde | *Geen* | 'Elke persoon en iedere organisatie op de planeet om meer te bereiken maken' |
+| `Composite` | Samenstelling van meerdere onderliggende kenmerken| *N.v.t.* | {"Naam": "harry shum", "Relatie": "microsoft"} |
 
 Tekenreekskenmerken worden gebruikt om aan te duiden tekenreekswaarden die kunnen worden weergegeven als onderdeel van de gebruikersquery.  Deze ondersteuning bieden voor de exacte overeenkomst *gelijk is aan* bewerking, evenals de *starts_with* bewerking voor de query is voltooid scenario's, zoals die overeenkomen met "micros" met "microsoft".  Niet-hoofdlettergevoelig en zoeken bij benadering die overeenkomt met voor de verwerking van spelfouten worden ondersteund in een toekomstige release.
 

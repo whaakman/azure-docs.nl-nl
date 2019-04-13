@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093665"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547541"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installeer de Azure Functions-Runtime preview 2
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Als u de preview van Azure Functions-Runtime 2 hebt geïnstalleerd wilt, volgt u deze stappen:
 
@@ -49,7 +51,7 @@ Het installatieprogramma van Azure Functions Runtime Preview helpt u bij de inst
 
     ![Installatieprogramma voor Azure Functions-Runtime-preview][1]
 
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 1. Zodra u lees de voorwaarden van de **overeenkomst**, **Schakel het selectievakje in** de voorwaarden accepteren en klik op **volgende** om door te gaan.
 1. Selecteer de rollen die u wilt installeren op deze machine **functies Beheerrol** en/of **functies Werkrol** en klikt u op **volgende**.
 
@@ -102,36 +104,37 @@ Als u wilt de Azure Functions-Runtime-installatie hebt voltooid, moet u de confi
 
 Uw eerste functie maken in Azure Functions-Runtime-preview
 
-1. Blader naar de **Azure Functions-Runtime Portal** als https://<machinename>.<domain> Bijvoorbeeld https://mycomputer.mydomain.com
+1. Blader naar de **Azure Functions-Runtime Portal** als `https://<machinename>.<domain>` bijvoorbeeld `https://mycomputer.mydomain.com`.
+
 1. U wordt gevraagd te **aanmelden**, als geïmplementeerd in een domein gebruiken die uw account domeingebruikersnaam en wachtwoord, anders gebruiken uw lokale gebruikersnaam en het wachtwoord voor aanmelding bij de portal.
 
-![Azure Functions-Runtime preview-portal aanmelding][14]
+    ![Azure Functions-Runtime preview-portal aanmelding][14]
 
-1. Voor het maken van functie-apps, moet u een abonnement maken.  In de bovenste links hoek van de portal, klikt u op de **+** optie naast de abonnementen
+1. Voor het maken van functie-apps, moet u een abonnement maken.  In de bovenste links hoek van de portal, klikt u op de **+** optie naast de abonnementen.
 
-![Azure Functions-Runtime preview-portal abonnementen][15]
+    ![Azure Functions-Runtime preview-portal abonnementen][15]
 
 1. Kies **DefaultPlan**, voer een naam in voor uw abonnement en op **maken**.
 
-![Azure Functions-Runtime preview portal abonnement-abonnement en de naam][16]
+    ![Azure Functions-Runtime preview portal abonnement-abonnement en de naam][16]
 
 1. Al uw functie-apps worden weergegeven in het linkerdeelvenster van de portal.  Voor het maken van een nieuwe functie-App, selecteer de kop **functie-Apps** en klikt u op de **+** optie.
 
 1. Voer een naam in voor uw functie-app, selecteert u het juiste abonnement, kiest u welke versie van de Azure Functions-runtime die u wilt programmeren met en klikt u op **maken**
 
-![Azure Functions-Runtime preview portal nieuwe functie-app][17]
+    ![Azure Functions-Runtime preview portal nieuwe functie-app][17]
 
 1. Uw nieuwe functie-app wordt weergegeven in het linkerdeelvenster van de portal.  Functies selecteren en klik vervolgens op **nieuwe functie** aan de bovenkant van het middelste deelvenster in de portal.
 
-![Sjablonen van Azure Functions-Runtime-preview][18]
+    ![Sjablonen van Azure Functions-Runtime-preview][18]
 
 1. Selecteer de Trigger voor Timer-functie, in de rechter flyout naam voor de functie en het schema te wijzigen `*/5 * * * * *` (deze cron-expressie zorgt ervoor dat uw timerfunctie om uit te voeren om de vijf seconden), en klikt u op **maken**
 
-![Azure Functions-Runtime preview nieuwe timer functie configuratie][19]
+    ![Azure Functions-Runtime preview nieuwe timer functie configuratie][19]
 
 1. De functie is nu gemaakt.  U kunt het uitvoeringslogboek van uw functie-app weergeven door het uitbreiden van de **log** deelvenster aan de onderkant van de portal.
 
-![Azure Functions-Runtime preview functie uitvoeren][20]
+    ![Azure Functions-Runtime preview functie uitvoeren][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

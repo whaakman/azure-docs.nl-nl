@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879281"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547945"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning-service-werkruimte maken
 
@@ -37,7 +37,7 @@ Wanneer u een werkruimte maakt zijn de volgende Azure-resources automatisch (als
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->Net als bij andere Azure-services gelden er bepaalde limieten en quota voor Machine Learning. [Meer informatie over quota's en hoe u meer aanvragen.](how-to-manage-quotas.md)
+>Net als bij andere Azure-services gelden er bepaalde limieten en quota voor Machine Learning. [Meer informatie over quota's en hoe u meer kunt aanvragen.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -160,7 +160,7 @@ Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
 
 ### <a name="write-a-configuration-file"></a>Een configuratiebestand schrijven
 
-Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand wordt aangeroepen *aml_config/config.json*.  
+Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand wordt aangeroepen *.azureml/config.json*.  
 
 Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt deze laden met andere notitieblokken en -scripts in dezelfde map of in een submap met de code `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in d
 ```
 
 > [!TIP]
-> Voor het gebruik van uw werkruimte in de Python-scripts of Jupyter-Notebooks zich in andere directory's, moet u dit bestand kopiëren naar die map. Het bestand kan worden in dezelfde map, een submap met de naam *aml_config*, of in een bovenliggende map.
+> Voor het gebruik van uw werkruimte in de Python-scripts of Jupyter-Notebooks zich in andere directory's, moet u dit bestand kopiëren naar die map. Het bestand kan worden in dezelfde map, een submap met de naam *.azureml*, of in een bovenliggende map.
 
 ## <a name="resource-manager-template"></a>Resource manager-sjabloon
 
 Zie voor informatie over het maken van een werkruimte met een sjabloon [maken van een werkruimte van Azure Machine Learning-service met behulp van een sjabloon](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Opdrachtregelinterface
 
 Zie voor informatie over het maken van een werkruimte met de CLI [gebruikt u de CLI-extensie voor Azure Machine Learning-service](reference-azure-machine-learning-cli.md).
 

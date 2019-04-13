@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f45f1831572387aa6997700432a7fe156d9b6a92
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495442"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548675"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Een Node.js-app maken in Azure App Service op Linux
 
@@ -191,4 +191,7 @@ Het kan een minuut duren voordat deze opdracht is uitgevoerd.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Node.js met MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Zelfstudie: Node.js-app met MongoDB](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Node.js-app configureren](configure-language-nodejs.md)

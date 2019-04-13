@@ -3,19 +3,19 @@ title: Netwerken opties van Azure Functions
 description: Een overzicht van alle netwerkopties die beschikbaar zijn in Azure Functions
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358150"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545502"
 ---
-# <a name="azure-functions-networking-options"></a>Netwerken opties van Azure Functions
+# <a name="azure-functions-networking-options"></a>Azure Functions netwerkopties
 
 Dit document beschrijft de suite van netwerk functies die beschikbaar zijn via de Azure-functies die als host fungeert voor opties. Alle van de volgende netwerkopties bieden een mogelijkheid toegang krijgen tot bronnen zonder via internet routeerbare adressen, of toegang tot internet beperken tot een functie-App. De host alle modellen hebben verschillende niveaus van netwerkisolatie beschikbaar en het juiste abonnement kiezen, kunt u voldoen aan de vereisten van uw netwerk isoleren.
 
@@ -27,19 +27,19 @@ Functie-Apps kan worden gehost op verschillende manieren.
     1. Het App Service-Plan, die werkt op een vaste schaal, en biedt vergelijkbare netwerkisolatie naar het Premium-abonnement.
 * Functions kunnen ook worden uitgevoerd op een App Service Environment (ASE) die uw functie implementeert in uw VNet en biedt volledige netwerk besturingselement en isolatie.
 
-## <a name="networking-feature-matrix"></a>Functiematrix voor netwerken
+## <a name="networking-feature-matrix"></a>Netwerken Functiematrix
 
-|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|⚠ [Premium-abonnement](functions-scale.md##premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
+|                |[Verbruiksabonnement](functions-scale.md#consumption-plan)|⚠ [Premium-abonnement](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan)|[App Service-omgeving](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inkomende IP-beperkingen**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET-integratie**](#vnet-integration)|❌No|⚠ Ja|✅Yes|✅Yes|
-|[**Voorbeeld van VNET-integratie (Express Route en Service-eindpunten)**](#preview-vnet-integration)|❌No|⚠ Ja|⚠ Ja|✅Yes|
+|[**VNET-integratie**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Voorbeeld van VNET-integratie (Express Route en Service-eindpunten)**](#preview-vnet-integration)|❌No|⚠Ja|⚠Ja|✅Yes|
 |[**Hybride verbindingen**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Toegang tot de persoonlijke Site**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Preview-functie niet voor gebruik in productieomgevingen
 
-## <a name="inbound-ip-restrictions"></a>Inkomende IP-beperkingen
+## <a name="inbound-ip-restrictions"></a>Inkomende IP-adresbeperkingen
 
 IP-beperkingen kunt u een prioriteit geordende lijst toestaan/weigeren van IP-adressen die zijn toegestaan voor toegang tot uw app te definiëren. De acceptatielijst kan IPv4 en IPv6-adressen bevatten. Wanneer er een of meer vermeldingen, is er een impliciete weigeren alle die aan het einde van de lijst voorkomt. De mogelijkheid IP-beperkingen werkt met alle functie hosting-opties.
 
@@ -48,7 +48,7 @@ IP-beperkingen kunt u een prioriteit geordende lijst toestaan/weigeren van IP-ad
 
 [Hier voor meer informatie](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## <a name="vnet-integration"></a>VNET-integratie
+## <a name="vnet-integration"></a>VNet-integratie
 
 VNET-integratie kunt uw functie-app voor toegang tot resources binnen een VNET. VNET-integratie is beschikbaar in de Premium-abonnement en de App Service-plan. Als uw app zich in een App Service Environment, vervolgens wordt al een VNet en vereist geen gebruik van de VNet-integratiefunctie tot resources in hetzelfde VNet.
 
@@ -84,8 +84,18 @@ Als in de functies gebruikt, wordt elke hybride verbinding overeenkomt met een e
 
 Zie voor meer informatie, de [App Service-documentatie voor hybride verbindingen](../app-service/app-service-hybrid-connections.md), die ondersteuning biedt voor zowel Functions als Web-Apps.
 
-## <a name="private-site-access"></a>Toegang tot de persoonlijke Site
+## <a name="private-site-access"></a>Toegang tot privésite
 
 Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk is vanaf een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. Toegang tot de persoonlijke site is alleen beschikbaar met een as-omgeving geconfigureerd met een interne Load Balancer (ILB). Zie voor meer informatie over het gebruik van een ILB as-omgeving [maken en gebruiken van een ILB as-omgeving](../app-service/environment/create-ilb-ase.md).
 
 Er zijn veel manieren voor toegang tot resources in andere hostingopties VNET, maar een as-omgeving is de enige manier om toe te staan van triggers voor een functie vindt plaats via een VNET.
+
+## <a name="next-steps"></a>Volgende stappen
+Voor meer informatie over netwerken en -functies: 
+
+* [Volg onze zelfstudie aan de slag te gaan VNET-integratie](./functions-create-vnet.md)
+* [Lees de veelgestelde vragen over hier netwerken functies](./functions-networking-faq.md)
+* [Meer informatie over VNET-integratie met App Service / hier functies](../app-service/web-sites-integrate-with-vnet.md)
+* [Meer informatie over vnet's in Azure](../virtual-network/virtual-networks-overview.md)
+* [Inschakelen van meer netwerken functies en controle met App Service-omgevingen](../app-service/environment/intro.md)
+* [Verbinding maken met afzonderlijke on-premises bronnen zonder wijzigingen van de firewall maken via hybride verbindingen](../app-service/app-service-hybrid-connections.md)

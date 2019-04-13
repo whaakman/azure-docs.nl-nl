@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189543"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546893"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
 Dit artikel wordt beschreven hoe u uw workload controleren met dynamische beheerweergaven (DMV's). Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Als de query actief op de resources van een andere query wacht is, wordt de status is **AcquireResources**.  Als de query alle vereiste resources heeft, wordt de status is **verleend**.
 
 ## <a name="monitor-tempdb"></a>Monitor voor tempdb
-Hoge tempdb-gebruik, kan de hoofdoorzaak van trage prestaties en naar geheugenproblemen zijn. Houd rekening met uw datawarehouse schalen als u tempdb uiterste te belasten bereiken tijdens het uitvoeren van query's kunt vinden. De volgende informatie wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt te identificeren. 
+Tempdb wordt gebruikt voor tussenliggende resultaten genereren tijdens het uitvoeren van query's. Hoog gebruik van de tempdb-database kan leiden tot trage prestaties van query's. Elk knooppunt in Azure SQL Data Warehouse is ongeveer 1 TB aan ruwe opslagruimte voor tempdb. Hieronder vindt u tips voor het bewaken van tempdb-gebruik en voor het tempdb-gebruik in uw query's verlagen. 
 
-De volgende weergave om te koppelen van de juiste knooppunt-ID voor sys.dm_pdw_sql_requests maken. Met het knooppunt-ID, kunt u andere Pass Through-DMV's gebruiken en deelnemen aan deze tabellen met sys.dm_pdw_sql_requests.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-Voer de volgende query uit voor het controleren van tempdb:
+### <a name="monitoring-tempdb-with-views"></a>Bewaking van tempdb met weergaven
+Voor het controleren van tempdb-gebruik, installeert u eerst de [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) weergeven vanaf de [Microsoft Toolkit voor SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). U kunt vervolgens de volgende query uit om te zien van de tempdb-gebruik per knooppunt voor alle uitgevoerde query's uitvoeren:
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+Hebt u een query die een grote hoeveelheid geheugen is verbruikt of een foutbericht weergegeven met betrekking tot de toewijzing van tempdb hebben ontvangen, is het vaak vanwege een zeer grote [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) of [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) de instructie uitgevoerd in de verplaatsing van de laatste gegevens is mislukt. Dit kan doorgaans worden geïdentificeerd als een bewerking ShuffleMove in de gedistribueerde queryplan vlak voor de laatste INSERT SELECT.
+
+De meest voorkomende oplossing is om uw CTAS of INSERT SELECT-instructie in meerdere load-instructies, zodat het gegevensvolume de 1TB per knooppunt tempdb limiet niet overschrijdt. U kunt ook uw cluster naar een groter formaat dat wordt verdeeld over de tempdb-grootte meer knooppunten verminderen de tempdb op elk knooppunt afzonderlijke schalen. 
+
 ## <a name="monitor-memory"></a>Memory bewaken
 
 Geheugen kan de hoofdoorzaak van trage prestaties en naar geheugenproblemen zijn. Houd rekening met uw datawarehouse schalen als u SQL Server-geheugengebruik uiterste te belasten bereiken tijdens het uitvoeren van query's kunt vinden.

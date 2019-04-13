@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357859"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548777"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -325,3 +325,35 @@ Het knooppunt de schil uitgevoerd met de Node.js-toepassing die u probeert te ko
 
 ### <a name="try"></a>Proberen
 Tijdelijke oplossing voor dit probleem is het verhogen van de waarde van *fs.inotify.max_user_watches* op elk knooppunt in het cluster en start opnieuw op dat knooppunt voor de wijzigingen worden doorgevoerd.
+
+## <a name="new-pods-are-not-starting"></a>Nieuwe schillen zijn niet starten
+
+### <a name="reason"></a>Reden
+
+De PodSpec voor nieuwe pods vanwege wijzigingen in de machtigingen voor RBAC kan niet worden toegepast door de initialisatiefunctie Kubernetes de *cluster-beheerder* rol in het cluster. De nieuwe schil mogelijk ook een ongeldige PodSpec, bijvoorbeeld het serviceaccount dat is gekoppeld aan de schil niet meer bestaat. Om te zien van de pods die zich in een *in behandeling* staat vanwege het gebruik van het probleem initialisatiefunctie de `kubectl get pods` opdracht:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Dit probleem kan invloed hebben op schillen in *alle naamruimten* in het cluster met inbegrip van de naamruimten waarvoor Azure Dev spaties niet is ingeschakeld.
+
+### <a name="try"></a>Proberen
+
+[Bij het bijwerken van de CLI van de opslagruimten Dev naar de nieuwste versie](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) en vervolgens verwijderen de *azds InitializerConfiguration* van de controller Azure Dev spaties:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Zodra u hebt verwijderd de *azds InitializerConfiguration* gebruik van de controller Azure Dev spaties `kubectl delete` te verwijderen van eventuele schillen in een *in behandeling* staat. Nadat alle in behandeling zijnde schillen zijn verwijderd, opnieuw implementeren van uw schillen.
+
+Als nieuwe schillen zijn nog steeds verder een *in behandeling* status na een opnieuw implementeren, gebruik `kubectl delete` te verwijderen van eventuele schillen in een *in behandeling* staat. Nadat alle in behandeling zijnde schillen zijn verwijderd, de controller verwijderen uit het cluster en opnieuw te installeren:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Nadat de controller opnieuw wordt geïnstalleerd, implementeert u uw schillen opnieuw.

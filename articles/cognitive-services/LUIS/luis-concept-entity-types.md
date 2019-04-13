@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895542"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528030"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -24,7 +24,15 @@ Entiteiten extraheren gegevens uit de utterance. Entiteitstypen bieden u voorspe
 
 ## <a name="entity-compared-to-intent"></a>Entiteit in vergelijking met opzet
 
-De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een utterance kan bevatten veel entiteiten of geen helemaal. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. Een app nieuws zoeken kan bijvoorbeeld entiteiten, zoals 'onderwerp', 'bron', 'sleutelwoord' en 'publiceren datum', die belangrijke gegevens om te zoeken naar nieuws. Zijn belangrijke informatie voor vlucht reserveren (relevant zijn voor het doel 'Book flight') in een reservering reis-app, de 'locatie', 'datum', "luchtvaartmaatschappij", "reizen class" en 'tickets'.
+De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een utterance kan bevatten veel entiteiten of geen helemaal. Een clienttoepassing moet mogelijk de entiteit voor de taak uitvoeren of die als richtlijn van verschillende opties om aan de gebruiker te presenteren. 
+
+Een entiteit:
+
+* Hiermee geeft u een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). 
+* Bevat informatie die relevant zijn voor het doel
+
+
+Een app nieuws zoeken kan bijvoorbeeld entiteiten, zoals 'onderwerp', 'bron', 'sleutelwoord' en 'publiceren datum', die belangrijke gegevens om te zoeken naar nieuws. Zijn belangrijke informatie voor vlucht reserveren (relevant zijn voor het doel 'Book flight') in een reservering reis-app, de 'locatie', 'datum', "luchtvaartmaatschappij", "reizen class" en 'tickets'.
 
 Ter vergelijking, vertegenwoordigt de bedoeling de voorspelling van de gehele utterance. 
 
@@ -89,14 +97,14 @@ Nadat de entiteit is uitgepakt, kunt u de entiteitsgegevens weergegeven als éé
 |Machine geleerd|Can Mark|Zelfstudie|Voorbeeld<br>Antwoord|Entiteitstype|Doel|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Samengestelde**](#composite-entity)|Groepering van entiteiten, ongeacht het entiteitstype.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiërarchische**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lijst**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
 |Gemengd||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Vooraf gedefinieerde**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Gewone expressie**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudig**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudige**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
 
-Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen voor elke doel. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endpoint-utterances.md). 
+Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
 
 Pattern.any entiteiten moeten worden gemarkeerd de [patroon](luis-how-to-model-intent-pattern.md) sjabloonvoorbeelden, niet de bedoeling gebruiker voorbeelden. 
 
@@ -121,29 +129,15 @@ Deze entiteit is een goede passen wanneer de gegevens:
 
 ## <a name="hierarchical-entity"></a>Hiërarchische entiteit
 
+**Hiërarchische entiteiten worden uiteindelijk afgeschaft. Gebruik [entiteit rollen](luis-concept-roles.md) entiteit subtypen, in plaats van hiërarchische entiteiten bepalen.**
+
 Een hiërarchische entiteit is een categorie contextueel geleerde eenvoudige entiteiten kinderen genoemd.
-
-Deze entiteit is een goede passen wanneer de gegevens:
-
-* Het zijn entiteiten van het type Simple.
-* Ze zijn aan elkaar gerelateerd in de context van de utterance.
-* Gebruik specifieke word keuze om aan te geven van elke onderliggende entiteit. Voorbeelden van deze woorden zijn: van/naar verlaten/gaan naar, weg van/naar.
-* Kinderen zijn vaak in de dezelfde utterance. 
-* Moet als eenheid informatie worden gegroepeerd en verwerkt door de client-app.
-
-Gebruik niet als:
-
-* U moet een entiteit die overeenkomt met de exacte tekst voor kinderen, ongeacht de context. Gebruik een [entiteit lijst](#list-entity) in plaats daarvan. 
-* U moet een entiteit voor een bovenliggende / onderliggende relatie met andere Entiteitstypen. Gebruik de [samengestelde entiteit](#composite-entity).
 
 ![hiërarchische entiteit](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Zelfstudie](luis-quickstart-intent-and-hier-entity.md)<br>
-[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
 
-[Rollen](luis-concept-roles.md#roles-versus-hierarchical-entities) oplossen van een patroon hetzelfde probleem als hiërarchische entiteiten, maar van toepassing op alle Entiteitstypen zijn. Rollen zijn momenteel alleen beschikbaar in de patronen. Rollen zijn niet beschikbaar in de intents voorbeeld uitingen.  
+[Rollen](luis-concept-roles.md) hetzelfde probleem oplossen als hiërarchische entiteiten, maar van toepassing op alle Entiteitstypen zijn.  
 
 ## <a name="list-entity"></a>Lijstentiteit
 
@@ -262,24 +256,15 @@ De entiteit is een goede aanpassen wanneer:
 
 Beoordeling [limieten](luis-boundaries.md#model-boundaries) om te begrijpen hoe vaak elk type entiteit kunt u toevoegen aan een model.
 
-## <a name="composite-vs-hierarchical-entities"></a>Samengestelde vs hiërarchische entiteiten
-
-Samengestelde entiteiten en hiërarchische entiteiten zowel hebben relaties tussen bovenliggende en onderliggende en machine hebt geleerd. De machine learning kunt LUIS om te begrijpen van de entiteiten op basis van verschillende contexten (rangschikking van woorden). Samengestelde entiteiten zijn flexibel omdat ze verschillende Entiteitstypen als onderliggende items toegestaan. Een hiërarchische entiteit kinderen zijn alleen eenvoudige entiteiten. 
-
-|Type|Doel|Voorbeeld|
-|--|--|--|
-|Hiërarchische|Bovenliggende / onderliggende van eenvoudige entiteiten|Location.Origin=New York<br>Location.Destination=London|
-|Samengestelde|Bovenliggende / onderliggende entiteiten: vooraf gemaakte, lijst met eenvoudige, hiërarchische| getal = 3<br>lijst met = first class<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Als u meer dan het maximum aantal entiteiten 
 
-U moet mogelijk hiërarchische en samengestelde entiteiten gebruiken. Hiërarchische entiteiten weer de relatie tussen entiteiten die dezelfde kenmerken, of lid zijn van een categorie. De onderliggende entiteiten zijn alle leden van de bovenliggende categorie. Bijvoorbeeld, een hiërarchische entiteit met de naam PlaneTicketClass mogelijk de onderliggende entiteiten EconomyClass en bewegingssensoren. De hiërarchie omvat slechts één niveau van diepte.  
+U moet mogelijk samengestelde entiteiten gebruiken in combinatie met de rol van de entiteit.
 
-Samengestelde entiteiten vertegenwoordigen onderdelen van een volledig. Een samengestelde entiteit met de naam PlaneTicketOrder kan bijvoorbeeld onderliggende entiteiten luchtvaartmaatschappij, doel, DepartureCity, vertrekdatum en PlaneTicketClass hebben. U maakt een samengestelde entiteit op basis van bestaande eenvoudige entiteiten, onderliggende items van hiërarchische entiteiten of vooraf gemaakte entiteiten.  
+Samengestelde entiteiten vertegenwoordigen onderdelen van een volledig. Een samengestelde entiteit met de naam PlaneTicketOrder kan bijvoorbeeld onderliggende entiteiten luchtvaartmaatschappij, doel, DepartureCity, vertrekdatum en PlaneTicketClass hebben.
 
 LUIS biedt ook het type van de lijst met entiteit die niet hebt geleerd van een machine maar kan uw LUIS-app om op te geven van een vaste lijst met waarden. Zie [LUIS grenzen](luis-boundaries.md) verwijzing naar de grenzen van het type van de entiteit lijst bekijken. 
 
-Als u hebt besloten hiërarchische, composite, en lijst met entiteiten en moet het nog steeds meer dan de limiet, contact op met ondersteuning. Om dit te doen, verzamelt gedetailleerde informatie over uw systeem, gaat u naar de [LUIS](luis-reference-regions.md#luis-website) website, en selecteer vervolgens **ondersteuning**. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
+Als u nog steeds meer dan de limiet hebt en als deze entiteiten hebt gezien, contact op met ondersteuning. Om dit te doen, verzamelt gedetailleerde informatie over uw systeem, gaat u naar de [LUIS](luis-reference-regions.md#luis-website) website, en selecteer vervolgens **ondersteuning**. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

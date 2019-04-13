@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: adab50b7325be96830ee937153d110754cc0b552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714658"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549794"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET-oplossingen migreren voor HDInsight op Linux gebaseerde HDInsight op basis van Windows
 
@@ -22,7 +22,7 @@ HDInsight op basis van Linux-clusters gebruiken [Mono (https://mono-project.com)
 
 ## <a name="mono-compatibility-with-net"></a>Mono-compatibiliteit met .NET
 
-Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono geleverd bij HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md). Als u wilt installeren op een specifieke versie van Mono, Zie de [Mono installeren of bijwerken](hdinsight-hadoop-install-mono.md) document.
+Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono geleverd bij HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md).
 
 Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono-compatibiliteit (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) document.
 

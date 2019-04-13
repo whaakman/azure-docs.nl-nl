@@ -1,10 +1,10 @@
 ---
 title: Een PHP-app maken in Linux - Azure App Service | Microsoft Docs
-description: Implementeer in enkele minuten uw eerste PHP-web-app (Hello World) in een App Service in Linux.
+description: Implementeer in enkele minuten uw eerste PHP-web-app (Hello World) in een App Service on Linux.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af413528c279c5fcab472347d247b17dd5061167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628405"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546808"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App Service op Linux
 
 > [!NOTE]
-> In dit artikel gaat u een app implementeren in App Service in Linux. Zie [Een PHP-app maken in Azure](../app-service-web-get-started-php.md) om een app te implementeren in App Service op _Windows_.
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een PHP-app maken in Azure](../app-service-web-get-started-php.md) om een app te implementeren in App Service op _Windows_.
 >
 
 [App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een PHP-app in Azure App Service on Linux implementeert. U maakt de app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, en gebruikt Git om de code van PHP in de App Service-app te implementeren.
@@ -169,4 +169,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [PHP met MySQL](tutorial-php-mysql-app.md)
+> [Zelfstudie: PHP-app met MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [PHP-app configureren](configure-language-php.md)

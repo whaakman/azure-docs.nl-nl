@@ -4,7 +4,7 @@ description: In deze quickstart implementeert u in een paar minuten uw eerste Ja
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 12/10/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999114"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544735"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Quickstart: Een Java-app maken in App Service in Linux
 
@@ -99,17 +99,15 @@ Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassi
 
 **Gefeliciteerd!** U hebt uw eerste Java-app geïmplementeerd in App Service on Linux.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u Maven gebruikt om een ​​Java-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-app geïmplementeerd naar App Service in Linux. Raadpleeg de volgende zelfstudies en artikelen met procedures voor meer informatie over het hosten van Java-toepassingen in App Service in Linux.
+> [!div class="nextstepaction"]
+> [Zelfstudie: Java Enterprise-app met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
-- [Zelfstudie: Een Java Enterprise-app implementeren met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Een Tomcat-gegevensbron configureren](app-service-linux-java.md#tomcat)
-- [CI/CD met Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
-- [Hulpprogramma's voor het bewaken van toepassingsprestaties instellen](how-to-java-apm-monitoring.md)
-- [Java developer's guide for App Service op Linux](app-service-linux-java.md)
+> [!div class="nextstepaction"]
+> [Java-app configureren](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [CI/CD met Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756006"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545616"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
@@ -27,6 +27,8 @@ U moet de verificatie van Azure AD-service-principal gebruiken om verbinding mak
 * Media Services-resource-URI
 * Resource-URI voor de REST-mediaservices
 * Waarden van Azure AD-toepassing: de client-ID en clientgeheim
+
+Zie voor meer informatie, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md).
 
 In dit artikel leest u hoe de Azure CLI gebruiken voor een Azure AD-toepassing en service-principal maken en ophalen van de waarden die nodig zijn voor toegang tot resources van Azure Media Services.
 

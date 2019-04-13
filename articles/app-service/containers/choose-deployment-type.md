@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 079bfae19a4960ef5ab95c9d48d5603423407a9e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772871"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549317"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Aangepaste installatiekopie, meerdere containers of ingebouwde platform-installatiekopie?
 
 [App Service on Linux](app-service-linux-intro.md) biedt drie verschillende paden naar de mogelijkheid uw toepassing op Internet gepubliceerd:
 
 - **Implementatie van de aangepaste installatiekopie**: "Containeropslagplaats' uw app in een Docker-installatiekopie die al uw bestanden en afhankelijkheden in een kant-en-klaar-pakket bevat.
-- **Implementatie van meerdere containers**: "Containeropslagplaats' uw app in meerdere containers met behulp van een Docker-Compose of een Kubernetes-configuratiebestand. Zie voor meer informatie, [meerdere containers app](#multi-container-apps-supportability).
+- **Implementatie van meerdere containers**: "Containeropslagplaats' uw app in meerdere containers met behulp van een Docker-Compose of een Kubernetes-configuratiebestand.
 - **App-implementatie met een ingebouwde platforminstallatiekopie**: Onze ingebouwde platforminstallatiekopieën bevatten algemene web-app runtimes en afhankelijkheden, zoals Node en PHP. Gebruik een van de [methoden voor het implementeren van Azure App Service](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) uw app implementeren in uw WebApp-opslag, en vervolgens een ingebouwde platforminstallatiekopie uit te voeren.
 
 ## <a name="which-method-is-right-for-your-app"></a>Welke methode is geschikt voor uw app? 
@@ -43,38 +43,3 @@ De primaire factoren zijn:
 - **Schijf lezen/schrijven-vereisten**: Alle web-apps zijn een opslagvolume toegewezen voor webinhoud. Dit volume, ondersteund door Azure Storage, is gekoppeld aan `/home` in van de app-bestandssysteem. In tegenstelling tot de bestanden in de container-bestandssysteem, bestanden in de inhoud volume toegankelijk zijn voor alle schalingsinstanties van een app en wijzigingen blijven behouden in de app opnieuw wordt opgestart. Echter de latentie van de schijf van het volume van de inhoud hoger is en meer variabele dan de latentie van de container lokaal bestandssysteem en toegang kan worden beïnvloed door het platform upgrades, niet-geplande uitvaltijd en problemen met de netwerkverbinding. Apps waarvoor zware alleen-lezen toegang tot de bestanden met inhoud kunnen van de implementatie van de aangepaste installatiekopie, die bestanden worden geplaatst in het bestandssysteem van de afbeelding in plaats van op het volume van de inhoud profiteren.
 - **Bouw Resourcegebruik**: Wanneer een app wordt geïmplementeerd vanuit de bron, de implementatiescripts uitgevoerd door Kudu gebruiken dezelfde App Service-Plan reken- en bronnen als de app die wordt uitgevoerd. Meer resources of tijd dan het gewenste mag worden gebruikt voor grote app-implementaties. In het bijzonder genereren veel implementatiewerkstromen zware schijfactiviteit op het volume voor inhoud op app, die niet is geoptimaliseerd voor deze activiteit. Een aangepaste installatiekopie bevat alle van de bestanden en afhankelijkheden van uw app in één pakket hoeft geen extra bestandsoverdrachten of acties voor implementatie naar Azure.
 - **Voor snelle iteratie moet**: Een app dockerizing vereist extra build-stappen. Voor de wijzigingen worden doorgevoerd, moet u de nieuwe installatiekopie pushen naar een opslagplaats met elke update. Deze updates worden vervolgens opgehaald voor de Azure-omgeving. Implementeren vanaf de bron kan als een van de ingebouwde containers voldoet aan de behoeften van uw app, een snellere ontwikkelingswerkstroom bieden.
-
-## <a name="multi-container-apps-supportability"></a>Ondersteuning voor meerdere container-apps
-
-### <a name="supported-docker-compose-configuration-options"></a>Ondersteunde configuratieopties van Docker Compose
-- command
-- entrypoint
-- environment
-- image
-- ports
-- restart
-- services
-- volumes
-
-### <a name="unsupported-docker-compose-configuration-options"></a>Niet-ondersteunde configuratieopties van Docker Compose
-- build (niet toegestaan)
-- depends_on (genegeerd)
-- networks (genegeerd)
-- secrets (genegeerd)
-- andere poorten dan 80 en 8080 (genegeerd)
-
-> [!NOTE]
-> Andere opties die niet expliciet worden genoemd, worden ook genegeerd in de openbare preview.
-
-### <a name="supported-kubernetes-configuration-options"></a>Ondersteunde configuratieopties voor Kubernetes
-- argumenten
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
->Andere Kubernetes-opties die niet expliciet worden genoemd, worden niet ondersteund in de openbare preview.
->

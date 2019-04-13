@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105162"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545413"
 ---
-> [!NOTE]
-> Elke App Service-omgeving heeft een virtuele IP (VIP), die kunnen worden gebruikt om contact op met de App Service-omgeving.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
+# <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken
 
-Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren:
+Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet).
+
+> [!NOTE]
+> Elke App Service Environment is een virtueel IP (VIP), die kunnen worden gebruikt om contact op met de App Service-omgeving.
+
+Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren:
 
 - Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
 - Met de VIP-adres op een intern IP-adres, vaak aangeduid als een ILB as-omgeving omdat het interne eindpunt een interne Load Balancer (ILB).
 
 Dit artikel laat u het maken van een externe as-omgeving. Zie voor een overzicht van de as-omgeving, [een inleiding tot App Service Environment][Intro]. Zie voor meer informatie over het maken van een ILB as-omgeving [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>Voordat u uw ASE maken ##
+## <a name="before-you-create-your-ase"></a>Voordat u uw ASE maken
 
 Nadat u uw as-omgeving hebt gemaakt, kunt u het volgende niet wijzigen:
 
@@ -48,7 +50,7 @@ Nadat u uw as-omgeving hebt gemaakt, kunt u het volgende niet wijzigen:
 > Als u een VNet kiest en geef een subnet, zorgt u ervoor dat deze groot genoeg is voor toekomstige groei en schaalbehoeften. We raden een grootte van `/24` met 256-adressen.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Drie manieren om te maken van een as-omgeving ##
+## <a name="three-ways-to-create-an-ase"></a>Drie manieren om te maken van een as-omgeving
 
 Er zijn drie manieren om te maken van een as-omgeving:
 
@@ -58,7 +60,7 @@ Er zijn drie manieren om te maken van een as-omgeving:
 
 Een externe as-omgeving heeft een openbaar VIP-adres, wat betekent dat alle HTTP/HTTPS-verkeer naar de apps in de as-omgeving komt binnen via internet toegankelijk is via het IP-adres. Een met een ILB as-omgeving heeft een IP-adres uit het subnet dat wordt gebruikt door de as-omgeving. De apps die worden gehost in een ILB as-omgeving worden niet rechtstreeks blootgesteld aan internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Samen een as-omgeving en een App Service-plan maken ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Samen een as-omgeving en een App Service-plan maken
 
 De App Service-plan is een container van apps. Wanneer u een app in App Service maakt, kunt u kiezen of maken van een App Service-plan. App Service-omgevingen Houd App Service-plannen en App Service-plannen Houd apps.
 
@@ -142,7 +144,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 1. Selecteer **maken** te maken van de as-omgeving. Dit proces maakt ook het App Service-plan en de app. De as-omgeving, App Service-plan en de app worden alle onder hetzelfde abonnement en dezelfde resourcegroep bevinden. Als de as-omgeving een afzonderlijke resourcegroep moet of als u een ILB as-omgeving nodig hebt, volgt u de stappen voor het maken van een as-omgeving op zichzelf.
 
 
-## <a name="create-an-ase-by-itself"></a>Zelf een as-omgeving maken ##
+## <a name="create-an-ase-by-itself"></a>Zelf een as-omgeving maken
 
 Als u een zelfstandige as-omgeving maakt, heeft niets in deze. Een lege as-omgeving worden nog steeds een maandelijkse kosten in rekening gebracht voor de infrastructuur. Volg deze stappen een ASE met een ILB maken of te maken van een as-omgeving in een eigen resourcegroep bevinden. Nadat u uw as-omgeving maakt, kunt u apps in deze maken met behulp van het normale proces. Selecteer de nieuwe as-omgeving als de locatie.
 
@@ -170,7 +172,7 @@ Als u een zelfstandige as-omgeving maakt, heeft niets in deze. Een lege as-omgev
     
     * Als u een bestaand VNet selecteert, wordt een nieuw subnet wordt gemaakt wanneer de as-omgeving is gemaakt. *U kunt een vooraf gemaakte subnet niet gebruiken in de portal. Als u een Resource Manager-sjabloon gebruikt, kunt u een as-omgeving maken met een bestaand subnet.* Zie voor informatie over het maken van een as-omgeving van een sjabloon [maken van een App Service Environment met een sjabloon][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>App Service-omgeving v1 ##
+## <a name="app-service-environment-v1"></a>App Service-omgeving v1
 
 U kunt nog steeds exemplaren van de eerste versie van App Service-omgeving (ASEv1) maken. U start dit proces, zoek in Marketplace naar **App Service Environment v1**. U maakt de as-omgeving op dezelfde manier die u de zelfstandige as-omgeving maakt. Wanneer deze voltooid, wordt uw ASEv1 heeft twee front-ends en twee werkrollen. Met ASEv1, moet u de front-ends en werkrollen beheren. Ze worden niet automatisch toegevoegd bij het maken van uw App Service-plannen. De front-ends fungeren als de HTTP/HTTPS-eindpunten en verkeer verzenden naar de werknemers. De werknemers zijn de functies die uw apps hosten. Nadat u uw as-omgeving hebt gemaakt, kunt u de hoeveelheid van front-ends en werkrollen aanpassen. 
 

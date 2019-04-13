@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417502"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549485"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
@@ -121,6 +121,9 @@ Soms wilt u geen back-up van alles in uw app. Enkele voorbeelden:
 * U wilt niet dat back-up van de logboekbestanden.
 
 Gedeeltelijke back-ups kunnen u precies welke u back wilt-up van bestanden.
+
+> [!NOTE]
+> Afzonderlijke databases in de back-up mag maximaal van 4GB, maar de totale maximale grootte van de back-up is 10GB
 
 ### <a name="exclude-files-from-your-backup"></a>Bestanden uitsluiten van de back-up
 Stel dat u hebt een app met logboekbestanden en statische afbeeldingen die één keer back-up zijn en niet meer wijzigen. In dergelijke gevallen kunt u de mappen en bestanden uitsluiten van wordt opgeslagen in uw toekomstige back-ups. Als u wilt uitsluiten van bestanden en mappen van uw back-ups, maakt u een `_backup.filter` -bestand in de `D:\home\site\wwwroot` map van uw app. Geef de lijst met bestanden en mappen die u wilt uitsluiten in dit bestand. 

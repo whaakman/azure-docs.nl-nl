@@ -9,12 +9,12 @@ ms.date: 03/27/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: b0fb6ea527c46ab6a9de95ba5f5ae39b8a5d50b1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576979"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549964"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snelstartgids: Aangepaste gebeurtenissen routeren naar het webeindpunt met behulp van Azure Portal en Event Grid
 
@@ -79,7 +79,7 @@ U abonneert u op een Event Grid-onderwerp om Event Grid te laten weten welke geb
 
    ![Gebeurtenisabonnement toevoegen](./media/custom-event-quickstart-portal/new-event-subscription.png)
 2. Op de **gebeurtenisabonnement maken** pagina, als volgt te werk:
-    1. Gebeurtenis een **naam** voor het gebeurtenisabonnement.
+    1. Voer een **naam** voor het gebeurtenisabonnement.
     3. Selecteer **Webhook** voor de **eindpunttype**. 
     4. Kies **selecteert u een eindpunt**. 
 

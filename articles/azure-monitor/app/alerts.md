@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491539"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548701"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -147,7 +147,7 @@ In deze sectie doorlopen we over het instellen van een waarschuwing voor een que
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Hoe u afmelden voor klassieke waarschuwing e-mailmeldingen
 
-In deze sectie is van toepassing op **beschikbaarheid van klassieke waarschuwingen**, **Application Insights metrische waarschuwingen**, en zo de **klassieke waarschuwingen voor afwijkingen**.
+In deze sectie is van toepassing op **beschikbaarheid van klassieke waarschuwingen**, **klassieke metrische Application Insights-waarschuwingen**, en zo de **klassieke waarschuwingen voor afwijkingen**.
 
 U ontvangt e-mailmeldingen voor deze klassieke waarschuwingen als een van de volgende van toepassing is:
 
@@ -183,7 +183,7 @@ Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meld
 ## <a name="see-also"></a>Zie ook
 * [Webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)
-* [Proactieve diagnoses](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Proactieve diagnostische gegevens](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

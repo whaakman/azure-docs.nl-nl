@@ -1,7 +1,7 @@
 ---
 title: Een app met meerdere containers maken met Docker Compose - Azure App Service
 description: Uw eerste app met meerdere containers binnen enkele minuten implementeren in Azure Web-App for Containers
-keywords: azure-appservice, web-app, linux, docker, compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, kubernetes, wordpress, azure db voor mysql, productiedatabase met containers
+keywords: Azure appservice, web-app, linux, docker compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, wordpress, azure db voor mysql, productiedatabase met containers
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316571"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546229"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Een app met meerdere containers (preview) maken met behulp van een configuratie van Docker Compose
 
-Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Voor Kubernetes en een volledige end-to-end-oplossing met behulp van Azure DB voor MySQL, volgt u de [meerdere containers zelfstudie](tutorial-multi-container-app.md).
+Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose.
 
 U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of hoger). 
 
@@ -138,7 +138,10 @@ Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`).
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een WordPress-app met meerdere containers maken in Web App for Containers](tutorial-multi-container-app.md)
+> [Zelfstudie: Meerdere containers WordPress-app](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [Een aangepaste container configureren](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

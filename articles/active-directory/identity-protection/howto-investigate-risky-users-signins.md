@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517589"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547053"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedure: Riskante gebruikers en aanmeldingen onderzoeken 
 
@@ -151,7 +151,7 @@ De **Status** filter kunt u selecteren:
 
 ### <a name="download-risky-users-data"></a>Riskante gebruikers gegevens downloaden
 
-Als u werken met deze buiten de Azure-portal wilt, kunt u de gegevens riskante gebruikers downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 5K-records. 
+Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante gebruikers downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
 
 ![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ Mogelijke waarden zijn:
 
 ### <a name="download-risky-sign-ins-data"></a>Riskante aanmeldingen gegevens downloaden
 
-Als u werken met deze buiten de Azure-portal wilt, kunt u de gegevens riskante aanmeldingen downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 5K-records. 
+Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante aanmeldingen downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
 
 ![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/15.png)
 

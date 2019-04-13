@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492291"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528252"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
 
@@ -28,8 +28,8 @@ De stappen voor het maken van een virtueel netwerk-peering zijn verschillend, af
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
 |[Beide in Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
-|[Eén in Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
-|[Eén in Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
+|[Een Resource Manager, één klassiek](create-peering-different-deployment-models.md) |Dezelfde|
+|[Een Resource Manager, één klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
 
 Peering op virtueel netwerk kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Als u verbinding maken met virtuele netwerken die zijn beide gemaakt via het klassieke implementatiemodel wilt, kunt u een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om de virtuele netwerken te verbinden.
 
@@ -61,7 +61,7 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
 7. Selecteer **Inzender voor netwerken** in de **rol** vak.
 8. In de **Selecteer** Selecteer *UserB*, of typ de e-mailadres van gebruiker b om te zoeken naar deze.
 9. Selecteer **Opslaan**.
-10. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Meld u af bij de portal aan als UserA en meld u aan als UserB.
 12. Volg de stappen 2-3, invoeren of selecteren van de volgende waarden in stap 3:
 
@@ -74,7 +74,7 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
     - **Locatie**: *VS-Oost*
 
 13. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetB*. Selecteer **myVnetB** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
-14. Onder **myVnetB**, selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Onder **myVnetB**, selecteer **eigenschappen** uit de verticale lijst met opties aan de linkerkant. Kopieer de **RESOURCE-ID**, die wordt gebruikt in een latere stap. De resource-ID is vergelijkbaar met het volgende voorbeeld: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Selecteer **toegangsbeheer (IAM)** onder **myVnetB**, en voer vervolgens stap 5-10 voor myVnetB, voeren **UserA** in stap 8.
 16. Meld u af bij de portal aan als UserB en aanmelden als gebruiker a.
 17. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetA*. Selecteer **myVnetA** wanneer deze wordt weergegeven in de lijst met zoekresultaten.
@@ -111,7 +111,7 @@ De volgende scripts:
 In plaats van de CLI en de bijbehorende afhankelijkheden installeren, kunt u de Azure Cloud Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Selecteer de **uitproberen** knop in het script dat volgt, die een Cloud-Shell die u bij uw Azure-account met aanmelden kunt aanroept.
 
 1. Open een CLI-sessie en meld u aan bij Azure als het gebruik van gebruiker a de `azure login` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
-2. Kopieer het volgende script naar een teksteditor op uw PC, vervangt `<SubscriptionA-Id>` met de ID van SubscriptionA, moet u vervolgens het gewijzigde script kopiëren, plak deze in uw CLI-sessie en druk op `Enter`. Als u uw abonnements-Id niet weet, voert u de opdracht 'az account show'. De waarde voor **id** is in de uitvoer van uw abonnements-id.
+2. Kopieer het volgende script naar een teksteditor op uw PC, vervangt `<SubscriptionA-Id>` met de ID van SubscriptionA, moet u vervolgens het gewijzigde script kopiëren, plak deze in uw CLI-sessie en druk op `Enter`. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** is in de uitvoer van uw abonnements-id.
 
     ```azurecli-interactive
     # Create a resource group.

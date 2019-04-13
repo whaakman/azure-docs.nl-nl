@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663023"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543742"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Zelfstudie: Een Azure Resource Manager-sjabloon gebruiken om te configureren met het IoT Hub-berichtroutering
 
@@ -54,7 +54,7 @@ De meeste van deze parameters hebben de standaardwaarden. Die eindigt op **_On**
 
 **Locatie**: Dit veld is de Azure-regio waarnaar u, zoals 'westus implementeert'.
 
-**consumer_group**: Dit veld is de consumergroep instellen voor berichten die afkomstig is van het eindpunt van de routering. Het wordt gebruikt voor het filteren van resultaten in Azure Steam Analytics. Er is bijvoorbeeld de hele stroom zo krijgt u alles wat of als u gegevens die via met consumer_group ingesteld op **Contoso**, u kunt instellen van een Azure Stream Analytics stream (en de Power BI-rapport) om alleen die items weer te geven. Dit veld wordt gebruikt in deel 2 van deze zelfstudie.
+**consumer_group**: Dit veld is de consumergroep instellen voor berichten die afkomstig is van het eindpunt van de routering. Het wordt gebruikt voor het filteren van resultaten in Azure Stream Analytics. Er is bijvoorbeeld de hele stroom zo krijgt u alles wat of als u gegevens die via met consumer_group ingesteld op **Contoso**, u kunt instellen van een Azure Stream Analytics stream (en de Power BI-rapport) om alleen die items weer te geven. Dit veld wordt gebruikt in deel 2 van deze zelfstudie.
 
 **sku_name**: Dit veld is de schaalbaarheid voor de IoT-Hub. Deze waarde moet S1 of hoger; een gratis laag werkt niet voor deze zelfstudie, omdat dit meerdere eindpunten niet is toegestaan.
 

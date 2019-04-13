@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106896"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548743"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -44,14 +44,15 @@ Bekijk de volgende punten voordat u de gegevens naar de schijven kopieert:
 - Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md).
 - Als de gegevens die door Data Box Disk worden geüpload gelijktijdig door andere toepassingen buiten Data Box Disk worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
 
-Als u beheerde schijven in de volgorde opgegeven, controleert u de volgende aanvullende factoren:
+   > [!IMPORTANT]
+   >  Als u beheerde schijven als een van de opslag bij het maken opgegeven, zijn de volgende sectie is van toepassing.
 
 - U kunt slechts één beheerde schijf met een specifieke naam hebben in een resourcegroep, tussen de precreated mappen en alle de Data Box-schijf. Dit betekent dat de VHD's geüpload naar de precreated mappen moeten een unieke naam hebben. Zorg ervoor dat de opgegeven naam komt niet overeen met een al bestaande beheerde schijf in een resourcegroep. Als u VHD's dezelfde namen hebben, wordt slechts één VHD geconverteerd naar beheerde schijven met die naam. De andere VHD's worden naar het tijdelijke opslagaccount geüpload als pagina-blobs.
 - Kopieer de VHD's altijd op een van de precreated mappen. Als u de VHD's buiten deze mappen of in een map die u hebt gemaakt kopieert, wordt de VHD's worden geüpload naar Azure Storage-account als pagina-blobs en schijven niet worden beheerd.
 - De vaste VHD's kunnen worden geüpload voor het maken van beheerde schijven. Dynamische VHD's, differentiërende VHD's of VHDX-bestanden worden niet ondersteund.
 
 
-Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer naar de Data Box-schijf te kopiëren.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer naar de Data Box-schijf te kopiëren.
 
 1. Geef de inhoud van het ontgrendelde station weer. De lijst van de precreated mappen en submappen in het station is afhankelijk van de opties geselecteerd bij het plaatsen van de Data Box-schijforder.
 
@@ -91,12 +92,12 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     |Doel       | Hiermee geeft u het pad naar de doelmap op.        |
     |/E                  | Hiermee kopieert u submappen, met inbegrip van lege mappen. |
     |/MT[:N]             | Hiermee maakt u kopieën met meerdere (N) threads, waarbij N een geheel getal tussen 1 en 128 is. <br>De standaardwaarde voor N is 8.        |
-    |/R: <N>             | Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op. De standaardwaarde van N is 1.000.000 (één miljoen nieuwe pogingen).        |
-    |/W: <N>             | Hiermee geeft u de wachttijd tussen nieuwe pogingen op in seconden. De standaardwaarde van N is 30 (wachttijd 30 seconden).        |
+    |/R: \<N>             | Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op. De standaardwaarde van N is 1.000.000 (één miljoen nieuwe pogingen).        |
+    |/W: \<N>             | Hiermee geeft u de wachttijd tussen nieuwe pogingen op in seconden. De standaardwaarde van N is 30 (wachttijd 30 seconden).        |
     |/NFL                | Hiermee geeft u op dat bestandsnamen niet moeten worden vastgelegd.        |
     |/NDL                | Hiermee geeft u op dat mapnamen niet moeten worden vastgelegd.        |
     |/FFT                | Hiermee wordt uitgegaan van FAT-bestandstijden (precisie van twee seconden).        |
-    |/Log:<Log File>     | Hiermee schrijft u de statusuitvoer naar het logboekbestand (en overschrijft u het bestaande logboekbestand).         |
+    |/ Log:\<logbestand >     | Hiermee schrijft u de statusuitvoer naar het logboekbestand (en overschrijft u het bestaande logboekbestand).         |
 
     Er kunnen gelijktijdig meerdere schijven worden gebruikt terwijl er op elke schijf meerdere taken worden uitgevoerd.
 

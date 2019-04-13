@@ -11,85 +11,123 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 04/04/2019
 ms.author: celested
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9c6f197f98eda5a71cefd3f4a0c71709a4f51b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203128"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547841"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
-In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt voor het maken van federatieve eenmalige aanmelding (SSO) met uw SaaS-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.
 
-In dit artikel is alleen relevant voor apps die zijn geconfigureerd voor het gebruik van Azure AD-eenmalige aanmelding via de SAML-federation, zoals wordt weergegeven in het volgende voorbeeld:
+In dit artikel behandelen we veelvoorkomende vragen en informatie met betrekking tot certificaten dat Azure Active Directory (Azure AD) wordt gemaakt voor het maken van federatieve eenmalige aanmelding (SSO) met de software als een service (SaaS)-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.
 
-![Azure AD voor eenmalige aanmelding](./media/manage-certificates-for-federated-single-sign-on/saml_sso.PNG)
+In dit artikel is alleen relevant voor apps die zijn geconfigureerd voor het gebruik van Azure AD-eenmalige aanmelding via [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) federation (SAML).
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatisch gegenereerde certificaat voor de galerie en niet toepassingen
-Wanneer u een nieuwe toepassing uit de galerie toevoegen en configureren van een aanmelding op basis van SAML, genereert Azure AD een certificaat voor de toepassing die is geldig gedurende drie jaar. U kunt dit certificaat uit downloaden de **SAML-handtekeningcertificaat** sectie. In deze sectie mogelijk voor galerietoepassingen, een optie voor het downloaden van het certificaat of de metagegevens, afhankelijk van de vereiste van de toepassing worden weergegeven.
 
-![Azure AD eenmalige aanmelding](./media/manage-certificates-for-federated-single-sign-on/saml_certificate_download.png)
+Wanneer u een nieuwe toepassing uit de galerie toevoegen en configureren van een aanmelding op basis van SAML (hiervoor **eenmalige aanmelding** > **SAML** overzichtspagina voor de toepassing), genereert Azure AD een certificaat voor de toepassing die is geldig gedurende drie jaar. Voor het downloaden van het actieve certificaat als een beveiligingscertificaat (**.cer**)-bestand, Ga terug naar die pagina (**SAML gebaseerde aanmelding**) en selecteer een downloadkoppeling in de **SAML-handtekeningcertificaat** kop. U kunt kiezen tussen het certificaat met onbewerkte gegevens (binaire) of het certificaat van Base64 (base 64 gecodeerde tekenreeks). Voor galerietoepassingen, weergeven in deze sectie mogelijk ook een koppeling naar het certificaat downloaden als federatiemetagegevens XML (een **.xml** bestand), afhankelijk van de vereiste van de toepassing.
+
+![SAML active ondertekenen certificaat Downloadinstellingen](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
+
+U kunt ook een actieve of inactieve-certificaat downloaden door te selecteren de **SAML-handtekeningcertificaat** van de kop **bewerken** pictogram (een potlood), waarin de **SAML-handtekeningcertificaat** pagina. Selecteer het weglatingsteken (**...** ) naast het certificaat dat u wilt downloaden, en kies vervolgens welke certificaatindeling dat u wilt. U hebt de extra optie voor het downloaden van het certificaat in de indeling van mailcertificaten met verbeterde beveiliging van e-mail (PEM). Deze indeling is identiek aan de met Base64, maar met een **.pem** bestandsnaamextensie wordt niet herkend in Windows als een certificaatindeling.
+
+![SAML-handtekeningcertificaten certificaat Downloadinstellingen (actieve en inactieve)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
 ## <a name="customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate"></a>De vervaldatum voor het certificaat van uw federatieve aanpassen en meenemen naar een nieuw certificaat
-Certificaten zijn standaard ingesteld op verlopen na drie jaar. U kunt een andere vervaldatum voor uw certificaat door de volgende stappen te voltooien.
-De schermafbeeldingen Salesforce om het voorbeeld te gebruiken, maar deze stappen kunnen toepassen op alle federatieve SaaS-Apps.
 
-1. In de [Azure-portal](https://aad.portal.azure.com), klikt u op **bedrijfstoepassing** in het linkerdeelvenster en klik vervolgens op **nieuwe toepassing** op de **overzicht** pagina:
+Standaard configureert Azure een certificaat om te verlopen na drie jaar wanneer het automatisch tijdens de eenmalige SAML-aanmelding configuratie gemaakt wordt. Omdat u kunt de datum van een certificaat niet wijzigen nadat u deze opslaat, wordt u moet hebben:
 
-   ![Open de wizard Eenmalige aanmelding configureren](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
+1. Maak een nieuw certificaat met de gewenste datum.
+2. Sla het nieuwe certificaat.
+3. Download het nieuwe certificaat in de juiste indeling.
+4. Upload het nieuwe certificaat naar de toepassing.
+5. Het nieuwe certificaat actief zijn in de Azure Active Directory-portal maken.
 
-2. Zoeken naar de toepassing in de galerie en selecteer vervolgens de toepassing die u wilt toevoegen. Als u de vereiste toepassing niet vinden, de toepassing toevoegen met behulp van de **niet in de galerij toepassing** optie. Deze functie is alleen beschikbaar in de Azure AD Premium (P1 en P2)-SKU.
+De volgende twee secties kunnen u deze stappen uitvoert.
 
-    ![Azure AD eenmalige aanmelding](./media/manage-certificates-for-federated-single-sign-on/add_gallery_application.png)
+### <a name="create-a-new-certificate"></a>Een nieuw certificaat maken
 
-3. Klik op de **eenmalige aanmelding** koppeling in het linkerdeelvenster en wijzigt **modus voor één aanmelding** naar **SAML gebaseerde aanmelding**. Deze stap genereert een driejarig-certificaat voor uw toepassing.
+Eerst maken en opslaan van nieuw certificaat met een andere vervaldatum:
 
-4. Als u wilt een nieuw certificaat maken, klikt u op de **nieuw certificaat maken** herstelkoppeling in de **SAML-handtekeningcertificaat** sectie.
+1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/). De **Azure Active Directory-beheercentrum** pagina wordt weergegeven.
 
-    ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+2. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. Er wordt een lijst weergegeven van de enterprise-toepassingen in uw account.
 
-5. De **Maak een nieuw certificaat** koppeling opent u het besturingselement van de agenda. U kunt een datum en tijd van maximaal drie jaar na de huidige datum. De geselecteerde datum en tijd is de nieuwe datum en tijd van het nieuwe certificaat. Klik op **Opslaan**.
+3. Selecteer de betreffende toepassing. Een overzichtspagina voor de toepassing wordt weergegeven.
 
-    ![Download en upload het certificaat](./media/manage-certificates-for-federated-single-sign-on/certifcate_date_selection.PNG)
+4. Selecteer in het linkerdeelvenster van de overzichtspagina van de toepassing, **eenmalige aanmelding**.
 
-6. Het nieuwe certificaat is nu beschikbaar voor downloaden. Klik op de **certificaat** koppeling om deze te downloaden. Uw certificaat is op dit moment niet actief. Wanneer u meenemen naar dit certificaat wilt, selecteert u de **nieuw certificaat activeren** selectievakje in en klikt u op **opslaan**. Vanaf dat moment begint Azure AD met behulp van het nieuwe certificaat voor ondertekening van het antwoord.
+5. Als de **selecteert u een methode voor eenmalige aanmelding** pagina wordt weergegeven, selecteert u **SAML**.
 
-7.  Voor meer informatie over het uploaden van het certificaat naar uw bepaalde SaaS-toepassing, klikt u op de **zelfstudie over configuratie weergave** koppeling.
+6. In de **instellen van eenmalige aanmelding met SAML - Preview** pagina, zoek de **SAML-handtekeningcertificaat** kop en selecteer de **bewerken** pictogram (een potlood). De **SAML-handtekeningcertificaat** pagina wordt weergegeven, wordt de status (**Active** of **inactief**), de vervaldatum en vingerafdruk (een hash-tekenreeks) van elk certificaat.
 
-## <a name="certificate-expiration-notification-email"></a>E-mail met melding voor certificaat verlopen
+7. Selecteer **nieuw certificaat**. Een nieuwe rij wordt weergegeven onder de lijst met certificaten, waarbij de vervaldatum standaard ingesteld op exact drie jaar na de huidige datum. (Uw wijzigingen nog niet hebt opgeslagen, zodat u de vervaldatum nog steeds kunt wijzigen.)
 
-Azure AD stuurt een e-mailbericht melding 60, 30 en 7 dagen voordat het SAML-certificaat is verlopen. Om op te geven het e-mailadres voor de locatie waar u de melding wordt verzonden:
+8. In het nieuwe certificaatrij, Beweeg de muisaanwijzer over de datumkolom verlopen en selecteer de **Selecteer datum** pictogram (een kalender). Een kalenderbesturingselement weergegeven met de dagen van een maand van de huidige vervaldatum van de nieuwe rij.
 
-- Op de Azure Active Directory-toepassing eenmalige aanmelding pagina, gaat u naar het veld e-mailmelding.
-- Voer het e-mailadres dat de e-mailmelding verlopen certificaat moet ontvangen. Dit veld gebruikt standaard de e-mailadres van de beheerder die de toepassing toegevoegd.
+9. Gebruik het besturingselement agenda een nieuwe datum in te stellen. U kunt een waarde zijn tussen de huidige datum en drie jaar na de huidige datum instellen.
 
-U ontvangt de e-mailmelding van aadnotification@microsoft.com. Zorg dat u dit e-mailbericht aan uw contactpersonen toevoegen om te voorkomen dat het e-mailbericht naar uw locatie spam. 
+10. Selecteer **Opslaan**. Het nieuwe certificaat wordt nu weergegeven met de status van **inactief**, de vervaldatum datum die u hebt gekozen, en een vingerafdruk.
+
+11. Selecteer de **X** om terug te keren naar de **instellen van eenmalige aanmelding met SAML - Preview** pagina.
+
+### <a name="upload-and-activate-a-certificate"></a>Uploaden en activeren van een certificaat
+
+Vervolgens het nieuwe certificaat in de juiste indeling downloaden, uploaden naar de toepassing en in Azure Active Directory te activeren:
+
+1. Weergeven van de toepassing extra de SAML-aanmelding configuratie-instructies door:
+   - selecteren van de **configuratiehandleiding** koppeling om weer te geven in een nieuw browservenster of tabblad, of
+   - gaan de **instellen** heen gaat en selecteren **Stapsgewijze instructies bekijken over** om weer te geven in een zijbalk.
+
+2. Houd er rekening mee de coderingsindeling die is vereist voor het uploaden van het certificaat in de instructies.
+
+3. Volg de instructies in de [automatisch gegenereerde certificaat voor de galerie en buiten de galerie toepassingen](#auto-generated-certificate-for-gallery-and-non-gallery-applications) eerdere sectie. Deze stap downloadt het certificaat in de coderingsindeling die is vereist voor het uploaden van voor de toepassing.
+
+4. Als u meenemen naar het nieuwe certificaat wilt, gaat u terug naar de **SAML-handtekeningcertificaat** pagina en in de certificaatrij van de nieuw opgeslagen, selecteer het weglatingsteken (**...** ) en selecteer **certificaat activeren**. Verandert de status van het nieuwe certificaat in **Active**, en het eerder actieve certificaat verandert in een status van **inactief**.
+
+5. Volgende van de toepassing SAML-aanmelding configuratie-instructies die u eerder weergegeven zodat u het ondertekenen van SAML uploaden kunt-in de juiste coderingsindeling certificaat blijven.
+
+## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Scheid e-mailadressen melding voor het certificaat verloopt
+
+Azure AD stuurt een e-mailbericht melding 60, 30 en 7 dagen voordat het SAML-certificaat is verlopen. U kunt meer dan één e-mailadres voor het ontvangen van meldingen toevoegen. Geef het e-mailadressen die u wilt dat de meldingen worden verzonden naar:
+
+1. In de **SAML-handtekeningcertificaat** pagina, Ga naar de **melding e-mailadressen** kop. Deze kop gebruikt standaard alleen de e-mailadres van de beheerder die de toepassing toegevoegd.
+
+2. Typ onder het laatste e-mailadres het e-mailadres dat moet ontvangen bericht met een vervaldatum van het certificaat, en druk op Enter.
+
+3. Herhaal de vorige stap voor elke e-mailadres dat u wilt toevoegen.
+
+4. Voor elke e-mailadres dat u wilt verwijderen, selecteert u de **verwijderen** pictogram (een garbagecollection kan) naast het e-mailadres.
+
+5. Selecteer **Opslaan**.
+
+U ontvangt de e-mailmelding van aadnotification@microsoft.com. Om te voorkomen dat het e-mailbericht naar uw locatie spam, voegt u dit e-mailbericht toe aan uw contactpersonen.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Een certificaat verlengen dat binnenkort vervallen
-De volgende stappen uit voor vernieuwen moeten leiden tot aanzienlijke downtime voor uw gebruikers. De schermafbeeldingen in deze sectie functie Salesforce als een voorbeeld, maar deze stappen kunt toepassen op alle federatieve SaaS-Apps.
 
-1. Op de **Azure Active Directory** toepassing **eenmalige aanmelding** pagina, het genereren van het nieuwe certificaat voor uw toepassing. U kunt dit doen door te klikken op de **nieuw certificaat maken** herstelkoppeling in de **SAML-handtekeningcertificaat** sectie.
+Als een certificaat bijna verlopen is, kunt u met behulp van een procedure die in geen significante downtime voor uw gebruikers resulteert kunt vernieuwen. Een verlopen certificaat vernieuwen:
 
-    ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+1. Volg de instructies in de [Maak een nieuw certificaat](#create-a-new-certificate) sectie eerder, met behulp van een datum die overlapt met het bestaande certificaat. Deze datum beperkt de hoeveelheid uitvaltijd door het verlopen certificaat.
 
-2. Selecteer de gewenste vervaldatum en -tijd voor het nieuwe certificaat en klik op **opslaan**. Een datum die met het bestaande certificaat overlapt te selecteren, zorgt u ervoor dat eventuele uitvaltijd vanwege het verlopen certificaat beperkt is. 
+2. Als de toepassing kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat actief door de volgende stappen:
+   1. Ga terug naar de **SAML-handtekeningcertificaat** pagina.
+   2. Selecteer in de certificaatrij van de nieuw opgeslagen, het weglatingsteken (**...** ) en selecteer vervolgens **certificaat activeren**.
+   3. De volgende twee stappen overslaan.
 
-3. Als de app kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat te activeren.  Meld u aan de app om te controleren of deze werkt.
+3. Als de app slechts één certificaat tegelijk verwerken kan, kiest u een interval van downtime om uit te voeren van de volgende stap. (Anders als de toepassing niet automatisch het nieuwe certificaat ophalen, maar meer dan één handtekeningcertificaat kan verwerken, kunt u uitvoeren de volgende stap op elk gewenst moment.)
 
-4. Als de app niet automatisch het nieuwe certificaat ophalen, maar kunt verwerken van meer dan één certificaat ondertekenen, voordat de oude versie is verlopen, upload het nieuwe knooppunt naar de app, en vervolgens gaat u terug naar de portal en het actieve certificaat. 
+4. Voordat u het oude certificaat is verlopen, volg de instructies in de [uploaden en activeren van een certificaat](#upload-and-activate-a-certificate) eerdere sectie.
 
-5. Als de app slechts één certificaat tegelijk verwerken kan, kies een venster downtime, download het nieuwe certificaat te uploaden naar de toepassing, keert u terug naar de Azure-Portal en het nieuwe certificaat instellen als actief. 
-   
-6. Activeer het nieuwe certificaat in Azure AD, selecteer de **nieuw certificaat activeren** selectievakje in en klik op de **opslaan** knop aan de bovenkant van de pagina. Dit wordt getotaliseerd via het nieuwe certificaat aan de Azure AD. De status van het certificaat wordt gewijzigd van **nieuw** naar **Active**. Vanaf dat moment begint Azure AD met behulp van het nieuwe certificaat voor ondertekening van het antwoord. 
-   
-    ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
+5. Meld u aan de toepassing om ervoor te zorgen dat het certificaat correct werkt.
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Application Management in Azure Active Directory](what-is-application-management.md) (Toepassingsbeheer in Azure Active Directory)
-* [Toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](what-is-single-sign-on.md)
-* [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
+
+* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory)
+* [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)
+* [Eenmalige aanmelding bij toepassingen in Azure Active Directory](what-is-single-sign-on.md)
+* [Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

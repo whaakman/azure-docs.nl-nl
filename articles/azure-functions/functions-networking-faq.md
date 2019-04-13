@@ -3,17 +3,17 @@ title: Veelgestelde vragen over netwerken in Azure Functions
 description: Antwoorden op enkele van de meest voorkomende vragen en scenario's voor netwerken met Azure Functions.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896286"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548629"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Veelgestelde vragen over netwerken in Azure Functions
 
@@ -23,7 +23,7 @@ Hieronder volgt een lijst met veelgestelde vragen voor netwerken. Lees voor een 
 
 Implementatie van een functie in een App Service-omgeving (ASE) is momenteel de enige manier om een statische binnenkomende en uitgaande IP-adres voor uw functie. Beginnen met het artikel hier voor meer informatie over het gebruik van een as-omgeving: [Het maken en gebruiken van een ILB as-omgeving](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Hoe beperk ik de toegang tot Internet voor mijn functie?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Hoe beperk ik de toegang tot internet voor mijn functie?
 
 U kunt toegang tot internet op een aantal manieren, hieronder vermelde beperken.
 
@@ -54,3 +54,13 @@ U kunt alleen een functie van een resource in een VNET activeren door uw functie
 Implementeren naar een App Service Environment is de enige manier om een functie-app die is volledig binnen een VNET voor meer informatie over het gebruik van een ILB as-omgeving maken, te beginnen met het artikel hier: [Het maken en gebruiken van een ILB as-omgeving](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Voor scenario's waarin u alleen één richting toegang tot VNET-resources of minder uitgebreide netwerkisolatie hoeft, Zie de [netwerken overzicht van Functions](functions-networking-options.md).
+
+## <a name="next-steps"></a>Volgende stappen
+
+Voor meer informatie over netwerken en -functies: 
+
+* [Volg onze zelfstudie aan de slag te gaan VNET-integratie](./functions-create-vnet.md)
+* [Meer informatie over de netwerkopties van functions hier](./functions-networking-options.md)
+* [Meer informatie over VNET-integratie met App Service / hier functies](../app-service/web-sites-integrate-with-vnet.md)
+* [Meer informatie over vnet's in Azure](../virtual-network/virtual-networks-overview.md)
+* [Inschakelen van meer netwerken functies en controle met App Service-omgevingen](../app-service/environment/intro.md)

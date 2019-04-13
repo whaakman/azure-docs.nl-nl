@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 766ceb0bc6f1eb3da9129f2359f6e2be7363dd23
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531127"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527316"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
 
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 De aanvraag moet de HTTPS-protocol gebruiken en omvatten queryparameter te volgen:
--  q =<URL> -de query die het object van search identificeert
+-  `q=<URL>` -De query die het object van search identificeert
 
 Zie voor meer voorbeelden die laten zien hoe aanvragen, [C#-snelstartgids](c-sharp-quickstart.md) of [Java-quickstart](java-quickstart.md). 
 
@@ -56,7 +56,7 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 > - Pragma – de oproepende functie heeft geen controle over of URL-voorbeeld maakt gebruik van cache
 > - Cache-Control: de oproepende functie heeft geen controle over of URL-voorbeeld maakt gebruik van cache
 > - Gebruikersagent
-
+> 
 > Bovendien sommige parameters zijn niet op dit moment zinvol is voor de Preview-API-URL, maar kunnen worden gebruikt in de toekomst bevindt voor verbeterde globalisatie. 
  
 ## <a name="headers"></a>Headers  
@@ -208,7 +208,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 ### <a name="querycontext"></a>QueryContext  
 Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.  
   
-|Element|Description|Type|  
+|Element|Beschrijving|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Een Booleaanse waarde die aangeeft of de opgegeven query volwassenen heeft. De waarde is **waar** als de query volwassenen heeft; anders **false**.|Booleaans|  
 |alterationOverrideQuery|De queryreeks gebruiken om af te dwingen van Bing voor het gebruik van de oorspronkelijke reeks. Bijvoorbeeld, als de query-tekenreeks is *saling downwind*, de query-tekenreeks voor het overschrijven is *+ saling downwind*. Vergeet niet om te coderen van de querytekenreeks die resulteert in *% 2Bsaling + downwind*.<br /><br /> Dit veld wordt alleen opgenomen als de oorspronkelijke querytekenreeks een fout spelling bevat.|String|  
@@ -217,18 +217,21 @@ Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.
 |originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|String|  
 
 ### <a name="identifiable"></a>Identificeerbare
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Een resource-id|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definieert een groep resultaten, zoals mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|Een lijst met resultaten om weer te geven in de groep.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|

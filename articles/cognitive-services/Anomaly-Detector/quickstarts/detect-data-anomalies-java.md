@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619508"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547036"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de REST-API voor Afwijkingsdetectie Detector en Java
 
@@ -82,7 +82,7 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 3. In de JSON-gegevensbestand lezen
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>Maak een functie voor het verzenden van aanvragen
@@ -93,9 +93,9 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 
 3. Gebruik van de aanvraag `setHeader()` functie om in te stellen de `Content-Type` koptekst `application/json`, en uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header.
 
-4. Gebruik van de aanvraag `setEntity()` functie waarmee u kunt de gegevens worden verzonden.   
+4. Gebruik van de aanvraag `setEntity()` functie waarmee u kunt de gegevens worden verzonden.
 
-5. Gebruik van de client `execute()` functie voor het verzenden van de aanvraag en op te slaan naar een `CloseableHttpResponse` object. 
+5. Gebruik van de client `execute()` functie voor het verzenden van de aanvraag en op te slaan naar een `CloseableHttpResponse` object.
 
 6. Maak een `HttpEntity` object voor het opslaan van de inhoud van de reactie. Bekijk de inhoud met `getEntity()`. Als het antwoord niet leeg is, retourneert deze.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. Maken van een methode met de naam `detectAnomaliesBatch()` voor het detecteren van afwijkingen in de gegevens op als een batch. Roep de `sendRequest()` methode hierboven hebt gemaakt met uw eindpunt, de url, de abonnementssleutel en de json-gegevens. Het resultaat en af te drukken naar de console.
 
-2. De posities van afwijkingen vinden in de gegevensset. Van het antwoord `isAnomaly` veld bevat een Booleaanse waarde die betrekking hebben op of een bepaald gegevenspunt een afwijking is. Ophalen van de JSON-matrix en doorlopen en het afdrukken van de index van een `true` waarden. Deze waarden overeenkomen met de index van afwijkende gegevenspunten, als deze zijn gevonden.
+2. Als het antwoord bevat `code` veld, wordt de code als een foutbericht afgedrukt.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. Anders wordt de posities van afwijkingen vinden in de gegevensset. Van het antwoord `isAnomaly` veld bevat een Booleaanse waarde die betrekking hebben op of een bepaald gegevenspunt een afwijking is. Ophalen van de JSON-matrix en doorlopen en het afdrukken van de index van een `true` waarden. Deze waarden overeenkomen met de index van afwijkende gegevenspunten, als deze zijn gevonden.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>De status van afwijkingen van de meest recente gegevenspunt detecteren
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. Lees in de JSON-bestand met de gegevens die worden toegevoegd aan de aanvragen in de belangrijkste methode van uw toepassing.
 
 2. Aanroepen van de twee anomaliedetectie-detectie-functies die eerder is gemaakt.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 

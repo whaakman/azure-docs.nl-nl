@@ -1,7 +1,7 @@
 ---
 title: JSON-blobs indexeren van Azure Blob-indexering voor zoeken in volledige tekst - Azure Search
 description: Verken Azure JSON-blobs voor tekstinhoud met behulp van de indexeerfunctie Azure Search Blob. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Blob-opslag.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518742"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527350"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -40,14 +40,15 @@ Het is raadzaam om met behulp van hetzelfde Azure-abonnement voor Azure Search e
 
 ### <a name="1---prepare-source-data"></a>1 - brongegevens voorbereiden
 
-U hebt een Azure storage-account, met Blob-opslag, en een container van JSON-documenten. Als u niet bekend met een van deze vereisten bent, raadpleegt u 'Azure Blob-service en de belasting voorbeeldgegevens instellen' de [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Meld u aan bij Azure portal](https://portal.azure.com/).
 
-> [!Important]
-> Op de container, zorg dat **openbaar toegangsniveau** is ingesteld op 'Container (anonieme leestoegang voor containers en blobs)'. Azure storage en Azure Search moet onder hetzelfde abonnement, en indien mogelijk in dezelfde regio. 
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) uw gegevens bevat. Het niveau van de openbare toegang kan worden ingesteld op een van de geldige waarden.
+
+Gaat u als naam van het opslagaccount, de containernaam van de en een toegangssleutel ophalen van uw gegevens in de **gegevens importeren** wizard.
 
 ### <a name="2---start-import-data-wizard"></a>2 - de wizard gegevens importeren starten
 
-U kunt [start de wizard](search-import-data-portal.md) vanuit de opdrachtbalk op de pagina met Azure Search-service of door te klikken op **Azure Search toevoegen** in de **Blob-service** sectie van uw storage-account navigatiedeelvenster links.
+In de pagina overzicht van uw Azure Search-service, kunt u [start de wizard](search-import-data-portal.md) vanuit de opdrachtbalk of door te klikken op **Azure Search toevoegen** in de **Blob-service** sectie van uw Storage-account het navigatiedeelvenster links.
 
    ![De gegevensopdracht in de portal importeren](./media/search-import-data-portal/import-data-cmd2.png "Start de wizard gegevens importeren")
 
@@ -128,7 +129,7 @@ De volgorde van bewerkingen is vereist dat u maakt en aanroepen van objecten in 
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON 'matrix'. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
-| JSON-document | parsingMode | Description | Beschikbaarheid |
+| JSON-document | parsingMode | Beschrijving | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
 | Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -292,7 +293,7 @@ De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige s
 
 JSON-blobs kunnen ervan uitgaan dat meerdere formulieren. De **parsingMode** parameter in de JSON-indexeerfunctie bepaalt hoe de inhoud van de JSON-blob wordt geparseerd en een Azure Search-index zijn gestructureerd:
 
-| parsingMode | Description |
+| parsingMode | Beschrijving |
 |-------------|-------------|
 | `json`  | Elke blob worden geïndexeerd als één document. Dit is de standaardinstelling. |
 | `jsonArray` | Kies deze modus als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. |

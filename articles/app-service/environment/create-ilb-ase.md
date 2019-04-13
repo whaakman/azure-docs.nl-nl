@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494658"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546539"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -170,7 +170,7 @@ Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te teste
 
 4. Stel het DNS in voor het domein van de AS-omgeving. U kunt een jokerteken gebruiken bij uw domein in het DNS. Als u een aantal eenvoudige tests wilt uitvoeren, bewerkt u het hostbestand op de VM zodat de naam van de app is ingesteld op het virtuele IP-adres:
 
-    a. Als de ASE de domeinnaam _.ilbase.com_ heeft en u een app maakt met de naam _mytestapp_, is het adres _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ in om te worden omgezet naar het ILB-adres. (In Windows bevindt het hostbestand zich op _C:\Windows\System32\drivers\etc\_.)
+    a. Als de ASE de domeinnaam _.ilbase.com_ heeft en u een app maakt met de naam _mytestapp_, is het adres _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ in om te worden omgezet naar het ILB-adres. (Op Windows, het hosts-bestand is op _C:\Windows\System32\drivers\etc\\_.)
 
     b. Als u het publiceren van webimplementaties of de toegang tot de geavanceerde console wilt testen, maakt u een record voor _mytestapp.scm.ilbase.com_.
 

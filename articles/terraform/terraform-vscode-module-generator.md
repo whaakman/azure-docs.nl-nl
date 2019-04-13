@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001271"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526738"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Een Terraform-basissjabloon maken in Azure met behulp van Yeoman
 
@@ -73,8 +73,8 @@ Vanaf een opdrachtprompt:
 1. Navigeer naar de bovenliggende map waaronder u de nieuwe, lege map wilt maken.
 1. Voer `mkdir <new-directory-name>` in.
 
-    >[!NOTE]
-    >Vervang <new-directory-name> door de naam van de nieuwe map. In dit voorbeeld hebben we de nieuwe map `GeneratorDocSample` genoemd.
+    > [!NOTE]
+    > Vervang `<new-directory-name>` met de naam van uw nieuwe map. In dit voorbeeld hebben we de nieuwe map `GeneratorDocSample` genoemd.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Al deze items zijn vooraf geïnstalleerd in Cloud Shell.
 
 1. Maak de map $GOPATH als deze nog niet bestaat: Voer `mkdir ~/go` in.
 
-1. Maak een map in de map $GOPATH: Voer `mkdir ~/go/src` in. Deze map wordt gebruikt om de verschillende projectmappen die u eventueel gaat maken, op te slaan en te ordenen. Bijvoorbeeld de map <uw-modulenaam> die u maakt in de volgende stap.
+1. Maak een map in de map $GOPATH: Voer `mkdir ~/go/src` in. Deze map wordt gebruikt voor het ordenen van ander projectmappen die u, zoals maakt mogelijk de `<your-module-name>` map we in de volgende stap maken.
 
 1. Maak een map om de Terraform-module in op te slaan: Voer `mkdir ~/go/src/<your-module-name>` in.
 

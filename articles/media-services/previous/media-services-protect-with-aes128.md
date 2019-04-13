@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802827"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526823"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ U kunt de [Azure Media Services Player](https://amsplayer.azurewebsites.net/azur
 In de vorige stap hebt samengesteld u de URL die naar een manifestbestand verwijst. De client moet de benodigde informatie onttrekken aan het streaming-manifestbestanden aan te vragen de sleutelleveringsservice.
 
 ### <a name="manifest-files"></a>Manifestbestanden
-De client nodig heeft om op te halen van de URL (die ook inhoud bevat ID [kind] sleutel) waarde van het manifestbestand. De client probeert vervolgens de sleutel voor het ophalen van de sleutelleveringsservice. De client moet ook Haal de waarde IV en deze gebruiken voor het ontsleutelen van de stroom. Het volgende codefragment bevat de <Protection> element van het manifest Smooth Streaming:
+De client nodig heeft om op te halen van de URL (die ook inhoud bevat ID [kind] sleutel) waarde van het manifestbestand. De client probeert vervolgens de sleutel voor het ophalen van de sleutelleveringsservice. De client moet ook Haal de waarde IV en deze gebruiken voor het ontsleutelen van de stroom. Het volgende codefragment bevat de `<Protection>` element van het manifest Smooth Streaming:
 
 ```xml
     <Protection>

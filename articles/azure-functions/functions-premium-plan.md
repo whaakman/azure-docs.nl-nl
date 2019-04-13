@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918702"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543739"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions-Premium-abonnement (preview)
 
@@ -42,7 +42,7 @@ De volgende functies zijn beschikbaar voor functie-apps die zijn geïmplementeer
 
 Als er geen gebeurtenissen en uitvoeringen vandaag nog in het abonnement Consumption optreden, kan uw app omlaag schalen naar nul exemplaren. Wanneer nieuwe gebeurtenissen afkomstig is, moet een nieuw exemplaar speciaal worden geconfigureerd met uw app die erop worden uitgevoerd.  Nieuwe instanties gespecialiseerd duurt enige tijd, afhankelijk van de app.  Deze extra latentie in de eerste aanroep wordt vaak aangeduid als app koude start.
 
-U kunt uw app vooraf warm gelopen op een opgegeven aantal exemplaren hebben in het Premium-abonnement.  Vooraf verwarmde instanties kunnen u een app voor hoge belasting vooraf schalen. Wanneer de app wordt geschaald, wordt het eerst in de vooraf verwarmde exemplaren. Extra exemplaren blijven voor het bufferen van en warme onmiddellijk ter voorbereiding op de volgende schaalbewerking. Doordat een buffer van vooraf verwarmde exemplaren, kunt u effectief koude start latenties voorkomen.  Vooraf verwarmde exemplaren is een functie van de Premium-abonnement en u moet ten minste één exemplaar wordt uitgevoerd en beschikbaar zijn op alle keren dat het abonnement actief is.
+U kunt uw app vooraf warm gelopen op een opgegeven aantal exemplaren, voor de grootte van uw minimale plan hebben in het Premium-abonnement.  Vooraf verwarmde instanties kunnen u een app voor hoge belasting vooraf schalen. Wanneer de app wordt geschaald, wordt het eerst in de vooraf verwarmde exemplaren. Extra exemplaren blijven voor het bufferen van en warme onmiddellijk ter voorbereiding op de volgende schaalbewerking. Doordat een buffer van vooraf verwarmde exemplaren, kunt u effectief koude start latenties voorkomen.  Vooraf verwarmde exemplaren is een functie van de Premium-abonnement en u moet ten minste één exemplaar wordt uitgevoerd en beschikbaar zijn op alle keren dat het abonnement actief is.
 
 U kunt het aantal vooraf verwarmde exemplaren configureren in Azure portal door te selecteren **uitschalen** in de **platformfuncties** tabblad.
 
@@ -70,6 +70,8 @@ Aanvullende rekeninstanties worden automatisch toegevoegd voor uw app met behulp
 
 Azure Functions in een verbruiksabonnement is beperkt tot 10 minuten voor een enkel kan worden uitgevoerd.  In het Premium-abonnement, wordt de uitvoeringsduur standaard tot 30 minuten om te voorkomen dat overmatig uitvoeringen. U kunt echter [wijzigen van de configuratie van de host.json](./functions-host-json.md#functiontimeout) zodat deze niet-gebonden voor Premium-plan-apps.
 
+In preview, de duur is niet noodzakelijkerwijs afgelopen 12 minuten en heeft de meeste kans na 30 minuten uitgevoerd als uw app wordt niet geschaald dan het aantal minimale worker.
+
 ## <a name="plan-and-sku-settings"></a>Instellingen voor planning en SKU
 
 Wanneer u het abonnement maakt, u twee instellingen configureren: het minimum aantal exemplaren (of de grootte van de planning) en de maximale burst-limiet.  De minimale exemplaren voor een Premium-abonnement 1 en de maximale burst tijdens de Preview-versie is 20.  Minimale instanties zijn gereserveerd en wordt altijd uitgevoerd.
@@ -91,7 +93,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Bij het maken van onze schalen van uw abonnement, kunt u kiezen tussen drie exemplaargrootten.  U wordt gefactureerd voor het totale aantal kernen en geheugen verbruikt per seconde.  Uw app kunt automatisch uitschalen naar meerdere exemplaren, indien nodig.  
 
-|SKU|Kerngeheugens|Geheugen|Opslag|
+|SKU|Kerngeheugens|Geheugen|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -104,9 +106,8 @@ Hieronder vindt u de momenteel ondersteunde regio's voor de openbare preview.
 |Regio|
 |--|
 |Australië - oost|
-|Australië Souteast|
+|Australië - zuidoost|
 |Canada - midden|
-|India - centraal|
 |US - centraal|
 |Azië - oost|
 |US - oost 2|

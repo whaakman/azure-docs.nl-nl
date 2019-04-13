@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490772"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548522"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Op rollen gebaseerd toegangsbeheer (RBAC) voor Media Services-accounts
 
@@ -43,8 +43,8 @@ Zie de volgende artikelen voor meer informatie:
 - [Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Wat is er RBAC voor Azure-resources?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [RBAC gebruiken om toegang te beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Inhoud sleutel beleid met behulp van Media Services .NET ophalen](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Ontwikkelen met mediaservices v3 API 's](media-services-apis-overview.md)
+- [Ontwikkelen met mediaservices v3 API 's](media-services-apis-overview.md)
+- [Inhoud sleutel beleid met behulp van Media Services .NET ophalen](get-content-key-policy-dotnet-howto.md)

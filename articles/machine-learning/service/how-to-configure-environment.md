@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489498"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548883"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -350,7 +350,7 @@ Het configuratiebestand van de werkruimte is een JSON-bestand dat de SDK legt ui
 }
 ```
 
-Deze JSON-bestand moet zich in de directory-structuur die uw Python-scripts of Jupyter-Notebooks bevat. Kan het zijn in dezelfde map, een submap met de naam *aml_config*, of in een bovenliggende map.
+Deze JSON-bestand moet zich in de directory-structuur die uw Python-scripts of Jupyter-Notebooks bevat. Kan het zijn in dezelfde map, een submap met de naam *.azureml*, of in een bovenliggende map.
 
 U kunt dit bestand vanuit uw code gebruiken `ws=Workspace.from_config()`. Deze code wordt de informatie uit het bestand wordt geladen en maakt verbinding met uw werkruimte.
 
@@ -379,7 +379,7 @@ U kunt het configuratiebestand op drie manieren maken:
         print('Workspace not found')
     ```
 
-    Deze code schrijft het configuratiebestand naar de *aml_config/config.json* bestand.
+    Deze code schrijft het configuratiebestand naar de *.azureml/config.json* bestand.
 
 
 ## <a name="next-steps"></a>Volgende stappen

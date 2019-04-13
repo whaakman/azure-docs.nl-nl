@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046976"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549368"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Hoe is de Verkeersanalyse geprijsd?
 
 Traffic Analytics wordt gemeten. De meting is gebaseerd op de verwerking van logboekgegevens van de stroom door de service en opslaan van de resulterende uitgebreide Logboeken in Log Analytics-werkruimte. 
 
 Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/pricing/details/network-watcher/), de regio West-Centraal VS, overwegen als gegevens die zijn opgeslagen in een storage-account dat is verwerkt door Traffic Analytics stroomlogboeken is 10 GB en uitgebreide logboeken die zijn opgenomen in Log Analytics-werkruimte is 1 GB en vervolgens de kosten van toepassing zijn: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hoe vaak worden gegevens verwerkt met Traffic Analytics?
+
+Raadpleeg de [aggregatie gegevenssectie](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema en gegevens aggregatie Document
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hoe Traffic Analytics bepaalt dat een IP-adres schadelijk is? 
+
+Traffic Analytics is afhankelijk van Microsoft interne threat intelligence systemen om een IP-adres als schadelijke achten. Deze systemen-veel intelligence boven op het bouwen en gebruiken van diverse telemetrie-bronnen, zoals Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), de Microsoft Security Response Center (MSRC) en externe feeds. Sommige van deze gegevens is Microsoft intern. Als een bekende IP-adres is ophalen gemarkeerd als malicios, Geef een ondersteuningsticket om te weten te verhogen.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Hoe kan ik waarschuwingen instellen voor Traffic Analytics-gegevens?
+
+Traffic Analytics heeft geen ingebouwde ondersteuning voor waarschuwingen. Echter, omdat Traffic Analytics-gegevens worden opgeslagen in Log Analytics u kunt aangepaste query's schrijven en waarschuwingen instellen voor deze. Stappen:
+- Voor Log Analytics in Traffic Analytics kunt u de korte URL. 
+- Gebruik de [schema hier beschreven](traffic-analytics-schema.md) om uw query's schrijven 
+- Klik op 'Nieuwe waarschuwingsregel' om de waarschuwing te maken
+- Raadpleeg [log waarschuwingen documentatie](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) om de waarschuwing te maken
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hoe kan ik Navigeer met behulp van het toetsenbord in de geografische kaartweergave?
 

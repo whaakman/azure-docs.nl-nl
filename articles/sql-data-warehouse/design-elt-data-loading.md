@@ -2,20 +2,20 @@
 title: In plaats van ETL, ELT-ontwerp voor Azure SQL Data Warehouse | Microsoft Docs
 description: In plaats van ETL, ontwerpen van een Extract, Load en Transform (ELT)-proces voor het laden van gegevens of Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/12/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308479"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548656"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Het ontwerpen van een strategie laden voor Azure SQL Data Warehouse PolyBase-gegevens
 
@@ -99,14 +99,14 @@ Voor het laden van gegevens met PolyBase kunt u een van deze opties voor het lad
 - [PolyBase met T-SQL](load-data-from-azure-blob-storage-using-polybase.md) goed werkt wanneer uw gegevens zich in Azure Blob storage of Azure Data Lake Store. Het biedt u de meeste controle over het laadproces, maar vereist ook dat u voor het definiëren van objecten van de externe gegevens. De andere methoden definieert deze objecten achter de schermen, zoals u brontabellen naar doeltabellen toewijzen.  U kunt Azure Data Factory, SSIS of Azure functions gebruiken voor de organisatie van T-SQL-belastingen. 
 - [PolyBase met SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) goed werkt wanneer de brongegevens is in SQL Server, SQL Server on-premises of in de cloud. SSIS definieert de bron naar doel Tabeltoewijzingen, en ook stuurt de belasting. Als u SSIS-pakketten al hebt, kunt u de pakketten om te werken met de nieuwe datawarehouse-doel wijzigen. 
 - [PolyBase met Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is een andere orchestration-hulpprogramma.  Definieert een pijplijn en plant taken. 
-- [PolyBase met Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) gegevens worden overgebracht van een SQL Data Warehouse-tabel naar een Databricks-dataframe en/of gegevens uit een Databricks-dataframe schrijft naar een SQL Data Warehouse-tabel.
+- [PolyBase met Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) gegevens worden overgebracht van een SQL Data Warehouse-tabel naar een Databricks-dataframe en/of gegevens uit een Databricks-dataframe schrijft naar een SQL Data Warehouse-tabel met behulp van PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Opties voor het laden van niet-PolyBase
 
 Als uw gegevens niet compatibel met PolyBase is, kunt u [bcp](/sql/tools/bcp-utility) of de [SqlBulkCopy uitvoert API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP wordt rechtstreeks naar SQL Data Warehouse wordt geladen zonder tussenkomst van Azure Blob-opslag, en is alleen bedoeld voor kleine geladen. Opmerking: de prestaties van de belasting van deze opties is aanzienlijk langzamer dan PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. De gegevens te transformeren
+## <a name="5-transform-the-data"></a>5. De gegevens transformeren
 
 Terwijl de gegevens zich in de faseringstabel, uitvoeren van transformaties die uw workload. Verplaats de gegevens in een productietabel.
 

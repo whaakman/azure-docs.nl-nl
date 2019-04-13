@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8eb569e628e598dbfd890c11656a23007f915b45
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491153"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545226"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -103,7 +103,7 @@ import os
 
 Maak een werkruimte-object van de bestaande werkruimte. Een [werkruimte](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is een klasse die uw Azure-abonnement en resourcegroep gegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
 
-`Workspace.from_config()` het bestand gelezen **aml_config/config.json** en laadt u de details in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
+`Workspace.from_config()` leest het bestand **config.json** en laadt de gegevens in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
 
 Zodra u een werkruimteobject hebt, geeft u een naam op voor het experiment. Maak en registreer een lokale map met de werkruimte. De geschiedenis van alle uitvoeringen wordt vastgelegd onder het opgegeven experiment en in [Azure Portal](https://portal.azure.com).
 
@@ -653,10 +653,10 @@ Definieer de experimentparameter en modelinstellingen voor automatisch genereren
 |Eigenschap| Waarde in deze zelfstudie |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Tijdslimiet in minuten voor elke iteratie. Verklein deze waarde als u de totale uitvoeringstijd wilt verminderen.|
-|**Iteraties**|30|Aantal iteraties. Bij elke iteratie wordt een nieuw Machine Learning-model getraind met uw gegevens. Dit is de primaire waarde die van invloed is op de totale uitvoeringstijd.|
+|**iterations**|30|Aantal iteraties. Bij elke iteratie wordt een nieuw Machine Learning-model getraind met uw gegevens. Dit is de primaire waarde die van invloed is op de totale uitvoeringstijd.|
 |**primary_metric**| spearman_correlation | De metrische gegevens die u wilt optimaliseren. Het optimale model wordt gekozen op basis van deze metrische waarde.|
-|**voorverwerken**| True | Gebruik **True** voor de voorverwerking van de invoergegevens van het experiment (afhandeling van ontbrekende gegevens, conversie van tekst naar numerieke waarden, enzovoort).|
-|**Detailniveau**| logging.INFO | Hiermee bepaalt u het niveau van logboekregistratie.|
+|**preprocess**| True | Gebruik **True** voor de voorverwerking van de invoergegevens van het experiment (afhandeling van ontbrekende gegevens, conversie van tekst naar numerieke waarden, enzovoort).|
+|**uitgebreidheid**| logging.INFO | Hiermee bepaalt u het niveau van logboekregistratie.|
 |**n_cross_validations**|5|Aantal kruisvalidaties dat moet worden uitgevoerd wanneer er geen validatiegegevens worden opgegeven.|
 
 
@@ -754,8 +754,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Details uitvoering van Jupyter widget](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter widget tekengebied](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Uitvoeringsdetails van Jupyter-widget](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Tekengebied Jupyter-widget](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Optie 2: Alle uitgevoerde herhalingen ophalen en onderzoeken in Python
 
@@ -774,8 +774,7 @@ rundata
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: alleen-van-type {verticaal uitlijnen: midden;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;

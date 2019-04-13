@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ca7e89f4b7f976633d5f097b7e335fe9b7631985
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 09898ac7dd4a6f3ee9cf0ea26ded607a8673b9f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477740"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526857"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -49,7 +49,7 @@ Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureer
 
 In Linux ontvangt u een foutmelding krijgen dat de volgende strekking weergegeven:
 
-**<filename> [de machtiging is geweigerd] Schijf is overschreden**
+**\<filename > [machtiging is geweigerd] schijfquotum is overschreden**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -221,7 +221,7 @@ De Linux-kernel een upgrade naar de volgende versies die een oplossing voor dit 
 - 4.12.11+
 - Alle versies die groter zijn dan of gelijk zijn aan 4.13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Kan geen maken symbolische koppelingen - ln: is mislukt voor het maken van de symbolische koppeling 't': Deze bewerking wordt niet ondersteund
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Kan geen maken symbolische koppelingen - ln: is mislukt voor het maken van de symbolische koppeling 't': Bewerking niet ondersteund
 
 ### <a name="cause"></a>Oorzaak
 Standaard biedt geen Azure-bestandsshares koppelen in Linux met behulp van CIFS ondersteuning voor inschakelen symbolische koppelingen (symlinks). Er is een fout als volgt:

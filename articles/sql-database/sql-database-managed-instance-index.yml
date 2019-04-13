@@ -115,7 +115,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/'
+              - href: null
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment'
           - title: Herstel naar een bepaald tijdstip
             values:
@@ -127,7 +127,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/'
+              - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
               - href: null
   - title: Zelfstudies met stapsgewijze instructies en learning materiaal
     items:
@@ -140,11 +140,11 @@ sections:
           - html: 'Meer informatie over <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware-eigenschappen en beperkingen</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">verschillen tussen de Transact-SQL-taal</a>, en <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI-API voor het configureren van beheerd exemplaar<a/>.'
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configureer</a> Azure VNet waarin het beheerde exemplaar worden geïmplementeerd.'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Valideren</a> dat uw bestaande Azure-VNet kunnen worden gebruikt voor het implementeren van beheerde exemplaren.'
-          - html: 'Verbinding maken met uw exemplaar met <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">virtuele Azure-Machine</a> of <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punt-naar-site-verbinding</a>, of <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">toepassingen</a>.'
+          - html: 'Verbinding maken met uw exemplaar met <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">virtuele Azure-Machine</a> of <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punt-naar-site-verbinding</a>, of <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">toepassingen</a>.'
           - html: 'Controleer of de database kan worden gemigreerd met behulp van <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> of <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Database experimenten-assistent</a>.'
           - html: Breng uw databases naar beheerd exemplaar met behulp van <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">systeemeigen terugzetten</a> of <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
           - html: 'Verplaats uw SSIS-pakketten naar <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellaire modellen van SSAS te <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a>, en SQL Server Reporting Services rapporten <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.'
-          - html: 'Meer informatie over de storage-laag in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">categorie Algemeen gebruik</a> en toe te passen <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.'
+          - html: 'Meer informatie over de storage-laag in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">categorie Algemeen gebruik</a> en toe te passen <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.'
           - html: 'Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.'
           - html: Meer informatie vinden <a href="sql-database-howto-managed-instance.md">instructies begeleidt</a> die kan helpen u bij het configureren van uw beheerde exemplaar.
   - title: Referentie
@@ -154,8 +154,10 @@ sections:
         className: cardsD
         items:
           - title: Blogs
-            html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Middelgroot</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Gemiddeld</a></p>'
           - title: Veelgestelde vragen
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
+          - title: Community-kanaal
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">SQL-Community (beheerd exemplaar)</a></p>'
           - title: Trainingsmateriaal
             html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Praktijksessies</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instructie geleid labs</a></p>'

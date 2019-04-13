@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316232"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526602"
 ---
 # <a name="deliver-content-to-customers"></a>Lever inhoud aan klanten
 Wanneer u uw inhoud streamen of video on demand aan klanten leveren bent, wordt het doel is om te hoge kwaliteit video leveren aan verschillende apparaten met verschillende netwerkomstandigheden.
@@ -157,7 +157,8 @@ Een streaming-eindpunt vertegenwoordigt een streamingservice waarmee inhoud kan 
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Wijzigingen in de Smooth Streaming manifest versie
 Vóór de release van juli 2016 service--wanneer activa die worden geproduceerd door Media Encoder Standard Media Encoder Premium Workflow, of de eerdere versie van Azure Media Encoder zijn gestreamd met behulp van dynamische pakketten--de Smooth Streaming manifest geretourneerd dan in overeenstemming zijn met versie 2.0. In versie 2.0 Gebruik de duur van het fragment niet de zogeheten herhalen (r)-codes. Bijvoorbeeld:
 
-<?xml version="1.0" encoding="UTF-8"?>
+
+    <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
         <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
             <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />

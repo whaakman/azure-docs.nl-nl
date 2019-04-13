@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281128"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549132"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning
 
@@ -33,7 +33,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 * Een Python 3.6 notebook-server met de Azure Machine Learning-SDK geïnstalleerd
 * Een werkruimte van Azure Machine Learning-service
-* A workspace configuration file (**aml_config/config.json** ).
+* A workspace configuration file (**.azureml/config.json** ).
 
 Ophalen van deze vereisten van [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#portal).
 
@@ -74,6 +74,6 @@ Als u niet van plan bent om de resources te gebruiken die u in dit artikel hebt 
 In dit artikel hebt u de resources gemaakt die u nodig hebt om mee te experimenteren en om modellen te implementeren. U hebt code in een notebook uitgevoerd en de uitvoeringsgeschiedenis voor de code in uw werkruimte in de cloud onderzocht.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Een installatiekopie van classificatie-model te trainen](tutorial-train-models-with-aml.md)
+> [Zelfstudie: Een model trainen voor de classificatie van afbeeldingen](tutorial-train-models-with-aml.md)
 
 U kunt ook verkennen [geavanceerdere voorbeelden op GitHub](https://aka.ms/aml-notebooks) of weergeven van de [gebruikershandleiding voor de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

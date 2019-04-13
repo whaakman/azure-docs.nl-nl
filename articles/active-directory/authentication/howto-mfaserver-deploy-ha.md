@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370071"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547002"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-factor Authentication-Server configureren voor maximale beschikbaarheid
 
@@ -36,7 +36,7 @@ Zowel MFA hoofd- en onderliggende MFA-Servers communiceren met de MFA-Service al
 
 Na een succesvolle verificatie met AD communiceert de MFA-Server met de MFA-Service. De MFA-Server wacht op een melding van de MFA-Service wilt toestaan of weigeren van de gebruikerstoegang tot de toepassing.
 
-Als de hoofd-MFA-server offline gaat, worden verificaties nog steeds kunnen worden verwerkt, maar bewerkingen waarvoor wijzigingen in de MFA-database kunnen niet worden verwerkt. (Voorbeelden zijn onder meer: het toevoegen van gebruikers, selfservice PINCODE wijzigen en wijzigen van gebruikersgegevens)
+Als de hoofd-MFA-server offline gaat, worden verificaties nog steeds kunnen worden verwerkt, maar bewerkingen waarvoor wijzigingen in de MFA-database kunnen niet worden verwerkt. (Voorbeelden zijn onder meer: het toevoegen van gebruikers, selfservice PINCODE wijzigingen, veranderende gebruikersgegevens of toegang tot de gebruikersportal)
 
 ## <a name="deployment"></a>Implementatie
 

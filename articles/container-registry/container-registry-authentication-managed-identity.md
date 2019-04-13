@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338459"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526619"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Gebruik een door Azure identiteit beheerde worden geverifieerd bij een Azure container registry 
 
@@ -164,7 +164,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Voeg SSH toe aan de Docker-virtuele machine die geconfigureerd met de identiteit. Voer de volgende Azure CLI-opdrachten, met behulp van Azure CLI is geïnstalleerd op de virtuele machine.
 
-Eerst, worden geverifieerd met de Azure CLI met [az login][az-login], met behulp van de identiteit die u hebt geconfigureerd op de virtuele machine. Voor <userID>, vervangen door de ID van de identiteit die u in de vorige stap hebt opgehaald. 
+Eerst, worden geverifieerd met de Azure CLI met [az login][az-login], met behulp van de identiteit die u hebt geconfigureerd op de virtuele machine. Voor `<userID>`, vervangen door de ID van de identiteit die u in de vorige stap hebt opgehaald. 
 
 ```azurecli
 az login --identity --username <userID>

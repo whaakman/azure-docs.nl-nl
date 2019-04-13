@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426457"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549351"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -487,36 +487,7 @@ Aantal van de aliassen die beschikbaar zijn hebben een versie die wordt weergege
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-De alias 'normale' vertegenwoordigt het veld als één waarde. Dit veld is voor de exacte overeenkomst vergelijking scenario's als de volledige set van waarden exact zoals is gedefinieerd, moet niet meer en niet kleiner. Met behulp van **ipRules**, een voorbeeld zou worden valideren dat een exacte set met regels met inbegrip van het aantal regels en de samenstelling van elke regel bestaat. In dit voorbeeldregel controleert of er precies beide **192.168.1.1** en **10.0.4.1** met _actie_ van **toestaan** in **ipRules** om toe te passen de **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+De alias 'normale' vertegenwoordigt het veld als één waarde. Dit veld is voor de exacte overeenkomst vergelijking scenario's als de volledige set van waarden exact zoals is gedefinieerd, moet niet meer en niet kleiner.
 
 De **[\*]** alias maakt het mogelijk om te vergelijken met de waarde van elk element in de matrix en specifieke eigenschappen van elk element. Deze aanpak maakt het mogelijk om te vergelijken van de eigenschappen van het element voor 'als geen van', 'als', of ' als alle van de scenario's. Met behulp van **ipRules [\*]**, een voorbeeld zou worden valideren die elke _actie_ is _weigeren_, maar niet bezig te houden hoeveel regels bestaan of wat het IP-adres _waarde_ is. In dit voorbeeldregel controleert of er overeenkomsten van **ipRules [\*] .value** naar **10.0.4.1** en past de **effectType** alleen als er ten minste één overeenkomst niet gevonden:
 

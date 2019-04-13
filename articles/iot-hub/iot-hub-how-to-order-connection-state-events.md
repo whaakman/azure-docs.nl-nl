@@ -5,14 +5,14 @@ services: iot-hub
 ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337524"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546927"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Order apparaat connection-gebeurtenissen van Azure IoT Hub met behulp van Azure Cosmos DB
 
@@ -24,11 +24,11 @@ Het volgnummer wordt een tekenreeksweergave van een hexadecimaal nummer. Tekenre
 
 * Een actief Azure-account. Als u nog geen account hebt, kunt u [een gratis account aanmaken](https://azure.microsoft.com/pricing/free-trial/).
 
-* Een actief Azure Cosmos DB SQL API-account. Als u een nog niet hebt gemaakt, raadpleegt u [een databaseaccount maken](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account) voor een overzicht.
+* Een actief Azure Cosmos DB SQL API-account. Als u een nog niet hebt gemaakt, raadpleegt u [een databaseaccount maken](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) voor een overzicht.
 
-* Een verzameling in uw database. Zie [toevoegen van een verzameling](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection) voor een overzicht.
+* Een verzameling in uw database. Zie [toevoegen van een verzameling](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) voor een overzicht. Wanneer u uw verzameling maakt, gebruikt u `/id` voor de partitiesleutel.
 
-* Een IoT Hub in Azure. Als u nog geen hub hebt gemaakt, leest u [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) (Aan de slag met IoT Hub) voor stapsgewijze instructies. 
+* Een IoT Hub in Azure. Als u nog geen hub hebt gemaakt, leest u [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) (Aan de slag met IoT Hub) voor stapsgewijze instructies.
 
 ## <a name="create-a-stored-procedure"></a>Een opgeslagen procedure maken
 
@@ -38,14 +38,14 @@ Eerst maakt u een opgeslagen procedure en stel deze tot een logica die wordt ver
 
    ![Opgeslagen procedure maken](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Voer een opgeslagen procedure-ID in en plak het volgende in de 'hoofdtekst van de opgeslagen Procedure'. Houd er rekening mee dat deze code geen bestaande code in de hoofdtekst van de opgeslagen procedure moet vervangen. Deze code onderhoudt een rij per apparaat-ID en de meest recente verbindingsstatus van deze apparaat-ID met het vaststellen van het hoogste volgnummer registreert. 
+2. Voer **LatestDeviceConnectionState** voor de opgeslagen procedure-ID en plak het volgende in de **hoofdtekst van de opgeslagen Procedure**. Houd er rekening mee dat deze code geen bestaande code in de hoofdtekst van de opgeslagen procedure moet vervangen. Deze code onderhoudt een rij per apparaat-ID en de meest recente verbindingsstatus van deze apparaat-ID met het vaststellen van het hoogste volgnummer registreert.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
     function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
       var collection = getContext().getCollection();
       var response = {};
-      
+
       var docLink = getDocumentLink(deviceId, moduleId);
 
       var isAccepted = collection.readDocument(docLink, function(err, doc) {
@@ -127,42 +127,44 @@ Eerst maakt u een opgeslagen procedure en stel deze tot een logica die wordt ver
     }
     ```
 
-3. Sla de opgeslagen procedure: 
+3. Sla de opgeslagen procedure:
 
     ![opslaan van de opgeslagen procedure](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
 
 ## <a name="create-a-logic-app"></a>Een logische app maken
 
-U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die de resourcegroep voor uw virtuele machine bewaakt. 
+U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die de resourcegroep voor uw virtuele machine bewaakt.
 
 ### <a name="create-a-logic-app-resource"></a>Een logische app maken
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) achtereenvolgens **Nieuw** > **Integratie** > **Logische app**.
+1. In de [Azure-portal](https://portal.azure.com), selecteer **+ een resource maken**, selecteer **integratie** en vervolgens **logische App**.
 
    ![Logische app maken](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
-2. Geef een naam op voor de logische app die uniek is in uw abonnement en selecteer vervolgens het abonnement, de resourcegroep en de locatie van uw IoT-hub. 
+2. Geef een naam op voor de logische app die uniek is in uw abonnement en selecteer vervolgens het abonnement, de resourcegroep en de locatie van uw IoT-hub.
 
-3. Selecteer **vastmaken aan dashboard**, en kies vervolgens **maken**.
+   ![Nieuwe logische app](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
+
+3. Selecteer **maken** te maken van de logische app.
 
    U hebt nu een Azure-resource voor uw logische app gemaakt. Nadat de logische app is geïmplementeerd, toont de ontwerper van logische apps sjablonen voor algemene patronen, zodat u sneller aan de slag kunt.
 
-   > [!NOTE] 
-   > Wanneer u selecteert **vastmaken aan dashboard**, uw logische app automatisch geopend in de ontwerper van logische Apps. Anders kunt u de logische app handmatig zoeken en openen.
+   > [!NOTE]
+   > Als u wilt zoeken en opnieuw openen van uw logische app, selecteer **resourcegroepen** en selecteer de resourcegroep die u voor deze instructies gebruikt. Selecteer vervolgens de nieuwe logische app. Hiermee opent u de ontwerper van logische App.
 
-4. Kies in Ontwerper van logische apps onder **Sjablonen** de optie **Lege logische app**, zodat u de logische app helemaal zelf kunt ontwerpen.
+4. In de Logic App Designer, schuif naar rechts tot u veelgebruikte triggers. Onder **sjablonen**, kiest u **lege logische App** zodat u uw logische app helemaal kunt bouwen.
 
 ### <a name="select-a-trigger"></a>Een trigger selecteren
 
-Een trigger is een specifieke gebeurtenis waarmee uw logische app wordt gestart. Voor deze zelfstudie is de trigger voor het activeren van de werkstroom het ontvangen van een aanvraag via HTTP.  
+Een trigger is een specifieke gebeurtenis waarmee uw logische app wordt gestart. Voor deze zelfstudie is de trigger voor het activeren van de werkstroom het ontvangen van een aanvraag via HTTP.
 
-1. Typ **HTTP** in de zoekbalk voor connectors en triggers.
+1. Typ in de connectors en triggers zoekbalk **HTTP** en druk op Enter.
 
-2. Selecteer **Aanvraag - Wanneer een HTTP-aanvraag is ontvangen** als de trigger. 
+2. Selecteer **Aanvraag - Wanneer een HTTP-aanvraag is ontvangen** als de trigger.
 
    ![Selecteer de trigger Aanvraag - Wanneer een HTTP-aanvraag is ontvangen](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
-3. Selecteer **Voorbeeldnettolading om een schema te genereren**. 
+3. Selecteer **Voorbeeldnettolading om een schema te genereren**.
 
    ![Voorbeeld van payload gebruiken voor het genereren van een schema](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
@@ -190,76 +192,93 @@ Een trigger is een specifieke gebeurtenis waarmee uw logische app wordt gestart.
    }]
    ```
 
-5. Er kan een melding worden weergegeven dat u niet moet vergeten **in uw aanvraag een header Content-type op te nemen die is ingesteld op application/json**. U kunt deze suggestie zonder problemen negeren en verdergaan met de volgende sectie. 
+   ![Voorbeeld van JSON-nettolading plakken](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
+
+5. Er kan een melding worden weergegeven dat u niet moet vergeten **in uw aanvraag een header Content-type op te nemen die is ingesteld op application/json**. U kunt deze suggestie zonder problemen negeren en verdergaan met de volgende sectie.
 
 ### <a name="create-a-condition"></a>Een voorwaarde maken
 
-In uw werkstroom voor logische Apps, helpen voorwaarden bij het uitvoeren van specifieke acties na het slagen van die specifieke voorwaarde. Als de voorwaarde is voldaan, kan een gewenste actie kan worden gedefinieerd. Voor deze zelfstudie is de voorwaarde om te controleren of type gebeurtenis is verbonden apparaat of apparaat is verbroken. De actie worden de opgeslagen procedure uitvoeren in uw database. 
+In uw werkstroom voor logische Apps, helpen voorwaarden bij het uitvoeren van specifieke acties na het slagen van die specifieke voorwaarde. Als de voorwaarde is voldaan, kan een gewenste actie kan worden gedefinieerd. Voor deze zelfstudie is de voorwaarde om te controleren of type gebeurtenis is verbonden apparaat of apparaat is verbroken. De actie worden de opgeslagen procedure uitvoeren in uw database.
 
-1. Selecteer **nieuwe stap** vervolgens **dient te worden** en **voorwaarde**. 
+1. Selecteer **+ nieuwe stap** vervolgens **ingebouwde**, zoek en selecteer **voorwaarde**. Klik in **een waarde kiezen** en een vak weergegeven waarin de dynamische inhoud--de velden die kunnen worden geselecteerd. Vul de velden, zoals hieronder wordt weergegeven om uit te voeren dit alleen voor apparaten die zijn verbonden en apparaat verbroken gebeurtenissen:
 
-2. Vul de voorwaarde, zoals hieronder wordt weergegeven om uit te voeren dit alleen voor apparaten die zijn verbonden en apparaat verbroken gebeurtenissen:
-
-   * Een waarde kiezen: **type gebeurtenis**
-   * Wijziging 'is gelijk aan' naar **eindigt met**
-   * Een waarde kiezen: **nected**
+   * Een waarde kiezen: **type gebeurtenis** --Selecteer deze optie in de velden in de dynamische inhoud die worden weergegeven wanneer u dit veld op.
+   * Wijziging 'is gelijk aan' naar **eindigt**.
+   * Een waarde kiezen: **nected**.
 
      ![Opvulling van voorwaarde](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-3. Als de voorwaarde waar is, klikt u op **een actie toevoegen**.
+2. In de **als de waarde true** dialoogvenster, klikt u op **een actie toevoegen**.
   
    ![Actie toevoegen als de waarde true](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-4. Zoeken naar Cosmos DB en klik op **Azure Cosmos DB - opgeslagen procedure uitvoeren**
+3. Zoek naar Cosmos DB en selecteer **Azure Cosmos DB - opgeslagen procedure uitvoeren**
 
    ![Zoeken naar CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-5. Vul het formulier voor uitvoeren die zijn opgeslagen door waarden te selecteren uit de database verkrijgen. Voer de waarde voor de partitiesleutel en de parameters zoals hieronder wordt weergegeven. 
+4. Vul in **cosmosdb-connection** voor de **verbindingsnaam** en selecteer de vermelding in de tabel en selecteer vervolgens **maken**. U ziet de **opgeslagen procedure uitvoeren** deelvenster. Voer de waarden voor de velden:
+
+   **Database-ID**: Takenlijst
+
+   **Verzamelings-ID**: Items
+
+   **ID van opgeslagen procedure**: LatestDeviceConnectionState
+
+5. Selecteer **toevoegen van nieuwe parameter**. In de vervolgkeuzelijst die wordt weergegeven, schakel de selectievakjes naast **partitiesleutel** en **Parameters voor de opgeslagen procedure**, klik vervolgens ergens anders zijn op het scherm op; deze wordt toegevoegd een veld voor de waarde voor de partitiesleutel en een veld voor parameters voor de opgeslagen procedure.
 
    ![actie voor logische app vullen](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. Sla uw logische app op. 
+6. Voer nu de waarde voor de partitiesleutel en de parameters zoals hieronder wordt weergegeven. Zorg ervoor dat in de vierkante haken en dubbele aanhalingstekens zoals plaatsen. Mogelijk moet u klikt u op **dynamische inhoud toevoegen** om op te halen van de geldige waarden die u hier kunt gebruiken.
+
+   ![actie voor logische app vullen](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+
+7. Aan de bovenkant van het deelvenster waarin de status **voor elk**onder **een uitvoer selecteren uit de vorige stappen**, zorg ervoor dat het **hoofdtekst** is geselecteerd.
+
+   ![logische app voor elke vullen](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+
+8. Sla uw logische app op.
 
 ### <a name="copy-the-http-url"></a>HTTP-URL kopiëren
 
-Voordat u de Logic Apps Designer verlaat, Kopieer de URL die uw logische app om te naar een trigger luisteren is. U gebruikt deze URL voor het configureren van Event Grid. 
+Voordat u de Logic Apps Designer verlaat, Kopieer de URL die uw logische app om te naar een trigger luisteren is. U gebruikt deze URL voor het configureren van Event Grid.
 
-1. Vouw het configuratievak **Wanneer een HTTP-aanvraag is ontvangen** uit door erop te klikken. 
+1. Vouw het configuratievak **Wanneer een HTTP-aanvraag is ontvangen** uit door erop te klikken.
 
-2. Kopieer de waarde van **URL voor HTTP POST** door de knop URL kopiëren ernaast te selecteren. 
+2. Kopieer de waarde van **URL voor HTTP POST** door de knop URL kopiëren ernaast te selecteren.
 
    ![De URL voor HTTP POST kopiëren](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
 
-3. Sla deze URL op zodat u ernaar kunt verwijzen in de volgende sectie. 
+3. Sla deze URL op zodat u ernaar kunt verwijzen in de volgende sectie.
 
 ## <a name="configure-subscription-for-iot-hub-events"></a>Abonnement voor IoT Hub-gebeurtenissen configureren
 
-In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen op het moment dat deze optreden. 
+In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen op het moment dat deze optreden.
 
-1. Ga in Azure Portal naar uw IoT-hub. 
+1. Ga in Azure Portal naar uw IoT-hub.
 
 2. Selecteer **Gebeurtenissen**.
 
    ![Details van gebeurtenisraster weergeven](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. Selecteer **Gebeurtenisabonnement**. 
+3. Selecteer **+ gebeurtenisabonnement**.
 
    ![Nieuw gebeurtenisabonnement maken](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Maak het gebeurtenisabonnement met de volgende waarden: 
+4. Vul in **abonnement Gebeurtenisdetails**: Geef een beschrijvende naam op en selecteer **gebeurtenisschema in het raster**.
 
-   * **Gebeurtenistype**: Schakel het selectievakje abonneren op alle gebeurtenistypen en selecteer **apparaat aangesloten** en **apparaat losgekoppeld** in het menu.
+5. Vul de **gebeurtenistypen** velden. Schakel het selectievakje **abonneren op alle gebeurtenistypen** en selecteer **apparaat aangesloten** en **apparaat losgekoppeld** in het menu.
 
-   * **Eindpuntdetails**: Selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
+   ![Gebeurtenistypen instellen om te zoeken](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-       ![eindpunt-URL selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+6. Voor **eindpuntdetails**, selecteert u Eindpunttype als **Webhook** en klik op selecteren eindpunt en plak de URL die u hebt gekopieerd uit uw logische app en Bevestig de selectie.
 
-   * **Gebeurtenisabonnementdetails**: Geef een beschrijvende naam op en selecteer **gebeurtenisschema in het raster**.
-   Het formulier lijkt op het volgende voorbeeld: 
+   ![eindpunt-url selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-       ![Voorbeeld van formulier voor gebeurtenisabonnement](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+7. Het formulier moet er nu uitzien zoals in het volgende voorbeeld:
 
-5. Selecteer **Maken** om het gebeurtenisabonnement op te slaan.
+   ![Voorbeeld van formulier voor gebeurtenisabonnement](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+
+   Selecteer **Maken** om het gebeurtenisabonnement op te slaan.
 
 ## <a name="observe-events"></a>Gebeurtenissen bekijken
 
@@ -267,21 +286,23 @@ Nu het gebeurtenisabonnement is ingesteld, gaan we testen door verbinding te mak
 
 ### <a name="register-a-device-in-iot-hub"></a>Registreer een apparaat in IoT Hub
 
-1. Selecteer **IoT-apparaten** in de IoT-hub. 
+1. Selecteer **IoT-apparaten** in de IoT-hub.
 
-2. Selecteer **Toevoegen**.
+2. Selecteer **+ toevoegen** aan de bovenkant van het deelvenster.
 
 3. Geef `Demo-Device-1` op voor **Apparaat-ID**.
 
-4. Selecteer **Opslaan**. 
+4. Selecteer **Opslaan**.
 
 5. U kunt meerdere apparaten met verschillende apparaat-id's toevoegen.
 
-   ![Hoe uitslag](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
+   ![Apparaten die zijn toegevoegd aan de hub](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Kopieer de **verbindingsreeks - primaire sleutel** voor later gebruik.
+6. Klik op het apparaat opnieuw; nu worden de verbindingsreeksen en sleutels ingevuld. Kopieer de **verbindingsreeks - primaire sleutel** voor later gebruik.
 
-   ![Hoe uitslag](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+   ![ConnectionString voor apparaat](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+
+HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
 
 ### <a name="start-raspberry-pi-simulator"></a>Starten van de simulator Raspberry Pi
 
@@ -293,19 +314,19 @@ Nu het gebeurtenisabonnement is ingesteld, gaan we testen door verbinding te mak
 
 Hiermee wordt een verbonden apparaat-gebeurtenis geactiveerd.
 
-1. In de code, kunt u de tijdelijke aanduiding in regel 15 vervangen door de verbindingsreeks van uw Azure IoT Hub-apparaat.
+1. In de code, kunt u de tijdelijke aanduiding in regel 15 vervangen door de verbindingsreeks van uw Azure IoT Hub-apparaat dat u aan het einde van de vorige sectie hebt opgeslagen.
 
-   ![Hoe uitslag](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![Plak in de verbindingsreeks van apparaat](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. De toepassing uitvoeren door te klikken op **uitvoeren**.
+2. De toepassing wordt uitgevoerd door het selecteren van **uitvoeren**.
 
-Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
+U ziet er ongeveer uitzien als in de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
 
-   ![Hoe uitslag](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
+   ![De toepassing uitvoeren](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
    Klik op **stoppen** stoppen van de simulator en het activeren een **apparaat losgekoppeld** gebeurtenis.
 
-U hebt nu een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub uitvoeren. 
+U hebt nu een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub uitvoeren.
 
 ### <a name="observe-events-in-cosmos-db"></a>Bekijk de gebeurtenissen in Cosmos DB
 
@@ -319,27 +340,27 @@ In plaats van de [Azure-portal](https://portal.azure.com), kunt u de stappen van
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In deze zelfstudie zijn resources gebruikt die kosten voor uw Azure-abonnement met zich meebrengen. Wanneer u klaar bent met de zelfstudie en het testen van de resultaten, moet u daarom de resources uitschakelen of verwijderen die u niet wilt behouden. 
+In deze zelfstudie zijn resources gebruikt die kosten voor uw Azure-abonnement met zich meebrengen. Wanneer u klaar bent met de zelfstudie en het testen van de resultaten, moet u daarom de resources uitschakelen of verwijderen die u niet wilt behouden.
 
-Als u het werk aan uw logische app wilt behouden, kunt u de app uitschakelen in plaats van verwijderen. 
+Als u het werk aan uw logische app wilt behouden, kunt u de app uitschakelen in plaats van verwijderen.
 
 1. Ga naar uw logische app.
 
-2. Op de **overzicht** Selecteer **verwijderen** of **uitschakelen**. 
+2. Op de **overzicht** Selecteer **verwijderen** of **uitschakelen**.
 
-Elk abonnement biedt toegang tot één gratis IoT-hub. Als u een gratis hub hebt gemaakt voor deze zelfstudie, hoeft u deze niet te verwijderen om te voorkomen dat er kosten in rekening worden gebracht.
+    Elk abonnement biedt toegang tot één gratis IoT-hub. Als u een gratis hub hebt gemaakt voor deze zelfstudie, hoeft u deze niet te verwijderen om te voorkomen dat er kosten in rekening worden gebracht.
 
-1. Ga naar uw IoT-hub. 
+3. Ga naar uw IoT-hub.
 
-2. Op de **overzicht** Selecteer **verwijderen**. 
+4. Op de **overzicht** Selecteer **verwijderen**.
 
-Zelfs als u uw IoT-hub wilt behouden, kunt u het gebeurtenisabonnement verwijderen dat u hebt gemaakt. 
+    Zelfs als u uw IoT-hub wilt behouden, kunt u het gebeurtenisabonnement verwijderen dat u hebt gemaakt.
 
-1. Selecteer hiervoor **Event Grid** in uw IoT-hub.
+5. Selecteer hiervoor **Event Grid** in uw IoT-hub.
 
-2. Selecteer het gebeurtenisabonnement dat u wilt verwijderen. 
+6. Selecteer het gebeurtenisabonnement dat u wilt verwijderen.
 
-3. Selecteer **Verwijderen**. 
+7. Selecteer **Verwijderen**.
 
 Als u wilt verwijderen van een Azure Cosmos DB-account vanuit Azure portal, met de rechtermuisknop op de accountnaam en klik op **-account verwijderen**. Zie voor gedetailleerde instructies [verwijderen van een Azure Cosmos DB-account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 

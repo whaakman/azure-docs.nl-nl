@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482603"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527163"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Problemen oplossen met Azure Cache voor Redis
 
@@ -250,6 +250,7 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
 1. Is er een grote aanvraag voorafgaand aan verschillende kleine aanvragen tot de cache die is een time-out? De parameter `qs` in de volgende fout bericht vertelt u hoeveel aanvragen naar de server van de client zijn verzonden, maar nog niet een antwoord verwerkt. Deze waarde kan blijven toenemen omdat StackExchange.Redis één TCP-verbinding gebruikt en één antwoord kan alleen worden gelezen op een tijdstip. Hoewel er is een time-out opgetreden voor de eerste bewerking, niet wordt deze niet meer gegevens worden verzonden naar of van de server. Andere aanvragen worden geblokkeerd totdat de grote aanvraag voltooid is en leiden time-outs tot kan. Eén oplossing is de kans op time-outs minimaliseren door ervoor te zorgen dat uw cache groot genoeg zijn voor uw werkbelasting is en grote waarden te splitsen in kleinere chunks. Een andere mogelijke oplossing is het gebruik van een pool van `ConnectionMultiplexer` objecten in uw client, en kies het minste geladen `ConnectionMultiplexer` bij het verzenden van een nieuwe aanvraag. Laden op meerdere verbindingsobjecten moet voorkomen dat een enkele time-out veroorzaakt door andere aanvragen voor ook time-out.
 1. Als u `RedisSessionStateProvider`, zorg ervoor dat u de time-out voor de nieuwe pogingen correct hebt ingesteld. `retryTimeoutInMilliseconds` moet hoger zijn dan `operationTimeoutInMilliseconds`, anders worden er geen nieuwe pogingen uitgevoerd. In het volgende voorbeeld `retryTimeoutInMilliseconds` is ingesteld op 3000. Zie voor meer informatie, [ASP.NET-Sessiestatusprovider voor Azure Cache voor Redis](cache-aspnet-session-state-provider.md) en [over het gebruik van de parameters voor de configuratie van de Sessiestatusprovider en Cacheprovider voor uitvoer](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Geheugengebruik op de Azure-Cache voor Redis-server door te controleren [bewaking](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` en `Used Memory`. Als een beleid van onbeschikbaar ingesteld is, Redis wordt gestart wanneer onbeschikbaar maken van sleutels `Used_Memory` de cachegrootte is bereikt. In het ideale geval `Used Memory RSS` moet worden slechts iets hoger dan `Used memory`. Een groot verschil betekent dat er geheugenfragmentatie (intern of extern). Wanneer `Used Memory RSS` is minder dan `Used Memory`, betekent dit dat onderdeel van het cache-geheugen is door het besturingssysteem zijn gewisseld. Als deze wisselen optreedt, kunt u verwachten dat sommige aanzienlijke latentie. Omdat Redis geen controle over de wijze waarop de toewijzingen zijn toegewezen aan geheugenpagina's, hoge `Used Memory RSS` is vaak het resultaat van een piek in het geheugengebruik. Als Redis-server maakt vrij geheugen, de toewijzingsfunctie duurt het geheugen, maar kan of kunnen niet geven het geheugen terug naar het systeem. Mogelijk zijn er een verschil tussen de `Used Memory` verbruik van waarde en geheugen zoals gemeld door het besturingssysteem. Geheugen is mogelijk gebruikt en die zijn uitgebracht door Redis, maar niet de opgegeven terug naar het systeem. Om te beperken geheugenproblemen, kunt u de volgende stappen uitvoeren:
 

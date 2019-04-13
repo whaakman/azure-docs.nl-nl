@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444120"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549300"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Computergroepen in Logboeken-query's van Azure Monitor
 Computergroepen in Azure Monitor kunnen u aan het bereik [query's bijgehouden](../log-query/log-query-overview.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een logboekquery, worden de resultaten beperkt tot de records die voldoen aan de computers in de groep.
@@ -53,11 +53,11 @@ Gebruik de volgende procedure een computergroep maken vanuit een zoeken in Logbo
 
 De volgende tabel beschrijft de eigenschappen die een computergroep definiëren.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:---|:---|
 | Name   | Naam van de query om weer te geven in de portal. |
 | Functiealias | Een unieke alias die wordt gebruikt voor het identificeren van de groep van de computer in een query. |
-| Categorie       | De categorie te organiseren van de query's in de portal. |
+| Category       | De categorie te organiseren van de query's in de portal. |
 
 
 ### <a name="active-directory"></a>Active Directory
@@ -127,15 +127,15 @@ Een record wordt gemaakt in de werkruimte voor logboekanalyse voor elke computer
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |De naam van de computer die lid is. |
-| Groep |Naam van de groep. |
-| GroupFullName |Het volledige pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
-| GroupSource |Bron van die groep is verzameld uit. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Naam van de bron die is verzameld, de groep.  Dit is de domeinnaam voor Active Directory. |
-| ManagementGroupName |Naam van de beheergroep voor SCOM-agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
-| TimeGenerated |Datum en tijd groep op de computer is gemaakt of bijgewerkt. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |De naam van de computer die lid is. |
+| `Group` |Naam van de groep. |
+| `GroupFullName` |Het volledige pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
+| `GroupSource` |Bron van die groep is verzameld uit. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Naam van de bron die is verzameld, de groep.  Dit is de domeinnaam voor Active Directory. |
+| `ManagementGroupName` |Naam van de beheergroep voor SCOM-agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
+| `TimeGenerated` |Datum en tijd groep op de computer is gemaakt of bijgewerkt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  

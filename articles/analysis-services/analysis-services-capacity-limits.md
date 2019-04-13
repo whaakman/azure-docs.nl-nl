@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630645"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527809"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services-resource en object limieten
 
@@ -67,8 +67,8 @@ Deze limieten zijn theoretische. Prestaties wordt op lagere getallen worden verm
 |Niveaus in een hiërarchie|15,999|  
 |Relaties|8,000|  
 |Sleutelkolommen in alle tabel|15,999|  
-|Metingen in tabellen|2 ^ 31-1 = 2.147.483.647|  
-|Cellen die zijn geretourneerd door een query|2 ^ 31-1 = 2.147.483.647|  
+|Metingen in tabellen|2^31-1 = 2,147,483,647|  
+|Cellen die zijn geretourneerd door een query|2^31-1 = 2,147,483,647|  
 |Grootte van de record van de bronquery|64 KB|  
 |Lengte van de namen van objecten|512 tekens|  
 

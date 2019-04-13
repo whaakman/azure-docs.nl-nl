@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013554"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528166"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabelen voor regels-engine van Azure CDN
 HTTP-variabelen bieden de mogelijkheid waarmee u HTTP-aanvraag en respons metagegevens kunt ophalen. Deze metagegevens kunt vervolgens worden gebruikt om een aanvraag of antwoord dynamisch wijzigen. Het gebruik van HTTP-variabelen is beperkt tot de volgende regels-engine-functies:
@@ -38,7 +38,7 @@ De volgende tabel beschrijft de ondersteunde HTTP-variabelen. Een lege waarde wo
 | ---- | -------- | ----------- | ------------ |
 | ASN (aanvrager) | %{geo_asnum} | Geeft aan van de aanvrager als getal. <br /><br />**Afgeschafte:** % {virt_dst_asnum}. <br />Deze variabele is afgeschaft en vervangen door % {geo_asnum}. Hoewel een regel die gebruikmaakt van deze afgeschaft variabele werken blijven, moet u deze voor het gebruik van de nieuwe variabele bijwerken. | AS15133 |
 | Plaats (aanvrager) | %{geo_city} | Hiermee wordt aangegeven in plaats van de aanvrager. | Los Angeles |
-| Continent (aanvrager) | %{geo_continent} | Geeft aan van de aanvrager continent via de afkorting van. <br />Geldige waarden zijn: <br />AF: Afrika<br />AS: Azië<br />EU: Europa<br />NA: Noord-Amerika<br />OC: Oceanië<br />SA: Zuid-Amerika<br /><br />**Afgeschafte:** % {virt_dst_continent}. <ber />Deze variabele is afgeschaft en vervangen door % {geo_continent}. <br />Hoewel een regel die gebruikmaakt van deze afgeschaft variabele werken blijven, moet u deze voor het gebruik van de nieuwe variabele bijwerken.| N/A |
+| Continent (aanvrager) | %{geo_continent} | Geeft aan van de aanvrager continent via de afkorting van. <br />Geldige waarden zijn: <br />AF: Afrika<br />AS: Azië<br />EU: Europa<br />NA: Noord-Amerika<br />OC: Oceanië<br />SA: Zuid-Amerika<br /><br />**Afgeschafte:** % {virt_dst_continent}. <br />Deze variabele is afgeschaft en vervangen door % {geo_continent}. <br />Hoewel een regel die gebruikmaakt van deze afgeschaft variabele werken blijven, moet u deze voor het gebruik van de nieuwe variabele bijwerken.| N/A |
 | Cookiewaarde | %{cookie_Cookie} | Retourneert de waarde die overeenkomt met de cookiesleutel aangeduid met de term Cookie. | Voorbeeldgebruik: <br />%{cookie__utma}<br /><br />Voorbeeldwaarde:<br />111662281.2.10.1222100123 |
 | Land (aanvrager) | %{geo_country} | Geeft aan van de aanvrager land van oorsprong via de landcode. <br />**Afgeschafte:** % {virt_dst_country}. <br /><br />Deze variabele is afgeschaft en vervangen door % {geo_country}. Hoewel een regel die gebruikmaakt van deze afgeschaft variabele werken blijven, moet u deze voor het gebruik van de nieuwe variabele bijwerken. | VS |
 | Aangewezen marktgebied (aanvrager) | %{geo_dma_code} |Geeft aan van de aanvrager media markt door de regiocode. <br /><br />Dit veld is alleen van toepassing op aanvragen die afkomstig uit de Verenigde Staten zijn.| 745 |
@@ -110,7 +110,7 @@ De scheidingstekens worden beschreven in de volgende tabel.
 ## <a name="exceptions"></a>Uitzonderingen
 De volgende tabel beschrijft de omstandigheden waaronder de opgegeven tekst wordt niet beschouwd als een HTTP-variabele.
 
-| Voorwaarde | Description | Voorbeeld |
+| Voorwaarde | Beschrijving | Voorbeeld |
 | --------- | ----------- | --------|
 | Aanhalingstekens % symbool | Het percentagesymbool kan worden voorafgegaan door het gebruik van een backslash. <br />De Voorbeeldwaarde aan de rechterkant wordt beschouwd als een letterlijke waarde en niet als een HTTP-variabele.| \%{host} |
 | Onbekende variabelen | Een lege tekenreeks geretourneerd altijd voor onbekende variabelen. | % {unknownvariable} |

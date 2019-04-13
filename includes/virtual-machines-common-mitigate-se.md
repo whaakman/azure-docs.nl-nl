@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105503"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551621"
 ---
 **Laatste update document**: 14 augustus 2018 10:00 AM PST.
 
@@ -21,7 +21,7 @@ De vermelding van een [nieuwe klasse van CPU-beveiligingsproblemen](https://port
 
 Microsoft heeft oplossingen worden geïmplementeerd in onze cloudservices. De infrastructuur die wordt uitgevoerd van Azure en klantwerkbelastingen van elkaar geïsoleerd is beveiligd. Dit betekent dat een potentiële aanvaller met behulp van dezelfde infrastructuur kan niet aanvallen op uw toepassing met behulp van deze beveiligingslekken.
 
-Het met behulp van Azure [geheugen onderhoud met statusbehoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) zoveel mogelijk minimaliseren gevolgen zijn voor klanten en elimineert de noodzaak van opnieuw wordt opgestart. Azure zal blijven deze methoden gebruiken bij het maken van systeembrede updates naar de host en onze klanten te beveiligen.
+Het met behulp van Azure [geheugen onderhoud met statusbehoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) zoveel mogelijk minimaliseren gevolgen zijn voor klanten en elimineert de noodzaak van opnieuw wordt opgestart. Azure zal blijven deze methoden gebruiken bij het maken van systeembrede updates naar de host en onze klanten te beveiligen.
 
 Meer informatie over hoe de beveiliging is geïntegreerd in elk aspect van Azure is beschikbaar op de [documentatie over Azure-beveiliging](https://docs.microsoft.com/azure/security/) site. 
 
@@ -70,11 +70,11 @@ U kunt aanvullende beveiligingsfuncties die binnen uw virtuele machine of Servic
 
 Het beoogde besturingssysteem moet worden bijgewerkt zodat deze aanvullende beveiligingsfuncties. Hoewel talrijke speculatieve uitvoering kant kanaal oplossingen zijn standaard ingeschakeld, wordt de aanvullende functies die hier worden beschreven handmatig moeten zijn ingeschakeld en kunnen ertoe leiden dat een prestatie-impact. 
 
-**Stap 1**: [contact opnemen met Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines. 
+**Stap 1**: [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines. 
 
-**Stap 2**: ondersteuning voor inschakelen Kernel virtuele-adres maken van schaduwkopieën (KVAS) en de vertakking doel injectie (BTI)-besturingssysteem. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `Session Manager` registersleutels. Opnieuw opstarten is vereist. 
+**Stap 2**: Ondersteuning voor Kernel virtuele-adres maken van schaduwkopieën (KVAS) en het besturingssysteem van de vertakking doel injectie (BTI) inschakelen. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `Session Manager` registersleutels. Opnieuw opstarten is vereist. 
 
-**Stap 3**: voor implementaties die gebruikmaken van [geneste virtualisatie](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 en E3 alleen): deze instructies zijn van toepassing binnen de virtuele machine die u als een Hyper-V-host gebruikt. 
+**Stap 3**: Voor implementaties die gebruikmaken van [geneste virtualisatie](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 en E3 alleen): Deze instructies zijn van toepassing binnen de virtuele machine die u als een Hyper-V-host gebruikt. 
 
 1. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `MinVmVersionForCpuBasedMitigations` registersleutels.  
  
@@ -101,11 +101,11 @@ L1TFWindowsSupportEnabled: True
 
 <a name="linux"></a>Het inschakelen van de reeks aanvullende beveiligingsfuncties in is vereist dat het gebruikte besturingssysteem volledig up-to-date zijn. Sommige oplossingen wordt standaard ingeschakeld. De volgende sectie beschrijft de functies die uitgeschakeld, standaard en/of vertrouwen op hardware-ondersteuning (microcode zijn). Inschakelen van deze functies mogelijk invloed op de prestaties. Verwijzen naar de documentatie van de provider van uw besturingssysteem voor verdere instructies
  
-**Stap 1**: [contact opnemen met Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines.
+**Stap 1**: [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines.
  
-**Stap 2**: ondersteuning voor inschakelen vertakking doel injectie (BTI) OS CVE-2017-5715 (Spectre Variant 2) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
+**Stap 2**: Ondersteuning voor vertakking doel injectie (BTI) OS CVE-2017-5715 (Spectre Variant 2) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
  
-**Stap 3**: inschakelen Kernel pagina tabel isolatie (KPTI) CVE-2017-5754 (Meltdown Variant 3) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
+**Stap 3**: Schakelen Kernel pagina tabel isolatie (KPTI) te beperken CVE-2017-5754 (Meltdown Variant 3) de documentatie van de provider van uw besturingssysteem. 
  
 Meer informatie vindt u van uw besturingssysteem-provider:  
  

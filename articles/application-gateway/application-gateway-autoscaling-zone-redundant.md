@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010206"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548710"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -31,7 +31,7 @@ Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in ope
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> Het automatisch schalen en de zone-redundante application gateway SKU biedt nu ondersteuning voor [standaard health test](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) automatisch de status van alle resources in de back-end-pool controleren en verwijderen van een resource als slecht beschouwd uit de groep. De bewerking standaard health test wordt worden automatisch geconfigureerd voor alle deze back-ends waarvoor u de configuratie van een aangepaste test hebt ingesteld. Zie voor meer informatie, [statuscontroles in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> Het automatisch schalen en de zone-redundante application gateway SKU biedt nu ondersteuning voor [standaard health test](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) automatisch de status van alle resources in de back-end-pool bewaken en markeer deze back-end-leden die worden beschouwd als niet in orde. De bewerking standaard health test wordt worden automatisch geconfigureerd voor alle deze back-ends waarvoor u de configuratie van een aangepaste test hebt ingesteld. Zie voor meer informatie, [statuscontroles in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Vergelijking van functies tussen SKU v1 en v2-SKU
 

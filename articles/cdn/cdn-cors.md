@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917767"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547587"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Azure CDN gebruiken met CORS
 ## <a name="what-is-cors"></a>Wat is CORS?
@@ -32,7 +32,7 @@ Er zijn twee soorten CORS-aanvragen, *eenvoudige aanvragen* en *complexe aanvrag
 
 1. De browser verzendt de CORS-aanvraag met een extra **oorsprong** header HTTP-aanvraag. De waarde van deze header is de oorsprong die de bovenliggende pagina, die is gedefinieerd als de combinatie van behandeld *-protocol,* *domein* en *poort.*  Als een pagina van https://www.contoso.com probeert te krijgen tot gegevens van een gebruiker in de oorsprong fabrikam.com, de volgende aanvraagheader naar fabrikam.com worden verzonden:
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. De server reageert met een van de volgende:
 

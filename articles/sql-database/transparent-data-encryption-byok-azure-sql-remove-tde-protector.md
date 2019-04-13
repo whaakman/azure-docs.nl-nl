@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847807"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528261"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 
@@ -40,6 +40,12 @@ De volgende procedures moeten alleen worden uitgevoerd in uitzonderlijke gevalle
 Als een sleutel is ooit mogelijke gevaar lopen, zodat een service of de gebruiker niet-toegang tot de sleutel geautoriseerde heeft, is het aanbevolen om de sleutel te verwijderen.
 
 Houd er rekening mee dat als de TDE-beveiliging wordt verwijderd in Key Vault, **alle verbindingen met de versleutelde databases op de server worden geblokkeerd en deze databases gaan offline en verwijderd binnen 24 uur**. Oude back-ups die zijn versleuteld met de waarmee is geknoeid sleutel zijn niet meer toegankelijk.
+
+De volgende stappen wordt beschreven hoe u om te controleren of de vingerafdrukken TDE-beveiliging nog in gebruik door virtuele logboekbestanden bestanden (VLF) van een bepaalde database. De vingerafdruk van de huidige TDE-beveiliging van de database en de database-ID kan worden gevonden door te voeren: Selecteer [database_id]       [encryption_state], [encryptor_type] /*asymmetrische sleutel betekent AKV, certificaat: service beheerde sleutels*/ [encryptor_thumbprint] van [sys]. [ dm_database_encryption_keys] 
+ 
+De volgende query retourneert de VLF en de encryptor respectieve vingerafdrukken in gebruik. Elke andere vingerafdruk verwijst naar de andere sleutel in Azure Key Vault (AKV): Selecteer * uit sys.dm_db_log_info (database_id) 
+
+De PowerShell-opdracht Get-AzureRmSqlServerKeyVaultKey biedt de vingerafdruk van de TDE-beveiliging gebruikt in de query, zodat u zien kunt welke te houden en welke sleutels in Azure Sleutelkluis verwijderen. Alleen de sleutels niet meer worden gebruikt door de database kunnen veilig worden verwijderd uit Azure Key Vault.
 
 In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewenste resultaat na de respons op incidenten:
 

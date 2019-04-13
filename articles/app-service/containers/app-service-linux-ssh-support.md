@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d84a4dd0b69ce9ca7fc594dffce3238c620c426
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167130"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543970"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service on Linux
 
@@ -35,71 +35,11 @@ U kunt ook verbinding maken met de container rechtstreeks vanuit uw lokale ontwi
 
 ## <a name="open-ssh-session-in-browser"></a>SSH-sessie openen in browser
 
-Als u een SSH-clientverbinding met de container, moet uw app worden uitgevoerd.
-
-Plak de volgende URL in uw browser en vervang \<app_name > door de naam van uw app:
-
-```
-https://<app_name>.scm.azurewebsites.net/webssh/host
-```
-
-Als u niet al zijn geverifieerd, moet u verifiëren met uw Azure-abonnement om verbinding te maken. Eenmaal is geverifieerd, ziet u een shell in de browser, waar u opdrachten kunt uitvoeren in de container.
-
-![SSH-verbinding](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>SSH-ondersteuning gebruiken met aangepaste Docker-installatiekopieën
 
-In de order voor een aangepaste Docker-installatiekopie voor de ondersteuning van SSH-communicatie tussen de container en de client in Azure portal, moet u de volgende stappen uitvoeren voor de Docker-installatiekopie.
-
-Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [een voorbeeld](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
-
-1. Bevatten de `openssh-server` installatie in [ `RUN` instructie](https://docs.docker.com/engine/reference/builder/#run) in de Dockerfile voor uw installatiekopie en stel het wachtwoord voor de basis-account aan `"Docker!"`.
-
-    > [!NOTE]
-    > Deze configuratie staat geen externe verbindingen naar de container toe. SSH is alleen toegankelijk via de Kudu / SCM-Site, die is geverifieerd met behulp van de publicatiereferenties.
-
-    ```Dockerfile
-    # ------------------------
-    # SSH Server support
-    # ------------------------
-    RUN apt-get update \
-        && apt-get install -y --no-install-recommends openssh-server \
-        && echo "root:Docker!" | chpasswd
-    ```
-
-2. Toevoegen een [ `COPY` instructie](https://docs.docker.com/engine/reference/builder/#copy) naar het bestand Dockerfile kopiëren een [sshd_config](https://man.openbsd.org/sshd_config) van het bestand in de */etc/ssh/* directory. Het configuratiebestand moet worden gebaseerd op het bestand sshd_config in de Azure-App-Service-GitHub-opslagplaats [hier](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
-
-    > [!NOTE]
-    > De *sshd_config* bestand moet zijn onder andere de volgende anders mislukt de verbinding: 
-    > * `Ciphers` moet ten minste een van de volgende bevatten: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs` moet ten minste een van de volgende bevatten: `hmac-sha1,hmac-sha1-96`.
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
-    ```
-
-3. Poort 2222 in bevatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor het bestand Dockerfile. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne enige poort die toegankelijk is alleen door containers in het Brugnetwerk van een virtueel particulier netwerk.
-
-    ```Dockerfile
-    EXPOSE 2222 80
-    ```
-
-4. Zorg ervoor dat u start de SSH-service met behulp van een shell-script (Zie het voorbeeld op [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
-
-    ```bash
-    #!/bin/bash
-    service ssh start
-    ```
-
-De docker-bestand maakt gebruik van de [ `ENTRYPOINT` instructie](https://docs.docker.com/engine/reference/builder/#entrypoint) het script uit te voeren.
-
-    ```Dockerfile
-    COPY init_container.sh /opt/startup
-    ...
-    RUN chmod 755 /opt/startup/init_container.sh
-    ...
-    ENTRYPOINT ["/opt/startup/init_container.sh"]
-    ```
+Zie [configureren SSH in een aangepaste container](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>SSH-sessie openen vanuit externe shell
 
@@ -111,10 +51,10 @@ Met behulp van TCP tunneling u kunt een netwerkverbinding tussen uw ontwikkelcom
 
 Als u wilt beginnen, moet u installeren [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Als u wilt zien hoe dit werkt zonder de Azure CLI installeren, opent u [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement\_id >_,  _\<groep\_naam >_ en \_< app\_naam > _ voor uw app.
+Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement-id >_,  _\<group-name >_ en \_< app-naam > _ voor uw app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
+az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

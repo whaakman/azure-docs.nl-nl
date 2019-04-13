@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477451"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545311"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>De zakelijke understanding fase van de levenscyclus van het Team Data Science Process
 
@@ -46,7 +46,7 @@ Er zijn twee belangrijke taken behandeld in deze fase:
 ### <a name="define-objectives"></a>Doelstellingen bepalen
 1. Een centrale doel van deze stap is het identificeren van de belangrijkste zakelijke variabelen die de analyse nodig heeft om te voorspellen. We verwijzen naar deze variabelen als de *model doelen*, en we de metrische gegevens die zijn gekoppeld aan deze gebruiken om te bepalen het succes van het project. Twee voorbeelden van dergelijke doelen zijn verkoopprognoses of de waarschijnlijkheid van een order fraude.
 
-2. Definieer de projectdoelstellingen waarin wordt gevraagd en "scherpe" vragen die betrokken, specifieke en ondubbelzinnige zijn verfijnen. Wetenschappelijke gegevens is een proces dat gebruikmaakt van namen en getallen om dergelijke vragen te beantwoorden. Zie voor meer informatie over sharp vragen te stellen, de [hoe u data science doet](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Doorgaans gebruikt u data science of machine learning om de vijf soorten vragen beantwoorden:
+2. Definieer de projectdoelstellingen waarin wordt gevraagd en "scherpe" vragen die betrokken, specifieke en ondubbelzinnige zijn verfijnen. Wetenschappelijke gegevens is een proces dat gebruikmaakt van namen en getallen om dergelijke vragen te beantwoorden. Doorgaans gebruikt u data science of machine learning om de vijf soorten vragen beantwoorden:
  
    * Hoeveel of hoe vaak? (regressie)
    * Welke categorie? (classificatie)

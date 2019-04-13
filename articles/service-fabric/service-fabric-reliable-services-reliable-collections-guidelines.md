@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667103"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549013"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Richtlijnen en aanbevelingen voor betrouwbare verzamelingen in Azure Service Fabric
 In deze sectie bevat richtlijnen voor het gebruik van betrouwbare status Manager en betrouwbare verzamelingen. Het doel is om gebruikers niet voor verrassingen te helpen.
@@ -32,6 +32,7 @@ De richtlijnen zijn ingedeeld als eenvoudige aanbevelingen die worden voorafgega
 * Gebruik niet een transactie nadat deze is toegewezen, is afgebroken, of verwijderd.
 * Gebruik een opsomming niet buiten de transactiebereik dat is gemaakt.
 * Maak een transactie in een andere transactie geen `using` instructie omdat dit ertoe leiden impassen dat kan.
+* Maak geen betrouwbare staat met `IReliableStateManager.GetOrAddAsync` en gebruiken van de betrouwbare status in dezelfde transactie. Dit resulteert in een InvalidOperationException.
 * Kan ervoor zorgen dat uw `IComparable<TKey>` implementatie juist is. Het systeem gebruikt de afhankelijkheid van `IComparable<TKey>` voor het samenvoegen van controlepunten en rijen.
 * Gebruik bijwerkvergrendeling bij het lezen van een item met een voornemen bij te werken om te voorkomen dat een bepaalde klasse impassen.
 * Houd rekening met bewaren aantal betrouwbare verzamelingen per partitie moet minder dan 1000. Betrouwbare verzamelingen met meer items liever over meer betrouwbare verzamelingen met minder items.

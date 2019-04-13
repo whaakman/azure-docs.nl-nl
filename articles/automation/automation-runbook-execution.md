@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268497"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544752"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -46,7 +46,7 @@ In Azure Automation kunnen Runbooks worden uitgevoerd via een sandbox in Azure o
 |Module waarvoor installatieprogramma installeren|Hybrid Runbook Worker|Modules voor sandbox moet copiable|
 |Met behulp van runbooks of modules waarvoor .NET Framework verschilt 4.7.2|Hybrid Runbook Worker|Automation-sandboxes geladen .NET Framework 4.7.2 hebben en er is geen manier om te upgraden|
 |Scripts die verhoogde bevoegdheden vereist|Hybrid Runbook Worker|Sandboxes toegestaan uitbreiding van bevoegdheden niet. Een Hybrid Runbook Worker te gebruiken om op te lossen dit, en kunt u uitschakelen UAC en gebruik `Invoke-Command` als met de opdracht die is vereist tot misbruik van bevoegdheden|
-|Scripts die toegang hebben tot WMI nodig|Hybrid Runbook Worker|Taken die worden uitgevoerd in sandboxes de cloud [bent niet gemachtigd de WMI](#device-and-application-characteristics)|
+|Scripts die toegang hebben tot WMI nodig|Hybrid Runbook Worker|Taken die worden uitgevoerd in sandboxes in de cloud [geen toegang hebben tot de WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook-gedrag
 
@@ -192,7 +192,7 @@ Runbooks uitvoeren in Azure sandboxes bieden geen ondersteuning voor aanroepen p
 
 ### <a name="device-and-application-characteristics"></a>Kenmerken van apparaten en toepassingen
 
-Runbook-taken uitvoeren in Azure sandboxes geen toegang tot de kenmerken van een apparaat of een toepassing. De meest voorkomende API gebruikt voor het query-maatstaven voor prestaties op Windows is WMI. Sommige van deze algemene metrische gegevens zijn geheugen en CPU-gebruik. Echter, het maakt niet uit welke API wordt gebruikt. Taken die worden uitgevoerd in de cloud geen hebben toegang tot de Microsoft-implementatie van Web gebaseerd Enterprise Management (WBEM), die is gebouwd op het Common Information Model (CIM), die de industrienormen voor het definiëren van apparaten en toepassingen kenmerken zijn.
+Runbook-taken uitvoeren in Azure sandboxes geen toegang tot de kenmerken van een apparaat of een toepassing. De meest voorkomende API gebruikt voor het query-maatstaven voor prestaties op Windows is WMI. Sommige van deze algemene metrische gegevens zijn geheugen en CPU-gebruik. Echter, het maakt niet uit welke API wordt gebruikt. Taken die in de cloud worden uitgevoerd geen toegang tot de Microsoft-implementatie van Web op basis van Enterprise Management (WBEM), die is gebouwd op het Common Information Model (CIM), die de industrienormen voor het definiëren van apparaten en toepassingen kenmerken zijn.
 
 ## <a name="job-statuses"></a>Status van een taak
 

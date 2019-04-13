@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338223"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549081"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versiebeheer in duurzame functies (Azure Functions)
 
@@ -140,7 +140,7 @@ Alle Azure Storage-entiteiten zijn met de naam op basis van de `HubName` configu
 Het is raadzaam dat u de nieuwe versie van de functie-app op een nieuwe implementeren [Deployment Slot](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Implementatiesites kunnen u meerdere kopieën van uw functie-app side-by-side uitvoeren met slechts één provider als de actieve *productie* sleuf. Wanneer u klaar om beschikbaar te stellen de nieuwe indeling logica voor uw bestaande infrastructuur bent, kan het zijn net zo eenvoudig als het wisselen van de nieuwe versie in de productiesite.
 
 > [!NOTE]
-> Deze strategie werkt het beste wanneer u HTTP- en webhook-triggers voor orchestrator-functies. Voor niet-HTTP-triggers, zoals wachtrijen of Event Hubs, moet de definitie van de trigger zijn afgeleid van een app-instelling die wordt bijgewerkt als onderdeel van de wisselbewerking opnieuw uit.
+> Deze strategie werkt het beste wanneer u HTTP- en webhook-triggers voor orchestrator-functies. Voor niet-HTTP-triggers, zoals wachtrijen of Event Hubs, de definitie van de trigger moet [afgeleid van een app-instelling](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) die wordt bijgewerkt als onderdeel van de wisselbewerking opnieuw uit.
 
 ## <a name="next-steps"></a>Volgende stappen
 

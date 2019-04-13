@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670123"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543665"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric voor Visual Studio Code
 
@@ -120,7 +120,7 @@ De **Service Fabric: Toepassing verwijderen** opdracht verwijdert u een Service 
 2.  Met Service Fabric Explorer om te bevestigen dat de toepassing is verwijderd van het cluster weergeven. Dit kan enige tijd duren, dus zorg patiënt.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: -Toepassing ontwikkelen
-De **Service Fabric: Toepassing verwijderen** opdracht beide Java kunt bouwen of C# Service Fabric-toepassingen. 
+De **Service Fabric: -Toepassing ontwikkelen** opdracht beide Java kunt bouwen of C# Service Fabric-toepassingen. 
 
 1.  Zorg ervoor dat u zich in de hoofdmap van de toepassing voordat u deze opdracht uitvoert. De opdracht geeft het type van de toepassing (C# of Java) en bouwt u uw toepassing dienovereenkomstig.
 2.  Selecteer de **Service Fabric: -Toepassing ontwikkelen** opdracht.

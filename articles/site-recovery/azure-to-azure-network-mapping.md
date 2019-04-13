@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359805"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549023"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Instellen van netwerktoewijzing en IP-adressering voor vnet 's
 
@@ -86,7 +86,7 @@ Andere adresruimte<br/><br/> Het eerstvolgende beschikbare IP-adres in het doels
 **Doelnetwerk** | **Details**
 --- | ---
 Doelnetwerk is failover VNet | -Doel IP-adres wordt statisch, maar niet hetzelfde IP-adres als gereserveerd voor failover.<br/><br/>  -Het toegewezen adres is het eerstvolgende beschikbare adres vanaf het einde van het subnetbereik.<br/><br/> Bijvoorbeeld: Als de bron-IP-adres 10.0.0.19 is en failovernetwerk netwerkadresbereik 10.0.0.0/24 wordt gebruikt, is het volgende IP-adres toegewezen aan de doel-VM 10.0.0.254 beschikbaar.
-Doelnetwerk is niet de failover VNet | -Doel IP-adres worden statische met hetzelfde IP-adres gereserveerd voor failover.<br/><br/>  -Als hetzelfde IP-adres al toegewezen is, is het IP-adres het volgende object beschikbaar zijn op elk van de subnetbereik.<br/><br/> Bijvoorbeeld: Als het statische IP-adres van bron 10.0.0.19 is en failover bevindt op een netwerk dat niet het failovernetwerk, met het netwerkadresbereik 10.0.0.0/24, klikt u vervolgens het statische IP-adres van doel is 10.0.0.0.19 indien beschikbaar, en anders het 10.0.0.254 beschikbaar zal zijn.
+Doelnetwerk is niet de failover VNet | -Doel IP-adres worden statische met hetzelfde IP-adres gereserveerd voor failover.<br/><br/>  -Als hetzelfde IP-adres al toegewezen is, is het volgende object beschikbaar aan het einde van het subnetbereik met het IP-adres.<br/><br/> Bijvoorbeeld: Als het statische IP-adres van bron 10.0.0.19 is en failover bevindt op een netwerk dat niet het failovernetwerk, met het netwerkadresbereik 10.0.0.0/24, klikt u vervolgens het statische IP-adres van doel is 10.0.0.0.19 indien beschikbaar, en anders het 10.0.0.254 beschikbaar zal zijn.
 
 - De failover VNet is het doelnetwerk die u selecteert bij het instellen van herstel na noodgevallen.
 - U wordt aangeraden dat u altijd een niet-productie-netwerk voor test-failover gebruiken.

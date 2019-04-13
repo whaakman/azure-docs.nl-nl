@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7aa171a49ea03769c3ecbb5d35ae31ac6fae052e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473156"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544109"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met de REST API voor Afwijkingsdetectie Detector enC# 
 
@@ -81,24 +81,19 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 1. Maak een nieuwe async-functie met de naam `Request` waarmee de variabelen die eerder is gemaakt.
 
 2. Instellen van de client security-protocol en header-informatie met een `HttpClient` object. Zorg ervoor dat u uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header. Maak vervolgens een `StringContent` -object voor de aanvraag.
- 
-3. De aanvraag met verzenden `PostAsync()`. Als de aanvraag geslaagd is, wordt het antwoord retourneren.  
+
+3. De aanvraag met verzenden `PostAsync()`, en vervolgens het antwoord terug te keren.
 
 ```csharp
-static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
-    using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
+static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
+    using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
         var content = new StringContent(requestData, Encoding.UTF8, "application/json");
         var res = await client.PostAsync(endpoint, content);
-        if (res.IsSuccessStatusCode){
-            return await res.Content.ReadAsStringAsync();
-        }
-        else{
-            return $"ErrorCode: {res.StatusCode}";
-        }
+        return await res.Content.ReadAsStringAsync();
     }
 }
 ```
@@ -109,9 +104,9 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 2. Het JSON-object te deserialiseren en schrijven naar de console.
 
-3. De posities van afwijkingen vinden in de gegevensset. Van het antwoord `isAnomaly` veld bevat een matrix van Booleaanse waarden, die elk geeft aan of een gegevenspunt een afwijking. Dit account converteren naar een string-matrix met de antwoordobject `ToObject<bool[]>()` functie.
+3. Als het antwoord bevat `code` veld, wordt de code als een foutbericht afgedrukt. 
 
-4. Doorlopen van de matrix en afdrukken van de index van een `true` waarden. Deze waarden overeenkomen met de index van afwijkende gegevenspunten, als deze zijn gevonden.
+4. Anders wordt de posities van afwijkingen vinden in de gegevensset. Van het antwoord `isAnomaly` veld bevat een matrix van Booleaanse waarden, die elk geeft aan of een gegevenspunt een afwijking. Dit account converteren naar een string-matrix met de antwoordobject `ToObject<bool[]>()` functie. Doorlopen van de matrix en afdrukken van de index van een `true` waarden. Deze waarden overeenkomen met de index van afwijkende gegevenspunten, als deze zijn gevonden.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -126,11 +121,17 @@ static void detectAnomaliesBatch(string requestData){
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
     System.Console.WriteLine(jsonObj);
 
-    bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
-    System.Console.WriteLine("\n Anomalies detected in the following data positions:");
-    for (var i = 0; i < anomalies.Length; i++) {
-        if (anomalies[i]) {
-            System.Console.Write(i + ", ");
+    if (jsonObj["code"] != null){
+        System.Console.WriteLine($"Detection failed. ErrorCode:{jsonObj["code"]}, ErrorMessage:{jsonObj["message"]}");
+    }
+    else{
+        bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
+        System.Console.WriteLine("\nAnomalies detected in the following data positions:");
+        for (var i = 0; i < anomalies.Length; i++){
+            if (anomalies[i])
+            {
+                System.Console.Write(i + ", ");
+            }
         }
     }
 }
@@ -140,11 +141,11 @@ static void detectAnomaliesBatch(string requestData){
 
 1. Maak een nieuwe functie met de naam `detectAnomaliesLatest()`. De aanvraag te maken en te verzenden door het aanroepen van de `Request()` functie met uw eindpunt, abonnementssleutel, de URL voor de meest recente herstelpunt voor de detectie van afwijkingen en de time series-gegevens.
 
-2. Het JSON-object te deserialiseren en schrijven naar de console. 
+2. Het JSON-object te deserialiseren en schrijven naar de console.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
-    System.Console.WriteLine("\n\n Determining if latest data point is an anomaly");
+    System.Console.WriteLine("\n\nDetermining if latest data point is an anomaly");
     var result = Request(
         endpoint,
         latestPointDetectionUrl,

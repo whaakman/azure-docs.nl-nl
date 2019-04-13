@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361990"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527676"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Rapport genereren
-Het hulpprogramma genereert een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) als de rapportuitvoer, met daarin een overzicht van alle aanbevelingen voor de implementatie. Het rapport heeft de naam DeploymentPlannerReport_<unique numeric identifier>.xlsm en wordt in de opgegeven directory geplaatst.
+Het hulpprogramma genereert een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) als de rapportuitvoer, met daarin een overzicht van alle aanbevelingen voor de implementatie. Het rapport heeft de naam `DeploymentPlannerReport_<unique numeric identifier>.xlsm` en in de opgegeven directory geplaatst.
 
 >[!NOTE]
 >Het rapport is geconfigureerd als decimaalteken vereist '. ' voor het produceren van kostenramingen op de server waarop u de deployment planner. In geval hebt u instellen ',' als decimaalteken op een Windows-machine, Ga naar 'Wijziging datum, tijd of getalnotaties' in het Configuratiescherm en gaat u naar 'Extra instellingen ' te wijzigen van het decimaalteken aan'.'.
@@ -145,7 +145,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Description |
+|Parameternaam | Beschrijving |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Percentielwaarde die voor de berekening wordt gebruikt
-**Welke standaardpercentielwaarde de prestatiegerelateerde metrische gegevens die zijn verzameld tijdens de profilering gebruikt het hulpprogramma bij het genereren van een rapport?**
+**Welke standaardpercentielwaarde met betrekking tot de prestatiegerelateerde metrische gegevens die tijdens de profilering zijn verzameld, wordt tijdens het genereren van het rapport gebruikt?**
 
 Het hulpprogramma wordt standaard ingesteld op de 95e-percentielwaarde van de IOPS voor lezen/schrijven, de IOPS voor schrijven en de gegevensverloop die tijdens het profileren van de virtuele machines zijn verzameld. Deze waarde zorgt ervoor dat een piek (100e-percentielwaarde) die vanwege tijdelijke gebeurtenissen kan ontstaan op virtuele machines, niet wordt gebruikt om de vereisten te bepalen van het doel-opslagaccount en de bron-bandbreedte. Voorbeelden van tijdelijke gebeurtenissen zijn het één keer per dag uitvoeren van een back-up, het periodiek indexeren van een database, het genereren van analyserapporten en andere vergelijkbare activiteiten die op een bepaald moment actief zijn.
 
@@ -226,7 +226,7 @@ Het gebruik van de 95e-percentielwaarde biedt een waarheidsgetrouw beeld van de 
 ```
 
 ## <a name="growth-factor-considerations"></a>Overwegingen voor groeifactor
-**Waarom moet ik rekening houden met groei factor bij het plannen van implementaties?**
+**Waarom moet ik rekening houden met een groeifactor bij het plannen van implementaties?**
 
 Het is essentieel dat u in uw workloadkenmerken rekening houdt met groei (mogelijke toename in gebruik na verloop van tijd). Als de beveiliging eenmaal is ingeschakeld en uw workloadkenmerken vervolgens veranderen, is het namelijk niet mogelijk om over te schakelen naar een ander opslagaccount voor beveiliging zonder eerst de beveiliging uit te schakelen en opnieuw in te schakelen.
 
@@ -242,7 +242,7 @@ Het gegenereerde Microsoft Excel-rapport bevat de volgende informatie:
 
 * [Samenvatting on-premises](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM <> - Opslagplaatsing](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM<->Opslagplaatsing](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatibele VM's](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Niet-compatibele VM's](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426423"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527180"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -34,7 +34,7 @@ Het type van de naamomzetting die u gebruikt, is afhankelijk van hoe uw resource
 > Afhankelijk van uw scenario, kunt u de functie Azure DNS Private Zones, dat zich momenteel in openbare preview-versie gebruiken. Zie voor meer informatie [Azure DNS gebruiken voor privédomeinen](../dns/private-dns-overview.md).
 >
 
-| **Scenario** | **Oplossing** | **Achtervoegsel** |
+| **Scenario** | **Oplossing** | **Suffix** |
 | --- | --- | --- |
 | Naamomzetting tussen virtuele machines zich bevinden in het hetzelfde virtuele netwerk of de Azure Cloud Services-rolexemplaren in dezelfde cloudservice. | [Azure DNS Private Zones](../dns/private-dns-overview.md) of [Azure geleverd naamomzetting](#azure-provided-name-resolution) |De hostnaam of FQDN-naam |
 | Naamomzetting tussen virtuele machines in verschillende virtuele netwerken of rolinstanties in verschillende cloudservices. |[Azure DNS Private Zones](../dns/private-dns-overview.md) of door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor het omzetten van door Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-that-uses-your-own-dns-server). |Alleen FQDN-naam |
@@ -147,7 +147,7 @@ Doorsturen van de DNS ook kan DNS-omzetting tussen virtuele netwerken en kunt uw
 
 > [!NOTE]
 > Een rolinstantie kan naamomzetting van virtuele machines binnen hetzelfde virtuele netwerk uitvoeren. Dit gebeurt met behulp van de FQDN-naam, die uit de hostnaam van de virtuele machine bestaat en **internal.cloudapp.net** DNS-achtervoegsel. In dit geval naamomzetting is echter alleen als de rolinstantie is de naam van de VM gedefinieerd in de [Rolschema (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Rolinstanties die nodig hebt voor het uitvoeren van naamomzetting van virtuele machines in een ander virtueel netwerk (FQDN-naam met behulp van de **internal.cloudapp.net** achtervoegsel) hebben om dit te doen met behulp van de methode die wordt beschreven in deze sectie (aangepaste DNS-servers tussen doorsturen de twee virtuele netwerken).
 >

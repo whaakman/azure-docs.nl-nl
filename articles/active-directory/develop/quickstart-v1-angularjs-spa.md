@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194679"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544937"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Quickstart: Een AngularJS-app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory
 
@@ -45,6 +45,9 @@ Om de volledige, werkende toepassing te compileren, moet u het volgende doen:
 1. Uw app bij Azure AD registreren.
 2. ADAL installeren en van de app met één pagina configureren.
 3. Gebruik ADAL voor beveiligde pagina's in de app met één pagina.
+
+> [!NOTE]
+> Als u nodig hebt om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts, kunt u de  *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. Zie voor meer informatie [in deze zelfstudie JavaScript beveiligd-WACHTWOORDVERIFICATIE](tutorial-v2-javascript-spa.md) , evenals [in dit artikel](active-directory-v2-limitations.md) uitleg over de *Microsoft identity platform endpoint*. 
 
 ## <a name="prerequisites"></a>Vereisten
 

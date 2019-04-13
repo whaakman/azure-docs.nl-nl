@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488402"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544055"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand
 
@@ -73,13 +73,23 @@ Zorg ervoor dat uw Azure CLI versie 2.0.21 of hoger. Om te zien welke versie u h
 
 Het geüploade ZIP-bestand naar uw web-app implementeren met behulp van de [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) opdracht.  
 
-Het volgende voorbeeld implementeert u het ZIP-bestand dat u hebt geüpload. Wanneer u een lokale installatie van Azure CLI gebruikt, geef het pad naar uw lokale ZIP-bestand voor `--src`.   
+Het volgende voorbeeld implementeert u het ZIP-bestand dat u hebt geüpload. Wanneer u een lokale installatie van Azure CLI gebruikt, geef het pad naar uw lokale ZIP-bestand voor `--src`.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart. Als er een aanvullend aangepast opbouwproces is geconfigureerd, wordt dit ook uitgevoerd. Zie onze [Kudu-documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) voor meer informatie.
+Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart.
+
+Standaard, de implementatie-engine wordt ervan uitgegaan dat een ZIP-bestand gereed voor het uitvoeren is als-is en alle build-automatisering kan niet worden uitgevoerd. Om in te schakelen hetzelfde buildautomatisering als in een [Git-implementatie](deploy-local-git.md), stel de `SCM_DO_BUILD_DURING_DEPLOYMENT` app-instelling met de volgende opdracht de [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+
+
+
+Zie onze [Kudu-documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) voor meer informatie.
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 

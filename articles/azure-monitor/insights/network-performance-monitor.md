@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489721"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548932"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -152,8 +152,8 @@ Alle knooppunten waarop een agent geïnstalleerd op deze worden weergegeven op d
 De mogelijkheden die u wilt configureren:
 
 - [Prestatiemeter](network-performance-monitor-performance-monitor.md#configuration)
-- [Bewaking van serviceverbinding](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute-bewaking](network-performance-monitor-expressroute.md#configuration)
+- [Connectiviteitsmonitor voor service](network-performance-monitor-performance-monitor.md#configuration)
+- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -251,13 +251,13 @@ Network Performance Monitor maakt gebruik van de waarschuwingen mogelijkheden va
 
 Dit betekent dat alle meldingen worden beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Als u een NPM-gebruiker die het maken van een waarschuwing via LAzure Monitor: 
-1. Hier ziet u een koppeling waarmee u wordt omgeleid naar Azure-Portal. Klik hierop om de toegang tot de portal.
+Als u een NPM-gebruiker die het maken van een waarschuwing via Log Analytics: 
+1. Hier ziet u een koppeling waarmee u wordt omgeleid naar Azure-portal. Klik hierop om de toegang tot de portal.
 2. Klik op de tegel Network Performance Monitor. 
 3. Ga om te configureren.  
 4. Selecteer de test die u wilt maken van een waarschuwing op en volg de hieronder vermelde stappen.
 
-Als u een NPM-gebruiker die het maken van een waarschuwing via Azure Portal:  
+Als u een NPM-gebruiker die het maken van een waarschuwing via Azure portal:  
 1. U kunt uw e-mailbericht rechtstreeks invoeren of u kunt kiezen om waarschuwingen via actiegroepen te maken.
 2. Als u ervoor kiest uw e-mailbericht rechtstreeks invoeren, een actie met de naam van de groep **NPM e ActionGroup** wordt gemaakt en de e-mail-id wordt toegevoegd aan deze actiegroep.
 3. Als u ervoor actiegroepen gebruiken kiest, moet u een eerder gemaakte actiegroep selecteren. U kunt informatie over het maken van een actiegroep [hier.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 

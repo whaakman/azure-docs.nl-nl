@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664112"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527047"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
 De Azure Service Fabric Stateful Reliable Services StatefulServiceBase-klasse verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service bieden inzicht in hoe de runtime is functioneren en kunnen oplossen.
@@ -50,7 +50,7 @@ StatefulRunAsyncSlowCancellation wordt verzonden wanneer een aanvraag voor annul
 ## <a name="performance-counters"></a>Prestatiemeteritems
 De runtime van Reliable Services definieert de volgende categorieën voor prestatiemeteritems:
 
-| Categorie | Description |
+| Category | Description |
 | --- | --- |
 | Transactionele replicator voor Service Fabric |Prestatiemeteritems specifiek voor de transactionele Replicator voor Azure Service Fabric |
 | Service Fabric TStore |Prestatiemeteritems specifiek voor de Azure Service Fabric TStore |
@@ -102,11 +102,11 @@ In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` is van de tek
 
 De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
 
- Naam van het prestatiemeteritem | Description |
+ Naam van het prestatiemeteritem | Beschrijving |
 | --- | --- |
 | Transactiebewerkingen starten/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
 | Transactiebewerkingen/sec | Het aantal bewerkingen toevoegen/bijwerken/verwijderen die worden uitgevoerd op een betrouwbare verzamelingen per seconde.|
-| Gem. Latentie van leegmaken (ms) | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
+| Logboekbytes leegmaken/sec | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
 | Beperkte bewerkingen/sec | Het aantal bewerkingen per seconde door de transactionele Replicator vanwege een beperking afgewezen. |
 | Gem. Transactie ms en doorvoeren | Gemiddelde doorvoervertraging per transactie in milliseconden |
 | Gem. Latentie van leegmaken (ms) | Gemiddelde duur van de schijf leegmaken bewerkingen, gestart door de transactionele Replicator in milliseconden |

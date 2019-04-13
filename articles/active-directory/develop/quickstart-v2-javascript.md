@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63827c74d584053b5131fbc602a04d4d24338f47
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500325"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547394"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Quickstart: Meld u aan gebruikers en het verkrijgen van een toegangstoken van een toepassing in JavaScript één pagina (SPA)
 
@@ -61,7 +61,6 @@ Voor deze snelstart moet u de volgende instellingen:
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
 > 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
 > 1. Selecteer **registratie van nieuwe**.
-> 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 > 1. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing.
 > 1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
 > 1. Selecteer in de sectie **Omleidings-URL** het **Webplatform** en stel de waarde in op `http://localhost:30662/`.
@@ -74,16 +73,16 @@ Voor deze snelstart moet u de volgende instellingen:
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Voor een juiste werking van het codevoorbeeld uit deze quickstart moet u een omleidings-URI toevoegen zoals `http://localhost:30662/` en **Impliciete toekenning** inschakelen.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijzigingen aanbrengt voor mij]()
+> > [Breng deze wijzigingen voor mij aan]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-javascript/green-check.png) uw toepassing is geconfigureerd met deze kenmerken.
+> > ![Al geconfigureerd](media/quickstart-v2-javascript/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
 #### <a name="step-2-download-the-project"></a>Stap 2: Het project downloaden
 
 U kunt een van deze opties kiezen die geschikt is voor uw ontwikkelomgeving.
-* [Download de projectbestanden core - voor een webserver, zoals Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Download de core projectbestanden - voor een webserver, zoals Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
+* [Download het Visual Studio-project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Pak het ZIP-bestand uit in een lokale map, bijvoorbeeld **C:\Azure-Samples**.
 Gebruiken voor het openen de bestanden in de map, een editor zoals [Visual Studio Code](https://code.visualstudio.com/).
@@ -107,11 +106,11 @@ var applicationConfig = {
 > [!div renderon="docs"]
 >
 > Waar:
-> - `Enter_the_Application_Id_here` -is de **(client) toepassings-ID** voor de toepassing die u hebt geregistreerd.
-> - `Enter_the_Tenant_Info_Here` -is ingesteld op een van de volgende opties:
+> - `Enter_the_Application_Id_here`: is de **toepassings-id (client-id)** voor de toepassing die u hebt geregistreerd.
+> - `Enter_the_Tenant_Info_Here`: is ingesteld op een van de volgende opties:
 >   - Als uw toepassing **Alleen accounts in deze organisatiemap** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
->   - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
->   - Als uw toepassing ondersteunt **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**, vervang deze waarde met `common`
+>   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
+>   - Als uw toepassing **Accounts in elke organisatiemap en persoonlijke Microsoft-accounts** ondersteunt, vervang deze waarde dan door `common`
 >
 > > [!TIP]
 > > Om de waarden van **Toepassings-id (client-id)**, **Map-id (tenant-id)** en **Ondersteunde accounttypen** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal.
@@ -137,7 +136,7 @@ Nadat de toepassing in de browser geladen, klikt u op **aanmelden**.  De eerste 
 
 ## <a name="more-information"></a>Meer informatie
 
-### *<a name="msaljs"></a>msal.js*
+### <a name="msaljs"></a>*msal.js*
 
 MSAL is de library gebruikt voor aanmelding bij gebruikers en tokens gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform-aanvraag. De *index.html* van de quickstart bevat een referentie naar de bibliotheek:
 
@@ -162,7 +161,7 @@ var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applic
 > |Waar  |  |
 > |---------|---------|
 > |`ClientId`     |Toepassings-id van de toepassing die is geregistreerd in Azure Portal|
-> |`authority`    |Het is de URL van de instantie. Doorgeven van *null* stelt de standaardinstantie in op `https://login.microsoftonline.com/common`. Als uw app is één tenant (doelitems accounts in slechts één map), instelt deze waarde op `https://login.microsoftonline.com/<tenant name or ID>`|
+> |`authority`    |Het is de URL van de instantie. Doorgeven van *null* stelt de standaardinstantie in op `https://login.microsoftonline.com/common`. Als de app één tenant heeft (doelaccounts in één richting), stelt u deze waarde in op `https://login.microsoftonline.com/<tenant name or ID>`|
 > |`tokenReceivedCallback`| Aanroepmethode wordt aangeroepen wanneer u, na de verificatie, terug naar de app wordt geleid. Hier wordt `acquireTokenRedirectCallBack` doorgegeven. Dit is null als loginPopup wordt gebruikt.|
 > |`options`  |Een verzameling met optionele parameters. In dit geval zijn `storeAuthStateInCookie` en `cacheLocation` optionele configuraties. Raadpleeg de [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) voor meer details over de opties. |
 
@@ -185,7 +184,7 @@ myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
 
 ### <a name="request-tokens"></a>Tokens aanvragen
 
-MSAL heeft drie methoden voor het verkrijgen van tokens: `acquireTokenRedirect`, `acquireTokenPopup` en `acquireTokenSilent`
+MSAL biedt drie methoden om tokens te verkrijgen: `acquireTokenRedirect`, `acquireTokenPopup` en `acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 

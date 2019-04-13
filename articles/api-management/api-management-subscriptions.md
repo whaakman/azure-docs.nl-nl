@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049755"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526585"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnementen in Azure API Management
 
@@ -32,7 +32,7 @@ Als u een abonnementssleutel voor toegang tot API's, is een abonnement vereist. 
 
 > [!TIP]
 > API Management biedt ook ondersteuning voor andere methoden voor het beveiligen van toegang tot API's, met inbegrip van de volgende voorbeelden:
-> - [OAuth 2.0](api-management-howto-protect-backend-with-aad.md)
+> - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Clientcertificaten](api-management-howto-mutual-certificates-for-clients.md)
 > - [IP-whitelists](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
 
@@ -50,9 +50,6 @@ Traditioneel abonnementen in API Management zijn altijd gekoppeld aan één [API
 > In bepaalde scenario's wilt API-uitgevers publiceren van een API-product voor het publiek zonder de noodzaak van abonnementen. Schakelt ze uit de **-abonnement vereist** kiezen op de **instellingen** pagina van het product in de Azure-portal. Als gevolg hiervan zijn alle API's onder het product toegankelijk zonder API-sleutel.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Abonnementen voor alle API's of een afzonderlijke API
-
-> [!NOTE]
-> Deze functie is momenteel beschikbaar in de laag van API Management-verbruik alleen.
 
 Wanneer we geïntroduceerd de [verbruik](https://aka.ms/apimconsumptionblog) laag van API Management kunnen we enkele wijzigingen in het Sleutelbeheer stroomlijnen gemaakt:
 - Eerst hebben we twee meer abonnement bereiken toegevoegd: alle API's en één API. Het bereik van abonnementen is niet langer beperkt tot een API-product. Het is nu mogelijk te maken van sleutels die toegang aan een API of alle API's binnen een exemplaar van API Management, verlenen zonder een product maken en de API's eerst aan toe te voegen. Bovendien elk exemplaar van API Management wordt nu geleverd met een onveranderbare, alle-API's-abonnement. Dit abonnement kunt u gemakkelijker en eenvoudiger om te testen en fouten opsporen in API's in de testconsole.
