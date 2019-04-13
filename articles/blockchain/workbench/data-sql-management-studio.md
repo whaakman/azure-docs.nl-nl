@@ -38,7 +38,7 @@ Microsoft SQL Server Management Studio biedt de mogelijkheid om snel query's op 
 
     ![SQL-referenties invoeren](./media/data-sql-management-studio/sql-creds.png)
 
-   1. In SQL Server Management Studio ziet u de lijst met databases, databaseweergaven en stored procedures uit de Azure Blockchain Workbench-database.
+   1. In SQL Server Management Studio ziet u de lijst met databases, databaseweergaven en opgeslagen procedures uit de Azure Blockchain Workbench-database.
 
       ![Databaselijst](./media/data-sql-management-studio/db-list.png)
 
