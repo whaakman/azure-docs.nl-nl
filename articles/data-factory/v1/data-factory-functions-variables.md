@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976773"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523933"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -28,7 +28,7 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 
 ## <a name="data-factory-system-variables"></a>Data Factory-systeemvariabelen
 
-| De naam van variabele | Description | Bereik van het object | JSON-bereik en Use-Cases |
+| De naam van variabele | Beschrijving | Bereik van het object | JSON-bereik en Use-Cases |
 | --- | --- | --- | --- |
 | WindowStart |Begin van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |<ol><li>Geef gegevensselectiequery's. Zie de artikelen van connector waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
 | WindowEnd |Einde van het tijdsinterval voor het huidige venster de uitvoering van activiteiten |activiteit |hetzelfde als WindowStart. |
@@ -59,7 +59,7 @@ U kunt functies gebruiken in data factory, samen met de systeemvariabelen voor d
 
 1. Gegevensselectiequery's op te geven (Zie connector artikelen waarnaar wordt verwezen door de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.
    
-   De syntaxis voor het aanroepen van een data factory-functie is: **$$ <function>** voor gegevensselectiequery's en andere eigenschappen in de activiteiten en gegevenssets.  
+   De syntaxis voor het aanroepen van een data factory-functie is:  **$$ \<functie >** voor gegevensselectiequery's en andere eigenschappen in de activiteiten en gegevenssets.  
 2. Invoer afhankelijkheden met data factory-functies in activiteit invoer verzameling op te geven.
    
     $ is niet nodig voor het opgeven van invoer afhankelijkheid expressies.     
@@ -78,7 +78,7 @@ Zie [aangepaste datum en tijd opmaaktekenreeksen](https://msdn.microsoft.com/lib
 ### <a name="functions"></a>Functions
 De volgende tabellen worden de functies in Azure Data Factory:
 
-| Categorie | Function | Parameters | Description |
+| Category | Function | Parameters | Description |
 | --- | --- | --- | --- |
 | Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Y-uren toevoegt aan de opgegeven tijd X. <br/><br/>Voorbeeld: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X van Y minuten toevoegen<br/><br/>Voorbeeld: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |

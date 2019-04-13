@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493311"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526334"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
 Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -187,7 +187,7 @@ Er zijn enkele belangrijke verschillen tussen hoe de verbindingsreeks in de Azur
 
 * In de Azure SDK 2.4 en eerdere versies, is de verbindingsreeks gebruikt tijdens runtime door de invoegtoepassing diagnostische gegevens om op te halen van de gegevens over het opslagaccount voor het overbrengen van logboeken met diagnostische gegevens.
 * In de Azure SDK 2.6 en hoger, wordt in Visual Studio de verbindingsreeks van diagnostische gegevens over het configureren van de extensie voor diagnostische gegevens met de gegevens van het account de juiste opslag tijdens het publiceren gebruikt. De verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat de diagnostics-invoegtoepassing (nadat de Azure SDK 2.5) niet langer beschikbaar is, inschakelen niet het cscfg-bestand zelf echter de extensie voor diagnostische gegevens. U moet de extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell inschakelen.
-* Ter vereenvoudiging van het proces van het configureren van de extensie voor diagnostische gegevens met PowerShell, bevat de uitvoer van het pakket van Visual Studio ook de openbare configuratie-XML voor de extensie voor diagnostische gegevens voor elke rol. Visual Studio gebruikt de verbindingsreeks van diagnostische gegevens voor het vullen van de gegevens over het opslagaccount aanwezig zijn in de openbare configuratie. De openbare configuratiebestanden zijn gemaakt in de map-extensies en volgen het patroon PaaSDiagnostics. <RoleName>. PubConfig.xml. Alle implementaties op basis van PowerShell, kunnen dit patroon gebruiken voor elke configuratie worden toegewezen aan een rol.
+* Ter vereenvoudiging van het proces van het configureren van de extensie voor diagnostische gegevens met PowerShell, bevat de uitvoer van het pakket van Visual Studio ook de openbare configuratie-XML voor de extensie voor diagnostische gegevens voor elke rol. Visual Studio gebruikt de verbindingsreeks van diagnostische gegevens voor het vullen van de gegevens over het opslagaccount aanwezig zijn in de openbare configuratie. De openbare configuratiebestanden worden gemaakt in de map-extensies en volgen het patroon `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Alle implementaties op basis van PowerShell, kunnen dit patroon gebruiken voor elke configuratie worden toegewezen aan een rol.
 * De verbindingsreeks in het .cscfg-bestand wordt ook gebruikt door de Azure-portal voor toegang tot de diagnostische gegevens zodat deze kan worden weergegeven de **bewaking** tabblad. De verbindingsreeks is vereist voor de service configureren voor uitgebreide bewaking gegevens weergeven in de portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migreren projecten op Azure SDK 2.6 en hoger

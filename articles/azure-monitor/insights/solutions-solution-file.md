@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776645"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526364"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
 > [!NOTE]
@@ -213,7 +213,7 @@ De resource van de oplossing heeft de eigenschappen in de volgende tabel.  Dit o
 
 | Eigenschap | Description |
 |:--- |:--- |
-| workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
+| workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *\<resourcegroep-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
 | referencedResources |Lijst met resources in de oplossing die mogen niet worden verwijderd wanneer de oplossing wordt verwijderd. |
 | containedResources |Lijst met resources in de oplossing die moeten worden verwijderd wanneer de oplossing wordt verwijderd. |
 
@@ -222,7 +222,7 @@ Het bovenstaande voorbeeld is voor een oplossing met een runbook, een planning e
 ### <a name="plan"></a>Plannen
 De **plan** entiteit van de resource van de oplossing heeft de eigenschappen in de volgende tabel.
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | naam |Naam van de oplossing. |
 | versie |De versie van de oplossing zoals wordt bepaald door de auteur. |

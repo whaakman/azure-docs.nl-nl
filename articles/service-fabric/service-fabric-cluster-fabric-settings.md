@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501294"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526534"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -87,7 +87,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |MaxDataMigrationTimeout |Tijd in seconden, de standaardwaarde is 600 |Dynamisch|Interval in seconden opgeven. De maximale time-out voor data migration herstelbewerkingen nadat de upgrade van een Fabric heeft plaatsgevonden. |
 |MaxOperationRetryDelay |Tijd in seconden, de standaardwaarde is 5|Dynamisch| Interval in seconden opgeven. De maximale vertraging voor interne nieuwe pogingen als er fouten zijn aangetroffen. |
 |MaxOperationTimeout |Tijd in seconden, de standaardwaarde is MaxValue |Dynamisch| Interval in seconden opgeven. De maximale algemene time-out voor het verwerken van intern bewerkingen op ClusterManager. |
-|MaxTimeoutRetryBuffer | Tijd in seconden, de standaardwaarde is 600 |Dynamisch|Interval in seconden opgeven. Maximale time-out voor de bewerking als de intern vanwege time-outs voor opnieuw proberen is <Original Time out>  +  <MaxTimeoutRetryBuffer>. Aanvullende time-out wordt in stappen van MinOperationTimeout toegevoegd. |
+|MaxTimeoutRetryBuffer | Tijd in seconden, de standaardwaarde is 600 |Dynamisch|Interval in seconden opgeven. Maximale time-out voor de bewerking als de intern vanwege time-outs voor opnieuw proberen is `<Original Time out> + <MaxTimeoutRetryBuffer>`. Aanvullende time-out wordt in stappen van MinOperationTimeout toegevoegd. |
 |MinOperationTimeout | Tijd in seconden, de standaardwaarde is 60 |Dynamisch|Interval in seconden opgeven. De minimale algemene time-out voor het verwerken van intern bewerkingen op ClusterManager. |
 |MinReplicaSetSize |Int, de standaardwaarde is 3 |Niet toegestaan|De MinReplicaSetSize voor ClusterManager. |
 |PlacementConstraints | tekenreeks, standaardwaarde is "" |Niet toegestaan|De PlacementConstraints voor ClusterManager. |

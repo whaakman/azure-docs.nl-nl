@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897619"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524630"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -50,7 +50,7 @@ De Workday gebruiker inrichting werkstromen die worden ondersteund door de inric
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Wie is deze gebruiker inrichting oplossing het beste geschikt is voor?
 
-Deze oplossing voor gebruikersinrichting van Workday bevindt zich momenteel in openbare preview en is ideaal voor:
+Deze oplossing voor gebruikersinrichting van Workday is ideaal voor:
 
 * Organisaties die behoefte hebben aan een vooraf gemaakte, cloud-gebaseerde oplossing voor het inrichten van Workday-gebruikers
 
@@ -460,7 +460,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
 2. In de **bereik van het bronobject** veld, kunt u selecteren welke groepen gebruikers in Workday moet binnen het bereik voor het inrichten naar AD, bevat een reeks van filters op basis van een kenmerk. Het bereik van standaard is 'alle gebruikers in Workday'. Voorbeeld van de filters:
 
-   * Voorbeeld: Bereik voor gebruikers met werknemer-id's tussen 1000000 en 2000000
+   * Voorbeeld: Bereik voor gebruikers met werknemer-id's tussen 1000000 en 2000000 (met uitzondering van 2000000)
 
       * Kenmerk: WorkerID
 
@@ -1165,7 +1165,7 @@ In deze sectie bevat informatie over vaak waargenomen fouten met gebruikersinric
 |--|---|---|---|
 |1.| Fout bij het installeren van de inrichtingsagent met het volgende foutbericht:  *' Microsoft Azure AD Connect inrichting Agent-service (AADConnectProvisioningAgent) kan niet worden gestart. Controleer of u voldoende rechten om het systeem te starten.* | Deze fout wordt meestal weergegeven als u probeert de inrichting agent installeren op een domeincontroller en Groepsbeleid voorkomt de service niet kan worden gestart dat.  Dit wordt ook weergegeven als er een eerdere versie van de agent die wordt uitgevoerd en u deze niet hebt verwijderd voordat u een nieuwe installatie start.| De inrichting agent installeren op een niet-DC-server. Zorg ervoor dat de vorige versies van de agent worden verwijderd voordat u de nieuwe agent installeert.|
 |2.| De Windows-Service ' Microsoft Azure AD Connect inrichting Agent' is in *vanaf* status en wordt niet overschakelen naar *met* staat. | Als onderdeel van de installatie van de wizard agent maakt u een lokaal account (**NT-Service\\AADConnectProvisioningAgent**) op de server en dit is de **aanmelden** account dat wordt gebruikt voor het starten van de de service. Als u een beveiligingsbeleid op uw Windows-server voorkomt dat lokale accounts met de services, wordt deze fout optreedt. | Open de *servicesconsole*. Klik met de rechtermuisknop op de Windows-Service ' Microsoft Azure AD Connect inrichting Agent' en geef het account van een domeinbeheerder de service uit te voeren in het tabblad aanmelden. Start de service. |
-|3.| Bij het configureren van de inrichtingsagent met uw AD-domein in de stap *verbinding maken met Active Directory*, de wizard een lang duurt het laden van de AD-schema en uiteindelijk een time-out optreedt. | Deze fout meestal wordt weergegeven als de wizard geen contact opnemen met de AD domain controller-server vanwege problemen met een firewall is. | Op de *verbinding maken met Active Directory* scherm van de wizard, terwijl de referenties voor uw AD-domein, wordt de optie *Selecteer domain controller prioriteit*. Gebruik deze optie te selecteren van een domeincontroller die zich in dezelfde site als de agent-server en zorg ervoor dat er geen firewall-regels van de communicatie te blokkeren. |
+|3.| Bij het configureren van de inrichtingsagent met uw AD-domein in de stap *verbinding maken met Active Directory*, de wizard een lang duurt het laden van de AD-schema en uiteindelijk een time-out optreedt. | Deze fout komt meestal voor als de wizard geen contact kan maken met de controllerserver van het AD-domein door firewallproblemen. | Op de *verbinding maken met Active Directory* scherm van de wizard, terwijl de referenties voor uw AD-domein, wordt de optie *Selecteer domain controller prioriteit*. Gebruik deze optie te selecteren van een domeincontroller die zich in dezelfde site als de agent-server en zorg ervoor dat er geen firewall-regels van de communicatie te blokkeren. |
 
 #### <a name="connectivity-errors"></a>Fouten in de basisnetwerkverbinding
 
@@ -1174,14 +1174,14 @@ Als de provisioning-service kan geen verbinding maken met Workday of Active Dire
 |#|Fout-Scenario |Waarschijnlijke oorzaken|Aanbevolen resolutie|
 |--|---|---|---|
 |1.| Als u klikt op **testverbinding**, krijgt u het foutbericht weergegeven: *Er is een fout opgetreden bij het verbinden met Active Directory. Zorg ervoor dat de Agent voor het inrichten van on-premises wordt uitgevoerd en wordt deze geconfigureerd met de juiste Active Directory-domein.* | Deze fout meestal wordt weergegeven als de inrichting agent is niet actief of er is een firewall blokkeren van communicatie tussen Azure AD en de inrichtingsagent. U ziet deze fout kan ook als het domein is niet geconfigureerd in de Wizard Agent. | Open de *Services* -console op de Windows-server om te bevestigen dat de agent wordt uitgevoerd. Open de wizard inrichting agent en Bevestig dat het juiste domein met de agent is geregistreerd.  |
-|2.| De inrichtingstaak krijgt de status van de quarantaine in het weekend (vr-za) en krijgen we een e-mailbericht dat er een fout opgetreden bij de synchronisatie is. | Een van de algemene oorzaken voor deze fout is de geplande uitvaltijd van Workday. Als u van een tenant van de implementatie van Workday gebruikmaakt, houd er rekening mee dat Workday heeft geplande uitvaltijd voor de implementatie-tenants via weekends (meestal van zaterdag van vrijdag op zaterdag ochtend) en tijdens die periode van de werkdag inrichting van apps overschakelen naar een kan staat in quarantaine plaatsen kan geen verbinding maken met Workday. Het wordt terug naar de normale status zodra de implementatie van Workday tenant weer online is. In zeldzame gevallen mogelijk ook ziet u deze fout als het wachtwoord van de systeemgebruiker integratie gewijzigd vanwege tenant vernieuwen of als het account is vergrendeld of verlopen staat. | Neem contact op met uw Workday-beheerder of integratie-partner om te zien wanneer Workday plant u downtime te negeren van waarschuwingen gedurende de periode van uitvaltijd en te bevestigen beschikbaarheid zodra Workday-exemplaar weer online is.  |
+|2.| De inrichtingstaak krijgt de status van de quarantaine in het weekend (vr-za) en krijgen we een e-mailbericht dat er een fout opgetreden bij de synchronisatie is. | Een veelvoorkomende oorzaak van deze fout is de geplande downtime voor Workday. Let op: Als u gebruikmaakt van een Workday-implementatietenant, wordt in het weekend downtime gepland voor de Workday-implementatietenants (meestal van vrijdagavond tot zaterdagochtend). Gedurende deze periode kan de Workday-app voor inrichting de status In quarantaine krijgen, omdat deze geen verbinding kan maken met Workday. De status wordt weer normaal zodra de Workday-implementatietenant weer online is. In zeldzame gevallen ziet u deze fout mogelijk ook als het wachtwoord van de integratiesysteemgebruiker is gewijzigd vanwege het vernieuwen van de tenant, of als het account is vergrendeld of de status Verlopen heeft. | Neem contact op met de Workday-beheerder of integratiepartner voor informatie over de geplande downtime van Workday om de waarschuwingen tijdens deze periode te negeren en de beschikbaarheid te bevestigen zodra het Workday-exemplaar weer online is.  |
 
 
 #### <a name="ad-user-account-creation-errors"></a>Fouten bij AD gebruiker het account maken
 
 |#|Fout-Scenario |Waarschijnlijke oorzaken|Aanbevolen resolutie|
 |--|---|---|---|
-|1.| Exporteren van de mislukte bewerking in het auditlogboek met het bericht *fout: OperationsError-SvcErr: Er is een bewerkingsfout opgetreden. Er is geen bovenliggende verwijzing is geconfigureerd voor Active Directory. Active Directory is daarom niet probleem verwijzingen naar objecten buiten dit forest.* | Deze fout wordt meestal weergegeven als de *Active Directory-Container* organisatie-eenheid is niet juist ingesteld of als er problemen met zijn de toewijzing van de expressie wordt gebruikt voor *parentDistinguishedName*. | Controleer de *Active Directory-Container* parameter van de organisatie-eenheid voor typfouten. Als u *parentDistinguishedName* Zorg ervoor dat het altijd in een bekende container in het AD-domein resulteert in het kenmerk wordt toegewezen. Controleer de *exporteren* in de audit gebeurtenislogboeken om te zien van de gegenereerde waarde. |
+|1.| Exporteren van de mislukte bewerking in het auditlogboek met het bericht *fout: OperationsError-SvcErr: Er is een bewerkingsfout opgetreden. Er is geen hoofdverwijzing geconfigureerd voor de directoryservice. Active Directory is daarom niet probleem verwijzingen naar objecten buiten dit forest.* | Deze fout wordt meestal weergegeven als de *Active Directory-Container* organisatie-eenheid is niet juist ingesteld of als er problemen met zijn de toewijzing van de expressie wordt gebruikt voor *parentDistinguishedName*. | Controleer de *Active Directory-Container* parameter van de organisatie-eenheid voor typfouten. Als u *parentDistinguishedName* gebruikt in de kenmerktoewijzing, zorg er dan voor dat het altijd resulteert in een bekende container binnen het AD-domein. Controleer de *exporteren* in de audit gebeurtenislogboeken om te zien van de gegenereerde waarde. |
 |2.| Bewerkingsfouten in het auditlogboek met foutcode exporteren: *SystemForCrossDomainIdentityManagementBadResponse* en het bericht *fout: ConstraintViolation-AtrErr: Een waarde in de aanvraag is ongeldig. Een waarde voor het kenmerk is niet in het geaccepteerde bereik van waarden. details van \nError: CONSTRAINT_ATT_TYPE - bedrijf*. | Als deze fout is specifiek voor de *bedrijf* kenmerk, ziet u mogelijk deze fout voor andere kenmerken, zoals *CN* ook. Deze fout treedt op vanwege een beperking van afgedwongen AD-schema. Standaard de kenmerken, zoals *bedrijf* en *CN* in AD heeft een limiet van 64 tekens. Als de waarde die afkomstig zijn van Workday meer dan 64 tekens is, ziet u dit foutbericht wordt weergegeven. | Controleer de *exporteren* gebeurtenis in de controlelogboeken om de waarde voor het kenmerk te bekijken die zijn gerapporteerd in het foutbericht. Houd rekening met het afkappen van de waarde die afkomstig zijn van Workday met behulp van de [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) functie of het wijzigen van de toewijzingen in een AD-kenmerk dat heeft geen soortgelijke lengtebeperkingen.  |
 
 #### <a name="ad-user-account-update-errors"></a>Fouten tijdens account bijwerken en AD-gebruiker

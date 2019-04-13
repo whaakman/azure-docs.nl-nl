@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e3106a792f486a62986734e562c96b41dd8a75dc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895632"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524120"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Netwerkverkeer routeren met een routetabel met behulp van de Azure CLI
 
@@ -208,7 +208,7 @@ Let op het **openbare IP-adres**. Dit adres wordt gebruikt voor toegang tot de v
 
 ## <a name="route-traffic-through-an-nva"></a>Verkeer routeren via een NVA
 
-Gebruik de volgende opdracht om te maken van een SSH-sessie met de *myVmPrivate* VM. Vervang *<publicIpAddress>* met het openbare IP-adres van uw virtuele machine. In het bovenstaande voorbeeld het IP-adres is *13.90.242.231*.
+Gebruik de volgende opdracht om te maken van een SSH-sessie met de *myVmPrivate* VM. Vervang  *\<openbare IP-adres >* met het openbare IP-adres van uw virtuele machine. In het bovenstaande voorbeeld het IP-adres is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

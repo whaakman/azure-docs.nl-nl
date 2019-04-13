@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917954"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525667"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Vervaldatum van webinhoud in Azure CDN beheren
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ De volgende XML-configuratie-bestand-voorbeeld laat zien hoe om in te stellen de
 </configuration>
 ```
 
-Gebruik de **cacheControlMaxAge** kenmerk, moet u de waarde van instellen de **cacheControlMode** kenmerk `UseMaxAge`. Deze instelling veroorzaakt de HTTP-header en Richtlijn `Cache-Control: max-age=<nnn>`, moeten worden toegevoegd aan het antwoord. De indeling van de timespan-waarde voor de **cacheControlMaxAge** kenmerk is `<days>.<hours>:<min>:<sec>`. De waarde wordt geconverteerd naar seconden en wordt gebruikt als de waarde van de `Cache-Control` `max-age` richtlijn. Voor meer informatie over de `<clientCache>` -element, Zie [clientcache <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Gebruik de **cacheControlMaxAge** kenmerk, moet u de waarde van instellen de **cacheControlMode** kenmerk `UseMaxAge`. Deze instelling veroorzaakt de HTTP-header en Richtlijn `Cache-Control: max-age=<nnn>`, moeten worden toegevoegd aan het antwoord. De indeling van de timespan-waarde voor de **cacheControlMaxAge** kenmerk is `<days>.<hours>:<min>:<sec>`. De waarde wordt geconverteerd naar seconden en wordt gebruikt als de waarde van de `Cache-Control` `max-age` richtlijn. Voor meer informatie over de `<clientCache>` -element, Zie [clientcache \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control-koppen die instellen via een programma
 Voor ASP.NET-toepassingen die u beheert de CDN-cachinggedrag via een programma door in te stellen de **HttpResponse.Cache** eigenschap van de .NET API. Voor informatie over de **HttpResponse.Cache** eigenschap, Zie [HttpResponse.Cache eigenschap](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) en [HttpCachePolicy klasse](/dotnet/api/system.web.httpcachepolicy).  

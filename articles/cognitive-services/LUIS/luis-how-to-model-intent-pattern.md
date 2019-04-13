@@ -1,7 +1,7 @@
 ---
 title: Patronen toevoegen nauwkeurigheid
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informatie over het toevoegen van patroon-sjablonen in toepassingen voor het verbeteren van nauwkeurigheid Language Understanding (LUIS).
+description: Patroon sjablonen ter verbetering van nauwkeurigheid in Language Understanding (LUIS)-toepassingen toevoegen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195044"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521251"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
-Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u een [patroon](luis-concept-patterns.md) voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Patronen gebruiken specifieke [syntaxis](luis-concept-patterns.md#pattern-syntax) om aan te geven van de locatie van: [entiteiten](luis-concept-entity-types.md), entiteit rollen, en optionele tekst.
+Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u een [patroon](luis-concept-patterns.md) voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Patronen gebruiken specifieke [syntaxis](luis-concept-patterns.md#pattern-syntax) om aan te geven van de locatie van: [entiteiten](luis-concept-entity-types.md), entiteit [rollen](luis-concept-roles.md), en optionele tekst.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Sjabloon utterance voor het maken van patroon toevoegen
 1. Open uw app door het selecteren van de naam ervan op **mijn Apps** pagina en selecteer vervolgens **patronen** in het linkerdeelvenster onder **verbeterde app-prestaties**.
@@ -34,7 +34,7 @@ Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u een [patroon](luis-con
 
     ![Schermafbeelding van de entiteit voor het patroon](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Als uw entiteit een rol bevat, geeft u de functie met een één dubbele punt, `:`, nadat de entiteit-naam, zoals `{Location:Origin}`. De lijst met functies voor de entiteiten in een lijst weergegeven. Selecteer de rol en selecteer vervolgens Enter. 
+    Als uw entiteit bevat een [rol](luis-concept-roles.md), geven de rol met een één dubbele punt, `:`, nadat de entiteit-naam, zoals `{Location:Origin}`. De lijst met functies voor de entiteiten in een lijst weergegeven. Selecteer de rol en selecteer vervolgens Enter. 
 
     ![Schermafbeelding van de entiteit met de rol](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

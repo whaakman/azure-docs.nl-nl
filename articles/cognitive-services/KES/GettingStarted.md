@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994942"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523321"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 
@@ -252,7 +252,7 @@ Als u de cloudservice hebt gemaakt, kunt u [ `kes.exe deploy_service` ](CommandL
 
 [Wissel](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) de inhoud van de staging-site met de productiesite zodat live-verkeer nu wordt omgeleid naar de zojuist geïmplementeerde service. U kunt dit proces herhalen bij het implementeren van een bijgewerkte versie van de service met de nieuwe gegevens. Net als bij alle overige Azure-cloudservices kunt u de Azure Portal (optioneel) gebruiken om [automatisch schalen](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md) te configureren.
 
-In dit voorbeeld implementeert u de *Academische* index naar een staging-site van een bestaande cloudservice met *< vm_size >* VM's. Gebruik de volgende opdracht:
+In dit voorbeeld implementeert u de *academische* index van de staging-site van een bestaande cloudservice met  *\<vm_size >* VM's. Gebruik de volgende opdracht:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295127"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523984"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST  
 
@@ -560,7 +560,7 @@ Als dit lukt, wordt het volgende antwoord geretourneerd:
 Er zijn een paar dingen die belangrijk te weten als u een taak doet:
 
 * Eigenschappen van TaskBody moeten letterlijke XML gebruiken om te definiëren van het aantal invoer of uitvoer van de activa die worden gebruikt door de taak. Taak dit artikel bevat de definitie van de XML-Schema voor het XML-bestand.
-* In het definitie TaskBody elke interne waarde voor de <inputAsset> en <outputAsset> JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
+* In het definitie TaskBody elke interne waarde voor de `<inputAsset>` en `<outputAsset>` JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
 * Een taak kan meerdere uitvoerassets hebben. Een JobOutputAsset(x) kan alleen één keer worden gebruikt als uitvoer van een taak in een taak.
 * U kunt JobInputAsset of JobOutputAsset opgeven als een invoeractivum van een taak.
 * Taken moeten een cyclus voor besturingselementen geen cyclus.
@@ -572,7 +572,7 @@ Er zijn een paar dingen die belangrijk te weten als u een taak doet:
 >
 
 * InputMediaAssets toegewezen aan een of meer elementen die u hebt gemaakt in Media Services. OutputMediaAssets worden gemaakt door het systeem. Ze bevatten geen verwijzing naar een bestaande asset.
-* OutputMediaAssets kan de naam met behulp van het kenmerk assetName. Als dit kenmerk niet aanwezig zijn is, is de naam van de OutputMediaAsset ongeacht de binnenste tekstwaarde van de <outputAsset> -element is met een achtervoegsel van de waarde van de taak, of de taak-Id-waarde (in het geval waarbij de eigenschap Name is niet gedefinieerd). Bijvoorbeeld, als u een waarde instellen voor assetName naar "Voorbeeld", zou klikt u vervolgens de eigenschap OutputMediaAsset Name worden ingesteld op "Voorbeeld". Als u een waarde voor assetName niet is ingesteld, maar de naam van de taak naar nieuwe "taak" hebt ingesteld, zou klikt u vervolgens de naam van de OutputMediaAsset wel '_NewJob JobOutputAsset (waarde)'.
+* OutputMediaAssets kan de naam met behulp van het kenmerk assetName. Als dit kenmerk niet aanwezig zijn is, is de naam van de OutputMediaAsset ongeacht de binnenste tekstwaarde van de `<outputAsset>` -element is met een achtervoegsel van de waarde van de taak, of de taak-Id-waarde (in het geval waarbij de eigenschap Name is niet gedefinieerd). Bijvoorbeeld, als u een waarde instellen voor assetName naar "Voorbeeld", zou klikt u vervolgens de eigenschap OutputMediaAsset Name worden ingesteld op "Voorbeeld". Als u een waarde voor assetName niet is ingesteld, maar de naam van de taak naar nieuwe "taak" hebt ingesteld, zou klikt u vervolgens de naam van de OutputMediaAsset wel '_NewJob JobOutputAsset (waarde)'.
 
     Het volgende voorbeeld laat zien hoe het kenmerk assetName instellen:
 

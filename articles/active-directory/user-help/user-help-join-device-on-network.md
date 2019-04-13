@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369136"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524362"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Uw werk-apparaat toevoegen aan het netwerk van uw organisatie
 Toevoegen aan het netwerk van uw organisatie eigendom van het werk Windows 10-apparaat, zodat u toegang hebben tot mogelijk beperkte resources.
@@ -62,7 +62,7 @@ U kunt ervoor zorgen dat u lid geworden bent door te kijken op uw instellingen.
 
     ![Accounts in het scherm instellingen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecteer **toegang tot werk of school**, en zorg ervoor dat u tekst of iets dergelijks, Zie **verbonden met *< organisatie >* Azure AD**.
+2. Selecteer **toegang tot werk of school**, en zorg ervoor dat u tekst of iets dergelijks, Zie **verbonden met  *\<organisatie >* Azure AD**.
 
     ![Toegang tot werk- of schoolaccount scherm met verbonden contoso-account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ U kunt ervoor zorgen dat u lid geworden bent door te kijken op uw instellingen.
 
     ![Accounts in het scherm instellingen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecteer **toegang tot werk of school**, en zorg ervoor dat u tekst of iets dergelijks, Zie **verbonden met *< organisatie >* Azure AD**.
+2. Selecteer **toegang tot werk of school**, en zorg ervoor dat u tekst of iets dergelijks, Zie **verbonden met  *\<organisatie >* Azure AD**.
 
     ![Toegang tot werk- of schoolaccount scherm met verbonden contoso-account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649630"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522981"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell
 
@@ -96,7 +96,7 @@ De volgende stappen wordt uitgelegd hoe u een voorbeeld van de virtuele machine 
 
 6. Definieert de primaire IP-configuratie voor de NIC. 10.0.0.4 wijzigen naar een geldig adres in het subnet dat u hebt gemaakt, als u de eerder gedefinieerde waarde hebt gebruikt. Voordat u een statisch IP-adres toewijst, wordt het aanbevolen dat u eerst bevestigen dat deze nog niet in gebruik. Voer de opdracht `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Als het adres beschikbaar is, wordt de uitvoer geretourneerd *waar*. De uitvoer geretourneerd als deze niet beschikbaar is, *False* en een lijst met adressen die beschikbaar zijn. 
 
-    In de volgende opdrachten, **< vervangen-met-uw unieke-naam > vervangen door de unieke DNS-naam te gebruiken.** De naam moet uniek zijn in alle openbare IP-adressen binnen een Azure-regio. Dit is een optionele parameter. Het kan worden verwijderd als u wilt dat alleen verbinding maken met de virtuele machine met behulp van het openbare IP-adres.
+    In de volgende opdrachten, **vervangen \<vervangen-met-uw unieke-naam > met de unieke DNS-naam te gebruiken.** De naam moet uniek zijn in alle openbare IP-adressen binnen een Azure-regio. Dit is een optionele parameter. Het kan worden verwijderd als u wilt dat alleen verbinding maken met de virtuele machine met behulp van het openbare IP-adres.
 
     ```powershell
     

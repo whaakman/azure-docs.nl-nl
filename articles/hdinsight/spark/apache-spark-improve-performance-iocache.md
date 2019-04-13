@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608491"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525592"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Prestaties van Apache Spark-workloads met Azure HDInsight i/o-Cache (Preview)
 
@@ -78,4 +78,4 @@ Als dit niet werkt, schakelt u i/o-Cache.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over i/o-Cache, met inbegrip van prestatiestandaarden in dit blogbericht: [Apache Spark-taken toegang tot 9 x versnellen met HDInsight i/o-Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Meer informatie over i/o-Cache, met inbegrip van prestatiestandaarden in dit blogbericht: [Apache Spark-taken toegang tot 9 x versnellen met HDInsight i/o-Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

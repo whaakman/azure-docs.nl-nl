@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312203"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521424"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
@@ -154,7 +154,7 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
 
    d. Wacht even totdat het dialoogvenster **Create App Service** volledig is geladen en wijzig vervolgens de volgende velden:
    
-      Veld | Description
+      Veld | Beschrijving
       ---|---
       **Naam van app** | Gebruik hier naam waaronder u de Azure AD-toepassing in stap 3 hebt geregistreerd, in [Toepassing registreren bij Azure AD](#register-the-application-with-azure-ad). 
       **Resourcegroep** | Gebruik de knop **New...** om hier de waarde uit het veld **App Name** weer te geven.
@@ -179,7 +179,7 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
 Foutcode/-conditie | Description
 ---------------------| -----------
 *AADSTS50011: No reply address is registered for the application.* | De eigenschap Antwoord-URL ontbreekt voor de Azure AD-registratie. Ga naar de pagina **Instellingen** / **Antwoord-URL's** voor de registratie van uw Azure AD-toepassing. Controleer of de URL voor **Aanmelding** die is opgegeven in stap 3 van [Toepassing registreren bij Azure AD](#register-the-application-with-azure-ad) aanwezig is. 
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '<Application ID GUID>'.* | De `postLogoutRedirectUri` die is opgegeven in stap 4.b van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder de eigenschap **Instellingen** / **Antwoord-URL's** in de registratie van uw Azure AD-toepassing. Vergeet ook niet de waarde voor **Destination URL** te wijzigen in`https`, overeenkomstig stap 5.e van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application).
+*AADSTS50011: Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: '\<Application ID GUID >'.* | De `postLogoutRedirectUri` die is opgegeven in stap 4.b van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder de eigenschap **Instellingen** / **Antwoord-URL's** in de registratie van uw Azure AD-toepassing. Vergeet ook niet de waarde voor **Destination URL** te wijzigen in`https`, overeenkomstig stap 5.e van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application).
 De webtoepassing wordt geladen, maar heeft een aanmeldingspagina met alleen tekst zonder opmaak, met een witte achtergrond. | Controleer of de paden uit stap 4.a van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen

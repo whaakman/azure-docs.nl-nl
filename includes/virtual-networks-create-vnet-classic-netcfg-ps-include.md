@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 4ae4c3100ae13fdb05e17974b433b247128c1a50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805048"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532426"
 ---
-## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Het maken van een virtueel netwerk met een configuratiebestand netwerk vanuit PowerShell
-Azure maakt gebruik van een xml-bestand voor het definiëren van alle virtuele netwerken die beschikbaar zijn in een abonnement. U kunt dit bestand downloaden, bewerkt om te wijzigen of verwijderen van de bestaande virtuele netwerken en nieuwe virtuele netwerken maken. In deze zelfstudie u meer informatie over het downloaden van dit bestand, netwerk-configuratie (of netcfg) bestand genoemd en bewerken om te maken van een nieuw virtueel netwerk. Zie voor meer informatie over het configuratiebestand van het netwerk, de [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Over het maken van een virtueel netwerk met een netwerk-configuratiebestand vanuit PowerShell
+Azure maakt gebruik van een xml-bestand voor het definiëren van alle virtuele netwerken die beschikbaar op een abonnement. U kunt dit bestand downloaden, kunt u deze wijzigen of verwijderen van bestaande virtuele netwerken bewerken en maken van nieuwe virtuele netwerken. In deze zelfstudie hebt u meer informatie over het downloaden van dit bestand, aangeduid als network configuration netcfg)-bestand (of, en bewerken voor het maken van een nieuw virtueel netwerk. Zie voor meer informatie over het netwerkconfiguratiebestand, de [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell, moet u de volgende stappen uitvoeren:
+Voor het maken van een virtueel netwerk met een netcfg-bestand met behulp van PowerShell, voert u de volgende stappen uit:
 
-1. Als u Azure PowerShell nog nooit hebt gebruikt, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs) artikel, vervolgens aanmelden bij Azure en uw abonnement te selecteren.
-2. Via de Azure PowerShell-console, gebruiken de **Get-AzureVnetConfig** cmdlet voor het downloaden van het configuratiebestand van het netwerk naar een map op uw computer met de volgende opdracht: 
+1. Als u Azure PowerShell nog nooit hebt gebruikt, voert u de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs) artikel, en vervolgens aanmelden bij Azure en selecteer uw abonnement.
+2. Vanuit de Azure PowerShell-console, gebruiken de **Get-AzureVnetConfig** cmdlet voor het downloaden van het netwerkconfiguratiebestand naar een map op uw computer met de volgende opdracht: 
    
    ```powershell
    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
@@ -35,8 +35,8 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open het bestand dat u in stap 2, gebruikmakend van een XML- of -editor toepassing opgeslagen en zoekt u de **<VirtualNetworkSites>** element. Als er geen netwerken hebt gemaakt, elk netwerk wordt weergegeven als een eigen **<VirtualNetworkSite>** element.
-4. Toevoegen voor het maken van het virtuele netwerk in dit scenario wordt de volgende XML net onder de **<VirtualNetworkSites>** element:
+3. Open het bestand dat u hebt opgeslagen in stap 2 met behulp van een toepassing XML- of -editor en zoek naar de  **\<VirtualNetworkSites >** element. Als u geen netwerken hebt gemaakt hebt, elk netwerk wordt weergegeven als een eigen  **\<VirtualNetworkSite >** element.
+4. Voor het maken van het virtuele netwerk dat wordt beschreven in dit scenario, net onder het volgende XML-bestand toevoegen de  **\<VirtualNetworkSites >** element:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>
@@ -62,7 +62,7 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
    ```
    
 5. Sla het configuratiebestand van het netwerk.
-6. Via de Azure PowerShell-console, gebruiken de **Set AzureVnetConfig** cmdlet voor het uploaden van het configuratiebestand van het netwerk met de volgende opdracht: 
+6. Vanuit de Azure PowerShell-console, gebruiken de **Set AzureVnetConfig** cmdlet voor het uploaden van het netwerkconfiguratiebestand met de volgende opdracht: 
    
    ```powershell
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
@@ -76,15 +76,15 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
       Set-AzureVNetConfig  <Id>                                 Succeeded 
       ```
    
-   Als **OperationStatus** is niet *geslaagd* in de uitvoer van de geretourneerde controleren op fouten en volledige stap 6 van het xml-bestand opnieuw.
+   Als **OperationStatus** is niet *geslaagd* in de uitvoer van de geretourneerde opnieuw het xml-bestand voor fouten en volledige stap 6 controleren.
 
-7. Via de Azure PowerShell-console, gebruiken de **Get-AzureVnetSite** cmdlet om te controleren of het nieuwe netwerk is toegevoegd met de volgende opdracht: 
+7. Vanuit de Azure PowerShell-console, gebruiken de **Get-AzureVnetSite** cmdlet om te controleren of het nieuwe netwerk is toegevoegd door het uitvoeren van de volgende opdracht uit: 
 
    ```powershell
    Get-AzureVNetSite -VNetName TestVNet
    ```
    
-   De uitvoer van de geretourneerde (afgekort) omvat de volgende tekst:
+   De uitvoer van de geretourneerde (afgekort) bevat de volgende tekst:
   
       ```
       AddressSpacePrefixes : {192.168.0.0/16}

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 123a2ece06cb58ce6dbb35a914a87eb45fbcf5be
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505790"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528524"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -38,17 +38,17 @@ U kunt snel uw toepassing registreren met het volgende te doen:
 Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app handmatig toe te voegen aan uw oplossing:
 
 1. Ga naar Visual Studio en:
-   - Selecteer het project in Solution Explorer en bekijk het venster Eigenschappen (als er geen een venster met eigenschappen, druk op F4)
-   - SSL ingeschakeld om te wijzigen `True`.
-   - Met de rechtermuisknop op het project in Visual Studio, en kies vervolgens **eigenschappen**, en de **Web** tabblad. In de *Servers* sectie wijzigen de *Project-Url* moet het SSL-URL.
-   - Kopieer de URL van SSL. U kunt deze URL wordt toevoegen aan de lijst met Omleidings-URL's in de lijst van de Portal van de registratie van de omleidings-URL's in de volgende stap:<br/><br/>![Projecteigenschappen](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. Selecteer het project in Solution Explorer en bekijk het venster Eigenschappen (als er geen een venster met eigenschappen, druk op F4).
+   1. SSL ingeschakeld om te wijzigen `True`.
+   1. Met de rechtermuisknop op het project in Visual Studio, en kies vervolgens **eigenschappen**, en de **Web** tabblad. In de *Servers* sectie wijzigen de *Project-Url* moet het SSL-URL.
+   1. Kopieer de URL van SSL. U kunt deze URL wordt toevoegen aan de lijst met Omleidings-URL's in de lijst van de Portal van de registratie van de omleidings-URL's in de volgende stap:<br/><br/>![Projecteigenschappen](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
 1. Selecteer **registratie van nieuwe**.
 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
-   - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `ASPNET-Tutorial`.
-   - Voeg de SSL-URL die u had gekopieerd vanuit Visual Studio in stap 1 (bijvoorbeeld `https://localhost:44368/`) in **antwoord-URL**, en klikt u op **registreren**.
+   1. Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `ASPNET-Tutorial`.
+   1. Voeg de SSL-URL die u had gekopieerd vanuit Visual Studio in stap 1 (bijvoorbeeld `https://localhost:44368/`) in **antwoord-URL**, en klikt u op **registreren**.
 1. Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning** en selecteer vervolgens **Opslaan**.
 1. Voeg de volgende in `web.config` zich in de hoofdmap in de sectie `configuration\appSettings`:
 

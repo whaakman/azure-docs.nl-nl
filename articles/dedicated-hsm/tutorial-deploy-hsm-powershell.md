@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904845"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521642"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Zelfstudie: PowerShell gebruiken om HSM's te implementeren in een bestaand virtueel netwerk
 
@@ -78,12 +78,12 @@ Een HSM-apparaat is ingericht in het virtueel netwerk van een klant. Dit implice
 
 Wanneer u de bestanden hebt, moet u het parameterbestand bewerken om uw voorkeursnamen voor resources in te voegen. Dit betekent dat u de regels met 'waarde' moet bewerken.
 
-- `namingInfix` Voorvoegsel voor namen van de HSM-resources
-- `ExistingVirtualNetworkName` Naam van het virtuele netwerk dat wordt gebruikt voor de HSM 's
-- `DedicatedHsmResourceName1` Naam van de HSM-resource in datacenterstempel 1
-- `DedicatedHsmResourceName2` Naam van de HSM-resource in datacenterstempel 2
-- `hsmSubnetRange` Subnet IP-adresbereik voor HSM 's
-- `ERSubnetRange` Subnet IP-adresbereik voor VNET-gateway
+- `namingInfix` Voorvoegsel voor namen van HSM-resources
+- `ExistingVirtualNetworkName` Naam van het virtuele netwerk dat voor de HSM's wordt gebruikt
+- `DedicatedHsmResourceName1` Naam van de HSM-resource in datacenter stempel 1
+- `DedicatedHsmResourceName2` Naam van de HSM-resource in datacenter stempel 2
+- `hsmSubnetRange` IP-adresbereik van subnet voor HSM's
+- `ERSubnetRange` IP-adresbereik van subnet voor VNET-gateway
 
 Hier volgt een voorbeeld van deze wijzigingen:
 
@@ -217,7 +217,7 @@ Het SSH-hulpprogramma wordt gebruikt om verbinding te maken met de virtuele mach
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Gebruik het wachtwoord uit het parameterbestand.
-Wanneer u bent aangemeld op de Linux-VM, kunt u zich bij de HSM aanmelden met behulp van het privé IP-adres dat u in de portal kunt vinden voor de resource <prefix>hsm_vnic.
+Één keer aangemeld op de Linux-VM kunt u zich aanmelden bij de HSM met behulp van het particuliere IP-adres vinden in de portal voor de resource \<voorvoegsel > hsm_vnic.
 
 ```powershell
 
@@ -279,5 +279,5 @@ Wanneer u de stappen in de zelfstudie hebt voltooid, zijn toegewezen HSM-resourc
 * [Hoge beschikbaarheid](high-availability.md)
 * [Fysieke beveiliging](physical-security.md)
 * [Netwerken](networking.md)
-* [Bewaking](monitoring.md)
+* [Controle](monitoring.md)
 * [Ondersteuning](supportability.md)

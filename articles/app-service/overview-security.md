@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731078"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523440"
 ---
 # <a name="security-in-azure-app-service"></a>Beveiliging in Azure App Service
 
@@ -58,7 +58,7 @@ App Service biedt ondersteuning voor FTP- en FTPS voor het implementeren van uw 
 
 Uw app in App Service-aanvragen van alle IP-adressen van het internet accepteert, maar u kunt beperken die de toegang tot een kleine subset van IP-adressen. App Service in Windows kunt u een lijst met IP-adressen die zijn toegestaan voor toegang tot uw app te definiëren. De lijst met toegestane kan afzonderlijke IP-adressen of een bereik van IP-adressen die zijn gedefinieerd door een subnetmasker. Zie voor meer informatie, [Azure App Service statische IP-adresbeperkingen](app-service-ip-restrictions.md).
 
-Voor App Service onder Windows, u kunt ook beperken IP-adressen dynamisch door het configureren van de _web.config_. Zie voor meer informatie, [dynamische IP-beveiliging <dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Voor App Service onder Windows, u kunt ook beperken IP-adressen dynamisch door het configureren van de _web.config_. Zie voor meer informatie, [dynamische IP-beveiliging \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Clientverificatie en autorisatie
 

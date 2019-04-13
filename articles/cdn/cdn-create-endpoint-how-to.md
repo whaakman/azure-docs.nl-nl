@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916815"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525106"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt maken
 In dit artikel beschrijft alle instellingen voor het maken van een [Azure Content Delivery Network (CDN)](cdn-overview.md) -eindpunt in een bestaande CDN-profiel. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten. Zie voor een snelstartgids over het maken van een profiel en eindpunt, [Quick Start: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
    
     ![Pagina eindpunt toevoegen](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Voer voor **Naam** een unieke naam voor het nieuwe CDN-eindpunt in. Deze naam wordt gebruikt voor toegang tot uw resources in de cache in het domein _<endpointname>_. azureedge.net.
+3. Voer voor **Naam** een unieke naam voor het nieuwe CDN-eindpunt in. Deze naam wordt gebruikt voor toegang tot uw resources in de cache in het domein  _\<endpointname >_. azureedge.net.
 
 4. Voor **oorsprongtype**, kies een van de volgende oorsprongstypen: 
    - **Opslag** voor Azure-opslag
@@ -62,7 +62,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
    > Bepaalde oorsprongtypen, zoals Azure Storage en Web Apps, vereisen dat de hostheader overeenkomt met het domein van de oorsprong. Tenzij u een oorsprong hebt waarvoor een andere host-header is vereist dan die van het domein, laat u de standaardwaarde ongewijzigd.
    > 
     
-8. Voor **Protocol** en **poort van oorsprong**, geef de protocollen en poorten gebruiken voor toegang tot uw resources in de oorspronkelijke server. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Het opgegeven CDN domein (_<endpointname>_. azureedge.net) voor toegang tot HTTPS-inhoud. 
+8. Voor **Protocol** en **poort van oorsprong**, geef de protocollen en poorten gebruiken voor toegang tot uw resources in de oorspronkelijke server. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Het opgegeven CDN domein (_\<endpointname >_. azureedge.net) voor toegang tot HTTPS-inhoud. 
    
    > [!NOTE]
    > De **poort van oorsprong** waarde bepaalt alleen de poort die gebruikmaakt van het eindpunt van de gegevens ophalen uit de oorspronkelijke server. Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de waarde voor **Poort van oorsprong**.  
@@ -84,7 +84,7 @@ Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com)
     - **Azure CDN Standard van Akamai** profielen:
        - [**Algemene webweergave**](cdn-optimization-overview.md#general-web-delivery)
        - [**Algemene mediastreaming**](cdn-optimization-overview.md#general-media-streaming)
-       - [**VOD-mediastreaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Video on-demandstreaming van media**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Grote bestanden downloaden**](cdn-optimization-overview.md#large-file-download)
        - [**Dynamische siteversnelling**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

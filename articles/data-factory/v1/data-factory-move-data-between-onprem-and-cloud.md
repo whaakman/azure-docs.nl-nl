@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995900"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524103"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -280,7 +280,7 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
    * **folderPath** is ingesteld op **adftutorial/outfromonpremdf** waar outfromonpremdf is de map in de container adftutorial. Maak de **adftutorial** container als deze niet al bestaat.
    * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service genereert een uitvoergegevenssegment elk uur in de **emp** tabel in de Azure SQL Database.
 
-   Als u geen opgeeft een **fileName** voor een **uitvoertabel**, de bestanden in die worden gegenereerd de **folderPath** zijn met de naam in de volgende indeling: De gegevens. <Guid>.txt (voorbeeld:: Data.0a405f8a-93ff-4C6F-b3be-f69616f1df7a.txt.).
+   Als u geen opgeeft een **fileName** voor een **uitvoertabel**, de bestanden in die worden gegenereerd de **folderPath** zijn met de naam in de volgende indeling: `Data.<Guid>.txt` (bijvoorbeeld:: Data.0a405f8a-93ff-4C6F-b3be-f69616f1df7a.txt.).
 
    Om in te stellen **folderPath** en **fileName** dynamisch op basis van de **SliceStart** tijd, de eigenschap partitionedBy gebruikt. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv.
 

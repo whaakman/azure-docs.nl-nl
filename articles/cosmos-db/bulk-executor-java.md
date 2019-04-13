@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863352"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524018"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
@@ -118,8 +118,8 @@ De gekloonde opslagplaats bevat twee voorbeelden "bulkimport" en "bulkupdate" te
    |int getNumberOfDocumentsImported()  |   Het totale aantal documenten die zijn geïmporteerd uit de documenten die zijn opgegeven voor het bulksgewijs importeren API-aanroep.      |
    |dubbele getTotalRequestUnitsConsumed()   |  Het totaal aantal aanvragen van aanvraageenheden (RU) die worden gebruikt door de bulksgewijs importeren API-aanroep.       |
    |Duur getTotalTimeTaken()   |    De totale tijd die door de bulkimport API-aanroep uitgevoerd.     |
-   |Lijst met<Exception> getErrors() |  Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch doorgegeven aan de bulksgewijs importeren API-aanroep kan niet worden ingevoegd ophalen.       |
-   |Lijst met<Object> getBadInputDocuments()  |    De lijst met slechte indeling documenten die zijn niet geïmporteerd in de bulksgewijs importeren API-aanroep. Gebruiker moet de geretourneerde documenten los en probeer het opnieuw importeren. -Ongeldige indeling of meer documenten waarvan u de id-waarde geen tekenreeks is (null of een andere gegevenstype is als ongeldig wordt beschouwd).     |
+   |Lijst met\<uitzondering > getErrors() |  Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch doorgegeven aan de bulksgewijs importeren API-aanroep kan niet worden ingevoegd ophalen.       |
+   |List\<Object> getBadInputDocuments()  |    De lijst met slechte indeling documenten die zijn niet geïmporteerd in de bulksgewijs importeren API-aanroep. Gebruiker moet de geretourneerde documenten los en probeer het opnieuw importeren. -Ongeldige indeling of meer documenten waarvan u de id-waarde geen tekenreeks is (null of een andere gegevenstype is als ongeldig wordt beschouwd).     |
 
 5. Nadat u de bulksgewijs importeren van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
 
@@ -182,7 +182,7 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
    |int getNumberOfDocumentsUpdated()  |   Het totale aantal documenten die zijn bijgewerkt uit de documenten die is opgegeven voor de Bulkupdate-API-aanroep.      |
    |dubbele getTotalRequestUnitsConsumed() |  Het totale aantal aanvraageenheden (RU) die worden gebruikt door de bulk-update-API-aanroep.       |
    |Duur getTotalTimeTaken()  |   De totale tijd die door de bulksgewijs bijwerken API-aanroep uitgevoerd.      |
-   |Lijst met<Exception> getErrors()   |     Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
+   |Lijst met\<uitzondering > getErrors()   |    Hiermee haalt u de lijst met fouten als bepaalde documenten in de batch is opgegeven voor de bulk-update API-aanroep kan niet worden ingevoegd ophalen.      |
 
 3. Nadat u het grootste deel bij het bijwerken van de toepassing gereed hebt, bouw het opdrachtregelprogramma van bron met de opdracht 'mvn opschonen pakket'. Met deze opdracht wordt een jar-bestand gegenereerd in de doelmap:  
 

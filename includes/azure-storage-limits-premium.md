@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287099"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528489"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestaties blok-blobopslag
 
@@ -25,10 +25,11 @@ Premium-bestanden gebruiken een unieke storage-account met de naam **FileStorage
 
 |Onderwerp  |Doel  |
 |---------|---------|
-|Max. grootte     |5 TiB (openbare preview), 100 TiB (beperkte openbare preview-versie)     |
+|Maximale grootte van ingericht     |5 TiB (openbare preview), 100 TiB (beperkte openbare preview-versie)     |
 |Shares   |Onbeperkt  |
 |IOPS     |100.000 (beperkte openbare preview-versie)    |
-|Bandbreedte|5 GB/s     |
+|Inkomend verkeer|4,136 MiB/s     |
+|Uitgaand verkeer|6,204 MiB/s |
 
  Voor premium-bestand delen schaal doelen, raadpleegt u de [Premium bestanden schalen doelen](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sectie.
 

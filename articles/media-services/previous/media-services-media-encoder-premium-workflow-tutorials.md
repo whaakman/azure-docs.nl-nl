@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189781"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523831"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde zelfstudies voor Media Encoder Premium Workflow
 ## <a name="overview"></a>Overzicht
@@ -760,7 +760,7 @@ Dit is gedaan door middel van bestandsbewerkingen normale tekenreeks. De resulte
 
 *De resulterende lijst van de clip logboekregistratie*
 
-Doe een test uitgevoerd om te zien hoe de video en audio-stromen hebben is afgekapt. Als u meer dan één testuitvoering met verschillende waarden voor de punten trimming doen, zult u merken dat deze wordt niet worden gehouden echter! De reden hiervoor is dat de designer, in tegenstelling tot de Azure-runtime, niet de xml cliplist elke uitvoering overschrijven. Dit betekent dat alleen de eerste keer dat u hebt ingesteld de in- en om punten, ervoor het XML-bestand om te zetten dat zorgt, alle andere tijden, onze component guard (als (clipListXML.indexOf ("<trim>") == -1)) wordt voorkomen dat de werkstroom van het toevoegen van een ander knippen element wanneer er al een aanwezig zijn.
+Doe een test uitgevoerd om te zien hoe de video en audio-stromen hebben is afgekapt. Als u meer dan één testuitvoering met verschillende waarden voor de punten trimming doen, zult u merken dat deze wordt niet worden gehouden echter! De reden hiervoor is dat de designer, in tegenstelling tot de Azure-runtime, niet de xml cliplist elke uitvoering overschrijven. Dit betekent dat alleen de eerste keer dat u hebt ingesteld de in- en om punten, ervoor het XML-bestand om te zetten dat zorgt, alle andere tijden, onze component guard (als (`clipListXML.indexOf("<trim>") == -1`)) wordt voorkomen dat de werkstroom een ander knippen element toe te voegen als er al een aanwezig zijn.
 
 Om onze werkstroom handig is dat het lokaal testen toevoegen we aanbevolen house-keeping code die als een beperkende-element al aanwezig is inspecteert. Als dit het geval is, kunnen we deze verwijderen voordat u doorgaat met het wijzigen van het XML-bestand met de nieuwe waarden. In plaats van gewoon tekenreeksmanipulatie, is het waarschijnlijk door dit doen door middel van echte xml-objectmodel parseren.
 
@@ -949,7 +949,7 @@ Met de onderstaande eenvoudige guard-component, we kunnen controleren als trimmi
 
 [Werkstroom voorbeeldbestanden](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Explorer-hulpmiddel](https://aka.ms/amse)
+[Azure Media Services Explorer-hulpprogramma](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

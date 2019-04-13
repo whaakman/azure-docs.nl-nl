@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106930"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522347"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 
-De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. U kunt entiteiten maken wanneer u een utterance opzet of elkaar uit toevoegen (vóór of na) een utterance toe te voegen aan een doel.
+De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen of concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. U kunt entiteiten maken wanneer u een utterance opzet of elkaar uit toevoegen (vóór of na) een utterance toe te voegen aan een doel.
 
 U kunt toevoegen, bewerken of verwijderen van entiteiten in uw LUIS-app via de **entiteitenlijst** op de **entiteiten** pagina. LUIS biedt twee typen entiteiten: [vooraf gemaakte entiteiten](luis-reference-prebuilt-entities.md), en uw eigen [aangepaste entiteiten](luis-concept-entity-types.md#types-of-entities).
 
@@ -56,7 +56,7 @@ Een enkele entiteit beschrijft een enkele concept. De volgende procedure gebruik
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Reguliere expressie entiteiten voor sterk gestructureerde concepten toevoegen
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Reguliere expressie entiteiten voor zeer gestructureerde concepten toevoegen
 
 Een entiteit reguliere expressie wordt gebruikt voor het ophalen van gegevens uit de utterance op basis van een reguliere expressie die u opgeeft. 
 
@@ -135,7 +135,7 @@ In de utterance `Where is Request relocation from employee new to the company on
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Een rol om u te onderscheiden van de verschillende contexten toevoegen
 
-Een rol is een benoemde subtype van een entiteit op basis van context. Het is vergelijkbaar met een [hiërarchische](#add-hierarchical-entities) entiteit, maar functies worden alleen gebruikt [patronen](luis-how-to-model-intent-pattern.md). 
+Een rol is een benoemde subtype op basis van context. Het is beschikbaar in alle entiteiten met inbegrip van vooraf gedefinieerde en niet-machine-geleerde entiteiten. 
 
 Met behulp van hetzelfde voorbeeld als de hiërarchische entiteit van oorsprong en bestemming steden, het verschil is dat een rol met de naam origin in plaats van een hiërarchische onderliggend element. 
 

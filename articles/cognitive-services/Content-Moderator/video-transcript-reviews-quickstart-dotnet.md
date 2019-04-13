@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758577"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524494"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Maken van videotranscriptie beoordelingen met behulp van .NET
 
@@ -154,7 +154,7 @@ Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoRev
 **CreateVideoReviews** heeft de volgende vereiste parameters:
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
 1. De naam van uw Content Moderator-team.
-1. Een **IList<CreateVideoReviewsBodyItem>**  object. Elke **CreateVideoReviewsBodyItem** object vertegenwoordigt een video beoordeling. In deze Quick Start maakt een beoordeling op een tijdstip.
+1. Een **IList\<CreateVideoReviewsBodyItem >** object. Elke **CreateVideoReviewsBodyItem** object vertegenwoordigt een video beoordeling. In deze Quick Start maakt een beoordeling op een tijdstip.
 
 **CreateVideoReviewsBodyItem** heeft een aantal eigenschappen. Ten minste, moet u de volgende eigenschappen instellen:
 - **Inhoud**. De URL van de video moet worden gecontroleerd.
@@ -244,15 +244,15 @@ Naast het toevoegen van een transcript naar een video-overzicht, moet u ook het 
 1. Een tekenreeks met een MIME-type moet ' application/json'. 
 1. De naam van uw Content Moderator-team.
 1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
-1. IList<TranscriptModerationBodyItem>. Een **TranscriptModerationBodyItem** heeft de volgende eigenschappen:
-1. **Voorwaarden**. IList<TranscriptModerationBodyItemTermsItem>. Een **TranscriptModerationBodyItemTermsItem** heeft de volgende eigenschappen:
+1. An IList\<TranscriptModerationBodyItem>. Een **TranscriptModerationBodyItem** heeft de volgende eigenschappen:
+1. **Voorwaarden**. An IList\<TranscriptModerationBodyItemTermsItem>. Een **TranscriptModerationBodyItemTermsItem** heeft de volgende eigenschappen:
 1. **Index**. De op nul gebaseerde index van de termijn.
 1. **Term**. Een tekenreeks is die de term bevat.
 1. **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in het transcript waarop de voorwaarden worden gevonden.
 
 Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: De tekst van Web-Video wordt bijgehouden indeling](https://www.w3.org/TR/webvtt1/).
 
-De methodedefinitie van de volgende aan naamruimte VideoTranscriptReviews, klasse programma toevoegen. Deze methode verzendt een transcript naar de **ContentModeratorClient.TextModeration.ScreenText** methode. Ook wordt het resultaat omgezet in een IList<TranscriptModerationBodyItem>, en verzendt naar **AddVideoTranscriptModerationResult**.
+De methodedefinitie van de volgende aan naamruimte VideoTranscriptReviews, klasse programma toevoegen. Deze methode verzendt een transcript naar de **ContentModeratorClient.TextModeration.ScreenText** methode. Ook wordt het resultaat omgezet in een IList\<TranscriptModerationBodyItem >, en verzendt naar **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

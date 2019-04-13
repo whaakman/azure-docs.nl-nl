@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119663"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521268"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Zelfstudie: Gegevens met exacte tekstovereenkomst ophalen uit een utterance
 
@@ -185,5 +185,5 @@ In deze zelfstudie hebt u een nieuwe intentie gemaakt, voorbeelden van utterance
 Ga door met deze app en [voeg een samengestelde entiteit toe](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Een hiërarchische entiteit aan de app toevoegen](luis-quickstart-intent-and-hier-entity.md)
+> [Vooraf gedefinieerde entiteit met een functie toevoegen aan de app.](tutorial-entity-roles.md)
 

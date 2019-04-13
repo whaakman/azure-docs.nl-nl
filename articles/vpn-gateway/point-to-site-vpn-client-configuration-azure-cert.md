@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313937"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525164"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en VPN-clientconfiguratiebestanden voor native Azure certificate authentication P2S-configuraties installeren
 
@@ -174,7 +174,7 @@ U kunt de volgende CLI-opdrachten gebruiken of gebruik de strongSwan-stappen in 
 2. Pak het bestand.
 3. Uit de **algemene** map, de VpnServerRoot.cer naar /etc/ipsec.d/cacerts verplaatsen of kopiëren.
 4. Kopiëren of verplaatsen van cp client.p12 naar /etc/ipsec.d/private/. Dit bestand is een clientcertificaat voor Azure VPN-Gateway.
-5. Open VpnSettings.xml bestand en kopieer de <VpnServer> waarde. U gebruikt deze waarde in de volgende stap.
+5. Open VpnSettings.xml bestand en kopieer de `<VpnServer>` waarde. U gebruikt deze waarde in de volgende stap.
 6. Wijzig de waarden in het voorbeeld hieronder en klik vervolgens in het voorbeeld in de configuratie /etc/ipsec.conf toevoegen.
   
    ```

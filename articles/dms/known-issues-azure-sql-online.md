@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
-ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1a8f46c74693b00fd8e30b1e1a78d90111dea08b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491387"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520742"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure SQL DB
 
@@ -31,8 +31,10 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van SQL
 
 Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigratie is mislukt tijdens de 'alle gegevens worden geladen'-bewerking en ziet u mogelijk het volgende bericht:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SQL_ERROR SqlState: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
- 
+```
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
+```
+
  ![Voorbeeld van de tijdelijke tabel fouten](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Tijdelijke oplossing**
@@ -45,7 +47,7 @@ Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigr
 
 3. De migratieactiviteit opnieuw.
 
-**Resources**
+**Bronnen**
 
 Zie voor meer informatie het artikel [tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868341"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526492"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>De taal detecteren-container implementeren in Azure Kubernetes Service
 
@@ -206,7 +206,7 @@ De volgende stappen worden gevolgd om de vereiste informatie om uw container reg
 
     Sla de volledige waarde voor stap 3 in deze sectie. 
 
-1. De juiste om toegang te verlenen voor het AKS-cluster installatiekopieën die zijn opgeslagen in uw container registry kunt gebruiken, moet u een roltoewijzing maken. Vervang <appId> en <acrId> door de waarden die worden verzameld in de vorige twee stappen.
+1. De juiste om toegang te verlenen voor het AKS-cluster installatiekopieën die zijn opgeslagen in uw container registry kunt gebruiken, moet u een roltoewijzing maken. Vervang `<appId>` en `<acrId>` door de waarden die worden verzameld in de vorige twee stappen.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403071"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522432"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming video's insluiten in een HTML5-toepassing met DASH.js  
 
@@ -86,7 +86,7 @@ Vervolgens exemplaar maken van de primaire klasse van het framework dash.js, Med
 
 De functie startup() van de Media Player-klasse wordt aangeroepen om ervoor te zorgen dat de speler klaar is voor video afspelen. Onder andere de functie zorgt ervoor dat alle benodigde klassen (zoals gedefinieerd door de context) zijn geladen. Zodra de speler gereed is, kunt u het video-element toe met de functie attachView() koppelen. De opstartfunctie kunt de Media Player op de videostream invoeren in het element en ook het afspelen indien nodig.
 
-De URL van het bestand MPD doorgeven aan de Media Player, zodat deze op de hoogte van de video dat is het waarschijnlijk om af te spelen. De zojuist gemaakte setupVideo()-functie moet worden uitgevoerd nadat de pagina volledig is geladen. Dit doen met behulp van de gebeurtenis onload van de body-element. Wijzig uw <body> element:
+De URL van het bestand MPD doorgeven aan de Media Player, zodat deze op de hoogte van de video dat is het waarschijnlijk om af te spelen. De zojuist gemaakte setupVideo()-functie moet worden uitgevoerd nadat de pagina volledig is geladen. Dit doen met behulp van de gebeurtenis onload van de body-element. Wijzig uw `<body>` element:
 
 ```html
     <body onload="setupVideo()">

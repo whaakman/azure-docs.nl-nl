@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878254"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524086"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>HDInsight-clusters maken met Azure Data Lake Storage Gen1 als standaardopslag met behulp van PowerShell
 
@@ -215,7 +215,7 @@ In deze sectie maakt u een HDInsight Hadoop Linux-cluster met Data Lake Storage 
     Nadat de cmdlet is voltooid, ziet u uitvoer die hiermee de clusterdetails worden.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Testtaken uitvoeren op het HDInsight-cluster te gebruiken van Data Lake Storage Gen1
-Nadat u een HDInsight-cluster hebt geconfigureerd, kunt u testtaken kunt uitvoeren om ervoor te zorgen dat deze toegang heeft tot Data Lake Storage Gen1. Om dit te doen, voer een voorbeeld-Hive-taak voor het maken van een tabel die gebruikmaakt van de voorbeeldgegevens die al beschikbaar is in Data Lake Storage Gen1 op  *<cluster root>/example/data/sample.log*.
+Nadat u een HDInsight-cluster hebt geconfigureerd, kunt u testtaken kunt uitvoeren om ervoor te zorgen dat deze toegang heeft tot Data Lake Storage Gen1. Om dit te doen, voer een voorbeeld-Hive-taak voor het maken van een tabel die gebruikmaakt van de voorbeeldgegevens die al beschikbaar is in Data Lake Storage Gen1 op  *\<cluster hoofdmap > /example/data/sample.log*.
 
 In deze sectie maakt u een Secure Shell (SSH)-verbinding naar de HDInsight Linux-cluster die u hebt gemaakt en voert u een voorbeeld-Hive-query.
 
@@ -255,7 +255,7 @@ U kunt ook de `hdfs dfs -put` opdracht voor sommige bestanden uploaden naar Data
 
 ## <a name="see-also"></a>Zie ook
 * [Data Lake Storage Gen1 met Azure HDInsight-clusters gebruiken](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Azure Portal: Een HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 maken](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure-portal: Een HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 maken](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

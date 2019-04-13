@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 24e12184070909943c5660d94d8e19ce9df1de30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111120"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526143"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
@@ -299,7 +299,7 @@ Als u extra verbindingen maakt, is het belangrijk dat u controleert of de IP-adr
 
 ### <a name="TestVNet5"></a>Stap 7: TestVNet5 maken en configureren
 
-Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonnement 5. Dit deel kan worden uitgevoerd door de beheerder in een andere organisatie die eigenaar is van het abonnement. Als u wilt schakelen tussen abonnementen, gebruikt u "az account list --all" om de abonnementen die beschikbaar zijn voor uw account weer te geven. Gebruik vervolgens "az account set --subscription <subscriptionID>" om over te schakelen naar het abonnement dat u wilt gebruiken.
+Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonnement 5. Dit deel kan worden uitgevoerd door de beheerder in een andere organisatie die eigenaar is van het abonnement. Om over te schakelen tussen abonnementen, gebruikt `az account list --all` als u de abonnementen die beschikbaar zijn voor uw account, klikt u vervolgens gebruiken `az account set --subscription <subscriptionID>` overschakelen naar het abonnement dat u wilt gebruiken.
 
 1. Zorg ervoor dat u bent verbonden met abonnement 5 en maak vervolgens een resourcegroep.
 
@@ -338,7 +338,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonne
 
 ### <a name="connections5"></a>Stap 8: de verbindingen maken
 
-Deze stap is opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** en **[Abonnement 5]** omdat de gateways onderdeel uitmaken van verschillende abonnementen. Als u wilt schakelen tussen abonnementen, gebruikt u "az account list --all" om de abonnementen die beschikbaar zijn voor uw account weer te geven. Gebruik vervolgens "az account set --subscription <subscriptionID>" om over te schakelen naar het abonnement dat u wilt gebruiken.
+Deze stap is opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** en **[Abonnement 5]** omdat de gateways onderdeel uitmaken van verschillende abonnementen. Om over te schakelen tussen abonnementen, gebruikt `az account list --all` als u de abonnementen die beschikbaar zijn voor uw account, klikt u vervolgens gebruiken `az account set --subscription <subscriptionID>` overschakelen naar het abonnement dat u wilt gebruiken.
 
 1. **[Abonnement 1]** Meld u aan bij en maak verbinding met Abonnement 1. Voer de volgende opdracht uit om de naam en id van de gateway op te halen in de uitvoer:
 

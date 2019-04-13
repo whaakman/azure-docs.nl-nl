@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905746"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524273"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Container Monitoring-oplossing in Azure Monitor
 
@@ -236,7 +236,7 @@ In deze sectie behandelen we de stappen die nodig zijn voor het installeren van 
 Als u gebruiken van geheimen wilt voor het beveiligen van uw Log Analytics-werkruimte-ID en primaire sleutel bij het gebruik van de Log Analytics-agent-daemon-set yaml-bestand, moet u de volgende stappen uitvoeren.
 
 1. Meld u aan bij met het hoofdknooppunt van OpenShift en kopieer het yaml-bestand [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) en -geheim script genereren [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) vanuit GitHub.  Met dit script genereert de geheimen yaml-bestand voor Log Analytics-werkruimte-ID en primaire sleutel voor het beveiligen van uw informatie secrete.  
-2. Voer de volgende opdrachten een project maken voor Azure Monitor en het instellen van het gebruikersaccount. Het geheim genereren script vraagt om de ID van uw Log Analytics-werkruimte <WSID> en primaire sleutel <KEY> en na voltooiing wordt de ocp-secret.yaml-bestand gemaakt.  
+2. Voer de volgende opdrachten een project maken voor Azure Monitor en het instellen van het gebruikersaccount. Het geheim genereren script vraagt om de ID van uw Log Analytics-werkruimte `<WSID>` en primaire sleutel `<KEY>` en na voltooiing wordt de ocp-secret.yaml-bestand gemaakt.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  

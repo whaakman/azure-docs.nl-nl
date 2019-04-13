@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493209"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525419"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Gebruik de Azure Cosmos-emulator gebruikt voor lokale ontwikkeling en testen
 
@@ -236,7 +236,7 @@ Vanaf de installatielocatie, kunt u de opdrachtregel om te starten en stoppen va
 
 Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te zien.
 
-|**Optie** | **Description** | **Opdracht**| **Argumenten**|
+|**Optie** | **Beschrijving** | **Opdracht**| **Argumenten**|
 |---|---|---|---|
 |[Geen argumenten] | De Azure Cosmos-Emulator met standaardinstellingen wordt gestart. |CosmosDB.Emulator.exe| |
 |[Help] |Toont de lijst met ondersteunde opdrachtregelargumenten.|CosmosDB.Emulator.exe /? | |
@@ -252,7 +252,7 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 | GremlinPort | Het poortnummer moet worden gebruikt voor de Gremlin-eindpunt. Standaardwaarde is 8901. | CosmosDB.Emulator.exe /GremlinPort =\<poort\> | \<poort\>: Enkel poortnummer |
 |TablePort | Het poortnummer moet worden gebruikt voor het eindpunt van de Azure-tabel. Standaardwaarde is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<poort\>: Enkel poortnummer|
 | KeyFile | Autorisatiesleutel lezen uit het opgegeven bestand. De optie /GenKeyFile gebruiken voor het genereren van een sleutelbestand | CosmosDB.Emulator.exe/KEYFILE =\<bestandsnaam\> | \<bestandsnaam\>: Pad naar het bestand |
-| ResetDataPath | Recursief Hiermee verwijdert u alle bestanden in het opgegeven pad. Als u geen pad opgeeft, wordt de standaardwaarde %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath [=<path>] | \<Pad\>: Pad naar bestand  |
+| ResetDataPath | Recursief Hiermee verwijdert u alle bestanden in het opgegeven pad. Als u geen pad opgeeft, wordt de standaardwaarde %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath [=\<pad >] | \<Pad\>: Pad naar bestand  |
 | StartTraces  |  Begin met het verzamelen van Logboeken voor foutopsporing tracering. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Stoppen met het verzamelen van Logboeken voor foutopsporing tracering. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Hiermee kunt Azure Table-API | CosmosDB.Emulator.exe /EnableTableEndpoint | |

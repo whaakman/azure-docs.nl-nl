@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054490"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523504"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Maken van abonnementen in Azure API Management
 
@@ -38,7 +38,8 @@ Als u de stappen in dit artikel, zijn de vereisten als volgt uit:
 1. Selecteer **abonnementen** in het menu aan de linkerkant.
 2. Selecteer **abonnement toevoegen**.
 3. Geef een naam op van het abonnement en selecteert u het bereik.
-4. Selecteer **Opslaan**.
+4. (Optioneel) Kies als het abonnement gekoppeld aan een gebruiker worden moet.
+5. Selecteer **Opslaan**.
 
 ![Flexibele abonnementen](./media/api-management-subscriptions/flexible-subscription.png)
 

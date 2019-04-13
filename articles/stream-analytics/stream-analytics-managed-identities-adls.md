@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics-taak aan Azure Data Lake Storage Gen1 uitvoer verifiëren
 description: In dit artikel wordt beschreven hoe u beheerde identiteiten gebruiken voor het verifiëren van uw Azure Stream Analytics-taak aan Azure Data Lake Storage Gen1 uitvoer.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257974"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522058"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten verifiëren
 
@@ -100,33 +99,37 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
    Deze eigenschap vertelt ons Azure Resource Manager maken en beheren van de identiteit voor uw Azure Stream Analytics-taak.
 
    **Van voorbeeldtaak**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **Taak voorbeeldantwoord**
@@ -145,7 +148,8 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Noteer de Principal-ID uit het antwoord van de taak toegang verlenen tot de vereiste ADLS-resource.
@@ -169,15 +173,14 @@ In dit artikel ziet u drie manieren om in te schakelen beheerde identiteit voor 
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Raadpleeg voor meer informatie over de bovenstaande PowerShell-opdracht, de [Set AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentatie.
+   Raadpleeg voor meer informatie over de bovenstaande PowerShell-opdracht, de [Set AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentatie.
 
 ## <a name="limitations"></a>Beperkingen
 Deze functie biedt geen ondersteuning voor het volgende:
 
-1.  **Toegang voor meerdere tenants**: De Service-principal gemaakt voor een bepaalde Stream Analytics-taak wordt opgeslagen op de Azure Active Directory-tenant waarvoor de taak is gemaakt en kan niet worden gebruikt voor een resource die zich op een andere Azure Active Directory-tenant bevinden. U kunt daarom alleen MSI gebruiken voor ADLS Gen 1-resources die zich binnen dezelfde Azure Active Directory-tenant als uw Azure Stream Analytics-taak. 
+1. **Toegang voor meerdere tenants**: De Service-principal gemaakt voor een bepaalde Stream Analytics-taak wordt opgeslagen op de Azure Active Directory-tenant waarvoor de taak is gemaakt en kan niet worden gebruikt voor een resource die zich op een andere Azure Active Directory-tenant bevinden. U kunt daarom alleen MSI gebruiken voor ADLS Gen 1-resources die zich binnen dezelfde Azure Active Directory-tenant als uw Azure Stream Analytics-taak. 
 
-2.  **[Gebruiker toegewezen identiteit](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: wordt niet ondersteund dit betekent dat de gebruiker is niet de eigen service-principal moet worden gebruikt door de Stream Analytics-taak invoeren. De service-principal wordt gegenereerd door Azure Stream Analytics. 
-
+2. **[Gebruiker toegewezen identiteit](../active-directory/managed-identities-azure-resources/overview.md)**: wordt niet ondersteund. Dit betekent dat de gebruiker is niet de eigen service-principal moet worden gebruikt door de Stream Analytics-taak invoeren. De service-principal wordt gegenereerd door Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Volgende stappen
 

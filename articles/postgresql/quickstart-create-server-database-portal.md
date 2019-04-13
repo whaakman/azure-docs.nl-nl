@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856206"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524205"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Quickstart: Een Azure Database for PostgreSQL-server maken in Azure Portal
 
@@ -121,7 +121,7 @@ Er zijn een aantal toepassingen die kunt gebruiken om verbinding te maken met uw
 
     Nadat u de psql-opdracht met uw eigen parameterwaarden hebt uitgevoerd, wordt u gevraagd het wachtwoord van de serverbeheerder in te voeren. Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. 
 
-    psql parameter |Voorgestelde waarde|Description
+    psql parameter |Voorgestelde waarde|Beschrijving
     ---|---|---
     wachtwoord | Uw beheerderswachtwoord | De getypte wachtwoordtekens worden niet weergegeven bij de bash-prompt. Nadat u alle tekens hebt getypt, moet u op Enter drukken om te verifiëren en verbinding te maken.
 
@@ -141,7 +141,7 @@ Er zijn een aantal toepassingen die kunt gebruiken om verbinding te maken met uw
     > [!TIP]
     > Als de firewall niet is geconfigureerd voor het toestaan van het IP-adres van uw client, wordt het volgende foutbericht weergegeven:
     > 
-    > 'psql: FATAL:  no pg_hba.conf entry for host '<IP address>', user 'myadmin', database 'postgres', SSL on FATAL: SSL connection is required. Please specify SSL options and retry.
+    > 'psql: Onherstelbare fout: geen pg_hba.conf vermelding voor host `<IP address>`, gebruiker "myadmin" database "postgres", SSL op onherstelbare fout: SSL connection is required. Please specify SSL options and retry.
     > 
     > U kunt deze fout oplossen door ervoor te zorgen dat de serverconfiguratie overeenkomt met de stappen in de sectie 'Een serverfirewallregel configureren' van dit artikel.
 

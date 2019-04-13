@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010614"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523950"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
@@ -266,7 +266,7 @@ Er zijn een aantal opties voor eindpunten/query's die niet worden ondersteund do
 | Rest methode(n) | Rest-eindpunt/Query-optie | Document-URL 's | Uitleg |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= eigenschappen| [Instellen van tabeleigenschappen Service](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel-Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt om in te stellen CORS-regels, storage analytics-configuratie en instellingen voor logboekregistratie. CORS is momenteel niet ondersteund en analyses en logboekregistratie zijn verwerkt in Azure Cosmos DB dan Azure Storage-tabellen |
-| OPTIES | /<table-resource-name> | [Vooraf vlucht CORS-aanvraag voor tabel](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit maakt deel uit van CORS die op dit moment biedt geen ondersteuning voor Azure Cosmos DB. |
+| OPTIES | /\<table-resource-name> | [Vooraf vlucht CORS-aanvraag voor tabel](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit maakt deel uit van CORS die op dit moment biedt geen ondersteuning voor Azure Cosmos DB. |
 | GET | /? restype =service@comp= statistieken | [Ophalen van Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos DB als de replicatie deel uit van schrijfbewerkingen maakt. |
 | GET, PUT | /MyTable? comp acl = | [Tabel ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid wordt gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
@@ -293,7 +293,7 @@ Als een van deze verschillen een probleem voor uw project, neem dan contact op m
 
 U kunt uw feedback delen in een van de volgende manieren:
 
-* [Meningen van gebruikers](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 

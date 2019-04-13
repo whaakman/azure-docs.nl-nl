@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f749a04b569d183589fba8c788ce48f29358b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295552"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525786"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Uw inhoud versleutelen met opslagversleuteling 
 
@@ -111,7 +111,7 @@ Hier volgen de algemene stappen voor het genereren van inhoudssleutels dat u kop
 
     Hoofdtekst van de aanvraageigenschap    | Description
     ---|---
-    Id | De ID ContentKey wordt gegenereerd met behulp van de volgende indeling hebben: "nb:kid:UUID:<NEW GUID>'.
+    Id | De ID ContentKey wordt gegenereerd met behulp van de volgende indeling hebben: "nb:kid:UUID:\<nieuwe GUID > '.
     ContentKeyType | Het inhoudstype key is een geheel getal dat de sleutel wordt gedefinieerd. Voor de indeling van de versleuteling van opslag is de waarde 1.
     EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die een waarde is 256-bits (32 bytes). De sleutel is gecodeerd met behulp van de storage-versleuteling X.509-certificaat dat door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden van Microsoft Azure Media Services worden opgehaald. Een voorbeeld: Zie de volgende .NET-code: de **EncryptSymmetricKeyData** methode die is gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Dit is de beveiliging sleutel-ID voor de opslag versleuteling X.509-certificaat dat is gebruikt om onze inhoud sleutel te versleutelen.

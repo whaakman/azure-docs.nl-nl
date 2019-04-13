@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697999"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521650"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Over het koppelen van Blob-opslag als een bestandssysteem met blobfuse
 
@@ -29,7 +29,7 @@ Deze handleiding wordt beschreven hoe u blobfuse gebruikt, en het koppelen van e
 ## <a name="install-blobfuse-on-linux"></a>Blobfuse installeren in Linux
 Blobfuse binaire bestanden zijn beschikbaar op [de Microsoft-software-opslagplaatsen voor Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) voor Ubuntu en RHEL-distributies. Configureren voor het installeren van blobfuse op deze distributies, een van de opslagplaatsen in de lijst. U kunt ook maken met de binaire bestanden vanuit de bron-code hieronder de [Azure Storage-installatiestappen](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) als er geen binaire bestanden beschikbaar voor uw distributie zijn.
 
-Blobfuse ondersteunt installatie op Ubuntu 14.04 en 16.04. Voer deze opdracht om ervoor te zorgen dat u een van deze versies geïmplementeerd hebt:
+Blobfuse ondersteunt installatie op Ubuntu 14.04 en 16.04 18.04. Voer deze opdracht om ervoor te zorgen dat u een van deze versies geïmplementeerd hebt:
 ```
 lsb_release -a
 ```
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Op dezelfde manier, wijzig de URL in `.../ubuntu/16.04/...` om te verwijzen naar een distributiepunt Ubuntu 16.04.
+Op dezelfde manier, wijzig de URL in `.../ubuntu/16.04/...` of `.../ubuntu/18.04/...` om te verwijzen naar een andere versie van Ubuntu.
 
 ### <a name="install-blobfuse"></a>Blobfuse installeren
 
@@ -85,7 +85,7 @@ In Azure, kunt u de tijdelijke schijven (SSD) beschikbaar gebruiken voor uw virt
 
 Zorg ervoor dat de gebruiker heeft toegang tot het tijdelijke pad:
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+De `accountName` is het voorvoegsel voor uw opslagaccount - niet de volledige URL.
 
-Als u dit bestand hebt gemaakt, zorg ervoor dat de toegang beperken, zodat er geen andere gebruiker kan worden gelezen.
+Dit bestand maken met:
+
+```
+touch ~/fuse_connection.cfg
+```
+
+Nadat u hebt gemaakt en dit bestand had bewerkt, zorg ervoor dat de toegang beperken, zodat er geen andere gebruikers kunnen worden gelezen.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

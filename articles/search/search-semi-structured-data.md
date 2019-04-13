@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Semi-strutured gegevens in JSON-blobs - Azure Search indexeren'
-description: Informatie over het indexeren en doorzoeken van semi-gestructureerde Azure JSON-blobs met Azure Search en Postman.
+description: Informatie over het indexeren en doorzoeken van semi-gestructureerde Azure JSON-blobs met behulp van Azure Search REST API's en Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489224"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525344"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-zelfstudie: Indexeren en doorzoeken van semi-gestructureerde gegevens (JSON-blobs) in Azure Search
 
 Azure Search kunt indexeren van JSON-documenten en matrices in Azure blob storage met behulp van een [indexeerfunctie](search-indexer-overview.md) die weet hoe het lezen van semi-gestructureerde gegevens. Semi-gestructureerde gegevens bevatten labels of markeringen die inhoud in de gegevens scheiden. Het verschil tussen niet-gestructureerde gegevens, die volledig moeten worden geïndexeerd en formeel gestructureerde gegevens die in overeenstemming is met een gegevensmodel, zoals een relationele database-schema, die kan worden geïndexeerd op basis van per veld gesplitst.
 
@@ -59,9 +59,7 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
 
-1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. Omdat u een sleutel en de opslag accountnaam voor de verbinding gebruikt, zorg er dan voor dat van de container openbaar toegangsniveau is ingesteld op 'Container (anonieme leestoegang voor de container)'.
-
-   ![Niveau openbare toegang instelt](media/search-semi-structured-data/container-public-access-level.png "niveau openbare toegang instellen")
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden.
 
 1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk.
 

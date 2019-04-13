@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630611"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522725"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -228,7 +228,7 @@ De toolset bevat:
 * Een beveiligingswereldpakket met een naam die met begint **BYOK-SecurityWorld - pkg-.**
 * Een python-script met de naam **verifykeypackage.py.**
 * Een uitvoerbaar opdrachtregelbestand met de naam **KeyTransferRemote.exe** en bijbehorende DLL-bestanden.
-* Een Visual C++ Redistributable-pakket, met de naam **vcredist_x64.exe.**
+* Een visueel element C++ herdistribueerbaar pakket, met de naam **vcredist_x64.exe.**
 
 Kopieer het pakket naar een USB-station of ander draagbaar opslagmedium.
 
@@ -445,7 +445,7 @@ Wanneer u deze opdracht uitvoert, vervangt *contosokey* door dezelfde waarde als
 
 U wordt gevraagd om uw kaarten security world-beheerder.
 
-Wanneer de opdracht is voltooid, ziet u **resultaat: SUCCES** en de kopie van uw sleutel met beperkte machtigingen zich in het bestand met de naam key_xferacId_<contosokey>.
+Wanneer de opdracht is voltooid, ziet u **resultaat: SUCCES** en de kopie van uw sleutel met beperkte machtigingen zich in het bestand met de naam key_xferacId_\<contosokey >.
 
 U kunt inspecteert de ACL's van de volgende opdrachten met de Thales-hulpprogramma's:
 

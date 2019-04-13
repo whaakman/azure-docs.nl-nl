@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881143"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524001"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Het Team Data Science Process in actie: Azure HDInsight Hadoop-clusters gebruiken
 In dit scenario gebruiken we de [Team Data Science Process (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, en de functie-engineering gegevens uit de openbaar beschikbare [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset, en down-sampling van de gegevens. Voor het afhandelen van binaire en multiklassen classificatie en de voorspellende taken regressie, bouwen we modellen van de gegevens met Azure Machine Learning. 
@@ -88,11 +88,11 @@ Kopiëren van de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegeve
 
 Hier wordt beschreven hoe u AzCopy gebruiken om over te dragen van de bestanden met gegevens. Volg de instructies op om te downloaden en installeren van AzCopy, [aan de slag met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md).
 
-1. Vanuit een opdrachtpromptvenster, voer de volgende AzCopy-opdrachten, vervangen *< path_to_data_folder >* met de gewenste bestemming:
+1. Vanuit een opdrachtpromptvenster, voer de volgende AzCopy-opdrachten, vervangen  *\<path_to_data_folder >* met de gewenste bestemming:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Wanneer de kopie is voltooid, ziet u een totaal van 24 ZIP-bestanden in de map data gekozen. Pak het gedownloade bestanden naar dezelfde map op uw lokale computer. Maak een notitie van de map waar de niet-gecomprimeerde bestanden zich bevinden. Deze map wordt aangeduid als de *< pad\_naar\_unzipped_data\_bestanden\>*  in welke volgt.
+1. Wanneer de kopie is voltooid, ziet u een totaal van 24 ZIP-bestanden in de map data gekozen. Pak het gedownloade bestanden naar dezelfde map op uw lokale computer. Maak een notitie van de map waar de niet-gecomprimeerde bestanden zich bevinden. Deze map wordt aangeduid als de *\<pad\_naar\_unzipped_data\_bestanden\>* in welke volgt.
 
 ## <a name="upload"></a>De gegevens uploaden naar de standaardcontainer van het HDInsight Hadoop-cluster
 > [!NOTE]
@@ -102,10 +102,10 @@ Hier wordt beschreven hoe u AzCopy gebruiken om over te dragen van de bestanden 
 
 In de volgende AzCopy-opdrachten, vervangt u de volgende parameters met de werkelijke waarden die u hebt opgegeven bij het maken van het Hadoop-cluster en het uitpakken van de gegevensbestanden.
 
-* ***< Path_to_data_folder >*** de map (samen met het pad) op de computer die de uitgepakte bestanden bevat.  
-* ***<storage account name of Hadoop cluster>*** Het opslagaccount dat is gekoppeld aan uw HDInsight-cluster.
-* ***<default container of Hadoop cluster>*** De standaardcontainer die wordt gebruikt door uw cluster. Houd er rekening mee dat de naam van de standaard-container meestal dezelfde naam als het cluster zelf wordt. Bijvoorbeeld, als het cluster wordt 'abc123.azurehdinsight.net' genoemd, is de standaardcontainer abc123.
-* ***<storage account key>*** De sleutel voor het opslagaccount die wordt gebruikt door uw cluster.
+* ***\<path_to_data_folder >*** de map (samen met het pad) op de computer die de uitgepakte bestanden bevat.  
+* ***\<Storage-accountnaam van Hadoop-cluster >*** de storage-account dat is gekoppeld aan uw HDInsight-cluster.
+* ***\<standaardcontainer van Hadoop-cluster >*** de standaardcontainer die wordt gebruikt door uw cluster. Houd er rekening mee dat de naam van de standaard-container meestal dezelfde naam als het cluster zelf wordt. Bijvoorbeeld, als het cluster wordt 'abc123.azurehdinsight.net' genoemd, is de standaardcontainer abc123.
+* ***\<opslagaccountsleutel >*** de sleutel voor het opslagaccount die wordt gebruikt door uw cluster.
 
 Voer de volgende twee AzCopy-opdrachten uit vanaf de opdrachtprompt of een Windows PowerShell-venster.
 

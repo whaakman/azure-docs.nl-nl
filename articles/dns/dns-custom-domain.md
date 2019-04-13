@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111409"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521816"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS gebruiken om aangepaste domein-instellingen voor een Azure-service te geven
 
@@ -69,7 +69,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 |Type     | A        | Als de resource een IP-adres, gebruikt u een A-record.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
-|IP-adres     | <your ip address>       | Het openbare IP-adres.|
+|IP-adres     | `<your ip address>`       | Het openbare IP-adres.|
 
 ![een A-record maken](./media/dns-custom-domain/arecord.png)
 

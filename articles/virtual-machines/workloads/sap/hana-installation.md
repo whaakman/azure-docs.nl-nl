@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999840"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522551"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
@@ -141,7 +141,7 @@ Er zijn enkele details over de netwerken van de afzonderlijke eenheden opgemerkt
 
 Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI scenario's ondersteund](hana-supported-scenario.md).
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 
@@ -151,8 +151,8 @@ De naamgeving van de opslagvolumes worden vermeld in de volgende tabel:
 
 | Opslaggebruik | Naam koppelen | Volumenaam | 
 | --- | --- | ---|
-| HANA-gegevens | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA-logboek | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA-gegevens | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logboek | /hana/log/SID/mnt0000\<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA logboekback-up | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA gedeeld | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

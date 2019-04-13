@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309114"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523389"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -95,7 +95,7 @@ In uw R-code, wijst u de naam van knooppunt-verwijzing naar de **storage2** stor
 
 Alle van de map- en verwijzingen verwijst nu naar het opslagaccount dat `wasb://container2@storage2.blob.core.windows.net`. Dit is de **naam knooppunt** die u hebt opgegeven.
 
-U moet configureren de/User/RevoShare/<SSH username> map op **storage2** als volgt:
+U moet configureren de `/user/RevoShare/<SSH username>` map op **storage2** als volgt:
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user

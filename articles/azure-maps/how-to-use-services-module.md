@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278595"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521196"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Met behulp van de module Azure Maps Services
 
@@ -24,7 +24,7 @@ Azure Maps Web SDK biedt een services-module die is een helper-bibliotheek waarm
 1. Maak een nieuwe HTML-bestand.
 2. Laden van de module Azure Maps Services. Dit kan worden gedaan met behulp van een van twee opties.
 
-    a. Gebruik de wereldwijd gehoste CDN-versie van de module Azure Maps services door het toevoegen van een scriptverwijzing naar de <head> element van het bestand:
+    a. Gebruik de wereldwijd gehoste CDN-versie van de module Azure Maps services door het toevoegen van een scriptverwijzing naar de `<head>` element van het bestand:
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
@@ -186,7 +186,7 @@ Zie de volgende artikelen voor meer voorbeelden van code die gebruikmaken van de
 > [Zoekresultaten weergeven op de kaart](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Informatie ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+> [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
 > [Routebeschrijving van A naar B](./map-route.md)

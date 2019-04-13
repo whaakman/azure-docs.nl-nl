@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107794"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526670"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -135,9 +135,9 @@ Zie [dit PowerShell-script](https://gallery.technet.microsoft.com/scriptcenter/A
 
 ### <a name="resource-group"></a> Vereisten voor de resourcegroep
 -   De Azure-SSIS-IR moet bepaalde netwerkresources in dezelfde resourcegroep bevinden als het virtuele netwerk maken. Deze resources omvatten het volgende:
-    -   Een Azure load balancer, met de naam van de  *<Guid>- azurebatch cloudserviceloadbalancer*.
-    -   Een Azure openbare IP-adres met de naam van de  *<Guid>- azurebatch cloudservicepublicip*.
-    -   Een werk netwerkbeveiligingsgroep, met de naam van de  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
+    -   Een Azure load balancer, met de naam van de  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   Een Azure openbare IP-adres met de naam van de  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   Een werk netwerkbeveiligingsgroep, met de naam van de  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Zorg ervoor dat u alle resourcevergrendeling voor de resourcegroep of abonnement waartoe het virtuele netwerk behoort geen hebt. Als u een alleen-lezen vergrendeld of een verwijderingsvergrendeling configureert, kunnen starten en stoppen van de IR mislukken of vastlopen. 
 

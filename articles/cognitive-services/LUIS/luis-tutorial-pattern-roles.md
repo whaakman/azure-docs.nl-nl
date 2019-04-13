@@ -1,7 +1,7 @@
 ---
 title: Patroonrollen
 titleSuffix: Azure Cognitive Services
-description: Gebruik een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.
+description: Patronen Extraheer gegevens uit de juiste opmaak sjabloon uitingen. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106590"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523271"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Zelfstudie: Contextgerelateerde patronen extraheren met behulp van rollen
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Zelfstudie: Ophalen van context gerelateerde patronen met behulp van rollen
 
-In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
+In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. Maakt gebruik van de sjabloon utterance een [eenvoudige entiteit](luis-concept-entity-types.md#simple-entity) en [rollen](luis-concept-roles.md) om gerelateerde gegevens zoals de oorspronkelijke locatie- en doellocatie te extraheren.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
 
 
 **In deze zelfstudie leert u het volgende:**
@@ -40,7 +40,7 @@ In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een corr
 
 ## <a name="using-roles-in-patterns"></a>Met behulp van rollen in patronen
 
-Rollen zijn bedoeld om contextgerelateerde entiteiten in een utterance te extraheren. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
+Het doel van de rollen is om op te halen contextueel gerelateerde entiteiten in een utterance. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
 
 
 De naam van de nieuwe werknemer, Billy Patterson, maakt nog geen deel uit van de lijstentiteit **Werknemer**. De naam van de nieuwe werknemer wordt eerst geëxtraheerd om de naam te kunnen verzenden naar een extern systeem dat de bedrijfsreferenties maakt. Nadat de bedrijfsreferenties zijn gemaakt, worden de referenties van de werknemer toegevoegd aan de lijstentiteit **Werknemer**.
@@ -373,19 +373,6 @@ Plaatsnamen zijn net als persoonsnamen erg lastig omdat ze uit een combinatie va
     ```
 
 De intentiescore is nu veel hoger en de rolnamen maken deel uit van het antwoord van de entiteit.
-
-## <a name="hierarchical-entities-versus-roles"></a>Hiërarchische entiteiten versus rollen
-
-In de [hiërarchische zelfstudie](luis-quickstart-intent-and-hier-entity.md) wordt de intentie **MoveEmployee** gedetecteerd wanneer een bestaande werknemer van het ene gebouw en kantoor moet verhuizen naar een andere locatie. De voorbeeld-utterances hadden een locatie van oorsprong en bestemming maar gebruikten geen rollen. In plaats daarvan waren de oorsprong en bestemming onderliggende elementen van de hiërarchische entiteit. 
-
-In deze zelfstudie detecteert de app Human Resources utterances over de verhuizing van nieuwe werknemers van de ene plaats naar een andere. Deze twee soorten utterances zijn hetzelfde, maar ze worden opgelost met verschillende LUIS-mogelijkheden.
-
-|Zelfstudie|Voorbeeld van een utterance|Locatie van oorsprong en bestemming|
-|--|--|--|
-|[Hiërarchisch (geen rollen)](luis-quickstart-intent-and-hier-entity.md)|Verhuis Jill Jones van **a-2349** naar **b-1298**|a-2349, b-1298|
-|Deze zelfstudie (met rollen)|Verhuis Billy Patterson van **Yuma** naar **Denver**.|Yuma, Denver|
-
-Zie [Rollen versus hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities) voor meer informatie.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -4,22 +4,24 @@ description: Deze pagina bevat informatie over web application firewall CRS-rege
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279700"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523916"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lijst met web application firewall CRS-regelgroepen en -regels die worden aangeboden
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web application firewall CRS-regelgroepen en -regels
 
-Web application firewall (WAF) voor Application Gateway beschermt webtoepassingen tegen veelvoorkomende beveiligingsproblemen. Dit wordt gedaan door regels die zijn gedefinieerd op basis van de OWASP core rule set 2.2.9 of 3.0. Deze regels kunnen worden uitgeschakeld op basis van de regel door de regel. In dit artikel bevat de huidige regels en rulesets aangeboden.
+Web application firewall (WAF) voor Application Gateway beschermt webtoepassingen tegen veelvoorkomende beveiligingsproblemen. Dit wordt gedaan door regels die zijn gedefinieerd op basis van de OWASP core rule set 3.0 of 2.2.9. Deze regels kunnen worden uitgeschakeld op basis van de regel door de regel. In dit artikel bevat de huidige regels en rulesets aangeboden.
 
-De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij het gebruik van Application Gateway met web application firewall.  Elke tabel vertegenwoordigt de regels gevonden in de regelgroep van een voor een specifieke CRS-versie.
+De volgende regelgroepen en regels zijn beschikbaar bij het gebruik van Application Gateway met web application firewall.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Regelsets
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Algemeen</p>
 
@@ -50,7 +52,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |---|---|
 |920100|Ongeldige HTTP-aanvraag regel|
 |920130|Parseren van de hoofdtekst van de aanvraag is mislukt.|
-|920140|Gedeeltelijk aanvraag voldoet niet aan streng = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM-%@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Gedeeltelijk aanvraagtekst strikte validatie is mislukt|
 |920160|Content-Length-HTTP-header is niet numeriek.|
 |920170|GET- of HEAD aanvragen met inhoud van de hoofdtekst.|
 |920180|POST-aanvraag Content-Length-Header ontbreekt.|
@@ -136,7 +138,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |933100|PHP-injectie-aanval = openen/eindcode gevonden|
 |933110|PHP-injectie-aanval = PHP-Script uploaden van het bestand gevonden|
@@ -216,16 +218,18 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 |943110|Mogelijke sessie vastlegging aanval = naam van de sessie-id-Parameter met de verwijzende site uit het domein|
 |943120|Mogelijke sessie vastlegging aanval = naam van de sessie-id-Parameter met geen verwijzende site|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Regelsets
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |960911|Ongeldige HTTP-aanvraag regel|
 |981227|Apache-fout = Ongeldige URI in de aanvraag.|
 |960912|Parseren van de hoofdtekst van de aanvraag is mislukt.|
-|960914|Gedeeltelijk aanvraag voldoet niet aan streng = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM-%@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Gedeeltelijk aanvraagtekst strikte validatie is mislukt|
 |960915|Meerdelige parser heeft de grens van een mogelijk niet-overeenkomende gedetecteerd.|
 |960016|Content-Length-HTTP-header is niet numeriek.|
 |960011|GET- of HEAD aanvragen met inhoud van de hoofdtekst.|
@@ -246,7 +250,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |960008|Aanvraag voor een Host-Header ontbreekt|
 |960007|Lege Host-Header|
@@ -259,7 +263,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |960209|Argumentnaam te lang.|
 |960208|Argumentwaarde is te lang|
@@ -270,7 +274,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |960032|Methode is niet toegestaan door het beleid|
 |960010|Inhoud van het type is niet toegestaan door het beleid|
@@ -280,7 +284,7 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |990002|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
 |990901|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
@@ -460,18 +464,20 @@ De volgende tabellen worden de regelgroepen en -regels die beschikbaar zijn bij 
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |950103|Pad verandering aanval|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|RuleId|Description|
+|RuleId|Beschrijving|
 |---|---|
 |950110|Achterdeurtoegang|
 |950921|Achterdeurtoegang|
 |950922|Achterdeurtoegang|
 
+---
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het uitschakelen van regels voor WAF door naar de pagina: [WAF-regels aanpassen](application-gateway-customize-waf-rules-portal.md)
+Informatie over het uitschakelen van de WAF-regels: [WAF-regels aanpassen](application-gateway-customize-waf-rules-portal.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293070"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521625"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Een asset coderen met behulp van Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ Het volgende voorbeeld laat zien hoe het kenmerk assetName instellen:
 
 ## <a name="considerations"></a>Overwegingen
 * Eigenschappen van TaskBody moeten letterlijke XML gebruiken om te definiëren van het aantal invoer of uitvoer van de activa die worden gebruikt door de taak. Taak dit artikel bevat de definitie van de XML-Schema voor het XML-bestand.
-* In het definitie TaskBody elke interne waarde voor de <inputAsset> en <outputAsset> JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
+* In het definitie TaskBody elke interne waarde voor de `<inputAsset>` en `<outputAsset>` JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
 * Een taak kan meerdere uitvoerassets hebben. Een JobOutputAsset(x) kan alleen één keer worden gebruikt als uitvoer van een taak in een taak.
 * U kunt JobInputAsset of JobOutputAsset opgeven als een invoeractivum van een taak.
 * Taken moeten een cyclus voor besturingselementen geen cyclus.
 * De waardeparameter die u aan JobInputAsset of JobOutputAsset doorgeeft vertegenwoordigt de indexwaarde voor een asset. De werkelijke activa zijn gedefinieerd in de eigenschappen van de navigatie InputMediaAssets en OutputMediaAssets op de definitie van de taak entiteit.
 * Omdat Media Services is gebouwd op OData v3-processors, de afzonderlijke elementen in de verzamelingen InputMediaAssets en OutputMediaAssets navigatie-eigenschap wordt verwezen door een ' __metadata: uri ' naam / waarde-paar.
 * InputMediaAssets toegewezen aan een of meer elementen die u hebt gemaakt in Media Services. OutputMediaAssets worden gemaakt door het systeem. Ze niet verwijzen naar een bestaande asset.
-* OutputMediaAssets kan worden benoemd met het kenmerk assetName. Als dit kenmerk niet aanwezig zijn is, is de naam van de OutputMediaAsset ongeacht de binnenste tekstwaarde van de <outputAsset> -element is met een achtervoegsel van de waarde van de taak, of de taak-Id-waarde (in het geval waarbij de eigenschap Name is niet gedefinieerd). Bijvoorbeeld, als u een waarde instellen voor assetName naar "Voorbeeld", is klikt u vervolgens de eigenschap OutputMediaAsset Name ingesteld op 'Voorbeeld'. Als u een waarde voor assetName niet hebt ingesteld, maar de naam van de taak naar nieuwe "taak" hebt ingesteld, zou klikt u vervolgens de naam van de OutputMediaAsset wel "JobOutputAsset (waarde) _NewJob."
+* OutputMediaAssets kan worden benoemd met het kenmerk assetName. Als dit kenmerk niet aanwezig zijn is, is de naam van de OutputMediaAsset ongeacht de binnenste tekstwaarde van de `<outputAsset>` -element is met een achtervoegsel van de waarde van de taak, of de taak-Id-waarde (in het geval waarbij de eigenschap Name is niet gedefinieerd). Bijvoorbeeld, als u een waarde instellen voor assetName naar "Voorbeeld", is klikt u vervolgens de eigenschap OutputMediaAsset Name ingesteld op 'Voorbeeld'. Als u een waarde voor assetName niet hebt ingesteld, maar de naam van de taak naar nieuwe "taak" hebt ingesteld, zou klikt u vervolgens de naam van de OutputMediaAsset wel "JobOutputAsset (waarde) _NewJob."
 
 ## <a name="create-a-job-with-chained-tasks"></a>Een taak maken met gekoppelde taken
 In veel scenario's van toepassing willen ontwikkelaars maken van een reeks standaardtaken voor de verwerking. U kunt een reeks gekoppelde taken maken in Media Services. Elke taak voert de verwerking van de verschillende stappen uit en andere media-processors kunt gebruiken. De gekoppelde taken kunnen afleveren een asset van een taak naar een andere, een lineaire reeks taken uitvoeren op de asset. De taken die worden uitgevoerd in een taak zijn echter niet vereist zijn in een reeks. Wanneer u een gekoppelde taak, de keten maakt **ITask** objecten worden gemaakt in een enkel **IJob** object.

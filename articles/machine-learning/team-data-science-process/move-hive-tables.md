@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840644"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522500"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens laden uit Azure Blob Storage
 
@@ -112,7 +112,7 @@ Als u de standaardcontainer van het Hadoop-cluster met behulp van Azure Storage 
 ![Azure Storage Explorer met de uitvoer van de Hive-query](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Indienen van Hive-query's met de Hive-Editor
-U kunt ook de Queryconsole (Hive-Editor) door een URL van het formulier *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in de zien deze console en dus moet u uw Hadoop-clusterreferenties hier.
+U kunt ook de Queryconsole (Hive-Editor) door een URL van het formulier *https:\//\<Hadoop-Clusternaam >.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in de zien deze console en dus moet u uw Hadoop-clusterreferenties hier.
 
 ### <a name="ps"></a> 3. Indienen van Hive-query's met Azure PowerShell-opdrachten
 U kunt ook PowerShell gebruiken om in te dienen Hive-query's. Zie voor instructies [indienen Hive-taken met behulp van PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Hier volgt de Hive-query die gegevens in een Hive-tabel laadt.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<pad naar de blob-gegevens\>**: Als de blobbestand worden geüpload naar de Hive-tabel in de standaardcontainer van het HDInsight Hadoop-cluster, de *\<pad naar de blob-gegevens\>* moet zich in de indeling *' wasb: / / /<directory in this container> /<blob file name>'*. De blob-bestand kan ook worden in een andere container van het HDInsight Hadoop-cluster. In dit geval *\<pad naar de blob-gegevens\>* moet zich in de indeling *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<pad naar de blob-gegevens\>**: Als de blobbestand worden geüpload naar de Hive-tabel in de standaardcontainer van het HDInsight Hadoop-cluster, de *\<pad naar de blob-gegevens\>* moet zich in de indeling *' wasb: / /\< in deze container Directory > /\<blob-bestandsnaam >'*. De blob-bestand kan ook worden in een andere container van het HDInsight Hadoop-cluster. In dit geval *\<pad naar de blob-gegevens\>* moet zich in de indeling *' wasb: / /\<containernaam >\<storage-accountnaam >.blob.core.windows.net/\<blob-bestandsnaam >'*.
 
   > [!NOTE]
   > De blob-gegevens worden geüpload naar de Hive-tabel heeft zich in de standaard- of extra container van het opslagaccount voor het Hadoop-cluster. Anders wordt de *LOADING* query klagen dat deze geen toegang de gegevens tot is mislukt.

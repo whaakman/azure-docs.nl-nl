@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822818"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524936"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
 
@@ -117,7 +117,7 @@ Wilt u liever kijken dan lezen? Bekijk de volgende video van mei 2015 wanneer Az
 > [!NOTE]
 > Hoewel de concepten en de levenscyclus van die in deze video worden besproken correct zijn, Azure Automation State Configuration heeft veel vooruitgang geboekt met sinds deze video is opgenomen. Het is nu algemeen beschikbaar, heeft een veel uitgebreidere gebruikersinterface in Azure portal en biedt ondersteuning voor veel extra mogelijkheden.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521713"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-schaalbaarheids- en prestatiedoelen van storage-accounts
 
@@ -58,13 +58,13 @@ Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5
 
 |Onderwerp  |Doel  |
 |---------|---------|
-|Minimale grootte                        |100 GiB      |
-|Max. grootte                        |100 TiB      |
+|Minimale ingerichte grootte                        |100 GiB      |
+|Maximale grootte van ingericht                        |100 TiB      |
 |Minimale grootte vergroten/verkleinen    |1 GiB      |
 |Basislijn IOPS    |1 IOP's per GiB maximaal 100.000|
 |IOPS bursting    |3 x IOPS per GiB maximaal 100.000|
-|Minimale bandbreedte                     |100        |
-|Bandbreedte |0,1 MB/s per GB tot 5 GiB/s     |
+|Snelheid van uitgangsgebeurtenissen         |60 MiB/s + 0,06 * ingericht GiB        |
+|Gegevens| 40 MiB/s + 0,04 * ingericht GiB |
 |Maximum aantal momentopnamen        |200       |
 
 #### <a name="premium-file-limits"></a>Limieten voor Premium-bestand

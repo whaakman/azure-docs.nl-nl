@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359049"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523695"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -107,7 +107,7 @@ Als een best practice aangeraden die in de verbinding van uw toepassing tekenree
 Bijvoorbeeld bij het gebruik van het stuurprogramma ADO.NET dit wordt bereikt **Encrypt = True** en **TrustServerCertificate = False**. Als u de verbindingsreeks vanuit Azure portal hebt verkregen, is er de juiste instellingen.
 
 > [!IMPORTANT]
-> Houd er rekening mee dat bepaalde niet-Microsoft-stuurprogramma's mogelijk maken standaard gebruik van TLS of afhankelijk van een oudere versie van TLS zijn (< 2.0) om te kunnen werken. In dit geval SQL Server nog steeds kunt u verbinding maakt met uw database. We raden echter aan dat u het beveiligingsrisico van zodat deze stuurprogramma's en de toepassing verbinding maken met SQL-Database, met name als u gevoelige gegevens opslaat evalueren. 
+> Houd er rekening mee dat bepaalde niet-Microsoft-stuurprogramma's mogelijk maken standaard gebruik van TLS of afhankelijk van een oudere versie van TLS zijn (< 1.2) om te kunnen werken. In dit geval SQL Server nog steeds kunt u verbinding maakt met uw database. We raden echter aan dat u het beveiligingsrisico van zodat deze stuurprogramma's en de toepassing verbinding maken met SQL-Database, met name als u gevoelige gegevens opslaat evalueren. 
 >
 > Zie voor meer informatie over de TLS- en -connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

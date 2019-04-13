@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547415"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523100"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
@@ -41,7 +41,7 @@ Patronen oplossen van de volgende situaties:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Patronen zijn geen garantie van doel
 Patronen gebruiken een combinatie van technologieën voor voorspelling. Instellen van een doel voor de utterance van een sjabloon in een patroon is geen garantie van de intentie voorspelling maar het is een sterk signaal. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Patronen verbetert niet entiteit hebt geleerd van machine-detectie
 
@@ -50,7 +50,7 @@ Een patroon is voornamelijk bedoeld om u te helpen bij het voorspellen van inten
 Niet verwacht te zien verbeterde entiteit voorspelling als u meerdere uitingen in een enkel patroon samenvouwen. Voor eenvoudige entiteiten moet worden gestart, moet u utterances toevoegen of lijst met entiteiten gebruiken anders die het patroon wordt niet gestart.
 
 ## <a name="patterns-use-entity-roles"></a>Patronen entiteit rollen gebruiken
-Als twee of meer entiteiten in een patroon contextueel zijn gerelateerd, patronen entiteit gebruiken [rollen](luis-concept-roles.md) contextuele gegevens over entiteiten extraheren. Dit is gelijk aan het hiërarchische entiteit kinderen, maar is **alleen** beschikbaar in de patronen. 
+Als twee of meer entiteiten in een patroon contextueel zijn gerelateerd, patronen entiteit gebruiken [rollen](luis-concept-roles.md) contextuele gegevens over entiteiten extraheren.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Voorspelling scores met en zonder patronen
 Onvoldoende uitingen voorbeeld gezien, zou LUIS kunnen worden vergroot het vertrouwen van voorspelling geen patronen weergegeven. De betrouwbaarheidsscore verhogen patronen zonder deze op te geven zoveel uitingen.  
@@ -83,7 +83,7 @@ De **optionele** syntaxis, tussen vierkante haken staan, kan geneste twee niveau
 |is een nieuw formulier|komt overeen met de buitenste optioneel word en niet-optionele woorden in het patroon|
 |een nieuw formulier|komt overeen met de vereiste alleen woorden|
 
-De **groeperen** syntaxis, met behulp van haakjes, kan de geneste twee niveaus zijn. Bijvoorbeeld: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Hiermee wordt een van de drie entiteiten worden vergeleken. 
+De **groeperen** syntaxis, met behulp van haakjes, kan de geneste twee niveaus zijn. Bijvoorbeeld: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Deze functie kunt een van de drie entiteiten worden vergeleken. 
 
 Als Entity1 een locatie met functies zoals de oorsprong (Amsterdam) en de bestemming (Cairo is) en 2 van de entiteit de naam van een bekende het bouwen van een lijst met entiteit (RedWest-C is), worden de volgende uitingen wordt toegewezen aan dit patroon:
 
@@ -170,7 +170,7 @@ Optionele tekst in de utterance met behulp van de syntaxis van reguliere express
 |Patroon met optionele tekst|Betekenis|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` en `from {person}` zijn optioneel|
-|' U me kan helpen [?]|De markering interpunctie is optioneel|
+|' U me kan helpen [?] | De markering interpunctie is optioneel|
 
 Leestekens (`?`, `!`, `.`) moeten worden genegeerd en u moet deze met behulp van de syntaxis van de vierkant haakje in patronen genegeerd. 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 35f2c1bcc3db82f5fbca5f0458d534bf73d9067a
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 4d93cfe78159fdf4ef3c34e8f80732603b701538
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010495"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521679"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met de Azure CLI
 
@@ -272,7 +272,7 @@ Het maken van de virtuele machine duurt een paar minuten. Na het maken, noteer d
 
 ## <a name="confirm-access-to-storage-account"></a>Toegang tot opslagaccount bevestigen
 
-Voeg SSH toe aan de *myVmPrivate* VM. Vervang *<publicIpAddress>* met het openbare IP-adres van uw *myVmPrivate* VM.
+Voeg SSH toe aan de *myVmPrivate* VM. Vervang  *\<openbare IP-adres >* met het openbare IP-adres van uw *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736546"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523406"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -86,7 +86,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
     |-RelativeDnsName|Luis-dns-VS Oost|Dit is het subdomein voor de service: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Polling-interval, 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poorten en protocollen voor LUIS is HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Vervang <appIdLuis> en <subscriptionKeyLuis> door uw eigen waarden.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Vervang `<appIdLuis>` en `<subscriptionKeyLuis>` door uw eigen waarden.|
     
     Een geslaagde aanvraag heeft geen reactie.
 
@@ -154,7 +154,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     |-RelativeDnsName|Luis-dns-VS West|Dit is het subdomein voor de service: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Polling-interval, 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poorten en protocollen voor LUIS is HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Vervang <appId> en <subscriptionKey> door uw eigen waarden. Vergeet niet dat deze eindpuntsleutel is anders dan de eindpuntsleutel Oost|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Vervang `<appId>` en `<subscriptionKey>` door uw eigen waarden. Vergeet niet dat deze eindpuntsleutel is anders dan de eindpuntsleutel Oost|
     
     Een geslaagde aanvraag heeft geen reactie.
 

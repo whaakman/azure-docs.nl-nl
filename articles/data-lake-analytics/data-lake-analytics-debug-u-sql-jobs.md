@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229472"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526449"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Fouten opsporen in de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken
 
@@ -28,7 +28,7 @@ De volgende video ziet u hoekpunt foutopsporing is mislukt in Azure Data Lake To
 >
 
 > [!IMPORTANT]
-> Visual Studio de volgende twee updates vereist voor het gebruik van deze functie: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) en de [universeel C Runtime voor Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio vereist de volgende twee updates voor het gebruik van deze functie: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) en de [Runtime voor Windows Universal C](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Hoekpunt naar de lokale computer downloaden is mislukt
@@ -80,7 +80,7 @@ Als de gebruikerscode niet in de code-behind-bestand opgenomen is, of u hebt nie
 
 2. Ophalen van pad naar het project voor **FailedVertexDebugHost** project. 
 
-3. Met de rechtermuisknop op **het toegevoegde assembly source CodeProject > eigenschappen**, selecteer de **bouwen** tabblad aan de linkerkant en plak de gekopieerde pad eindigt op \bin\debug als **uitvoer > uitvoerpad**. Het pad van de uiteindelijke uitvoer is vergelijkbaar met '<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Met de rechtermuisknop op **het toegevoegde assembly source CodeProject > eigenschappen**, selecteer de **bouwen** tabblad aan de linkerkant en plak de gekopieerde pad eindigt op \bin\debug als **uitvoer > uitvoerpad**. Het pad van de uiteindelijke uitvoer is vergelijkbaar met `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Azure Data Lake Analytics U-SQL-foutopsporing instellen pdb pad](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

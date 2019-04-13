@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090972"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521472"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Veelvoorkomende problemen in Stream Analytics en stappen om op te lossen
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090972"
 
 ![De tegel invoer op Azure Stream Analytics-dashboard](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Als u meer informatie, schakel de diagnostische logboeken om de details van de waarschuwing weer te geven. Voor onjuist gevormde invoergebeurtenissen, bevatten de logboeken van de uitvoering van een vermelding met het bericht dat lijkt op: "bericht: kan de invoergebeurtenis(sen) van resource niet deserialiseren <blob URI> als json '. 
+Als u meer informatie, schakel de diagnostische logboeken om de details van de waarschuwing weer te geven. Voor onjuist gevormde invoergebeurtenissen bevatten de logboeken van de uitvoering van een item met het bericht dat lijkt op: "Bericht: Kan de invoergebeurtenis(sen) van resource niet deserialiseren \<blob-URI > als json '. 
 
 ### <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 

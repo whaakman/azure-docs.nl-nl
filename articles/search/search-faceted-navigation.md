@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541210"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523712"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
@@ -321,7 +321,7 @@ Onder bepaalde omstandigheden, is het wellicht facet aantallen komen niet overee
 
 Facet tellingen kunnen zijn onjuist vanwege de sharding-architectuur. Elke search-index heeft meerdere shards en elke shard rapporteert de top N-facetten door het documentaantal, die vervolgens worden gecombineerd tot één resultaat. Als sommige shards veel overeenkomende waarden, zijn terwijl anderen er minder hebben, merkt u misschien dat sommige waarden facet ontbreken of onder-telling in de resultaten.
 
-Hoewel dit gedrag op elk gewenst moment wijzigen kan als u momenteel dit probleem ondervindt, kunt u omzeilen het door het aantal kunstmatig verversen:<number> naar een groot aantal om af te dwingen volledige rapportages van elke shard. Als de waarde voor aantal: is groter dan of gelijk is aan het aantal unieke waarden in het veld, bent u nauwkeurige resultaten gegarandeerd. Echter, wanneer het aantal documenten hoog zijn, er is een op de prestaties, dus zorgvuldig gebruik deze optie.
+Hoewel dit gedrag op elk gewenst moment wijzigen kan als u momenteel dit probleem ondervindt, kunt u omzeilen het door het aantal kunstmatig verversen:\<nummer > voor een groot aantal om af te dwingen volledige rapportages van elke shard. Als de waarde voor aantal: is groter dan of gelijk is aan het aantal unieke waarden in het veld, bent u nauwkeurige resultaten gegarandeerd. Echter, wanneer het aantal documenten hoog zijn, er is een op de prestaties, dus zorgvuldig gebruik deze optie.
 
 ### <a name="user-interface-tips"></a>Tips voor gebruikers-interface
 **Labels voor elk veld in de facet navigatie toevoegen**

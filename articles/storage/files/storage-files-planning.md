@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283015"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525922"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -109,9 +109,9 @@ Alle shares kunnen uitbreiden tot ten minste 100 IOPS en het doel doorvoer van 1
 >
 > Limiet voor burst = 3 * basislijn IOPS. (Tot maximaal 100.000 IOP's).
 >
-> snelheid van uitgangsgebeurtenissen = 60 MiB/s + 0.06 ingerichte GiB (maximaal 6 GiB/s)
+> snelheid van uitgangsgebeurtenissen = 60 MiB/s + 0,06 * ingericht GiB
 >
-> inkomend verkeer snelheid = 40 MiB/s + 0,04 ingerichte GiB (maximaal 4 GiB)
+> inkomend verkeer snelheid = 40 MiB/s + 0,04 * ingericht GiB
 
 Grootte van de bestandsshare op elk gewenst moment op een tijd en verminderde kan worden vergroot, maar elke 24 uur sinds de laatste toename kan worden verlaagd. IOPS/doorvoer wijzigingen worden van kracht binnen 24 uur na het wijzigen van grootte.
 
@@ -128,9 +128,9 @@ De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte
 |10,240 *     | 10,240  | Maximaal 30,720  | 675 | 450   |
 |33,792 *     | 33,792  | Maximaal 100.000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
-|100,000 *    | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
+|102,400 *    | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
 
-Op dit moment een share bestandsgrootten maximaal 5 TiB zijn in openbare preview, terwijl tot 102 TiB beperkte openbare preview-versie voor het aanvragen van toegang tot de beperkte openbare preview voltooid [deze enquête.](https://aka.ms/azurefilesatscalesurvey)
+Op dit moment een share bestandsgrootten maximaal 5 TiB zijn in openbare preview, terwijl tot 100 TiB beperkte openbare preview-versie voor het aanvragen van toegang tot de beperkte openbare preview voltooid [deze enquête.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Bursting
 

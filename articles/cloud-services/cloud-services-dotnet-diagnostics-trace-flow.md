@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916883"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525558"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren
 Tracering is een manier om te controleren van de uitvoering van uw toepassing terwijl deze wordt uitgevoerd. U kunt de [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), en [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) klassen en vastleggen van gegevens over fouten en uitvoeren van toepassingen in de logboeken, bestanden of andere apparaten voor latere analyse. Zie voor meer informatie over tracering [tracerings- en implementeren van toepassingen](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Zie voor meer informatie over listeners [traceer-Listeners](/dotnet/framework/de
 Nadat u de stappen voor het toevoegen van de listener hebt voltooid, kunt u de trace-instructies toe aan uw code kunt toevoegen.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Trace-instructie toevoegen aan uw code
-1. Open een bronbestand voor uw toepassing. Bijvoorbeeld, de <RoleName>.cs-bestand voor de worker-rol of de Webrol.
+1. Open een bronbestand voor uw toepassing. Bijvoorbeeld, de \<RoleName > .cs-bestand voor de worker-rol of de Webrol.
 2. Voeg de volgende gebruiksinstructie als deze nog niet is toegevoegd:
     ```
         using System.Diagnostics;

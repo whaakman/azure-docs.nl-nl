@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf5215ff5acaf08125cf280103ba8ff0123dc116
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175096"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523814"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor MySQL
 
@@ -30,7 +30,7 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migratie van MySQ
 - Versiemigratie van dezelfde. Migreren van MySQL 5.6 met Azure Database voor MySQL 5.7 wordt niet ondersteund.
 - Binaire logboekregistratie inschakelen in my.ini (Windows) of my.cnf (Unix)
     - Server_id op een willekeurig getal groter of gelijk is aan instellen op 1, bijvoorbeeld Server_id = 1 (alleen voor MySQL 5.6)
-    - Instellen van log-bin = <path> (alleen voor MySQL 5.6)
+    - Instellen van log-bin = \<pad > (alleen voor MySQL 5.6)
     - Stel binlog_format = rij
     - Expire_logs_days = 5 (aanbevolen - alleen voor MySQL 5.6)
 - Gebruiker moet de rol ReplicationAdmin hebben.

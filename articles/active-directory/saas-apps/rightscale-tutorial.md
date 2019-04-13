@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109828"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Zelfstudie: Azure Active Directory-integratie met Rightscale
 
@@ -132,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 1. Op de **Rightscale configuratie** sectie, klikt u op **configureren Rightscale** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+
 1. Als u eenmalige aanmelding configureren voor uw toepassing, moet u aan te melden bij uw tenant RightScale als beheerder.
 
     a. Klik in het menu bovenaan op de **instellingen** tabblad en selecteer **Single Sign-On**.
@@ -164,7 +164,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Klik op **Opslaan**.
-   <CE>
+
    > [!TIP]
    > U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
    > 

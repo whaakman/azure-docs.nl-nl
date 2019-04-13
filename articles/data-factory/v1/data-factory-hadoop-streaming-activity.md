@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025170"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523219"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Streamingactiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ Houd rekening met de volgende punten:
 2. Instellen van het type van de activiteit in op **HDInsightStreaming**.
 3. Voor de **mapper** eigenschap, geef de naam van uitvoerbaar bestand toewijzen. In het voorbeeld is cat.exe het toewijzen van de uitvoerbare.
 4. Voor de **reducer** eigenschap, de naam van uitvoerbaar reducer opgeven. In het voorbeeld is wc.exe de uitvoerbare reducer.
-5. Voor de **invoer** type-eigenschap, geeft u het invoerbestand (met inbegrip van de locatie) voor het toewijzen van de. In het voorbeeld: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt wordt de blob.
+5. Voor de **invoer** type-eigenschap, geeft u het invoerbestand (met inbegrip van de locatie) voor het toewijzen van de. In het voorbeeld: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt wordt de blob.
 6. Voor de **uitvoer** type-eigenschap, geeft u het uitvoerbestand (met inbegrip van de locatie) voor de reducer. De uitvoer van de Hadoop-Streaming-taak is geschreven naar de locatie die is opgegeven voor deze eigenschap.
 7. In de **filePaths** sectie, geeft u de paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: "adfsample/example/apps/wc.exe" adfsample wordt de blob-container, voorbeeld-apps is de map en wc.exe is het uitvoerbare bestand.
 8. Voor de **fileLinkedService** eigenschap opgeven van de gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt.

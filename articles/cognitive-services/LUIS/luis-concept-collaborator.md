@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873560"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522742"
 ---
 # <a name="collaborating-with-other-authors"></a>Samenwerken met andere auteurs
 
-LUIS biedt samenwerking om toe te staan een groep personen op het ontwerpen van een app.
+LUIS-apps moeten de eigenaar van een enkele en optionele deelnemers toestaan dat meerdere mensen schrijven voor één app.
 
 ## <a name="luis-account"></a>LUIS-account
 Een LUIS-account is gekoppeld aan één [Microsoft Live](https://login.live.com/) account. Elk account LUIS krijgt een gratis [ontwerpen sleutel](luis-concept-keys.md#authoring-key) te gebruiken voor het ontwerpen van alle LUIS-apps die het account toegang heeft tot. 
@@ -30,7 +30,8 @@ Een LUIS-account mogelijk veel LUIS-apps.
 Zie [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-active-directory-tenant-user) voor meer informatie over Active Directory-gebruikersaccounts. 
 
 ## <a name="luis-app-owner"></a>LUIS-app-eigenaar
-Het account dat wordt gemaakt van een app is eigenaar van de. Elke app heeft één eigenaar. De eigenaar wordt vermeld in de app voor  **[instellingen](luis-how-to-collaborate.md)**. Dit is het account dat de app kunt verwijderen. Dit is ook het account dat e-mailbericht ontvangt wanneer het quotum eindpunt 75% van de maandelijkse limiet is bereikt. 
+
+Het account dat wordt gemaakt van een app is eigenaar van de en elke app heeft één eigenaar. De eigenaar wordt weergegeven op de app **[instellingen](luis-how-to-collaborate.md)** pagina. De app kunt verwijderen door de eigenaar van de e-mailbericht ontvangen wanneer het quotum eindpunt 75% van de maandelijkse limiet is bereikt. 
 
 ## <a name="authorization-roles"></a>Autorisatie-rollen
 LUIS biedt geen ondersteuning voor verschillende rollen voor eigenaren en samenwerkers met één uitzondering. De eigenaar is het enige account dat de app kunt verwijderen.
@@ -61,6 +62,10 @@ Deze methode kunt u een actieve versie, één fase-versie en een gepubliceerde v
 [Exporteren](luis-how-to-manage-versions.md#export-version) de basisversie. Elke auteur importeert de-versie. De persoon die de invoer van de app is de eigenaar van de versie. Wanneer ze klaar zijn voor het wijzigen van de app, de versie exporteren. 
 
 Geëxporteerde apps zijn JSON-indeling bestanden, die kunnen worden vergeleken met de basis exporteren voor wijzigingen. Combineer de bestanden voor het maken van een enkel JSON-bestand van de nieuwe versie. Wijzig de **versionId** eigenschap in de JSON om de nieuwe versie van de samengevoegde aan te geven. Die versie importeren in de oorspronkelijke app.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>De samenwerker rollen vs entiteit rollen
+
+[Entiteit rollen](luis-concept-roles.md) zijn van toepassing op het gegevensmodel van de LUIS-app. De samenwerker rollen toepassen op niveaus van het ontwerpen van toegang. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

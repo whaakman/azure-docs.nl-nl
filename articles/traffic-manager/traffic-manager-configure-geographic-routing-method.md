@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010077"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524307"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>De geografische verkeersrouteringsmethode met Traffic Manager configureren
 
@@ -26,7 +26,7 @@ De geografische verkeersrouteringsmethode kunt u verkeer naar specifieke eindpun
 1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/).
 2. Klik op **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 4. In de **Traffic Manager-profiel**:
-    1. Geef een naam voor uw profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. Voor toegang tot uw Traffic Manager-profiel, gebruikt u de DNS-naam <profilename>. trafficmanager.net.
+    1. Geef een naam voor uw profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. Voor toegang tot uw Traffic Manager-profiel, gebruikt u de DNS-naam `<profilename>.trafficmanager.net`.
     2. Selecteer de **geografisch** routeringsmethode.
     3. Selecteer het abonnement dat u wilt maken van dit profiel.
     4. Gebruik een bestaande resourcegroep of maak een nieuwe resourcegroep voor dit profiel. Als u ervoor kiest om een nieuwe resourcegroep te maken, gebruikt u de **resourcegroep locatie** vervolgkeuzelijst om op te geven van de locatie van de resourcegroep. Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.

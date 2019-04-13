@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1cbf08cc903069f5b1cf81f57b7daa16f24c0216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043852"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521387"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>De Azure Cosmos DB Emulator-certificaten exporteren voor gebruik met Java, Python en Node.js
 
@@ -48,7 +48,7 @@ Beide certificaten kunnen opnieuw worden gegenereerd door te klikken op **Gegeve
 
     ![Stap 3 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
-4. Klik op **Volgende**.
+4. Klik op **volgende**.
 
     ![Stap 4 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
@@ -70,7 +70,7 @@ Beide certificaten kunnen opnieuw worden gegenereerd door te klikken op **Gegeve
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Het certificaat gebruiken in Java
 
-Wanneer u Java- of MongoDB-toepassingen uitvoert waarvoor de Java-client wordt gebruikt, is het makkelijker om het certificaat te installeren in het standaardcertificaatarchief van Java dan om de vlaggen "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" door te geven. De opgenomen [Java-voorbeeldtoepassing](https://localhost:8081/_explorer/index.html) is bijvoorbeeld afhankelijk van het standaardcertificaatarchief.
+Bij het uitvoeren van Java-toepassingen of MongoDB-toepassingen die gebruikmaken van de Java-client is het eenvoudiger om het certificaat installeren in het certificaatarchief van Java standaard dan doorgeven van de `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` vlaggen. De opgenomen [Java-voorbeeldtoepassing](https://localhost:8081/_explorer/index.html) is bijvoorbeeld afhankelijk van het standaardcertificaatarchief.
 
 Volg de instructies in [Een certificaat toevoegen aan het Java CA certificaatarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) om het X.509-certificaat te importeren in het standaardcertificaatarchief van Java. Vergeet niet dat u in de map %JAVA_HOME% werkt wanneer u keytool uitvoert.
 

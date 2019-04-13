@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621495"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523763"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -193,7 +193,7 @@ Het volgende voorbeeld wordt een nieuwe taak voor het verzamelen van prestatiege
 Standaard wordt de agent voor taken zoeken voor het maken van de tabel voor het opslaan van de geretourneerde resultaten in. Als gevolg hiervan moet de aanmelding die is gekoppeld aan de referentie die wordt gebruikt voor de referentie van de uitvoer voldoende rechten hebt voor dit uitvoeren. Als u handmatig wilt maken in de tabel vooraf moet deze de volgende eigenschappen hebben:
 1. Kolommen met de juiste naam en gegevenstypen voor de resultatenset.
 2. Extra kolom voor internal_execution_id met het gegevenstype uniqueidentifier.
-3. Een niet-geclusterde index met de naam ' IX_<TableName>_Internal_Execution_ID ' op de kolom internal_execution_id.
+3. Een niet-geclusterde index met de naam `IX_<TableName>_Internal_Execution_ID` op de kolom internal_execution_id.
 
 Verbinding maken met de [ *taak database* ](sql-database-job-automation-overview.md#job-database) en voer de volgende opdrachten uit:
 
@@ -1257,7 +1257,7 @@ Geeft alle taken.
 
 Bevat alle versies van de taak.
 
-|Kolomnaam|   Gegevenstype|  Description|
+|Kolomnaam|   Gegevenstype|  Beschrijving|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Naam van de taak.|
 |**job_id**|    uniqueidentifier    |De unieke ID van de taak.|
@@ -1270,7 +1270,7 @@ Bevat alle versies van de taak.
 
 Ziet u alle stappen in de huidige versie van elke taak.
 
-|Kolomnaam    |Gegevenstype| Description|
+|Kolomnaam    |Gegevenstype| Beschrijving|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Naam van de taak.|
 |**job_id** |uniqueidentifier   |De unieke ID van de taak.|
@@ -1311,7 +1311,7 @@ Ziet u alle stappen in alle versies van elke taak. Het schema is vrijwel identie
 
 Geeft een lijst van alle doelgroepen.
 
-|Kolomnaam|Gegevenstype| Description|
+|Kolomnaam|Gegevenstype| Beschrijving|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |De naam van de doelgroep, een verzameling van databases. 
 |**target_group_id**    |uniqueidentifier   |De unieke ID van de doelgroep.

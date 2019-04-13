@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011845"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525463"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hoge beschikbaarheid in SUSE met behulp van de stonith instellen instellen
 Dit document bevat de gedetailleerde stapsgewijze instructies voor het instellen van de hoge beschikbaarheid in SUSE-besturingssysteem met behulp van het apparaat stonith instellen.
@@ -258,7 +258,7 @@ Voer de opdracht *crm_mon* om ervoor te zorgen **beide** de knooppunten online z
 ```
 crm_mon
 ```
-![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) u kunt zich ook aanmelden bij hawk om te controleren of de status van het cluster *https://<node IP>: 7630*. De standaardwaarde is hacluster en het wachtwoord is linux. Indien nodig, kunt u het wachtwoord met behulp *passwd* opdracht.
+![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) u kunt zich ook aanmelden bij hawk om te controleren of de status van het cluster *https://\<knooppunt IP-adres >: 7630*. De standaardwaarde is hacluster en het wachtwoord is linux. Indien nodig, kunt u het wachtwoord met behulp *passwd* opdracht.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. De eigenschappen en Resources configureren 
 Deze sectie beschrijft de stappen voor het configureren van de clusterresources.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 Wanneer u de opdracht uitvoert *crm_mon*, kunt u er de twee resources bekijken.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Ook ziet u de status op *https://<node IP address>: 7630/cib/live/status*
+Ook ziet u de status op *https://\<knooppunt IP-adres >: 7630/cib/live/status*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

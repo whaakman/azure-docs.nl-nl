@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886720"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525633"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>In Azure Cosmos DB - wijzigingenfeed overzicht
 
@@ -58,7 +58,7 @@ Als een TTL (Time to Live)-eigenschap is ingesteld op een item op-1, wordt altij
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed wijzigen en _etag, _lsn of _ts
 
-De indeling _etag is intern en nemen niet afhankelijkheid, omdat deze op elk gewenst moment kunt wijzigen. _ts is een wijziging of een tijdstempel van maken. U kunt _ts gebruiken voor chronologische vergelijking. _lsn is een batch-id die is toegevoegd voor alleen; feed wijzigen Hiermee geeft u de transactie-id. Aantal items mogelijk dezelfde _lsn. ETag op FeedResponse wijkt af van de _etag u op het item ziet. _etag is een interne id en wordt gebruikt voor gelijktijdigheid besturingselement vertelt over de versie van het item, terwijl ETag wordt gebruikt voor het sequentiëren van de feed.
+De indeling _etag is intern en nemen niet afhankelijkheid, omdat deze op elk gewenst moment kunt wijzigen. _ts is een wijziging of een tijdstempel van maken. U kunt _ts gebruiken voor chronologische vergelijking. _lsn is een batch-ID die is toegevoegd voor alleen; feed wijzigen staat voor de transactie-ID. Aantal items mogelijk dezelfde _lsn. ETag op FeedResponse wijkt af van de _etag u op het item ziet. _etag is een interne id en wordt gebruikt voor gelijktijdigheid besturingselement vertelt over de versie van het item, terwijl ETag wordt gebruikt voor het sequentiëren van de feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Feed use cases en scenario's wijzigen
 
@@ -84,7 +84,7 @@ Bijvoorbeeld, met wijzigingenfeed kunt u de volgende taken uitvoeren efficiënt:
 
 Hier volgen enkele van de scenario's die u eenvoudig met een wijzigingsfeed implementeren kunt:
 
-* Binnen uw [serverloze](https://azure.microsoft.com/en-us/solutions/serverless/) web- of mobiele apps, kunt u gebeurtenissen, zoals alle wijzigingen bijhouden van uw klant profiel, voorkeuren of de locatie en activeren van bepaalde acties, bijvoorbeeld het verzenden van pushmeldingen te verzenden naar hun apparaten met behulp van [Azure Functions](change-feed-functions.md).
+* Binnen uw [serverloze](https://azure.microsoft.com/solutions/serverless/) web- of mobiele apps, kunt u gebeurtenissen, zoals alle wijzigingen bijhouden van uw klant profiel, voorkeuren of de locatie en activeren van bepaalde acties, bijvoorbeeld het verzenden van pushmeldingen te verzenden naar hun apparaten met behulp van [Azure Functions](change-feed-functions.md).
 
 * Als u gebruikmaakt van Azure Cosmos DB een game ontwikkelt, kunt u, bijvoorbeeld, gebruik wijzigingenfeed voor het implementeren van realtime scoreborden op basis van scores van voltooide games.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096687"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524256"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
@@ -91,6 +91,8 @@ Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samenge
 
 ## <a name="add-hierarchical-entity"></a>Een hiërarchische entiteit toevoegen
 
+**Hiërarchische entiteiten worden uiteindelijk afgeschaft. Gebruik [entiteit rollen](luis-concept-roles.md) entiteit subtypen, in plaats van hiërarchische entiteiten bepalen.**
+
 Een hiërarchische entiteit is een soort contextueel geleerde en gerelateerde entiteiten. In het volgende voorbeeld bevat de entiteit bron en doel-locaties. 
 
 In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendingslocatie en Cairo is de doellocatie. Elke locatie is contextueel verschillende en geleerde van woordvolgorde en word keuze in de utterance.
@@ -105,6 +107,12 @@ In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendi
 
     >[!CAUTION]
     >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
+
+## <a name="add-entitys-role-to-utterance"></a>De rol van de entiteit toevoegen aan utterance
+
+Een rol is een benoemde subtype van een entiteit, bepaald door de context van de utterance. U kunt een entiteit binnen een utterance als de entiteit markeren of Selecteer een rol binnen die entiteit. Elke entiteit rollen, inclusief de aangepaste entiteiten die machine geleerd zijn (eenvoudige entiteiten en samengestelde entiteiten) kunt hebben, zich niet hebt geleerd van een machine (vooraf gemaakte entiteiten, reguliere expressie entiteiten, lijst met entiteiten). 
+
+Informatie over [het markeren van een utterance met behulp van entiteit](tutorial-entity-roles.md) uit een praktische handleiding. 
 
 ## <a name="entity-status-predictions"></a>Entiteit status voorspellingen
 
@@ -151,11 +159,11 @@ Als een label hebt geleerd van een machine entiteit uit een utterance verwijdere
 
 ### <a name="add-prebuilt-entity-label"></a>Vooraf gedefinieerde entiteit label toevoegen
 
-Wanneer u de vooraf gemaakte entiteiten aan uw LUIS-app toevoegt, moet u geen tag uitingen met deze entiteiten. Zie voor meer informatie over het vooraf gemaakte entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-prebuilt-entity).
+Wanneer u de vooraf gemaakte entiteiten aan uw LUIS-app toevoegt, moet u geen tag uitingen met deze entiteiten. Zie voor meer informatie over het vooraf gemaakte entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Reguliere expressie entiteit label toevoegen
 
-Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen code uitingen met deze entiteiten. Zie voor meer informatie over de reguliere expressie entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-regular-expression-entities).
+Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen code uitingen met deze entiteiten. Zie voor meer informatie over de reguliere expressie entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Maken van een patroon van een utterance

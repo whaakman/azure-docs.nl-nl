@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491284"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524039"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -50,7 +50,7 @@ Voordat u een peering, raken met de vereisten en beperkingen en [benodigde macht
 5. <a name="add-peering"></a>Typ of Selecteer waarden voor de volgende instellingen:
     - **Naam:** De naam voor de peering moet uniek zijn binnen het virtuele netwerk.
     - **Implementatiemodel voor virtueel netwerk:** Selecteer welke het virtuele netwerk dat u koppelen wilt aan is geïmplementeerd via implementatiemodel.
-    - **Ik weet mijn resource-ID:** Als u leestoegang tot het virtuele netwerk dat u koppelen wilt aan hebt, laat u dit selectievakje uitgeschakeld. Als u geen leestoegang tot het virtuele netwerk of het abonnement dat u koppelen wilt aan, schakel dit selectievakje in. Voer de volledige resource-ID van het virtuele netwerk dat u koppelen wilt aan de **Resource-ID** vak dat verscheen toen u het selectievakje is ingeschakeld. De resource-ID u moet voor een virtueel netwerk dat zich in dezelfde of [ondersteund verschillende](#requirements-and-constraints) Azure [regio](https://azure.microsoft.com/regions) als dit virtuele netwerk. De volledige resource-ID ziet er ongeveer /subscriptions/<Id>/resourceGroups/ < resource-group-name > /providers/Microsoft.Network/virtualNetworks/ < naam-virtueel netwerk->. U kunt de resource-ID voor een virtueel netwerk ophalen door de eigenschappen voor een virtueel netwerk weer te geven. Zie voor meer informatie over de eigenschappen voor een virtueel netwerk, [virtuele netwerken beheren](manage-virtual-network.md#view-virtual-networks-and-settings). Als het abonnement gekoppeld aan een andere Azure Active Directory-tenant dan het abonnement met het virtuele netwerk dat u de peering is vanuit maakt, moet u eerst een gebruiker toevoegen vanaf elke tenant als een [gastgebruiker](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in de tegengestelde tenant.
+    - **Ik weet mijn resource-ID:** Als u leestoegang tot het virtuele netwerk dat u koppelen wilt aan hebt, laat u dit selectievakje uitgeschakeld. Als u geen leestoegang tot het virtuele netwerk of het abonnement dat u koppelen wilt aan, schakel dit selectievakje in. Voer de volledige resource-ID van het virtuele netwerk dat u koppelen wilt aan de **Resource-ID** vak dat verscheen toen u het selectievakje is ingeschakeld. De resource-ID u moet voor een virtueel netwerk dat zich in dezelfde of [ondersteund verschillende](#requirements-and-constraints) Azure [regio](https://azure.microsoft.com/regions) als dit virtuele netwerk. De volledige resource-ID moet zoals eruitzien `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. U kunt de resource-ID voor een virtueel netwerk ophalen door de eigenschappen voor een virtueel netwerk weer te geven. Zie voor meer informatie over de eigenschappen voor een virtueel netwerk, [virtuele netwerken beheren](manage-virtual-network.md#view-virtual-networks-and-settings). Als het abonnement gekoppeld aan een andere Azure Active Directory-tenant dan het abonnement met het virtuele netwerk dat u de peering is vanuit maakt, moet u eerst een gebruiker toevoegen vanaf elke tenant als een [gastgebruiker](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in de tegengestelde tenant.
     - **Abonnement:** Selecteer de [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) van het virtuele netwerk dat u koppelen wilt aan. Een of meer abonnementen worden weergegeven, afhankelijk van het aantal abonnementen uw account, leestoegang tot heeft. Als u dit selectievakje is ingeschakeld de **Resource-ID** selectievakje, deze instelling is niet beschikbaar.
     - **Virtueel netwerk:** Selecteer het virtuele netwerk dat u koppelen wilt aan. U kunt een virtueel netwerk die zijn gemaakt via een Azure-implementatiemodel selecteren. Als u een virtueel netwerk in een andere regio selecteren wilt, moet u een virtueel netwerk in een [ondersteunde regio](#cross-region). U moet leestoegang tot het virtuele netwerk om te worden weergegeven in de lijst hebben. Als een virtueel netwerk wordt weergegeven, maar lichter gekleurd weergegeven, is het mogelijk omdat de adresruimte voor het virtuele netwerk met de adresruimte voor dit virtuele netwerk overlapt. Als het virtuele netwerk adresruimten elkaar overlappen, kunnen ze kunnen niet worden gekoppeld. Als u dit selectievakje is ingeschakeld de **Resource-ID** selectievakje, deze instelling is niet beschikbaar.
     - **Toegang tot het virtuele netwerk toestaan:** Selecteer **ingeschakeld** (standaard) als u wilt inschakelen van communicatie tussen de twee virtuele netwerken. Inschakelen van communicatie tussen virtuele netwerken, kunt resources die zijn verbonden met een van beide virtueel netwerk om te communiceren met elkaar worden verbonden met de bandbreedte en de latentie als ze zijn verbonden met hetzelfde virtuele netwerk. Alle communicatie tussen resources in de twee virtuele netwerken is via het Azure particuliere netwerk. De **VirtualNetwork** servicetag voor netwerkbeveiligingsgroepen omvat het virtuele netwerk en de gekoppelde virtuele netwerk. Zie voor meer informatie over network security group servicetags [overzicht van netwerkbeveiligingsgroepen](security-overview.md#service-tags). Selecteer **uitgeschakelde** als u niet wilt dat verkeer naar het gekoppelde virtuele netwerk. U kunt bijvoorbeeld selecteren **uitgeschakelde** als u een virtueel netwerk met een ander virtueel netwerk hebt gekoppeld, maar soms wilt uitschakelen van de verkeersstroom tussen de twee virtuele netwerken. U merkt u misschien in-/ uitschakelen is gemakkelijker dan verwijderen en opnieuw peerings te maken. Wanneer deze instelling is uitgeschakeld, wordt verkeer niet stromen tussen de gekoppelde virtuele netwerken.
@@ -156,10 +156,10 @@ Als uw account niet aan een van de vorige rollen toegewezen is, moet deze worden
 
   |Azure-implementatiemodel             | Abonnement  |
   |---------                          |---------|
-  |Beide in Resource Manager              |[Dezelfde](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Verschil](create-peering-different-subscriptions.md)|
-  |Eén in Resource Manager, één klassiek  |[Dezelfde](create-peering-different-deployment-models.md)|
-  |                                   |[Verschil](create-peering-different-deployment-models-subscriptions.md)|
+  |Beide in Resource Manager              |[Hetzelfde](tutorial-connect-virtual-networks-portal.md)|
+  |                                   |[Verschillend](create-peering-different-subscriptions.md)|
+  |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
+  |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
 
 - Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Een virtueel netwerk-peering maken met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) voorbeeld scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)

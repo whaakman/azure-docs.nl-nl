@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360760"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522998"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
@@ -195,9 +195,9 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
    | Eigenschap | Waarde | Beschrijving |
    | -------- | ----- | ----------- |
-   | **Name** | Limiet | De naam van uw variabele | 
+   | **Naam** | Limiet | De naam van uw variabele | 
    | **Type** | Geheel getal | Het gegevenstype van uw variabele | 
-   | **Value** | 0 | De variabele de beginwaarde | 
+   | **Waarde** | 0 | De variabele de beginwaarde | 
    |||| 
 
 1. Onder de **variabele initialiseren** actie, kiest u **nieuwe stap**. 
@@ -234,9 +234,9 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
       ![E-eigenschappen instellen](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Eigenschap | Waarde | Description |
+      | Eigenschap | Waarde | Beschrijving |
       | -------- | ----- | ----------- | 
-      | **Handeling** | *<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
+      | **Aan** | *\<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
       | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 
       | **Hoofdtekst** | <*email-content*> | Geef de inhoud van het e-bericht die u wilt verzenden. Voer de tekst die u in dit voorbeeld. | 
       |||| 
@@ -253,8 +253,8 @@ Een lus 'Tot' heeft standaardlimieten die niet meer kan worden uitgevoerd als ee
 
 | Eigenschap | Standaardwaarde | Description | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | Het hoogste aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
-| **Time-out** | PT1H | De meeste hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, wordt de huidige cyclus niet stoppen. De volgende cyclus niet echter worden gestart omdat de voorwaarde van de limiet is niet voldaan. | 
+| **Aantal** | 60 | Het hoogste aantal lussen die worden uitgevoerd voordat de lus wordt afgesloten. De standaardwaarde is 60 cycli. | 
+| **Timeout** | PT1H | De meeste hoeveelheid tijd om uit te voeren een lus voordat u de lus wordt afgesloten. De standaardinstelling is één uur en is opgegeven in de ISO 8601-notatie. <p>De time-outwaarde wordt geëvalueerd voor elke lus-cyclus. Als geen actie op de hoogte langer duurt dan de time-outlimiet, wordt de huidige cyclus niet stoppen. De volgende cyclus niet echter worden gestart omdat de voorwaarde van de limiet is niet voldaan. | 
 |||| 
 
 Als u wilt deze standaardlimieten wijzigen, kiest u **geavanceerde opties weergeven** in de vorm van de actie lus.

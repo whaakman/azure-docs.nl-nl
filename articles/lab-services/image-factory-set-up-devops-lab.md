@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439824"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523015"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Een gegevensfactory installatiekopie uitvoeren vanaf Azure DevOps
+# <a name="run-an-image-factory-from-azure-devops"></a>Een fabrieksinstallatiekopie uitvoeren vanuit Azure DevOps
 In dit artikel bevat informatie over alle de voorbereidingen die nodig zijn voor het uitvoeren van de factory-afbeelding van Azure DevOps (voorheen Visual Studio Team Services).
 
 > [!NOTE]
@@ -44,12 +44,12 @@ Azure DevOps kunt u de broncode opslaan, voert u de Azure PowerShell op één pl
 
 Als u een bestaande DevOps-account of een project dat u wilt gebruiken in plaats daarvan hebt, kunt u deze stap overslaan.
 
-Als u wilt beginnen, moet u een gratis account maken in Azure DevOps. Ga naar https://www.visualstudio.com/ en selecteer **voor gratis aan de slag** direct onder **Azure DevOps** (voorheen VSTS). U moet een unieke naam kiezen en zorg ervoor dat u kiest voor het beheren van code met Git. Nadat deze is gemaakt, sla de URL naar uw teamproject. Hier volgt een voorbeeld-URL: https://<accountname>.visualstudio.com/MyFirstProject.
+Als u wilt beginnen, moet u een gratis account maken in Azure DevOps. Ga naar https://www.visualstudio.com/ en selecteer **voor gratis aan de slag** direct onder **Azure DevOps** (voorheen VSTS). U moet een unieke naam kiezen en zorg ervoor dat u kiest voor het beheren van code met Git. Nadat deze is gemaakt, sla de URL naar uw teamproject. Hier volgt een voorbeeld-URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Controleer in de factory, de installatiekopie met Git
 Alle PowerShell, sjablonen en configuratie voor de factory installatiekopie bevinden zich in de [openbare DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). De snelste manier om op te halen van de code in uw nieuwe teamproject is voor het importeren van een opslagplaats. Hiermee haalt de hele DevTest Labs-opslagplaats (je krijgt dus extra docs en voorbeelden). 
 
-1. Ga naar het Azure DevOps-project dat u in de vorige stap hebt gemaakt (URL eruitziet **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Ga naar het Azure DevOps-project dat u in de vorige stap hebt gemaakt (URL eruitziet **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Selecteer **importeren van een opslagplaats**.
 3. Voer de **kloon-URL** voor de DevTest Labs-opslagplaats: `https://github.com/Azure/azure-devtestlab`.
 4. Selecteer **importeren**.

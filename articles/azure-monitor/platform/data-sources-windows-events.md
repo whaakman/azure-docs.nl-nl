@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001116"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522707"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-gebeurtenislogboek gegevensbronnen in Azure Monitor
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](agent-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents, omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen van standard logboeken zoals systeem- en naast het opgeven van een aangepaste logboeken die zijn gemaakt door toepassingen die u nodig hebt om te controleren.
@@ -44,7 +44,7 @@ Azure Monitor worden verzameld van elke gebeurtenis die overeenkomt met een gese
 ## <a name="windows-event-records-properties"></a>Windows-gebeurtenis registreert eigenschappen
 Windows-gebeurtenis legt vast zijn een type **gebeurtenis** en hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--- |:--- |
 | Computer |De naam van de computer waarop de gebeurtenis is verzameld. |
 | Culture |Categorie van de gebeurtenis. |
@@ -54,7 +54,7 @@ Windows-gebeurtenis legt vast zijn een type **gebeurtenis** en hebben de eigensc
 | EventLevelName |Ernst van de gebeurtenis in de tekstvorm. |
 | EventLog |De naam van het gebeurtenislogboek dat de gebeurtenis is verzameld. |
 | ParameterXml |Gebeurtenis parameterwaarden in XML-indeling. |
-| ManagementGroupName |Naam van de beheergroep van System Center Operations Manager-agents.  Voor andere agents is deze waarde AOI-<workspace ID> |
+| ManagementGroupName |Naam van de beheergroep van System Center Operations Manager-agents.  Voor andere agents is deze waarde `AOI-<workspace ID>` |
 | RenderedDescription |Beschrijving van gebeurtenis met parameterwaarden |
 | Bron |Bron van de gebeurtenis. |
 | SourceSystem |Het type van de agent die de gebeurtenis is verzameld. <br> OpsManager – Windows-agent, rechtstreeks verbinding maken of Operations Manager worden beheerd <br> Linux: alle Linux-agents  <br> AzureStorage – Azure Diagnostics |

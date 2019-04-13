@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 8ab647a7d97ace0d0f67fa462ada06901184933f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1905174eea9c765f52a9a89015a9a573048b15a9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102989"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523576"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Gegevens in een virtueel Azure-netwerk transformeren met behulp van Hive-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure PowerShell om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Hive-activiteit in een HDInsight-cluster in een virtueel Azure-netwerk (VNet). In deze zelfstudie voert u de volgende stappen uit:
@@ -222,7 +222,7 @@ Werk de waarden voor de volgende eigenschappen bij in de definitie van de gekopp
 
 - **userName**. Gebruikersnaam voor de clusteraanmelding die u hebt opgegeven toen u het cluster maakte. 
 - **password**. Het wachtwoord voor de gebruiker.
-- **clusterUri**. Geef de URL van het HDInsight-cluster op in de volgende indeling: https://<clustername>.azurehdinsight.net.  In dit artikel wordt ervan uitgegaan dat u via internet toegang hebt tot het cluster. U kunt bijvoorbeeld verbinding met het cluster maken op `https://clustername.azurehdinsight.net`. Dit adres maakt gebruik van de openbare gateway. Deze is niet beschikbaar als u NSG's (netwerkbeveiligingsgroepen) of door de gebruiker gedefinieerde routes hebt gebruikt om de toegang via internet te beperken. U moet het virtuele Azure-netwerk zo configureren dat de URL kan worden omgezet in het privé-IP-adres van de gateway die wordt gebruikt door HDInsight. Zo zorgt u ervoor dat Data Factory taken kan verzenden naar HDInsight-clusters in het virtuele Azure-netwerk.
+- **clusterUri**. Geef de URL van uw HDInsight-cluster in de volgende indeling: `https://<clustername>.azurehdinsight.net`.  In dit artikel wordt ervan uitgegaan dat u via internet toegang hebt tot het cluster. U kunt bijvoorbeeld verbinding met het cluster maken op `https://clustername.azurehdinsight.net`. Dit adres maakt gebruik van de openbare gateway. Deze is niet beschikbaar als u NSG's (netwerkbeveiligingsgroepen) of door de gebruiker gedefinieerde routes hebt gebruikt om de toegang via internet te beperken. U moet het virtuele Azure-netwerk zo configureren dat de URL kan worden omgezet in het privé-IP-adres van de gateway die wordt gebruikt door HDInsight. Zo zorgt u ervoor dat Data Factory taken kan verzenden naar HDInsight-clusters in het virtuele Azure-netwerk.
 
   1. Open in Azure Portal het virtuele netwerk waarin het HDInsight-cluster zich bevindt. Open de netwerkinterface met de naam die begint met `nic-gateway-0`. Noteer het bijbehorende privé IP-adres. Bijvoorbeeld: 10.6.0.15. 
   2. Als het virtuele Azure-netwerk een DNS-server heeft, werkt u de DNS-record bij zodat de URL van het HDInsight-cluster `https://<clustername>.azurehdinsight.net` kan worden omgezet in `10.6.0.15`. Dit is de aanbevolen methode. Als u geen DNS-server in het virtuele Azure-netwerk hebt, kunt u dit tijdelijk oplossen door het hostbestand (C:\Windows\System32\drivers\etc) te bewerken van alle VM's die als knooppunten van Integration Runtime (zelf-hostend) zijn geregistreerd. Dit doet u door een vermelding toe te voegen, zoals deze: 

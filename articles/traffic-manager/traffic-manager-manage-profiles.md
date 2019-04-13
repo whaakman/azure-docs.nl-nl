@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd026c9be2b1519d473ba02811d9e1ee90fe7a3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839522"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526211"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Een Azure Traffic Manager-profiel beheren
 
@@ -32,7 +32,7 @@ U kunt via Azure Portal een Traffic Manager-profiel maken. Zodra u het profiel h
 1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/). 
 2. Klik op **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 4. Vul het volgende in bij **Traffic Manager-profiel maken**:
-    1. In **Naam** geeft u een naam op voor het profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. De naam wordt gebruikt voor de DNS-naam <name>, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.
+    1. In **Naam** geeft u een naam op voor het profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. De naam wordt gebruikt voor de DNS-naam `<name>`, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.
     2. In **Routeringsmethode** selecteert u de routeringsmethode **Prioriteit**.
     3. In **Abonnement** selecteert u het abonnement waarvoor u dit profiel wilt maken
     4. In **Resourcegroep** maakt u een nieuwe resourcegroep om dit profiel voor te maken.

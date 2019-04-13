@@ -1,5 +1,5 @@
 ---
-title: 'Een ExpressRoute-circuit maken en aanpassen: Azure CLI | Microsoft Docs'
+title: 'Maken en wijzigen van een ExpressRoute-circuit: Azure CLI | Microsoft Docs'
 description: In dit artikel laat zien hoe maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit met behulp van CLI.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084138"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524885"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van CLI
 
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. De lijst met ondersteunde providers, locaties en bandbreedten
 
-Voordat u een ExpressRoute-circuit maken, moet u de lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties. De CLI-opdracht 'az network express-route lijst--serviceproviders' retourneert deze informatie, die u in latere stappen gebruikt:
+Voordat u een ExpressRoute-circuit maken, moet u de lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties. De CLI-opdracht `az network express-route list-service-providers` retourneert deze informatie, die u in latere stappen gebruikt:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ Het antwoord bevat de sleutel van de service.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lijst van alle ExpressRoute-circuits
 
-Als u een lijst met alle ExpressRoute-circuits die u hebt gemaakt, voert u de opdracht 'az network express-route list'. U kunt deze informatie op elk gewenst moment ophalen met behulp van deze opdracht. Als u alle circuits, moet u de aanroep zonder parameters.
+Uitvoeren als u een lijst met alle ExpressRoute-circuits die u hebt gemaakt, de `az network express-route list` opdracht. U kunt deze informatie op elk gewenst moment ophalen met behulp van deze opdracht. Als u alle circuits, moet u de aanroep zonder parameters.
 
 ```azurecli-interactive
 az network express-route list

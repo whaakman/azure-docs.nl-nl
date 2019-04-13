@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917750"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526178"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN-inhoud per land beperken
 
@@ -59,8 +59,8 @@ Uit de **actie** in de lijst met **toestaan** of **blok**:
 - **Blok**: Gebruikers uit de opgegeven landen zijn de toegang geweigerd aan de activa aangevraagd bij de recursieve-pad. Als er geen andere land-filteropties voor die locatie zijn geconfigureerd, klikt u vervolgens alle andere gebruikers mogen toegang.
 
 Bijvoorbeeld, een filterfunctie voor geografische regel voor het blokkeren van het pad */foto's /Straatsburg/* filters van de volgende bestanden:     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>De landen definiëren
 Uit de **LANDCODES** , selecteert u de landen die u wilt blokkeren of toestaan voor het pad. 

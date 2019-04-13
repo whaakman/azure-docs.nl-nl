@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370556"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526269"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -109,7 +109,7 @@ Key Vault voor het genereren van SAS (Shared Access Signature)-tokens kunt u ook
 Nadat u hebt voltooid, kunnen de volgende opdrachten om te vragen van Key Vault voor het genereren van SAS-tokens voor u in de u bovenstaande stappen uitvoeren. 
 
 De lijst met zaken die kan worden uitgevoerd in de onderstaande stappen zijn
-- Hiermee stelt u een account-SAS-definitie met de naam '<YourSASDefinitionName>'voor een Key Vault-beheerd opslagaccount'<YourStorageAccountName>'in uw kluis'<VaultName>'. 
+- Hiermee stelt u een account-SAS-definitie met de naam `<YourSASDefinitionName>` op een Key Vault-beheerd opslagaccount `<YourStorageAccountName>` in uw kluis `<VaultName>`. 
 - Hiermee maakt u een account-SAS-token voor de services Blob, bestand, tabel en wachtrij voor het woord brontypen Service, Container en Object, met alle machtigingen via https en met de opgegeven begin- en einddatums
 - Hiermee stelt u een Key Vault beheerde opslag SAS-definitie in de kluis, met de uri van de sjabloon als de SAS-token gemaakt hierboven, van SAS-type 'account' en geldige N dagen
 - De werkelijke toegangstoken opgehaald uit de Key Vault-geheim dat overeenkomt met de SAS-definitie

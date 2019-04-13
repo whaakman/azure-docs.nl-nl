@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2c24634a42fd420eae204437418b82479869bbe5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755506"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525538"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Netwerkverkeer filteren met een netwerkbeveiligingsgroep met de Azure CLI
 
@@ -196,7 +196,7 @@ Het maken van de virtuele machine duurt een paar minuten. Als de virtuele machin
 
 ## <a name="test-traffic-filters"></a>Verkeersfilters testen
 
-Gebruik de opdracht die volgt op voor het maken van een SSH-sessie met de *myVmMgmt* VM. Vervang *<publicIpAddress>* met het openbare IP-adres van uw virtuele machine. In het bovenstaande voorbeeld het IP-adres is *13.90.242.231*.
+Gebruik de opdracht die volgt op voor het maken van een SSH-sessie met de *myVmMgmt* VM. Vervang  *\<openbare IP-adres >* met het openbare IP-adres van uw virtuele machine. In het bovenstaande voorbeeld het IP-adres is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

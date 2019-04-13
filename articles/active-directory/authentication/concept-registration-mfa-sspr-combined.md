@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280006"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521429"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
@@ -25,6 +25,8 @@ Vóór de gecombineerde inschrijving gebruikers verificatiemethoden voor meervou
 ![Mijn profiel weergeven geregistreerd beveiligingsgegevens voor een gebruiker](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte documentatie en de gebruiker gerichte documentatie om te controleren of u informatie over de functionaliteit en het effect van deze functie. Baseer uw training over de documentatie voor de gebruiker voor het voorbereiden van uw gebruikers voor de nieuwe ervaring en ervoor zorgen dat een geslaagde implementatie.
+
+Azure AD gecombineerd beveiligingsgegevens registratie is niet op dit moment beschikbaar zijn voor nationale clouds, zoals Azure US Government, Azure Duitsland or Azure China 21Vianet.
 
 |     |
 | --- |
@@ -139,4 +141,4 @@ Een gebruiker die ten minste één methode die kan worden gebruikt voor multi-fa
 
 [Self-service voor wachtwoord opnieuw instellen configureren](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication configureren](howto-mfa-getstarted.md)
+[Azure multi-factor Authentication configureren](howto-mfa-getstarted.md)

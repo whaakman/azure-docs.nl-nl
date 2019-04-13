@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164378"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526401"
 ---
 # <a name="troubleshoot-input-connections"></a>Invoer-verbindingsproblemen oplossen
 
@@ -39,7 +39,9 @@ Wanneer een Stream Analytics-taak ontvangt een onjuist ingedeeld bericht uit de 
 ![Azure Stream Analytics-invoer tegel](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Schakel de diagnostische logboeken om de details van de waarschuwing weer te geven. Voor onjuist gevormde invoergebeurtenissen bevatten de logboeken van de uitvoering van een item met het bericht dat lijkt op: 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>Over de oorzaak van de deserialisatiefout
 U kunt de volgende stappen voor het analyseren van de invoer gebeurtenissen in detail om op te halen van een duidelijk wat de oorzaak van de deserialisatiefout kan duren. Vervolgens kunt u de bron van de gebeurtenis voor het genereren van gebeurtenissen in de juiste indeling om te voorkomen dat u opnieuw te maken met dit probleem oplossen.
@@ -92,7 +94,7 @@ Scenario's waarin het aantal lezers per partitie is groter dan de Event Hubs-lim
 
 * Meerdere SELECT-instructies: Als u meerdere SELECT-instructies die naar verwijzen **dezelfde** event hub-invoer, elke SELECT-instructie zorgt ervoor dat een nieuwe ontvanger moet worden gemaakt.
 * UNION: Wanneer u een SAMENVOEGING gebruikt, is het mogelijk om meerdere invoergegevens die naar verwijzen de **dezelfde** event hub- en consumer-groep.
-* SELF-JOIN: Wanneer u een SELF JOIN-bewerking gebruikt, is het mogelijk om te verwijzen naar de **dezelfde** gebeurtenishub meerdere keren.
+* SELF JOIN: Wanneer u een SELF JOIN-bewerking gebruikt, is het mogelijk om te verwijzen naar de **dezelfde** gebeurtenishub meerdere keren.
 
 De volgende procedures kunnen u scenario's waarin het aantal lezers per partitie is groter dan de Event Hubs-limiet van vijf.
 

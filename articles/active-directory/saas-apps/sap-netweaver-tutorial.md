@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855636"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523780"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Zelfstudie: Azure Active Directory-integratie met SAP NetWeaver
 
@@ -135,7 +135,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP NetWeaver moet u
 6. Vervang **Provider Name** T01122 door `http://T01122` en klik op **Save**.
 
     > [!NOTE]
-    > Standaard wordt Provider Name in de indeling <sid><client> weergegeven, maar in Azure AD wordt verwacht dat de naam in de indeling <protocol>://<name> wordt weergegeven, waarbij wordt aangeraden Provider Name als https://<sid><client> te handhaven zodat meerdere SAP NetWeaver ABAP-engines in Azure AD kunnen worden geconfigureerd.
+    > Geleverd door de naam van de provider standaard `<sid><client>` indeling, maar Azure AD wordt verwacht dat de naam in de indeling van `<protocol>://<name>`, aanbeveelt voor het onderhouden van de naam van de provider als `https://<sid><client>` om toe te staan van meerdere SAP NetWeaver ABAP-engines te configureren in Azure AD.
 
     ![De link om het certificaat te downloaden](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650475"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524041"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -227,7 +227,7 @@ Technische specificaties van de uitrusting zoals datum van de productie, modelnu
 
 De gegevens voorbereiden pogingen tot nu toe is behandeld moeten leiden tot de gegevens wordt geordend zoals hieronder wordt weergegeven. Training, test en validatie van gegevens, moet deze logische schema (in dit voorbeeld laat zien in eenheden van dagen) hebben.
 
-| Activa-id | Time | <Feature Columns> | Label |
+| Activa-id | Time | \<Functie kolommen > | Label |
 | ---- | ---- | --- | --- |
 | A123 |Dag 1 | . . . | . |
 | A123 |Dag 2 | . . . | . |

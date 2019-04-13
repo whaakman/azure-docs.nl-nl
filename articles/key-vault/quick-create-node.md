@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882747"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522301"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van een knooppunt web-app 
 
@@ -150,7 +150,7 @@ Blader naar uw nieuwe web-app en ziet u of deze werkt. Vervang `<app_name>` door
     ```
     http://<app name>.azurewebsites.net
     ```
-De voorgaande opdracht maakt ook een app met Git-functionaliteit waarmee u implementeren in Azure vanuit uw lokale Git-opslagplaats. De lokale Git-opslagplaats is geconfigureerd met deze URL: https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > .git.
+De voorgaande opdracht maakt ook een app met Git-functionaliteit waarmee u implementeren in Azure vanuit uw lokale Git-opslagplaats. De lokale Git-opslagplaats is geconfigureerd met deze URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Nadat u de voorgaande opdracht, kunt u een externe Azure toevoegen aan uw lokale Git-opslagplaats. Vervang `<url>` met de URL van de Git-opslagplaats.
 
@@ -194,7 +194,7 @@ Voer de volgende opdracht uit om de app implementeren in Azure:
 git push azure master
 ```
 
-Wanneer u naar https://<app_name>.azurewebsites.net bladert, kunt u hierna de geheime waarde zien. Zorg ervoor dat u de naam van de vervangen <YourKeyVaultName> met de kluisnaam van uw.
+Na deze, wanneer u bladert naar `https://<app_name>.azurewebsites.net`, ziet u de geheime waarde. Zorg ervoor dat u de naam van de vervangen `<YourKeyVaultName>` met de kluisnaam van uw.
 
 ## <a name="next-steps"></a>Volgende stappen
 

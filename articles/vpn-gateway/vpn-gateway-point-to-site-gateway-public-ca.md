@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848922"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521591"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
 
@@ -56,7 +56,7 @@ Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertif
 
 ### <a name="classic"></a>Klassiek
 
-1. Op een clientcomputer, gaat u naar het pad %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. In de map van de Gateway-ID, kunt u het certificaat weergeven.
+1. Op een clientcomputer, bladert u naar pad `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. In de map van de Gateway-ID, kunt u het certificaat weergeven.
 2. Controleer of de certificeringsinstantie is 'DigiCert globale basis-CA' op het tabblad Algemeen voor het certificaat. Als u iets anders dan deze verlenende CA hebt, wordt het gatewaycertificaat maakt deel uit van de update en overgezet.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Certificaat overgang planning controleren

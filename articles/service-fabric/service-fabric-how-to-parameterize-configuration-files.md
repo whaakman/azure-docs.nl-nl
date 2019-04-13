@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102666"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524511"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Hoe om te voorzien van de configuratiebestanden in Service Fabric
 
@@ -27,7 +27,7 @@ In dit artikel laat u zien hoe om te voorzien van een configuratiebestand in Ser
 
 In dit voorbeeld moet u de configuratiewaarde van een met behulp van parameters in de implementatie van uw toepassing overschrijven.
 
-1. Open de  *<MyService>\PackageRoot\Config\Settings.xml* bestand in uw serviceproject.
+1. Open de  *\<MijnService > \PackageRoot\Config\Settings.xml* bestand in uw serviceproject.
 1. Stel een naam van de configuratie en de waarde, bijvoorbeeld cachegrootte gelijk is aan 25, door het volgende XML-bestand toe te voegen:
 
    ```xml
@@ -37,7 +37,7 @@ In dit voorbeeld moet u de configuratiewaarde van een met behulp van parameters 
    ```
 
 1. Sla het bestand op en sluit het.
-1. Open de  *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* bestand.
+1. Open de  *\<Mijntoepassing > \ApplicationPackageRoot\ApplicationManifest.xml* bestand.
 1. In het bestand ApplicationManifest.xml declareert u een waarde voor parameter en standaard in de `Parameters` element.  Het wordt aanbevolen dat de parameternaam de naam van de service (bijvoorbeeld ' MyService') bevat.
 
    ```xml

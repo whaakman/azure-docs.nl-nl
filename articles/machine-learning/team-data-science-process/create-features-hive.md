@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835013"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524902"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies maken voor gegevens in een Hadoop-cluster met behulp van Hive-query 's
 Dit document wordt beschreven hoe u functies maken voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's. Deze Hive-query's gebruikt ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
@@ -89,14 +89,14 @@ Hive wordt geleverd met een set met UDF's voor het verwerken van datetime-velden
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Deze Hive-query wordt ervan uitgegaan dat de *<datetime field>* is in de standaardnotatie voor datum/tijd.
+Deze Hive-query wordt ervan uitgegaan dat de  *\<datum / tijdveld >* is in de standaardnotatie voor datum/tijd.
 
 Als een datum / tijdveld zich niet in de standaardindeling, moet u de datum / tijdveld eerst converteren naar Unix-tijdstempel, en vervolgens de Unix-tijdstempel converteren naar een datum/tijd-tekenreeks die in de standaardindeling. Wanneer de datum/tijd in indeling is, kunnen gebruikers de ingesloten datum/tijd UDF's om op te halen van functies toepassen.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In deze query als de *<datetime field>* heeft het patroon, zoals *26-03-2015 12:04:39*, wordt de  *<pattern of the datetime field>'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
+In deze query als de  *\<datum / tijdveld >* heeft het patroon, zoals *26-03-2015 12:04:39*, wordt de  *\<patroon van de datum / tijdveld >'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

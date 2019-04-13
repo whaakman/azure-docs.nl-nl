@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993276"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526160"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Doelcode ringbuffer voor uitgebreide gebeurtenissen in SQL-Database
 
@@ -223,7 +223,7 @@ U kunt de resultaten, we de cel onder de kop van de kolom hebt geklikt **target_
 
 Klik in het deelvenster met resultaten we de cel onder de kop van de kolom hebt geklikt **target_data_XML**. Klikt u op een ander tabblad van het bestand in ssms.exe waarin de inhoud van de resultaatcel wordt weergegeven, als XML gemaakt.
 
-De uitvoer wordt weergegeven in het volgende blok. Het lijkt veel, maar dit is slechts twee **<event>** elementen.
+De uitvoer wordt weergegeven in het volgende blok. Het lijkt veel, maar dit is slechts twee  **\<gebeurtenis >** elementen.
 
 &nbsp;
 
