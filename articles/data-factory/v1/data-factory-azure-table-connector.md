@@ -106,7 +106,7 @@ Als Azure Table-kolom van het type datum/tijd:
 | azureTablePartitionKeyName |Geef de naam van de kolom waarvan de waarden worden gebruikt als partitiesleutels. Als niet is opgegeven, wordt AzureTableDefaultPartitionKeyValue gebruikt als de partitiesleutel. |De naam van een kolom. |Nee |
 | azureTableRowKeyName |Geef de naam van de kolom waarvan de kolomwaarden worden gebruikt als de rijsleutel. Als niet is opgegeven, gebruikt u een GUID voor elke rij. |De naam van een kolom. |Nee |
 | azureTableInsertType |De modus invoegen van gegevens in Azure-tabel.<br/><br/>Deze eigenschap bepaalt of bestaande rijen in de uitvoertabel met de bijbehorende partitie-en recordsleutels hebben hun waarden vervangen of samenvoegen. <br/><br/>Zie voor meer informatie over de werking van deze instellingen (samenvoegen en vervangen), [invoegen of samenvoegen entiteit](https://msdn.microsoft.com/library/azure/hh452241.aspx) en [invoegen of vervangen entiteit](https://msdn.microsoft.com/library/azure/hh452242.aspx) onderwerpen. <br/><br> Deze instelling is van toepassing op het rijniveau van de, niet in de tabelniveau en geen van beide optie verwijdert rijen in de uitvoertabel die niet zijn opgenomen in de invoer. |samenvoegen (standaard)<br/>vervangen |Nee |
-| WriteBatchSize |Voegt de gegevens in de Azure-tabel wanneer de writeBatchSize of writeBatchTimeout is bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
+| writeBatchSize |Voegt de gegevens in de Azure-tabel wanneer de writeBatchSize of writeBatchTimeout is bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | writeBatchTimeout |Voegt de gegevens in de Azure-tabel wanneer de writeBatchSize of writeBatchTimeout is bereikt |timespan<br/><br/>Voorbeeld: "00: 20:00" (20 minuten) |Nee (standaard ingesteld op de standaardtime-out opslag client waarde 90 sec.) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
@@ -538,7 +538,7 @@ Toewijzing van het type van Azure Table OData-type opgegeven voor .NET-type, zou
 | Kolomnaam | Type |
 | --- | --- |
 | userid |Edm.Int64 |
-| naam |Edm.String |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Vervolgens definieert u de Azure Table-gegevensset als volgt. U hoeft niet opgeven voor "structuur" sectie met informatie over het omdat informatie over het al is opgegeven in het onderliggende gegevensarchief.
