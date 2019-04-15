@@ -93,7 +93,7 @@ sections:
       - type: paragraph
         text: 'Leer apps te ontwikkelen die gebruikmaken van de Translator Text-API:'
       - type: paragraph
-        text: '<a href="tutorial-wpf-translation-csharp.md">Een WPF-toepassing voor Translator Text maken met behulp van C#</a>'
+        text: '<li><a href="tutorial-wpf-translation-csharp.md">Een WPF-app maken voor Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Een Flask-app voor vertaling maken, Python</a></li>'
   - title: Naslaginformatie
     items:
       - type: paragraph

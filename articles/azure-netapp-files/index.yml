@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure NetApp Files
+metadata:
+  title: Documentatie voor Azure NetApp Files
+  description: 'Informatie over hoe u volumes instelt, opent en beheert met de Azure NetApp Files-service.'
+  author: b-juche
+  ms.author: b-juche
+  ms.service: azure-netapp-files
+  ms.topic: landing-page
+  ms.date: 04/10/2019
+abstract:
+  description: 'Informatie over hoe u met Azure NetApp Files NetApp-accounts, capaciteitspools en volumes maakt en beheert, exportbeleid configureert, een volume koppelt voor een virtuele machine en momentopnamen beheert. <p>Voor Azure NetApp Files is het vereist dat u deel uitmaakt van het openbare preview-programma. U moet ook toegang krijgen tot de Azure Resource Provider voor Microsoft.NetApp. Raadpleeg <a href="azure-netapp-files-register">registreren voor Azure NetApp Files</a> om een verzoek in te dienen voor deelname aan het openbare preview-programma.</p>'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Uitleg over het instellen van Azure NetApp Files en een volume maken met behulp van:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
+            text: Azure Portal
+            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">REST API</a></p>'
+          - title: Azure Resource Manager
+            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Resource Manager-sjablonen</a></p>'

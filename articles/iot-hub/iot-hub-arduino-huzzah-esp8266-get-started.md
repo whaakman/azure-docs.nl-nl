@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259385"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524460"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
@@ -220,7 +220,7 @@ De voorbeeld-App kunt temperatuur en vochtigheid gegevens simuleren in het geval
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>De voorbeeldtoepassing om te Feather HUZZAH ESP8266 implementeren
 
-1. Klik in de Visual Studio-Code op **<Select Serial Port>** op de status van de staaf-, en klik vervolgens op de seriële poort voor Feather HUZZAH ESP8266.
+1. Klik in de Visual Studio-Code op  **\<Selecteer seriële poort >** op de status van de staaf-, en klik vervolgens op de seriële poort voor Feather HUZZAH ESP8266.
 
 2. Voer `F1`, typt u **Arduino** en selecteer **Arduino: Uploaden** te bouwen en implementeren van de voorbeeldtoepassing om te Feather HUZZAH ESP8266.
 

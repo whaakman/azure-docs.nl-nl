@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877972"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549181"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
 
@@ -46,10 +46,10 @@ Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.
 
         De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
 
-    * **Capaciteitspool**  
+    * **Capaciteit van toepassingen**  
         Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
 
-    * **Quota**  
+    * **Quotum**  
         Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
 
         Het veld **Beschikbare quotum** toont hoeveel ongebruikte ruimte er is in de gekozen capaciteitspool, die u kunt gebruiken om een nieuw volume te maken. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.  
@@ -96,11 +96,11 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
 
 2. Geef in het Active Directory Join-venster de volgende informatie:
 
-    * **Primair DNS**   
+    * **Primaire DNS**   
         Dit is de domain controller IP-adres voor de gewenste Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
-    * **Secundair DNS**  
+    * **Secundaire DNS**  
         Dit is het domain controller-IP-adres voor de secundaire Active Directory Domain Services voor gebruik met Azure NetApp-bestanden. 
-    * **Domain**  
+    * **Domein**  
         Dit is de domeinnaam van uw Active Directory Domain Services die u wilt deelnemen.
     * **Het voorvoegsel voor SMB-server (computeraccount)**  
         Dit is het naamvoorvoegsel voor het computeraccount in Active Directory die Azure NetApp bestanden voor het maken van nieuwe accounts wilt gebruiken.
@@ -136,15 +136,15 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
 
         De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt geen alfanumerieke tekens gebruiken.
 
-    * **Pad naar bestand**  
+    * **Bestandspad**  
         Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
      
         Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
 
-    * **Capaciteitspool**  
+    * **Capaciteit van toepassingen**  
         Geef de capaciteit van toepassingen waar u het volume moet worden gemaakt.
 
-    * **Quota**  
+    * **Quotum**  
         Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
 
         Het veld **Beschikbare quotum** toont hoeveel ongebruikte ruimte er is in de gekozen capaciteitspool, die u kunt gebruiken om een nieuw volume te maken. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.  
@@ -179,6 +179,6 @@ Azure NetApp-bestanden ondersteunt SMBv3-volumes. U moet Active Directory-verbin
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-* [Een volume voor Windows- of Linux-VM's koppelen of ontkoppelen](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Exportbeleid voor een NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
-* [Meer informatie over de integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Koppelen of ontkoppelen van een volume voor Windows of Linux-machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Exporteren-beleid voor een NFS-volume configureren](azure-netapp-files-configure-export-policy.md)
+* Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

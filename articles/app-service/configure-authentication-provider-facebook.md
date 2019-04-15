@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410997"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522880"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Uw App Service-toepassing configureren voor het gebruik van Facebook-aanmelding
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,7 +30,7 @@ Dit onderwerp ziet u hoe u Azure App Service configureren voor Facebook gebruike
 U moet een Facebook-account met een geverifieerde e-mailadres en een mobiel telefoonnummer hebben voor de procedure in dit onderwerp. Voor het maken van een nieuwe Facebook-account, gaat u naar [facebook.com].
 
 ## <a name="register"> </a>Uw toepassing registreren met Facebook
-1. Meld u aan bij de [Azure Portal], en navigeer naar uw toepassing. Kopieer uw **URL**. U gebruikt deze om uw Facebook-app te configureren.
+1. Meld u aan bij de [Azure-portal], en navigeer naar uw toepassing. Kopieer uw **URL**. U gebruikt deze om uw Facebook-app te configureren.
 2. Navigeer in een ander browservenster naar de [Facebook-ontwikkelaars] website en aanmelden met uw Facebook-accountreferenties.
 3. (Optioneel) Als u nog niet hebt geregistreerd, klikt u op **Apps** > **registreren als een ontwikkelaar**, accepteert u het beleid en volg de registratiestappen.
 4. Klik op **mijn Apps** > **toevoegen van een nieuwe App**.
@@ -48,10 +48,10 @@ U moet een Facebook-account met een geverifieerde e-mailadres en een mobiel tele
    > De app-geheim is een belangrijke beveiligingsreferentie. Niet dit geheim met iedereen delen en distribueren binnen een clienttoepassing.
    > 
    > 
-9. De Facebook-account dat is gebruikt voor het registreren van de toepassing is een beheerder van de app. Op dit moment kunnen alleen beheerders zich bij deze toepassing. Als u wilt andere Facebook-accounts worden geverifieerd, klikt u op **App-revisie** en in te schakelen **maken < your-app-name > openbare** aan het algemene publiek toegang met behulp van de Facebook-authenticatie inschakelen.
+9. De Facebook-account dat is gebruikt voor het registreren van de toepassing is een beheerder van de app. Op dit moment kunnen alleen beheerders zich bij deze toepassing. Als u wilt andere Facebook-accounts worden geverifieerd, klikt u op **App-revisie** en in te schakelen **maken \<uw app-naam > openbare** aan het algemene publiek toegang met behulp van de Facebook-authenticatie inschakelen.
 
 ## <a name="secrets"> </a>Facebook-gegevens toevoegen aan uw toepassing
-1. Klik in de [Azure Portal], gaat u naar uw toepassing. Klik op **instellingen** > **verificatie / autorisatie**, en zorg ervoor dat **App Service-verificatie** is **op**.
+1. Klik in de [Azure-portal], gaat u naar uw toepassing. Klik op **instellingen** > **verificatie / autorisatie**, en zorg ervoor dat **App Service-verificatie** is **op**.
 2. Klik op **Facebook**, plakken in de App-ID en App-geheim waarden die u eerder hebt verkregen, eventueel alle scopes die nodig zijn voor uw toepassing inschakelen en vervolgens klikt u op **OK**.
    
     ![][0]
@@ -70,6 +70,6 @@ U bent nu klaar voor gebruik van Facebook voor verificatie in uw app.
 
 <!-- URLs. -->
 [Facebook-ontwikkelaars]: https://go.microsoft.com/fwlink/p/?LinkId=268286
-[Facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
+[facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/

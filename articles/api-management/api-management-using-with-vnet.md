@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505665"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527945"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -106,9 +106,9 @@ Hieronder volgt een lijst met veelvoorkomende configuratiefouten die optreden ku
 
 * **Poorten die nodig zijn voor API Management**: Binnenkomend en uitgaand verkeer in het Subnet waarin API Management is geïmplementeerd, kan worden beheerd met behulp van [Network Security Group][Network Security Group]. Als een van deze poorten niet beschikbaar zijn, wordt API Management werken mogelijk niet correct en kan niet meer toegankelijk. Met een of meer van deze poorten geblokkeerd, is dat een andere veelvoorkomende onjuiste configuratie probleem bij het gebruik van API Management met een VNET.
 
-Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worden de poorten in de volgende tabel worden gebruikt.
+<a name="required-ports"> </a> Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worden de poorten in de volgende tabel worden gebruikt.
 
-| Bron / doelpoort(en) | Richting          | Transportprotocol |   [Servicetags](../virtual-network/security-overview.md#service-tags) <br> Bron / bestemming   | Doel (*)                                                 | Type virtuele netwerk |
+| Bron / doelpoort(en) | Richting          | Transportprotocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Bron / bestemming   | Doel (*)                                                 | Type virtuele netwerk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkomend            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communicatie van clients met API Management                      | Extern             |
 | * / 3443                     | Inkomend            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |

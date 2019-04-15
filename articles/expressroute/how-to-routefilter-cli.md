@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079293"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527962"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Routefilters voor Microsoft-peering configureren: Azure CLI
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Routefilters voor Microsoft-peering configureren: Azure-CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
@@ -103,13 +103,13 @@ az network route-filter rule list-service-communities
 
 Maak een lijst van BGP-Communitywaarden die u wilt gebruiken in de routefilter. De BGP-communitywaarde voor Dynamics 365-services is een voorbeeld: 12076:5040.
 
-## <a name="filter"></a>Stap 2: Maak een routefilter en een filterregel
+## <a name="filter"></a>Stap 2: Een routefilter en een filterregel voor een maken
 
 Een routefilter kan slechts één regel, en de regel moet van het type 'Toestaan'. Deze regel kan een lijst met BGP-Communitywaarden die zijn gekoppeld aan deze hebben.
 
 ### <a name="1-create-a-route-filter"></a>1. Een routefilter maken
 
-Maak eerst de routefilter. De opdracht 'az network route-filter maken' maakt alleen een resource route-filter. Nadat u de resource gemaakt, moet u vervolgens een regel maken en koppelen aan het object route-filter. Voer de volgende opdracht om een route-filter-resource te maken:
+Maak eerst de routefilter. De opdracht `az network route-filter create` alleen maakt u een route-filter-resource. Nadat u de resource gemaakt, moet u vervolgens een regel maken en koppelen aan het object route-filter. Voer de volgende opdracht om een route-filter-resource te maken:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
