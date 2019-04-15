@@ -1,6 +1,6 @@
 ---
-title: Woordenlijst voor Azure Active Directory-ontwikkelaars | Microsoft Docs
-description: Een lijst met voorwaarden voor veelgebruikte concepten voor ontwikkelaars van Azure Active Directory en functies.
+title: Woordenlijst voor Microsoft identity-platform-ontwikkelaars | Azure
+description: Een lijst met voorwaarden voor de meest gebruikte Microsoft identity platform developer concepten en functies.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650390"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565518"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Woordenlijst voor Azure Active Directory-ontwikkelaars
+# <a name="microsoft-identity-platform-developer-glossary"></a>Woordenlijst voor Microsoft identity-platform-ontwikkelaars
 
-In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD)-ontwikkelaar concepten, dit handig is bij het leren over het ontwikkelen van toepassingen voor Azure AD.
+In dit artikel bevat definities voor enkele van de belangrijkste ontwikkelaars concepten en terminologie, dit handig is bij het leren over het ontwikkelen van toepassingen met behulp van Microsoft identity-platform.
 
 ## <a name="access-token"></a>toegangstoken
 
@@ -38,11 +38,11 @@ Toegangstokens worden soms aangeduid als 'Gebruiker + App' of 'App alleen-lezen"
 * ["Autorisatiecode" autorisatietoekenning](#authorization-grant), de gebruiker eerst als de resource-eigenaar, overdragen, verificatie naar de client voor toegang tot de resource wordt geverifieerd. De client verifieert daarna bij het ophalen van het toegangstoken. Het token kan ook worden genoemd meer in het bijzonder als een token 'Gebruiker + App' als staat voor de gebruiker die gemachtigd de clienttoepassing en de toepassing.
 * ["" Autorisatie van clientreferenties](#authorization-grant), de client biedt de enige verificatie werkt zonder verificatie/autorisatie van de resource-eigenaar, zodat het token kan worden aangeduid als een 'App-alleen'-token.
 
-Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
+Zie [Microsoft identity-platform tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
-## <a name="application-id-client-id"></a>toepassings-id (client-id)
+## <a name="application-id-client-id"></a>toepassings-ID (client-ID)
 
-De unieke id Azure AD-problemen naar de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties. Deze toepassings-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt bij het uitvoeren van verificatie-aanvragen en is opgegeven voor de verificatiebibliotheken in de van ontwikkelingstijd. De toepassings-id (client-id) is niet een geheim.
+De unieke id Azure AD-problemen naar de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties. Deze toepassings-ID ([client-ID](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt bij het uitvoeren van verificatie-aanvragen en is opgegeven voor de verificatiebibliotheken in de van ontwikkelingstijd. De toepassings-ID (client-ID) is niet een geheim.
 
 ## <a name="application-manifest"></a>toepassingsmanifest
 
@@ -59,7 +59,7 @@ Zie voor meer informatie, [toepassing en Service-Principal-objecten][AAD-App-SP-
 Als u wilt toestaan dat een toepassing integreren met en het delegeren van identiteits- en toegangsbeheer voor Azure AD-functies, moet deze worden geregistreerd met een Azure AD [tenant](#tenant). Wanneer u uw toepassing bij Azure AD registreren, zijn u de configuratie van een identiteit bieden voor uw toepassing, zodat het kan integreren met Azure AD en functies gebruiken zoals is:
 
 * Krachtige beheermogelijkheden van eenmalige aanmelding met behulp van Azure AD Identity Management en [OpenID Connect] [ OpenIDConnect] protocolimplementatie
-* Toegang tot brokered [beveiligde bronnen](#resource-server) door [clienttoepassingen](#client-application), via Azure AD OAuth 2.0 [autorisatieserver](#authorization-server) implementatie
+* Toegang tot brokered [beveiligde bronnen](#resource-server) door [clienttoepassingen](#client-application), via OAuth 2.0 [autorisatie-server](#authorization-server)
 * [Toestemmingsframework](#consent) voor het beheren van de clienttoegang tot beveiligde bronnen, op basis van de autorisatie van de resource-eigenaar.
 
 Zie [toepassingen integreren met Azure Active Directory] [ AAD-Integrating-Apps] voor meer informatie.
@@ -93,13 +93,13 @@ Een referentie voor de [resource-eigenaar](#resource-owner) [autorisatie](#autho
 
 Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], de server die verantwoordelijk is voor het verlenen van toegang tot tokens aan de [client](#client-application) verificatie is gelukt de [resource-eigenaar](#resource-owner) en het verkrijgen van de autorisatie. Een [clienttoepassing](#client-application) communiceert met de autorisatie-server tijdens runtime via de [autorisatie](#authorization-endpoint) en [token](#token-endpoint) in overeenstemming met de OAuth2-eindpunten gedefinieerd[autorisatietoekenningen](#authorization-grant).
 
-In het geval van de integratie van Azure AD-toepassingen, implementeert Azure AD de autorisatie-serverfunctie voor Azure AD-toepassingen en Microsoft-service-API's, bijvoorbeeld [Microsoft Graph-API's][Microsoft-Graph].
+In het geval van Microsoft identity platform toepassingsintegratie implementeert identiteitsplatform van Microsoft de autorisatie-serverfunctie voor Azure AD-toepassingen en Microsoft-service-API's, bijvoorbeeld [Microsoft Graph-API's] [Microsoft-Graph].
 
 ## <a name="claim"></a>claim
 
 Een [beveiligingstoken](#security-token) claims, waardoor asserties over één entiteit bevat (zoals een [clienttoepassing](#client-application) of [resource-eigenaar](#resource-owner)) met een andere entiteit (zoals de [bronserver](#resource-server)). Claims zijn naam/waarde-paren die informatie over het onderwerp van de token relay (bijvoorbeeld de beveiligings-principal die is geverifieerd door de [autorisatieserver](#authorization-server)). De claims aanwezig zijn in een bepaalde token zijn afhankelijk van verschillende variabelen, met inbegrip van het type token, het type van de referentie die wordt gebruikt voor verificatie van het onderwerp, de configuratie van toepassing, enzovoort.
 
-Zie [naslaginformatie over Azure AD-tokens] [ AAD-Tokens-Claims] voor meer informatie.
+Zie [Microsoft identity platform tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
 ## <a name="client-application"></a>Clienttoepassing
 
@@ -117,7 +117,7 @@ Zie [toestemmingsframework](consent-framework.md) voor meer informatie.
 
 Een [OpenID Connect] [ OpenIDConnect-ID-Token] [beveiligingstoken](#security-token) geleverd door een [autorisatie-server](#authorization-server) [autorisatie-eindpunt](#authorization-endpoint), die bevat [claims](#claim) die betrekking hebben op de verificatie van een eindgebruiker [resource-eigenaar](#resource-owner). Als een toegangstoken ID-tokens ook worden weergegeven als een digitaal ondertekend [JSON Web Token (JWT)][JWT]. In tegenstelling tot een toegangstoken echter een ID-token claims niet worden gebruikt voor doeleinden met betrekking tot toegang tot bronnen en specifiek toegangsbeheer.
 
-Zie [naslaginformatie over Azure AD-tokens] [ AAD-Tokens-Claims] voor meer informatie.
+Zie [Microsoft identity platform tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft-identiteitsplatform
 
@@ -220,14 +220,14 @@ Een type [clienttoepassing](#client-application) dat alle code op een webserver,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De [ontwikkelaarsgids van Azure AD] [ AAD-Dev-Guide] is de landingspagina voor alle Azure AD-ontwikkeling-onderwerpen met betrekking tot, inclusief een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt hier ook codevoorbeelden en zelfstudies voor het snel gebruiksklaar op verkrijgen [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+De [ontwikkelaarsgids van Microsoft identity-platform] [ AAD-Dev-Guide] is de landingspagina voor alle Microsoft identity platform ontwikkeling gerelateerde onderwerpen, waaronder een overzicht van [toepassing integratie van] [ AAD-How-To-Integrate] en de basisprincipes van [Microsoft identity-platform-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt hier ook codevoorbeelden en zelfstudies voor het snel gebruiksklaar op verkrijgen [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help om te verfijnen en vorm van deze inhoud, met inbegrip van aanvragen voor definities van nieuwe of bestaande toepassingen bijwerken!
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

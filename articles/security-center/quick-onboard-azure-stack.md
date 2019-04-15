@@ -3,7 +3,7 @@ title: Azure Security Center-snelstartgids - onboarding uw virtuele machines van
 description: Deze quickstart laat zien hoe u de extensie voor de Azure Monitor-, Update- en Configuratiebeheer-virtuele machine op een virtuele machines van Azure Stack inricht.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904012"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563791"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Quickstart:  Onboarding uw virtuele machines van Azure Stack met Security Center
 Nadat u onboarding uw Azure-abonnement, u kunt Security Center inschakelen voor het beveiligen van uw virtuele machines die worden uitgevoerd op Azure Stack door toe te voegen de **Azure Monitor-, Update- en Configuratiebeheer** -extensie voor virtuele machine van de Azure Stack marketplace.
@@ -32,7 +32,7 @@ U moet over een abonnement op Microsoft Azure beschikken om met Security Center 
 
 U moet een Azure-abonnement hebben op Security Center Standard-laag voordat u begint. Zie [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Uw Azure-abonnement registreren voor Security Center Standard) voor upgrade-instructies. U kunt Security Center Standard-laag gratis gedurende 30 dagen. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Toevoegen van een virtuele machine van Azure Stack
+## <a name="select-your-workspace-in-azure-security-center"></a>Selecteer uw werkruimte in Azure Security Center
 
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend. 
@@ -65,8 +65,12 @@ U moet toevoegen de **Azure Monitor-, Update- en Configuratiebeheer** virtuele m
 3. Selecteer **Extensies**. De lijst met extensies voor virtuele machines geïnstalleerd op deze virtuele machine wordt weergegeven.
 4. Klik op de **toevoegen** tabblad. De **nieuwe Resource** menu-blade wordt geopend en ziet u de lijst met beschikbare virtuele machine-extensies. 
 5. Selecteer de **Azure Monitor-, Update- en Configuratiebeheer** -extensie en klikt u op **maken**. De **-extensie installeren** configuratieblade wordt geopend.
+
+>[!NOTE]
+> Als u niet ziet de **Azure Monitor-, Update- en Configuratiebeheer** extensie die worden vermeld in de marketplace, kunt u contact opnemen met uw Azure Stack-operator zodat deze beschikbaar.
+
 6. Op de **-extensie installeren** configuratieblade, plak de **werkruimte-ID** en **Werkruimtesleutel (primaire sleutel)** die u in Kladblok hebt gekopieerd in de vorige procedure.
-7.  Wanneer u de vereiste configuratie-instellingen voltooien hebt, klikt u op **OK**.
+7.  Wanneer u klaar bent met de vereiste configuratie-instellingen, klikt u op **OK**.
 8. Nadat de installatie van de extensie is voltooid, de status wordt weergegeven als **inrichting geslaagd**. Het duurt maximaal één uur voor de virtuele machine wordt weergegeven in de portal van Security Center.
 
 Zie voor meer informatie over het installeren en configureren van de agent voor Windows [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
@@ -97,7 +101,7 @@ De uitbreiding te verwijderen:
 In deze snelstartgids hebt u de Azure Monitor-, Update- en Configuratiebeheer-extensie op een virtuele machine op Azure Stack ingericht. Voor meer informatie over het gebruik van Security Center gaat u verder met de zelfstudie voor het configureren van een beveiligingsbeleid en het beoordelen van de beveiliging van uw resources.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Opstellen en beoordelen van beveiligingsbeleid](tutorial-security-policy.md)
+> [Zelfstudie: Beveiligingsbeleid opstellen en beoordelen](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

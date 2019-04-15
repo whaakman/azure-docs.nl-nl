@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-ID tokenverwijzing | Microsoft Docs
-description: Informatie over het gebruik van id_tokens verzonden door de v1.0 en v2.0-eindpunten van Azure AD.
+title: Microsoft identity-platform-ID tokenverwijzing | Microsoft Docs
+description: Informatie over het gebruik van id_tokens verzonden door de Azure AD-v1.0 en Microsoft identity-platform (v2.0) eindpunten.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,26 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad1b686152101cbeaddc29974a2a1c5f13a7712
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500535"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563826"
 ---
-# <a name="id-tokens"></a>Id-tokens
+# <a name="microsoft-identity-platform-id-tokens"></a>Microsoft identity-platform-ID-tokens
 
 `id_tokens` worden verzonden naar de clienttoepassing als onderdeel van een [OpenID Connect](v1-protocols-openid-connect-code.md) stroom. Ze kunnen worden verzonden, naast of in plaats van een toegangstoken en worden door de client gebruikt voor het verifiëren van de gebruiker.
 
 ## <a name="using-the-idtoken"></a>Met behulp van de id_token
 
-ID-Tokens moeten worden gebruikt om te valideren dat een gebruiker daadwerkelijk wie zij beweren is te zijn en krijg nuttige informatie over deze - mag niet worden gebruikt voor autorisatie in plaats van een [toegangstoken](access-tokens.md). De claims die het biedt kunnen worden gebruikt voor UX in uw toepassing, een database te versleutelen en bieden toegang tot de clienttoepassing.
+ID-Tokens moeten worden gebruikt om te valideren dat een gebruiker daadwerkelijk wie zij beweren is te zijn en nuttige informatie over deze ophalen: het al dan niet mogen worden gebruikt voor autorisatie in plaats van een [toegangstoken](access-tokens.md). De claims die het biedt kunnen worden gebruikt voor UX in uw toepassing, een database te versleutelen en bieden toegang tot de clienttoepassing.
 
 ## <a name="claims-in-an-idtoken"></a>Claims in een id_token
 
@@ -64,14 +64,14 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij anders wordt vermeld).  Uw app kunt echter gebruiken [optionele claims](active-directory-optional-claims.md) om aan te vragen van aanvullende claims in de id_token.  Dit kunnen variëren van het `groups` claim naar informatie over de gebruikersnaam van de.
+Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij anders wordt vermeld).  Uw app kunt echter gebruiken [optionele claims](active-directory-optional-claims.md) om aan te vragen van aanvullende claims in de id_token.  Dit kunnen variëren van het `groups` claim naar informatie over de naam van de gebruiker.
 
-|Claim | Indeling | Description |
+|Claim | Indeling | Beschrijving |
 |-----|--------|-------------|
 |`aud` |  Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 |`iss` |  Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`.  De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
 |`iat` |  int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden.  |
-|`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking.|
 |`exp` |  int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT mag niet worden geaccepteerd voor verwerking.  Het is belangrijk te weten dat een resource het token voordat deze tijd ook - weigeren kan als u bijvoorbeeld een wijziging in de verificatie is vereist of intrekken van een token is gedetecteerd. |
 | `c_hash`| String |De hash van de code is opgenomen in de ID-tokens, alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-autorisatiecode. Het kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
@@ -79,14 +79,14 @@ Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij and
 |`aio` | Opaque String | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Moeten worden genegeerd.|
 |`preferred_username` | String | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen. De `profile` bereik is vereist voor het ontvangen van deze claim.|
 |`email` | String | De `email` claim bevindt zich standaard voor de gastaccounts waarvoor een e-mailadres.  Uw app kunt aanvragen tot de claim e-mailadres voor beheerde gebruikers (die uit dezelfde tenant als de resource) met behulp van de `email` [optionele claim](active-directory-optional-claims.md).  Op het v2.0-eindpunt kunt uw app ook vragen de `email` bereik OpenID Connect - hoeft u niet om aan te vragen de optionele claim en het bereik, om op te halen van de claim.  De e-claim ondersteunt alleen adresseerbare e-mail van de profielgegevens van de gebruiker. |
-|`name` | String | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
+|`name` | String | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde wordt niet gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 |`nonce`| String | De nonce overeenkomt met de parameter die is opgenomen in de oorspronkelijke / aanvraag om de id-provider te autoriseren. Als deze niet overeenkomt, moet uw toepassing het token weigeren. |
 |`oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in het Microsoft-identiteitssysteem, in dit geval een gebruikersaccount. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
 |`roles`| Matrix van tekenreeksen | De set met functies die zijn toegewezen aan de gebruiker die is aangemeld. |
 |`rh` | Opaque String |Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
-|`sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het onderwerp is een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
+|`sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het onderwerp is een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, ontvangt deze apps twee verschillende waarden voor de claim onderwerp. Dit kan of mogelijk niet gewenst afhankelijk van uw architectuur en privacy-vereisten. |
 |`tid` | Tekenreeks, een GUID | Een GUID die de Azure AD-tenant die door de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-|`unique_name` | String | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. Alleen uitgegeven met v1.0 `id_tokens`. |
+|`unique_name` | String | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde wordt niet gegarandeerd uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. Alleen uitgegeven met v1.0 `id_tokens`. |
 |`uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`ver` | Tekenreeks, 1.0 of 2.0 | Geeft de versie van het id_token. |
 
@@ -102,5 +102,5 @@ Voor het handmatig valideren van het token, Zie de details van de stappen in [va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [toegangstokens voor Azure AD](access-tokens.md)
+* Meer informatie over [toegangstokens](access-tokens.md)
 * Aanpassen van de claims in uw id_token met [optionele claims](active-directory-optional-claims.md).

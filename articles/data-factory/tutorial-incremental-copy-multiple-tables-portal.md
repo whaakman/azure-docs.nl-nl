@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257430"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566002"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -491,11 +491,12 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 1. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
         
     ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Open het tabblad **Parameters** en voer de volgende stappen uit:
+1. Voer de volgende stappen uit:
 
-    1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
-    1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
-    1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
+    1. In de **gegevensset** -eigenschap voor **SinkTableName** parameter, voer `@{item().TABLE_NAME}`.
+    1. Voor **opgeslagen procedurenaam** eigenschap, voer `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Voor **tabeltype** eigenschap, voer `@{item().TableType}`.
+
 
         ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Sleep de **Stored Procedure**-activiteit vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. Verbind de **Kopieer**-activiteit met de **Opgeslagen procedure**-activiteit. 
@@ -565,7 +566,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 ## <a name="review-the-results"></a>De resultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de SQL-doeldatabase om te controleren of de gegevens van de brontabellen naar de doeltabellen zijn gekopieerd: 
 
-**Query’s uitvoeren** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -582,7 +583,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from project_table
@@ -599,7 +600,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -667,7 +668,7 @@ VALUES
 ## <a name="review-the-final-results"></a>De eindresultaten bekijken
 Voer in SQL Server Management Studio de volgende query's uit op de doeldatabase om te controleren dat de bijgewerkte/nieuwe gegevens van de brontabellen naar de doeltabellen zijn gekopieerd. 
 
-**Query’s uitvoeren** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -686,7 +687,7 @@ PersonID    Name    LastModifytime
 
 Let op de nieuwe waarden van **Name** en **LastModifytime** voor de **PersonID** voor nummer 3. 
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from project_table
@@ -706,7 +707,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Let erop dat de invoer van **NewProject** toegevoegd is aan project_table. 
 
-**Query’s uitvoeren**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -743,6 +744,6 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Incrementeel gegevens uit een Azure SQL Database naar Azure Blob-opslag met behulp van technologie voor wijzigingen bijhouden](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor het bijhouden van wijzigingen](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

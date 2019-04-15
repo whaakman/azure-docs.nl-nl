@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163783"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565407"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Pre-trained entiteiten toevoegen
 In deze zelfstudie laat zien hoe Pre-Trained entiteiten toevoegen aan uw Model van de cursist conversatie.
@@ -62,7 +62,7 @@ Start op de startpagina in de Web-UI.
 
 1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
 2. Voer **wat is de datum?** voor **van Bot-antwoord...** . Vooraf getrainde entiteiten kunnen niet worden **vereist entiteiten** zoals deze standaard voor alle uitingen worden herkend.
-3. Voer **builtin datetimev2** voor **diskwalificeren voorziet**.
+3. Voer **builtin datetimev2** voor **diskwalificeren entiteiten**.
 4. Selecteer **Maken**.
 
 ![](../media/T08_action_create_2.png)

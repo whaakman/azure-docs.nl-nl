@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491488"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564528"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -78,6 +78,12 @@ De NPS-server moet kunnen communiceren met de volgende URL's via de poorten 80 e
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Bovendien verbinding met de volgende URL's is vereist om uit te voeren de [installatie van de adapter met de opgegeven PowerShell-script](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
@@ -142,6 +148,14 @@ Uw gebruikers moeten ook als volgt te werk om in te schrijven voordat ze kunnen 
 1. [De NPS-extensie downloaden](https://aka.ms/npsmfa) van het Microsoft Download Center.
 2. Kopieer het binaire bestand om de Network Policy Server die u wilt configureren.
 3. Voer *setup.exe* en volgt u de installatie-instructies. Als er fouten optreden, moet u controleren dat de twee bibliotheken van de sectie vereisten zijn geïnstalleerd.
+
+#### <a name="upgrade-the-nps-extension"></a>Upgrade van de NPS-extensie
+
+Wanneer een upgrade van een bestaande NPS-extensie installeert, om te voorkomen dat een opnieuw opstarten van de onderliggende-server de volgende stappen:
+
+1. Verwijder de bestaande versie
+1. Voer het nieuwe installatieprogramma
+1. De Network Policy Server (IAS)-service opnieuw starten
 
 ### <a name="run-the-powershell-script"></a>Het PowerShell-script uitvoeren
 
@@ -270,7 +284,7 @@ Controleer of https://adnotifications.windowsazure.com bereikbaar is vanaf de se
 
 Als uw vorige computercertificaat is verlopen, en een nieuw certificaat is gegenereerd, moet u een verlopen certificaten verwijderen. Met verlopen certificaten kunnen problemen veroorzaken met de NPS-extensie starten.
 
-Om te controleren als u een geldig certificaat hebben, controleert u het lokale computeraccount certificaat Store met behulp van MMC en zorg ervoor dat het certificaat heeft de verloopdatum niet doorstaan. Voor het genereren van een nieuw geldig certificaat, voer de stappen onder de sectie '[de PowerShell-script uitvoeren](#run-the-powershell-script)"
+Om te controleren als u een geldig certificaat hebben, controleert u het lokale computeraccount certificaat Store met behulp van MMC en zorg ervoor dat het certificaat heeft de verloopdatum niet doorstaan. Voor het genereren van een nieuw geldig certificaat opnieuw de stappen onder de sectie '[de PowerShell-script uitvoeren](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en coderingssuites
 
@@ -282,4 +296,4 @@ Het verdient aanbeveling dat oudere en zwakkere coderingssuites worden uitgescha
 
 - Meer informatie over het integreren [extern bureaublad-Gateway](howto-mfa-nps-extension-rdg.md) en [VPN-servers](howto-mfa-nps-extension-vpn.md) met behulp van de NPS-extensie
 
-- [Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen](howto-mfa-nps-extension-errors.md)
+- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md) (Foutberichten van de NPS-extensie voor Azure Multi-Factor Authentication oplossen)

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261034"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565514"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -224,7 +224,7 @@ Er zijn twee firewalls om te overwegen: de *bedrijfsfirewall* die worden uitgevo
 
 Op de *bedrijfsfirewall* niveau, moet u de volgende domeinen bevinden en uitgaande poorten configureren:
 
-Domeinnamen | Poorten | Description
+Domeinnamen | Poorten | Beschrijving
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | Gebruikt voor communicatie met de back-end data movement service
 *.core.windows.net | 443 | Gebruikt voor gefaseerd kopiëren via Azure Blob-opslag (indien geconfigureerd)
@@ -255,7 +255,7 @@ Als uw bedrijfsnetwerk bevindt een proxyserver gebruikt voor toegang tot het int
 
 ![Geef-proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-De zelf-hostende integratieruntime maakt gebruik van de proxy-server verbinding maken met de cloudservice. Selecteer **koppeling wijzigen** tijdens de eerste configuratie. Ziet u het dialoogvenster proxy-instellingen.
+Wanneer geconfigureerd, de zelf-hostende integratieruntime maakt gebruik van de proxyserver te verbinden met de cloudservice, bron / bestemming (die via HTTP / HTTPS-protocol). Dit is Selecteer **koppeling wijzigen** tijdens de eerste configuratie. Ziet u het dialoogvenster proxy-instellingen.
 
 ![Set-proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

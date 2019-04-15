@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495682"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565959"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -99,8 +99,8 @@ De volgende gebieden van Application Insights kunnen nuttig zijn bij het evaluer
 
 | Tab | Beschrijving |
 | ---- | ----------- |
-| **[Fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
-| **[Prestaties](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |
+| **[fouten](../azure-monitor/app/asp-net-exceptions.md)** |  Maak grafieken en waarschuwingen op basis van functie fouten en uitzonderingen voor servers. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u aangepaste telemetrie voor afhankelijkheden implementeren. |
+| **[Performance](../azure-monitor/app/performance-counters.md)** | Prestatieproblemen analyseren. |
 | **Servers** | Gebruik van resources en de doorvoer per server weergeven. Deze gegevens is handig voor het opsporen van fouten in scenario's waarbij functies worden bogging uw onderliggende resources. Servers worden aangeduid als **rolinstanties in de Cloud**. |
 | **[Metrische gegevens](../azure-monitor/app/metrics-explorer.md)** | Maak grafieken en waarschuwingen die zijn gebaseerd op de metrische gegevens. Metrische gegevens behoren het aantal functieaanroepen, uitvoeringstijd en succespercentages. |
 | **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Metrische gegevens weergeven zoals deze gemaakt in realtime. |
@@ -124,14 +124,14 @@ requests
 
 De tabellen die beschikbaar zijn worden weergegeven in de **Schema** tabblad aan de linkerkant. Hier vindt u gegevens die zijn gegenereerd door de functieaanroepen in de volgende tabellen:
 
-| Tabel | Description |
+| Tabel | Beschrijving |
 | ----- | ----------- |
 | **traceringen** | Logboeken die zijn gemaakt door de runtime en functiecode aan te geven. |
-| **aanvragen** | Een aanvraag voor elke functieaanroep. |
-| **uitzonderingen** | Alle uitzonderingen die door de runtime. |
+| **Aanvragen** | Een aanvraag voor elke functieaanroep. |
+| **exceptions** | Alle uitzonderingen die door de runtime. |
 | **customMetrics** | Het aantal geslaagde en mislukte aanroepen, slagingspercentage en duur. |
 | **customEvents** | Gebeurtenissen bijgehouden door de runtime, bijvoorbeeld: HTTP-aanvragen die een functie geactiveerd. |
-| **PerformanceCounters** | Informatie over de prestaties van de servers die de functies worden uitgevoerd op. |
+| **performanceCounters** | Informatie over de prestaties van de servers die de functies worden uitgevoerd op. |
 
 De andere tabellen zijn voor beschikbaarheidstests en client- en browserbeheer telemetrie. U kunt aangepaste telemetrie om toe te voegen gegevens om ze te implementeren.
 
@@ -595,7 +595,9 @@ De `tagOverrides` parametersets de `operation_Id` aan van de functie aanroep-ID.
 
 ## <a name="dependencies"></a>Afhankelijkheden
 
-Afhankelijkheden die de functie met andere services heeft weergegeven niet automatisch. U kunt aangepaste code om de afhankelijkheden weer te schrijven. Zie voor voorbeelden van de voorbeeldcode in de [ C# aangepaste telemetrie sectie](#log-custom-telemetry-in-c-functions). De voorbeeldcode resulteert in een *toepassingsoverzicht* in Application Insights die vergelijkbaar is de volgende afbeelding:
+Functies v2 verzamelt automatisch afhankelijkheden voor HTTP-aanvragen, service bus en SQL.
+
+U kunt aangepaste code om de afhankelijkheden weer te schrijven. Zie voor voorbeelden van de voorbeeldcode in de [ C# aangepaste telemetrie sectie](#log-custom-telemetry-in-c-functions). De voorbeeldcode resulteert in een *toepassingsoverzicht* in Application Insights die vergelijkbaar is de volgende afbeelding:
 
 ![Overzicht van de toepassing](./media/functions-monitoring/app-map.png)
 

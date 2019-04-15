@@ -1,6 +1,6 @@
 ---
-title: Toegang tot Azure Active Directory tokens referentie | Microsoft Docs
-description: Meer informatie over toegangstokens die zijn gegenereerd door de v1.0 en v2.0-eindpunten van Azure AD.
+title: Microsoft identity platform access tokens referentie | Azure
+description: Meer informatie over toegangstokens die zijn gegenereerd door de Azure AD-v1.0 en Microsoft identity-platform (v2.0) eindpunten.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,29 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501141"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563756"
 ---
-# <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-toegangstokens
+# <a name="microsoft-identity-platform-access-tokens"></a>Toegangstokens voor Microsoft identity-platform
 
-Toegangstokens zodat clients kunnen veilig aanroepen van API's die zijn beveiligd door Azure. Azure Active Directory (Azure AD)-toegangstokens zijn [JWTs](https://tools.ietf.org/html/rfc7519), met Base64 gecodeerde JSON-objecten die zijn ondertekend door Azure. Clients moeten toegang tokens als ondoorzichtige tekenreeksen, als de inhoud van het token zijn bedoeld voor de resource alleen behandeld. Voor validatie en foutopsporing, ontwikkelaars kunnen worden gedecodeerd JWTs met behulp van een site, zoals [jwt.ms](https://jwt.ms). De client kan een toegangstoken ophalen uit een eindpunt (v1.0 of v2.0) met behulp van verschillende protocollen.
+Toegangstokens zodat clients kunnen veilig aanroepen van API's die zijn beveiligd door Azure. Toegangstokens voor Microsoft identity-platform zijn [JWTs](https://tools.ietf.org/html/rfc7519), met Base64 gecodeerde JSON-objecten die zijn ondertekend door Azure. Clients moeten toegang tokens als ondoorzichtige tekenreeksen, als de inhoud van het token zijn bedoeld voor de resource alleen behandeld. Voor validatie en foutopsporing, ontwikkelaars kunnen worden gedecodeerd JWTs met behulp van een site, zoals [jwt.ms](https://jwt.ms). De client kan een toegangstoken ophalen uit het eindpunt v1.0 of het v2.0-eindpunt met behulp van verschillende protocollen.
 
-Wanneer de aanvraag van de client een toegangstoken, Azure AD ook retourneert een aantal metagegevens over het toegangstoken voor het gebruiken van uw app. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor deze geldig is. Deze gegevens kan uw app uit te voeren intelligente cachebewerkingen van toegangstokens zonder te parseren van het toegangstoken zelf.
+Wanneer de client een toegangstoken vraagt, retourneert Azure AD ook een aantal metagegevens over het toegangstoken voor het gebruiken van uw app. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor deze geldig is. Deze gegevens kan uw app doen van intelligente cachebewerkingen van toegangstokens zonder te parseren van het toegangstoken zelf.
 
-Als uw toepassing een resource (web-API) die clients de toegang tot aanvragen is kunnen, bieden toegangstokens nuttige informatie voor gebruik bij verificatie en autorisatie, zoals de gebruiker, client, uitgever, machtigingen en meer. 
+Als uw toepassing een resource (web-API) die clients de toegang tot aanvragen is kunnen, bieden toegangstokens nuttige informatie voor gebruik bij verificatie en autorisatie, zoals de gebruiker, client, uitgever, machtigingen en meer.
 
 Zie de volgende secties voor meer informatie over hoe een resource kunt valideren en de claims binnen een toegangstoken gebruiken.
 
-> [!Important]
+> [!IMPORTANT]
 > Toegangstokens zijn gemaakt op basis van de *doelgroep* van het token, wat betekent dat de toepassing die eigenaar is van de bereiken in het token.  Dit is hoe een instelling voor de resource `accessTokenAcceptedVersion` in de [app-manifest](reference-app-manifest.md#manifest-reference) naar `2` kan een client de v1.0-eindpunt aanroept voor het ontvangen van een toegangstoken v2.0.  Op dezelfde manier, dit is de reden waarom het wijzigen van het toegangstoken [optionele claims](active-directory-optional-claims.md) voor uw client doe niet wijzigen het toegangstoken wanneer ontvangen een token is aangevraagd voor `user.read`, die eigendom is van de resource MS Graph.  
 > Om dezelfde reden bij het testen van uw client-toepassing met een persoonlijk account (zoals hotmail.com of outlook.com), misschien merkt u dat het toegangstoken dat is ontvangen door de client een ondoorzichtige tekenreeks is. Dit is omdat de resource die wordt benaderd verouderde tickets van de beheerde Serviceaccounts (Microsoft-account) die zijn versleuteld en kunnen niet worden geïnterpreteerd door de client heeft aangevraagd.
 
@@ -68,14 +68,14 @@ JWTs worden onderverdeeld in drie onderdelen:
 
 Elk wordt gescheiden door een punt (`.`) en afzonderlijk Base64-gecodeerd.
 
-Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet een afhankelijkheid dus niet uitvoeren op een claim aanwezig. Voorbeelden zijn onder meer `pwd_exp` (niet elke tenant vereist dat wachtwoorden verlopen) of `family_name` ([clientreferenties](v1-oauth2-client-creds-grant-flow.md) stromen namens toepassingen waarvoor namen zijn). Claims die worden gebruikt voor validatie van het toegangstoken wordt altijd aanwezig zijn.
+Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app al dan niet mogen dus een afhankelijkheid uitvoeren op een claim aanwezig. Voorbeelden zijn onder meer `pwd_exp` (niet elke tenant vereist dat wachtwoorden verlopen) of `family_name` ([clientreferenties](v1-oauth2-client-creds-grant-flow.md) stromen namens toepassingen waarvoor namen zijn). Claims die worden gebruikt voor validatie van het toegangstoken wordt altijd aanwezig zijn.
 
 > [!NOTE]
 > Sommige claims worden gebruikt voor de Azure AD beveiligde tokens in het geval van hergebruik. Deze zijn gemarkeerd als niet wordt voor openbaar gebruik in de beschrijving als 'Ondoorzichtige'. Deze claims kunnen of kunnen niet worden weergegeven in een token, en nieuwe waarden kunnen worden toegevoegd zonder voorafgaande kennisgeving.
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Beschrijving |
+|Claim | Indeling | Description |
 |--------|--------|-------------|
 | `typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 | `nonce` | String | Een unieke id gebruikt om te beveiligen tegen token opnieuw afspelen aanvallen. Je kunt deze waarde om te beveiligen tegen replays bronrecord. |
@@ -85,39 +85,39 @@ Claims zijn alleen aanwezig als een waarde bestaat om het te vullen. Uw app moet
 
 ### <a name="payload-claims"></a>De nettolading van claims
 
-| Claim | Indeling | Beschrijving |
+| Claim | Indeling | Description |
 |-----|--------|-------------|
 | `aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In de toegangstokens te geven is de doelgroep van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 | `iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token dat is uitgegeven, een v2.0-token is (Zie de `ver` claim), de URI eindigt `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
-|`idp`| Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in de context van een organisatie (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden. |
 | `nbf` | int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking. |
 | `exp` | int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT moet niet worden geaccepteerd voor verwerking. Het is belangrijk te weten dat een resource het token voordat deze tijd, afwijzen kan zoals wanneer een wijziging in de verificatie vereist is of intrekken van een token is gedetecteerd. |
 | `acr` | Tekenreeks, een '0' of '1' | De claim "Authentication context class". Een waarde van '0' geeft aan dat de verificatie van de eindgebruiker niet voldoet aan de vereisten van ISO/IEC 29115. |
-| `aio` | Opaque String | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Resources moeten deze claim niet gebruiken. |
-| `amr` | JSON-matrix met tekenreeksen | Alleen aanwezig in v1.0 tokens. Hiermee geeft u op hoe de onderwerpnaam van het token is geverifieerd. Zie [de amr sectie claimen](#the-amr-claim) voor meer informatie. |
+| `aio` | Opaque String | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Resources mag niet met deze claim gebruiken. |
+| `amr` | JSON-matrix met tekenreeksen | Alleen aanwezig in v1.0 tokens. Hiermee geeft u op hoe de onderwerpnaam van het token is geverifieerd. Zie voor meer informatie, [de amr sectie claimen](#the-amr-claim). |
 | `appid` | Tekenreeks, een GUID | Alleen aanwezig in v1.0 tokens. De toepassings-ID van de client met behulp van het token. De toepassing kan fungeren als zelf of namens een gebruiker. De toepassings-ID vertegenwoordigt doorgaans een toepassingsobject, maar het kan ook een service-principal-object vertegenwoordigen in Azure AD. |
 | `appidacr` | "0", "1" of "2" | Alleen aanwezig in v1.0 tokens. Geeft aan hoe de client is geverifieerd. De waarde is voor een openbare client "0". Als de client-ID en het clientgeheim worden gebruikt, is de waarde "1". Als u een clientcertificaat is gebruikt voor verificatie, is de waarde "2". |
 | `azp` | Tekenreeks, een GUID | Alleen aanwezig in v2.0-tokens. De toepassings-ID van de client met behulp van het token. De toepassing kan fungeren als zelf of namens een gebruiker. De toepassings-ID vertegenwoordigt doorgaans een toepassingsobject, maar het kan ook een service-principal-object vertegenwoordigen in Azure AD. |
 | `azpacr` | "0", "1" of "2" | Alleen aanwezig in v2.0-tokens. Geeft aan hoe de client is geverifieerd. De waarde is voor een openbare client "0". Als de client-ID en het clientgeheim worden gebruikt, is de waarde "1". Als u een clientcertificaat is gebruikt voor verificatie, is de waarde "2". |
-| `groups` | JSON-matrix van GUID 's | Object-id's die staan voor groepslidmaatschappen van de certificaathouder biedt. Deze waarden zijn unieke (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang, zoals het afdwingen van machtiging voor toegang tot een resource. De groepen die zijn opgenomen in de claim van groepen op basis van per toepassing worden geconfigureerd via de `groupMembershipClaims` eigenschap van de [toepassingsmanifest](reference-app-manifest.md). Een null-waarde wordt alle groepen uitsluit, een waarde van 'Toewijzingsmodule' bevat alleen lidmaatschappen voor Active Directory-beveiligingsgroepen, en de waarde 'Alle' wordt opgenomen beveiligingsgroepen en distributielijsten van Office 365. <br><br>Zie de `hasgroups` claim hieronder voor meer informatie over het gebruik van de `groups` claim met de impliciete toekenning. <br>Voor andere stromen als het nummer van de gebruiker zich in groepen gaat via een limiet (150 voor SAML, 200 voor JWT), klikt u vervolgens een overschrijding claim toegevoegd aan de claim bronnen aan te wijzen aan de Graph-eindpunt met de lijst met groepen voor de gebruiker. |
+| `groups` | JSON-matrix van GUID 's | Object-id's die staan voor groepslidmaatschappen van de certificaathouder biedt. Deze waarden zijn unieke (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang, zoals het afdwingen van machtiging voor toegang tot een resource. De groepen die zijn opgenomen in de claim van groepen op basis van per toepassing worden geconfigureerd via de `groupMembershipClaims` eigenschap van de [toepassingsmanifest](reference-app-manifest.md). Een null-waarde wordt alle groepen uitsluit, een waarde van 'Toewijzingsmodule' bevat alleen lidmaatschappen voor Active Directory-beveiligingsgroepen, en de waarde 'Alle' wordt opgenomen beveiligingsgroepen en distributielijsten van Office 365. <br><br>Zie de `hasgroups` claim hieronder voor meer informatie over het gebruik van de `groups` claim met de impliciete toekenning. <br>Voor andere stromen, dat als het nummer van de gebruiker zich in groepen gaat via een limiet (150 voor SAML, 200 voor JWT), een overschrijding claim wordt toegevoegd aan de claim-bronnen die verwijzen naar de Graph-eindpunt met de lijst met groepen voor de gebruiker. |
 | `hasgroups` | Booleaans | Indien aanwezig, altijd `true`, die aangeeft van de gebruiker is in ten minste één groep. Gebruikt in plaats van de `groups` claim voor JWTs in impliciete goedkeuring voor stromen als de volledige groepen claim gelden de URI-fragment buiten de URL-lengte-limieten (momenteel abonnement van 6 of meer groepen). Geeft aan dat de client de grafiek gebruiken moet om te bepalen van de gebruiker groepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | JSON-object | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker worden opgenomen. Voor JWTs als een gedistribueerde claim, voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br>**Voorbeeldwaarde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | JSON-object | Token aanvragen die niet beperkt de lengte zijn (Zie `hasgroups` hierboven) maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst van de gebruiker is opgenomen. Voor JWTs als een gedistribueerde claim, voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br>**Voorbeeldwaarde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | String | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen.  Het kan worden gebruikt voor de gebruikersnaam hints echter. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-| `name` | String | Biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-| `oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in de Microsoft identity-platform, in dit geval een gebruikersaccount. Het kan ook worden gebruikt voor het uitvoeren van controles autorisatie veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. Dus `oid` kunnen worden gebruikt bij het maken van query's voor Microsoft online services, zoals de Microsoft Graph. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
-| `rh` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources moeten deze claim niet gebruiken. |
+| `name` | String | Biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde wordt niet gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
+| `oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in de Microsoft identity-platform, in dit geval een gebruikersaccount. U kunt dit ook gebruiken voor autorisatie controles veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. Dus `oid` kunnen worden gebruikt bij het maken van query's voor Microsoft online services, zoals de Microsoft Graph. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Als een enkele gebruiker in meerdere tenants bestaat, de gebruiker bevat een ander object-ID in elke tenant: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
+| `rh` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources mag niet met deze claim gebruiken. |
 | `scp` | Tekenreeks, een spatie gescheiden lijst met scopes | De set met scopes die worden weergegeven door uw toepassing waarvoor de clienttoepassing heeft aangevraagd (en ontvangen) toestemming geven. Uw app moet controleren of deze bereiken geldige die door uw app beschikbaar gesteld zijn en autorisatiebeslissingen te op basis van de waarde van deze bereiken nemen. Alleen opgenomen voor [gebruikerstokens](#user-and-application-tokens). |
 | `roles` | Matrix van tekenreeksen, een lijst met machtigingen | De set met machtigingen die worden weergegeven door uw toepassing die de aanvragende toepassing heeft zijn gemachtigd om aan te roepen. Voor [toepassing tokens](#user-and-application-tokens), dit wordt gebruikt tijdens de [-clientreferenties](v1-oauth2-client-creds-grant-flow.md) stroom in plaats van de gebruiker bereiken.  Voor [gebruikerstokens](#user-and-application-tokens) dit wordt gevuld met de rollen die de gebruiker is toegewezen aan op de doeltoepassing. |
-| `sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd is aanwezig zijn in de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een autorisatiesysteem voor algemeen gebruik. Het onderwerp is echter een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
+| `sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. U kunt dit ook doen autorisatie controles veilig, zoals wanneer het token wordt gebruikt voor toegang tot een resource en kan worden gebruikt als een sleutel in de database-tabellen gebruiken. Omdat het onderwerp altijd is aanwezig zijn in de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een autorisatiesysteem voor algemeen gebruik. Het onderwerp is echter een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
 | `tid` | Tekenreeks, een GUID | Hiermee geeft u de Azure AD-tenant die door de gebruiker uit. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
-| `unique_name` | String | Alleen aanwezig in v1.0 tokens. Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. |
-| `uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources moeten deze claim niet gebruiken. |
+| `unique_name` | String | Alleen aanwezig in v1.0 tokens. Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde wordt niet gegarandeerd uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. |
+| `uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Resources mag niet met deze claim gebruiken. |
 | `ver` | Tekenreeks, ofwel `1.0` of `2.0` | Geeft de versie van het toegangstoken. |
 
 #### <a name="v10-basic-claims"></a>basic claims V1.0
 
-De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar worden niet standaard opgenomen in v2.0-tokens. Als u versie 2.0 en moet u een van deze claims worden gebruikt, deze aanvragen met behulp van [optionele claims](active-directory-optional-claims.md).
+De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar worden niet standaard opgenomen in v2.0-tokens. Als u versie 2.0 en moet u een van deze claims, deze aanvragen met behulp van [optionele claims](active-directory-optional-claims.md).
 
 | Claim | Indeling | Description |
 |-----|--------|-------------|
@@ -125,7 +125,7 @@ De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar w
 | `onprem_sid`| Tekenreeks, in [SID-indeling](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In gevallen waar de gebruiker een on-premises-verificatie heeft, biedt deze claim hun SID. U kunt `onprem_sid` voor autorisatie voor oudere toepassingen.|
 | `pwd_exp`| int, een UNIX-timestamp | Geeft aan wanneer het wachtwoord van de gebruiker is verlopen. |
 | `pwd_url`| String | Een URL waar gebruikers hun wachtwoord opnieuw in te kunnen worden verzonden. |
-| `in_corp`|booleaans | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als dat niet het geval is, is de claim niet opgenomen. |
+| `in_corp`| booleaans | Signalen als de client is aangemeld vanuit het bedrijfsnetwerk bevinden. Als ze niet zijn, niet de claim is opgenomen. |
 | `nickname`| String | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste.|
 | `family_name` | String | Bevat de laatste naam, de achternaam of familienaam van de gebruiker gedefinieerd op het gebruikersobject. |
 | `given_name` | String | Biedt de eerste of de opgegeven naam van de gebruiker, zoals ingesteld op het gebruikersobject. |
@@ -133,12 +133,12 @@ De volgende claims worden opgenomen in v1.0 tokens indien van toepassing, maar w
 
 #### <a name="the-amr-claim"></a>De `amr` claim
 
-Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk relevant zijn voor uw toepassing. De `amr` claim is een matrix met meerdere items zoals bevatten kan `["mfa", "rsa", "pwd"]`, voor een verificatie met een wachtwoord en de Authenticator-app gebruikt.
+Microsoft-id's kunnen op verschillende manieren, die mogelijk relevant zijn voor uw toepassing verifiëren. De `amr` claim is een matrix met meerdere items zoals bevatten kan `["mfa", "rsa", "pwd"]`, voor een verificatie met een wachtwoord en de Authenticator-app gebruikt.
 
 | Value | Description |
 |-----|-------------|
 | `pwd` | Wachtwoordverificatie, Microsoft-wachtwoord van een gebruiker of het clientgeheim van een app. |
-| `rsa` | Verificatie is op basis van de POC-fase van een RSA-sleutel, bijvoorbeeld met de [Microsoft Authenticator-app](https://aka.ms/AA2kvvu). Dit omvat als verificatie is uitgevoerd door een zelf-ondertekend JWT met een service die eigendom zijn X509 certificaat. |
+| `rsa` | Verificatie is op basis van de POC-fase van een RSA-sleutel, bijvoorbeeld met de [Microsoft Authenticator-app](https://aka.ms/AA2kvvu). Dit omvat als verificatie is uitgevoerd met een zelf-ondertekend JWT met een service die eigendom zijn X509 certificaat. |
 | `otp` | Eenmalige wachtwoordcode met behulp van een e-mailbericht of een SMS-bericht. |
 | `fed` | Een verklaring van federatieve verificatie (zoals JWT of SAML) is gebruikt. |
 | `wia` | Geïntegreerde Windows-verificatie |
@@ -149,11 +149,11 @@ Microsoft-identiteiten kunnen verifiëren in tal van manieren, die mogelijk rele
 
 ## <a name="validating-tokens"></a>Valideren van tokens
 
-Voor het valideren van een id_token of een access_token, moet het valideren van uw app in zowel de handtekening van het token en de claims. Om te valideren toegangstokens, moet de uitgever, de doelgroep en het ondertekenen tokens ook valideren door uw app. Deze moeten worden gevalideerd op basis van de waarden in de OpenID-discovery-document. Bijvoorbeeld, de versie van de tenant-onafhankelijk van het document bevindt zich op [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Voor het valideren van een id_token of een access_token, moet het valideren van uw app in zowel de handtekening van het token en de claims. Voor het valideren van tokens voor toegang, moet de uitgever, de doelgroep en het ondertekenen tokens ook valideren door uw app. Deze moeten worden gevalideerd op basis van de waarden in de OpenID-discovery-document. Bijvoorbeeld, de versie van de tenant-onafhankelijk van het document bevindt zich op [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-De Azure AD-middleware beschikt over ingebouwde mogelijkheden voor het valideren van tokens voor toegang en vindt u op onze [voorbeelden](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) te zoeken in de taal van uw keuze. Zie voor meer informatie over hoe u expliciet een JWT-token te valideren, de [handmatige JWT Validatievoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
+De Azure AD-middleware beschikt over ingebouwde mogelijkheden voor het valideren van tokens voor toegang en vindt u op onze [voorbeelden](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) te zoeken in de taal van uw keuze. Zie voor meer informatie over hoe u expliciet een JWT-token te valideren, de [handmatige JWT Validatievoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-We bieden bibliotheken en codevoorbeelden die laten zien hoe eenvoudig omgaan met validatie van tokens. De onderstaande informatie is opgegeven voor gebruikers die u wilt het onderliggende proces begrijpt. Er zijn ook verschillende externe open source-bibliotheken beschikbaar voor validatie van JWT - er is ten minste één optie voor bijna elk platform of elke taal beschikbaar. Zie voor meer informatie over Azure AD-verificatiebibliotheken en codevoorbeelden [v1.0-verificatiebibliotheken](active-directory-authentication-libraries.md) en [v2.0-verificatiebibliotheken](reference-v2-libraries.md).
+We bieden bibliotheken en codevoorbeelden die laten zien hoe eenvoudig omgaan met validatie van tokens. De onderstaande informatie is opgegeven voor gebruikers die u wilt het onderliggende proces begrijpt. Er zijn ook verschillende open source-bibliotheken van derden beschikbaar voor validatie van JWT - er is ten minste één optie voor bijna elk platform of elke taal beschikbaar. Zie voor meer informatie over Azure AD-verificatiebibliotheken en codevoorbeelden [v1.0-verificatiebibliotheken](active-directory-authentication-libraries.md) en [v2.0-verificatiebibliotheken](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Valideren van de handtekening
 
@@ -185,27 +185,27 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 Dit metagegevensdocument:
 
-* Is een JSON-object bevat nuttige stukjes informatie, zoals de locatie van de verschillende eindpunten vereist voor het uitvoeren van de OpenID Connect-verificatie. 
-* Bevat een `jwks_uri`, waardoor de locatie van de set met openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document dat zich bevindt in de `jwks_uri` bevat alle gegevens van de openbare sleutel wordt gebruikt op een bepaald tijdstip. Uw app kan gebruiken de `kid` claim in de JWT-header te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een bepaalde token. Validatie van de handtekening met behulp van de juiste openbare sleutel en het opgegeven algoritme kan vervolgens uitvoeren.
+* Is een JSON-object bevat nuttige stukjes informatie, zoals de locatie van de verschillende eindpunten vereist voor het uitvoeren van de OpenID Connect-verificatie.
+* Bevat een `jwks_uri`, waardoor de locatie van de set met openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document dat zich bevindt in de `jwks_uri` bevat alle gegevens van de openbare sleutel wordt gebruikt op een bepaald tijdstip. Uw app kan gebruiken de `kid` claim in de JWT-header te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een bepaalde token. Deze kan vervolgens handtekeningvalidatie met behulp van de juiste openbare sleutel en het opgegeven algoritme doen.
 
 > [!NOTE]
 > Het eindpunt v1.0 retourneert zowel de `x5t` en `kid` claims, terwijl het v2.0-eindpunt met alleen reageert de `kid` claim. Voortaan, wordt u aangeraden de `kid` claim uw token te valideren.
 
-Het valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source-bibliotheken beschikbaar voor u doen indien nodig te helpen.  Het Microsoft Identity-platform heeft echter een token-ondertekening van de extensie aan de normen - aangepaste ondertekeningssleutels.  
+Valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source-bibliotheken beschikbaar voor u doen indien nodig te helpen.  Het Microsoft Identity-platform heeft echter een token-ondertekening van de extensie aan de normen - aangepaste ondertekeningssleutels.  
 
-Als uw app aangepaste ondersteuningssleutels door het gebruik van heeft de [claims-toewijzing](active-directory-claims-mapping.md) functie, die u moet toevoegen een `appid` queryparameter met de app-ID om op te halen een `jwks_uri` die verwijst naar uw app de ondertekeningssleutel informatie, die moet worden gebruikt voor validatie. Bijvoorbeeld: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` bevat een `jwks_uri` van `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Als uw app aangepaste ondersteuningssleutels door het gebruik van heeft de [claims-toewijzing](active-directory-claims-mapping.md) functie, die u moet toevoegen een `appid` queryparameter met de app-ID om op te halen een `jwks_uri` die verwijst naar uw app de ondertekening van belangrijke informatie die moet worden gebruikt voor validatie. Bijvoorbeeld: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` bevat een `jwks_uri` van `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorisatie op basis van claims
 
 Deze stap worden bepaald door de bedrijfslogica van uw toepassing, hieronder enkele veelgebruikte autorisatiemethoden worden behandeld.
 
-* Controleer de `scp` of `roles` claimen om te controleren of alle aanwezig bereiken overeenkomen met de door uw API beschikbaar gesteld en dat de client de gevraagde actie uit te voeren.
+* Controleer de `scp` of `roles` claimen om te controleren of alle aanwezig bereiken overeenkomen met de door uw API beschikbaar gesteld en kan de client de aangevraagde actie uitvoeren.
 * Zorg ervoor dat de aanroepende client is toegestaan om aan te roepen uw API met de `appid` claim.
-* Valideren van de status van de verificatie van de aanvragende client met behulp van `appidacr` -deze mag niet 0 zijn als openbare clients niet mogen uw API aan te roepen.
+* Valideren van de status van de verificatie van de aanvragende client met behulp van `appidacr` -deze mag niet 0 zijn als openbare clients zijn niet toegestaan de API aan te roepen.
 * Controleren op basis van een lijst met verleden `nonce` claims om te controleren of het token is niet opnieuw worden afgespeeld.
 * Controleer of de `tid` komt overeen met een tenant die is toegestaan voor het aanroepen van uw API.
 * Gebruik de `acr` claim om te controleren of de gebruiker MFA is uitgevoerd. Dit moet worden afgedwongen met behulp van [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
-* Als u hebt aangevraagd de `roles` of `groups` claims in het toegangstoken controleren of de gebruiker in de groep mag deze actie uit te voeren.
+* Als u hebt aangevraagd de `roles` of `groups` claims in het toegangstoken controleren of de gebruiker in de groep mag doen met deze actie.
   * Voor tokens opgehaald met behulp van de impliciete stroom, waarschijnlijk moet u om op te vragen de [Microsoft Graph](https://developer.microsoft.com/graph/) voor deze gegevens, zoals deze is vaak te groot voor in het token.
 
 ## <a name="user-and-application-tokens"></a>Gebruikers en toepassingen-tokens
@@ -217,15 +217,15 @@ Uw toepassing tokens namens een gebruiker (de gebruikelijke stroom) of rechtstre
 
 ## <a name="token-revocation"></a>Intrekken van token
 
-Vernieuwen van tokens kunnen worden ongeldig gemaakt of ingetrokken op elk gewenst moment, voor tal van redenen. Deze kunnen worden onderverdeeld in twee hoofdcategorieën: time-outs en intrekkingen.
+Vernieuwen van tokens kunnen worden ongeldig gemaakt of ingetrokken op elk gewenst moment, om verschillende redenen. Deze kunnen worden onderverdeeld in twee hoofdcategorieën: time-outs en intrekkingen.
 
 ### <a name="token-timeouts"></a>Token time-outs
 
-* MaxInactiveTime: Als het vernieuwingstoken dat niet binnen de tijd die wordt bepaald door de MaxInactiveTime gebruikt is, wordt Token vernieuwen niet langer geldig. 
-* MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot en met ingetrokken), klikt u vervolgens is herauthenticatie vereist wanneer de tijd instellen in de MaxAgeSession * is verstreken. 
+* MaxInactiveTime: Als het vernieuwingstoken dat nog niet is gebruikt binnen de tijd die wordt bepaald door de MaxInactiveTime, wordt Token vernieuwen niet langer geldig.
+* MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot en met ingetrokken), klikt u vervolgens is herauthenticatie vereist wanneer de tijd instellen in de MaxAgeSession * is verstreken.
 * Voorbeelden:
-  * De tenant heeft een MaxInactiveTime van 5 dagen en de gebruiker voor een van de week op vakantie ging en dus AAD is niet zichtbaar voor een nieuwe tokenaanvraag van de gebruiker in de zeven dagen. De volgende keer dat de gebruiker een nieuw token aanvraagt ze, vindt hun Refresh Token is ingetrokken en moeten ze hun referenties opnieuw invoeren.
-  * Gevoelige toepassingen heeft een MaxAgeSessionSingleFactor van 1 dag. Als een gebruiker zich aanmeldt op maandag en op dinsdag (nadat de 25 uur zijn verstreken), ze moeten verifiëren.
+  * De tenant heeft een MaxInactiveTime van vijf dagen en de gebruiker voor een van de week op vakantie ging en zodat Azure AD een nieuwe tokenaanvraag van de gebruiker nog niet zichtbaar in de zeven dagen. De volgende keer dat de gebruiker een nieuw token aanvraagt vindt ze hun Refresh Token is ingetrokken, en moeten ze hun referenties opnieuw invoeren.
+  * Gevoelige toepassingen heeft een MaxAgeSessionSingleFactor van één dag. Als een gebruiker zich aanmeldt op maandag en op dinsdag (nadat de 25 uur zijn verstreken), wordt ze gevraagd om u te verifiëren.
 
 ### <a name="revocation"></a>Intrekken
 
@@ -240,11 +240,11 @@ Vernieuwen van tokens kunnen worden ongeldig gemaakt of ingetrokken op elk gewen
 | [Eenmalige afmelding](v1-protocols-openid-connect-code.md#single-sign-out) op het web | Ingetrokken | Blijft actief | Ingetrokken | Blijft actief | Blijft actief |
 
 > [!NOTE]
-> Een aanmelding 'niet-wachtwoord op basis van' is een waarin de gebruiker een wachtwoord om dit probleem te niet opgeven. Bijvoorbeeld, met behulp van de face met Windows Hello, een FIDO-sleutel of een PINCODE. 
+> Een aanmelding 'niet-wachtwoord op basis van' is een waarin de gebruiker een wachtwoord om dit probleem te niet opgeven. Bijvoorbeeld, met behulp van de face met Windows Hello, een FIDO-sleutel of een PINCODE.
 >
 > Er bestaat een bekend probleem met het Windows primaire vernieuwen-Token. Als de PRT wordt verkregen via een wachtwoord, en vervolgens de gebruiker zich via Hallo aanmeldt, de herkomst van de PRT worden niet gewijzigd en zal worden ingetrokken als de gebruiker het wachtwoord wijzigt.
 >
-> Vernieuwen van tokens niet ongeldig gemaakt of ingetrokken wanneer een nieuw toegangstoken ophalen en vernieuwen van het token.  
+> Vernieuwen van tokens niet zijn ongeldig gemaakt of ingetrokken wanneer een nieuw toegangstoken ophalen en vernieuwen van het token.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

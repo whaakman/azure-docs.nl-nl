@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7ab4007a94efbc48bfea67c6b954c02de0b2ba
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887434"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565883"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Toepassing en service-principalobjecten in Azure Active Directory
 
@@ -52,7 +52,7 @@ Wanneer u een Azure AD-toepassing in registreert de [Azure-portal][AZURE-Portal]
 
 ### <a name="application-object"></a>toepassingsobject
 
-Een Azure AD-toepassing wordt gedefinieerd door de 1 en alleen application-object, dat zich in de Azure AD-tenant waar de toepassing is geregistreerd bevindt, aangeduid als "home" tenant van de toepassing. Azure AD Graph [Toepassingsentiteit] [ AAD-Graph-App-Entity] definieert het schema voor de eigenschappen van een toepassingsobject.
+Een Azure AD-toepassing wordt gedefinieerd door de 1 en alleen application-object, dat zich in de Azure AD-tenant waar de toepassing is geregistreerd bevindt, aangeduid als "home" tenant van de toepassing. De Microsoft Graph [Toepassingsentiteit] [ MS-Graph-App-Entity] definieert het schema voor de eigenschappen van een toepassingsobject.
 
 ### <a name="service-principal-object"></a>service-principal-object
 
@@ -60,7 +60,7 @@ Voor toegang tot resources die zijn beveiligd met een Azure AD-tenant, moet de e
 
 De beveiligings-principal definieert het beleid voor toegang en machtigingen voor de gebruiker/toepassing in de Azure AD-tenant. Hiermee kunt u core-functies, zoals verificatie van de gebruiker/toepassing tijdens de aanmelding en autorisatie tijdens toegang tot bronnen.
 
-Wanneer een toepassing een machtiging verleend voor toegang tot resources in een tenant (bij de registratie of [toestemming geven](developer-glossary.md#consent)), een service-principal-object wordt gemaakt. Azure AD Graph [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object.
+Wanneer een toepassing een machtiging verleend voor toegang tot resources in een tenant (bij de registratie of [toestemming geven](developer-glossary.md#consent)), een service-principal-object wordt gemaakt. De Microsoft Graph [ServicePrincipal entiteit] [ MS-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object.
 
 ### <a name="application-and-service-principal-relationship"></a>Toepassing en service-principal-relatie
 
@@ -68,7 +68,7 @@ Houd rekening met het toepassingsobject als de *globale* weergave van uw toepass
 
 De toepassing-object fungeert als de sjabloon van welke gemeenschappelijke en de standaard-eigenschappen zijn *afgeleid* voor gebruik bij het maken van de bijbehorende service-principalobjecten. Een toepassingsobject is daarom een 1:1-relatie met de softwaretoepassing en een 1:many relaties met de bijbehorende objecten van de service-principal.
 
-Een service-principal moet worden gemaakt op elke tenant waar de toepassing wordt gebruikt, waardoor het een identiteit instellen voor aanmelden en/of toegang tot resources die worden beveiligd door de tenant. Een toepassing met één tenant heeft slechts één service-principal (in de starttenant), gemaakt en toestemming gegeven voor gebruik tijdens de toepassingsregistratie. Een multitenant webtoepassing /-API heeft ook een service-principal in elke tenant gemaakt wanneer een gebruiker van deze tenant heeft ingestemd met het gebruik ervan. 
+Een service-principal moet worden gemaakt op elke tenant waar de toepassing wordt gebruikt, waardoor het een identiteit instellen voor aanmelden en/of toegang tot resources die worden beveiligd door de tenant. Een toepassing met één tenant heeft slechts één service-principal (in de starttenant), gemaakt en toestemming gegeven voor gebruik tijdens de toepassingsregistratie. Een multitenant webtoepassing /-API heeft ook een service-principal in elke tenant gemaakt wanneer een gebruiker van deze tenant heeft ingestemd met het gebruik ervan.
 
 > [!NOTE]
 > Eventuele wijzigingen die u aanbrengt in uw toepassingsobject, worden ook weergegeven in de service-principal-object in van de toepassing de starttenant alleen (de tenant waar deze is geregistreerd). Voor toepassingen met meerdere tenants, wijzigingen in de toepassingsobject worden niet weergegeven in elke consument tenants service-principalobjecten, totdat de toegang is verwijderd door de [Toegangsvenster](https://myapps.microsoft.com) en gemachtigd voor het opnieuw.
@@ -83,7 +83,7 @@ Het volgende diagram illustreert de relatie tussen het toepassingsobject en de b
 - **Contoso** -de tenant die wordt gebruikt door de organisatie Contoso is een gebruiker van de **HR-app**
 - **Fabrikam** -de tenant die worden gebruikt door de Fabrikam organisatie, die ook verbruikt de **HR-app**
 
-![Relatie tussen een toepassingsobject en een service-principal-object](./media/app-objects-and-service-principals/application-objects-relationship.png)
+![Relatie tussen een toepassingsobject en een service-principal-object](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 In dit voorbeeldscenario:
 
@@ -95,13 +95,13 @@ In dit voorbeeldscenario:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- U kunt de [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) om op te vragen van de toepassing en de service-principalobjecten.
-- U kunt toegang tot application-object van een toepassing met de Azure AD Graph-API, de [van Azure portal] [ AZURE-Portal] application manifest editor of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [Toepassingsentiteit][AAD-Graph-App-Entity].
-- U kunt van een toepassing service-principal-object openen via de Azure AD Graph API of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity].
+- U kunt de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) om op te vragen van de toepassing en de service-principalobjecten.
+- U kunt toegang tot application-object van een toepassing met behulp van de Microsoft Graph-API, de [van Azure portal] [ AZURE-Portal] application manifest editor of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , zoals wordt weergegeven met de OData [Toepassingsentiteit][MS-Graph-App-Entity].
+- U kunt van een toepassing service-principal-object openen via de Microsoft Graph API of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [ServicePrincipal entiteit] [ MS-Graph-Sp-Entity].
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

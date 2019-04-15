@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ee8c94b216b9e4e0699e70819e3eb775d62234
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287362"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Zelfstudie: Azure Active Directory-integratie met RStudio Connect
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met RStudio verbinding m
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://connect.<example>.com/__login__/saml`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://connect.<example>.com/__login__/saml/acs`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://connect.<example>.com/__login__/saml/acs`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -195,9 +195,9 @@ Wanneer u op de tegel RStudio verbinding maken in het toegangsvenster, moet u wo
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

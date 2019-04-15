@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e67fefc5492f1acebeb56d350a0d651877149a1f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: e9a20ed50db0e7bc71da559163181619ba35f881
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500300"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Zelfstudie: Azure Active Directory-integratie met BetterWorks
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met BetterWorks, moet u 
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://app.betterworks.com/saml2/metadata/`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://app.betterworks.com/saml2/acs/`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://app.betterworks.com/saml2/acs/`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -227,8 +227,8 @@ Wanneer u op de tegel BetterWorks in het toegangsvenster, moet u worden automati
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

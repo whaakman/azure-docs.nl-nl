@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04-08-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 762f5a5682f41577e26074fd459780a08ba95827
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 91899b35f319dafd01a3f27d31aac53515b46d78
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500801"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Zelfstudie: Azure Active Directory-integratie met Skytap
 
@@ -108,15 +108,15 @@ Voor het configureren van Azure AD eenmalige aanmelding met Skytap, moet u de vo
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `http://pingone.com/<custom EntityID>`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stappen uit als u de toepassing in de met **SP** geïnitieerde modus wilt configureren:
 
     ![Skytap domein en URL's, eenmalige aanmelding informatie](common/both-advanced-urls.png)
 
-    d. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
+    d. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 
-    e. In de **Relaystatus** tekstvak typt u een URL met behulp van het volgende patroon: `https://pingone.com/1.0/<custom ID>`
+    e. In het tekstvak **Relaystatus** typt u een URL met de volgende notatie: `https://pingone.com/1.0/<custom ID>`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Deze waarden bijwerken met de werkelijke-id, de antwoord-URL, een aanmeldings-URL en een Relay-status. Neem contact op met [Skytap Client ondersteuningsteam](mailto:support@skytap.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -201,9 +201,9 @@ Wanneer u op de tegel Skytap in het toegangsvenster, moet u worden automatisch a
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

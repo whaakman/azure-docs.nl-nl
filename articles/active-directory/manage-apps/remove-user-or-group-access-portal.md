@@ -11,38 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074281"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565696"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory
-Het is gemakkelijk om te verwijderen van een gebruiker of groep toegang worden toegewezen aan een van uw bedrijfstoepassingen in Azure Active Directory (Azure AD). U moet de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet globale beheerder voor de map.
+Het is gemakkelijk om te verwijderen van een gebruiker of een groep van toegewezen toegang op een van uw bedrijfstoepassingen in Azure Active Directory (Azure AD). U moet de juiste machtigingen voor het beheren van de enterprise-app. En u moet globale beheerder voor de map.
 
 > [!NOTE]
 > Voor Microsoft Applications (zoals Office 365-apps), moet u PowerShell gebruiken om gebruikers met een enterprise-app te verwijderen.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hoe verwijder ik een gebruiker of groepstoewijzing aan een enterprise-app in Azure portal?
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
-2. Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory - *directoryname***  pagina (dat wil zeggen, de Azure AD-pagina voor de map die u beheert), selecteer **bedrijfstoepassingen**.
-
-    ![Bedrijfsapps openen](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** weergeeft, schakelt **alle toepassingen**. U ziet een lijst van de apps die u kunt beheren.
-5. Op de **bedrijfstoepassingen - alle toepassingen** pagina, selecteert u een app.
-6. Op de ***appname*** pagina (dat wil zeggen, de pagina met de naam van de geselecteerde app in de titel), selecteer **gebruikers en groepen**.
-
-    ![Gebruikers of groepen selecteren](./media/remove-user-or-group-access-portal/remove-app-users.png)
-7. Op de ***appname*** **-gebruiker & groepstoewijzing** pagina, selecteer een van de meer gebruikers of groepen en selecteer vervolgens de **verwijderen** opdracht. Controleer of uw beslissing bij de prompt.
-
-    ![De opdracht Remove selecteren](./media/remove-user-or-group-access-portal/remove-users.png)
+1. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Op de **Azure Active Directory - *directoryname***  pagina (dat wil zeggen, de Azure AD-pagina voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+1. Op de **bedrijfstoepassingen - alle toepassingen** pagina, ziet u een lijst van de apps die u kunt beheren. Selecteer een app.
+1. Op de ***appname*** overzichtspagina (dat wil zeggen, de pagina met de naam van de geselecteerde app in de titel), selecteer **gebruikers en groepen**.
+1. Op de ***appname*** **-gebruiker & groepstoewijzing** pagina, selecteer een van de meer gebruikers of groepen en selecteer vervolgens de **verwijderen** opdracht. Controleer of uw beslissing bij de prompt.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Hoe verwijder ik een gebruiker of groepstoewijzing aan een enterprise-app met behulp van PowerShell?
 1. Open een opdrachtprompt met verhoogde bevoegdheid Windows PowerShell.
@@ -50,8 +43,8 @@ Het is gemakkelijk om te verwijderen van een gebruiker of groep toegang worden t
     >[!NOTE] 
     > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u hierom wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u Y en druk op ENTER.
 
-2. Voer `Connect-AzureAD` en meld u aan met een globale beheerdersaccount voor de gebruiker.
-3. Het volgende script gebruiken om te verwijderen van een gebruiker en de rol van een toepassing:
+1. Voer `Connect-AzureAD` en meld u aan met een globale beheerdersaccount voor de gebruiker.
+1. Het volgende script gebruiken om te verwijderen van een gebruiker en de rol van een toepassing:
 
     ```powershell
     # Store the proper parameters

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/25/2018
+ms.date: 04/09/2019
 ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918396"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564824"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory-tenanttoepassingen weergeven
 
@@ -41,11 +41,11 @@ Ga als volgt te werk om de tenanttoepassingen te zoeken:
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**. 
 
-2. In de **Azure Active Directory** venster **bedrijfstoepassingen**. 
+1. In de **Azure Active Directory** venster **bedrijfstoepassingen**. 
 
-3. Uit de **toepassingstype** vervolgkeuzelijst in het menu **alle toepassingen**, en kies **toepassen**. Er wordt een willekeurige selectie uit uw tenanttoepassingen weergegeven.
+1. Uit de **toepassingstype** vervolgkeuzelijst in het menu **alle toepassingen**, en kies **toepassen**. Er wordt een willekeurige selectie uit uw tenanttoepassingen weergegeven.
    
-4. Als u meer toepassingen, selecteer **meer laden** aan de onderkant van de lijst. Afhankelijk van het aantal toepassingen in de tenant is het welllicht gemakkelijker om te [zoeken naar een bepaalde toepassing](#search-for-a-tenant-application) in plaats van door de lijst te schuiven.
+1. Als u meer toepassingen, selecteer **meer laden** aan de onderkant van de lijst. Afhankelijk van het aantal toepassingen in de tenant is het welllicht gemakkelijker om te [zoeken naar een bepaalde toepassing](#search-for-a-tenant-application) in plaats van door de lijst te schuiven.
 
 ## <a name="select-viewing-options"></a>Weergaveopties selecteren
 
@@ -53,17 +53,17 @@ Selecteer de opties op basis van wat u zoekt.
 
 1. U kunt de toepassingen door bekijken **toepassingstype**, **toepassingsstatus**, en **zichtbaarheid van toepassing**. 
 
-2. Kies onder **Toepassingstype** een van de volgende opties:
+1. Kies onder **Toepassingstype** een van de volgende opties:
 
     - **Bedrijfstoepassingen** geeft niet-Microsoft-toepassingen weer.
     - **Microsoft-toepassingen** geeft Microsoft-toepassingen weer.
     - **Alle toepassingen** geeft zowel niet-Microsoft- als Microsoft-toepassingen weer.
 
-3. Kies onder **Toepassingsstatus** een van de volgende opties: **Alle**, **Uitgeschakeld** of **Ingeschakeld**. De optie **Alle** omvat zowel de uitgeschakelde als de ingeschakelde toepassingen.
+1. Kies onder **Toepassingsstatus** een van de volgende opties: **Alle**, **Uitgeschakeld** of **Ingeschakeld**. De optie **Alle** omvat zowel de uitgeschakelde als de ingeschakelde toepassingen.
 
-4. Kies onder **Zichtbaarheid van toepassing** de optie **Alle** of **Verborgen**. De **verborgen** optie worden de toepassingen die in de tenant zijn, maar zijn niet zichtbaar voor gebruikers weergegeven.
+1. Kies onder **Zichtbaarheid van toepassing** de optie **Alle** of **Verborgen**. De **verborgen** optie worden de toepassingen die in de tenant zijn, maar zijn niet zichtbaar voor gebruikers weergegeven.
 
-5. Nadat u de gewenste opties is gekozen, selecteert u **toepassen**.
+1. Nadat u de gewenste opties is gekozen, selecteert u **toepassen**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Zoeken naar een tenanttoepassing
@@ -72,11 +72,11 @@ Om te zoeken naar een bepaalde toepassing:
 
 1. In de **toepassingstype** in het menu **alle toepassingen**, en kies **toepassen**.
 
-2. Voer de naam in van de toepassing die u zoekt. Als de toepassing is toegevoegd aan uw Azure AD-tenant, worden deze weergegeven in de lijst met zoekresultaten. In dit voorbeeld laat zien dat GitHub nog niet is toegevoegd aan de tenant-toepassingen.
+1. Voer de naam in van de toepassing die u zoekt. Als de toepassing is toegevoegd aan uw Azure AD-tenant, worden deze weergegeven in de lijst met zoekresultaten. In dit voorbeeld laat zien dat GitHub nog niet is toegevoegd aan de tenant-toepassingen.
 
     ![Zoeken naar een toepassing](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Voer de eerste paar letters van een toepassingsnaam in. In dit voorbeeld ziet u dat alle toepassingen beginnen met **Verkoop**.
+1. Voer de eerste paar letters van een toepassingsnaam in. In dit voorbeeld ziet u dat alle toepassingen beginnen met **Verkoop**.
 
     ![Zoeken met een voorvoegsel](media/view-applications-portal/search-by-prefix.png)
 

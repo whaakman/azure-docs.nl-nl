@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 SDK's - Azure
-description: In dit artikel vindt u een overzicht van hoe u begint aan het ontwikkelen van apps met Media Services v3-API met behulp van SDK's/hulpprogramma's.
+description: Dit artikel bevat een overzicht van hoe u aan het begin te ontwikkelen met Media Services v3 API met behulp van SDK's.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -16,23 +16,21 @@ ms.workload: media
 ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9fb4d1561a661387f759aada9e776d43a95aa5c7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543626"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564506"
 ---
-# <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's
+# <a name="develop-against-media-services-v3-api-using-sdks"></a>Ontwikkelen met betrekking tot Media Services v3 API met behulp van SDK 's
 
 Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-ref) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van [Media Services versie 3](https://aka.ms/ams-v3-rest-sdk) is gebaseerd op de OpenAPI-specificatie (voorheen bekend als een Swagger).
-
-Controleer voordat u begint met het ontwikkelen, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md).
 
 > [!NOTE]
 > De Azure Media Services v3-SDK's zijn niet noodzakelijkerwijs thread-veilig. Bij het ontwikkelen van een toepassing met meerdere threads, moet u uw eigen logica voor het synchroniseren van thread voor het beveiligen van de client of het gebruik van een nieuw object AzureMediaServicesClient per thread toevoegen. Ook moet u voorzichtig met multithreading problemen geïntroduceerd door optionele objecten die worden geleverd door uw code aan de client (zoals een instantie van HttpClient in .NET).
 
-In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, andere documentaion.
+In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, handleidingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,39 +38,40 @@ Als u wilt beginnen met het ontwikkelen met Media Services, hebt u het volgende 
 
 - Een actief Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 - [Meer informatie over basisconcepten](concepts-overview.md)
+- Beoordeling [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md)
 - [Een Azure Media Services-account maken - CLI](create-account-cli-how-to.md)
 
 ## <a name="start-developing-with-sdks"></a>Begin met ontwikkelen met SDK's
 
 ### <a name="net"></a>.NET
 
-Gebruik [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk).
+Gebruik [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk) naar [verbinding met Media Services](configure-connect-dotnet-howto.md).
 
-De Media Services verkennen [.NET ref](https://aka.ms/ams-v3-dotnet-ref) documentatie.
+De Media Services verkennen [naslaginformatie over .NET](https://aka.ms/ams-v3-dotnet-ref) documentatie.
 
 ### <a name="java"></a>Java
 
-Gebruik [Java SDK](https://aka.ms/ams-v3-java-sdk).
+Gebruik [Java SDK](https://aka.ms/ams-v3-java-sdk) naar [verbinding met Media Services](configure-connect-java-howto.md).
 
-Raadpleeg de [Java-naslagdocumentatie](https://aka.ms/ams-v3-java-ref) van Media Services.
+Controleer de Media Services [naslaginformatie over Java](https://aka.ms/ams-v3-java-ref) documentatie.
 
 ### <a name="nodejs"></a>Node.js
 
-Gebruik [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk).
+Gebruik [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) naar [verbinding met Media Services](configure-connect-nodejs-howto.md).
 
-Raadpleeg de [Node.js-naslagdocumentatie](https://aka.ms/ams-v3-nodejs-ref) van Media Services en bekijk [voorbeelden](https://github.com/Azure-Samples/media-services-v3-node-tutorials) waarin u ziet hoe u Media Services-API gebruikt met Node.js.
+De Media Services verkennen [naslaginformatie over Node.js](https://aka.ms/ams-v3-nodejs-ref) documentatie en bekijk [voorbeelden](https://github.com/Azure-Samples/media-services-v3-node-tutorials) die laten zien hoe u het gebruik van Media Services-API met node.js.
 
 ### <a name="python"></a>Python
 
 Gebruik [Python-SDK](https://aka.ms/ams-v3-python-sdk).
 
-Raadpleeg de [Python-naslagdocumentatie](https://aka.ms/ams-v3-python-ref) van Media Services.
+Controleer de Media Services [naslaginformatie over Python](https://aka.ms/ams-v3-python-ref) documentatie.
 
 ### <a name="go"></a>Aan de slag
 
 Gebruik [Go SDK](https://aka.ms/ams-v3-go-sdk).
 
-Raadpleeg de [Go-naslagdocumentatie](https://aka.ms/ams-v3-go-ref) van Media Services.
+Controleer de Media Services [gaat verwijzing](https://aka.ms/ams-v3-go-ref) documentatie.
 
 ### <a name="ruby"></a>Ruby
 

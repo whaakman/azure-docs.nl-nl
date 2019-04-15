@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502126"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565798"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -59,7 +59,7 @@ Ondersteunde IBM Db2-versies zijn 10,5 en hoger zoals beschreven in SAP-notitie 
 
 Lees de volgende SAP-opmerkingen en documentatie eerst voordat u een installatie bijna bereikt:
 
-| SAP-notitie | Description |
+| SAP-notitie | Beschrijving |
 | --- | --- |
 | [1928533] | SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM's |
 | [2015553] | SAP op Microsoft Azure: Vereisten voor ondersteuning |
@@ -538,7 +538,7 @@ De status van de oorspronkelijke in een SAP-systeem wordt beschreven in de trans
 
 
 > [!IMPORTANT] 
-> Voordat u de test, zorg ervoor dat Pacemaker heeft geen mislukte acties (crm-status), en er geen Locatiebeperkingen (restanten van migratie-test zijn) en de synchronisatie van IBM Db2 HADR werkt. Neem contact op met met gebruiker db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Voordat u de test, zorg ervoor dat Pacemaker heeft geen mislukte acties (crm-status), en er geen Locatiebeperkingen (restanten van migratie-test zijn) en de synchronisatie van IBM Db2 HADR werkt. Neem contact op met de gebruiker db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migreren van het knooppunt waarop de primaire Db2-database wordt uitgevoerd door het uitvoeren van de volgende opdracht:

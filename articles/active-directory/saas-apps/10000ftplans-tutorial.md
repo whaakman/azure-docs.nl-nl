@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef3c9d1fdbf030a820f2a3a1724bd18a4b0cedb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501158"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Zelfstudie: Azure Active Directory-integratie met 10.000 ft plannen
 
@@ -107,9 +107,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met 10.000 ft plannen, m
 
     ![10.000 ft-abonnementen domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In de **aanmeldings-URL** tekstvak typt u de URL: `https://app.10000ft.com`
+    a. In het tekstvak **Aanmeldings-URL** typt u de URL: `https://app.10000ft.com`
 
-    b. In de **id (entiteits-ID)** tekstvak typt u de URL: `https://app.10000ft.com/saml/metadata`
+    b. Typ in het tekstvak **Id (Entiteits-id)** de volgende URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE]
     > De waarde voor **id** is anders hebt u een aangepast domein. Neem contact op met [10.000 ft Client plannen ondersteuningsteam](https://www.10000ft.com/plans/support) deze waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -197,8 +197,8 @@ Wanneer u op de tegel voor het plannen van 10.000 ft in het toegangsvenster, moe
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

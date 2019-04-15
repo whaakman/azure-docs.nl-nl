@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/8/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b2fbe57a94ad4c5faad3318c03f797446bea4535
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288514"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564136"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Een WAF-beleid voor de voordeur voor Azure maken met behulp van Azure portal
 
@@ -71,7 +71,7 @@ Standaard regelset Azure beheerde is standaard ingeschakeld. Als u wilt een afzo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [ Azure web application firewall](waf-overview.md).
+- Meer informatie over [Azure web application firewall](waf-overview.md).
 - Meer informatie over [Azure voordeur](front-door-overview.md).
 
 

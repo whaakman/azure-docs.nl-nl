@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358481"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565832"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -70,10 +70,10 @@ U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inze
 On-premises machines worden gerepliceerd naar Azure beheerde schijven. Wanneer een failover optreedt, worden virtuele Azure-machines gemaakt op basis van deze beheerde schijven en toegevoegd aan het Azure-netwerk dat u in deze procedure opgeeft.
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
-2. Laat **Resource Manager** geselecteerd als het implementatiemodel.
+2. Houd **Resource Manager** geselecteerd als het implementatiemodel.
 3. Voer bij **Naam** een netwerknaam in. De naam moet uniek zijn binnen de Azure-resourcegroep. In deze zelfstudie gebruiken we **ContosoASRnet**.
 4. Geef de resourcegroep op waarin het netwerk wordt gemaakt. We gebruiken de bestaande resourcegroep **contosoRG**.
-5. In **adresbereik**, Voer in het bereik voor het netwerk. We maken gebruik van **10.0.0.0/24**, en niet met behulp van een subnet.
+5. In **adresbereik**, Voer in het bereik voor het netwerk. We maken gebruik van **10.1.0.0/24**, en niet met behulp van een subnet.
 6. Selecteer bij **Abonnement** het abonnement waarin u het netwerk wilt maken.
 7. In **locatie**, selecteert u de dezelfde regio als die waarin de Recovery Services-kluis is gemaakt. In onze zelfstudie heeft **West-Europa**. Het netwerk moet zich in dezelfde regio als de kluis.
 8. We laten de standaardopties staan voor DDoS-basisbescherming zonder service-eindpunt op het netwerk.

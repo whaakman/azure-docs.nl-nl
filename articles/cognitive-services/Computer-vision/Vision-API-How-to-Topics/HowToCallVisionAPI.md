@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350909"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563367"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Voorbeeld: de Computer Vision-API aanroepen
 
@@ -167,13 +167,13 @@ Hier volgt een voorbeeld:
 
 Veld | Type | Inhoud
 ------|------|------|
-Tags  | object | Object op het hoogste niveau voor matrix van tags
-tags[].Name | tekenreeks    | Trefwoord uit classificatie van tags
-tags[].Score    | getal    | Betrouwbaarheidsscore, tussen 0 en 1.
-description  | object   | Object op het hoogste niveau voor een beschrijving.
-description.tags[] |    tekenreeks  | Een lijst met tags.  Als de mogelijkheid om een bijschrift te produceren niet betrouwbaar genoeg is, zijn de tags mogelijk de enige informatiebron die voor de aanroepende functie beschikbaar is.
-description.captions[].text | tekenreeks    | Een zin die de afbeelding beschrijft.
-description.captions[].confidence   | getal    | Vertrouwen voor de zin.
+Tags  | `object` | Object op het hoogste niveau voor matrix van tags
+tags[].Name | `string`  | Trefwoord uit classificatie van tags
+tags[].Score    | `number`  | Betrouwbaarheidsscore, tussen 0 en 1.
+description  | `object` | Object op het hoogste niveau voor een beschrijving.
+description.tags[] |    `string`    | Een lijst met tags.  Als de mogelijkheid om een bijschrift te produceren niet betrouwbaar genoeg is, zijn de tags mogelijk de enige informatiebron die voor de aanroepende functie beschikbaar is.
+description.captions[].text | `string`  | Een zin die de afbeelding beschrijft.
+description.captions[].confidence   | `number`  | Vertrouwen voor de zin.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Ophalen en begrijpen van de JSON-uitvoer van domeinspecifieke modellen
 
@@ -229,10 +229,10 @@ Het categorieënveld is een lijst met één of meer van de [86-categorieën](../
 
 Veld   | Type  | Inhoud
 ------|------|------|
-categorieën | object | Object op het hoogste niveau
-categories[].name    | tekenreeks   | Naam van 86-categorietaxonomie
-categories[].score  | getal    | Betrouwbaarheidsscore, tussen 0 en 1
-categories[].detail  | object?      | Optioneel detailobject
+categorieën | `object`   | Object op het hoogste niveau
+categories[].name    | `string` | Naam van 86-categorietaxonomie
+categories[].score  | `number`  | Betrouwbaarheidsscore, tussen 0 en 1
+categories[].detail  | `object?`      | Optioneel detailobject
 
 Let op: als meerdere categorieën overeenkomen (de 86-categorieënclassificatie retourneert bijvoorbeeld een score voor zowel personen_ als personen_jong wanneer model=beroemdheden), worden de details gekoppeld aan de overeenkomst op het meest algemene niveau (in dit voorbeeld personen_).
 

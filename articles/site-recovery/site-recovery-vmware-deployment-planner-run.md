@@ -1,25 +1,25 @@
 ---
 title: Uitvoeren van de Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoert.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527676"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565424"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modi waarin de implementatieplanner kan worden uitgevoerd
-U kunt het opdrachtregelprogramma (ASRDeploymentPlanner.exe) in de volgende drie modi uitvoeren:
+Het opdrachtregelprogramma (ASRDeploymentPlanner.exe) kunt u uitvoeren in een van de volgende drie modi:
 
 1.  [Profileren](#profile-vmware-vms)
 2.  [Rapporten genereren](#generate-report)
@@ -139,13 +139,13 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 Het hulpprogramma genereert een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) als de rapportuitvoer, met daarin een overzicht van alle aanbevelingen voor de implementatie. Het rapport heeft de naam `DeploymentPlannerReport_<unique numeric identifier>.xlsm` en in de opgegeven directory geplaatst.
 
 >[!NOTE]
->Het rapport is geconfigureerd als decimaalteken vereist '. ' voor het produceren van kostenramingen op de server waarop u de deployment planner. In geval hebt u instellen ',' als decimaalteken op een Windows-machine, Ga naar 'Wijziging datum, tijd of getalnotaties' in het Configuratiescherm en gaat u naar 'Extra instellingen ' te wijzigen van het decimaalteken aan'.'.
+>Het genereren van rapporten is een Windows-PC of Windows Server met Excel 2013 of hoger vereist. Het decimale scheidingsteken op deze machine moet worden geconfigureerd als '. ' voor het produceren van de geraamde kosten. Als u ingesteld hebt ', ' als decimaalteken, gaat u naar 'Wijziging datum, tijd of getalnotaties' in het Configuratiescherm en gaat u naar 'Extra instellingen' te wijzigen van het decimaalteken aan'.'.
 
 Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus voor het genereren van een rapport. Hieronder ziet u een tabel met verplichte en optionele parameters van het hulpprogramma die u kunt uitvoeren in de profileringsmodus.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|

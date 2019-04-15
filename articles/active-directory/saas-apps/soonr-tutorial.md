@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3be7d5b1a2aab37d3eb0863b3aa32d9163f5d63
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: efae272e1eadb852158005325146a58dd9e74318
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500532"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Zelfstudie: Azure Active Directory-integratie met Soonr werkplek
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Soonr werkplek, moet
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<servername>.soonr.com/singlesignon/saml/SSO`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -202,9 +202,9 @@ Wanneer u op de tegel Soonr werkplek in het toegangsvenster, moet u worden autom
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

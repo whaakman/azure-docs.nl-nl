@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ae0aefe194ca8bca6ea62420314b4fbdb1e0187
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357925"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
 
@@ -105,11 +105,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Server, moet
 
     ![Tableau serverdomein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://azure.<domain name>.link`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://azure.<domain name>.link`
 
-    b. Typ in het vak **Id** een URL met het volgende patroon: `https://azure.<domain name>.link`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://azure.<domain name>.link`
 
-    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
     > De bovenstaande waarden zijn niet echt waarden. Werk de waarden bij met de werkelijke URL en de id van de configuratiepagina Tableau Server, die later in de zelfstudie wordt uitgelegd.
@@ -256,9 +256,9 @@ Wanneer u op de tegel Tableau Server in het toegangsvenster, moet u worden autom
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
