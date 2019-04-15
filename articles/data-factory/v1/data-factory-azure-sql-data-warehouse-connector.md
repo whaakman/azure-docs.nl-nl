@@ -152,7 +152,7 @@ GO
 | rejectType |Hiermee geeft u op of de optie rejectValue is opgegeven als een letterlijke waarde of een percentage. |Waarde (standaard), Percentage |Nee |
 | rejectSampleValue |Bepaalt het aantal rijen om op te halen voordat de PolyBase berekent het percentage van geweigerde rijen opnieuw. |1, 2, … |Ja, als **rejectType** is **percentage** |
 | useTypeDefault |Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (standaard) |Nee |
-| WriteBatchSize |Gegevens invoegen in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
+| writeBatchSize |Gegevens invoegen in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out. |timespan<br/><br/> Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
 
 #### <a name="sqldwsink-example"></a>Voorbeeld van de SqlDWSink
@@ -276,10 +276,10 @@ De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigensc
 
 | DB-Schema | Tabelnaam | tableName JSON-eigenschap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo |MyTable |MyTable of dbo.MyTable of [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable of [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] of [dbo].[My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.
 
@@ -308,24 +308,24 @@ Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| Numeriek | Decimal |
+| Numeric | Decimal |
 | Float | Float |
-| geld | geld |
+| Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binair bestand | Binair bestand |
-| varbinary | Varbinary (maximaal 8000) |
+| Binary | Binary |
+| Varbinary | Varbinary (maximaal 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Tekst | Varchar (maximaal 8000) |
+| Text | Varchar (maximaal 8000) |
 | NText | NVarChar (maximaal 4000) |
-| Installatiekopie | VarBinary (maximaal 8000) |
+| Image | VarBinary (maximaal 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| CHAR | CHAR |
+| Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (maximaal 8000) |
 | NVarChar | NVarChar (maximaal 4000) |
@@ -346,36 +346,36 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| binaire bestanden |Byte[] |
-| bits |Booleaans |
-| CHAR |Tekenreeks, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Datum en tijd |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimaal |decimaal |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double-waarde |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimaal |
-| nchar |Tekenreeks, Char] |
-| ntext |Tekenreeks, Char] |
-| numerieke |decimaal |
-| nvarchar |Tekenreeks, Char] |
-| echte |Enkelvoudig |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaal |
+| smallmoney |Decimal |
 | sql_variant |Object * |
-| tekst |Tekenreeks, Char] |
+| text |String, Char[] |
 | time |TimeSpan |
-| tijdstempel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Tekenreeks, Char] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 Ook kunt u kolommen uit de brongegevensset op kolommen uit de sink-gegevensset in het definitie van de activiteit kopiëren toewijzen. Zie voor meer informatie, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
