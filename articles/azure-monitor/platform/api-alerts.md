@@ -36,7 +36,7 @@ Schema's hebben de eigenschappen in de volgende tabel.
 |:--- |:--- |
 | Interval |Hoe vaak de zoekopdracht wordt uitgevoerd. Gemeten in minuten. |
 | QueryTimeSpan |Het tijdsinterval op waarover de criteria wordt geëvalueerd. Moet gelijk zijn aan of groter zijn dan het Interval. Gemeten in minuten. |
-| Versie |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
+| Version |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
 
 Bijvoorbeeld, kunt u een gebeurtenisquery met een Interval van 15 minuten en een periode van 30 minuten. In dit geval wordt de query wordt uitgevoerd om de 15 minuten, en een waarschuwing wordt geactiveerd als de criteria verder worden omgezet naar de waarde true via een reeks van 30 minuten.
 
@@ -359,9 +359,9 @@ E-mailmeldingen verzenden e-mail naar een of meer ontvangers.  Ze bevatten de ei
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Geadresseerden |Lijst met e-mailadressen. |
-| Onderwerp |Het onderwerp van het e-mailbericht. |
-| Bijlage |Bijlagen worden momenteel niet ondersteund, dus dit is altijd een waarde van 'None'. |
+| Recipients |Lijst met e-mailadressen. |
+| Subject |Het onderwerp van het e-mailbericht. |
+| Attachment |Bijlagen worden momenteel niet ondersteund, dus dit is altijd een waarde van 'None'. |
 
 Hieronder volgt een voorbeeldantwoord voor een e-mailactie voor melding met een drempelwaarde.  
 
@@ -406,7 +406,7 @@ De eigenschappen bevatten herstelbewerkingen in de volgende tabel.
 |:--- |:--- |
 | RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in het automation-account dat is geconfigureerd in de oplossing voor automatisering in uw Log Analytics-werkruimte. |
 | WebhookUri |De URI van de webhook. |
-| Vervaldatum |De vervaldatum en -tijd van de webhook.  Als de webhook niet beschikt over een verlopen, kan dit een geldige datum in de toekomst zijn. |
+| Expiry |De vervaldatum en -tijd van de webhook.  Als de webhook niet beschikt over een verlopen, kan dit een geldige datum in de toekomst zijn. |
 
 Hieronder volgt een voorbeeldantwoord voor een herstelactie met een drempelwaarde.
 
