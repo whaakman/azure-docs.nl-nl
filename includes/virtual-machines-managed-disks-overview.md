@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291860"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566548"
 ---
 ## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
@@ -31,7 +31,7 @@ Beheerde schijven gebruiken, kunt u maximaal 50.000 VM maken **schijven** van ee
 
 Beheerde schijven zijn geïntegreerd met beschikbaarheidssets om ervoor te zorgen dat de schijven van [virtuele machines in een beschikbaarheidsset](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voldoende zijn geïsoleerd van elkaar om te voorkomen dat een single point of failure. Schijven worden automatisch in verschillende kasten (stempels) geplaatst. Als een stempel is mislukt vanwege fout bij de hardware of software, wordt alleen de VM-exemplaren met schijven op deze stempels mislukt. Bijvoorbeeld: Stel dat u hebt een toepassing die wordt uitgevoerd op vijf virtuele machines en de virtuele machines zich in een Beschikbaarheidsset. De schijven voor deze virtuele machines wordt niet allemaal worden opgeslagen in de dezelfde stempel, dus als één stamp is uitvalt, worden de andere exemplaren van de toepassing worden uitgevoerd.
 
-## <a name="integration-with-availability-zones"></a>Integratie met Beschikbaarheidszones
+### <a name="integration-with-availability-zones"></a>Integratie met Beschikbaarheidszones
 
 Beheerde schijven ondersteunt [Beschikbaarheidszones](../articles/availability-zones/az-overview.md), dit is een hoge beschikbaarheid bieden die uw toepassingen tegen storingen in datacenters beschermt. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. Met beschikbaarheidszones biedt Azure de beste uptime SLA voor VM’s van de branche, van 99,99%.
 
@@ -70,7 +70,7 @@ Een momentopname van een beheerde schijf is een alleen-lezen kopie van een behee
 Zie de volgende bronnen voor meer informatie over het maken van momentopnamen met beheerde schijven:
 
 * [Kopie maken van een VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Kopie van de VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Linux maken](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Installatiekopieën
 
@@ -79,7 +79,7 @@ Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aange
 Zie de volgende artikelen voor meer informatie over het maken van installatiekopieën:
 
 * [Hoe u een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Een virtuele Linux-machine generaliseren en vastleggen met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Installatiekopieën met momentopnamen
 

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505395"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579475"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -54,21 +54,21 @@ In deze snelstart leert u hoe een ASP.NET-web-app persoonlijke accounts (hotmail
 > 1. Selecteer **registratie van nieuwe**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `ASPNET-Quickstart`.
->      - Typ `https://localhost:44368/` in **Antwoord-URL** en klik op **Registreren**.
+>      - Voeg `https://localhost:44368/` in **omleidings-URI**, en klikt u op **registreren**.
 Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning** en selecteer vervolgens **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Voor een juiste werking van het codevoorbeeld uit deze snelstart, moet u een antwoord-URL als `https://localhost:44368/` toevoegen.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging hebt aangebracht voor mij]()
+> > [Deze wijziging voor mij maken]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-aspnet-webapp/green-check.png) uw toepassing is geconfigureerd met dit kenmerk
+> > ![Al geconfigureerd](media/quickstart-v2-aspnet-webapp/green-check.png) Uw toepassing is al geconfigureerd met dit kenmerk
 
 #### <a name="step-2-download-your-project"></a>Stap 2: uw project downloaden
 
-[De oplossing voor Visual Studio 2017 downloaden](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[De Visual Studio 2017-oplossing downloaden](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
@@ -83,11 +83,11 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 
 > [!div renderon="docs"]
 > Waar:
-> - `Enter_the_Application_Id_here` -is de toepassings-Id voor de toepassing die u hebt geregistreerd.
-> - `Enter_the_Tenant_Info_Here` -is een van de onderstaande opties:
+> - `Enter_the_Application_Id_here`: de toepassings-id voor de toepassing die u hebt geregistreerd.
+> - `Enter_the_Tenant_Info_Here`: is een van de onderstaande opties:
 >   - Als uw toepassing **Alleen mijn organisatie** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
->   - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
->   - Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met `common`
+>   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
+>   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
 >
 > > [!TIP]
 > > Als u de waarden van *Toepassings-id*, *Map-id (tenant)* en *Ondersteunde accounttypen* wilt weten, gaat u naar de **Overzichtspagina**
@@ -158,7 +158,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In realtime toepassingen die u nodig hebt voor het valideren van de verlener raadpleegt u de voorbeelden om te begrijpen hoe u dat doet.
+> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In de echte toepassingen die u wilt valideren van de verlener.
+> Zie de voorbeelden om te begrijpen hoe u dat doet.
 
 ### <a name="initiate-an-authentication-challenge"></a>Verificatievraag initiëren
 
@@ -187,9 +188,9 @@ U kunt een controller of controlleracties beveiligen met behulp van het kenmerk 
 
 Volg de ASP.NET-zelfstudie voor een volledige stapsgewijze handleiding voor het bouwen van toepassingen en nieuwe functies, met inbegrip van een volledige uitleg van deze snelstart.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>De stappen voor het maken van de toepassing die wordt gebruikt in deze snelstart
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Leer wat de stappen zijn voor het maken van de toepassing die wordt gebruikt in deze snelstart
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor aanmelden](./tutorial-v2-asp-webapp.md)
+> [Zelfstudie Aanmelding](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

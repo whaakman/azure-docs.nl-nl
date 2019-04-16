@@ -10,18 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267903"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577587"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
 De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst converteren. Neurale machinevertalingen (NMT) is de nieuwe standaard voor AI aangestuurde automatische vertalingen van hoge kwaliteit en is beschikbaar als de standaard met V3 van de Translator Text-API wanneer een neurale systeem beschikbaar is.
 
 [Meer informatie over de werking van automatische vertaling](https://www.microsoft.com/translator/mt.aspx)
+
+## <a name="translation"></a>Omzetting
 
 **V2-Translator API**
 
@@ -112,7 +114,7 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Taal    | Taalcode | Script | Aan/uit | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabisch | `ar` | Arabisch `Arab` | <--> | Latijns `Latn` |
-|Bengalees  | `bn` | Bengaals `Beng` | <--> | Latijns `Latn` |
+|Bengalees  | `bn` | Bengali `Beng` | <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Traditioneel Chinees `Hant`|
 | Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Latijns `Latn` |
@@ -121,10 +123,10 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Hebreeuws | `he` | Hebreeuws `Hebr` | <--> | Latijns `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latijns `Latn` |
 | Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
-| Kanarees | `kn` | Kanarees `Knda` | --> | Latijns `Latn` |
+| Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latijns `Latn` |
 | Mahratti | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latijns `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
 | Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
 | Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|
@@ -191,77 +193,8 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 
 ## <a name="detect"></a>Detect
 
-De volgende talen worden ondersteund door de analyse-methode. Detecteren van mei identificeren van de talen die de Microsoft Translator-kan niet worden geconverteerd.
+Translator Text-API detecteert alle beschikbare talen voor vertalingen en vele.
 
-| Taal    |
-|:----------- |
-| Afrikaans |
-| Albanees |
-| Arabisch |
-| Baskisch |
-| Belarussisch |
-| Bulgaars |
-| Catalaans |
-| Chinees |
-| Chinees (vereenvoudigd) |
-| Chinees (traditioneel) |
-| Kroatisch |
-| Tsjechisch |
-| Deens |
-| Nederlands |
-| Engels |
-| Esperanto |
-| Estisch |
-| Fins |
-| Frans |
-| Galicisch |
-| Duits |
-| Grieks |
-| Haïtiaans |
-| Hebreeuws |
-| Hindi |
-| Hongaars |
-| IJslands |
-| Indonesisch |
-| Iers |
-| Italiaans |
-| Japans |
-| Koreaans |
-| Koerdisch (Arabisch) |
-| Koerdisch (Latijns) |
-| Latijns |
-| Lets |
-| Litouws |
-| Macedonisch |
-| Maleis |
-| Maltees |
-| Noors |
-| Noors (Nynorsk) |
-| Pashto |
-| Perzisch |
-| Pools |
-| Portugees |
-| Roemeens |
-| Russisch |
-| Servisch (Cyrillisch) |
-| Servisch (Latijns) |
-| Slowaaks |
-| Sloveens |
-| Somali |
-| Spaans |
-| Swahili |
-| Zweeds |
-| Tagalog |
-| Telugu |
-| Thais |
-| Turks |
-| Oekraïens |
-| Urdu |
-| Oezbeeks (Cyrillisch) |
-| Oezbeeks (Latijns) |
-| Vietnamees |
-| Welsh |
-| Jiddisch |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Via een programma toegang krijgen tot de lijst van de taal Translator Text-API
 
@@ -294,6 +227,7 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Hindi      | `hi`          |
 | Hongaars      | `hu`          |
 | IJslands | `is` |
+| Indonesisch|   `id`    |
 | Italiaans      | `it`          |
 | Japans      | `ja`          |
 | Koreaans      | `ko`          |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493056"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577964"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
 
@@ -50,15 +50,14 @@ In de Azure portal-ervaring, zijn de manier waarop u voor wachtwoord opnieuw ins
 1. Blader naar de [Azure-portal](https://portal.azure.com).
 2. Selecteer **Alle services** in het linkerdeelvenster.
 3. Zoeken naar **Azure Active Directory** in de lijst met services en selecteer deze.
-4. Selecteer **Gebruikers en groepen**.
-5. Selecteer **auditlogboeken** uit de **gebruikers en groepen** menu. Dit ziet u alle van de controlegebeurtenissen die is opgetreden op basis van alle gebruikers in uw directory. U kunt deze weergave om te zien van alle gebeurtenissen met betrekking tot wachtwoord filteren.
-6. Als u wilt filteren in deze weergave om te zien alleen de gebeurtenissen in verband met wachtwoord opnieuw instellen, selecteert u de **Filter** knop aan de bovenkant van het deelvenster.
-7. Uit de **Filter** in het menu het **categorie** vervolgkeuzelijst lijst en wijzig deze in de **Self-service wachtwoordbeheer** categorietype.
-8. (Optioneel) de lijst met door het kiezen van de specifieke verder filteren **activiteit** u geïnteresseerd bent in.
+4. Selecteer **gebruikers** uit de sectie beheren.
+5. Selecteer **auditlogboeken** uit de **gebruikers** blade. Dit ziet u alle van de controlegebeurtenissen die is opgetreden op basis van alle gebruikers in uw directory. U kunt deze weergave om te zien van alle gebeurtenissen met betrekking tot wachtwoord filteren.
+6. Uit de **Filter** menu aan de bovenkant van het venster de **Service** vervolgkeuzelijst lijst en wijzig deze in de **Self-service wachtwoordbeheer** servicetype.
+7. (Optioneel) de lijst met door het kiezen van de specifieke verder filteren **activiteit** u geïnteresseerd bent in.
 
 ### <a name="converged-registration-preview"></a>Geconvergeerde registratie (preview)
 
-Als u de openbare preview van geconvergeerde registratie deelneemt, gegevens over gebruikersactiviteit in de auditlogboeken gevonden onder de categorie **verificatiemethoden**.
+Als u de openbare preview van geconvergeerde registratie deelneemt, informatie met betrekking tot de gebruikersactiviteit in de auditlogboeken gevonden onder de service **verificatiemethoden**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beschrijving van de rapportkolommen in de Azure-portal
 
@@ -176,16 +175,16 @@ De volgende lijst wordt deze activiteit in detail uitgelegd:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Stel uw wachtwoord opnieuw in of wijzig het](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registreer u voor selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md).
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
-* [Welke gegevens worden gebruikt door selfservice voor Wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)
-* [Wat zijn de beleidsopties bij selfservice voor Wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is wachtwoord terugschrijven en waarom dit van belang deze?](howto-sspr-writeback.md)
-* [Wat zijn alle van de opties in selfservice voor Wachtwoordherstel en wat die betekenen?](concept-sspr-howitworks.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag die werd niet is beantwoord](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Voorbeeld van SSPR-Activiteitencontrole registreert in Azure AD"

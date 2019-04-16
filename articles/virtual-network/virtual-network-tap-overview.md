@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189135"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571081"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -36,17 +36,18 @@ Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netw
 - [Grote Switch Big Fabric controleren](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Beveiligingsanalyses, netwerk-/ prestatiebeheer
 
 - [Actief beveiliging](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cyberbeveiliging](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
@@ -56,7 +57,7 @@ De volgende afbeelding ziet u hoe virtuele netwerk-TAP werkt. U kunt een Tik-con
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u een virtueel netwerk-TAP maakt, u moet hebben ontvangen een bevestigingsmail die u zijn geregistreerd bij de Preview-versie en een of meer virtuele machines die zijn gemaakt met [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) implementatiemodel en een partner oplossing voor het verzamelen van het verkeer te TIKKEN in WestCentralUS regio. Als u geen oplossing van een partner in uw virtuele netwerk hebt, Zie [partneroplossingen](#virtual-network-tap-partner-solutions) een te implementeren. U kunt hetzelfde virtuele netwerk resource te TIKKEN op het totale verkeer van meerdere netwerkinterfaces in dezelfde of verschillende abonnementen. Als de bewaakte netwerkinterfaces zich in verschillende abonnementen, is de abonnementen moeten worden gekoppeld aan dezelfde Azure Active Directory-tenant. Bovendien kunnen de bewaakte netwerkinterfaces en het eindpunt van de bestemming voor het verzamelen van het verkeer te TIKKEN in gekoppelde virtuele netwerken in dezelfde regio zijn. Als u dit implementatiemodel ervoor te zorgen dat de [peering op virtueel netwerk](virtual-network-peering-overview.md) is ingeschakeld voordat u een virtueel netwerk-TAP configureren.
+Voordat u een virtueel netwerk-TAP maakt, u moet hebben ontvangen een bevestigingsmail die u zijn geregistreerd bij de Preview-versie en een of meer virtuele machines die zijn gemaakt met [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) implementatiemodel en een partner oplossing voor het verzamelen van het verkeer te TIKKEN in dezelfde azure-regio. Als u geen oplossing van een partner in uw virtuele netwerk hebt, Zie [partneroplossingen](#virtual-network-tap-partner-solutions) een te implementeren. U kunt hetzelfde virtuele netwerk resource te TIKKEN op het totale verkeer van meerdere netwerkinterfaces in dezelfde of verschillende abonnementen. Als de bewaakte netwerkinterfaces zich in verschillende abonnementen, is de abonnementen moeten worden gekoppeld aan dezelfde Azure Active Directory-tenant. Bovendien kunnen de bewaakte netwerkinterfaces en het eindpunt van de bestemming voor het verzamelen van het verkeer te TIKKEN in gekoppelde virtuele netwerken in dezelfde regio zijn. Als u dit implementatiemodel ervoor te zorgen dat de [peering op virtueel netwerk](virtual-network-peering-overview.md) is ingeschakeld voordat u een virtueel netwerk-TAP configureren.
 
 ## <a name="permissions"></a>Machtigingen
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263040"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579209"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -484,15 +484,15 @@ U kunt ook de eigenschap verwijzingen gebruiken in query's. Bijvoorbeeld, `SELEC
 
 In de volgende tabel ziet het resultaat van gelijkheidsvergelijkingen in de SQL-API voor elk paar JSON-typen.
 
-| **Op** | **Undefined** | **Null** | **Booleaans** | **Aantal** | **String** | **Object** | **Matrix** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Booleaans** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Aantal** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
-| **Matrix** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 Voor vergelijkingsoperators zoals `>`, `>=`, `!=`, `<`, en `<=`, vergelijking van de verschillende typen of tussen twee objecten of matrices produceert `Undefined`.  
 
@@ -502,7 +502,7 @@ Als het resultaat van de scalaire expressie `Undefined`, het item niet is opgeno
 
 Logische operatoren worden uitgevoerd op Booleaanse waarden. De volgende tabellen ziet de logische waarheid tabellen voor deze operators:
 
-**OF een operator**
+**Operator OF**
 
 | OF | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -510,7 +510,7 @@ Logische operatoren worden uitgevoerd op Booleaanse waarden. De volgende tabelle
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
-**EN de operator**
+**Operator EN**
 
 | EN | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Logische operatoren worden uitgevoerd op Booleaanse waarden. De volgende tabelle
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**NIET-operator**
+**Operator NIET**
 
 | NIET |  |
 | --- | --- |
@@ -1238,16 +1238,16 @@ Het resultaat is:
 
 De controle van het type functies kunnen u controleert u het type van een expressie in een SQL-query. Controle van het type functies kunt u bepalen welke typen eigenschappen in de items op elk gewenst moment, wanneer de variabele of onbekend. Hier volgt een lijst met ondersteunde ingebouwde controle van het type functies:
 
-| **Gebruik** | **Description** |
+| **Gebruik** | **Beschrijving** |
 |-----------|------------|
-| [IS_ARRAY (markering)](sql-api-query-reference.md#bk_is_array) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een matrix is. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een matrix is. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een Booleaanse waarde is. |
 | [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde null is. |
-| [IS_NUMBER (markering)](sql-api-query-reference.md#bk_is_number) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een getal is. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een getal is. |
 | [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een JSON-object is. |
-| [IS_STRING (markering)](sql-api-query-reference.md#bk_is_string) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks is. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks is. |
 | [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Retourneert een Booleaanse waarde die aangeeft of aan de eigenschap een waarde is toegewezen. |
-| [IS_PRIMITIVE (markering)](sql-api-query-reference.md#bk_is_primitive) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks, getal, Booleaanse waarde of null zijn is. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks, getal, Booleaanse waarde of null zijn is. |
 
 Met behulp van deze functies, kunt u query's zoals het volgende voorbeeld uitvoert:
 
@@ -1265,7 +1265,7 @@ Het resultaat is:
 
 De volgende scalaire functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, numerieke of Booleaanse waarde. Hier volgt een tabel met ingebouwde tekenreeksfuncties:
 
-| Gebruik | Description |
+| Gebruik | Beschrijving |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
@@ -1714,7 +1714,7 @@ Het volgende voorbeeld toont joins, uitgedrukt via LINQ `SelectMany`.
 
 Alle pagina's van de resultaten van de query in de .NET-client automatisch doorloopt de `foreach` wordt geblokkeerd, zoals wordt weergegeven in het voorgaande voorbeeld. De opties voor query's die zijn geïntroduceerd in de [REST-API](#RestAPI) sectie zijn ook beschikbaar in de .NET SDK, met behulp van de `FeedOptions` en `FeedResponse` klassen in de `CreateDocumentQuery` methode. U kunt het aantal pagina's beheren met behulp van de `MaxItemCount` instelling.
 
-U kunt de paginering ook expliciet beheren door `IDocumentQueryable` te maken met behulp van het object `IQueryable`, vervolgens de waarden van ` ResponseContinuationToken` te lezen en deze weer door te geven als `RequestContinuationToken` in `FeedOptions`. U kunt instellen `EnableScanInQuery` scans inschakelen wanneer de query wordt niet ondersteund door het geconfigureerde beleid voor indexering. Voor gepartitioneerde containers, kunt u `PartitionKey` aan de query uitvoeren op een enkele partitie, hoewel Azure Cosmos DB dit automatisch uit de tekst van de query ophalen kunt. U kunt `EnableCrossPartitionQuery` query's uitvoeren op basis van meerdere partities.
+U kunt ook expliciet paginering beheren met het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens met het lezen van de `ResponseContinuationToken` waarden en geven ze weer als `RequestContinuationToken` in `FeedOptions`. U kunt instellen `EnableScanInQuery` scans inschakelen wanneer de query wordt niet ondersteund door het geconfigureerde beleid voor indexering. Voor gepartitioneerde containers, kunt u `PartitionKey` aan de query uitvoeren op een enkele partitie, hoewel Azure Cosmos DB dit automatisch uit de tekst van de query ophalen kunt. U kunt `EnableCrossPartitionQuery` query's uitvoeren op basis van meerdere partities.
 
 Zie voor meer voorbeelden van .NET met query's, de [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
 
@@ -2156,20 +2156,20 @@ Een geneste query geldt de binnenste query voor elk element van de buitenste con
 
 ## <a id="References"></a>Naslaginformatie
 
-- [Azure Cosmos DB SQL-specificatie](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [SQL-specificatie voor Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [JavaScript-specificatie](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Query-evaluatietechnieken voor grote databases](https://dl.acm.org/citation.cfm?id=152611). *ACM enquêtes Computing* 25, geen. 2 (1993).
-- Graefe, G. "De trapsgewijs framework voor queryoptimalisering." *IEEE Data Eng. Bull.* 18, geen. 3 (1995).
+- Graefe, G. "De trapsgewijs framework voor queryoptimalisering." *IEEE-gegevens eng Bull.* 18, geen. 3 (1995).
 - Lu, Ooi, Tan. "Verwerken van query's in parallelle relationele databasesystemen." *IEEE-Computer Society druk* (1994).
 - Olston, Christopher Benjamin Reed, Utkarsh Srivastava, Kumar Ravi en Andrew Tomkins. "Pig Latin: Een niet-zodat-vreemde taal voor de verwerking van gegevens." *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Inleiding tot Azure Cosmos DB][introduction]
-- [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [.NET-voorbeelden voor Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Azure Cosmos DB-consistentieniveaus][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

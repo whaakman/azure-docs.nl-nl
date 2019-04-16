@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916411"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578263"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text-API 3.0: Voorbeelden in woordenlijst
 
@@ -54,10 +54,10 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Description</th>
+  <th>Beschrijving</th>
   <tr>
-    <td>_Een autorisatie_<br/>_koptekst_</td>
-    <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
+    <td>Verificatie of meerdere berichtkoppen</td>
+    <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
 In dit voorbeeld laat zien hoe voor het opzoeken van voorbeelden voor het paar van de Engelse term opgebouwd `fly` en de Spaans vertaling `volar`.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

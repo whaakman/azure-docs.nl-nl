@@ -11,12 +11,12 @@ ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884887"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577606"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Wat is de Azure AD Connect-beheerderagent? 
 De Azure AD Connect beheer-Agent is een nieuw onderdeel van Azure Active Directory Connect die is geïnstalleerd op een Azure Active Directory Connect-server. Deze wordt gebruikt om specifieke gegevens verzamelen over uw Active Directory-omgeving waarmee u een Microsoft ondersteuningstechnicus kunt oplossen van problemen wanneer u een ondersteuningsaanvraag openen.
@@ -41,16 +41,18 @@ De ondersteuningstechnicus van Microsoft kan gegevens niet wijzigen in uw systee
  
 Als u niet wilt dat de Microsoft service engineer toegang tot uw gegevens voor een telefoongesprek met de ondersteuning kunt u deze uitschakelen door het wijzigen van het configuratiebestand van de service, zoals hieronder wordt beschreven: 
 
-  1.    Open **C:\Program Files\Microsoft Azure AD Connect beheer Agent\AzureADConnectAdministrationAgentService.exe.config** in Kladblok.
-  2.    Uitschakelen **UserDataEnabled** instellen zoals hieronder wordt weergegeven. Als **UserDataEnabled** instelling bestaat en is ingesteld op true, wordt deze ingesteld op false. Als de instelling niet bestaat nog, voegt u de instelling zoals hieronder wordt weergegeven.    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.    Sla het configuratiebestand.
-  4.    Azure AD Connect beheer Agent-service opnieuw starten, zoals hieronder wordt weergegeven
+1.  Open **C:\Program Files\Microsoft Azure AD Connect beheer Agent\AzureADConnectAdministrationAgentService.exe.config** in Kladblok.
+2.  Uitschakelen **UserDataEnabled** instellen zoals hieronder wordt weergegeven. Als **UserDataEnabled** instelling bestaat en is ingesteld op true, wordt deze ingesteld op false. Als de instelling niet bestaat nog, voegt u de instelling zoals hieronder wordt weergegeven.    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.  Sla het configuratiebestand.
+4.  Azure AD Connect beheer Agent-service opnieuw starten, zoals hieronder wordt weergegeven
 
 ![beheerder-agent](media/whatis-aadc-admin-agent/adminagent2.png)
 

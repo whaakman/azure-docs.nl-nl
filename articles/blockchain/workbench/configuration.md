@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452688"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578744"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Naslaginformatie over Azure Blockchain Workbench-configuratie
 
- Azure Blockchain Workbench-toepassingen zijn werkstromen voor meerdere partijen die zijn gedefinieerd door de metagegevens in de configuratie en code in een smart contract. De metagegevens in de configuratie definieert de werkstromen op hoog niveau en het interactiemodel van de blockchain-toepassing. Smart contracts definiëren de bedrijfslogica van de blockchain-toepassing. Workbench gebruikt de configuratie en smart contractcode voor het genereren van de gebruikerservaringen in blockchain-toepassingen.
+Azure Blockchain Workbench-toepassingen zijn werkstromen voor meerdere partijen die zijn gedefinieerd door de metagegevens in de configuratie en code in een smart contract. De metagegevens in de configuratie definieert de werkstromen op hoog niveau en het interactiemodel van de blockchain-toepassing. Smart contracts definiëren de bedrijfslogica van de blockchain-toepassing. Workbench gebruikt de configuratie en smart contractcode voor het genereren van de gebruikerservaringen in blockchain-toepassingen.
 
 De metagegevens in de configuratie bevat de volgende informatie voor elke blockchain-toepassing:
 
@@ -211,7 +211,7 @@ Definieert de functies die kunnen worden uitgevoerd in de werkstroom.
 |-------|-------------|:--------:|-----------:|
 | Name | De unieke naam van de functie. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de desbetreffende functie. | Ja | 50 |
 | DisplayName | Beschrijvende weergavenaam van de functie. | Ja | 255 |
-| Description | Beschrijving van de functie | Nee | 255 |
+| Beschrijving | Beschrijving van de functie | Nee | 255 |
 | Parameters | Verzameling van [id's](#identifiers) die overeenkomen met de parameters van de functie. | Ja | |
 
 ### <a name="functions-example"></a>Voorbeeld van de functies

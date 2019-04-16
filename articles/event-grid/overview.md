@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045402"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578404"
 ---
 # <a name="what-is-azure-event-grid"></a>Wat is Azure Event Grid?
 
@@ -22,7 +22,7 @@ Met Azure Event Grid kunt u eenvoudig toepassingen bouwen met op gebeurtenissen 
 
 U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicasting uitvoeren naar meerdere eindpunten en ervoor zorgen dat uw gebeurtenissen op betrouwbare wijze worden bezorgd.
 
-Azure Event Grid is momenteel beschikbaar in alle openbare regio's. Het is nog niet beschikbaar in de Azure Duitsland-, Azure China- of Azure Government-clouds.
+Azure Event Grid is momenteel beschikbaar in alle openbare regio's. Het is nog niet beschikbaar in de Azure Duitsland, Azure China 21Vianet of Azure Government-clouds.
 
 In dit artikel vindt u een overzicht van Azure Event Grid. Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) als u aan de slag wilt met Azure Event Grid. 
 
@@ -34,30 +34,29 @@ Deze afbeelding toont hoe Event Grid bronnen en handlers verbindt, maar biedt ge
 
 Zie [gebeurtenisbronnen](event-sources.md) voor meer informatie over de mogelijkheden van elke bron, evenals de gerelateerde artikelen. Op dit moment ondersteunen de volgende Azure-services het verzenden van gebeurtenissen naar Event Grid:
 
-* Azure-abonnementen (beheerbewerkingen)
-* Container Registry
-* Aangepaste onderwerpen
-* Event Hubs
-* IoT Hub
-* Media Services
-* Resourcegroepen (beheerbewerkingen)
-* Service Bus
-* Storage Blob
-* Storage voor algemene doeleinden v2 (GPv2)
-* Azure Maps
+* [Azure-abonnementen (bewerkingen)](event-sources.md#azure-subscriptions)
+* [Container Registry](event-sources.md#container-registry)
+* [Aangepaste onderwerpen](event-sources.md#custom-topics)
+* [Event Hubs](event-sources.md#event-hubs)
+* [IoT Hub](event-sources.md#iot-hub)
+* [Media Services](event-sources.md#media-services)
+* [Resourcegroepen (bewerkingen)](event-sources.md#resource-groups)
+* [Service Bus](event-sources.md#service-bus)
+* [Storage-Blob](event-sources.md#storage)
+* [Azure Maps](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Event Handlers
 
 Zie [gebeurtenis-handlers](event-handlers.md) voor meer informatie over de mogelijkheden van elke handler, evenals de gerelateerde artikelen. Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen uit Event Grid: 
 
-* Azure Automation
-* Azure Functions
-* Event Hubs
-* Hybride verbindingen
-* Logic Apps
-* Microsoft Flow
-* Queue Storage
-* WebHooks
+* [Azure Automation](event-handlers.md#azure-automation)
+* [Azure Functions](event-handlers.md#azure-functions)
+* [Event Hubs](event-handlers.md#event-hubs)
+* [Hybride verbindingen](event-handlers.md#hybrid-connections)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Queue Storage](event-handlers.md#queue-storage)
+* [WebHooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concepten
 
@@ -114,13 +113,13 @@ Azure Event Grid maakt gebruik van een prijsmodel voor betalen per gebeurtenis, 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Gebeurtenissen van Blob Storage routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Storage Blob-gebeurtenissen routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Reageer op Storage Blob-gebeurtenissen met Event Grid.
-* [Maken en zich abonneren op aangepaste gebeurtenissen](custom-event-quickstart.md)  
+* [Aangepaste gebeurtenissen maken en u er op abonneren](custom-event-quickstart.md)  
   Begin meteen met het verzenden van uw eigen aangepaste gebeurtenissen naar een willekeurig eindpunt met behulp van de Azure Event Grid-quickstart.
-* [Met Logic Apps als een gebeurtenis-Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Logic Apps als een gebeurtenis-handler gebruiken](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Een zelfstudie over het bouwen van een app met Logic Apps om te reageren op gebeurtenissen die door Event Grid zijn gepusht.
 * [Big data streamen naar een datawarehouse](event-grid-event-hubs-integration.md)  
   Een zelfstudie die gebruikmaakt van Azure Functions om gegevens uit Event Hubs te streamen naar SQL Data Warehouse.
-* [Event Grid REST API-verwijzing](/rest/api/eventgrid)  
+* [Naslaginformatie over de REST-API voor Event Grid](/rest/api/eventgrid)  
   Bevat naslaginformatie voor het beheren van gebeurtenisabonnementen, routering en filters.

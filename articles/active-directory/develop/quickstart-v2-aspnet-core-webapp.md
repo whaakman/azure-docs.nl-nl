@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505344"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579458"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snelstart: aanmelding met Microsoft toevoegen aan een ASP.NET Core-web-app
 
@@ -55,9 +55,9 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 > 1. Selecteer **registratie van nieuwe**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AspNetCore-Quickstart`.
->    - Bij **Antwoord-URL** voegt u `https://localhost:44321/` toe en selecteert u **Registreren**.
+>    - In **omleidings-URI**, toevoegen `https://localhost:44321/`, en selecteer **registreren**.
 > 1. Selecteer het menu **Verificatie** en voeg dan de volgende gegevens toe:
->    - Bij **Antwoord-URL** voegt u `https://localhost:44321/signin-oidc` toe en selecteert u **Registreren**.
+>    - In **omleidings-URI's**, toevoegen `https://localhost:44321/signin-oidc`, en selecteer **opslaan**.
 >    - Bij **Geavanceerde instellingen** stelt u de **afmeldings-URL** in op `https://localhost:44321/signout-oidc`.
 >    - Bij **Impliciete toekenning** controleert u de **id-tokens**.
 >    - Selecteer **Opslaan**.
@@ -66,14 +66,14 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Als u het codevoorbeeld uit deze snelstart wilt gebruiken, moet u antwoord-URL's toevoegen als `https://localhost:44321/` en `https://localhost:44321/signin-oidc`, voegt u de afmeldings-URL toe als `https://localhost:44321/signout-oidc` en vraagt u de id-tokens aan die moeten worden uitgegeven door het autorisatie-eindpunt.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging hebt aangebracht voor mij]()
+> > [Deze wijziging voor mij maken]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-aspnet-webapp/green-check.png) uw toepassing is geconfigureerd met deze kenmerken.
+> > ![Al geconfigureerd](media/quickstart-v2-aspnet-webapp/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Stap 2: uw ASP.NET Core-project downloaden
 
-- [De oplossing voor Visual Studio 2017 downloaden](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [De Visual Studio 2017-oplossing downloaden](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
@@ -88,11 +88,11 @@ In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (ho
 
 > [!div renderon="docs"]
 > Waar:
-> - `Enter_the_Application_Id_here` -is de **(client) toepassings-ID** voor de toepassing die u in de Azure-portal hebt geregistreerd. U vindt de **toepassings-id (client-id)** op de pagina **Overzicht** van de app.
-> - `Enter_the_Tenant_Info_Here` -is een van de volgende opties:
+> - `Enter_the_Application_Id_here`: is de **toepassings-id** (client-id) voor de toepassing die is geregistreerd in de Azure-portal. U vindt de **toepassings-id (client-id)** op de pagina **Overzicht** van de app.
+> - `Enter_the_Tenant_Info_Here` - is een van de volgende opties:
 >   - Als uw toepassing **Alleen accounts in deze organisatiemap** ondersteunt, vervangt u deze waarde door de **tenant-id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
->   - Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met `organizations`
->   - Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met `common`
+>   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
+>   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
 >
 > > [!TIP]
 > > Om de waarden van **Toepassings-id (client-id)**, **Map-id (tenant-id)** en **Ondersteunde accounttypen** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal.
@@ -148,7 +148,8 @@ De regel die `.AddAzureAd` wordt de verificatie van Microsoft identity-platform 
 
 
 > [!NOTE]
-> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In realtime toepassingen die u nodig hebt voor het valideren van de verlener raadpleegt u de voorbeelden om te begrijpen hoe u dat doet.
+> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In de echte toepassingen die u wilt valideren van de verlener.
+> Zie de voorbeelden om te begrijpen hoe u dat doet.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Een controller of de methode van een controller beveiligen
 

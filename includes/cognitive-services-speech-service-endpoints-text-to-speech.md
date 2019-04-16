@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 3ff49e800b8db09cbff5c07107f71532437a4572
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ef68d02f6aa23368962e08af7b35d2b81c0e80bb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671803"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579799"
 ---
 ### <a name="neural-voices"></a>Neurale stemmen
 
@@ -31,7 +31,6 @@ Standard stemmen zijn beschikbaar in deze regio's:
 | Regio | Eindpunt |
 |--------|----------|
 | Australië - oost | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 |
-| Brazilië - zuid | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Canada - midden | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | US - centraal | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Azië - oost | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -57,7 +56,6 @@ Als u een aangepaste spraakstijl hebt gemaakt, gebruikt u het eindpunt dat u heb
 | Regio | Eindpunt |
 |--------|----------|
 | Australië - oost | https://australiaeast.voice.speech.microsoft.com |
-| Brazilië - zuid | https://brazilsouth.voice.speech.microsoft.com |
 | Canada - midden | https://canadacentral.voice.speech.microsoft.com |
 | US - centraal | https://centralus.voice.speech.microsoft.com |
 | Azië - oost | https://eastasia.voice.speech.microsoft.com |

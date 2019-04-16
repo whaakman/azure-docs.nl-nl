@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121346"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577895"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Richtlijnen voor persoonlijke gegevens die zijn opgeslagen in Log Analytics en Application Insights
 
@@ -86,6 +86,9 @@ Zoals vermeld in de [strategie voor de verwerking van persoonlijke gegevens](#st
 ### <a name="view-and-export"></a>Weergeven en exporteren
 
 Voor beide weergeven en exporteren van aanvragen voor gegevens, de [Log Analytics-query API](https://dev.loganalytics.io/) of de [Application Insights query API](https://dev.applicationinsights.io/quickstart) moet worden gebruikt. Logica voor het converteren van de vorm van de gegevens naar een geschikt om te leveren aan uw gebruikers worden aan u om te implementeren. [Azure Functions](https://azure.microsoft.com/services/functions/) maakt een mooie plek voor het hosten van dergelijke logica.
+
+> [!IMPORTANT]
+>  Hoewel de meeste opschonen bewerkingen mogelijk veel sneller dan de SLA voltooid **een formele SLA voor de voltooiing van leegmaken is ingesteld op 30 dagen** vanwege de zware impact op het data platform dat wordt gebruikt. Dit is een geautomatiseerd proces; Er is geen manier om aan te vragen dat een bewerking sneller worden verwerkt.
 
 ### <a name="delete"></a>Verwijderen
 

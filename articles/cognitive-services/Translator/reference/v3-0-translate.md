@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8533a5b2a974af3bd426e9b70ba298534b0365f7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d68c5579664a9b0a36f906e4586aa0e268a0fd01
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917512"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579254"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td><em>Vereiste parameter</em>.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen <code>3.0</code>.</td>
@@ -97,8 +97,8 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_koptekst_</td>
-    <td><em>Vereiste aanvraagheader</em>.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
+    <td>Verificatie of meerdere berichtkoppen</td>
+    <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -233,7 +233,7 @@ Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourner
 
 In dit voorbeeld laat zien hoe een enkele zin in het Engels naar vereenvoudigd Chinees vertalen.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -259,7 +259,7 @@ De `translations` matrix bevat een element, dat zorgt voor de omzetting van de l
 
 In dit voorbeeld laat zien hoe een enkele zin in het Engels naar vereenvoudigd Chinees vertalen. De aanvraag heeft niet de invoer taal opgeven. Automatische detectie van de source-taal wordt in plaats daarvan gebruikt.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -285,7 +285,7 @@ Het antwoord is vergelijkbaar met het antwoord uit het vorige voorbeeld. Omdat a
 
 Laten we het vorige voorbeeld uitbreiden door vele toe te voegen. De volgende aanvraag gevraagd of u een Chinees vertaling die in Latijns schrift zijn geschreven.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -316,7 +316,7 @@ Het resultaat van de vertaling bevat nu een `transliteration` getoond, hetgeen r
 
 Vertalen van meerdere tekenreeksen in één keer is gewoon een kwestie van het opgeven van een matrix met tekenreeksen in de aanvraagtekst.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -345,7 +345,7 @@ Hoofdtekst van het antwoord is:
 
 In dit voorbeeld laat zien hoe de dezelfde invoer voor verschillende talen in één verzoek vertalen.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -403,7 +403,7 @@ Voor <code>ProfanityMarker=Tag</code>, grof woorden worden omringd door de XML-t
 
 Bijvoorbeeld:
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -425,7 +425,7 @@ Dit geeft als resultaat:
 
 Vergelijken met:
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -456,7 +456,7 @@ Het is gebruikelijk om te vertalen, waaronder markup zoals uit een HTML-pagina-i
 
 Hier volgt een voorbeeld van een aanvraag om te illustreren.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -480,7 +480,7 @@ Het antwoord is:
 
 Voor het ontvangen van uitlijningsgegevens, geef `includeAlignment=true` op de query-tekenreeks.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -518,7 +518,7 @@ Houd rekening met de volgende beperkingen:
 
 Geef voor het ontvangen van informatie over de zinlengte van de in de brontekst en de vertaalde tekst, `includeSentenceLength=true` op de query-tekenreeks.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

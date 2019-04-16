@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: c4c5dcf9c83b79158e3459e79db6dd066d982fc8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 63f18e3ee316b9791bb62bfcd20c07a30cbebb5e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108256"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579206"
 ---
 # <a name="azure-blockchain-workbench-application-versioning"></a>Azure Blockchain Workbench-toepassing-versiebeheer
 
@@ -26,14 +26,14 @@ U kunt meerdere versies van een Azure Blockchain Workbench-app maken en gebruike
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Blockchain Workbench-implementatie. Zie voor meer informatie [Azure Blockchain Workbench-implementatie](deploy.md) voor details over implementatie
-* Een geïmplementeerde blockchain-toepassing in Blockchain Workbench. Zie [een blockchain-toepassing maken in Azure Blockchain Workbench](create-app.md)
+* Een geïmplementeerde blockchain-toepassing in Blockchain Workbench. Zie [Een blockchain-toepassing maken in Azure Blockchain Workbench](create-app.md) voor meer informatie.
 
 ## <a name="add-an-app-version"></a>Een appversie toevoegen
 
 Voeg de nieuwe configuratie en slimme contractbestanden toe aan Blockchain Workbench om een nieuwe versie toe te voegen.
 
 1. Navigeer in een webbrowser naar het webadres van Blockchain Workbench. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` Zie voor meer informatie over het vinden van uw Blockchain Workbench webadres [Blockchain Workbench Web-URL](deploy.md#blockchain-workbench-web-url)
-2. Meld u aan als een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators).
+2. Meld u aan als een [Blockchain Workbench-beheerder](manage-users.md#manage-blockchain-workbench-administrators).
 3. Selecteer de blockchain-toepassing die u wilt bijwerken met een andere versie.
 4. Selecteer **toevoegen versie**. Het **toevoegen versie** deelvenster wordt weergegeven.
 5. Kies de nieuwe configuratie van het versie-contract en contract codebestanden om te uploaden. Het configuratiebestand wordt automatisch gevalideerd. Corrigeer eventuele validatiefouten voordat u de toepassing implementeert.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489808"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571151"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Apparaatverificatie met behulp van x.509-CA-certificaten
 
@@ -62,13 +62,15 @@ Het uploadproces houdt in dat u uploadt een bestand met uw certificaat.  Dit bes
 
 Het bewijs van bezit stap bestaat uit een cryptografische vraag en antwoord-proces tussen u en uw IoT-Hub.  Gezien het feit dat de inhoud van digitale certificaten zijn openbaar en daarom gevoelig is voor het niet kan worden afgeluisterd, graag IoT Hub om na te gaan dat u echt eigenaar van het CA-certificaat.  Het moet dit doen door het genereren van een willekeurige uitdaging die u zich met de bijbehorende persoonlijke sleutel van het CA-certificaat aanmelden moet.  Als de privésleutel geheim en beveiligde net als eerst op de hoogte, en vervolgens alleen over de kennis voor het voltooien van deze stap beschikken. Geheimhouding van persoonlijke sleutels is de bron van vertrouwen in deze methode.  Na de ondertekening van de uitdaging voltooien van deze stap door een bestand met de resultaten te uploaden.
 
-Lees hier hoe u [registreren van uw CA-certificaat](iot-hub-security-x509-get-started.md#registercerts).
+Lees hier hoe u [registreren van uw CA-certificaat](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Over het maken van een apparaat in IoT Hub
 
 Als u wilt dat apparaat imitatie, moet IoT Hub u aan zodat deze informatie over welke apparaten die u kunt verwachten.  U doen dit door het maken van een vermelding in de IoT-Hub-apparaatregister.  Dit proces is geautomatiseerd bij het gebruik van IoT-Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Lees hier hoe u [handmatig maken van een apparaat in IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
+Lees hier hoe u [handmatig maken van een apparaat in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Een X.509-apparaat voor uw IoT-hub maken
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten
 
@@ -76,7 +78,7 @@ Met X.509-CA-certificaat is geregistreerd en apparaten die zijn aangemeld bij ee
 
 Een apparaatverbinding met IoT Hub het verificatieproces is voltooid en is ook voor een juiste installatie.
 
-Lees hier hoe u [voltooien van deze stap van de verbinding apparaat](iot-hub-security-x509-get-started.md#authenticatedevice).
+Lees hier hoe u [voltooien van deze stap van de verbinding apparaat](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Volgende stappen
 

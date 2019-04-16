@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501961"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571168"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -68,7 +68,7 @@ Beginnen met het maken van de tests uitgevoerd voor het controleren van de netwe
 5. In **doel**, voer de URL/FQDN-naam/IP-adres waarnaar u wilt bewaken van de verbinding met het netwerk.
 6. In **poortnummer**, voer het poortnummer van de doelservice. 
 7. In **testen frequentie**, voer een waarde voor hoe vaak u wilt dat de test om uit te voeren. 
-8. Selecteer de knooppunten van waaruit u wilt bewaken van de netwerkverbinding met de service. 
+8. Selecteer de knooppunten van waaruit u wilt bewaken van de netwerkverbinding met de service. Zorg ervoor dat het aantal agents per test toegevoegd minder dan 150. Een agent kan maximaal 150 eindpunten agents kunt testen.
 
     >[!NOTE]
     > Voor Windows server-knooppunten gebruikt de mogelijkheid TCP-aanvragen naar de netwerkmetingen uitschakelen. Voor Windows-knooppunten op basis van een client gebruikt de mogelijkheid ICMP-aanvragen naar de netwerkmetingen uitschakelen. In sommige gevallen blokkeert de doeltoepassing binnenkomende ICMP-aanvragen wanneer de knooppunten Windows client-gebaseerde zijn. De oplossing is niet netwerkmetingen uitschakelen. U wordt aangeraden dat u Windows server-gebaseerde knooppunten in dergelijke gevallen gebruiken. 

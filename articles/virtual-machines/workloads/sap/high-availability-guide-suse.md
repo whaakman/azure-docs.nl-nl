@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007842"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579033"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -95,7 +95,8 @@ De NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, INGEN voor SAP NetWeaver e
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 620<strong>&lt;nr&gt;</strong>
-* Regels van loadbalancing in Plbscheduler
+* Belasting 
+* taakverdelingsregels
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -112,7 +113,7 @@ De NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, INGEN voor SAP NetWeaver e
   * Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken) SCS/INGEN cluster
 * Testpoort
   * Poort 621<strong>&lt;nr&gt;</strong>
-* Regels van loadbalancing in Plbscheduler
+* Taakverdelingsregels
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -132,7 +133,8 @@ De Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor
 
 U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, load balancer, beschikbaarheidsset enzovoort. Volg deze stappen om de sjabloon te implementeren:
 
-1. Open de [ASCS/SCS Multi-SID sjabloon] [ template-multisid-xscs] of de [geconvergeerd sjabloon] [ template-converged] in de ASCS/SCS-sjabloon maakt u alleen Azure portal de regels voor taakverdeling voor de SAP NetWeaver ASCS/SCS en INGEN exemplaren (alleen Linux) terwijl de geconvergeerde sjabloon ook de taakverdelingsregels voor een database (bijvoorbeeld Microsoft SQL Server of SAP HANA maakt). Als u van plan bent voor het installeren van een SAP NetWeaver op basis van systeem en u ook wilt het installeren van de database op de dezelfde machines gebruikt de [geconvergeerd sjabloon][template-converged].
+1. Open de [ASCS/SCS Multi-SID sjabloon] [ template-multisid-xscs] of de [geconvergeerd sjabloon] [ template-converged] in Azure portal. 
+   De taakverdelingsregels de ASCS/SCS-sjabloon alleen gemaakt voor de SAP NetWeaver ASCS/SCS- en INGEN (alleen Linux) hebben dat de sjabloon die geconvergeerde ook de taakverdelingsregels voor een database (bijvoorbeeld Microsoft SQL Server of SAP HANA maakt). Als u van plan bent voor het installeren van een SAP NetWeaver op basis van systeem en u ook wilt het installeren van de database op de dezelfde machines gebruikt de [geconvergeerd sjabloon][template-converged].
 1. Voer de volgende parameters
    1. Resource-voorvoegsel (alleen in de ASCS/SCS Multi-SID sjabloon)  
       Geef het voorvoegsel dat u wilt gebruiken. De waarde wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
@@ -144,7 +146,7 @@ U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste re
       Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld SLES 12 BYOS
    6. Databasetype  
       HANA selecteren
-   7. Grootte van de SAP-systeem  
+   7. Grootte van de SAP-systeem.  
       De hoeveelheid van het nieuwe systeem biedt SAP's. Als u niet zeker weet hoeveel SAP's het systeem is vereist, vraagt u uw SAP-technologiepartner of het systeemintegrator
    8. Beschikbaarheid van het systeem  
       HA selecteren
@@ -198,7 +200,7 @@ U moet eerst de virtuele machines voor dit cluster NFS maken. Daarna wordt u een
          1. Klik op OK
       1. Poort 621**02** voor ASCS INGEN
          * Herhaal de stappen hierboven om te maken van een statustest voor de gebruikers (bijvoorbeeld 621**02** en **nw1-aers-hp**)
-   1. Regels van loadbalancing in Plbscheduler
+   1. Taakverdelingsregels
       1. 32**00** TCP voor ASCS
          1. De load balancer openen, selecteert u load balancer-regels en klikt u op toevoegen
          1. Voer de naam van de nieuwe load balancer-regel (bijvoorbeeld **nw1-lb-3200**)
@@ -530,6 +532,8 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 1. **[1]**  De resources van de SAP-cluster maken
 
+Als u de architectuur van de server 1 in de wachtrij plaatsen (ENSA1), definieert u de resources als volgt:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP-ondersteuning voor het in de wachtrij plaatsen server 2, met inbegrip van replicatie vanaf SAP NW 7.52. Beginnen met ABAP-Platform 1809, wordt in de wachtrij plaatsen server 2 standaard geïnstalleerd. Zie SAP Opmerking [2630416](https://launchpad.support.sap.com/#/notes/2630416) voor ondersteuning van de server 2 in de wachtrij plaatsen.
+Als in de wachtrij plaatsen server 2-architectuur ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definieert u de resources als volgt:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, Zie sap-notitie [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de resources die worden uitgevoerd.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ De volgende tests uit zijn een kopie van de Testscenario's in de best practices 
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Maak een vergrendeling in de wachtrij plaatsen, voor het bewerken van voorbeeld van een gebruiker in transactie su01. Voer de volgende opdrachten als \<sapsid > adm op het knooppunt waarop de ASCS-exemplaar wordt uitgevoerd. De opdrachten wordt de ASCS-exemplaar stopt en start het opnieuw. De vergrendeling in de wachtrij plaatsen wordt verwacht in deze test verloren gaan.
+   Maak een vergrendeling in de wachtrij plaatsen, voor het bewerken van voorbeeld van een gebruiker in transactie su01. Voer de volgende opdrachten als \<sapsid > adm op het knooppunt waarop de ASCS-exemplaar wordt uitgevoerd. De opdrachten wordt de ASCS-exemplaar stopt en start het opnieuw. Als u de architectuur van de server 1 in de wachtrij plaatsen, moet de vergrendeling in de wachtrij plaatsen wordt verwacht in deze test verloren gaan. Als u de architectuur van de server 2 in de wachtrij plaatsen, wordt het in de wachtrij plaatsen worden bewaard. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

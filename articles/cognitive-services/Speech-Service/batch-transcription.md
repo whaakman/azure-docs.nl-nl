@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447647"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579356"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -88,6 +88,16 @@ Parameters voor de configuratie worden gegeven als JSON:
 | `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. | Optioneel |
  | `AddWordLevelTimestamps` | Hiermee geeft u als word niveau tijdstempels moet worden toegevoegd aan de uitvoer. Geaccepteerde waarden zijn `true` waarmee word niveau tijdstempels en `false` (de standaardwaarde) uitschakelen. | Optioneel |
 
+### <a name="storage"></a>Storage
+
+Batch ondersteunt transcriptie [Azure Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) voor het lezen van audio en transcripties van het schrijven naar de opslag.
+
+## <a name="webhooks"></a>Webhooks 
+
+Polling voor de status van transcriptie mogelijk niet de meeste prestaties of de beste gebruikerservaring te bieden. Als u wilt laten pollen van status, kunt u zich registreren callbacks, die de client ontvangt wanneer langlopende transcriptie taken zijn voltooid.
+
+Zie voor meer informatie, [Webhooks](webhooks.md).
+
 ## <a name="sample-code"></a>Voorbeeldcode
 
 Het volledige voorbeeld is beschikbaar in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples) binnen de `samples/batch` submap.
@@ -108,10 +118,6 @@ De huidige voorbeeldcode opgeven niet een aangepast model. De service maakt gebr
 
 > [!NOTE]
 > Voor basislijn transcripties moet u niet de ID voor de basislijn-modellen declareren. Als u alleen een taal model-ID (en geen akoestisch model-ID) opgeeft, wordt een overeenkomende akoestisch model automatisch geselecteerd. Als u alleen een akoestisch model-ID opgeeft, wordt een overeenkomende taalmodel automatisch geselecteerd.
-
-### <a name="supported-storage"></a>Ondersteunde opslag
-
-Op dit moment wordt alleen Azure Blob-opslag ondersteund.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 

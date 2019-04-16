@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958045"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579407"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
 |Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Hoofdtekst van bericht|JSON-object|JSON|De vraag met instellingen|
-|Queryreeks-parameter (optioneel)|`isTest`|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
+
 
 De hoofdtekst van de JSON bevat verschillende instellingen:
 
@@ -83,6 +83,7 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 |`question`|vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
 |`top`|optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
 |`userId`|optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
+|`isTest`|optioneel|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
 |`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn.|
 
 Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
@@ -91,6 +92,7 @@ Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505767"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579339"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -349,7 +349,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="table-storage"></a>Table Storage
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | TableCapacity | De hoeveelheid van Table storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | TableCount   | Het aantal tabellen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
@@ -365,7 +365,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="file-storage"></a>File Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | FileCapacity | De hoeveelheid opslag van bestanden die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | FileCount   | Het aantal bestanden in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
@@ -377,7 +377,7 @@ Metrische gegevens die transactie zijn bij elke aanvraag verzonden naar een opsl
 
 Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azure Monitor.
 
-| Naam van meetwaarde | Description |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: De ResponseType, GeoType ApiName en -verificatie ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
 | Inkomend verkeer | De hoeveelheid inkomende gegevens. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Totaal <br/> Van toepassing afmetingen: GeoType, ApiName en -verificatie ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
@@ -393,7 +393,7 @@ Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure
 | Dimensienaam | Description |
 | ------------------- | ----------------- |
 | BlobType | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder meer: <br/><br/> <li>ServerOtherError: alle overige serverfouten, behalve diegene die zijn beschreven </li> <li> ServerBusyError: geverifieerde aanvraag waardoor een HTTP 503-statuscode is geretourneerd. </li> <li> ServerTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een autorisatiefout. </li> <li> NetworkError: geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op als dooreen client voortijdig een verbinding wordt verbroken voordat de time-out voorbij is. </li> <li>    ClientThrottlingError: Beperkingsfout aan de client-zijde. </li> <li> ClientTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. Als de time-out van het clientnetwerk of van de aanvraag is ingesteld op een lagere waarde dan door de opslagservice wordt verwacht, is er sprake van een verwachte time-out. Anders wordt deze als ServerTimeoutError gerapporteerd. </li> <li> ClientOtherError: alle overige fouten aan de clientzijde, behalve diegene die zijn beschreven. </li> <li> Geslaagd: De aanvraag is gelukt. </li> <li> SuccessWithThrottling: Succesvolle aanvraag wanneer een SMB-client in de eerste pogingen wordt beperkt, maar is na nieuwe pogingen is gelukt.|
+| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder meer: <br/><br/> <li>ServerOtherError: alle overige serverfouten, behalve diegene die zijn beschreven </li> <li> ServerBusyError: geverifieerde aanvraag waardoor een HTTP 503-statuscode is geretourneerd. </li> <li> ServerTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een autorisatiefout. </li> <li> NetworkError: geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op als dooreen client voortijdig een verbinding wordt verbroken voordat de time-out voorbij is. </li> <li>    ClientThrottlingError: Beperkingsfout aan de client-zijde. </li> <li> ClientTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. Als de time-out van het clientnetwerk of van de aanvraag is ingesteld op een lagere waarde dan door de opslagservice wordt verwacht, is er sprake van een verwachte time-out. Anders wordt deze als ServerTimeoutError gerapporteerd. </li> <li> ClientOtherError: alle overige fouten aan de clientzijde, behalve diegene die zijn beschreven. </li> <li> Geslaagd: De aanvraag is gelukt.|
 | GeoType | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere primaire en secundaire database. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
 | ApiName | De naam van bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder meer: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |

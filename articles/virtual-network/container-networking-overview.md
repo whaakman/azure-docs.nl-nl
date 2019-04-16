@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548776"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579118"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Containers inschakelen voor gebruik van mogelijkheden van Azure Virtual Network
 
@@ -60,8 +60,8 @@ De invoegtoepassing ondersteunt maximaal 250 Pods per virtuele machine en maxima
 De invoegtoepassing kan op de volgende manieren worden gebruikt om een eenvoudige koppeling met een virtueel netwerk tot stand te brengen voor Pods of Docker-containers:
 
 - **Azure Kubernetes Service**: De invoegtoepassing is geïntegreerd in de Azure Kubernetes Service (AKS), en kan worden gebruikt door het kiezen van de *geavanceerde netwerken* optie. Met deze optie kunt u een Kubernetes-cluster implementeren in een bestaand of een nieuw virtueel netwerk. Zie [Network configuration in Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Netwerkconfiguratie in AKS (Azure Kubernetes Service)) voor meer informatie over de optie Geavanceerd en de stappen om de optie in te stellen.
-- **ACS-Engine**: ACS-Engine is een hulpprogramma dat genereert een Azure Resource Manager-sjabloon voor de implementatie van een Kubernetes-cluster in Azure. Zie [Deploy plug-in for ACS-Engine Kubernetes cluster](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster) (De invoegtoepassing implementeren voor ACS-Engine Kubernetes-clusters) voor gedetailleerde instructies.
-- **Het maken van uw eigen Kubernetes-cluster in Azure**: De invoegtoepassing kan worden gebruikt om het netwerkgebruik voor schillen in een Kubernetes-clusters bieden u zelf implementeren zonder AKS of hulpprogramma's, zoals de ACS-Engine. In dit geval wordt de invoegtoepassing geïnstalleerd en ingeschakeld op elke virtuele machine in een cluster. Zie [Deploy plug-in for a Kubernetes cluster](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster) (Invoegtoepassing implementeren voor een Kubernetes-cluster) voor gedetailleerde instructies.
+- **AKS-Engine**: AKS-Engine is een hulpprogramma dat genereert een Azure Resource Manager-sjabloon voor de implementatie van een Kubernetes-cluster in Azure. Zie voor gedetailleerde instructies [implementeren de invoegtoepassing voor AKS-Engine, Kubernetes-clusters](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Het maken van uw eigen Kubernetes-cluster in Azure**: De invoegtoepassing kan worden gebruikt om het netwerkgebruik voor schillen in een Kubernetes-clusters bieden u zelf implementeren zonder AKS of hulpprogramma's, zoals de AKS-Engine. In dit geval wordt de invoegtoepassing geïnstalleerd en ingeschakeld op elke virtuele machine in een cluster. Zie [Deploy plug-in for a Kubernetes cluster](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster) (Invoegtoepassing implementeren voor een Kubernetes-cluster) voor gedetailleerde instructies.
 - **Virtueel netwerk koppelen voor Docker-containers in Azure**: De invoegtoepassing kan worden gebruikt in gevallen waar u niet wilt maken van een Kubernetes-cluster en wilt maken van Docker-containers met virtueel netwerk koppelen, op virtuele machines. Zie [Deploy plug-in for Docker containers](deploy-container-networking.md#deploy-plug-in-for-docker-containers) (Invoegtoepassing implementeren voor Docker-containers) voor gedetailleerde instructies.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843620"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578438"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -44,7 +44,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |West-Europa|West-Europa|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -52,8 +52,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 
 <sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
 
-> [!NOTE]
-> Vanwege de vraag, een regio mogelijk niet beschikbaar bij het maken van uw Automation-Account of Log Analytics-werkruimte.  Als dat het geval is, controleert u of dat u gebruikmaakt van een regio in de voorgaande tabel die u resources in kunt maken.
+<sup>2</sup> vanwege beperkingen van de capaciteit van de regio is niet beschikbaar bij het maken van nieuwe resources. Dit geldt ook voor Automation-Accounts en Log Analytics-werkruimten. Bestaande gekoppelde resources in de regio moeten echter nog steeds werken.
 
 De oplossing Wijzigingen bijhouden en Inventaris biedt de mogelijkheid om [Wijzigingen bijhouden](automation-vm-change-tracking.md) en [Inventaris](automation-vm-inventory.md) uit te voeren op uw virtuele machines. In deze stap schakelt u de oplossing in op een virtuele machine.
 
@@ -83,7 +82,7 @@ Wanneer een computer wordt toegevoegd aan de Update Management of de oplossingen
 
 Navigeer naar uw Automation-account en selecteer **opgeslagen zoekopdrachten** onder **algemene**. De twee opgeslagen zoekopdrachten die worden gebruikt door deze oplossingen kunnen worden weergegeven in de volgende tabel:
 
-|Name     |Categorie  |Alias  |
+|Name     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Voor wijzigingen bijhouden       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Updates        | Updates__MicrosoftDefaultComputerGroup         |

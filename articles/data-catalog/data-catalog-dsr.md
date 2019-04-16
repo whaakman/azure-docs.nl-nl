@@ -4,21 +4,19 @@ description: In dit artikel geeft een lijst met specificaties van de momenteel o
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410184"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579390"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Ondersteunde gegevensbronnen in Azure Data Catalog
 
 U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenmaal registratie hulpprogramma of door het handmatig invoeren van gegevens rechtstreeks naar de Azure Data Catalog-webportal. De volgende tabel geeft een overzicht van alle gegevensbronnen die worden ondersteund door de catalogus vandaag en de mogelijkheden voor publiceren voor elk. Ook vermeld, zijn de hulpprogramma's voor externe gegevens die elke gegevensbron vanuit de portal 'open-in'-ervaring starten kunt. De tweede tabel bevat een meer technische specificatie van elke gegevensbron verbinding-eigenschap.
-
 
 ## <a name="list-of-supported-data-sources"></a>Lijst met ondersteunde gegevensbronnen
 
@@ -32,7 +30,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
        <td><b>Opmerkingen</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-map</td>
+      <td>Azure Data Lake Store-map (alleen Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-bestand</td>
+      <td>Azure Data Lake Store-bestand (alleen Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -172,7 +170,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server analyseservices KPI</td>
+      <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -446,7 +444,7 @@ Als u wilt weergeven van een specifieke gegevensbron wordt ondersteund, suggesti
 
 <table>
     <tr>
-       <td><b>Gegevensbrontype</b></td>
+       <td><b>Brontype</b></td>
        <td><b>Activatype</b></td>
        <td><b>Objecttypen</b></td>
        <td><b>DSL-structuur<b></td>

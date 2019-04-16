@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549502"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578778"
 ---
 # <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
 
@@ -53,10 +53,7 @@ Deze tabel bevat de kernfuncties voor tekst naar spraak:
 | Maken en beheren van spraak lettertype tests. | Nee | Ja\* |
 | Abonnementen beheren. | Nee | Ja\* |
 
-\* *Deze services zijn beschikbaar met behulp van het eindpunt cris.ai. Zie [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> De aangepaste spraak-eindpunten die aanvragen voor 25 per vijf seconden beperkt netwerkbeperking te implementeren. Wanneer bandbreedtebeperking optreedt, moet u een melding via berichtkoppen.
+\* *Deze services zijn beschikbaar met behulp van het eindpunt cris.ai. Zie [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index). Deze aangepaste gesproken training en beheer-API's implementeren dat aanvragen van de limieten voor 25 per 5 seconden, terwijl de spraaksynthese API zelf wordt geïmplementeerd die beperking kunt 200 aanvragen per seconde met de hoogste beperking. Wanneer bandbreedtebeperking optreedt, moet u een melding via berichtkoppen.*
 
 ## <a name="get-started-with-text-to-speech"></a>Aan de slag met tekst naar spraak
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767036"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579271"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Aan de slag met Azure Automation State Configuration
 
@@ -27,7 +27,7 @@ Dit artikel bevat een stapsgewijze handleiding voor het gebruik van Azure Automa
 Het volgende is vereist voor het voltooien van de voorbeelden in dit artikel:
 
 - Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
-- Een Azure Resource Manager VM (niet klassiek) met Windows Server 2008 R2 of hoger. Zie [Uw eerste virtuele Windows-machine maken met behulp van Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor instructies voor het maken van een VM
+- Een Azure Resource Manager VM (niet klassiek) met een [ondersteund besturingssysteem](automation-dsc-overview.md#operating-system-requirements). Zie [Uw eerste virtuele Windows-machine maken met behulp van Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor instructies voor het maken van een VM
 
 ## <a name="creating-a-dsc-configuration"></a>Het maken van een DSC-configuratie
 
@@ -149,9 +149,9 @@ U kunt Azure Automation State Configuration gebruiken voor het beheren van Azure
 1. Op de **virtuele machine** details van de pagina, klikt u op **+ Connect**.
 
    > [!IMPORTANT]
-   > Dit moet een Azure Resource Manager-VM met Windows Server 2008 R2 of hoger.
+   > Dit moet een Azure Resource Manager-VM met een [ondersteund besturingssysteem](automation-dsc-overview.md#operating-system-requirements).
 
-1. In de **registratie** pagina, selecteert u de naam van de configuratie van de knooppunten die u wilt toepassen op de virtuele machine in de **knooppuntconfiguratienaam** vak. Op dit moment een naam opgeven is optioneel. U kunt de toegewezen knooppuntconfiguratie nadat het knooppunt wijzigen.
+2. In de **registratie** pagina, selecteert u de naam van de configuratie van de knooppunten die u wilt toepassen op de virtuele machine in de **knooppuntconfiguratienaam** vak. Op dit moment een naam opgeven is optioneel. U kunt de toegewezen knooppuntconfiguratie nadat het knooppunt wijzigen.
    Controleer **knooppunt opnieuw opstarten indien nodig**, klikt u vervolgens op **OK**.
 
    ![Schermafbeelding van de registratie-blade](./media/automation-dsc-getting-started/RegisterVM.png)

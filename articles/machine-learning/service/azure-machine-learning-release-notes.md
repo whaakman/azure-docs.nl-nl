@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528132"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579152"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Voor een volledige beschrijving van elke SDK, gaat u naar de referentiedocumenten voor:
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure-portal
+  + U kunt nu opnieuw indienen voor een bestaand Script uitvoeren op een bestaande externe compute-cluster. 
+  + U kunt nu een gepubliceerde pijplijn uitvoeren met nieuwe parameters op het tabblad pijplijnen. 
+  + De details van uitvoering biedt nu ondersteuning voor een nieuwe momentopname voor het bestand. U kunt een momentopname van de map weergeven wanneer u een specifieke uitvoering verzonden. U kunt ook de laptop die is ingediend bij het starten van de uitvoering downloaden.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
   + Kolom type detectie nu ondersteunt kolommen van het type lang.
   + Een bug opgelost waarbij bepaalde date-waarden zijn weergegeven als tijdstempels in plaats van Python-datum/tijd-objecten.
   + Een bug opgelost waarbij bepaalde aantallen type zijn weergegeven als verdubbelt in plaats van gehele getallen.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

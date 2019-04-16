@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549896"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577792"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -84,7 +84,7 @@ Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines**.
 
 Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines** te maken van de iSCSI-schijven voor de clusters die worden gebruikt door uw SAP-systemen. In het volgende voorbeeld worden SBD apparaten voor meerdere clusters gemaakt. Hier ziet u hoe u een iSCSI-doelserver wilt gebruiken voor meerdere clusters. De apparaten SBD worden geplaatst op de besturingssysteemschijf. Zorg ervoor dat u er genoeg ruimte is.
 
-**` nfs`** wordt gebruikt voor het identificeren van het cluster NFS **ascsnw1** wordt gebruikt voor het identificeren van het cluster met ASCS **NW1**, **dbnw1** wordt gebruikt voor het identificeren van de databasecluster van **NW1** , **nfs-0** en **nfs-1** zijn de hostnamen van de clusterknooppunten NFS **nw1-xscs-0** en **nw1-xscs-1**zijn de hostnamen van de **NW1** ASCS clusterknooppunten, en **nw1-db-0** en **nw1-db-1** zijn de hostnamen van de database clusterknooppunten. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
+**`nfs`** wordt gebruikt voor het identificeren van het cluster NFS **ascsnw1** wordt gebruikt voor het identificeren van het cluster met ASCS **NW1**, **dbnw1** wordt gebruikt voor het identificeren van de databasecluster van **NW1** , **nfs-0** en **nfs-1** zijn de hostnamen van de clusterknooppunten NFS **nw1-xscs-0** en **nw1-xscs-1**zijn de hostnamen van de **NW1** ASCS clusterknooppunten, en **nw1-db-0** en **nw1-db-1** zijn de hostnamen van de database clusterknooppunten. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Maak de ` softdog` configuratiebestand
+   Maak de `softdog` configuratiebestand
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

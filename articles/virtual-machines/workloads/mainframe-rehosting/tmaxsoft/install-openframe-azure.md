@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896375"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578472"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame installeren op Azure
 
@@ -945,7 +945,7 @@ ProSort is een hulpprogramma dat wordt gebruikt in batchtransacties voor het sor
      export PATH
      ```
 
-6. Voor het uitvoeren van de bash-profiel, bij de opdrachtprompt, typt u: ` . .bash_profile`
+6. Voor het uitvoeren van de bash-profiel, bij de opdrachtprompt, typt u: `. .bash_profile`
 
 7. Het configuratiebestand maken. Bijvoorbeeld:
 
@@ -1055,7 +1055,7 @@ OFCOBOL is de compiler OpenFrame die programma's van de mainframe-COBOL geïnter
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Gebruik de `ofcob --version ` beheren en controleren van het versienummer om de installatie te controleren. Bijvoorbeeld:
+10. Gebruik de `ofcob --version` beheren en controleren van het versienummer om de installatie te controleren. Bijvoorbeeld:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 

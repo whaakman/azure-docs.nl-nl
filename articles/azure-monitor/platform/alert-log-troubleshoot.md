@@ -1,6 +1,6 @@
 ---
 title: Het oplossen van waarschuwingen in Azure Monitor | Microsoft Docs
-description: Veelvoorkomende problemen, fouten en resolutie voor logboek waarschuwingsregels in Azure.
+description: Veelvoorkomende problemen, fouten en omzetting voor waarschuwingsregels in Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005304"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578710"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 
@@ -25,7 +25,6 @@ De term **Logboekwaarschuwingen** beschrijving van waarschuwingen die worden ges
 
 > [!NOTE]
 > In dit artikel geen rekening gehouden met de aanvragen als de Azure-portal wordt weergegeven en Waarschuwing regel geactiveerd en een melding die wordt uitgevoerd door een bijbehorende actie groep(en). Voor dergelijke gevallen raadpleegt u de details in het artikel op [actiegroepen](../platform/action-groups.md).
-
 
 ## <a name="log-alert-didnt-fire"></a>Waarschuwing is niet gestart
 
@@ -92,9 +91,94 @@ Bijvoorbeeld, als de waarschuwingsregel is geconfigureerd om te activeren wannee
 
 ### <a name="alert-query-output-misunderstood"></a>Waarschuwing query-uitvoer verkeerd begrepen
 
-U opgeven de logica voor logboekwaarschuwingen in een analytics-query. De analytics-query mag gebruiken verschillende wiskundige functies en big data.  De waarschuwingen service voert de query met intervallen opgegeven met de gegevens voor de opgegeven tijdsperiode. De waarschuwingen service maakt subtiele wijzigingen in de opgegeven query op basis van het Waarschuwingstype dat is gekozen. Dit is te zien in de sectie 'Een Query om te worden uitgevoerd' in *signaallogica configureren* scherm, zoals hieronder wordt weergegeven: ![Query moet worden uitgevoerd](media/alert-log-troubleshoot/LogAlertPreview.png)
+U opgeven de logica voor logboekwaarschuwingen in een analytics-query. De analytics-query mag gebruiken verschillende wiskundige functies en big data.  De waarschuwingen service voert de query met intervallen opgegeven met de gegevens voor de opgegeven tijdsperiode. De waarschuwingen service maakt subtiele wijzigingen in de opgegeven query op basis van het Waarschuwingstype dat is gekozen. Deze wijziging kan worden weergegeven in de sectie 'Een Query om te worden uitgevoerd' in *signaallogica configureren* scherm, zoals hieronder wordt weergegeven: ![Query moet worden uitgevoerd](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 Wat wordt weergegeven in de **query moet worden uitgevoerd** vak is wat de waarschuwing log-service wordt uitgevoerd. U kunt uitvoeren met de opgegeven query, evenals de timespan via [analyseportal](../log-query/portals.md) of de [Tekstanalyse-API](https://docs.microsoft.com/rest/api/loganalytics/) als u weten wat de Waarschuwingsquery uitvoer mag zijn wilt voordat u daadwerkelijk de waarschuwing hebt gemaakt.
+
+## <a name="log-alert-was-disabled"></a>Waarschuwing is uitgeschakeld
+
+Hieronder volgen enkele oorzaken van dit [waarschuwingsregel in Azure Monitor](../platform/alerts-log.md) kan worden uitgeschakeld door Azure Monitor.
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>Er bestaat resource waarop waarschuwing niet meer is gemaakt
+
+Meld u waarschuwingsregels die zijn gemaakt in Azure Monitor-doel van een specifieke bron, zoals een Azure Log Analytics-werkruimte, de Azure Application Insights-app en de Azure-resource. En voer de waarschuwing log-service vervolgens analysequery opgegeven in de regel voor het opgegeven doel. Maar na het maken van de regel, vaak gebruikers gaat u naar van Azure verwijderen of verplaatsen binnen Azure - het doel van de waarschuwingsregel. Als het doel van de waarschuwingsregel niet meer geldig is, mislukt de uitvoering van de regel.
+
+In dergelijke gevallen worden Azure Monitor uitschakelen van de waarschuwing en controleer of klanten worden niet onnodig, gefactureerd wanneer de regel zelf is niet continu uitvoeren voor aanzienlijke periode, zoals een week. Gebruikers vindt u op de exacte tijd waarop de waarschuwingsregel is uitgeschakeld door Azure Monitor via [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). Wanneer de waarschuwingsregel is uitgeschakeld door Azure, wordt een gebeurtenis in Azure-activiteitenlogboek toegevoegd in Azure-activiteitenlogboek.
+
+Een voorbeeld van de gebeurtenis in Azure-activiteitenlogboek waarschuwingsregel is uitgeschakeld omdat er continu; Hieronder wordt weergegeven.
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>Query die wordt gebruikt in een logboek waarschuwing is niet geldig
+
+Elke logboekwaarschuwingen in Azure Monitor is gemaakt als onderdeel van de configuratie moet een analytics-query moet regelmatig worden uitgevoerd door de waarschuwing service opgeven. Terwijl de analytics-query mogelijk de juiste syntaxis op het moment van de regel voor het maken of bijwerken. Enkele voorbeelden van momenten gedurende een bepaalde periode, de query opgeven in het logboek waarschuwingsregel syntaxisproblemen ontwikkelen en ervoor zorgen dat de uitvoering van de regel voor het mislukken. Er zijn enkele veelvoorkomende redenen waarom opgegeven in een waarschuwingsregel voor log analytics-query met fouten ontwikkelen kunt:
+
+- Query wordt geschreven naar [uitvoeren voor meerdere resources](../log-query/cross-workspace-query.md) en een of meer van de resources die zijn opgegeven, nu nog niet bestaan.
+- Er is geen gegevensstroom aan het analytics-platform, omdat dat de [uitvoering van de query geeft een foutmelding](https://dev.loganalytics.io/documentation/Using-the-API/Errors) omdat er geen gegevens voor de opgegeven query.
+- Wijzigingen in [querytaal](https://docs.microsoft.com/azure/kusto/query/) hebben plaatsgevonden in welke opdrachten en -functies hebben een herziene indeling. De eerder opgegeven query in de waarschuwingsregel is daarom niet meer geldig.
+
+De gebruiker moet worden gewaarschuwd over dit gedrag eerst [Azure Advisor](../../advisor/advisor-overview.md). Een aanbeveling kan worden toegevoegd voor de specifieke waarschuwingsregel op Azure Advisor, onder de categorie van hoge beschikbaarheid met normale impact en een beschrijving zoals 'Uw waarschuwingsregel om ervoor te zorgen bewaking herstellen'. Als de Waarschuwingsquery in de opgegeven logboekwaarschuwingsregel is niet hersteld na zeven dagen van de aanbeveling bieden op Azure Advisor. Vervolgens wordt Azure Monitor uitschakelen van de waarschuwing en zorg ervoor dat klanten worden niet onnodig, gefactureerd wanneer de regel zelf is niet continu uitvoeren voor aanzienlijke periode, zoals een week.
+
+Gebruikers vindt u op de exacte tijd waarop de waarschuwingsregel is uitgeschakeld door Azure Monitor via [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). Als de waarschuwingsregel is uitgeschakeld door de Azure - wordt een gebeurtenis in Azure Activity Log toegevoegd in Azure-activiteitenlogboek.
 
 ## <a name="next-steps"></a>Volgende stappen
 

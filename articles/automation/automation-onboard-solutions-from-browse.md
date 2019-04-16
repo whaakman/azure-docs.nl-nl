@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855347"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578489"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -71,7 +71,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |West-Europa|West-Europa|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -79,8 +79,7 @@ De volgende tabel bevat de ondersteunde toewijzingen:
 
 <sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
 
-> [!NOTE]
-> Vanwege de vraag, een regio mogelijk niet beschikbaar bij het maken van uw Automation-Account of Log Analytics-werkruimte.  Als dat het geval is, controleert u of dat u gebruikmaakt van een regio in de voorgaande tabel die u resources in kunt maken.
+<sup>2</sup> vanwege beperkingen van de capaciteit van de regio is niet beschikbaar bij het maken van nieuwe resources. Dit geldt ook voor Automation-Accounts en Log Analytics-werkruimten. Bestaande gekoppelde resources in de regio moeten echter nog steeds werken.
 
 Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
 

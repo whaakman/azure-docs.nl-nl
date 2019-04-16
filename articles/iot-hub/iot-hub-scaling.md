@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536280"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571291"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
-Elke IoT-oplossing is verschillend zijn, zodat Azure IoT Hub verschillende opties op basis van prijzen en schaal biedt. Dit artikel is bedoeld voor het evalueren van de behoeften van uw IoT-Hub. Zie voor meer informatie over Prijscategorieën van IoT Hub-prijzen, [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub). 
+Elke IoT-oplossing is verschillend zijn, zodat Azure IoT Hub verschillende opties op basis van prijzen en schaal biedt. Dit artikel is bedoeld voor het evalueren van de behoeften van uw IoT-Hub. Zie voor meer informatie over Prijscategorieën van IoT Hub-prijzen, [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub).
 
 Om te beslissen welke IoT Hub-laag is geschikt voor uw oplossing, Stel uzelf twee vragen:
 
 **Welke functies wilt ik gebruiken?**
+
 Azure IoT Hub biedt twee lagen, basis en standaard, die afwijken van het aantal functies die erdoor worden ondersteund. Als uw IoT-oplossing is gebaseerd op gegevens van apparaten verzamelen en analyseren van deze centraal, zijn de basic-laag is waarschijnlijk geschikt is voor u. Als u meer geavanceerde configuraties gebruiken wilt voor het IoT-apparaten op afstand beheren of distribueren enkele van uw werklasten op de apparaten zelf, kunt u de standard-laag moet overwegen. Voor gedetailleerde informatie van deze functies zijn opgenomen in elke laag blijven [Basic en standard-laag](#basic-and-standard-tiers).
 
 **Hoeveel gegevens wilt ik dagelijks verplaatsen?**
+
 Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gegevens doorvoer ze kunnen worden verwerkt in elke dag. Deze grootten zijn numeriek geïdentificeerd als 1, 2 en 3. Met elke eenheid van een niveau 1 IoT-hub kan bijvoorbeeld 400 duizend berichten per dag, verwerken, terwijl een niveau 3-eenheid 300 miljoen kan verwerken. Voor meer informatie over de richtlijnen van de gegevens nog steeds [bericht doorvoer](#message-throughput).
 
 ## <a name="basic-and-standard-tiers"></a>Basic en standard-laag
@@ -46,15 +48,13 @@ Slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub
 | [Apparaat-streams (preview)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
-IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard. 
-
+IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard.
 
 ## <a name="partitions"></a>Partities
 
-Azure IoT-Hubs bevatten veel kernonderdelen van [Azure Event Hubs](../event-hubs/event-hubs-features.md), waaronder [partities](../event-hubs/event-hubs-features.md#partitions). Gebeurtenisstromen voor IoT-Hubs zijn doorgaans gevuld met binnenkomende telemetriegegevens die moet worden gerapporteerd door verschillende IoT-apparaten. Het partitioneren van de gebeurtenisstroom wordt gebruikt om contentions die zich voordoen bij het gelijktijdig lezen en schrijven naar gebeurtenisstromen verminderen. 
+Azure IoT-Hubs bevatten veel kernonderdelen van [Azure Event Hubs](../event-hubs/event-hubs-features.md), waaronder [partities](../event-hubs/event-hubs-features.md#partitions). Gebeurtenisstromen voor IoT-Hubs zijn doorgaans gevuld met binnenkomende telemetriegegevens die moet worden gerapporteerd door verschillende IoT-apparaten. Het partitioneren van de gebeurtenisstroom wordt gebruikt om contentions die zich voordoen bij het gelijktijdig lezen en schrijven naar gebeurtenisstromen verminderen.
 
 De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt, en kan niet worden gewijzigd. De maximale partitielimiet voor basic-laag IoT-Hub en IoT-Hub in de standaardlaag is 32. De meeste IoT-hubs hoeft slechts 4 partities. Zie voor meer informatie over het bepalen van de partities, de Event Hubs-Veelgestelde vragen over [hoeveel partities heb ik nodig?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
-
 
 ## <a name="tier-upgrade"></a>Laag-upgrade
 
@@ -62,10 +62,9 @@ Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategor
 
 De partitieconfiguratie van de blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert.
 
-
 ## <a name="iot-hub-rest-apis"></a>REST API's voor IoT Hub
 
-Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar: 
+Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar:
 
 | API | Basislaag | Gratis/Standard-laag |
 | --- | ---------- | ------------- |
@@ -116,26 +115,24 @@ Als een voorbeeld van de mogelijkheden van elke laag van verkeer van apparaat-na
 | B2, S2 |Maximaal 16 MB per minuut per eenheid<br/>(22.8 GB per dag per eenheid) |Gemiddelde van 4,167 berichten per minuut per eenheid<br/>(6 miljoen berichten per dag per eenheid) |
 | B3, S3 |Maximaal 814 MB per minuut per eenheid<br/>(1144.4 GB per dag per eenheid) |Gemiddelde van 208,333 berichten per minuut per eenheid<br/>(300 miljoen berichten per dag per eenheid) |
 
-Naast deze informatie doorvoer [IoT Hub-quota en vertragingen in] [ IoT Hub quotas and throttles] en ontwerpen van uw oplossing dienovereenkomstig.
+Naast deze informatie doorvoer [IoT Hub-quota en vertragingen in](iot-hub-devguide-quotas-throttling.md) en ontwerpen van uw oplossing dienovereenkomstig.
 
 ### <a name="identity-registry-operation-throughput"></a>ID-register bewerking doorvoer
+
 Registerbewerkingen voor identiteit van IoT-Hub zijn niet mag runtime-bewerkingen, zoals ze voornamelijk betrekking op het apparaat wordt ingericht hebben.
 
-Zie voor specifieke burst prestatiecijfers [IoT Hub-quota en vertragingen in][IoT Hub quotas and throttles].
+Zie voor specifieke burst prestatiecijfers [IoT Hub-quota en vertragingen in](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="auto-scale"></a>Automatisch schalen
+
 Als u de limiet voor toegestane berichten op uw IoT-Hub nadert, kunt u deze [stappen voor het automatisch schalen](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) moet worden verhoogd van een IoT Hub-eenheid in de dezelfde laag van IoT Hub.
 
 ## <a name="sharding"></a>Sharding
+
 Terwijl een enkele IoT-hub naar miljoenen apparaten schalen kunt, vereist soms bepaalde prestatiekenmerken die een enkele IoT-hub kan niet garanderen dat uw oplossing. In dat geval kunt u uw apparaten partitioneren over meerdere IoT-hubs. Meerdere IoT-hubs vloeiende pieken in verkeer verwerken en downloaden van de vereiste doorvoer of bewerking tarieven die vereist zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de mogelijkheden van IoT-Hub en details van de prestaties [IoT Hub-prijzen] [ lnk-pricing] of [IoT Hub-quota en vertragingen in] [ IoT Hub quotas and throttles].
+* Zie voor meer informatie over de mogelijkheden van IoT-Hub en details van de prestaties [IoT Hub-prijzen](https://azure.microsoft.com/pricing/details/iot-hub) of [IoT Hub-quota en vertragingen in](iot-hub-devguide-quotas-throttling.md).
+
 * Als u wilt wijzigen van de laag van uw IoT Hub, volg de stappen in [Upgrade van uw IoT-hub](iot-hub-upgrade.md).
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

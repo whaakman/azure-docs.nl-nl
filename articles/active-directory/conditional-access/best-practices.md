@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261520"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571117"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -109,7 +109,7 @@ Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zor
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Werkt voorwaardelijke toegang met Exchange ActiveSync?
 
-Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang.
+Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang met enkele [beperkingen](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hoe moet u voorwaardelijke toegang configureren met Office 365-apps?
 

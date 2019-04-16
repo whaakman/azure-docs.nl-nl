@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288094"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579492"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Data-driven Style Expressions (Web SDK)
 
@@ -41,7 +41,7 @@ Expressies worden weergegeven als JSON-matrices. Het eerste element van een expr
 
 Azure Maps Web SDK ondersteunt veel typen expressies die kunnen worden gebruikt op hun eigen of in combinatie met andere expressies.
 
-| Type van expressies | Description |
+| Type van expressies | Beschrijving |
 |---------------------|-------------|
 | [Booleaanse expressies](#boolean-expressions) | Booleaanse expressies bevatten een set met Booleaanse operators expressies voor het evalueren van Booleaanse vergelijkingen. |
 | [Kleur-expressies](#color-expressions) | Kleur expressies wordt het eenvoudiger maken en manipuleren van kleurwaarden. |
@@ -137,7 +137,7 @@ Op dezelfde manier worden de omtrek van veelhoeken weergegeven in de lagen van d
 
 Wiskundige expressies bevatten rekenkundige operatoren voor het uitvoeren van gegevensgestuurde berekeningen in het kader van de expressie.
 
-| Expressie | Retourtype | Description |
+| Expressie | Retourtype | Beschrijving |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | getal | Berekent de som van de opgegeven getallen. |
 | `['-', number]` | getal | Trekt 0 door het opgegeven getal. |
@@ -171,7 +171,7 @@ Booleaanse expressies bevatten een set met Booleaanse operators expressies voor 
 
 Bij het vergelijken van waarden, wordt de vergelijking strikt hebt getypt. Waarden van verschillende typen worden altijd als ongelijk beschouwd. Gevallen waar de typen bekend is dat deze verschillende tijdens het parseren ongeldig worden beschouwd en treedt er een parseringsfout. 
 
-| Expressie | Retourtype | Description |
+| Expressie | Retourtype | Beschrijving |
 |------------|-------------|-------------|
 | `['! ', boolean]` | booleaans | Logische negatie. Retourneert `true` als de invoer `false`, en `false` als de invoer `true`. |
 | `['!= ', value, value]` | booleaans | Retourneert `true` als de ingevoerde waarden niet gelijk aan, `false` anders. |
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Een `coalesce` expressie stappen via een set expressies totdat de eerste niet-null-waarde wordt verkregen en die waarde retourneert. 
 
-De volgende pseudocode bepalen de structuur van de ` coalesce` expressie. 
+De volgende pseudocode bepalen de structuur van de `coalesce` expressie. 
 
 ```javascript
 [
@@ -369,7 +369,7 @@ Type expressies over hulpprogramma's voor het testen en te converteren van versc
 
 Kleur expressies wordt het eenvoudiger maken en manipuleren van kleurwaarden.
 
-| Expressie | Retourtype | Description |
+| Expressie | Retourtype | Beschrijving |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, en *blauwe* onderdelen die tussen liggen moeten `0` en `255`, en een alpha-component van `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
 | `['rgba', number, number, number, number]` | color | Hiermee maakt u een kleurwaarde van *rode*, *groen*, *blauw* onderdelen die tussen liggen moeten `0` en `255`, en binnen een bereik van een alpha-component `0` en `1`. Als een onderdeel buiten het bereik is, is de expressie een fout. |
@@ -397,7 +397,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Expressies voor verbindingsreeksen operator uitvoeren conversiebewerkingen op tekenreeksen, zoals samenvoegen en omzetten van de aanvraag. 
 
-| Expressie | Retourtype | Description |
+| Expressie | Retourtype | Beschrijving |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Meerdere tekenreeksen samen worden samengevoegd. Elke waarde moet een tekenreeks zijn. Gebruik de `to-string` expressie andere waardetypen converteren naar tekenreeks, indien nodig. |
 | `['downcase', string]` | string | De opgegeven tekenreeks converteren naar kleine letters. |
@@ -789,16 +789,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 Zie de volgende artikelen voor meer voorbeelden van code die expressies implementeren:
 
 > [!div class="nextstepaction"] 
-> [Een symboollaag toevoegen](map-add-pin.md)
+> [Een symbool laag toevoegen](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Een bubbellaag toevoegen](map-add-bubble-layer.md)
+> [Een bellendiagram laag toevoegen](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Vormen toevoegen](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Een heatmap-laag toevoegen](map-add-heat-map-layer.md)
+> [Een kaartLaag heatmap toevoegen](map-add-heat-map-layer.md)
 
 Meer informatie over de opties voor tegellaag die ondersteuning bieden voor expressies:
 

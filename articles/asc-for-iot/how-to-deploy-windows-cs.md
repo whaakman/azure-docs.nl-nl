@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: b45d64f56653ad6d0baabef4a63351ef14f24c42
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58861952"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577830"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Een Azure Security Center implementeren voor IoT C#-op basis van de security-agent voor Windows
 
@@ -86,7 +86,7 @@ Als u meer hulp nodig hebt, gebruikt de opdracht Get-Help in PowerShell <br>Get-
 ### <a name="verify-deployment-status"></a>Controleer of de status van de implementatie
 
 - Controleer de implementatiestatus van de agent door uit te voeren:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### <a name="uninstall-the-agent"></a>De agent verwijderen
 
@@ -120,7 +120,7 @@ Logboekregistratie inschakelen:
 
 1. De agent opnieuw starten door het uitvoeren van de volgende PowerShell of vanaf de opdrachtregel:
 
-    **PowerShell**
+    **Powershell**
      ```
      Restart-Service "ASC IoT Agent"
      ```

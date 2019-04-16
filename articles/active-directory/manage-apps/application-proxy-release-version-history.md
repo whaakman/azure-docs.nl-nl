@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502336"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578586"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-toepassingsproxy: Releasegeschiedenis van versie
 In dit artikel bevat de versies en functies van de toepassingsproxy van Azure Active Directory (Azure AD) die zijn uitgebracht. Het team van Azure AD werkt Application Proxy regelmatig bij met nieuwe functies en functionaliteit. Toepassingsproxyconnectors worden automatisch bijgewerkt wanneer er een nieuwe versie wordt uitgebracht.
@@ -31,7 +31,7 @@ Hier volgt een lijst van gerelateerde resources:
 Resource |  Details
 --------- | --------- |
 Toepassingsproxy inschakelen | Vereisten voor toepassingsproxy inschakelen, installeren en registreren van een connector worden beschreven in deze [zelfstudie](application-proxy-add-on-premises-application.md).
-Meer informatie over Azure AD Application Proxy connectors | Meer informatie over [connector management](application-proxy-connectors.md) en hoe connectors auto-upgrade.
+Meer informatie over Azure AD Application Proxy connectors | Meer informatie over [connector management](application-proxy-connectors.md) en hoe connectors [automatische clientupdate](application-proxy-connectors.md#automatic-updates).
 Azure AD Application Proxy Connector downloaden |  [Download de meest recente connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0
