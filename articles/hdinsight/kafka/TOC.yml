@@ -111,21 +111,9 @@ items:
       maintainContext: true
   - name: Beheren
     items:
-    - name: Linux-clusters maken
+    - name: HDInsight-clusters maken
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Azure PowerShell gebruiken
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: cURL en de Azure REST API gebruiken
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: De .NET SDK gebruiken
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: De klassieke versie van Azure CLI gebruiken
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Azure Portal gebruiken
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -133,19 +121,41 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
-      maintainContext: true
-    - name: Apache Hadoop-clusters beheren
-      href: ../hdinsight-administer-use-portal-linux.md
-      items:
-      - name: .NET SDK gebruiken
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: SDK voor .NET gebruiken
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: SDK voor Python gebruiken
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: SDK voor Java gebruiken
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
       - name: Azure PowerShell gebruiken
-        href: ../hdinsight-administer-use-powershell.md
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: cURL en de Azure REST API gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true
       - name: De klassieke versie van Azure CLI gebruiken
-        href: ../hdinsight-administer-use-command-line.md
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
+      - name: On-demand clusters maken
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
+      maintainContext: true
+  - name: HDInsight-clusters beheren
+    href: ../hdinsight-administer-use-portal-linux.md
+    items:
+    - name: SDK voor .NET gebruiken
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+    - name: SDK voor Python gebruiken
+      href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+    - name: SDK voor Java gebruiken
+      href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+    - name: SDK voor Go (preview)
+      href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
+    - name: Azure PowerShell gebruiken
+      href: ../hdinsight-administer-use-powershell.md
+      maintainContext: true
+    - name: De klassieke versie van Azure CLI gebruiken
+      href: ../hdinsight-administer-use-command-line.md
       maintainContext: true
     - name: Clusters beheren met de Apache Ambari-webinterface
       href: ../hdinsight-hadoop-manage-ambari.md
@@ -184,6 +194,7 @@ items:
     - name: OS-patches voor HDInsight-cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    maintainContext: true
   - name: Problemen oplossen
     href: ../hdinsight-troubleshoot-guide.md
     items:
@@ -241,13 +252,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: SDK voor .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python-SDK
+  - name: SDK voor Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java-SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go-SDK
+  - name: SDK voor Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK voor Go
     href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
@@ -271,9 +282,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dedffe85d9ae7fc00bcbcc9ca7c8324c4618f8c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565089"
+ms.locfileid: "59578727"
