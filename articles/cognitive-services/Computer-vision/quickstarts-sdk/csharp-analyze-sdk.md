@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542978"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609384"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snelstartgids: Een afbeelding analyseren met de Computer Vision-SDK en C#
 
@@ -37,7 +37,7 @@ U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
     1. Klik in het menu op **Extra**, selecteer **NuGet Package Manager** en vervolgens **NuGet-pakketten voor oplossing beheren**.
     1. Klik op het tabblad **Bladeren** en typ 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' in het vak **Zoeken**.
     1. Selecteer **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** wanneer dit wordt weergegeven, klik op het selectievakje naast uw projectnaam en klik op **Installeren**.
-1. Vervang de inhoud van *Program.cs* door de volgende code. De methoden `AnalyzeImageAsync` en `AnalyzeImageInStreamAsync` gebruiken de [Analyse Image REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor respectievelijk externe en lokale afbeeldingen. 
+1. Vervang de inhoud van *Program.cs* door de volgende code. De methoden `AnalyzeImageAsync` en `AnalyzeImageInStreamAsync` gebruiken de [Analyse Image REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor respectievelijk externe en lokale afbeeldingen.
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -135,7 +135,14 @@ U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
             private static void DisplayResults(ImageAnalysis analysis, string imageUri)
             {
                 Console.WriteLine(imageUri);
-                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                if (analysis.Description.Captions.Count != 0)
+                {
+                    Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                }
+                else
+                {
+                    Console.WriteLine("No description generated.");
+                }
             }
         }
     }
@@ -153,7 +160,7 @@ Een geslaagd antwoord geeft het meest relevante bijschrift voor elke afbeelding.
 
 Zie [API-snelstartgidsen: Een lokale afbeelding analyseren met C#](../QuickStarts/CSharp-analyze.md#examine-the-response) voor een voorbeeld van onbewerkte JSON-uitvoer.
 
-```
+```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

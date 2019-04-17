@@ -15,22 +15,18 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547705"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607769"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Een Python-app maken in Azure App Service op Linux (preview)
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze snelstart laat zien hoe een Python-app bovenop de ingebouwde Python-installatiekopie (preview) in de App-service op Linux kan worden geïmplementeerd met behulp van de [Azure CLI](/cli/azure/install-azure-cli).
-
-U kunt de stappen in dit artikel volgen met behulp van een Mac-, Windows- of Linux-computer.
+In deze quickstart maakt u een eenvoudige Python-app te implementeren [App Service on Linux](app-service-linux-intro.md), dat biedt een uiterst schaalbare webhostingservice met Self-patchfunctie. U gebruikt de Azure-opdrachtregelinterface (de [Azure CLI](/cli/azure/install-azure-cli)) via de interactieve, browser gebaseerde Azure Cloud Shell, zodat u kunt volgen de stappen gebruikgemaakt van een Mac, Linux of Windows-computer.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,6 +34,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+* Een Azure-abonnement. Als u er nog geen hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
 
 ## <a name="download-the-sample-locally"></a>Het voorbeeld lokaal downloaden
 
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 Sla uw wijzigingen op en sluit de editor af. Sla op met de opdracht `^S` en sluit af met `^Q`.
 
-U gaat nu de app opnieuw implementeren. Vervang `<app-name>` door uw app.
+Opnieuw implementeren van de app via de [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) opdracht. Vervang de naam van uw app voor `<app-name>`, en geef een locatie voor `<location-name>` (met behulp van een van de waarden van de [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) opdracht).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en vernieuwt u de pagina.

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 9476713bdca185fd84289fca3cf7aa304ad3f9fb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311421"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616863"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysieke server naar Azure disaster recovery-architectuur
 
@@ -25,7 +25,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 
 **Onderdeel** | **Vereiste** | **Details**
 --- | --- | ---
-**Azure** | Een Azure-abonnement, Azure storage-account en Azure-netwerk. | Gerepliceerde gegevens van on-premises VM's worden opgeslagen in de storage-account. Azure-VM's worden gemaakt met de gerepliceerde gegevens wanneer u een failover van on-premises naar Azure uitvoert. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
+**Azure** | Een Azure-abonnement en een Azure-netwerk. | Gerepliceerde gegevens van on-premises fysieke machines zijn opgeslagen in Azure beheerde schijven. Azure-VM's worden gemaakt met de gerepliceerde gegevens wanneer u een failover van on-premises naar Azure uitvoert. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
 **Configuratieserver** | Een enkele on-premises fysieke machine of VMware-VM is geïmplementeerd om uit te voeren alle van de on-premises Site Recovery-onderdelen. De virtuele machine wordt uitgevoerd voor de configuratieserver, processerver en hoofddoelserver. | De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
  **Processerver**:  | Standaard samen met de configuratieserver is geïnstalleerd. | Fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag.<br/><br/> De processerver installeert ook de Mobility-service op servers die u wilt repliceren.<br/><br/> Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.
  **Hoofddoelserver** | Standaard samen met de configuratieserver is geïnstalleerd. | Hier worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.<br/><br/> U kunt een afzonderlijke hoofddoelserver voor failback toevoegen voor grote implementaties.

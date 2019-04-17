@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520128"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617747"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse workload classificatie (Preview)
 
 In dit artikel wordt uitgelegd dat het proces van SQL Data Warehouse workload classificatie van het toewijzen van een resourceklasse en urgentie op binnenkomende aanvragen.
 
 > [!Note]
-> Classificatie van de werkbelasting is beschikbaar in SQL Data Warehouse Gen2.
+> Classificatie van de werkbelasting is beschikbaar voor Preview-versie van SQL Data Warehouse Gen2. Preview van werkbelasting Management classificatie en belang is voor builds met een releasedatum van 9 April 2019 of hoger.  Gebruikers Vermijd het gebruik van builds vóór deze datum voor het testen van de workload-beheer.  Uitvoeren om te bepalen of uw build beheer van de werkbelasting die geschikt is, selecteer @@version wanneer verbonden met uw SQL Data Warehouse-exemplaar.
 
 ## <a name="classification"></a>Classificatie
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548777"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609072"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -357,3 +357,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 Nadat de controller opnieuw wordt geïnstalleerd, implementeert u uw schillen opnieuw.
+
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Onjuiste RBAC-machtigingen voor het aanroepen van API's en spaties Dev-controller
+
+### <a name="reason"></a>Reden
+De gebruiker toegang tot de controller Azure Dev spaties moet toegang hebben tot de beheerder lezen *kubeconfig* op het AKS-cluster. Bijvoorbeeld: met deze machtiging is beschikbaar in de [ingebouwde Azure Kubernetes Service-Cluster beheerdersrol](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). De gebruiker toegang tot de controller Azure Dev spaties moet ook de *Inzender* of *eigenaar* RBAC-rol voor de controller.
+
+### <a name="try"></a>Proberen
+Meer informatie over het bijwerken van een gebruiker machtigingen voor een AKS-cluster is beschikbaar [hier](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+Bijwerken van de gebruiker RBAC-rol voor de controller:
+
+1. Meld u aan bij Azure Portal op https://portal.azure.com.
+1. Navigeer naar de resourcegroep met de domeincontroller, die meestal hetzelfde zijn als uw AKS-cluster.
+1. Schakel de *verborgen typen weergeven* selectievakje.
+1. Klik op de domeincontroller.
+1. Open de *Access Control (IAM)* deelvenster.
+1. Klik op de *roltoewijzingen* tabblad.
+1. Klik op *toevoegen* vervolgens *roltoewijzing toevoegen*.
+    * Voor *rol* Selecteer *Inzender* of *eigenaar*.
+    * Voor *toegang toewijzen aan* Selecteer *Azure AD-gebruiker, groep of service-principal*.
+    * Voor *Selecteer* zoeken naar de gebruiker die u wilt machtigen.
+1. Klik op *Opslaan*.

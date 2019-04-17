@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3b2df5b24a12f3d2ea5d8a03721c08f8d2a742ad
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539986"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607089"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -45,16 +45,16 @@ Kies **broncodebeheer type**, klikt u op **verifiëren**. Een browservenster wor
 
 Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens in en klikt u op **opslaan**. De volgende tabel bevat een beschrijving van de beschikbare velden.
 
-|Eigenschap  |Description  |
+|Eigenschap  |Beschrijving  |
 |---------|---------|
-|Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
+|Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer. *Deze naam mag alleen letters en cijfers.*        |
 |Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Opslagplaats     | De naam van de opslagplaats of het project. De eerste 200 opslagplaatsen worden geretourneerd. Als u wilt zoeken naar een opslagplaats, typ de naam in het veld en klikt u op **zoeken op GitHub**.|
 |Branch     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks </br>*Alleen runbooks in de map die is opgegeven, worden gesynchroniseerd. Recursie wordt niet ondersteund.*        |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch moeten worden gepubliceerd.         |
-|Description     | Een tekstveld om meer duidelijkheid te geven        |
+|Beschrijving     | Een tekstveld om meer duidelijkheid te geven        |
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
 
@@ -91,7 +91,7 @@ Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. D
 
 Ga voor meer informatie over het maken van een persoonlijk toegangstoken in GitHub naar [het maken van een persoonlijk toegangstoken voor de opdrachtregel](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Bereik  |Description  |
+|Bereik  |Beschrijving  |
 |---------|---------|
 |**opslagplaats**     |         |
 |status van-opslagplaats:     | Commit-toegangsstatus         |
