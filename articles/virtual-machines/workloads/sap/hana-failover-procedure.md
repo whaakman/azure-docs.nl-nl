@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392236"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616149"
 ---
-# <a name="disaster-recovery-failover-procedure"></a>Failover van de noodherstelprocedure
+# <a name="disaster-recovery-failover-procedure"></a>Procedure bij failover van het noodherstel
 
 
 >[!IMPORTANT]
@@ -87,7 +87,7 @@ De volgende reeks stappen omvat het herstellen van de productie-instantie van SA
 1. Wijzigen van de back-uplocatie naar **/hana/logbackups** met behulp van SAP HANA Studio.
    ![Wijzigen van de back-uplocatie voor DR-herstel](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA via de back-upbestand locaties wordt gescand en stelt de meest recente transactielogboek om naar te herstellen. De scan kan duurt enkele minuten tot een scherm zoals hieronder wordt weergegeven: ![lijst met transactielogboekback-ups voor DR-herstel](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA via de back-upbestand locaties wordt gescand en stelt de meest recente transactielogboek om naar te herstellen. De scan kan duurt enkele minuten tot een scherm zoals hieronder wordt weergegeven: ![Lijst met transactielogboekback-ups voor DR-herstel](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Enkele van de standaardinstellingen aan te passen:
 

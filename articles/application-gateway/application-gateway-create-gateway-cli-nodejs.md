@@ -1,44 +1,26 @@
 ---
-title: Een Azure Application Gateway - Azure klassieke CLI maken | Microsoft Docs
+title: Een Azure Application Gateway - CLI van Azure classic maken
 description: Informatie over het maken van een toepassingsgateway met behulp van de klassieke Azure CLI in Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974422"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608458"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Een toepassingsgateway maken met behulp van de Azure CLI
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-> * [CLI van Azure classic](application-gateway-create-gateway-cli.md)
-> * [Azure-CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application gateway biedt de volgende functies voor de levering van toepassing: HTTP-taakverdeling, cookies gebaseerde sessieaffiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statustests en ondersteuning voor meerdere locaties.
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application gateway biedt de volgende functies voor de levering van toepassingen: HTTP load balancing, cookies gebaseerde sessieaffiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statustests en ondersteuning voor meerdere locaties.
+## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Azure-CLI installeren
 
-## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Installeer de Azure CLI
-
-Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI installeren](../xplat-cli-install.md) en u moet [Meld u aan bij Azure](/cli/azure/authenticate-azure-cli). 
+Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI installeren](../xplat-cli-install.md) en u moet [Meld u aan Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Als u een Azure-account niet hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../active-directory/fundamentals/sign-up-organization.md).
@@ -60,15 +42,15 @@ In dit scenario wordt:
 
 Azure Application Gateway is een eigen subnet vereist. Bij het maken van een virtueel netwerk, zorg ervoor dat u onvoldoende adresruimte voor meerdere subnetten hebt verlaten. Wanneer u een toepassingsgateway met een subnet implementeert, kunnen alleen andere Toepassingsgateways worden toegevoegd aan het subnet.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Open de **Microsoft Azure-opdrachtprompt**, en zich aanmeldt. 
+Open de **Microsoft Azure-opdrachtprompt**, en meld u aan.
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-Wanneer u in het voorgaande voorbeeld typt, krijgt u een code. Navigeer naar https://aka.ms/devicelogin in een browser om door te gaan met de aanmelding.
+Wanneer u in het voorgaande voorbeeld typt, krijgt u een code. Navigeer naar https://aka.ms/devicelogin in een browser om door te gaan het teken proces.
 
 ![apparaataanmelding cmd-weergeven][1]
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Als het virtuele netwerk en subnet worden gemaakt, zijn de vereisten voor de toepassingsgateway zijn voltooid. Daarnaast een eerder geëxporteerd pfx-certificaat en het wachtwoord voor het certificaat zijn vereist voor de volgende stap: het IP-adressen die worden gebruikt voor de back-end zijn de IP-adressen voor uw back-endserver. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, de openbare IP-adressen of de volledig gekwalificeerde domeinnamen voor uw back-endservers.
+Als het virtuele netwerk en subnet worden gemaakt, zijn de vereisten voor de toepassingsgateway zijn voltooid. Een eerder geëxporteerd pfx-certificaat en het wachtwoord voor het certificaat zijn ook vereist voor de volgende stap: De IP-adressen die worden gebruikt voor de back-end zijn de IP-adressen voor uw back-endserver. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, de openbare IP-adressen of de volledig gekwalificeerde domeinnamen voor uw back-endservers.
 
 ```azurecli-interactive
 azure network application-gateway create \

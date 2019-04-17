@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280856"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608167"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Quickstart: Aanmelden en een gebruikers-id instellen
 
@@ -33,6 +33,9 @@ Hoewel u altijd Azure-notitieblokken weergeven kunt zonder dat u aangemeld, moet
 1. Wanneer u hierom wordt gevraagd, typt u het e-mailadres van een Microsoft-Account of een werk of school-account en selecteer **volgende**. Accounttypen zijn beschreven op [uw gebruikersaccount voor Azure-laptops](azure-notebooks-user-account.md). Als u geen Microsoft-Account hebt of wilt maken voor gebruik met Azure-laptops, selecteert u **maakt u er een**:
 
     ![Nieuwe opdracht voor Microsoft-account maken in een overbodige aanmeldingsprompt](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Als u probeert een nieuw account maken met een e-mailadres dat al een account dat is gekoppeld, ziet u mogelijk het bericht 'kan hier aanmelden met een werk of school-e-mailadres. Gebruik een persoonlijke e-mailadres, zoals Gmail of Yahoo!, of een nieuwe Outlook-e-mail ontvangt." In dat geval probeert zich aanmeldt met het e-mailadres voor werk zonder dat er een nieuw account gemaakt.
 
 1. Voer uw wachtwoord wanneer hierom wordt gevraagd.
 
@@ -64,4 +67,4 @@ Op Afmelden, selecteert u uw gebruikersnaam in de rechterbovenhoek van de pagina
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Quickstart: Een notebook maken en delen](quickstart-create-share-jupyter-notebook.md)
+> [Snelstart: Maken en delen van een laptop](quickstart-create-share-jupyter-notebook.md)
