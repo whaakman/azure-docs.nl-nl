@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257005"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608007"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Uw gebruikersaccount voor Azure-laptops
 
@@ -41,6 +41,9 @@ Microsoft-accounts worden gebruikt voor aanmelding bij een willekeurig aantal Mi
 Als u niet zeker weet, selecteert u de **maken een** opdracht in de account-prompt. U kunt een nieuw Microsoft-account met behulp van een e-mailadres van een provider maken.
 
 ![Opdracht voor het maken van een nieuw Microsoft-account](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Als u probeert een nieuw account maken met een e-mailadres dat al een account dat is gekoppeld, ziet u mogelijk het bericht 'kan hier aanmelden met een werk of school-e-mailadres. Gebruik een persoonlijke e-mailadres, zoals Gmail of Yahoo!, of een nieuwe Outlook-e-mail ontvangt." In dat geval probeert zich aanmeldt met het e-mailadres voor werk zonder dat er een nieuw account gemaakt.
 
 Voor accounts van kinderen, wordt de toegang tot Azure-notitieblokken standaard geblokkeerd. Aanmelden met een kinderaccount, worden de onderstaande fout weergegeven:
 

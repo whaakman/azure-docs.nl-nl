@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317125"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615911"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Herstel na noodgevallen instellen voor virtuele Azure-machines na migratie naar Azure 
 
 
-Gebruik dit artikel als u hebt [on-premises machines hebt gemigreerd naar Azure VM's](tutorial-migrate-on-premises-to-azure.md) met behulp van de [Site Recovery](site-recovery-overview.md) service, en u nu wilt ophalen van de virtuele machines instellen voor herstel na noodgevallen naar een secundaire Azure-regio. Het artikel wordt beschreven hoe u om ervoor te zorgen dat de Azure VM-agent is geïnstalleerd op de gemigreerde virtuele machines en het verwijderen van de Site Recovery Mobility service die niet meer nodig na de migratie is.
+In dit artikel volgen als u hebt [on-premises machines hebt gemigreerd naar Azure VM's](tutorial-migrate-on-premises-to-azure.md) met behulp van de [Site Recovery](site-recovery-overview.md) service, en u nu wilt ophalen van de virtuele machines instellen voor herstel na noodgevallen naar een secundaire Azure-regio. Het artikel wordt beschreven hoe u om ervoor te zorgen dat de Azure VM-agent is geïnstalleerd op de gemigreerde virtuele machines en het verwijderen van de Site Recovery Mobility service die niet meer nodig na de migratie is.
 
 
 
@@ -77,7 +77,7 @@ Installeer de [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) ag
         ```
     - Voor Linux, moet u zich aanmelden als een hoofdgebruiker. Ga in een terminal naar **/user/local/ASR**, en voer de volgende opdracht uit:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Start de virtuele machine opnieuw op voordat u replicatie configureert.
 

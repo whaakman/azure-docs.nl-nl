@@ -5,17 +5,16 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 700b58723073e425c0587665ccd884932837dcbf
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501073"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607752"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Quickstart: De Azure-portal gebruiken om een Service Bus-wachtrij te maken
 In deze snelstart wordt beschreven hoe u berichten naar een Service Bus-wachtrij kunt verzenden en ervan kunt ontvangen. U gebruikt daarbij [Azure Portal][Azure portal] om een berichtennaamruimte te maken en binnen deze naamruimte een wachtrij te maken. Ook wordt beschreven hoe u de autorisatiereferenties binnen die naamruimte kunt verkrijgen. De procedure laat vervolgens zien hoe u berichten naar deze wachtrij verzendt en van de wachtrij ontvangt met behulp van de [.NET Standard-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -72,7 +71,7 @@ Deze sectie bevat meer informatie over de werking van de voorbeeldcode.
 
 ### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 
-De naam van de connection string en wachtrij worden doorgegeven aan de `Main()` methode als opdrachtregelargumenten. `Main()` verklaart de twee tekenreeksvariabelen die voor het opslaan van deze waarden:
+De naam van de connection string en wachtrij worden doorgegeven aan de `Main()` methode als opdrachtregelargumenten. `Main()` declareert twee tekenreeksvariabelen die deze waarden kunnen omvatten:
 
 ```csharp
 static void Main(string[] args)
@@ -207,7 +206,7 @@ In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die
 > [Berichten verzenden en ontvangen](service-bus-dotnet-get-started-with-queues.md)
 
 
-[Azure-account maakt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

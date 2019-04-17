@@ -1,7 +1,7 @@
 ---
 title: Metrische gegevens log tijdens trainingsuitvoeringen
 titleSuffix: Azure Machine Learning service
-description: U kunt uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. Informatie over logboekregistratie toevoegen aan uw trainingsscript, hoe u het experiment verzenden, hoe u de voortgang van een actieve taak controleren en hoe u de resultaten van een uitvoering wilt weergeven.
+description: Informatie over logboekregistratie toevoegen aan uw trainingsscript, hoe u het experiment verzenden, hoe u de voortgang van een actieve taak controleren en hoe u de resultaten van een uitvoering wilt weergeven. U kunt uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494624"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609464"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logboek metrische gegevens tijdens de training wordt uitgevoerd in Azure Machine Learning
 
-U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u hoe u logboekregistratie toevoegen aan uw trainingsscript, verzenden van een experiment uitvoeren, bewaken van de uitvoering en de resultaten van een uitvoering weergeven.
+In dit artikel leert u hoe u logboekregistratie toevoegen aan uw trainingsscript, verzenden van een experiment uitvoeren, controleert de uitvoering, en bekijk de resultaten van een uitvoering in Azure Machine Learning-service. Verbeter het maakproces model bij te houden van uw experimenten en metrische gegevens controleren. 
 
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
@@ -389,7 +389,7 @@ Voorbeeld 2: Een model te veel confident ![een model te veel confident](./media/
 
 ### <a name="regression"></a>Regressie
 Voor elke regressiemodel u bouwen met behulp van de geautomatiseerde machine learning-mogelijkheden van Azure Machine Learning, ziet u de volgende grafieken: 
-+ [Voorspelde vs. True](#pvt)
++ [Voorspelde vs. De waarde True](#pvt)
 + [Histogram van dit](#histo)
 
 <a name="pvt"></a>
@@ -422,9 +422,9 @@ Urgentie van de functie biedt een score die aangeeft hoe waardevol elke functie 
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [How-to-use-azureml/training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [How-to-use-azureml/training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

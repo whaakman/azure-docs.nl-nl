@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892827"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616846"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -43,7 +43,7 @@ De volgende afbeelding ziet vier knooppunten in de standard-architectuur met de 
 In het model standard beschikbaarheid zijn er twee lagen:
 
 - Een stateless compute-laag met de `sqlserver.exe` verwerken en bevat alleen tijdelijke en in de cache opgeslagen gegevens (bijvoorbeeld: plancache, buffergroep, kolom-archief van toepassingen). Deze stateless SQL Server-knooppunt wordt beheerd door Azure Service Fabric dat proces initialiseert, bepaalt de status van het knooppunt en failover naar een andere locatie uitvoert, indien nodig.
-- Een stateful gegevenslaag met databasebestanden (.mdf/.ldf) die zijn opgeslagen in Azure Blob-opslag. Azure Blob-opslag zorgt ervoor dat er worden geen gegevens verloren gaan van een record die in een databasebestand wordt geplaatst. Azure BLOB-opslag heeft ingebouwde beschikbaarheid/redundantie die ervoor zorgt dat elke record in een logboekbestand of de pagina in bestand behouden blijft, zelfs als SQL Server-proces vastloopt.
+- Een stateful gegevenslaag met databasebestanden (.mdf/.ldf) die zijn opgeslagen in Azure Blob-opslag. Azure Blob-opslag zorgt ervoor dat er worden geen gegevens verloren gaan van een record die in een databasebestand wordt geplaatst. Azure Blob-opslag heeft ingebouwde beschikbaarheid/redundantie die ervoor zorgt dat elke record in een logboekbestand of de pagina in bestand behouden blijft, zelfs als SQL Server-proces vastloopt.
 
 Wanneer de upgrade van database-engine of -besturingssysteem wordt uitgevoerd, een deel van de onderliggende infrastructuur is mislukt of als een belangrijk probleem wordt gedetecteerd in Sql Server-proces, Azure Service Fabric stateless SQL Server-proces wordt verplaatst naar een andere staatloze compute-knooppunt. Er is een set van ongebruikte knooppunten die wacht op nieuwe compute-service in het geval van failover uitvoeren om het aantal failover-tijd. Gegevens in Azure Blob-opslag wordt niet beïnvloed en gegevens/logboekbestanden zijn gekoppeld aan de nieuwe geïnitialiseerde SQL Server-proces. Dit proces garandeert 99,99% beschikbaarheid, maar dat er bepaalde prestatie-invloeden van zware werkbelasting die wordt uitgevoerd vanwege enige tijd en de nieuwe SQL Server-knooppunt van het feit begint met cold cache.
 

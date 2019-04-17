@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545838"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608551"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -27,6 +27,9 @@ De volgende afbeelding ziet u deze functionaliteit:
 Elke Hybrid Runbook Worker is lid van een Hybrid Runbook Worker-groep die u opgeeft wanneer u de agent installeert. Een groep kan een afzonderlijke agent bevatten, maar u kunt meerdere agents installeren in een groep voor hoge beschikbaarheid.
 
 Wanneer u een runbook op een Hybrid Runbook Worker starten, geeft u de groep die op wordt uitgevoerd. Elke werknemer in de groep pollt de Azure Automation om te zien of alle taken die beschikbaar zijn. Als een taak beschikbaar is, wordt het door de eerste worker is om op te halen van de taak duurt. De verwerkingstijd van de wachtrij van taken, is afhankelijk van de Hybrid worker-hardwareprofiel en laden. U kunt een bepaalde worker niet opgeven. Hybrid Runbook Workers delen niet veel van de limieten die Azure sandboxes. Ze geen de grenzen van schijfruimte, geheugen of netwerk-sockets. Hybrid Runbook Workers wordt alleen beperkt door de bronnen op de Hybrid Runbook Worker zelf. Bovendien Hybrid Runbook Workers niet delen de 180 minuten [evenredige deel](automation-runbook-execution.md#fair-share) tijdslimiet die Azure sandboxes uitvoeren. Zie voor meer informatie over de Servicelimieten voor Azure-sandboxes geladen en Hybrid Runbook Workers, de taak [limieten](../azure-subscription-service-limits.md#automation-limits) pagina.
+
+> [!NOTE]
+> Hybrid Runbook Workers worden niet ondersteund in Azure China.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Een hybride Runbook Worker installeren
 

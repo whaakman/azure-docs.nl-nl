@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540819"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608858"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -155,6 +155,10 @@ Ja. Elke HSM-apparaat is volledig toegewezen voor een afzonderlijke klant en nie
 
 Microsoft heeft geen eventuele administratieve of cryptografische controle over de HSM. Microsoft heeft toegang via een seriële poortverbinding om op te halen van basic telemetriegegevens zoals temperatuur en onderdeel health monitor. Hierdoor kan Microsoft voor proactieve meldingen van statusproblemen. Indien nodig, kan de klant dit account uitschakelen.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>V: Wat is de account 'tenantadmin' Microsoft gebruikt, ik ben het gewend aan de gebruiker met beheerdersrechten worden 'admin' op SafeNet HSM's?
+
+De HSM-apparaat wordt geleverd met een standaardgebruiker van beheerder met het standaardwachtwoord van de gebruikelijke. Microsoft wil is niet standaard wachtwoorden hebben gebruikt wanneer een apparaat in een pool moeten worden ingericht door klanten. Dit zou niet voldoen aan onze strenge beveiligingsvereisten. Om deze reden ingesteld we een sterk wachtwoord dat wordt genegeerd op tijd wordt ingericht. Bovendien op inrichtingstijd maken we een nieuwe gebruiker in de rol admin 'tenantadmin' genoemd. Deze gebruiker heeft het standaardwachtwoord en klanten dit wijzigen als de eerste actie bij het eerst aanmelden bij de nieuw ingerichte apparaat. Dit proces zorgt ervoor dat de hoge mate van beveiliging en onze belofte van enige beheer onderhoudt voor onze klanten. Er moet worden opgemerkt dat de gebruiker "tenantadmin" het beheerderswachtwoord opnieuw instellen als een klant de voorkeur geeft aan dat account gebruikt kan worden gebruikt. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>V: Kan Microsoft of iemand bij Microsoft access-toetsen in Mijn toegewezen HSM?
 
 Nee. Microsoft heeft geen toegang heeft tot de sleutels die zijn opgeslagen in klant toegewezen HSM toegewezen.
@@ -201,7 +205,7 @@ Nee.
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>V: Wat is de SLA voor toegewezen HSM-service?
 
-Er is geen specifieke uptime guarentee opgegeven voor de toegewezen HSM-service. Microsoft zorgt ervoor dat niveau netwerktoegang tot het apparaat en kan daarom standard Azure networking Sla's van toepassing.
+Er is geen specifieke beschikbaarheidsgarantie opgegeven voor de toegewezen HSM-service. Microsoft zorgt ervoor dat niveau netwerktoegang tot het apparaat en kan daarom standard Azure networking Sla's van toepassing.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>V: Hoe worden de HSM's in Azure toegewezen HSM-beveiligde gebruikt?
 
@@ -217,7 +221,7 @@ Het is raadzaam een back-up on-premises HSM-apparaat gebruiken om uit te voeren 
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>V: Hoe krijg ik ondersteuning voor toegewezen HSM?
 
-Er wordt ondersteuning geboden door zowel Microsoft als Gemalto.  Als u er een probleem is met de hardware of netwerktoegang, verhogen met Microsoft ondersteuning aan te vragen als er een probleem is met de ontwikkeling van de configuratie, software en toepassingen van de HSM kunt rasie wordt een ondersteuningsaanvraag met Gemalto. Als u een onbepaald probleem, het verhogen van een aanvraag withg voor ondersteuning van Microsoft hebt en vervolgens Gemalto kunnen worden ingezet als vereist. 
+Er wordt ondersteuning geboden door zowel Microsoft als Gemalto.  Als u een probleem met de hardware of het netwerk toegang hebt, verhoogt u een ondersteuningsaanvraag met Microsoft en als er een probleem is met de HSM-configuratie, software en de ontwikkeling van toepassingen een ondersteuningsaanvraag met Gemalto verhogen. Als u een onbepaald probleem, een aanvraag voor ondersteuning bij Microsoft hebt en vervolgens Gemalto kunnen worden ingezet als vereist. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>V: Hoe ontvang ik de client software, documentatie en toegang tot integratie richtlijnen voor de HSM SafeNet Luna 7?
 

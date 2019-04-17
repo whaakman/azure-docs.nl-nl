@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474350"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617594"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
@@ -40,7 +40,7 @@ Zie voor meer informatie over het implementeren van een van de ondersteunde Even
 
 De event grid-onderwerp biedt een eindpunt waar de gebeurtenissen voor het verzenden van de bron. De uitgever maakt van de event grid-onderwerp en bepaalt of een gebeurtenisbron een of meer dan één onderwerp moet. Een onderwerp wordt gebruikt voor een verzameling van gerelateerde gebeurtenissen. Abonnees besluiten om te reageren op bepaalde typen gebeurtenissen, welke onderwerpen om u te abonneren op.
 
-Systeemonderwerpen zijn ingebouwde onderwerpen geleverd door Azure-services. Systeemonderwerpen niet wordt weergegeven in uw Azure-abonnement omdat de uitgever van de eigenaar is van de onderwerpen, maar u kunt zich hierop abonneert. Om u te abonneren, geeft u informatie over de resource die u wilt ontvangen van gebeurtenissen uit. Als u hebt toegang tot de bron, kunt u zich abonneert op gebeurtenissen.
+Systeemonderwerpen zijn ingebouwde onderwerpen geleverd door Azure-services. Systeemonderwerpen niet wordt weergegeven in uw Azure-abonnement omdat de uitgever van de eigenaar is van de onderwerpen, maar u kunt zich hierop abonneert. Om u te abonneren, geeft u informatie over de resource die u wilt ontvangen van gebeurtenissen uit. Als u toegang tot de resource hebt, kunt u zich abonneert op gebeurtenissen.
 
 Aangepaste onderwerpen zijn toepassing en van derden onderwerpen. Wanneer u maakt of toegang tot een aangepast onderwerp zijn toegewezen, ziet u dat aangepaste onderwerp in uw abonnement.
 

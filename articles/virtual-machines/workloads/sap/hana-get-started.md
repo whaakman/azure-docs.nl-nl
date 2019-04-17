@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001703"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618121"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Quickstart: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -269,7 +269,7 @@ Voordat u begint met het installeren van SAP, zorg er dan voor dat u de namen va
 
 ### <a name="the-etcfstab-file"></a>Het bestand/etc/fstab
 
-Is het handig om toe te voegen de **nofail** parameter voor het fstab-bestand. Op deze manier als er iets met de schijven misgaat, de virtuele machine nu niet vastloopt tijdens het opstarten. Maar houd er rekening mee dat extra schijfruimte mogelijk niet beschikbaar en processen vol het root-bestandssysteem. Als /hana ontbreekt, wordt start SAP HANA niet.
+Is het handig om toe te voegen de **nofail** parameter voor het fstab-bestand. Op deze manier als er iets met de schijven misgaat, de virtuele machine stopt niet reageert tijdens het opstarten. Maar houd er rekening mee dat extra schijfruimte mogelijk niet beschikbaar en processen vol het root-bestandssysteem. Als /hana ontbreekt, wordt start SAP HANA niet.
 
 ![De parameter nofail toevoegen aan het fstab-bestand](./media/hana-get-started/image000c.jpg)
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: 23d683fea494ad0509af359d6e49519f2bc6aa99
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081114"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615775"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database voor MariaDB met behulp van de Azure portal
 
@@ -79,7 +79,7 @@ De volgende stappen wordt de voorbeeldserver hersteld naar een punt-in-time:
 ## <a name="geo-restore"></a>Geo-herstel
 Als u uw server voor geografisch redundante back-ups hebt geconfigureerd, kan een nieuwe server worden gemaakt van de back-up van de bestaande server. Deze nieuwe server kan worden gemaakt in andere regio's dat Azure Database voor MariaDB beschikbaar is.  
 
-1. Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal. Typ **Azure Database for MariaDB** in het zoekvak om de service te vinden.
+1. Selecteer **Databases** > **Azure Database voor MariaDB**. U kunt ook typen **MariaDB** in het zoekvak om de service te vinden.
 
    ![De optie "Azure Database voor MariaDB"](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/25/2019
 ms.author: v-krghan
 ms.custom: include file
-ms.openlocfilehash: 81590a4d686d85482bee38c4391b8ac24b25658e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79fcadc75876af39d65dcfce88dac6802d55efd4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125050"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630482"
 ---
 ## <a name="download-the-source-code"></a>De broncode downloaden
 
@@ -60,7 +60,7 @@ Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen
 
      Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator. Nadat u de bijbehorende resources niet meer nodig hebt, kunt u deze resourcegroep verwijderen.
 
-     Het script wordt ook een set van omgevingsvariabelen met een voorvoegsel toegevoegd **pc's** naar uw lokale computer. Wanneer u de Docker-containers of lokaal microservice-projecten start, lezen ze hun configuratiewaarden van deze omgevingsvariabelen.
+     Het script wordt ook een set van omgevingsvariabelen met een voorvoegsel toegevoegd **pc's** naar uw lokale computer. Deze omgevingsvariabelen Geef de details voor externe bewaking om u te kunnen worden gelezen uit een Azure Key Vault-resource. Deze Key Vault-resource is waar bewaking op afstand de configuratiewaarden van wordt gelezen.
 
      > [!TIP]
      > Wanneer het script is voltooid, ook wordt opgeslagen in de omgevingsvariabelen van een bestand met de naam  **\<uw basismap\>\\.pcs\\\<oplossingsnaam\>.env** . U kunt deze gebruiken voor toekomstige solution accelerator-implementaties. Houd er rekening mee dat omgevingsvariabelen instellen op uw lokale computer, overschrijven de waarden in de **services\\scripts\\lokale\\.env** tijdens het uitvoeren van het bestand **docker-compose**.
@@ -69,4 +69,12 @@ Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen
 
 ### <a name="use-existing-azure-resources"></a>Bestaande Azure-bronnen
 
-Als u de vereiste Azure-resources al hebt gemaakt, maakt u de bijbehorende omgevingsvariabelen op uw lokale computer. Deze kunnen worden opgeslagen de  **\<uw basismap\>\\.pcs\\\<oplossingsnaam\>.env** -bestand van de implementatie. Houd er rekening mee dat omgevingsvariabelen instellen op uw lokale computer, overschrijven de waarden in de **services\\scripts\\lokale\\.env** tijdens het uitvoeren van het bestand **docker-compose**.
+Als u de vereiste Azure-resources al hebt gemaakt, maakt u de bijbehorende omgevingsvariabelen op uw lokale computer.
+Stel de omgevingsvariabelen voor het volgende:
+* **PCS_KEYVAULT_NAME** -naam van de Azure Key Vault-resource
+* **PCS_AAD_APPID** -de AAD-toepassing-ID
+* **PCS_AAD_APPSECRET** -geheim van de AAD-toepassing
+
+Configuratiewaarden worden gelezen uit de Azure Key Vault-resource. Deze omgevingsvariabelen kunnen worden opgeslagen de  **\<uw basismap\>\\.pcs\\\<oplossingsnaam\>.env** -bestand van de implementatie. Houd er rekening mee dat omgevingsvariabelen instellen op uw lokale computer, overschrijven de waarden in de **services\\scripts\\lokale\\.env** tijdens het uitvoeren van het bestand **docker-compose**.
+
+Bepaalde onderdelen van de configuratie die nodig zijn voor de microservices is opgeslagen in een exemplaar van **Key Vault** die is gemaakt op de eerste implementatie. De bijbehorende variabelen in Key Vault moeten worden gewijzigd, indien nodig.

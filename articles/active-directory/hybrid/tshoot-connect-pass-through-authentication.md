@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184887"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616205"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -71,6 +71,9 @@ Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active
 | 80007 | Verificatieagent kan geen verbinding maken met Active Directory. | Controleer of uw Active Directory bereikbaar is vanaf de verificatie-Agent is.
 | 80010 | Verificatieagent kan wachtwoord niet ontsleutelen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe verificatie-Agent. En de huidige versie verwijderen. 
 | 80011 | Verificatieagent kan ontsleutelingssleutel hier ophalen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe verificatie-Agent. En de huidige versie verwijderen.
+
+>[!IMPORTANT]
+>Pass through-verificatie-Agents verifiëren Azure AD-gebruikers door het valideren van de gebruikersnamen en wachtwoorden op basis van Active Directory door het aanroepen van de [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Als gevolg hiervan, als u de instelling 'Aanmelding aan' hebt ingesteld in Active Directory om werkstation aanmelding toegang te beperken, moet u het toevoegen van servers die als host fungeert Pass through-verificatie-Agents aan de lijst "Aanmelding voor" servers ook. Om dit te doen is mislukt, wordt uw gebruikers zich bij Azure AD geblokkeerd.
 
 ## <a name="authentication-agent-installation-issues"></a>Verificatie-Agent installatieproblemen
 

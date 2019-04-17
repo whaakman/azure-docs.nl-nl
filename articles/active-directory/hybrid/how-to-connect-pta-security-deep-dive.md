@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096857"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617207"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -136,7 +136,7 @@ Pass through-verificatie verwerkt een gebruikersaanvraag aanmelden als volgt:
 4. De gebruiker voert de gebruikersnaam in de **aanmelden van gebruikers** pagina en selecteert de **volgende** knop.
 5. De gebruiker voert zijn wachtwoord in de **aanmelden van gebruikers** pagina en selecteert de **aanmelden** knop.
 6. De gebruikersnaam en wachtwoord worden verzonden naar Azure AD-STS in een HTTPS-POST-aanvraag.
-7. Azure AD STS opgehaald van openbare sleutels voor alle verificatie-Agents die worden geregistreerd op uw tenant van de Azure SQL-database en het wachtwoord versleutelt met behulp van deze. 
+7. Azure AD STS opgehaald van openbare sleutels voor alle verificatie-Agents die worden geregistreerd op uw tenant van de Azure SQL-database en het wachtwoord versleutelt met behulp van deze.
     - Het genereert is "N" versleuteld wachtwoord waarden voor "N" verificatie-Agents op uw tenant is geregistreerd.
 8. Azure AD STS plaatst de wachtwoordvalidatie voor, die uit de gebruikersnaam en het versleutelde wachtwoord waarden, naar de Service Bus-wachtrij die specifiek zijn voor uw tenant bestaat.
 9. Omdat de geïnitialiseerd verificatie-Agents permanent met de Service Bus-wachtrij verbonden zijn, een van de beschikbare verificatie-Agents de wachtwoordvalidatie opgehaald.
@@ -145,6 +145,9 @@ Pass through-verificatie verwerkt een gebruikersaanvraag aanmelden als volgt:
     - Deze API is dezelfde API die wordt gebruikt door Active Directory Federation Services (AD FS) aan te melden bij gebruikers in een scenario voor federatieve aanmelding.
     - Deze API is afhankelijk van het proces standaardresolutie in Windows Server om de domeincontroller te zoeken.
 12. De verificatie-Agent ontvangt het resultaat van Active Directory, zoals geslaagde pogingen, gebruikersnaam of wachtwoord is onjuist of het wachtwoord is verlopen.
+
+   > [!NOTE]
+   > Als de verificatie-Agent is mislukt tijdens het aanmelden, wordt de hele aanmeldingsaanvraag verwijderd. Er is geen hand uitschakelen van aanmelding bij aanvragen van een verificatie-Agent naar een andere verificatie-Agent on-premises. Deze agents worden alleen met de cloud, en niet met elkaar communiceren.
 13. De verificatie-Agent verzendt het resultaat terug naar Azure AD-STS via een uitgaande HTTPS-kanaal sluiten elkaar wederzijds geverifieerd via poort 443. Het certificaat die eerder zijn verleend aan de verificatie-Agent tijdens de registratie maakt gebruik van wederzijdse verificatie.
 14. Azure AD STS controleert of dat dit resultaat komt met de aanvraag voor specifieke aanmelden op uw tenant overeen.
 15. Azure AD STS gaat verder met de procedure aanmelden zoals geconfigureerd. Bijvoorbeeld als de validatie van het wachtwoord voltooid is, de gebruiker kan worden gecontroleerd voor multi-factor Authentication of keert u terug naar de toepassing.
@@ -181,7 +184,7 @@ Vernieuwen van een verificatie-Agent-vertrouwensrelatie met Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Automatisch bijwerken van de verificatie-Agents
 
-De verificatie-Agent de Updater-toepassing automatisch bijgewerkt wanneer er een nieuwe versie wordt uitgebracht. De toepassing verwerkt niet alle aanvragen van de validatie van wachtwoord voor uw tenant. 
+De verificatie-Agent de Updater-toepassing automatisch bijgewerkt wanneer er een nieuwe versie (met oplossingen voor problemen of prestatieverbeteringen) wordt uitgebracht. De toepassing Updater verwerkt niet alle aanvragen van de validatie van wachtwoord voor uw tenant.
 
 Azure AD als host fungeert voor de nieuwe versie van de software als een ondertekende **Windows Installer-pakket (MSI)**. Het MSI-bestand is ondertekend met behulp van [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) met SHA256 als de digest-algoritme. 
 
@@ -203,7 +206,7 @@ Voor automatisch bijwerken een verificatie-Agent:
     - De verificatie-Agent-service wordt opnieuw gestart
 
 >[!NOTE]
->Als u meerdere verificatie-Agents op uw tenant is geregistreerd hebt, Azure AD niet hun certificaten vernieuwen of ze op hetzelfde moment bijwerken. In plaats daarvan biedt Azure AD daarom geleidelijk om te controleren of de hoge beschikbaarheid van aanmeldingsaanvragen.
+>Als u meerdere verificatie-Agents op uw tenant is geregistreerd hebt, Azure AD niet hun certificaten vernieuwen of ze op hetzelfde moment bijwerken. In plaats daarvan biedt Azure AD een op een moment om te controleren of de hoge beschikbaarheid van aanmeldingsaanvragen.
 >
 
 

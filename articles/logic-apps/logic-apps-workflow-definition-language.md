@@ -1,29 +1,28 @@
 ---
-title: Schemaverwijzing voor Definitietaal van werkstroom - Azure Logic Apps | Microsoft Docs
-description: Schrijven van aangepaste werkstroomdefinities voor Azure Logic Apps met de taal van de definitie van werkstroom
+title: Definitietaal van werkstroom - Azure Logic Apps-schemaverwijzing
+description: Naslaggids voor Definitietaal van werkstroomschema in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620833"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616795"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Definitietaal van werkstroom in Azure Logic Apps-schemaverwijzing
 
-Wanneer u een werkstroom voor logische Apps met maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw onderliggende werkstroomdefinitie beschrijving van de werkelijke logica die wordt uitgevoerd voor uw logische app. Deze beschrijving volgt een structuur die is gedefinieerd en gevalideerd door het schema Definitietaal van werkstroom, die gebruikmaakt van [JavaScript Object Notation (JSON)](https://www.json.org/).
+Wanneer u een logische app in maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw logische app heeft een onderliggende werkstroomdefinitie die worden beschreven van de werkelijke logica die in uw logische app wordt uitgevoerd. Deze werkstroomdefinitie maakt gebruik van [JSON](https://www.json.org/) en een structuur die gevalideerd door het schema Definitietaal van werkstroom volgt. Deze referentie bevat een overzicht van deze structuur en hoe elementen in het schema wordt gedefinieerd in de werkstroomdefinitie van de.
 
 ## <a name="workflow-definition-structure"></a>Structuur van de werkstroom-definitie
 
-De werkstroomdefinitie van een is ten minste één trigger waarmee een instantie van uw logische app, plus een of meer acties die uw logische app wordt uitgevoerd.
+Altijd een werkstroomdefinitie bevat een trigger voor het instantiëren van uw logische app, plus een of meer acties die worden uitgevoerd na de trigger wordt geactiveerd.
 
 Hier volgt de structuur op hoog niveau voor de werkstroomdefinitie van een:
 
@@ -51,7 +50,7 @@ Hier volgt de structuur op hoog niveau voor de werkstroomdefinitie van een:
 
 ## <a name="parameters"></a>Parameters
 
-In de `parameters` sectie, het definiëren van de werkstroomparameters die uw logische app tijdens de implementatie worden gebruikt voor het accepteren van invoer. Zowel parameterdeclaraties en parameterwaarden zijn vereist tijdens de implementatie. Voordat u deze parameters in andere gedeelten van de werkstroom gebruiken kunt, ervoor zorgen dat u de parameters in deze secties declareren. 
+In de `parameters` sectie, het definiëren van de werkstroomparameters die gebruikmaakt van de werkstroomdefinitie van de bij de implementatie voor het accepteren van invoer. Zowel parameterdeclaraties en parameterwaarden zijn vereist tijdens de implementatie. Voordat u deze parameters in andere gedeelten van de werkstroom gebruiken kunt, ervoor zorgen dat u de parameters in deze secties declareren. 
 
 Hier volgt de algemene structuur voor een parameterdefinitie:
 
@@ -70,12 +69,12 @@ Hier volgt de algemene structuur voor een parameterdefinitie:
 },
 ```
 
-| Element | Vereist | Type | Description |
+| Element | Vereist | Type | Beschrijving |
 |---------|----------|------|-------------|
 | type | Ja | int, float, string, securestring, bool, matrix, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
 | defaultValue | Ja | Gelijk aan `type` | De standaardwaarde voor parameter wanneer er geen waarde is opgegeven wanneer de werkstroom waarmee een wordt gemaakt |
 | allowedValues | Nee | Gelijk aan `type` | Een matrix met waarden die de parameter kunt accepteren |
-| metagegevens | Nee | JSON-object | Andere details van de parameter, bijvoorbeeld de naam of een leesbare beschrijving op voor uw logische app of het moment van ontwerp gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |
+| metagegevens | Nee | JSON-object | Andere details van de parameter, bijvoorbeeld de naam of een leesbare beschrijving op voor uw logische app of stroom of het moment van ontwerp-gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |
 ||||
 
 ## <a name="triggers-and-actions"></a>Triggers en acties
@@ -107,7 +106,7 @@ Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
 | waarde | Ja | Gelijk aan `type` | De geretourneerde waarde van uitvoer |
 |||||
 
-Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van de logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.
+Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ In [expressies](#expressions) en [functies](#functions), operators uitvoeren van
 
 ## <a name="functions"></a>Functions
 
-Sommige expressies worden de waarden van de runtime-acties die mogelijk nog niet wanneer een logische app begint te lopen. U kunt gebruiken om te verwijzen naar of te werken met deze waarden in expressies, [ *functies* ](../logic-apps/workflow-definition-language-functions-reference.md) waarmee de Definitietaal van werkstroom.
+Sommige expressies worden de waarden van de runtime-acties die mogelijk nog niet wanneer de werkstroomdefinitie van de wordt gestart om uit te voeren. U kunt gebruiken om te verwijzen naar of te werken met deze waarden in expressies, [ *functies* ](../logic-apps/workflow-definition-language-functions-reference.md) waarmee de Definitietaal van werkstroom.
 
 ## <a name="next-steps"></a>Volgende stappen
 

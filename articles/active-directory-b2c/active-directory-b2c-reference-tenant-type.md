@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 928c6316ea964472faadc82213c4c1ff81c3e038
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452110"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608238"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionale beschikbaarheid en opslaglocaties
 Beschikbaarheid in regio's en gegevensopslag zijn twee zeer verschillende concepten die anders van toepassing op Azure AD B2C van de rest van Azure. In dit artikel worden de verschillen tussen deze twee concepten uitgelegd en hoe ze van toepassing op Azure ten opzichte van Azure AD B2C vergelijken.
@@ -45,7 +45,7 @@ Gegevens zich bevinden in de Verenigde Staten voor de volgende landen/regio's:
 
 Gegevens zich in Europa bevinden voor de volgende landen/regio's:
 
-> Algerije, Oostenrijk, Azerbeidzjan, Bahrein, Belarus, België, Bulgarije, Kroatië, Cyprus, Tsjechië, Denemarken, Egypte, Estland, Finland, Frankrijk, Duitsland, Griekenland, Hongarije, IJsland, Ierland, Israël, Italië, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Libanon Macedonië Liechtenstein NNNNNN, Luxemburg, Voormalige Joegoslavische Republiek, Malta, Montenegro, Marokko, Nederland, Nigeria, Noorwegen, Oman, Pakistan, Polen, Portugal, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Slowakije, Slovenië, Zuid-Afrika, Spanje, Zweden, Zwitserland, Tunesië, Turkije, Oekraïne, Verenigde Arabische Emiraten en het Verenigd Koninkrijk.
+> Algerije, Oostenrijk, Azerbeidzjan, Bahrein, Belarus, België, Bulgarije, Kroatië, Cyprus, Tsjechië, Denemarken, Egypte, Estland, Finland, Frankrijk, Duitsland, Griekenland, Hongarije, IJsland, Ierland, Israël, Italië, Jordanië, Kazachstan, Kenia, Koeweit, Letland, Libanon Liechtenstein, Litouwen, Luxemburg, Noord Macedonië, Malta, Montenegro, Marokko, Nederland, Nigeria, Noorwegen, Oman, Pakistan, Polen, Portugal, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Slowakije, Slovenië, Zuid-Afrika, Spanje, Zweden, Zwitserland, Tunesië, Turkije, Oekraïne, Verenigde Arabische Emiraten en Verenigd Koninkrijk.
 
 De overige landen/regio's zijn momenteel wordt toegevoegd aan de lijst.  U kunt nog steeds Azure AD B2C door selectie van een van de bovenstaande landen/regio nu gebruiken.
 

@@ -1,33 +1,20 @@
 ---
-title: Maken van een Azure Application Gateway - sjablonen | Microsoft Docs
-description: Op deze pagina staan instructies voor het maken van een toepassingsgateway met de Azure Resource Manager-sjabloon
-documentationcenter: na
+title: Een Azure Application Gateway - sjablonen maken
+description: Dit artikel bevat instructies voor het maken van een Azure application gateway met behulp van de Azure Resource Manager-sjabloon
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084926"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608451"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
-
-> [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Ga voor een volledige lijst van ondersteunde functies naar [overzicht van Application Gateway](application-gateway-introduction.md)
 
@@ -60,7 +47,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 1. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel
 1. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
 
-   | Parameter | Description |
+   | Parameter | Beschrijving |
    | --- | --- |
    | **subnetPrefix** |CIDR-blokkering voor het subnet van de gateway. |
    | **applicationGatewaySize** | Grootte van de toepassingsgateway.  WAF kan alleen middelgrote en grote. |
@@ -243,4 +230,3 @@ Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u na
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

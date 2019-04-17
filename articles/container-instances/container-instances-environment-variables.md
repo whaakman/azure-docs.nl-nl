@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904896"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606885"
 ---
-# <a name="set-environment-variables"></a>Omgevingsvariabelen instellen
+# <a name="set-environment-variables-in-container-instances"></a>Omgevingsvariabelen instellen in de container instances
 
-Omgevingsvariabelen instellen in uw container instances kunt u dynamische configuratie van de toepassing of script uitvoeren op de container. Omgevingsvariabelen instellen in een container, geeft u deze wanneer u een containerinstantie maken. U kunt omgevingsvariabelen instellen bij het starten van een container met de [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), en de [Azure-portal](#azure-portal-example).
+Omgevingsvariabelen instellen in uw container instances kunt u dynamische configuratie van de toepassing of script uitvoeren op de container. Dit is vergelijkbaar met de `--env` opdrachtregelargument naar `docker run`. 
+
+Omgevingsvariabelen instellen in een container, geeft u deze wanneer u een containerinstantie maken. In dit artikel ziet u voorbeelden van het instellen van omgevingsvariabelen bij het starten van een container met de [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), en de [Azure-portal](#azure-portal-example). 
 
 Bijvoorbeeld, als u de Microsoft [aci-wordcount] [ aci-wordcount] containerinstallatiekopie, kunt u het gedrag wijzigen door de volgende omgevingsvariabelen op te geven:
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers voor batchverwerking kunnen profiteren van aangepaste omgevingsvariabelen tijdens runtime. Zie voor meer informatie over het uitvoeren van containers op basis van een taak [taken in containers uitvoeren in Azure Container Instances](container-instances-restart-policy.md).
+Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers voor batchverwerking kunnen profiteren van aangepaste omgevingsvariabelen tijdens runtime. Zie voor meer informatie over het uitvoeren van containers op basis van een taak [taken in containers uitvoeren met beleid voor opnieuw opstarten](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

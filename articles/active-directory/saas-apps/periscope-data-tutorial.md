@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275535"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Zelfstudie: Azure Active Directory-integratie met Periscope Data
 
@@ -50,7 +50,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Periscope Data met Microsoft Azure Active Directory moet u Periscope Data vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Periscope gegevens uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u Periscope Data wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -111,7 +111,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directo
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://app.periscopedata.com/<SITENAME>/sso`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > De waarde van de aanmeldings-URL is niet echt. Werk de waarden bij met de werkelijke aanmeldings-URL. Neem contact op met [clientondersteuningsteam bij Periscope Data](mailto:support@periscopedata.com) om deze waarde op te halen en de id-waarde die u ontvangt van de sectie **Configureren van eenmalige aanmelding bij Periscope Data** die later in de zelfstudie wordt uitgelegd. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -136,7 +136,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directo
 
     d. Zoek de code **SingleLogoutService** en plak de **Locatie**-waarde in het tekstvak **SLO URL**.
 
-    e. Kopieer de **Id**-waarde voor uw exemplaar en plak deze in het tekstvak  **Id (Entiteits-id)** in de sectie **SAML-basisconfiguratie** in de Azure Portal.
+    e. Kopieer de **id** voor uw exemplaar van de waarde en plak deze in **id (entiteits-ID)** tekstvak van **SAML-basisconfiguratie** sectie in Azure portal.
 
     f. Het eerste label van het XML-bestand vinden, Kopieer de waarde van **entityID** en plak deze in de **verlener** tekstvak.
 
@@ -203,7 +203,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat gebruikers van Azure Active Directory zich kunnen aanmelden bij Periscope Data, moeten ze worden ingericht voor Periscope Data. In het geval van Periscope Data is dat een handmatige taak.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan bij Periscope Data als beheerder.
 
@@ -231,9 +231,9 @@ Wanneer u op de tegel Periscope Data in het toegangsvenster klikt, zou u automat
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

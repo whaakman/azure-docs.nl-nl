@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351657"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607072"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus-onderwerpen en abonnementen gebruiken met Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In dit artikel wordt beschreven hoe u Service Bus-onderwerpen en -abonnementen gebruikt. De voorbeelden zijn geschreven in Python en gebruik de [Azure Python SDK-pakket][Azure Python package]. De behandelde scenario's zijn **het maken van onderwerpen en abonnementen**, **het maken van abonnementsfilters**, **verzenden van berichten naar een onderwerp**, **ontvangen berichten van een abonnement**, en **verwijderen van onderwerpen en abonnementen**. Zie voor meer informatie over onderwerpen en abonnementen, de [Vervolgstappen](#next-steps) sectie.
+In dit artikel wordt beschreven hoe u Service Bus-onderwerpen en -abonnementen gebruikt. De voorbeelden zijn geschreven in Python en gebruik de [Azure Python SDK-pakket][Azure Python package]. De behandelde scenario's zijn onder andere:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Het maken van onderwerpen en abonnementen 
+- Het maken van abonnementsfilters 
+- Berichten verzenden naar een onderwerp 
+- Ontvangen van berichten van een abonnement
+- Verwijderen van onderwerpen en abonnementen
 
-> [!NOTE] 
-> Als u nodig hebt om Python te installeren of de [Azure Python-pakket][Azure Python package], Zie de [Python-installatiehandleiding](../python-how-to-install.md).
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) te maken van een Service Bus **naamruimte** en ontvang de **verbindingsreeks**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > U maakt een **onderwerp** en een **abonnement** naar het onderwerp met behulp van **Python** in deze Quick Start. 
+3. Installeer [Azure Python-pakket][Azure Python package]. Zie de [Python-installatiehandleiding](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
 

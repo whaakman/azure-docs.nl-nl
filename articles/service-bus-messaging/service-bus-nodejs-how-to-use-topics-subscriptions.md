@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587154"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608868"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
 
@@ -35,9 +35,12 @@ Deze handleiding wordt beschreven hoe u Service Bus-onderwerpen en abonnementen 
 
 Zie voor meer informatie over onderwerpen en abonnementen, [Vervolgstappen](#next-steps) sectie.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) te maken van een Service Bus **naamruimte** en ontvang de **verbindingsreeks**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > U maakt een **onderwerp** en een **abonnement** naar het onderwerp met behulp van **Node.js** in deze Quick Start. 
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [Een Node.js-toepassing naar een Azure-website maken en implementeren], [Node.js-Cloudservice] [ Node.js Cloud Service] met behulp van Windows PowerShell of de website met WebMatrix.

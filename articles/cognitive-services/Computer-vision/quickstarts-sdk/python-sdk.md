@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: fbdc6ca8a9d93c090c1cfda9dec41b948d95c6af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495342"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617968"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services Computer Vision SDK voor Python
 
@@ -25,15 +25,15 @@ De Computer Vision-service geeft ontwikkelaars toegang tot geavanceerde algoritm
 * [Lijst met onderwerpdomeinen ophalen](#get-subject-domain-list)
 * [Een afbeelding op domein analyseren](#analyze-an-image-by-domain)
 * [Tekstbeschrijving van een afbeelding ophalen](#get-text-description-of-an-image)
-* [Handgeschreven tekst uit afbeelding ophalen](#get-text-from-image)
+* [Handgeschreven tekst uit een afbeelding ophalen](#get-text-from-image)
 * [Miniatuur genereren](#generate-thumbnail)
 
 Zie [Wat is Computer Vision?][computervision_docs] voor meer informatie over deze service.
 
 Zoekt u meer documentatie?
 
-* [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
-* [Documentatie voor cognitive Services-Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
+* [SDK-naslagdocumentatie](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+* [Documentatie over Cognitive Services Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,8 +46,8 @@ Maak een gratis sleutel geldig 7 dagen met de **[uitproberen] [ computervision_r
 
 Houd het volgende nadat de sleutel is gemaakt:
 
-* Waarde: een tekenreeks van 32 tekens met de indeling van `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Sleutel-eindpunt: de base eindpunt-URL https://westcentralus.api.cognitive.microsoft.com
+* Sleutelwaarde: een tekenreeks van 32 tekens met de indeling van `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Sleutel-eindpunt: de basis-URL eindpunt, https\://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Als u een Azure-abonnement hebt
 
@@ -319,7 +319,7 @@ Tijdens het werken met de [ComputerVisionClient] [ ref_computervisionclient] -cl
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Inhoud tags toepassen op afbeeldingen](../concept-tagging-images.md)
+> [Inhoudstags toepassen op afbeeldingen](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/
