@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ae9ad4d1101c3b42c46c51546ac82e5b4a134c8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519847"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617334"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Quickstart: Maken van een werkbelasting classificatie met T-SQL (Preview)
 
 In deze snelstartgids maakt snel u een classificatie van de werkbelasting met hoge urgentie van de Directeur van uw organisatie. Deze classificatie werkbelasting kunt CEO query's hebben voorrang op andere query's met lagere prioriteit in de wachtrij.
 
 > [!Note]
-> Classificatie van de werkbelasting is beschikbaar in SQL Data Warehouse Gen2.
+> Classificatie van de werkbelasting is beschikbaar voor Preview-versie van SQL Data Warehouse Gen2. Preview van werkbelasting Management classificatie en belang is voor builds met een releasedatum van 9 April 2019 of hoger.  Gebruikers Vermijd het gebruik van builds vóór deze datum voor het testen van de workload-beheer.  Uitvoeren om te bepalen of uw build beheer van de werkbelasting die geschikt is, selecteer @@version wanneer verbonden met uw SQL Data Warehouse-exemplaar.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

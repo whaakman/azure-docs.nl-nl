@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766936"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608891"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766936"
 
 Deze zelfstudie bestaat uit de volgende stappen:
 
-1. Een Service Bus-naamruimte maken met de Azure-portal.
-2. Een Service Bus-onderwerp maken met de Azure-portal.
-3. Een Service Bus-abonnement maken met de Azure-portal.
-4. Schrijf een .NET Core-consoletoepassing om een set berichten naar het onderwerp te verzenden.
-5. Schrijf een .NET Core-consoletoepassing om deze berichten van het abonnement te ontvangen.
+1. Schrijf een .NET Core-consoletoepassing om een set berichten naar het onderwerp te verzenden.
+2. Schrijf een .NET Core-consoletoepassing om deze berichten van het abonnement te ontvangen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](https://www.visualstudio.com/vs) of hoger.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
-2. Een Azure-abonnement.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) of meld u aan voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) naar de volgende taken uitvoeren:
+    1. Maken van een Service Bus **naamruimte**.
+    2. Krijgen de **verbindingsreeks**.
+    3. Maak een **onderwerp** in de naamruimte.
+    4. Maak **één abonnement** naar het onderwerp in de naamruimte.
+3. [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](https://www.visualstudio.com/vs) of hoger.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
+ 
 ## <a name="send-messages-to-the-topic"></a>Berichten naar het onderwerp verzenden
 
 Maak een C#-consoletoepassing met Visual Studio om berichten naar het onderwerp te verzenden.
@@ -204,7 +200,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
 
 ## <a name="receive-messages-from-the-subscription"></a>Berichten ontvangen van het abonnement
 
-Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert u het **Microsoft.Azure.ServiceBus** NuGet-pakket, zoals ook met de voorgaande verzendtoepassing is gedaan.
+Voor het ontvangen van de berichten die u hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert de **Microsoft.Azure.ServiceBus** NuGet-pakket, vergelijkbaar met de voorgaande verzendtoepassing.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Schrijven van code voor het ontvangen van berichten van het abonnement
 

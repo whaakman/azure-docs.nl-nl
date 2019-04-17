@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 4e5a785d219e1b776a1d512512d0a2a74532c550
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282726"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618053"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -21,12 +21,12 @@ In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen 
 
 Als u wilt gaan met Azure Site Recovery en het eenvoudigste scenario, gaat u naar onze [zelfstudies](tutorial-prepare-azure.md). U kunt meer informatie over Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md).
 
-## <a name="replication-scenario"></a>Replicatiescenario
+## <a name="deployment-scenario"></a>Implementatiescenario
 
 **Scenario** | **Details**
 --- | ---
-Virtuele VMware-machines | Replicatie van on-premises VMware-machines naar Azure. U kunt dit scenario in Azure portal of met behulp van implementeren [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar Azure. U kunt dit scenario in Azure portal implementeren.
+Herstel na noodgevallen van virtuele VMware-machines | Replicatie van on-premises VMware-machines naar Azure. U kunt dit scenario in Azure portal of met behulp van implementeren [PowerShell](vmware-azure-disaster-recovery-powershell.md).
+Herstel na noodgeval voor fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar Azure. U kunt dit scenario in Azure portal implementeren.
 
 ## <a name="on-premises-virtualization-servers"></a>On-premises virtualisatieservers
 
@@ -98,7 +98,7 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.23][9.23 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.79-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.22][9.22 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.21][9.21 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.20][9.20 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.64-default |
@@ -120,7 +120,7 @@ Vrije schijfruimte | 2 GB op de/root-partitie <br/><br/> 250 MB op de installati
 
 ## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf
 
-**Bewerking** | **Details**
+**Actie** | **Details**
 --- | ---
 Grootte van de schijf op gerepliceerde virtuele machine wijzigen | Ondersteund.
 Schijf toevoegen op de gerepliceerde virtuele machine | Schakel de replicatie voor de virtuele machine, de schijf toevoegen en vervolgens weer inschakelen replicatie. Toevoegen van een schijf op een replicerende virtuele machine wordt momenteel niet ondersteund.
@@ -156,7 +156,7 @@ Bron-IP-adres behouden | Ja
 Azure Virtual Network-service-eindpunten<br/> | Ja
 Versneld netwerken | Nee
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 **Onderdeel** | **Ondersteund**
 --- | ---
 Dynamische schijf | Bewerking schijf moet een standaardschijf. <br/><br/>Gegevensschijven mogen dynamische schijven
@@ -167,7 +167,6 @@ Host vSAN | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 Host-MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 Virtuele Hostvolumes (VVols) | Ja voor VMware<br/><br/> N.V.T. voor fysieke servers
 VMDK-Gast/server | Ja
-Gast/server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger) <br/><br/> Zie de opmerking aan het einde van de tabel
 De gedeelde clusterschijf Gast/host-server | Nee
 Versleutelde schijf Gast/host-server | Nee
 Gast/NFS-server | Nee
@@ -181,14 +180,8 @@ Gast/server - opslagruimten | Nee
 Schijf Gast/server-hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
 Gast/server MPIO (Multipath I/O) | Nee
+Gast/server EFI/UEFI opstarten | Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/><br/> U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/><br/> De server mag niet meer dan vier partities hebben op de besturingssysteemschijf.<br/><br/> Mobility Service versie 9.13 of hoger vereist.<br/><br/> Alleen NTFS wordt ondersteund.
 
-> [!NOTE]
-> UEFI, opstarten van virtuele VMware-machines met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Er gelden de volgende beperkingen:
->
-> - Alleen de migratie naar Azure wordt ondersteund. Failback naar on-premises VMware-site wordt niet ondersteund.
-> - De server mag niet meer dan vier partities hebben op de besturingssysteemschijf.
-> - Alleen NTFS wordt ondersteund
-> - Mobility Service versie 9.13 of hoger vereist.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -237,7 +230,7 @@ VM-naam | Van 1 tot 63 tekens bevatten.<br/><br/> Alleen letters, cijfers en afb
 
 De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, wordt aangeraden om te [tool voor implementatieplanning uitgevoerd](site-recovery-deployment-planner.md) en moet u toepassingen uitgebreid testen met behulp van een testfailover uit om de prestaties van de toepassing.
 
-**Beoogde replicatieopslag** | **Gemiddelde bronschijf i/o-grootte** |**Gemiddeld gegevensverloop van schijf** | **Totale gegevensverloop van bronschijf per dag**
+**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
 Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
@@ -246,7 +239,7 @@ Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |20 MB/s | 1684 GB per schijf
 
-**Gegevensverloop van bron** | **Maximumaantal**
+**brongegevensverloop** | **Maximumaantal**
 ---|---
 Gemiddeld gegevensverloop per VM| 25 MB/s
 Piekgegevensverloop over alle schijven op een VM | 54 MB/s
@@ -256,7 +249,7 @@ Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery ka
 
 ## <a name="vault-tasks"></a>Kluis-taken
 
-**Bewerking** | **Ondersteund**
+**Actie** | **Ondersteund**
 --- | ---
 Kluis verplaatsen tussen resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
@@ -264,7 +257,7 @@ Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Download de nieuwste Azure Site Recovery-onderdelen
 
-**Name** | **Description** | **Meest recente versie downloadinstructies**
+**Naam** | **Beschrijving** | **Meest recente versie downloadinstructies**
 --- | --- | ---
 Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-deploy-configuration-server.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Voor meer informatie gaat u naar onze richtlijnen op [nieuwe installatie](vmware-azure-set-up-process-server-scale.md) en [upgrade van het bestaande onderdeel om de meest recente versie](vmware-azure-manage-process-server.md#upgrade-a-process-server).

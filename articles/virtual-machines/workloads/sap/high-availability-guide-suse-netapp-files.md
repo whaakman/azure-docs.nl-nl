@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662367"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617764"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -166,14 +166,11 @@ Wanneer u overweegt Azure NetApp bestanden voor de SAP Netweaver op architectuur
 
 - De minimale capaciteit van toepassingen is 4 TiB. De grootte van de capaciteit van toepassingen moet worden gefactureerd in veelvouden van 4 TiB.
 - De minimale hoeveelheid is 100 GiB
-- Azure NetApp-bestanden en alle virtuele machines, waar Azure NetApp Files volumes wordt gekoppeld, moet zich in hetzelfde Azure-netwerk. [Peering op virtueel netwerk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) nog wordt niet ondersteund door Azure NetApp bestanden.
+- Azure Files van NetApp en alle virtuele machines, waar Azure NetApp Files volumes wordt gekoppeld, moeten zich in hetzelfde Azure-netwerk of in [via peering gekoppelde virtuele netwerken](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in dezelfde regio. Azure NetApp bestanden toegang via VNET-peering in dezelfde regio wordt nu ondersteund. Azure NetApp toegang via het wereldwijde peering wordt nog niet ondersteund.
 - Het geselecteerde virtuele netwerk moet een subnet, gedelegeerd naar Azure NetApp bestanden hebben.
 - Azure NetApp Files ondersteunt momenteel alleen NFSv3 
 - Azure Files met NetApp biedt [beleid exporteren](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): u kunt de toegestane clients te bepalen welk toegangstype (lezen en schrijven, alleen-lezen, enz.). 
 - Functie van Azure NetApp bestanden is nog niet van de zone op de hoogte. NetApp-bestanden van Azure-functie is niet geïmplementeerd in alle beschikbaarheidszones in een Azure-regio. Houd rekening met de mogelijke gevolgen van de latentie in bepaalde Azure-regio's. 
-
-   > [!NOTE]
-   > Let erop dat nog peering van het Virtueelnetwerk biedt geen ondersteuning voor Azure NetApp bestanden. Implementeer de virtuele machines en de volumes Azure NetApp bestanden in hetzelfde virtuele netwerk.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Linux-VM's handmatig te implementeren via Azure portal
 
@@ -574,6 +571,8 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 9. **[1]**  De resources van de SAP-cluster maken
 
+Als u de architectuur van de server 1 in de wachtrij plaatsen (ENSA1), definieert u de resources als volgt:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP-ondersteuning voor het in de wachtrij plaatsen server 2, met inbegrip van replicatie vanaf SAP NW 7.52. Beginnen met ABAP-Platform 1809, wordt in de wachtrij plaatsen server 2 standaard geïnstalleerd. Zie SAP Opmerking [2630416](https://launchpad.support.sap.com/#/notes/2630416) voor ondersteuning van de server 2 in de wachtrij plaatsen.
+Als in de wachtrij plaatsen server 2-architectuur ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definieert u de resources als volgt:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Als u een upgrade uitvoert van een oudere versie en overschakelen naar de server in de wachtrij plaatsen 2, Zie sap-notitie [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de resources die worden uitgevoerd.
 
@@ -1051,7 +1079,7 @@ De volgende tests zijn een kopie van de Testscenario's in de [best practices han
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Maak een vergrendeling in de wachtrij plaatsen, voor het bewerken van voorbeeld van een gebruiker in transactie su01. Voer de volgende opdrachten als < sapsid\>adm op het knooppunt waarop de ASCS-exemplaar wordt uitgevoerd. De opdrachten wordt de ASCS-exemplaar stopt en start het opnieuw. De vergrendeling in de wachtrij plaatsen wordt verwacht in deze test verloren gaan.
+   Maak een vergrendeling in de wachtrij plaatsen, voor het bewerken van voorbeeld van een gebruiker in transactie su01. Voer de volgende opdrachten als < sapsid\>adm op het knooppunt waarop de ASCS-exemplaar wordt uitgevoerd. De opdrachten wordt de ASCS-exemplaar stopt en start het opnieuw. Als u de architectuur van de server 1 in de wachtrij plaatsen, moet de vergrendeling in de wachtrij plaatsen wordt verwacht in deze test verloren gaan. Als u de architectuur van de server 2 in de wachtrij plaatsen, wordt het in de wachtrij plaatsen worden bewaard. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ De volgende tests zijn een kopie van de Testscenario's in de [best practices han
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   De vergrendeling in de wachtrij plaatsen van transactie su01 moet verloren en de back-end moet herstellen. De resourcestatus van de nadat de test:
+   De vergrendeling in de wachtrij plaatsen van transactie su01 verloren geraakt, als de serverarchitectuur replicatie 1 in de wachtrij plaatsen en de back-end moet herstellen. De resourcestatus van de nadat de test:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

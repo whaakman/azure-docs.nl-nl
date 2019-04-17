@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546308"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616285"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole REST API en C#
 
@@ -24,7 +24,10 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
 ## <a name="prerequisites"></a>Vereisten
 
 * Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
+* Voor het installeren van `Newtonsoft.Json` als een NuGet-pakket in Visual studio:
+    1. In de Solution Explorer met de rechtermuisknop op het oplossingsbestand.
+    1. Selecteer **NuGet-pakketten beheren voor oplossing**.
+    1. Zoeken naar `Newtonsoft.Json` en installeer het pakket.
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
@@ -52,14 +55,14 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Doe hetzelfde voor uw zoekparameters. Voeg u marktcode toe aan `mkt=` en uw spellingcontrole-modus op `&mode=`.
+3. Doe hetzelfde voor uw zoekparameters. Toevoegen van uw code markt na `mkt=`. De code markt is het maken van de aanvraag van land. Bovendien toevoegen de spelling-modus na `&mode=`. De modus is een `proof` (vangt meeste spelling/grammaticale fouten) of `spell` (vangt meeste spelling, maar niet zo veel grammaticafouten).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

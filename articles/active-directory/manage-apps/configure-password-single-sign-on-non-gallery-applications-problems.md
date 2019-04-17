@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857994"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617375"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
@@ -142,7 +142,7 @@ Controleer het volgende als u een van deze problemen optreden:
 
 -   Probeer het handmatige proces voor vastleggen, ervoor te zorgen dat de rode markeringen zijn over de juiste velden.
 
--   Als het handmatig vastleggen lijkt te reageren of de aanmeldingspagina doet het nog (geval 3 hierboven), het handmatig vastleggen opnieuw proberen. Maar deze keer na het voltooien van het proces, drukt u op de **F12** knop voor het openen van uw browser developer-console. Zodra er, open de **console** en het type **window.location= "&lt;u hebt opgegeven bij het configureren van de app url invoeren&gt;"** en druk vervolgens op **Enter** . Dit zorgt ervoor dat de omleiding van een pagina die de capture-proces wordt beëindigd en slaat de velden die zijn vastgelegd.
+-   Als het handmatig vastleggen lijkt niet meer reageert of niet van toepassing zijn op de aanmeldingspagina probeer iets (casus 3 hierboven), het vastleggen van handmatige proces opnieuw. Maar deze keer na het voltooien van het proces, drukt u op de **F12** knop voor het openen van uw browser developer-console. Zodra er, open de **console** en het type **window.location= "&lt;u hebt opgegeven bij het configureren van de app url invoeren&gt;"** en druk vervolgens op **Enter** . Dit zorgt ervoor dat de omleiding van een pagina die de capture-proces wordt beëindigd en slaat de velden die zijn vastgelegd.
 
 Als geen van deze methoden voor u werkt, kunt ondersteuning. Een ondersteuningsaanvraag openen met de details van wat u hebt geprobeerd, evenals de informatie die verzameld de [hoe ziet u de details van een portalmelding](#i-cannot-manually-detect-sign-in-fields-for-my-application) en [hulp krijgen door de details van melding verzenden naar een ondersteuningsmedewerker ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secties (indien van toepassing).
 

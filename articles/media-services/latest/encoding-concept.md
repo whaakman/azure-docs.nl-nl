@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243616"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617628"
 ---
 # <a name="encoding-with-media-services"></a>Codering met mediaservices
 
@@ -54,19 +54,38 @@ Media Services ondersteunt momenteel de volgende ingebouwde coderingsstandaarden
 
 De volgende voorinstellingen worden momenteel ondersteund:
 
-- **EncoderNamedPreset.AdaptiveStreaming** (aanbevolen). Zie voor meer informatie, [automatisch een bitrateladder genereren](autogen-bitrate-ladder.md).
 - **EncoderNamedPreset.AACGoodQualityAudio** -produceert één MP4-bestand met alleen stereo audio gecodeerd met een 192 kbps.
+- **EncoderNamedPreset.AdaptiveStreaming** (aanbevolen). Zie voor meer informatie, [automatisch een bitrateladder genereren](autogen-bitrate-ladder.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -wordt aangegeven dat een experimentele voorinstelling voor het coderen van inhoud behouden. Opgegeven invoer materiaal, probeert de service om automatisch te bepalen het optimale aantal lagen, de juiste bitrate en de resolutie-instellingen voor de levering van adaptief streamen. De onderliggende algoritmen blijft loop der tijd veranderen. Uitvoer van de bevat MP4-bestanden met video en audio interleaved. Zie voor meer informatie, [Experimental voorinstelling voor encoding op inhoud-bewuste](cae-experimental.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080p** -produceert een reeks van 8 GOP uitgelijnde MP4-bestanden, variërend van 6000 kbps tot 400 kbps en stereo AAC-audio. Resolutie begint bij 1080p en gaat naar de 360 p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** -produceert een set 6 GOP uitgelijnde MP4-bestanden, variërend van 3400 kbps tot 400 kbps en stereo AAC-audio. Resolutie begint bij 720p en gaat naar de 360 p.
-- **EncoderNamedPreset.H264MultipleBitrateSD** -produceert een reeks van 5 GOP uitgelijnde MP4-bestanden, variërend van 1600 kbps tot 400 kbps en stereo AAC-audio. Resolutie begint bij 480p en gaat naar de 360 p.<br/><br/>Zie voor meer informatie, [uploaden, coderen en streamen van bestanden](stream-files-tutorial-with-api.md).
+- **EncoderNamedPreset.H264MultipleBitrateSD** -produceert een reeks van 5 GOP uitgelijnde MP4-bestanden, variërend van 1600 kbps tot 400 kbps en stereo AAC-audio. Resolutie begint bij 480p en gaat naar de 360 p.
+- **EncoderNamedPreset.H264SingleBitrate1080p** -produceert een MP4-bestand waarin de video is gecodeerd met H.264 codec 6750 kbps en de hoogte van een afbeelding van 1080 pixels en de stereo audio is gecodeerd met AAC-LC codec met 64 kbps.
+- **EncoderNamedPreset.H264SingleBitrate720p** -produceert een MP4-bestand waarin de video is gecodeerd met H.264 codec 4500 kbps en de hoogte van een afbeelding van 720 pixels en de stereo audio is gecodeerd met AAC-LC codec met 64 kbps.
+- **EncoderNamedPreset.H264SingleBitrateSD** -produceert een MP4-bestand waarin de video is gecodeerd met H.264 codec 2200 kbps en de hoogte van een afbeelding van 480 pixels en de stereo audio is gecodeerd met AAC-LC codec met 64 kbps.
+
+Zie voor de meest recente lijst met voorinstellingen [ingebouwde voorinstellingen moet worden gebruikt voor het coderen van video's](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+
+Als u wilt zien hoe de standaardinstellingen worden gebruikt, Bekijk [uploaden, coderen en streamen van bestanden](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset-preset"></a>Voorinstelling voor StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beschrijft instellingen moet worden gebruikt wanneer de invoervideo met de codering-standaard-codering. Gebruik deze definitie bij het aanpassen van voorinstellingen voor transformatie. 
 
-#### <a name="custom-presets"></a>Aangepaste voorinstellingen
+#### <a name="considerations"></a>Overwegingen
 
-Media Services biedt volledige ondersteuning voor het aanpassen van alle waarden in de standaardinstellingen om te voldoen aan uw specifieke behoeften voor codering en vereisten. U gebruikt de **StandardEncoderPreset** vooraf ingesteld bij het aanpassen van voorinstellingen voor transformatie. Voor een gedetailleerde uitleg en voorbeeld Zie [over het aanpassen van het coderingsprogramma voorinstellingen](customize-encoder-presets-how-to.md).
+Bij het maken van aangepaste voorinstellingen, de volgende overwegingen zijn van toepassing:
+
+- Alle waarden voor de hoogte en breedte in AVC inhoud moet een meervoud van 4.
+- In Azure Media Services v3 zijn alle van de codering bitsnelheden in bits per seconde. Dit wijkt af van het voorbeelddiagram met onze v2 API's, dat kilobits per seconde als de eenheid gebruikt. Bijvoorbeeld, als de bitrate in v2 is opgegeven als 128 (kilobits per seconde), zou in v3 deze worden ingesteld op 128000 (bits per seconde).
+
+#### <a name="examples"></a>Voorbeelden
+
+Media Services biedt volledige ondersteuning voor het aanpassen van alle waarden in de standaardinstellingen om te voldoen aan uw specifieke behoeften voor codering en vereisten. Zie voor voorbeelden die laten zien hoe het coderingsprogramma voorinstellingen aanpassen:
+
+- [Voorinstellingen met .NET aanpassen](customize-encoder-presets-how-to.md)
+- [Voorinstellingen met CLI aanpassen](custom-preset-cli-howto.md)
+- [Voorinstellingen met REST aanpassen](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>Encoding in v3 schalen
 

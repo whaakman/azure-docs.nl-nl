@@ -254,6 +254,8 @@ items:
       - name: Apache Hive-query's optimaliseren
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
+      - name: Toegang tot wijzigingen van de clusterconfiguratie
+        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     maintainContext: true
 - name: Gereedheid voor bedrijven
   items:
@@ -307,12 +309,13 @@ items:
   - name: Gids voor R-ontwikkelaars
     href: ../../machine-learning/r-developers-guide.md
   - name: Releaseopmerkingen
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Opmerkingen bij de huidige release
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Gearchiveerde releaseopmerkingen
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Hulp op het forum
@@ -326,9 +329,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cfeff50427913e7df70bd3a2af3ea83519d27cfe
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 918489a8dbac91078af6114ae4942d8411460a21
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579084"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615741"

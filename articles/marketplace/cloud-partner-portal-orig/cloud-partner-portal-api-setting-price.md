@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809930"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607791"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prijzen voor virtuele machine-aanbiedingen
 ==================================
@@ -106,24 +106,24 @@ De volgende tabel bevat de verschillende regio's dat u kunt opgeven voor aangepa
 |------------|----------------------|-------------------|
 | DZ         | Algerije              | DZD               |
 | AR         | Argentinië            | ARS               |
-| AUSTRALIË         | Australië            | AUD               |
+| AU         | Australië            | AUD               |
 | AT         | Oostenrijk              | EUR               |
 | BH         | Bahrein              | BHD               |
-| DOOR         | Belarus              | RUB               |
-| WORDEN         | België              | EUR               |
+| BY         | Belarus              | RUB               |
+| BE         | België              | EUR               |
 | BR         | Brazilië               | USD               |
 | BG         | Bulgarije             | BGN               |
 | CA         | Canada               | CAD               |
 | CL         | Chili                | CLP               |
-| CO         | Colombia             | KOPIËREN               |
+| CO         | Colombia             | COP               |
 | CR         | Costa Rica           | CRC               |
 | HR         | Kroatië              | HRK               |
 | CY         | Cyprus               | EUR               |
 | CZ         | Tsjechië       | CZK               |
 | DK         | Denemarken              | DKK               |
 | DO         | Dominicaanse Republiek   | USD               |
-| EG         | Ecuador              | USD               |
-| BIJVOORBEELD         | Egypte                | EGP               |
+| EC         | Ecuador              | USD               |
+| EG         | Egypte                | EGP               |
 | SV         | El Salvador          | USD               |
 | EE         | Estland              | EUR               |
 | FI         | Finland              | EUR               |
@@ -136,7 +136,7 @@ De volgende tabel bevat de verschillende regio's dat u kunt opgeven voor aangepa
 | IS         | IJsland              | SCHIJFTOEWIJZING               |
 | IN         | India                | INR               |
 | Id         | Indonesië            | IDR               |
-| INTERNET EXPLORER         | Ierland              | EUR               |
+| IE         | Ierland              | EUR               |
 | IL         | Israël               | ILS               |
 | IT         | Italië                | EUR               |
 | JP         | Japan                | JPY               |
@@ -149,40 +149,40 @@ De volgende tabel bevat de verschillende regio's dat u kunt opgeven voor aangepa
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litouwen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Macedonië (FYROM) Macedonisch       | MKD               |
-| MIJN         | Maleisië             | MYR               |
+| MK         | Noord-Macedonië      | MKD               |
+| MY         | Maleisië             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
-| MIJ         | Montenegro           | EUR               |
-| MA         | Marokko              | GEKKE               |
+| ME         | Montenegro           | EUR               |
+| MA         | Marokko              | MAD               |
 | NL         | Nederland          | EUR               |
 | NZ         | Nieuw-Zeeland          | NZD               |
 | NG         | Nigeria              | NGN               |
-| NEE         | Noorwegen               | NOK               |
-| OPERATIONS MANAGER         | Oman                 | OMR               |
+| NO         | Noorwegen               | NOK               |
+| OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
 | PY         | Paraguay             | PYG               |
 | PE         | Peru                 | PEN               |
-| PH         | Filippijnen          | PHP               |
+| PH         | Filipijnen          | PHP               |
 | PL         | Polen               | PLN               |
 | PT         | Portugal             | EUR               |
-| PULL-AANVRAAG         | Puerto Rico          | USD               |
+| PR         | Puerto Rico          | USD               |
 | QA         | Qatar                | QAR               |
 | RO         | Roemenië              | LOEK               |
 | RU         | Rusland               | RUB               |
 | SA         | Saoedi-Arabië         | SAR               |
-| RS         | Servië               | STANDAARDAFWIJKING               |
-| BEVEILIGINGSGROEP         | Singapore            | SGD               |
+| RS         | Servië               | RSD               |
+| SG         | Singapore            | SGD               |
 | SK         | Slowakije             | EUR               |
 | SI         | Slovenië             | EUR               |
 | ZA         | Zuid-Afrika         | ZAR               |
 | ES         | Spanje                | EUR               |
 | LK         | Sri Lanka            | USD               |
-| TWEEDE EDITIE         | Zweden               | SEK               |
+| SE         | Zweden               | SEK               |
 | CH         | Zwitserland          | CHF               |
-| TWEE         | Taiwan               | TWD               |
-| DO         | Thailand             | THB               |
+| TW         | Taiwan               | TWD               |
+| TH         | Thailand             | THB               |
 | TT         | Trinidad en Tobago  | TTD               |
 | TN         | Tunesië              | TND               |
 | TR         | Turkije               | TRY               |

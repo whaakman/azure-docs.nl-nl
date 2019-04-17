@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565832"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617410"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -54,7 +54,7 @@ U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inze
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-1. Klik in de Azure-portal op **+ Een resource maken** en zoek in de Marketplace naar **Recovery services**.
+1. Klik in de Azure-portal op **+ een resource maken**, en zoek in Marketplace naar **Recovery**.
 2. Klik op **Backup and Site Recovery (OMS)** en klik op de pagina Backup and Site Recovery op **Maken**. 
 1. Ga naar **Recovery Services-kluis** > **Naam** en voer een beschrijvende naam in voor de kluis. Voor deze reeks zelfstudies gebruiken we **ContosoVMVault**.
 2. Selecteer bij **Resourcegroep** een bestaande resourcegroep of maak een nieuwe. Voor deze zelfstudie gebruiken we **contosoRG**.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435109"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630479"
 ---
 In het eerste scenario, voegt u een nieuw telemetrietype naar Contoso de bestaande **Koelunit** apparaattype.
 
@@ -21,7 +21,7 @@ In het tweede scenario wil Contoso voor het testen van een nieuwe slimme gloeila
 
 *Eigenschappen*
 
-| Naam                     | Waarden                      |
+| Name                     | Waarden                      |
 | ------------------------ | --------------------------- |
 | Kleur                    | Wit, rood, blauw            |
 | Helderheid               | 0 tot 100                    |
@@ -31,11 +31,11 @@ In het tweede scenario wil Contoso voor het testen van een nieuwe slimme gloeila
 
 De volgende tabel ziet u de gegevens dat de gloeilamp rapporten naar de cloud als een gegevensstroom:
 
-| Naam   | Waarden      |
+| Name   | Waarden      |
 | ------ | ----------- |
-| Status | 'on', 'off' |
+| Status | "on", "off" |
 | Temperatuur | Graden F |
-| Online | waar of ONWAAR |
+| online | waar of ONWAAR |
 
 > [!NOTE]
 > De **online** telemetriewaarde is verplicht voor alle gesimuleerde typen.
@@ -44,7 +44,7 @@ De volgende tabel ziet u de gegevens dat de gloeilamp rapporten naar de cloud al
 
 De volgende tabel ziet u de acties die ondersteuning biedt voor het nieuwe apparaat:
 
-| Naam        |
+| Name        |
 | ----------- |
 | Overschakelen op   |
 | Uitschakelen  |
@@ -53,7 +53,7 @@ De volgende tabel ziet u de acties die ondersteuning biedt voor het nieuwe appar
 
 De volgende tabel ziet u de oorspronkelijke status van het apparaat:
 
-| Naam                     | Waarden |
+| Name                     | Waarden |
 | ------------------------ | -------|
 | Eerste kleur            | Wit  |
 | Eerste helderheid       | 75     |
@@ -98,13 +98,11 @@ Downloaden en pak deze uit de [apparaat simulatie microservice](https://github.c
 
 Open de **remote-monitoring-services-dotnet-master\storage-adapter** map in Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
 
-Open de **.vscode/launch.json** bestands- en toewijzen van uw Cosmos DB-verbindingsreeks voor de **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** omgevingsvariabele.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Open de **storage-adapter/WebService/appsettings.ini** bestands- en toewijzen van uw Cosmos DB-verbindingsreeks voor de **documentDBConnectionString** variabele.
 
 Als u wilt de microservices lokaal uitvoeren, klikt u op **fouten opsporen > Foutopsporing starten**.
 
-De **Terminal** venster in Visual Studio Code ziet u uitvoer van de actieve microservice, met inbegrip van een URL voor de web service-statuscontrole: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Wanneer u naar dit adres navigeert, de status moet ' OK: Alive en goed '.
+De **Terminal** venster in Visual Studio Code ziet u uitvoer van de actieve microservice, met inbegrip van een URL voor de web service-statuscontrole: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Wanneer u naar dit adres navigeert, de status moet ' OK: Actief en goed'.
 
 Laat u de opslag-adapter microservice in dit exemplaar van Visual Studio Code wordt uitgevoerd terwijl u de volgende stappen uitvoeren.
 
@@ -118,10 +116,10 @@ In deze sectie maakt u een nieuwe toevoegen **interne temperatuur** telemetriety
 
     | Bron | Doel |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
     | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
     | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
 
@@ -417,11 +415,7 @@ In deze sectie maakt testen u de typen apparaten die u hebt gemaakt in de vorige
 
 Open de **apparaat-simulatie-dotnet-master** map die u hebt gedownload van GitHub in een nieuw exemplaar van Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
 
-Open de **.vscode/launch.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele. Voeg in hetzelfde bestand, de **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** omgevingsvariabele en de verbindingsreeks voor uw Cosmos DB-database toewijzen.
-
-Open de **WebService/Properties/launchSettings.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele.
-
-Open de **WebService/appsettings.ini** -bestand en wijzig de instellingen als volgt te werk:
+Open de **WebService/appsettings.ini** bestands- en toewijzen van uw Cosmos DB-verbindingsreeks voor de **documentdb_connstring** variabele en wijzigt u ook de instellingen als volgt te werk:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

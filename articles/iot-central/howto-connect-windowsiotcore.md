@@ -3,17 +3,17 @@ title: Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassi
 description: Leer hoe u een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing als een apparaat-ontwikkelaar.
 author: miriambrus
 ms.author: miriamb
-ms.date: 04/09/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426236"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617849"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -23,78 +23,66 @@ Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat een Windows IoT Cor
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
-2. Een apparaat met het besturingssysteem Windows 10 IoT Core. Voor dit scenario gebruiken we een Raspberry Pi.
+- Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 
+- Een apparaat met het besturingssysteem Windows 10 IoT Core. Zie voor meer informatie, [instellen van het apparaat Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-## <a name="sample-devkits-application"></a>**Voorbeeld van een Devkits** toepassing
+- Een ontwikkelcomputer met [Node.js](https://nodejs.org/) versie 8.0.0 of hoger is geïnstalleerd. U kunt uitvoeren `node --version` vanaf de opdrachtregel om uw versie te controleren. Node.js is beschikbaar voor een groot aantal verschillende besturingssystemen.
 
-Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Windows IoT Core** apparaat sjabloon met de volgende kenmerken: 
+## <a name="the-sample-devkits-application"></a>De voorbeeld-Devkits-toepassing
 
-- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur** en **druk te verlichten**. 
-- Instellingen van **ventilatorsnelheid**.
-- Eigenschappen van de apparaateigenschappen **die nummer** en **locatie** eigenschap in de cloud.
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Windows IoT Core** apparaat sjabloon met de volgende kenmerken:
 
+- Telemetrie-metingen voor het apparaat: **Vochtigheid**, **temperatuur**, en **druk te verlichten**.
+- Instelling om te bepalen **ventilatorsnelheid**.
+- Een apparaateigenschap **Die nummer** en een cloud-eigenschap **locatie**.
 
-Raadpleeg voor volledige informatie van de configuratie van de sjabloon apparaat [details van de sjabloon Windows IoT Core-apparaat](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
+Zie voor volledige informatie over de configuratie van de sjabloon apparaat [details van de sjabloon Windows IoT Core-apparaat](#device-template-details).
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
+Gebruik in uw Azure IoT Central-toepassing de **Device Explorer** pagina toe te voegen een echt apparaat uit de **Windows 10 IoT Core** apparaat sjabloon. Maak een notitie van het apparaat verbindingsdetails (**bereik-ID**, **apparaat-ID**, en **primaire sleutel**). Zie voor meer informatie, [verbindingsgegevens ophalen](howto-generate-connection-string.md#get-connection-information).
 
-### <a name="prepare-the-windows-iot-core-device"></a>Bereid het apparaat Windows IoT Core
+## <a name="prepare-the-device"></a>Het apparaat voorbereiden
 
-Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze handleiding bij [instellen van een apparaat met Windows IoT Core](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Voor het apparaat verbinding maakt met IoT Central, heeft deze een verbindingsreeks nodig.
 
-### <a name="add-a-real-device"></a>Echt apparaat toevoegen
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Volg deze instructies voor [genereren de apparaatverbindingsreeks](howto-generate-connection-string.md) met behulp van de **bereik-ID**, **apparaat-ID**, en **primaire sleutel** u een Houd er rekening mee van eerder.
+De apparaat-code voor toegang tot de verbindingsreeks opslaan in een bestand met de naam **connection.string.iothub** in de map `C:\Data\Users\DefaultAccount\Documents\` op uw Windows 10 IoT Core-apparaat.
 
-## <a name="prepare-the-windows-10-iot-core-device"></a>Het Windows 10 IoT Core-apparaat voorbereiden
+Kopiëren van de **connection.string.iothub** -bestand van de computer de `C:\Data\Users\DefaultAccount\Documents\` map op uw apparaat, kunt u de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-### <a name="what-youll-need"></a>Wat u nodig hebt
+1. Gebruik uw webbrowser om te navigeren naar de Windows Device Portal op uw apparaat.
+1. Als u de bestanden op uw apparaat, kies **Apps > Verkenner**.
+1. Navigeer naar **gebruiker Folders\Documents**. Upload de **connection.string.iothub** bestand:
 
-Als u een echt apparaat met Windows 10 IoT Core instelt, moet u eerst een apparaat met Windows 10 IoT Core hebben. Meer informatie over het instellen van een apparaat met Windows 10 IoT Core [hier](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+    ![Verbindingsreeks uploaden](media/howto-connect-windowsiotcore/device-portal.png)
 
-U moet ook een clienttoepassing die met Azure IoT Central communiceren kan. U kunt uw eigen aangepaste toepassing met behulp van de Azure SDK bouwen en implementeren op uw apparaat met behulp van Visual Studio, maar u kunt downloaden een [vooraf gemaakte voorbeeld](https://developer.microsoft.com/windows/iot/samples) gewoon implementeren en uitvoeren op het apparaat. 
+## <a name="deploy-and-run"></a>Implementeren en uitvoeren
 
-### <a name="deploying-the-sample-client-application"></a>De voorbeeldtoepassing van de client implementeren
+Als u wilt implementeren en uitvoeren van de voorbeeldtoepassing op uw apparaat, kunt u de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-De clienttoepassing uit de vorige stap op uw Windows 10 IoT-apparaat om te kunnen voorbereiden implementeren:
+1. Gebruik uw webbrowser om te navigeren naar de Windows Device Portal op uw apparaat.
+1. Te implementeren en uitvoeren van de **Azure IoT Hub-Client** toepassing, kiest u **Apps > snel uitvoeren voorbeelden**. Kies vervolgens **Azure IoT Hub Client**.
+1. Kies vervolgens **implementeren en uitvoeren**.
 
-**Zorg ervoor dat de verbindingsreeks is opgeslagen op het apparaat voor de clienttoepassing te gebruiken**
-* Sla de verbindingsreeks in een tekstbestand met de naam connection.string.iothub op het bureaublad.
-* Kopieer het tekstbestand naar de map document van het apparaat:
-`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+    ![Implementeren en uitvoeren](media/howto-connect-windowsiotcore/quick-run.png)
 
-Zodra u dat hebt gedaan, moet u opent de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) door te typen in http://[device-IP-address]:8080 in elke browser.
+Na een paar minuten, kunt u de telemetrie van uw apparaat weergeven in uw IoT Central-toepassing.
 
-Vanaf daar en, zoals weergegeven in de als hieronder, moet u doen:
-1. Vouw de **Apps** knooppunt aan de linkerkant.
-2. Selecteer **snel uitvoeren voorbeelden**.
-3. Selecteer **Azure IoT Hub-Client**.
-4. Selecteer **implementeren en uitvoeren**.
+De [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) bevat hulpprogramma's die u gebruiken kunt om op te lossen van uw apparaat:
 
-![Afbeelding van Azure IoT Hub-Client op Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
+- De **Apps manager** pagina kunt u de apps die worden uitgevoerd op uw apparaat te beheren.
+- Als u een monitor die is verbonden met uw apparaat hebt, kunt u de **apparaatinstellingen** pagina voor het vastleggen van schermafbeeldingen van uw apparaat. Bijvoorbeeld:
 
-Als dat lukt, wordt de toepassing starten op het apparaat en wordt er als volgt uit:
-
-![Schermopname van Azure IoT Hub-Client-app](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
-
-In Azure IoT Central, kunt u zien hoe de code die wordt uitgevoerd op de Raspberry Pi communiceert met de toepassing:
-
-* Op de **metingen** pagina voor uw echte apparaten, kunt u de telemetrie bekijken.
-* Op de **eigenschappen** pagina, ziet u de waarde van het gerapporteerde aantal Die eigenschap.
-* Op de **instellingen** pagina, kunt u verschillende instellingen op de Raspberry Pi zoals spanning- en fan-snelheid.
+    ![Schermafbeelding van de App](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
 ## <a name="download-the-source-code"></a>De broncode downloaden
 
-Als u wilt verkennen en te wijzigen van de broncode voor de clienttoepassing, kunt u deze downloaden vanuit GitHub [hier](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients). Als u van plan bent om te wijzigen van de code, moet u deze instructies in het Leesmij-bestand [hier](https://github.com/Microsoft/Windows-iotcore-samples) voor uw besturingssysteem voor desktopcomputers.
+Als u wilt verkennen en te wijzigen van de broncode voor de clienttoepassing, kunt u het downloaden van de [Windows-iotcore-samples-GitHub-opslagplaats](https://github.com/Microsoft/Windows-iotcore-samples/blob/master/Samples/Azure/IoTHubClients).
 
-> [!NOTE]
-> Als **git** is niet geïnstalleerd in uw ontwikkelingsomgeving, u kunt dit ook downloaden via [ https://git-scm.com/download ](https://git-scm.com/download).
-
-## <a name="windows-iot-core-device-template-details"></a>Details van de sjabloon Windows IoT Core-apparaat
+## <a name="device-template-details"></a>Sjabloon Apparaatdetails
 
 Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **Windows IoT Core** apparaat sjabloon met de volgende kenmerken:
 
@@ -114,10 +102,13 @@ Numerieke instellingen
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-
 ### <a name="properties"></a>Properties
 
 | Type            | Weergavenaam | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
 | Tekst            | Locatie     | location   | N/A       |
+
+## <a name="next-steps"></a>Volgende stappen
+
+Nu dat u hebt geleerd hoe u een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.

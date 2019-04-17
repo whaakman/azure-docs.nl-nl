@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546395"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617393"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
@@ -25,7 +25,8 @@ Dit artikel worden de regels die betrekking hebben op entiteiten en API's bij he
 
 ## <a name="accessing-the-azure-media-services-api"></a>Toegang tot de Azure mediaservices API
 
-Voor toegang tot de Azure Media Services-resources, moet u de verificatie van service-principal voor de Azure Active Directory (AD). De API van Azure Media Services is vereist dat de gebruiker of toepassing die de REST-API maakt aanvragen hebben toegang tot de resource van Azure Media Services-account (meestal een de **Inzender** of **eigenaar** de rol). Zie voor meer informatie, [rollen gebaseerd toegangsbeheer voor Media Services-accounts](rbac-overview.md).
+Voor toegang tot de resources van Azure Media Services, kunt u de verificatie van service-principal voor de Azure Active Directory (AD).
+De API van Media Services is vereist dat de gebruiker of toepassing die de REST-API vraagt toegang hebben tot de resource van de Media Services en gebruik een **Inzender** of **eigenaar** rol. De API kan worden geopend met de **lezer** rol, maar alleen **ophalen** of **lijst**   bewerkingen beschikbaar zal zijn. Zie voor meer informatie, [rollen gebaseerd toegangsbeheer voor Media Services-accounts](rbac-overview.md).
 
 In plaats van het maken van een service-principal, kunt u overwegen beheerde identiteiten voor Azure-resources voor toegang tot de API van Media Services via Azure Resource Manager. Zie voor meer informatie over beheerde identiteiten voor Azure-resources, [wat is beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md).
 

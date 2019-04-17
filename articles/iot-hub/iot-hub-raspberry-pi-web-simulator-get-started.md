@@ -10,37 +10,40 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 58e05ba4fb2e362147f7ca28d83440ddabb6ef38
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 42c2c0d1a015baf4b846c86ed22e8383e21028b6
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267732"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607566"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi online simulator verbinden met Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In deze zelfstudie begint u door te leren van de basisbeginselen van het werken met Raspberry Pi online simulator. Vervolgens leert u hoe u naadloos verbinding maken met de simulator Pi naar de cloud met behulp van [Azure IoT Hub](about-iot-hub.md). 
+In deze zelfstudie begint u door te leren van de basisbeginselen van het werken met Raspberry Pi online simulator. Vervolgens leert u hoe u naadloos verbinding maken met de simulator Pi naar de cloud met behulp van [Azure IoT Hub](about-iot-hub.md).
 
-Als u fysieke apparaten hebt, gaat u naar [Raspberry Pi verbinding maken met Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) aan de slag. 
+Als u fysieke apparaten hebt, gaat u naar [Raspberry Pi verbinding maken met Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) aan de slag.
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
 <p>
 <div id="button" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
 </div>
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
 * Leer de basisprincipes van Raspberry Pi online simulator.
+
 * Maak een IoT-hub.
+
 * Registreer een apparaat voor Pi in uw IoT-hub.
+
 * Een voorbeeldtoepassing uitvoert op Pi gesimuleerde om sensorgegevens te verzenden naar uw IoT hub.
 
 Gesimuleerde Raspberry Pi verbinden met een IoT-hub die u maakt. U kunt vervolgens een voorbeeldtoepassing uitvoert met de simulator voor het genereren van sensorgegevens. Ten slotte, stuurt u de sensorgegevens naar uw IoT-hub.
@@ -48,7 +51,9 @@ Gesimuleerde Raspberry Pi verbinden met een IoT-hub die u maakt. U kunt vervolge
 ## <a name="what-you-learn"></a>Wat u leert
 
 * Over het maken van een Azure-IoT-hub en uw nieuwe apparaat-verbindingsreeks ophalen. Als u een Azure-account geen [Azure een gratis proefaccount maken](https://azure.microsoft.com/free/) in een paar minuten.
+
 * Klik hier voor meer informatie over het werken met Raspberry Pi online simulator.
+
 * Klik hier voor meer informatie over het verzenden van gegevens naar uw IoT hub.
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Overzicht van Raspberry Pi-websimulator
@@ -67,13 +72,15 @@ Er zijn drie gebieden in de websimulator.
 3. Geïntegreerde consolevenster - er wordt de uitvoer van uw code. Er zijn drie knoppen aan de bovenkant van het venster.
 
    * **Voer** -de toepassing uitvoert in het gebied met coderen.
+
    * **Opnieuw instellen van** -opnieuw instellen van het coderen gebied met de standaard-voorbeeldtoepassing.
+
    * **Vouw/uit te breiden** -aan de rechterkant is voor u het consolevenster vouwen/uitbreiden om een knop.
 
 > [!NOTE]
 > De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graag horen uw in de [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). De broncode is openbare op [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
-![Overzicht van Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
+![Overzicht van Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -90,11 +97,12 @@ Er zijn drie gebieden in de websimulator.
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Een voorbeeld-App uitvoeren op Pi-websimulator
 
 1. Controleer in het gebied met coderen, of dat u bezig bent de standaard-voorbeeldtoepassing. Vervang de tijdelijke aanduiding in regel 15 door de verbindingsreeks voor Azure IoT hub-apparaat.
-   ![Vervang de verbindingsreeks van apparaat](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+1. 
+   ![Vervang de verbindingsreeks van apparaat](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Klik op **uitvoeren** of type `npm start` de toepassing uit te voeren.
+2. Selecteer **uitvoeren** of type `npm start` de toepassing uit te voeren.
 
-Ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub ![uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub ![uitvoer - sensorgegevens van Raspberry Pi verzonden naar uw IoT-hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>De berichten ontvangen door uw hub lezen
 

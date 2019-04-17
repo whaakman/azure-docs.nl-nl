@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545616"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617832"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
-U moet de verificatie van Azure AD-service-principal gebruiken om verbinding maken met de API van Azure Media Services. De toepassing nodig heeft om aan te vragen van een Azure AD-token met de volgende parameters:
+Als u de verificatie van Azure AD-service-principal wilt verbinding maken met de Azure Media Services-API, de toepassing nodig heeft om aan te vragen van een Azure AD-token met de volgende parameters:
 
 * Azure AD-tenant-eindpunt
 * Media Services-resource-URI
 * Resource-URI voor de REST-mediaservices
 * Waarden van Azure AD-toepassing: de client-ID en clientgeheim
 
-Zie voor meer informatie, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md).
+Zie voor gedetailleerde uitleg, [toegang tot Media Services v3 API's](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 In dit artikel leest u hoe de Azure CLI gebruiken voor een Azure AD-toepassing en service-principal maken en ophalen van de waarden die nodig zijn voor toegang tot resources van Azure Media Services.
 

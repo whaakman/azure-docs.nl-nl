@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101003"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617798"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -111,7 +111,15 @@ Als u van plan bent te Pass through-verificatie in een productieomgeving impleme
 >[!IMPORTANT]
 >In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 40 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Volg deze instructies om de verificatie-Agent-software te downloaden:
+Meerdere Pass through-verificatie-Agents installeren zorgt ervoor dat hoge beschikbaarheid, maar niet deterministisch taakverdeling tussen de verificatie-Agents. Om te bepalen hoeveel verificatie-Agents die u nodig hebt voor uw tenant, houd rekening met de piek- en gemiddelde belasting van aanmeldingsaanvragen die u verwacht te zien op uw tenant. Als een benchmark kunnen 300-400 verificaties per seconde op een standaard CPU met 4 kernen, 16 GB RAM-server worden verwerkt door een afzonderlijke verificatie-Agent.
+
+Voor een schatting van netwerkverkeer, gebruik de volgende richtlijn voor formaatbepaling:
+- Elke aanvraag heeft een grootte van de nettolading van (0.5K + 1 K * num_of_agents) bytes. dat wil zeggen gegevens uit Azure AD de verificatie-Agent. Hier 'num_of_agents' geeft aan dat het aantal verificatie-Agents op uw tenant is geregistreerd.
+- Elk antwoord heeft een grootte van de nettolading van 1K bytes. dat wil zeggen gegevens uit de verificatie-Agent naar Azure AD.
+
+Voor de meeste klanten zijn drie verificatie-Agents in totaal zijn voldoende voor hoge beschikbaarheid en capaciteit. U moet verificatie-Agents installeren dicht bij uw domeincontrollers voor het aanmelden latentie verbeteren.
+
+Als u wilt beginnen, volgt u deze instructies om de verificatie-Agent-software te downloaden:
 
 1. Voor het downloaden van de meest recente versie van de verificatie-Agent (versie 1.5.193.0 of hoger), zich aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant.
 2. Selecteer **Azure Active Directory** in het linkerdeelvenster.
@@ -141,6 +149,13 @@ Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementati
 3. Ga naar **C:\Program Files\Microsoft Azure AD Connect Authentication-Agent** en voer het volgende script uit via de `$cred` -object dat u hebt gemaakt:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>Als een verificatie-Agent is geïnstalleerd op een virtuele Machine, kunt u de virtuele Machine voor het instellen van een andere verificatie-Agent kan niet klonen. Deze methode is **niet-ondersteunde**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>Stap 5: Smart Lockout mogelijkheid configureren
+
+Smart Lockout geholpen bij het beveiligingsrisico die toegang proberen te achterhalen van wachtwoorden van uw gebruikers worden vergrendeld of brute-force-methoden gebruiken om op te halen. Door het configureren van slimme accountvergrendelingsinstellingen in Azure AD en / of de juiste accountvergrendelingsinstellingen in on-premises Active Directory, kunnen aanvallen worden gefilterd voordat ze bereiken met Active Directory. Lezen [in dit artikel](../authentication/howto-password-smart-lockout.md) voor meer informatie over het configureren van instellingen voor Smart Lockout op uw tenant om te beveiligen van uw gebruikersaccounts.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/adfstoptadp) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.

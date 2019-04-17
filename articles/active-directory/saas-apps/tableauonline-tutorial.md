@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278102"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Online
 
@@ -105,9 +105,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Online, moet
 
     ![Tableau Online domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
 
-    a. In de **aanmeldings-URL** tekstvak typt u de URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. In het tekstvak **Aanmeldings-URL** typt u de URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. In de **id (entiteits-ID)** tekstvak typt u de URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. Typ in het tekstvak **Id (Entiteits-id)** de volgende URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
     > U krijgt de `<entityid>` waarde uit de **instellen Tableau Online** sectie in deze zelfstudie. De waarde van de entiteit-ID worden **Azure AD-id** waarde in de **instellen Tableau Online** sectie.
@@ -144,7 +144,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Tableau Online, moet
   
     a. Ga in de Azure-portal op de **Tableau Online** toepassingspagina integratie.
 
-    b. In de ** gebruikerskenmerken en Claims *** sectie, klikt u op het pictogram voor bewerken.
+    b. In de **gebruikerskenmerken en Claims** sectie, klikt u op het pictogram voor bewerken.
 
    ![Eenmalige aanmelding configureren](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    Bijvoorbeeld, BrittaSimon\@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -243,8 +243,8 @@ Wanneer u op de tegel Tableau Online in het toegangsvenster, moet u worden autom
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

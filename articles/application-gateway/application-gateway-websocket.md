@@ -1,18 +1,18 @@
 ---
 title: WebSocket-ondersteuning in Azure Application Gateway | Microsoft Docs
 description: Deze pagina bevat een overzicht van de Application Gateway WebSocket-ondersteuning.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168116"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606902"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Overzicht van de WebSocket-ondersteuning in Application Gateway
 
@@ -32,7 +32,7 @@ Als u wilt een WebSocket-verbinding tot stand brengen, wordt een specifieke HTTP
 
 ### <a name="listener-configuration-element"></a>Configuratie-element Listener
 
-Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-verkeer. Hier volgt een fragment van een httpListeners-element van een voorbeeldbestand van de sjabloon. U moet zowel HTTP als HTTPS listeners ter ondersteuning van WebSocket en beveiligde WebSocket-verkeer. Op deze manier kunt u de [portal](application-gateway-create-gateway-portal.md) of [PowerShell](application-gateway-create-gateway-arm.md) voor het maken van een toepassingsgateway met listeners op poort 80/443 ter ondersteuning van WebSocket-verkeer.
+Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-verkeer. Hier volgt een fragment van een httpListeners-element van een voorbeeldbestand van de sjabloon. U moet zowel HTTP als HTTPS listeners ter ondersteuning van WebSocket en beveiligde WebSocket-verkeer. Op deze manier kunt u de portal of Azure PowerShell een toepassingsgateway maken met listeners op poort 80/443 ter ondersteuning van WebSocket-verkeer.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Een andere reden hiervoor is dat statustest voor back-end van application gatewa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u meer over de ondersteuning van WebSocket, gaat u naar [een toepassingsgateway maken](application-gateway-create-gateway.md) aan de slag met een WebSocket-webtoepassing.
-
+Nadat u meer over de ondersteuning van WebSocket, gaat u naar [een toepassingsgateway maken](quick-create-powershell.md) aan de slag met een WebSocket-webtoepassing.

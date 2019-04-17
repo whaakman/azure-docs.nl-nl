@@ -2,7 +2,7 @@
 title: Bindingen voor duurzame functies - Azure
 description: Het gebruik van triggers en bindingen voor de extensie duurzame functies voor Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 889d26be12fef62d37a471fbe0640a2b8ecdd99c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 678e370977cadae642207f91a02136404fb6c34e
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337186"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609316"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure Functions)
 
@@ -57,7 +57,7 @@ Hier vindt u informatie over de orchestration-trigger:
 > [!WARNING]
 > JavaScript-functies voor orchestrator moeten nooit worden gedeclareerd als `async`.
 
-### <a name="trigger-usage-net"></a>Gebruik van de trigger (.NET)
+### <a name="trigger-usage-net"></a>Trigger usage (.NET)
 
 De orchestration-trigger binding ondersteunt zowel invoer en uitvoer. Hier volgen enkele dingen die u moet weten over de invoer en uitvoer verwerking:
 
@@ -156,7 +156,7 @@ Hier vindt u informatie over de trigger activiteit:
 > [!WARNING]
 > De opslag back-end voor de activiteitsfuncties is een implementatiedetail en gebruikerscode mag geen interactie hebben met deze opslagentiteiten rechtstreeks.
 
-### <a name="trigger-usage-net"></a>Gebruik van de trigger (.NET)
+### <a name="trigger-usage-net"></a>Trigger usage (.NET)
 
 De activiteit trigger binding ondersteunt zowel invoer en uitvoer, net als de orchestration-trigger. Hier volgen enkele dingen die u moet weten over de invoer en uitvoer verwerking:
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cb6ddbab2fd4cb21ef547d116652f7ea9e63607f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258144"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606766"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van Python-back-end en Python-apparaat
 
@@ -87,11 +87,13 @@ Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van 
 
 In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
 
-1. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com/). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
+1. **Haal de verbindingsreeks van uw module** --als u zich aanmeldt bij de [Azure-portal](https://portal.azure.com/). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
    ![Details van de Azure Portal-module](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **Maak UpdateModuleTwinReportedProperties app** Voeg de volgende `using` instructies aan het begin van de **Program.cs** bestand:
+2. **UpdateModuleTwinReportedProperties-app maken**
+
+   Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
 
     ```python
     import sys

@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014396"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616353"
 ---
-# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaking en probleemoplossing van HANA aan clientzijde
+# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaken en problemen oplossen vanaf de HANA-zijde
 
 Als u wilt effectief analyseren van problemen met betrekking tot SAP HANA op Azure (grote instanties), is het handig om de hoofdoorzaak van een probleem vast te stellen. SAP is een grote hoeveelheid documentatie om u te helpen gepubliceerd.
 
@@ -106,9 +106,9 @@ Gebruik ook de open-source [IPERF](https://iperf.fr/) hulpprogramma (of vergelij
 
 Raadpleeg de [SAP HANA probleemoplossing: Prestaties van de netwerken en problemen met de netwerkverbinding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
-Vanuit het perspectief van een eindgebruiker, een toepassing (of het systeem als geheel) wordt traag uitgevoerd, is niet meer reageert of zelfs lijkt het alsof vastlopen als er problemen met i/o-prestaties zijn. In de **Volumes** tabblad in SAP HANA Studio, ziet u de gekoppelde volumes en welke volumes worden gebruikt door elke service.
+Vanuit het perspectief van een eindgebruiker, een toepassing (of het systeem als geheel) wordt traag uitgevoerd, is niet meer reageert of zelfs lijkt misschien niet meer reageert als er problemen met i/o-prestaties zijn. In de **Volumes** tabblad in SAP HANA Studio, ziet u de gekoppelde volumes en welke volumes worden gebruikt door elke service.
 
 ![In het tabblad Volumes in SAP HANA Studio, kunt u de gekoppelde volumes en welke volumes worden gebruikt door elke service bekijken](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
