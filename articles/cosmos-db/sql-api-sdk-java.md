@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648553"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617129"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 * Ondersteuning toegevoegd voor feed wijzigen.
 * Ondersteuning toegevoegd voor verzameling quotumgegevens via RequestOptions.setPopulateQuotaInfo.
 * Er is ondersteuning toegevoegd voor de opgeslagen procedure script logboekregistratie via RequestOptions.setScriptLoggingEnabled.
-* Een bug opgelost waarbij query in de modus DirectHttps loopt vast als vertraging fouten worden aangetroffen.
+* Een bug opgelost waarbij query in de modus DirectHttps reageert als vertraging fouten worden aangetroffen.
 * Een bug opgelost in sessiemodus consistentie.
 * Een opgelost waardoor NullReferenceException in HttpContext wanneer aanvraagsnelheid hoog is.
 * Verbeterde prestaties van DirectHttps modus.

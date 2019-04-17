@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495119"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609503"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Productnamen- en service-plan-id's voor licentieverlening
 
@@ -34,7 +34,7 @@ Bij het beheren van licenties in [de Azure-portal](https://portal.azure.com/#bla
 - **Service-plannen die is opgenomen (beschrijvende namen)**: Een lijst met service-plannen (beschrijvende namen) in het product die met de tekenreeks-ID en de GUID overeenkomen
 
 >[!NOTE]
->Deze informatie is nauwkeurige vanaf 17 augustus 2018.
+>Deze informatie is nauwkeurig op 15 April 2019.
 
 | Productnaam | Tekenreeks-ID | GUID | Service-plannen die zijn opgenomen | Service-abonnementen inbegrepen (beschrijvende namen) |
 | --- | --- | --- |--- |
@@ -214,10 +214,10 @@ De volgende serviceabonnementen kunnen niet samen worden toegewezen:
 
 Zie de volgende onderwerpen voor meer informatie over de functieset voor Licentiebeheer via groepen:
 
-* [Wat zijn licenties op basis van groepen in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
-* [Identificeren en oplossen van problemen voor een groep in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Hoe gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)
 * [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](licensing-groups-change-licenses.md)
-* [Azure Active Directory-groep op basis van aanvullende scenario's-licentieverlening](licensing-group-advanced.md)
+* [Aanvullende scenario’s voor Azure Active Directory-licenties op basis van groepen](licensing-group-advanced.md)
 * [PowerShell-voorbeelden voor Groepslicenties in Azure AD](licensing-ps-examples.md)

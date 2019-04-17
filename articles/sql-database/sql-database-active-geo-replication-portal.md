@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001362"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608602"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
 
@@ -73,7 +73,7 @@ De secundaire database kunt om te worden van de primaire worden overgeschakeld.
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Klik op **Ja** om te beginnen met de failover.
 
-De opdracht wordt onmiddellijk de secundaire database in de primaire rol.
+De opdracht wordt onmiddellijk de secundaire database in de primaire rol. Dit proces moet normaal gesproken voltooid binnen 30 seconden of minder.
 
 Er is een korte periode gedurende welke beide databases niet beschikbaar (orde van grootte seconden van 0 tot en met 25 zijn) terwijl de rollen zijn overgeschakeld. Als de primaire database meerdere secundaire databases heeft, configureert de andere secundaire replica's verbinding maken met de nieuwe primaire automatisch door de opdracht opnieuw. De gehele bewerking duurt minder dan een minuut in beslag onder normale omstandigheden.
 

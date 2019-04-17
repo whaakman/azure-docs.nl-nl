@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272764"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618081"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -93,7 +93,7 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
 - **Hub vNet**. Er is een hub vNet **bron Hub vNet**: 10.10.10.0/24.
   - Dit vNet hub fungeert als de gatekeeper.
   - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
-    - Hub vNet subnetten **. De hub vNet heeft twee subnetten:
+    - **Hub vNet subnetten**. De hub vNet heeft twee subnetten:
     - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
     - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
 - Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong SAR.
@@ -104,7 +104,7 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
 
 #### <a name="spoke-to-hub"></a>Spoke naar hub
 
-**Richting** | **Instelling** | **Status**
+**Richting** | **Instelling** | **status**
 --- | --- | ---
 Spoke naar hub | Adres van het virtuele netwerk toestaan | Ingeschakeld
 Spoke naar hub | Doorgestuurd verkeer toestaan | Ingeschakeld
@@ -115,7 +115,7 @@ Spoke naar hub | Remove-gateways gebruiken | Ingeschakeld
 
 #### <a name="hub-to-spoke"></a>Hub naar spoke
 
-**Richting** | **Instelling** | **Status**
+**Richting** | **Instelling** | **status**
 --- | --- | ---
 Hub naar spoke | Adres van het virtuele netwerk toestaan | Ingeschakeld
 Hub naar spoke | Doorgestuurd verkeer toestaan | Ingeschakeld

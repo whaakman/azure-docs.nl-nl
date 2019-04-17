@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: fe7c44df57b54fe3a152f4d35a2144fed8413314
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540110"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608806"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Taken plannen en uitzenden (Python)
 
@@ -31,6 +31,7 @@ Conceptueel gezien, een taak een van deze acties wordt verpakt en wordt de voort
 Meer informatie over elk van deze mogelijkheden in deze artikelen:
 
 * Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels](iot-hub-python-twin-getstarted.md) en [zelfstudie: Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
+
 * Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -38,6 +39,7 @@ Meer informatie over elk van deze mogelijkheden in deze artikelen:
 In deze zelfstudie ontdekt u hoe u:
 
 * Maken van een Python gesimuleerde apparaat-app met een rechtstreekse methode waarmee **lockDoor**, die kan worden aangeroepen in de back-end van de oplossing.
+
 * Maakt een Python-console-app die roept de **lockDoor** directe methode in het gesimuleerde apparaat-app met behulp van een taak en updates de gewenste eigenschappen met behulp van een apparaattaak.
 
 Aan het einde van deze zelfstudie hebt u twee Python-apps:
@@ -49,13 +51,14 @@ Aan het einde van deze zelfstudie hebt u twee Python-apps:
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * [Python 2.x of 3.x](https://www.python.org/downloads/). Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk [pip *installeren of upgraden*, het Python-pakketbeheersysteem](https://pip.pypa.io/en/stable/installing/).
+
 * Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
+
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 
 > [!NOTE]
 > De **Azure IoT SDK voor Python** ondersteunt niet rechtstreeks **taken** functionaliteit. In plaats daarvan biedt deze zelfstudie een alternatieve oplossing met behulp van asynchrone threads en timers. Zie voor verdere updates, de **Service Client SDK** functielijst op de [Azure IoT SDK voor Python](https://github.com/Azure/azure-iot-sdk-python) pagina. 
-> 
-> 
+>
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -70,18 +73,19 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
+
 In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse methode aangeroepen door de cloud, waartoe een gesimuleerde activeert **lockDoor** methode.
 
 1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iot-device-client** pakket:
-   
+
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Maak met een teksteditor een nieuw **simDevice.py** bestand in uw werkmap.
+2. Maak met een teksteditor een nieuw **simDevice.py** bestand in uw werkmap.
 
-1. Voeg de volgende `import` instructies en -variabelen aan het begin van de **simDevice.py** bestand. Vervang `deviceConnectionString` door de verbindingsreeks van het apparaat dat u hierboven hebt gemaakt:
-   
+3. Voeg de volgende `import` instructies en -variabelen aan het begin van de **simDevice.py** bestand. Vervang `deviceConnectionString` door de verbindingsreeks van het apparaat dat u hierboven hebt gemaakt:
+
     ```python
     import time
     import sys
@@ -98,8 +102,8 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Voeg de volgende functie-callback voor het afhandelen van de **lockDoor** methode:
-   
+4. Voeg de volgende functie-callback voor het afhandelen van de **lockDoor** methode:
+
     ```python
     def device_method_callback(method_name, payload, user_context):
         if method_name == "lockDoor":
@@ -111,7 +115,7 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
             return device_method_return_value
     ```
 
-1. Voeg een andere functie callback voor het afhandelen van device twins updates:
+5. Voeg een andere functie callback voor het afhandelen van device twins updates:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -120,8 +124,8 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
         print ( "payload: %s" % payload )
     ```
 
-1. Voeg de volgende code voor het registreren van de handler voor de **lockDoor** methode. Ook de `main` routine:
-   
+6. Voeg de volgende code voor het registreren van de handler voor de **lockDoor** methode. Ook de `main` routine:
+
     ```python
     def iothub_jobs_sample_run():
         try:
@@ -132,13 +136,13 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
             print ( "Direct method initialized." )
             print ( "Device twin callback initialized." )
             print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
-        
+
             while True:
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     time.sleep(10)
                     status_counter += 1
-            
+
         except IoTHubError as iothub_error:
             print ( "Unexpected error %s from IoTHub" % iothub_error )
             return
@@ -153,27 +157,26 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
         iothub_jobs_sample_run()
     ```
 
-1. Opslaan en sluiten de **simDevice.py** bestand.
+7. Opslaan en sluiten de **simDevice.py** bestand.
 
 > [!NOTE]
 > Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
-> 
-> 
-
+>
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Taken plannen voor een rechtstreekse methode aanroepen en het bijwerken van eigenschappen van een apparaatdubbel
+
 In deze sectie maakt u een Python-consoletoepassing die een externe initieert **lockDoor** op een apparaat met een rechtstreekse methode en eigenschappen van het dubbele apparaat bijwerken.
 
 1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iot-service-client** pakket:
-   
+
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. Maak met een teksteditor een nieuw **scheduleJobService.py** bestand in uw werkmap.
+2. Maak met een teksteditor een nieuw **scheduleJobService.py** bestand in uw werkmap.
 
-1. Voeg de volgende `import` instructies en -variabelen aan het begin van de **scheduleJobService.py** bestand:
-   
+3. Voeg de volgende `import` instructies en -variabelen aan het begin van de **scheduleJobService.py** bestand:
+
     ```python
     import sys
     import time
@@ -194,15 +197,15 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
     WAIT_COUNT = 5
     ```
 
-1. Voeg de volgende functie die wordt gebruikt om op te vragen apparaten:
-   
+4. Voeg de volgende functie die wordt gebruikt om op te vragen apparaten:
+
     ```python
     def query_condition(device_id):
         iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
-    
+
         number_of_devices = 10
         dev_list = iothub_registry_manager.get_device_list(number_of_devices)
-    
+
         for device in range(0, number_of_devices):
             if dev_list[device].deviceId == device_id:
                 return 1
@@ -211,68 +214,68 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
         return 0
     ```
 
-1. Voeg de volgende methoden voor het uitvoeren van de taken die de directe methode en apparaat dubbele aanroepen:
-   
+5. Voeg de volgende methoden voor het uitvoeren van de taken die de directe methode en apparaat dubbele aanroepen:
+
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
         print ( "" )
         print ( "Scheduling job: " + str(job_id) )
         time.sleep(wait_time)
-    
+
         if query_condition(device_id):
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-    
+
             response = iothub_device_method.invoke(device_id, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
-        
+
             print ( "" )
             print ( "Direct method " + METHOD_NAME + " called." )
-        
+
     def device_twin_job(job_id, device_id, wait_time, execution_time):
         print ( "" )
         print ( "Scheduling job " + str(job_id) )
         time.sleep(wait_time)
-    
+
         if query_condition(device_id):
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
-    
+
             twin_info = iothub_twin_method.update_twin(DEVICE_ID, UPDATE_JSON)
-        
+
             print ( "" )
             print ( "Device twin updated." )
     ```
 
-1. Voeg de volgende code om de taken plannen en werk de taakstatus. Ook de `main` routine:
-   
+6. Voeg de volgende code om de taken plannen en werk de taakstatus. Ook de `main` routine:
+
     ```python
     def iothub_jobs_sample_run():
         try:
             method_thr_id = uuid.uuid4()
             method_thr = threading.Thread(target=device_method_job, args=(method_thr_id, DEVICE_ID, 20, TIMEOUT), kwargs={})
             method_thr.start()
-        
+
             print ( "" )
             print ( "Direct method called with Job Id: " + str(method_thr_id) )
-        
+
             twin_thr_id = uuid.uuid4()
             twin_thr = threading.Thread(target=device_twin_job, args=(twin_thr_id, DEVICE_ID, 10, TIMEOUT), kwargs={})
             twin_thr.start()
-        
+
             print ( "" )
             print ( "Device twin called with Job Id: " + str(twin_thr_id) )
-        
+
             while True:
                 print ( "" )
-            
+
                 if method_thr.is_alive():
                     print ( "...job " + str(method_thr_id) + " still running." )
                 else:
                     print ( "...job " + str(method_thr_id) + " complete." )
-            
+
                 if twin_thr.is_alive():
                     print ( "...job " + str(twin_thr_id) + " still running." )
                 else:
                     print ( "...job " + str(twin_thr_id) + " complete." )
-                
+
                 print ( "Job status posted, press Ctrl-C to exit" )
 
                 status_counter = 0
@@ -296,36 +299,32 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
         iothub_jobs_sample_run()
     ```
 
-1. Opslaan en sluiten de **scheduleJobService.py** bestand.
-
+7. Opslaan en sluiten de **scheduleJobService.py** bestand.
 
 ## <a name="run-the-applications"></a>De toepassingen uitvoeren
+
 U kunt nu de toepassingen gaan uitvoeren.
 
 1. Bij de opdrachtprompt in uw werkmap, de volgende opdracht uit om te luisteren naar de directe methode voor opnieuw opstarten:
-   
+
     ```cmd/sh
     python simDevice.py
     ```
 
-1. Voer de volgende opdracht voor het activeren van de taken voor het vergrendelen van de klep en bijwerken van het dubbele vanaf een andere opdrachtregel het volgende in uw werkmap:
-   
+2. Voer de volgende opdracht voor het activeren van de taken voor het vergrendelen van de klep en bijwerken van het dubbele vanaf een andere opdrachtregel het volgende in uw werkmap:
+  
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-1. U ziet de apparaat-antwoorden op de directe methode en apparaatdubbels bijwerken in de console.
+3. U ziet de apparaat-antwoorden op de directe methode en apparaatdubbels bijwerken in de console.
 
-    ![apparaat-uitvoer][1]
+    ![IoT Hub Job voorbeeld 1--apparaat uitvoer](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![service-uitvoer][2]
-
+    ![IoT Hub Job 2--voorbeelduitvoer van apparaat](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie gebruikt u een taak voor het plannen van een rechtstreekse methode aan een apparaat en het bijwerken van eigenschappen van het dubbele apparaat.
 
 Om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [hoe u een firmware-update doet](tutorial-firmware-update.md).
-
-<!-- images -->
-[1]: ./media/iot-hub-python-python-schedule-jobs/1.png
-[2]: ./media/iot-hub-python-python-schedule-jobs/2.png

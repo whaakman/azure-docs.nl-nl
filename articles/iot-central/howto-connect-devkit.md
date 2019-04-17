@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905933"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617815"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -246,8 +246,8 @@ Instellingen voor in-/ uitschakelen
 | Weergavenaam | Veldnaam | Retourtype | Weergavenaam invoerveld | Invoer veldnaam | Invoer veldtype |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo       | tekst        | waarde weergeven         | displayedValue   | tekst             |
-| Aftelling    | aftelling  | getal      | Geteld vanaf               | countFrom        | getal           |
+| Aftelling    | Aftelling  | getal      | Geteld vanaf               | countFrom        | getal           |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u een apparaat DevKit verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is het [voorbereiden en verbinding maken met een Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Nu dat u hebt geleerd hoe u een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.

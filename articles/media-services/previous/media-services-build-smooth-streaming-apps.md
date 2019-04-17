@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882722"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524766"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store  
 
@@ -60,41 +60,42 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 3. Wijzigen van het codebestand
 4. Samenstellen en testen van de toepassing
 
-**Een Windows Store-project maken**
+### <a name="to-create-a-windows-store-project"></a>Een Windows Store-project maken
 
 1. Visual Studio; uitvoeren 2012 tot 2015-versies worden ondersteund.
-2. Klik in het menu **FILE** op **Nieuw** en klik vervolgens op **Project**.
-3. Typ of Selecteer de volgende waarden in het dialoogvenster Nieuw Project:
+1. Klik in het menu **FILE** op **Nieuw** en klik vervolgens op **Project**.
+1. Typ of Selecteer de volgende waarden in het dialoogvenster Nieuw Project:
 
-| Name | Value |
-| --- | --- |
-| Sjabloongroep |Geïnstalleerd/sjablonen/Visual C#Windows Store |
-| Template |Lege App (XAML) |
-| Name |SSPlayer |
-| Locatie |C:\SSTutorials |
-| De naam van oplossing |SSPlayer |
-| Map maken voor oplossing |(geselecteerd) |
+    | Name | Value |
+    | --- | --- |
+    | Sjabloongroep |Geïnstalleerd/sjablonen/Visual C#Windows Store |
+    | Template |Lege App (XAML) |
+    | Name |SSPlayer |
+    | Locatie |C:\SSTutorials |
+    | De naam van oplossing |SSPlayer |
+    | Map maken voor oplossing |(geselecteerd) |
 
 1. Klik op **OK**.
 
-**Een verwijzing naar de Smooth Streaming Client SDK toevoegen**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Een verwijzing naar de Smooth Streaming Client SDK toevoegen
 
 1. Klik in Solution Explorer met de rechtermuisknop op **SSPlayer**, en klik vervolgens op **verwijzing toevoegen**.
-2. Typ of selecteer de volgende waarden:
+1. Typ of selecteer de volgende waarden:
 
-| Name | Value |
-| --- | --- |
-| Referentie-groep |Windows/Extensions |
-| Referentie |Selecteer Microsoft Smooth Streaming Client SDK voor Windows 8 en Microsoft Visual C++ Runtime-pakket |
+    | Name | Value |
+    | --- | --- |
+    | Referentie-groep |Windows/Extensions |
+    | Referentie |Selecteer Microsoft Smooth Streaming Client SDK voor Windows 8 en Microsoft Visual C++ Runtime-pakket |
 
 1. Klik op **OK**. 
 
 Na het toevoegen van de referenties, moet u de betreffende platform (x64 of x86), toe te voegen verwijzingen werkt niet voor de configuratie van een CPU-platform.  Klik in solution explorer ziet u gele waarschuwing is ingeschakeld voor deze referenties toegevoegd.
 
-**De gebruikersinterface van de speler ontwerpen**
+### <a name="to-design-the-player-user-interface"></a>De gebruikersinterface van de speler ontwerpen
 
 1. Klik in Solution Explorer dubbelklikt u op **MainPage.xaml** om dit te openen in de ontwerpweergave.
 2. Zoek de **&lt;raster&gt;** en **&lt;/Grid&gt;** tags van het XAML-bestand en plak de volgende code tussen de twee labels:
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streamin
 
 In dit bestand XAML zijn sommige gebeurtenis-handlers gekoppeld aan de besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
 
-**Wijzigen van het codebestand**
+### <a name="to-modify-the-code-behind-file"></a>Wijzigen van het codebestand
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan de bovenkant van het bestand met de instructie:
@@ -210,7 +211,7 @@ Het voltooide die het codebestand dient er als volgt:
 
 ![CodeView in Visual Studio van Smooth Streaming Windows Store-toepassing][CodeViewPic]
 
-**Compileren en de toepassing testen**
+### <a name="to-compile-and-test-the-application"></a>Compileren en de toepassing testen
 
 1. Uit de **bouwen** menu, klikt u op **Configuration Manager**.
 2. Wijziging **Active oplossingsplatform** zodat deze overeenkomen met uw ontwikkelplatform.
@@ -238,7 +239,7 @@ In deze les bevat de volgende procedures:
 5. Schuifregelaar gerelateerde code toevoegen
 6. Samenstellen en testen van de toepassing
 
-**Voor het registreren van de handler byte-stream Smooth Streaming en de propertyset doorgeven**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Voor het registreren van de handler byte-stream Smooth Streaming en de propertyset doorgeven
 
 1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan het begin van het bestand met de instructie:
@@ -283,7 +284,7 @@ In deze les bevat de volgende procedures:
    ```
 6. Druk op **CTRL + S** op te slaan.
 
-**De adaptieve bron manager op gebeurtenis-handler toevoegen**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>De adaptieve bron manager op gebeurtenis-handler toevoegen
 
 1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. In de **MainPage** klasse, de volgende gegevenslid toevoegen:
@@ -311,7 +312,7 @@ In deze les bevat de volgende procedures:
    ```
 5. Druk op **CTRL + S** op te slaan.
 
-**Adaptieve bron op gebeurtenis-handlers toevoegen**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Adaptieve bron op gebeurtenis-handlers toevoegen
 
 1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. In de **MainPage** klasse, de volgende gegevenslid toevoegen:
@@ -362,7 +363,7 @@ In deze les bevat de volgende procedures:
 
 Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die kan worden gebruikt voor het verwerken van de functionaliteit voor alle media-elementen in de app. Elke AdaptiveSource zijn eigen gebeurtenissen bevat en worden alle gebeurtenissen voor AdaptiveSource trapsgewijs onder AdaptiveSourceManager.
 
-**Gebeurtenis-handlers voor Media-Element toevoegen**
+### <a name="to-add-media-element-event-handlers"></a>Gebeurtenis-handlers voor Media-Element toevoegen
 
 1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handlers toevoegen:
@@ -398,7 +399,7 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
    ```
 4. Druk op **CTRL + S** op te slaan.
 
-**Om toe te voegen schuifregelaar gerelateerde code**
+### <a name="to-add-slider-bar-related-code"></a>Om toe te voegen schuifregelaar gerelateerde code
 
 1. Vanuit Solution Explorer, klik met de rechtermuisknop **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg het volgende toe aan het begin van het bestand met de instructie:
@@ -531,7 +532,7 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
    ```
 8. Druk op **CTRL + S** op te slaan.
 
-**Compileren en de toepassing testen**
+### <a name="to-compile-and-test-the-application"></a>Compileren en de toepassing testen
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
@@ -548,7 +549,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal-audionummer
 2. Wijzigen van het codebestand
 3. Samenstellen en testen van de toepassing
 
-**Om de XAML-bestand te wijzigen**
+### <a name="to-modify-the-xaml-file"></a>Om de XAML-bestand te wijzigen
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Weergaveontwerper**.
 2. Zoek &lt;Grid.RowDefinitions&gt;, en de RowDefinitions wijzigt, zodat ze ziet eruit als:
@@ -591,7 +592,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal-audionummer
    ```
 4. Druk op **CTRL + S** de wijzigingen op te slaan.
 
-**Wijzigen van het codebestand**
+### <a name="to-modify-the-code-behind-file"></a>Wijzigen van het codebestand
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
@@ -807,7 +808,8 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal-audionummer
             changeStreams(selectedStreams);
         }
    ```
-   **Compileren en de toepassing testen**
+
+### <a name="to-compile-and-test-the-application"></a>Compileren en de toepassing testen
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
@@ -817,14 +819,15 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal-audionummer
 
 Les 3 is voltooid.  In deze les gaat uitvoeren, moet u de functionaliteit om te kiezen streams toevoegen.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Les 4: Selecteer nummers Smooth Streaming
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Les 4: Selecteer Smooth Streaming-nummers
+
 Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen. In deze les gaat uitvoeren schakelt u gebruikers de nummers selecteren. In deze les bevat de volgende procedures:
 
 1. De XAML-bestand wijzigen
 2. Wijzigen van het codebestand
 3. Samenstellen en testen van de toepassing
 
-**Om de XAML-bestand te wijzigen**
+### <a name="to-modify-the-xaml-file"></a>Om de XAML-bestand te wijzigen
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Weergaveontwerper**.
 2. Zoek de &lt;raster&gt; tag met de naam van de **gridStreamAndBitrateSelection**, de volgende code aan het einde van de tag toevoegen:
@@ -846,7 +849,7 @@ Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd 
    ```
 3. Druk op **CTRL + S** hij wijzigingen op te slaan
 
-**Wijzigen van het codebestand**
+### <a name="to-modify-the-code-behind-file"></a>Wijzigen van het codebestand
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **Code weergeven**.
 2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
@@ -1009,7 +1012,8 @@ Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd 
             changeStreams(selectedStreams);
          }
    ```
-   **Compileren en de toepassing testen**
+   
+### <a name="to-compile-and-test-the-application"></a>Compileren en de toepassing testen
 
 1. Druk op **F6** voor het compileren van het project. 
 2. Druk op **F5** om de toepassing uit te voeren.
@@ -1020,6 +1024,7 @@ Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd 
 Les 4 is voltooid.  In deze les gaat uitvoeren voegt u de functionaliteit om te kiezen sporen te wissen.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geven

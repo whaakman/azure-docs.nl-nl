@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439465"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607164"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Veelgestelde vragen over QnA Maker
 
 De gecureerde lijst met de meest gestelde vragen over de QnA Maker-service helpt u vaststellen van de service, sneller en met betere resultaten.
+
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Gebruik de Help-bot in de portal voor QnA Maker
+
+QnA Maker biedt een **Help** bot binnen de QnA Maker portal om u te helpen. De help-bot is beschikbaar op elke webpagina. De bot QnA Maker gebruikt voor antwoorden en biedt de [ C# Bot Framework CodeProject](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) naar de bot., zodat u kunt snel aan de slag met uw eigen antwoord-bot. 
+
+![! [QnA Maker biedt een ** Help ** bot binnen de QnA Maker portal om u te helpen.] (. / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>De knowledge base beheren
 
@@ -98,7 +104,7 @@ Uw eindpunt-sleutels vernieuwen als u vermoedt dat ermee is geknoeid.
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Kan ik de dezelfde Azure Search-resource gebruiken voor knowledge bases met behulp van meerdere talen?
 
-Als u meerdere talen en meerdere knowledge bases, wordt de gebruiker heeft om een QnA Maker-resource voor elke taal te maken. Hiermee maakt u een afzonderlijke Azure search-services per taal. Met een combinatie van andere taal knowledge bases in een enkele Azure search-service, leidt dit gedegradeerde relevantie van resultaten.
+Als u meerdere talen en meerdere knowledge bases, wordt de gebruiker heeft om een QnA Maker-resource voor elke taal te maken. Hiermee maakt u een afzonderlijke Azure search-service per taal. Met een combinatie van andere taal knowledge bases in een enkele Azure search-service, leidt dit gedegradeerde relevantie van resultaten.
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hoe kan ik de naam van de Azure Search-resource die worden gebruikt door de QnA Maker wijzigen?
 

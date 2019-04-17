@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734535"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609418"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Service Bus-onderwerpen en abonnementen gebruiken met Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Dit artikel wordt beschreven hoe u Service Bus-onderwerpen en abonnementen van Ruby-toepassingen. De behandelde scenario's zijn **het maken van onderwerpen en abonnementen, het maken van abonnementsfilters, het verzenden van berichten** naar een onderwerp **ontvangen van berichten van een abonnement**, en **verwijderen onderwerpen en abonnementen**. Zie voor meer informatie over onderwerpen en abonnementen, de [Vervolgstappen](#next-steps) sectie.
+Dit artikel wordt beschreven hoe u Service Bus-onderwerpen en abonnementen van Ruby-toepassingen. De behandelde scenario's zijn onder andere:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Het maken van onderwerpen en abonnementen 
+- Het maken van abonnementsfilters 
+- Berichten verzenden naar een onderwerp 
+- Ontvangen van berichten van een abonnement
+- Verwijderen van onderwerpen en abonnementen
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>Vereisten
+1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) of meld u aan voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) te maken van een Service Bus **naamruimte** en ontvang de **verbindingsreeks**. 
+
+    > [!NOTE]
+    > U maakt een **onderwerp** en een **abonnement** naar het onderwerp met behulp van **Ruby** in deze Quick Start. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 

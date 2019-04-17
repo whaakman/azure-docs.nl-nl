@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539119"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617679"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -154,47 +154,47 @@ Raadpleeg de pagina [ExpressRoute partners and peering locations](expressroute-l
 
 U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. Het hebben van meer verbindingen biedt aanzienlijke voordelen wat betreft hoge beschikbaarheid vanwege geografische redundantie. In gevallen waarin u meerdere ExpressRoute-circuits hebt, ontvangt u dezelfde set voorvoegsels geadverteerd vanuit Microsoft op de Microsoft-peering en openbare-peeringpad. Dat betekent dat er vanuit uw netwerk meerdere paden zijn naar Microsoft. Hierdoor kunnen er in uw netwerk suboptimale routeringsbeslissingen worden genomen. Dit kan leiden tot suboptimale connectiviteitservaringen met andere services. Op basis van de communitywaarden worden de juiste routeringsbeslissingen genomen voor [optimale routering naar gebruikers](expressroute-optimize-routing.md).
 
-| **Microsoft Azure-regio** | **BGP-communitywaarde** |
-| --- | --- |
+| **Microsoft Azure-regio** | **Regionale BGP-community** | **Opslag BGP-community** | **SQL-BGP-community 's** | 
+| --- | --- | --- | --- |
 | **Noord-Amerika** | |
-| US - oost | 12076:51004 |
-| US - oost 2 | 12076:51005 |
-| US - west | 12076:51006 |
-| US - west 2 | 12076:51026 |
-| US - west-centraal | 12076:51027 |
-| US - noord-centraal | 12076:51007 |
-| US - zuid-centraal | 12076:51008 |
-| US - centraal | 12076:51009 |
-| Canada - midden | 12076:51020 |
-| Canada - oost | 12076:51021 |
+| US - oost | 12076:51004 | 12076:52004 | 12076:53004 |
+| US - oost 2 | 12076:51005 | 12076:52005 | 12076:53005 |
+| US - west | 12076:51006 | 12076:52006 | 12076:53006 |
+| US - west 2 | 12076:51026 | 12076:52026 | 12076:53026 |
+| US - west-centraal | 12076:51027 | 12076:52027 | 12076:53027 |
+| US - noord-centraal | 12076:51007 | 12076:52007 | 12076:53007 |
+| US - zuid-centraal | 12076:51008 | 12076:52008 | 12076:53008 |
+| US - centraal | 12076:51009 | 12076:52009 | 12076:53009 |
+| Canada - midden | 12076:51020 | 12076:52020 | 12076:53020 |
+| Canada - oost | 12076:51021 | 12076:52021 | 12076:53021 |
 | **Zuid-Amerika** | |
-| Brazilië - zuid | 12076:51014 |
+| Brazilië - zuid | 12076:51014 | 12076:52014 | 12076:53014 |
 | **Europa** | |
-| Europa - noord | 12076:51003 |
-| Europa -west | 12076:51002 |
-| Verenigd Koninkrijk Zuid | 12076:51024 |
-| Verenigd Koninkrijk West | 12076:51025 |
-| Frankrijk - centraal | 12076:51030 |
-| Frankrijk - zuid | 12076:51031 |
+| Europa - noord | 12076:51003 | 12076:52003 | 12076:53003 |
+| Europa -west | 12076:51002 | 12076:52002 | 12076:53002 |
+| Verenigd Koninkrijk Zuid | 12076:51024 | 12076:52024 | 12076:53024 |
+| Verenigd Koninkrijk West | 12076:51025 | 12076:52025 | 12076:53025 |
+| Frankrijk - centraal | 12076:51030 | 12076:52030 | 12076:53030 |
+| Frankrijk - zuid | 12076:51031 | 12076:52031 | 12076:53031 |
 | **Azië en Stille Oceaan** | |
-| Azië - oost | 12076:51010 |
-| Azië - zuidoost | 12076:51011 |
+| Azië - oost | 12076:51010 | 12076:52010 | 12076:53010 |
+| Azië - zuidoost | 12076:51011 | 12076:52011 | 12076:53011 |
 | **Japan** | |
-| Japan - oost | 12076:51012 |
-| Japan - west | 12076:51013 |
+| Japan - oost | 12076:51012 | 12076:52012 | 12076:53012 |
+| Japan - west | 12076:51013 | 12076:52013 | 12076:53013 |
 | **Australië** | |
-| Australië - oost | 12076:51015 |
-| Australië - zuidoost | 12076:51016 |
+| Australië - oost | 12076:51015 | 12076:52015 | 12076:53015 |
+| Australië - zuidoost | 12076:51016 | 12076:52016 | 12076:53016 |
 | **Australië - overheid** | |
-| Australië - centraal | 12076:51032 |
-| Australië - centraal 2 | 12076:51033 |
+| Australië - centraal | 12076:51032 | 12076:52032 | 12076:53032 |
+| Australië - centraal 2 | 12076:51033 | 12076:52033 | 12076:53033 |
 | **India** | |
-| India - zuid | 12076:51019 |
-| India - west | 12076:51018 |
-| India - centraal | 12076:51017 |
+| India - zuid | 12076:51019 | 12076:52019 | 12076:53019 |
+| India - west | 12076:51018 | 12076:52018 | 12076:53018 |
+| India - centraal | 12076:51017 | 12076:52017 | 12076:53017 |
 | **Korea** | |
-| Korea - zuid | 12076:51028 |
-| Korea - centraal | 12076:51029 |
+| Korea - zuid | 12076:51028 | 12076:52028 | 12076:53028 |
+| Korea - centraal | 12076:51029 | 12076:52029 | 12076:53029 |
 
 
 Alle routes die worden geadverteerd vanuit Microsoft, worden gemarkeerd met de juiste community-waarde. 

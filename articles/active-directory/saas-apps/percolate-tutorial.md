@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275841"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Zelfstudie: Azure Active Directory-integratie met Percolate
 
@@ -101,7 +101,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Percolate, moet u de
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus voor de gebruiker beschikt niet over een stap uitvoeren omdat de app is al vooraf geïntegreerd met Azure.
+4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus voor de gebruiker beschikt niet over een stap uitvoeren omdat de app al vooraf geïntegreerd in Azure is.
 
     ![Domein en URL's één aanmelding informatie percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Percolate, moet u de
 
     b. In de **entiteit-ID** tekstvak, plak de waarde van **Azure AD-id** die u hebt gekopieerd vanuit Azure portal.
 
-    c. In Kladblok, opent u het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, Kopieer de inhoud en plak deze in de **x509 certificaten** vak.
+    c. In Kladblok, opent u het base-64 gecodeerde certificaat dat u hebt gedownload vanuit Azure portal, Kopieer de inhoud en plak deze in de **x509 certificaten** vak.
 
     d. In de **e kenmerk** tekstvak, type **emailaddress**.
 
@@ -207,7 +207,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Percolate, moeten ze worden ingericht voor Percolate. In Percolate is inrichten een handmatige taak.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Aanmelden bij Percolate als beheerder.
 
@@ -219,9 +219,9 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Percolate, moeten z
 
     ![Eenmalige aanmelding configureren](./media/percolate-tutorial/configure04.png)
 
-    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals brittasimon@contoso.com.
+    a. In **e** tekst vak, voer het e-mailadres van gebruiker, zoals brittasimon@contoso.com.
 
-    b. In **Fullname** tekst voert u de naam van gebruiker, zoals **Brittasimon**.
+    b. In **Fullname** tekst voert u de naam van gebruiker, zoals **Brittasimon**.
 
     c. Klik op **maken gebruikers**.
 
@@ -233,9 +233,9 @@ Wanneer u op de tegel Percolate in het toegangsvenster, moet u worden automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
