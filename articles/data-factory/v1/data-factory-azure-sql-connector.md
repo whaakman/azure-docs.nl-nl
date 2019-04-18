@@ -148,7 +148,7 @@ GO
 | Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out. |timespan<br/><br/> Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
-| WriteBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
+| writeBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | sqlWriterCleanupScript |Geef een query voor de Kopieeractiviteit om uit te voeren waarbij de gegevens van een bepaald segment wordt opgeschoond. Zie voor meer informatie, [herhaalbare kopie](#repeatable-copy). |Een query-instructie. |Nee |
 | sliceIdentifierColumnName |Geef de naam van een kolom voor de Kopieeractiviteit in te vullen met automatisch gegenereerde segment-id, die wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. Zie voor meer informatie, [herhaalbare kopie](#repeatable-copy). |De naam van de kolom van een kolom met het gegevenstype van binary(32). |Nee |
 | sqlWriterStoredProcedureName |De naam van de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in doeltabel, bijvoorbeeld toepast op upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Houd er rekening mee worden deze opgeslagen procedure **per batch aangeroepen**. Als u uitvoeren die alleen wordt eenmaal uitgevoerd en heeft niets wilt te doen met de brongegevens bijvoorbeeld verwijderen/afkappen, gebruikt u `sqlWriterCleanupScript` eigenschap. |De naam van de opgeslagen procedure. |Nee |
@@ -638,36 +638,36 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| binaire bestanden |Byte[] |
-| bits |Booleaans |
-| CHAR |Tekenreeks, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Datum en tijd |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimaal |decimaal |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double-waarde |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimaal |
-| nchar |Tekenreeks, Char] |
-| ntext |Tekenreeks, Char] |
-| numerieke |decimaal |
-| nvarchar |Tekenreeks, Char] |
-| echte |Enkelvoudig |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaal |
+| smallmoney |Decimal |
 | sql_variant |Object * |
-| tekst |Tekenreeks, Char] |
+| text |String, Char[] |
 | time |TimeSpan |
-| tijdstempel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Tekenreeks, Char] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
