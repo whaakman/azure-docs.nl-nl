@@ -56,7 +56,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Maak kennis met de volledige procedure voor het maken van een notebook.</a>
+          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Alle stappen die nodig zijn om een notebook te maken</a>
   - title: Voorbeelden
     items:
       - type: paragraph

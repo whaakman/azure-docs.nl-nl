@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 352050f4bd53188a420f75607677d88ebc081505
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051032"
 ---
 <div id="main" class="v2">
@@ -163,8 +163,8 @@ ms.locfileid: "59051032"
                                                         <br><br>
                                                         <h3><a href="authentication/index.yml">Verificatie</a></h3>
                                                         <p>
-                                                            <a href="authentication/concept-mfa-howitworks.md">Hoe werkt het? Azure MFA</a><br>
-                                                            <a href="authentication/concept-sspr-howitworks.md">Azure AD-selfservice voor wachtwoordherstel</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks.md">Hoe het werkt: Azure MFA</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Azure Active Directory Self-Service Password Reset</a><br>
                                                             <a href="authentication/concept-password-ban-bad.md">Wachtwoordbeveiliging in Azure AD</a><br>
                                                             <a href="authentication/index.yml"><i>Meer informatie &gt;</i></a>
                                                             </p>
@@ -219,7 +219,7 @@ ms.locfileid: "59051032"
                                                             <a href="devices/index.yml"><i>Meer informatie &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-domain-services/index">Domeinservices</a></h3>
+                                                        <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-overview">Wat is Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Azure AD Domain Services inschakelen</a><br>
@@ -255,8 +255,8 @@ ms.locfileid: "59051032"
                                                         <br><br>
                                                         <h3><a href="governance/index.yml">Identiteitsbeheer</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Een toegangsbeoordeling maken</a><br>
-                                                            <a href="governance/perform-access-review.md">Een toegangsbeoordeling starten</a><br>
+                                                            <a href="governance/create-access-review.md">Create an access review</a> (Een toegangscontrole maken)<br>
+                                                            <a href="governance/perform-access-review.md">Een toegangscontrole starten</a><br>
                                                             <a href="conditional-access/terms-of-use.md">Gebruiksvoorwaarden gebruiken</a><br>
                                                             <a href="governance/index.yml"><i>Meer informatie &gt;</i></a>
                                                         </p>
@@ -294,7 +294,7 @@ ms.locfileid: "59051032"
                                                             <a href="privileged-identity-management/index.yml"><i>Meer informatie &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="reports-monitoring/index.yml">Rapporten en controle</a></h3>
+                                                        <h3><a href="reports-monitoring/index.yml">Rapporten en bewaking</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/concept-audit-logs.md">Auditlogboeken</a><br>
                                                             <a href="reports-monitoring/concept-sign-ins.md">Aanmeldingslogboeken</a><br>

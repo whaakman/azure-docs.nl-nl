@@ -10,10 +10,10 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762936"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
@@ -192,7 +192,7 @@ De volgende tabel bevat de runbooks die zijn geïmplementeerd in uw Automation-a
 
 Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar**, _WhatIf_ ondersteunt met gedetailleerde informatie over het exacte probleem moet het runbook worden uitgevoerd wanneer uitvoeren zonder de _WhatIf_ parameter en valideert de juiste virtuele machines worden het doel. Een runbook worden alleen de gedefinieerde acties uitgevoerd wanneer de _WhatIf_ parameter is ingesteld op **False**.
 
-|Runbook | Parameters | Description|
+|Runbook | Parameters | Beschrijving|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Met de naam van het bovenliggende runbook. Dit runbook maakt waarschuwingen op basis van per-resource voor het scenario AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: De waarde True of False  | Hiermee of Azure waarschuwingsregels op virtuele machines in de doelgroepen voor abonnement of resourcegroep bijgewerkt. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> *WhatIf* valideert de runbooklogica zonder uit te voeren.|
@@ -249,7 +249,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 |Eigenschap | Description|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
-|Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs.|
+|Category | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs.|
 |CorrelationId | De GUID die de correlatie-ID van de runbooktaak is.|
 |JobId | De GUID die de ID van de runbooktaak is.|
 |operationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak.|
@@ -270,7 +270,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 |Eigenschap | Beschrijving|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
-|Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams.|
+|Category | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams.|
 |JobId | De GUID die de ID van de runbooktaak is.|
 |operationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak.|
 |ResourceGroup | Hiermee wordt de resourcegroepnaam van de runbooktaak opgegeven.|
