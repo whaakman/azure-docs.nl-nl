@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde Azure-Search-ser
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSearch** | Ja |
 | url | De URL voor de Azure Search-service. | Ja |
-| sleutel | Administrator-code voor de Azure Search-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| key | Administrator-code voor de Azure Search-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 > [!IMPORTANT]
@@ -113,8 +113,8 @@ Om gegevens te kopiëren in Azure Search, stelt u het brontype in de kopieeracti
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureSearchIndexSink** | Ja |
-| WriteBehavior | Hiermee geeft u op of u wilt samenvoegen of vervangen wanneer een document al in de index bestaat. Zie de [WriteBehavior eigenschap](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **Samenvoegen** (standaard), en **uploaden**. | Nee |
-| WriteBatchSize | Wanneer de buffergrootte writeBatchSize bereikt, uploadt u gegevens in de Azure Search-index. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie.<br/><br/>Toegestane waarden zijn: geheel getal van 1 naar 1000; standaardwaarde is 1000. | Nee |
+| writeBehavior | Hiermee geeft u op of u wilt samenvoegen of vervangen wanneer een document al in de index bestaat. Zie de [WriteBehavior eigenschap](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **Samenvoegen** (standaard), en **uploaden**. | Nee |
+| writeBatchSize | Wanneer de buffergrootte writeBatchSize bereikt, uploadt u gegevens in de Azure Search-index. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie.<br/><br/>Toegestane waarden zijn: geheel getal van 1 naar 1000; standaardwaarde is 1000. | Nee |
 
 ### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
 
@@ -173,9 +173,9 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Int32 | J |
 | Int64 | J |
 | Double | J |
-| Booleaans | J |
+| Boolean | J |
 | DataTimeOffset | J |
-| String-matrix | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Volgende stappen
