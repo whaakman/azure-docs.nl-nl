@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Ja |Resource-ID van de resource waarop u wilt een diagnostische instelling instellen. |
 | StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin logboeken met diagnostische gegevens moeten worden opgeslagen. |
-| Categorieën |Nee |Door komma's gescheiden lijst met logboekcategorieën om in te schakelen. |
-| Ingeschakeld |Ja |Booleaanse waarde die aangeeft of de diagnostische gegevens zijn ingeschakeld of uitgeschakeld op deze resource. |
+| Categories |Nee |Door komma's gescheiden lijst met logboekcategorieën om in te schakelen. |
+| Enabled |Ja |Booleaanse waarde die aangeeft of de diagnostische gegevens zijn ingeschakeld of uitgeschakeld op deze resource. |
 | RetentionEnabled |Nee |Booleaanse waarde waarmee wordt aangegeven of een bewaarbeleid zijn ingeschakeld voor deze resource. |
 | RetentionInDays |Nee |Het aantal dagen waarvoor gebeurtenissen moeten worden bewaard tussen 1 en 2147483647. De logboeken worden voor onbepaalde tijd opgeslagen door de waarde nul. |
 
