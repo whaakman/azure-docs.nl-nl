@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904063"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Een ASP.NET-app migreren naar Azure App Service met behulp van een Windows-container (preview)
@@ -31,7 +31,7 @@ ms.locfileid: "58904063"
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- <a href="https://hub.docker.com/" target="_blank">Aanmelden voor een Docker Hub-account</a>
+- <a href="https://hub.docker.com/" target="_blank">Registreren voor een Docker Hub-account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker voor Windows installeren</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Docker instellen voor het uitvoeren van Windows-containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 installeren</a> met de workloads **ASP.NET and web development** en **Azure development**. Als u Visual Studio 2017 al hebt geïnstalleerd:
@@ -142,9 +142,9 @@ Configureer de instellingen in de interface volgens de volgende tabel:
 
 | Instelling  | Voorgestelde waarde | Voor meer informatie |
 | ----------------- | ------------ | ----|
-|**App-naam**| Typ een unieke naam. | De URL van de web-app is `http://<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam van uw app is. |
+|**Naam van app**| Typ een unieke naam. | De URL van de web-app is `http://<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam van uw app is. |
 |**Resourcegroep**| Selecteer **Bestaande gebruiken** en typ **myResourceGroup**. |  |
-|**OS**| Windows (preview) | |
+|**Besturingssysteem**| Windows (preview) | |
 
 ### <a name="configure-app-service-plan"></a>App Service-plan configureren
 

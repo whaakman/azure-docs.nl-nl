@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58806886"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
@@ -51,7 +51,7 @@ Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
 
 De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell. Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview), die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-| Cmdlets | Description |
+| Cmdlets | Beschrijving |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|De waarde van een bestaande variabele opgehaald.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Maakt een nieuwe variabele en stelt u de waarde ervan.|
@@ -72,7 +72,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referen
 
 De functies in de volgende tabel worden gebruikt voor toegang tot en variabelen in een Python2-runbook op te halen.
 
-|Python2-functies|Beschrijving|
+|Python2-functies|Description|
 |:---|:---|
 |automationassets.get_automation_variable|De waarde van een bestaande variabele opgehaald. |
 |automationassets.set_automation_variable|Hiermee stelt u de waarde voor een bestaande variabele. |

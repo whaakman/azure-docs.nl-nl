@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280890"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
@@ -32,7 +32,7 @@ Gebruik de SDK van Azure Machine Learning voor het implementeren van het getrain
 | [Azure Machine Learning-Computing (amlcompute)](#azuremlcompute) | Batch Deductie | Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
 | [Azure Container Instances (ACI)](#aci) | Testen | Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
-| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
+| [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
 
 ## <a name="deployment-workflow"></a>Implementatiewerkstroom
 
@@ -246,13 +246,13 @@ Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://doc
 
 Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk van de compute-doel die u implementeert op. Gebruik de informatie in de volgende secties voor informatie over het implementeren op:
 
-| COMPUTE-doel | Implementatietype | Description |
+| COMPUTE-doel | Implementatietype | Beschrijving |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Webservice (realtime Deductie)| Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
 | [Azure ML Compute](#azuremlcompute) | Webservice (Batch Deductie)| Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
 | [Azure Container Instances (ACI)](#aci) | Webservice (Dev/test)| Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
-| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
+| [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) wordt momenteel niet ondersteund bij het implementeren van een model als een webservice.
@@ -621,7 +621,7 @@ Uw apparaat te registreren bij Azure IoT Hub en installeer vervolgens de IoT Edg
 
 Er zijn andere methoden voor het registreren van een apparaat:
 
-* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure-portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure-CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
@@ -649,7 +649,7 @@ Zie voor meer informatie de documentatie bij [WebService.delete()](https://docs.
 * [Het uitvoeren van voorspellingen van batch](how-to-run-batch-predictions.md)
 * [Uw Azure Machine Learning-modellen met Application Insights bewaken](how-to-enable-app-insights.md)
 * [Verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md)
-* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning-service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)
 * [Aanbevolen procedures voor het bouwen van aanbevelingssystemen](https://github.com/Microsoft/Recommenders)
 * [Een realtime aanbeveling API bouwen op Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

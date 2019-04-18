@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012933"
 ---
 # <a name="register-a-saas-application"></a>Een SaaS-toepassing registreren
@@ -79,11 +79,11 @@ HTTP-methode
 
 *Aanvraag-URL*
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+**https://login.microsoftonline.com/*{tenant-id}*/oauth2/token**
 
 *URI-parameter*
 
-|  **Parameternaam**  | **Vereist**  | **Description**                               |
+|  **Parameternaam**  | **Vereist**  | **Beschrijving**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | tenantId             | True          | Tenant-ID van de geregistreerde AAD-toepassing   |
 |  |  |  |
@@ -91,15 +91,15 @@ HTTP-methode
 
 *Aanvraagheader*
 
-|  **Headernaam**  | **Vereist** |  **Description**                                   |
+|  **Header-naam**  | **Vereist** |  **Beschrijving**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
 |  Content-Type     | True         | Type van de inhoud die is gekoppeld aan de aanvraag. De standaardwaarde is `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
-*Aanvraagbody*
+*Aanvraagtekst*
 
-| **Naam van eigenschap**   | **Vereist** |  **Description**                                                          |
+| **Eigenschapsnaam**   | **Vereist** |  **Beschrijving**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
 |  Grant_type         | True         | Toekenningstype. De standaardwaarde is `client_credentials`.                    |
 |  Client_id          | True         |  Client/app-id die is gekoppeld aan de Azure AD-app.                  |
@@ -110,7 +110,7 @@ HTTP-methode
 
 *Antwoord*
 
-|  **Name**  | **Type**       |  **Description**    |
+|  **Naam**  | **Type**       |  **Beschrijving**    |
 | ---------- | -------------  | ------------------- |
 | 200 OK    | TokenResponse  | De aanvraag is voltooid   |
 |  |  |  |

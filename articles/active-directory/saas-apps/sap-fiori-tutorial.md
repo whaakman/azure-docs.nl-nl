@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Zelfstudie: Azure Active Directory-integratie met SAP Fiori
@@ -135,7 +135,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SAP Fiori, moet u de
 6. Vervang **Provider Name** T01122 door `http://T01122` en klik op **Save**.
 
     > [!NOTE]
-    > Geleverd door de naam van de provider standaard <sid><client> indeling, maar Azure AD wordt verwacht dat de naam in de indeling van <protocol>://<name>, aanbeveelt voor het onderhouden van de naam van de provider als https://<sid><client> om toe te staan van meerdere SAP Fiori ABAP-engines te configureren in Azure AD .
+    > Geleverd door de naam van de provider standaard <sid> <client> indeling, maar Azure AD wordt verwacht dat de naam in de indeling van <protocol>://<name>, aanbeveelt voor het onderhouden van de naam van de provider als https://<sid> <client> om toe te staan van meerdere SAP Fiori ABAP-engines te configureren in Azure AD.
 
     ![De link om het certificaat te downloaden](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SAP Fiori, moet u de
 
     ![SAP Fiori domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
-    d. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon:
-    `https://<your company instance of SAP Fiori>`
+    d. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Enkele klanten hebben een fout gerapporteerd dat een onjuiste antwoord-URL voor hun instantie is geconfigureerd. Als u een dergelijke foutmelding krijgt, kunt u het volgende PowerShell-script als tijdelijke oplossing gebruiken om de juiste antwoord-URL voor uw instantie in te stellen:
@@ -376,8 +375,8 @@ In deze sectie maakt u een gebruiker met de naam van Britta Simon in SAP Fiori. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
