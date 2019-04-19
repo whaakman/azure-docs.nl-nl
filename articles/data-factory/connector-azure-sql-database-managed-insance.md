@@ -55,8 +55,8 @@ De volgende eigenschappen worden ondersteund voor de service Azure SQL Database 
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **SqlServer**. | Ja. |
 | connectionString |Deze eigenschap geeft u de connectionString-informatie die nodig is om verbinding met het beheerde exemplaar met behulp van SQL-verificatie of Windows-verificatie. Zie voor meer informatie de volgende voorbeelden. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault, en als het SQL-verificatie pull de `password` configuratie buiten de verbindingsreeks. Zie het JSON-voorbeeld onder de tabel en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. |Ja. |
-| Gebruikersnaam |Deze eigenschap geeft de naam van een gebruiker als u Windows-verificatie gebruiken. Een voorbeeld is **domainname\\gebruikersnaam**. |Nee. |
-| wachtwoord |Deze eigenschap geeft u een wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de naam van de gebruiker. Selecteer **SecureString** de connectionString-gegevens veilig opslaan in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee. |
+| userName |Deze eigenschap geeft de naam van een gebruiker als u Windows-verificatie gebruiken. Een voorbeeld is **domainname\\gebruikersnaam**. |Nee. |
+| password |Deze eigenschap geeft u een wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de naam van de gebruiker. Selecteer **SecureString** de connectionString-gegevens veilig opslaan in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee. |
 | connectVia | Dit [integratieruntime](concepts-integration-runtime.md) wordt gebruikt voor verbinding met het gegevensarchief. Richt de zelf-hostende integratieruntime in hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar. |Ja. |
 
 >[!TIP]
@@ -282,7 +282,7 @@ Om gegevens te kopiëren naar Azure SQL Database Managed Instance, stelt u het s
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **SqlSink**. | Ja. |
-| WriteBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. |Nee (standaard: 10,000). |
+| writeBatchSize |Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/>Toegestane waarden zijn gehele getallen voor het aantal rijen. |Nee (standaard: 10,000). |
 | writeBatchTimeout |Deze eigenschap geeft u de wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn voor de tijdsduur. Een voorbeeld hiervan is "00: 30:00, ' die is 30 minuten. |Nee. |
 | preCopyScript |Deze eigenschap geeft u een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in het beheerde exemplaar. De toepassing wordt aangeroepen slechts één keer per exemplaar uitvoeren. U kunt deze eigenschap gebruiken om vooraf geladen gegevens op te schonen. |Nee. |
 | sqlWriterStoredProcedureName |Deze naam is voor de opgeslagen procedure waarmee wordt gedefinieerd hoe gegevens in de doeltabel van toepassing. Voorbeelden van procedures zijn upsert-bewerking of transformaties doen met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is *per batch aangeroepen*. Een bewerking die wordt slechts één keer worden uitgevoerd en heeft niets te met brongegevens, bijvoorbeeld verwijderen of afbreken, gebruikt u de `preCopyScript` eigenschap. |Nee. |
@@ -510,36 +510,36 @@ Wanneer gegevens worden gekopieerd en naar Azure SQL Database Managed Instance, 
 | Azure SQL Database Managed Instance-gegevenstype | Azure Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint |Int64 |
-| binaire bestanden |Byte[] |
-| bits |Booleaans |
-| CHAR |Tekenreeks, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Datum en tijd |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimaal |decimaal |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double-waarde |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimaal |
-| nchar |Tekenreeks, Char] |
-| ntext |Tekenreeks, Char] |
-| numerieke |decimaal |
-| nvarchar |Tekenreeks, Char] |
-| echte |Enkelvoudig |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaal |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| tekst |Tekenreeks, Char] |
+| text |String, Char[] |
 | time |TimeSpan |
-| tijdstempel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Tekenreeks, Char] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
