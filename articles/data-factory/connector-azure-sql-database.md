@@ -373,7 +373,7 @@ Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eig
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **SqlSink**. | Ja |
-| WriteBatchSize | Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| writeBatchSize | Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
 | writeBatchTimeout | De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out.<br/> De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Database. Deze wordt slechts één keer aangeroepen per exemplaar uitvoeren. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 | sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die over het toepassen van gegevens in een doeltabel definieert. Een voorbeeld is upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is **per batch aangeroepen**. Voor bewerkingen die slechts één keer uitgevoerd en hebben niets te doen met de brongegevens, gebruikt u de `preCopyScript` eigenschap. Voorbeeld van de bewerkingen zijn verwijderen en afkappen. | Nee |
@@ -605,36 +605,36 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | Azure SQL Database-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint |Int64 |
-| binaire bestanden |Byte[] |
-| bits |Booleaans |
-| CHAR |Tekenreeks, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Datum en tijd |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimaal |decimaal |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double-waarde |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimaal |
-| nchar |Tekenreeks, Char] |
-| ntext |Tekenreeks, Char] |
-| numerieke |decimaal |
-| nvarchar |Tekenreeks, Char] |
-| echte |Enkelvoudig |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaal |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| tekst |Tekenreeks, Char] |
+| text |String, Char[] |
 | time |TimeSpan |
-| tijdstempel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Tekenreeks, Char] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
