@@ -397,7 +397,7 @@ Een record met het type _WireData_ is gemaakt voor elk type invoergegevens. Wire
 | ReceivedBytes | Hoeveelheid ontvangen bytes |
 | ProtocolName | Naam van het gebruikte netwerkprotocol |
 | IPVersion | IP-versie |
-| Richting | Binnenkomend of uitgaand |
+| Direction | Binnenkomend of uitgaand |
 | MaliciousIP | IP-adres van een bekende schadelijke bron |
 | Severity | Ernst van mogelijke malware |
 | RemoteIPCountry | Land van het externe IP-adres |
