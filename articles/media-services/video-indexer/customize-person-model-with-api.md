@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360531"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Aanpassen van een persoon-model met de Video Indexer-API
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>Aanvraagparameters 
 
-|**Name**|**Type**|**Vereist**|**Description**|
+|**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountId|string|Ja|Unieke id voor de account|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
-|**Name**|**Type**|**Vereist**|**Description**|
+|**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountId|string|Ja|Unieke id voor de account|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
-|**Name**|**Type**|**Vereist**|**Description**|
+|**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountId|string|Ja|Unieke id voor de account|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>Aanvraagparameters
 
-|**Name**|**Type**|**Vereist**|**Description**|
+|**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
 |location|string|Ja|De Azure-regio waarnaar u de oproep worden gerouteerd. Zie voor meer informatie, [Azure-regio's en Video Indexer](regions.md).|
 |accountId|string|Ja|Unieke id voor de account|

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282556"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Zelfstudie: Gebruik Data Box voor het importeren van gegevens als beheerde schijven in Azure
@@ -142,8 +142,8 @@ Bekijk de volgende punten voordat u begint met het kopiëren van gegevens:
 
 Afhankelijk van of u verbinding via SMB- of NFS maakt, kunt u het volgende gebruiken:
 
-- [Gegevens kopiëren via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Gegevens kopiëren via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Kopiëren van gegevens via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
+- [Kopiëren van gegevens via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 Wacht tot de kopieertaken zijn voltooid. Zorg ervoor dat de taken kopiëren zonder fouten zijn voltooid voordat u met de volgende stap verdergaat.
 
@@ -179,5 +179,5 @@ In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen m
 Ga naar de volgende zelfstudie om te lezen hoe u uw Data Box naar Microsoft verzendt.
 
 > [!div class="nextstepaction"]
-> [Uw Azure Data Box naar Microsoft verzenden](./data-box-deploy-picked-up.md)
+> [Uw Azure Data Box verzenden naar Microsoft](./data-box-deploy-picked-up.md)
 

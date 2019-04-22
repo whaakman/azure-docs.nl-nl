@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360160"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site
@@ -68,7 +68,7 @@ Gast-VM Windows/Linux - statisch IP-adres | Ja
 Gast-VM - Multi-NIC | Ja
 
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Opslag van de host
 
@@ -101,7 +101,7 @@ Multipath (MPIO) | N/A
 
 ## <a name="vaults"></a>Kluizen
 
-**Bewerking** | **Ondersteund** 
+**Actie** | **Ondersteund** 
 --- | --- 
 Verplaatsen van kluizen andere resourcegroepen (binnen of tussen abonnementen) | Nee 
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen abonnementen) | Nee 

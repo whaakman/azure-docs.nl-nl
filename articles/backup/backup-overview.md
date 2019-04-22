@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361801"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
@@ -58,20 +58,20 @@ Beide services bieden complementaire maar verschillende functionaliteit.
 
 Gebruik de tabel om uw behoeften op BCDR-gebied te bepalen.
 
-**Doelstelling** | **Details** | **Vergelijking**
+**Doel** | **Details** | **Vergelijking**
 --- | --- | ---
-**Gegevensretentie back-up** | Back-upgegevens kunnen dagen, maanden of zelfs jaren worden bewaard en opgeslagen als dat vanuit complianceperspectief nodig is. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery toegestaan niet in de dezelfde optimaliseren.
-**Recovery Point Objective (RPO)** | Acceptabele hoeveelheid gegevens die verloren gaat wanneer een herstelbewerking moet worden uitgevoerd. | Back-ups hebben meer variabele RPO.<br/><br/> Back-ups van VM's hebben doorgaans een RPO van één dag, terwijl de RPO bij databaseback-up soms maar 15 minuten is.<br/><br/> Site Recovery biedt een lage RPO omdat replicatie continu of frequent is, zodat de verschillen tussen het bron- en replica-exemplaar klein zijn.
+**Gegevensback-up/-retentie** | Back-upgegevens kunnen dagen, maanden of zelfs jaren worden bewaard en opgeslagen als dat vanuit complianceperspectief nodig is. | Met back-upoplossingen zoals Azure Backup kunt u nauwkeurig gegevens selecteren waarvan u een back-up wilt maken en het back-up- en retentiebeleid nauwkeurig afstemmen.<br/><br/> Site Recovery toegestaan niet in de dezelfde optimaliseren.
+**Recovery point objective (RPO)** | Acceptabele hoeveelheid gegevens die verloren gaat wanneer een herstelbewerking moet worden uitgevoerd. | Back-ups hebben meer variabele RPO.<br/><br/> Back-ups van VM's hebben doorgaans een RPO van één dag, terwijl de RPO bij databaseback-up soms maar 15 minuten is.<br/><br/> Site Recovery biedt een lage RPO omdat replicatie continu of frequent is, zodat de verschillen tussen het bron- en replica-exemplaar klein zijn.
 **Beoogde hersteltijd (RTO)** |De hoeveelheid tijd die nodig is om een terugzet- of herstelbewerking te voltooien. | Vanwege de grotere RPO is de hoeveelheid gegevens die een back-upoplossing moet verwerken doorgaans veel grote, wat resulteert in langere RTO's. Het kan bijvoorbeeld dagen duren om gegevens te herstellen vanaf tapes, afhankelijk van de tijd die nodig is voor het transport van de tape vanaf een externe locatie.
 
 ## <a name="what-backup-scenarios-are-supported"></a>Welke back-upscenario's worden ondersteund?
 
 Azure Backup kan een back-up maken van zowel on-premises machines als Azure-VM's.
 
-**Machine** | **Back-up van scenario**
+**Machine** | **Back-upscenario**
 --- | ---
 **On-premises back-up** |  1) Voer de MARS-agent (Azure Backup Microsoft Azure Recovery Services) uit op on-premises Windows-machines om een back-up te maken van afzonderlijke bestanden en systeemstatus. <br/><br/>2) back-up on-premises machines naar een back-upserver (System Center Data Protection Manager (DPM) of Microsoft Azure Backup Server (MABS)) en configureer vervolgens de back-upserver back-up naar een Azure Backup Recovery Services-kluis in Azure.
-**Azure-VM's** | (1) Schakel het maken van back-ups voor afzonderlijke Azure-VM's in. Wanneer u het maken van back-ups inschakelt, installeert Azure Backup een extensie op de Azure VM-agent die op de virtuele machine wordt uitgevoerd. De agent maakt een back-up van de hele virtuele machine.<br/><br/> 2) Voer de MARS-agent uit op een Azure-VM. Dit is handig als u een back-up wilt maken van afzonderlijke bestanden en mappen op de virtuele machine.<br/><br/> 3) Maak een back-up van een Azure-VM naar een DPM-server of MABS die wordt uitgevoerd in Azure. Gebruik vervolgens Azure Backup om een back-up van de DPM-server/MABS te maken naar een kluis.
+**Azure VM's** | (1) Schakel het maken van back-ups voor afzonderlijke Azure-VM's in. Wanneer u het maken van back-ups inschakelt, installeert Azure Backup een extensie op de Azure VM-agent die op de virtuele machine wordt uitgevoerd. De agent maakt een back-up van de hele virtuele machine.<br/><br/> 2) Voer de MARS-agent uit op een Azure-VM. Dit is handig als u een back-up wilt maken van afzonderlijke bestanden en mappen op de virtuele machine.<br/><br/> 3) Maak een back-up van een Azure-VM naar een DPM-server of MABS die wordt uitgevoerd in Azure. Gebruik vervolgens Azure Backup om een back-up van de DPM-server/MABS te maken naar een kluis.
 
 
 ## <a name="why-use-a-backup-server"></a>Waarom een back-upserver gebruiken?
@@ -86,33 +86,33 @@ Lees meer [hoe back-up werkt](backup-architecture.md#architecture-back-up-to-dpm
 
 ## <a name="what-can-i-back-up"></a>Waarvan kan ik een back-up maken?
 
-**Machine** | **Back-up** | **Een back-up maken**
+**Machine** | **Back-upmethode** | **Een back-up maken**
 --- | --- | ---
 **On-premises Windows-VM's** | MARS-agent uitvoeren | Back-up van bestanden, mappen, systeemstatus.<br/><br/> Linux-machines worden niet ondersteund.
-**On-premises computers** | Back-up naar DPM/MABS | Back-up van alles dat wordt beveiligd door [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) of [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), met inbegrip van bestanden/mappen/shares/volumes en app-specifieke gegevens.
-**Azure-VM's** | Back-upextensie voor Azure VM-agent uitvoeren | Back-up van de hele virtuele machine
-**Azure-VM's** | MARS-agent uitvoeren | Back-up van bestanden, mappen, systeemstatus.<br/><br/> Linux-machines worden niet ondersteund.
-**Azure-VM's** | Back-up naar MABS/DPM die wordt uitgevoerd in Azure | Back-up van alles dat wordt beveiligd door [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) of [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807), met inbegrip van bestanden/mappen/shares/volumes en app-specifieke gegevens.
+**On-premises machines** | Back-up naar DPM/MABS | Back-up van alles dat wordt beveiligd door [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) of [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), met inbegrip van bestanden/mappen/shares/volumes en app-specifieke gegevens.
+**Azure VM's** | Back-upextensie voor Azure VM-agent uitvoeren | Back-up van de hele virtuele machine
+**Azure VM's** | MARS-agent uitvoeren | Back-up van bestanden, mappen, systeemstatus.<br/><br/> Linux-machines worden niet ondersteund.
+**Azure VM's** | Back-up naar MABS/DPM die wordt uitgevoerd in Azure | Back-up van alles dat wordt beveiligd door [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) of [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807), met inbegrip van bestanden/mappen/shares/volumes en app-specifieke gegevens.
 
 ## <a name="what-backup-agents-do-i-need"></a>Welke back-upagents heb ik nodig?
 
 **Scenario** | **Agent**
 --- | ---
 **Back-ups maken van Azure-VM's** | Geen agent nodig. Azure VM-extensie voor back-up is geïnstalleerd op de virtuele machine van Azure wanneer u de eerste Azure-VM-back-up uitvoert.<br/><br/> Ondersteunt Windows en Linux.
-**Back-ups van on-premises Windows-computers** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine.
-**Back-up Azure VM's met de MARS-agent** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine. De MARS-agent kan naast de back-upextensie worden uitgevoerd.
-**Back-up on-premises machines en virtuele Azure-machines naar DPM/MABS** | De DPM- of MABS-beveiligingsagent wordt uitgevoerd op de machines die u wilt beveiligen. De MARS-agent wordt uitgevoerd op de DPM-server/MABS waarvan u een back-up wilt maken naar Azure.
+**Back-up van on-premises Windows-machines** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine.
+**Back-up van Azure-VM's met de MARS-agent** | Download, installeer en voer de MARS-agent rechtstreeks uit op de machine. De MARS-agent kan naast de back-upextensie worden uitgevoerd.
+**Back-up van on-premises machines en Azure-VM's naar DPM/MABS** | De DPM- of MABS-beveiligingsagent wordt uitgevoerd op de machines die u wilt beveiligen. De MARS-agent wordt uitgevoerd op de DPM-server/MABS waarvan u een back-up wilt maken naar Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Welke back-upagent moet ik gebruiken?
 
-**Backup** | **Oplossing** | **Beperking**
+**Een back-up maken** | **Oplossing** | **Beperking**
 --- | --- | ---
-**Ik wil back-up van een hele virtuele machine van Azure** | Schakel back-up in voor de virtuele machine. De back-upextensie wordt automatisch geconfigureerd op de Windows- of Linux-Azure-VM. | Er wordt een back-up gemaakt van de hele virtuele machine <br/><br/> Voor Windows-VM's is de back-up app-consistent. Voor Linux is de back-up bestandsconsistent. Als u app-bewustheid voor Linux-VM's nodig hebt, moet u dit configureren met aangepaste scripts.
-**Ik wil back-up van bepaalde bestanden/mappen op Azure VM** | Implementeer de MARS-agent op de virtuele machine.
-**Ik wil rechtstreeks back-on-premises Windows-computers** | Installeer de MARS-agent op de machine. | U kunt een back-up van bestanden, mappen en de systeemstatus maken naar Azure. Back-ups zijn niet app-bewust.
-**Ik wil rechtstreeks een back-up on-premises Linux-computers** | U moet DPM of MABS implementeren om een back-up te maken naar Azure. | Back-up van Linux-host wordt niet ondersteund, kunt u alleen back-up Linux Gast-machine die wordt gehost op Hyper-V of VMWare.
-**Ik wil back-up van apps die worden uitgevoerd op on-premises** | Voor app-bewuste back-ups moeten machines worden beveiligd door DPM of MABS.
-**Ik wil gedetailleerde en flexibele back-up en herstel instellingen voor virtuele Azure-machines** | Bescherm Azure-VM's met MABS/DPM in Azure voor extra flexibiliteit voor back-upplanning en volledige flexibiliteit voor het beschermen en herstellen van bestanden, mappen, volumes, apps en systeemstatus.
+**Ik wil een back-up maken van een hele Azure VM** | Schakel back-up in voor de virtuele machine. De back-upextensie wordt automatisch geconfigureerd op de Windows- of Linux-Azure-VM. | Er wordt een back-up gemaakt van de hele virtuele machine <br/><br/> Voor Windows-VM's is de back-up app-consistent. Voor Linux is de back-up bestandsconsistent. Als u app-bewustheid voor Linux-VM's nodig hebt, moet u dit configureren met aangepaste scripts.
+**Ik wil een back-up van bepaalde bestanden/mappen maken op Azure VM** | Implementeer de MARS-agent op de virtuele machine.
+**Ik wil een back-up maken van on-premises Windows-machines** | Installeer de MARS-agent op de machine. | U kunt een back-up van bestanden, mappen en de systeemstatus maken naar Azure. Back-ups zijn niet app-bewust.
+**Ik wil een directe back-up maken van on-premises Linux-machines** | U moet DPM of MABS implementeren om een back-up te maken naar Azure. | Back-up van Linux-host wordt niet ondersteund, kunt u alleen back-up Linux Gast-machine die wordt gehost op Hyper-V of VMWare.
+**Ik wil een back-up maken van apps die on-premises worden uitgevoerd** | Voor app-bewuste back-ups moeten machines worden beveiligd door DPM of MABS.
+**Ik wil gedetailleerde en flexibele back-up- en herstelinstellingen voor virtuele Azure-machines** | Bescherm Azure-VM's met MABS/DPM in Azure voor extra flexibiliteit voor back-upplanning en volledige flexibiliteit voor het beschermen en herstellen van bestanden, mappen, volumes, apps en systeemstatus.
 
 
 ## <a name="next-steps"></a>Volgende stappen

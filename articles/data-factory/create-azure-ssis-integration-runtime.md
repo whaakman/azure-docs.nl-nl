@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361483"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure-SSIS Integratieruntime in Azure Data Factory maken
@@ -33,7 +33,7 @@ De [zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssi
 
 In dit artikel ziet u inrichting Azure-SSIS IR op verschillende manieren:
 
-- [Azure Portal](#azure-portal)
+- [Azure-portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager-sjabloon](#azure-resource-manager-template)
 
@@ -69,7 +69,7 @@ De volgende tabel vergelijkt bepaalde functies van Azure SQL Database-server en 
 | Functie | één database/elastische pool| Beheerd exemplaar |
 |---------|--------------|------------------|
 | **Planning** | SQL Server Agent is niet beschikbaar.<br/><br/>Zie [plant de uitvoering van een pakket in ADF pijplijn](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Beheerde exemplaar Agent is beschikbaar. |
-| **Authentication** | U kunt SSISDB maken met een ingesloten databasegebruiker voor een AAD-groep met de beheerde identiteit van de ADF als een lid in de **db_owner** rol.<br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt de SSISDB maken met een ingesloten databasegebruiker voor de beheerde identiteit van de ADF. <br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Verificatie** | U kunt SSISDB maken met een ingesloten databasegebruiker voor een AAD-groep met de beheerde identiteit van de ADF als een lid in de **db_owner** rol.<br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt de SSISDB maken met een ingesloten databasegebruiker voor de beheerde identiteit van de ADF. <br/><br/>Zie [inschakelen Azure AD-verificatie SSISDB maken in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Servicelaag** | Als u Azure-SSIS IR met uw Azure SQL Database-server maken, selecteert u de servicelaag voor SSISDB. Er zijn meerdere service-lagen. | Wanneer u Azure-SSIS IR met uw beheerde exemplaar maken, kunt u de servicelaag niet selecteren voor SSISDB. Alle databases in uw beheerde exemplaar delen dezelfde resource toegewezen aan deze instantie. |
 | **Virtueel netwerk** | Biedt ondersteuning voor virtuele netwerken alleen Azure Resource Manager voor uw Azure-SSIS IR moeten worden samengevoegd als u Azure SQL Database-server met service-eindpunten voor virtueel netwerk gebruiken of toegang tot on-premises gegevensopslagexemplaren nodig hebben. | Biedt ondersteuning voor virtuele netwerken alleen Azure Resource Manager voor uw Azure-SSIS IR om toe te voegen. Het virtuele netwerk is altijd vereist.<br/><br/>Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar toevoegen, zorg ervoor dat uw Azure-SSIS IR in een ander subnet dan uw beheerde exemplaar is. Als u uw Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij een peering op virtueel netwerk of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Gedistribueerde transacties** | Ondersteund via elastische transacties. Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw SSIS-pakketten MSDTC gebruiken gedistribueerde transacties te coördineren, kunt u migreren naar elastische transacties voor Azure SQL Database. Zie voor meer informatie, [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |

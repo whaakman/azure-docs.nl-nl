@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359653"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Services: Implementatie en verbruik
@@ -36,7 +36,7 @@ De volgende koppelingen bieden algemene informatie over het implementeren van ee
 * Voor een overzicht over het maken en implementeren van een webservice, beginnen met [zelfstudie 1: Kredietrisico voorspellen](tutorial-part1-credit-risk.md).
 * Zie voor specifieke voorbeelden die een webservice implementeren:
 
-  * [Zelfstudie 3: Een kredietrisicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
+  * [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
   * [Een webservice implementeren in meerdere regio 's](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Bij de resourceprovider voor web services API's (Azure Resource Manager-API's)
@@ -89,7 +89,7 @@ U kunt uw webservice van Azure Machine Learning-webserviceportal testen. Dit omv
 
 * [Een nieuwe webservice implementeren](publish-a-machine-learning-web-service.md)
 * [Een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md)
-* [Zelfstudie 3: Een kredietrisicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
+* [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Vanuit Excel
 

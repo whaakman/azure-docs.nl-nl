@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280941"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
@@ -22,7 +22,7 @@ Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Mic
 U kunt [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
 > [!div class="nextstepaction"]
-> [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/)
+> [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/)
 
 ![Azure Cosmos DB is de service van Microsoft voor wereldwijd gedistribueerde databases met mogelijkheden voor elastisch uitschalen, een gegarandeerde lage latentie, vijf consistentiemodellen en uitgebreide, gegarandeerde SLA's](./media/introduction/azure-cosmos-db.png)
 
@@ -97,11 +97,11 @@ Meer informatie over Cosmos-DB-core, concepten [kant en klare wereldwijde distri
 
 Lees onze snelstartgidsen om snel aan de slag te gaan met Azure Cosmos DB:
 
-* [Aan de slag met Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Aan de slag met Azure Cosmos DB-API voor MongoDB](create-mongodb-nodejs.md)
-* [Aan de slag met Azure Cosmos DB Cassandra-API](create-cassandra-dotnet.md)
-* [Aan de slag met Gremlin-API van Azure Cosmos DB](create-graph-dotnet.md)
-* [Aan de slag met Azure Cosmos DB Table-API](create-table-dotnet.md)
+* [Aan de slag met de SQL-API van Azure Cosmos DB](create-sql-api-dotnet.md)
+* [Aan de slag met de API van Azure Cosmos DB voor MongoDB](create-mongodb-nodejs.md)
+* [Aan de slag met de Cassandra-API van Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Aan de slag met de Gremlin-API van Azure Cosmos DB](create-graph-dotnet.md)
+* [Aan de slag met de Table-API van Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/)
+> [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/)

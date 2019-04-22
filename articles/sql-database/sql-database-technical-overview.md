@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358328"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service
@@ -254,10 +254,10 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/) voor hulpprogramma's voor het berekenen en vergelijken van de kosten voor individuele databases en elastische pools.
 - Zie deze Quick Starts om snel aan de slag te gaan:
 
-  - [Een SQL-database maken in Azure portal](sql-database-single-database-get-started.md)  
-  - [Een SQL-database maken met de Azure-CLI](sql-database-get-started-cli.md)
-  - [Maak een SQL-database met behulp van PowerShell](sql-database-get-started-powershell.md)
+  - [Een SQL-database maken in Azure Portal](sql-database-single-database-get-started.md)  
+  - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)
+  - [Een SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
 
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
-  - [Azure CLI-voorbeelden voor SQL-Database](sql-database-cli-samples.md)
-  - [Azure PowerShell-voorbeelden voor SQL-Database](sql-database-powershell-samples.md)
+  - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)
+  - [Azure PowerShell-voorbeelden voor SQL Database](sql-database-powershell-samples.md)

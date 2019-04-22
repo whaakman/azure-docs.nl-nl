@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279870"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migreren van Enterprise Agreement naar de klant van Microsoft-overeenkomst API 's
@@ -457,7 +457,7 @@ Het Prijzenoverzicht bevat prijzen voor services waarvan de prijs is gebaseerd o
 
 De volgende velden zijn niet beschikbaar in API's van Microsoft klanten overeenkomst prijs blad of dezelfde velden.
 
-|Buiten gebruik gestelde veld| Description|
+|Buiten gebruik gestelde veld| Beschrijving|
 |---|---|
 | billingPeriodId | Niet van toepassing. Komt overeen met InvoiceId voor MCA. |
 | offerId | Niet van toepassing. Komt overeen met productOrderName in MCA. |

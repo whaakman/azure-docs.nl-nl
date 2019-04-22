@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283610"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
@@ -456,4 +456,4 @@ In deze zelfstudie hebt u de volgende taken uitgevoerd:
 Lees het volgende artikel voor meer informatie over de structuur van beleidsdefinities:
 
 > [!div class="nextstepaction"]
-> [Structuur van Azure-beleidsdefinities](../concepts/definition-structure.md)
+> [Structuur van Azure Policy-definities](../concepts/definition-structure.md)

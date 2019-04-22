@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281485"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Een laag bel toevoegen aan een kaart
@@ -73,7 +73,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarten:
 
 > [!div class="nextstepaction"]
-> [Een symboollaag toevoegen](map-add-pin.md)
+> [Een symbool laag toevoegen](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)

@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489515"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
@@ -138,7 +138,7 @@ Soms, uw on-premises AD UPN's kunnen afwijken van uw Azure AD UPN's. In dergelij
 
 De volgende tabel biedt details over ondersteuning voor deze on-premises AD UPN's in Windows 10 Hybrid Azure AD join
 
-| Type van de on-premises AD UPN | Domeintype | Windows 10-versie | Beschrijving |
+| Type van de on-premises AD UPN | Domeintype | Windows 10-versie | Description |
 | ----- | ----- | ----- | ----- |
 | Routeerbaar | Federatief | Vanaf versie 1703 | Algemeen beschikbaar |
 | Routeerbaar | Managed | Vanaf versie 1709 | Momenteel in private preview. Azure AD SSPR wordt niet ondersteund. |

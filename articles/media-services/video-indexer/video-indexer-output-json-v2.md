@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280210"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de API
@@ -72,7 +72,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 In deze sectie bevat een overzicht van de inzichten.
 
-|Kenmerk | Description|
+|Kenmerk | Beschrijving|
 |---|---|
 |naam|De naam van de video. Bijvoorbeeld: Azure Monitor.|
 |id|De ID van de video. Bijvoorbeeld: 63c6d532ff.|

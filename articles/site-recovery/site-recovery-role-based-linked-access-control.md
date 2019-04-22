@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281706"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Site Recovery toegang met op rollen gebaseerd toegangsbeheer (RBAC) beheren
@@ -59,7 +59,7 @@ Een gebruiker moet de volgende machtigingen voor volledige replicatie van een ni
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Klassiek | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Opslag | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Klassiek | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -73,5 +73,5 @@ Overweeg het gebruik van de 'Inzender voor virtuele machines' en 'Inzender voor 
 * Informatie over het beheren van toegang met:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure-CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST-API](../role-based-access-control/role-assignments-rest.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control probleemoplossing](../role-based-access-control/troubleshooting.md): Profiteer van tips voor veelvoorkomende problemen oplossen.

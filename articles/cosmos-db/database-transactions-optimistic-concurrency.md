@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279499"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacties en optimistisch beheer van gelijktijdigheid
@@ -20,7 +20,7 @@ Databasetransacties bieden een veilige en voorspelbare programmeermodel gelijkti
 
 De database-engine in Azure Cosmos DB ondersteunt volledige ACID (atomisch, consistent, geïsoleerd, duurzaamheid) compatibele transacties met snapshot-isolatie. Alle databasebewerkingen binnen het bereik van een container [logische partitie](partition-data.md) transactioneel worden uitgevoerd in de database-engine die wordt gehost door de replica van de partitie. Deze bewerkingen zijn beide bewerkingen lezen en schrijven (bijwerken van een of meer items in de logische partitie). De volgende tabel ziet u verschillende bewerkingen en transactie-typen:
 
-| **Bewerking**  | **Type bewerking** | **Één of meerdere Item transactie** |
+| **Bewerking**  | **Bewerkingstype** | **Één of meerdere Item transactie** |
 |---------|---------|---------|
 | Invoegen (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
 | Plaats (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
@@ -63,5 +63,5 @@ Meer informatie over databasetransacties en functionaliteit voor optimistische g
 
 - [Werken met Azure Cosmos-databases, containers en objecten](databases-containers-items.md)
 - [Consistentieniveaus](consistency-levels.md)
-- [Conflicttypen en oplossingsbeleid](conflict-resolution-policies.md)
+- [Conflicttypen en resolutie beleidsregels](conflict-resolution-policies.md)
 - [Opgeslagen procedures, triggers en gebruikersgedefinieerde functies](stored-procedures-triggers-udfs.md)

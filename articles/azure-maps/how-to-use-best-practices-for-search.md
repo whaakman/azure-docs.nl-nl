@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358141"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search-Service
@@ -63,7 +63,7 @@ Zie [dekking voor geocodering](https://docs.microsoft.com/azure/azure-maps/geoco
    2. U kunt ook opgeven de exacte set resultaattypen moeten worden geretourneerd met behulp van de `idxSet` parameter. Voor dit doel kunt u indienen met door komma's gescheiden lijst van indexen, de volgorde van items niet van belang. Hier volgen de ondersteunde indexen:
 
        * `Addr` - **Adresbereiken**: Voor sommige Streets (straten) zijn er adres punten die worden geïnterpoleerd vanaf het begin en einde van de straat; Deze punten worden weergegeven als de adresbereiken.
-       * `Geo` - **Geografieën**: Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats.
+       * `Geo` - **Geographies**: Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats.
        * `PAD` - **Adres Point**:  Punten op een kaart waar specifiek adres met een straatnaam en een nummer kan worden gevonden in een index, bijvoorbeeld Soquel Dr 2501. Het is de hoogste mate van nauwkeurigheid is beschikbaar voor adressen.  
        * `POI` - **Punten van belang**: Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.  [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) koeriersbedrijven niet als resultaat.  
        * `Str` - **Streets (straten)**: Weergave van Streets (straten) op de kaart.
@@ -86,7 +86,7 @@ Bij het uitvoeren van een zoekopdracht omgekeerde geocode met [omgekeerde API vo
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
-**Reactie:**
+**Antwoord:**
 
 ```JSON
 {
@@ -142,7 +142,7 @@ In het voorbeeld query hieronder u ziet dat de search service voor adres voor "M
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
-**Reactie:**
+**Antwoord:**
 
 ```JSON
 {
@@ -324,7 +324,7 @@ Laten we een [POI categorie zoeken](https://docs.microsoft.com/rest/api/maps/sea
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
-**Reactie:**
+**Antwoord:**
 
 ```JSON
 {
@@ -519,7 +519,7 @@ We hebben verder een overzicht van de reactie van onderstaande structuur. De res
 
 * **Cross-adres:** Snijpunten. In de vorm van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
 
-**Reactie:**
+**Antwoord:**
 
 ```JSON
 {

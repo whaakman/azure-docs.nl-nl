@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362120"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Zelfstudie: Een pilot van een Azure AD-selfservice voor wachtwoordherstel uitrollen
@@ -60,7 +60,7 @@ Selfservice voor wachtwoordherstel is nu geconfigureerd voor cloudgebruikers in 
 
 ## <a name="test-sspr-as-a-user"></a>SSPR testen als een gebruiker
 
-Test de selfservice voor wachtwoordherstel met behulp van een testgebruiker die geen beheerder is en die lid is van uw pilotgroep. **Er rekening mee dat als u een account met een beheerdersrollen aan de verificatiemethoden toegewezen en nummer is mogelijk anders dan wat u hebt geselecteerd als Microsoft het voor beheerders beheert.**
+Test de selfservice voor wachtwoordherstel met behulp van een testgebruiker die geen beheerder is en die lid is van uw pilotgroep. **Houd er rekening mee dat als u een account gebruikt waaraan beheerdersrollen zijn toegewezen, de verificatiemethoden en het aantal daarvan anders kunnen zijn dan wat u hebt geselecteerd, aangezien Microsoft het beheerdersbeleid beheert.**
 
 1. Open een nieuw browservenster om InPrivate- of incognitomodus.
 1. Gebruik een testgebruiker om u met behulp van de registratieportal op [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) te registreren voor het zelf opnieuw instellen van een wachtwoord.
@@ -81,4 +81,4 @@ Als u besluit dat u niet langer gebruik wilt maken van de functionaliteit die u 
 In deze zelfstudie hebt u de selfservice voor wachtwoordherstel ingeschakeld. Ga door naar de volgende zelfstudie om te zien hoe een on-premises Active Directory Domain Services-infrastructuur kan worden geïntegreerd met de selfservice voor wachtwoordherstel.
 
 > [!div class="nextstepaction"]
-> [SSPR on-premises Write-back-integratie inschakelen](tutorial-enable-writeback.md)
+> [On-premises write-backintegratie van selfservice voor wachtwoordherstel inschakelen](tutorial-enable-writeback.md)

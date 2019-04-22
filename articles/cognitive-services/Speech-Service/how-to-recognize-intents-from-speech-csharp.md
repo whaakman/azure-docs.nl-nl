@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280533"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met de Speech SDK voor C#
@@ -133,7 +133,7 @@ Importeer het model nu uit de LUIS-app met `LanguageUnderstandingModel.FromAppId
 
 Intents toevoegen vereist drie argumenten: de LUIS-model (die is gemaakt en de naam `model`), de naam van de intentie en een intentie-ID. Het verschil tussen de id en de naam is als volgt.
 
-|`AddIntent()` argument|Doel|
+|Argument voor `AddIntent()`|Doel|
 |--------|-------|
 |intentName |De naam van de intentie zoals gedefinieerd in de LUIS-app. Moet exact overeenkomen met de naam van de LUIS-intentie.|
 |intentID    |Een id die door de Speech SDK wordt toegewezen aan een herkende intentie. Deze id kan elke gewenste waarde hebben en hoeft niet overeen te komen met de naam van de intentie zoals deze is gedefinieerd in de LUIS-app. Als in dezelfde code bijvoorbeeld meerdere intenties worden afgehandeld, kun u dezelfde id voor de intenties gebruiken.|
@@ -188,4 +188,4 @@ De code voor dit artikel kunt u vinden in de map samples/csharp/sharedcontent/co
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Het herkennen van spraak](how-to-recognize-speech-csharp.md)
+> [Spraak herkennen](how-to-recognize-speech-csharp.md)

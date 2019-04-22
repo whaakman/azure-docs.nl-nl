@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Zelfstudie: Azure Active Directory-integratie met Citrix Netscaler
@@ -107,9 +107,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
 
     ![Citrix Netscaler domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<<Your FQDN>>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<<Your FQDN>>`
 
     c. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)** tekstvak typt u een URL met behulp van het volgende patroon: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
@@ -383,9 +383,9 @@ Wanneer u op de tegel Citrix Netscaler in het toegangsvenster, moet u worden aut
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

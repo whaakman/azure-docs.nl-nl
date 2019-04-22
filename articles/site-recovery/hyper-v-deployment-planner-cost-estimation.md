@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359023"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
@@ -107,21 +107,21 @@ Handmatig VM's toevoegen:
 
 1. Vul de volgende kolommen in op basis van de geschatte VM-grootte en het aantal VM's dat overeenkomt met de volgende configuratie: 
 
-    a. **Aantal virtuele machines**
+    a. **Aantal VM's**
 
     b. **Grootte van IaaS (uw selectie)**
 
     c. **Opslagtype Standard/Premium**
 
-    d. **De grootte van de totale VM-opslagruimte (GB)**
+    d. **Totale VM-opslagruimte (GB)**
 
-    e. **Aantal DR-oefeningen in een jaar**
+    e. **Aantal noodherstelanalyses in een jaar**
 
-    f. **De duur van elke DR-oefening (dagen)**
+    f. **Duur van elke noodherstelanalyse (dagen)**
 
-    g. **Het type besturingssysteem**
+    g. **Type besturingssysteem**
 
-    h. **De gegevensredundantie**
+    h. **Gegevensredundantie**
 
     i. **Azure Hybrid Use Benefit**
 

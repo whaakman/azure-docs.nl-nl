@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279768"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabelstatistieken voor de in Azure SQL Data Warehouse
@@ -406,14 +406,14 @@ Er zijn verschillende systeemweergaven en functies die u gebruiken kunt om infor
 
 Deze systeemweergaven bevatten informatie over statistieken:
 
-| Catalogusweergave | Description |
+| Catalogusweergave | Beschrijving |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Een rij voor elke kolom. |
-| [sys.Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk schema in de database. |
 | [sys.Stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Een rij voor elk object statistieken. |
 | [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Een rij voor elke kolom in het object statistieken. Koppelingen naar sys.columns. |
-| [de systeemtabellen](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Een rij voor elke tabel (inclusief externe tabellen). |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Een rij voor elke tabel (inclusief externe tabellen). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Een rij voor elk gegevenstype. |
 
 ### <a name="system-functions-for-statistics"></a>Systeemfuncties voor statistieken

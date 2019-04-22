@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360269"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Over de Azure Site Recovery Deployment Planner voor Hyper-V-noodherstel naar Azure
@@ -30,7 +30,7 @@ Het hulpprogramma levert de volgende gegevens:
 
 * Beoordeling van geschiktheid van een VM op basis van het aantal schijven, schijfgrootte, IOPS, verloop en een aantal VM-eigenschappen.
 
-**Netwerkbandbreedte versus RPO-evaluatie**
+**Vereiste netwerkbandbreedte versus RPO-evaluatie**
 
 * De geschatte vereiste bandbreedte in het netwerk voor replicatie van verschillen
 * De doorvoer die Azure Site Recovery kan verwerken van on-premises naar Azure
@@ -51,7 +51,7 @@ Het hulpprogramma levert de volgende gegevens:
 * De totale vrije opslagruimte op elk volume van Hyper-V-opslag die is vereist voor de initiële replicatie en replicatie van verschillen om ervoor te zorgen dat de VM-replicatie niet leidt tot ongewenste downtime voor uw productietoepassingen
 * Maximale kopieerfrequentie die moet worden ingesteld voor Hyper-V-replicatie
 
-**Initiële replicatie via batchverwerking richtlijnen** 
+**Hulp bij eerste replicatie via batch** 
 * Het aantal batches van VM dat moet worden gebruikt voor beveiliging
 * Lijst met VM's in elke batch
 * Volgorde waarin elke batch zal worden beveiligd
@@ -82,7 +82,7 @@ Aantal servers dat kan worden geprofileerd per exemplaar van de Azure Site Recov
 ## <a name="prerequisites"></a>Vereisten
 Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met de VM, profilering en generatie rapportage. Er is ook een voerde optie, waarmee alleen doorvoer wordt berekend. De vereisten voor de server waarop de verschillende fasen moeten worden uitgevoerd worden in de volgende tabel weergegeven:
 
-| Serververeiste | Description |
+| Serververeiste | Beschrijving |
 |---|---|
 |VM-lijst ophalen, profileren en meten van doorvoer |<ul><li>Besturingssysteem: Microsoft Windows Server 2016 of Microsoft Windows Server 2012 R2 </li><li>Machineconfiguratie: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>De virtuele machine waarop u de Azure Site Recovery ontwikkelingsplannertool uitvoert moet worden toegevoegd aan de TrustedHosts-lijst van alle Hyper-V-servers.</li><li>Alle Hyper-V-servers moeten worden geprofileerd moeten worden toegevoegd aan de TrustedHosts-lijst van de client VM van waar het hulpprogramma wordt uitgevoerd. [Meer informatie voor het toevoegen van servers in de lijst TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Het hulpprogramma moet met Beheerdersrechten worden uitgevoerd vanuit PowerShell of de opdrachtregelconsole op de client</ul></ul>|
 | Rapporten genereren | Een Windows-pc of Windows-server met Microsoft Excel 2013 of hoger |

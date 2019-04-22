@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358067"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
@@ -55,7 +55,7 @@ Waar *{uw zoektermen}* uw zoekwoorden is.
 
 Azure-klanten kunnen maken en beheren van aanvragen voor ondersteuning in Azure portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure-portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure-portal voor de Amerikaanse overheid](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Plaats een vraag in Stack Overflow
@@ -68,7 +68,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 |---------|---------|
 |Spraakherkenning |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Spraaksynthese |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Spraakomzetting |[[microsoft-cognitieve + vertaling]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Spraakomzetting |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Bedoeling van spraak |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
@@ -82,7 +82,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 Voorbeelden zijn vaak geplaatst als open source. Voor vragen en problemen, maakt u een *probleem* in de respectieve GitHub-opslagplaats. U kunt een pull-aanvraag te verzenden. De volgende lijst bevat koppelingen naar de voorbeeld-opslagplaatsen:
 
 * [Speech-SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Apparaten SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 U kunt een foutenrapport, functie-aanvraag maken of een algemene vraag en aanbevolen procedures te delen. Voor bugrapporten, volgt u de opgegeven sjabloon:
 

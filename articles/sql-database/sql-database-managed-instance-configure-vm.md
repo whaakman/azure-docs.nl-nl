@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360501"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
@@ -47,7 +47,7 @@ De volgende stappen maakt een nieuw subnet in het beheerde exemplaar VNet, zodat
 
    | Instelling| Voorgestelde waarde | Description |
    | ---------------- | ----------------- | ----------- |
-   | **Name** | Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
+   | **Naam** | Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
    | **Adresbereik (CIDR-blok)** | Een geldig bereik | De standaardwaarde is handig voor deze Quick Start.|
    | **Netwerkbeveiligingsgroep** | Geen | De standaardwaarde is handig voor deze Quick Start.|
    | **Routetabel** | Geen | De standaardwaarde is handig voor deze Quick Start.|
@@ -79,10 +79,10 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
    | **Abonnement** | Een geldig abonnement | Moet een abonnement waarmee u machtiging voor het maken van nieuwe resources hebt. |
    | **Resourcegroep** |De resourcegroep die u hebt opgegeven in de [beheerd exemplaar maken](sql-database-managed-instance-get-started.md) Quick Start.|Deze resourcegroep moet het abonnement waarin het VNet bestaat.|
    | **Locatie** | De locatie voor de resourcegroep | Deze waarde is ingevuld op basis van de geselecteerde resourcegroep. |
-   | **Naam van de virtuele machine**  | Een geldige naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
+   | **Naam van virtuele machine**  | Een geldige naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
    |**Gebruikersnaam van beheerder**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.<br>U gebruikt deze gebruikersnaam telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>U gebruikt dit wachtwoord telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
-   | **Grootte van de virtuele machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
+   | **Grootte van virtuele Machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
    | **Locatie**|[resourceGroup () .location].| Deze waarde niet te wijzigen. |
    | **Virtuele-netwerknaam**|Het virtuele netwerk waarin u het beheerde exemplaar gemaakt.|
    | **Subnetnaam**|De naam van het subnet dat u in de vorige procedure hebt gemaakt| Kies geen het subnet waarin u het beheerde exemplaar gemaakt.|

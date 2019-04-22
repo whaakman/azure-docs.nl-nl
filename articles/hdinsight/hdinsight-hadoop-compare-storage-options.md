@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361793"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Opties voor opslag voor gebruik met Azure HDInsight-clusters vergelijken
@@ -211,7 +211,7 @@ Data Lake Storage Gen1 containers voor gegevens zijn eigenlijk mappen en bestand
 ## <a name="DataLakeStoreSecurity"></a>Beveiliging van gegevens in Data Lake Storage Gen1
 Data Lake Storage Gen1 gebruikt Azure Active Directory voor verificatie en maakt gebruik van toegangsbeheerlijsten (ACL's) voor het beheren van toegang tot uw gegevens.
 
-| **Functie** | **Description** |
+| **Functie** | **Beschrijving** |
 | --- | --- |
 | Authentication |Data Lake Storage Gen1 kan worden geïntegreerd met Azure Active Directory (Azure AD) voor identiteits- en toegangsbeheer voor alle gegevens die zijn opgeslagen in Data Lake Storage Gen1. Vanwege de integratie, Data Lake Storage Gen1 profiteren van alle Azure AD-functies. Deze functies omvatten multi-factor authentication, voorwaardelijke toegang, op rollen gebaseerd toegangsbeheer, bewaking van toepassingsgebruik, beveiligingsbewaking en waarschuwingen, enzovoort. Data Lake Storage Gen1 ondersteunt het OAuth 2.0-protocol voor verificatie in de REST-interface. Zie [verificatie in Azure Data Lake Storage Gen1 met behulp van Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Toegangsbeheer |Data Lake Storage Gen1 biedt toegangsbeheer door ondersteuning POSIX-machtigingen die beschikbaar worden gesteld door het protocol WebHDFS. ACL's kunnen worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Storage Gen1 [toegangsbeheer in Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |

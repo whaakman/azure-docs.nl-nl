@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283474"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
@@ -45,7 +45,7 @@ De apparaat-voorwaarde voor overeenkomst identificeert aanvragen van een mobiel 
 
 Name | Doel
 -----|--------
-[Apparaat](#device) | Hiermee geeft u aanvragen van een mobiel apparaat op basis van de eigenschappen ervan.
+[apparaat](#device) | Hiermee geeft u aanvragen van een mobiel apparaat op basis van de eigenschappen ervan.
 
 ## <a name="location-match-conditions"></a>Locatie-criteria voor overeenkomst
 
@@ -54,7 +54,7 @@ De locatie-criteria voor overeenkomst identificeren aanvragen op basis van de lo
 Name | Doel
 -----|--------
 [AS-nummer](#as-number) | Aanvragen die afkomstig van een bepaald netwerk zijn identificeert.
-[Land/regio](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen zijn.
+[Land](#country) | Hiermee geeft u aanvragen die afkomstig uit de opgegeven landen zijn.
 
 ## <a name="origin-match-conditions"></a>Criteria voor overeenkomst van oorsprong
 
@@ -72,7 +72,7 @@ De aanvraag-criteria voor overeenkomst identificeren op basis van hun eigenschap
 Name | Doel
 -----|--------
 [IP-adres van client](#client-ip-address) | Aanvragen die afkomstig van een bepaald IP-adres zijn identificeert.
-[Cookie-Parameter](#cookie-parameter) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven waarde.
+[Cookie Parameter](#cookie-parameter) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven waarde.
 [Cookie Parameter reguliere expressie](#cookie-parameter-regex) | Controleert of de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven reguliere expressie.
 [Cname voor edge](#edge-cname) | Aanvragen die naar een specifieke rand CNAME verwijzen identificeert.
 [Verwijzende domein](#referring-domain) | Aanvragen die zijn verwezen in de namen van de opgegeven host identificeert.
@@ -95,7 +95,7 @@ Name | Doel
 [URL-pad reguliere expressie](#url-path-regex) | Vergelijkt de relatieve pad van een aanvraag naar de opgegeven reguliere expressie.
 [URL-pad jokertekens](#url-path-wildcard) | Vergelijkt de relatieve pad van een aanvraag naar het opgegeven patroon.
 [URL-Query letterlijke waarde](#url-query-literal) | Vergelijkt de querytekenreeks van een aanvraag met de opgegeven waarde.
-[URL Query Parameter](#url-query-parameter) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
+[URL-queryparameter](#url-query-parameter) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
 [URL-Query reguliere expressie](#url-query-regex) | Hiermee geeft u aanvragen met de opgegeven query-tekenreeksparameter ingesteld op een waarde die overeenkomt met een opgegeven reguliere expressie.
 [URL-Query jokertekens](#url-query-wildcard) | De opgegeven waarde op basis van de aanvraag-queryreeks wordt vergeleken.
 
@@ -306,7 +306,7 @@ Belangrijke informatie:
 #### <a name="string-type"></a>Tekenreekstype
 Een functie WURFL accepteert meestal een combinatie van cijfers, letters en symbolen. Door de flexibele aard van deze mogelijkheid, moet u kiezen hoe de waarde die is gekoppeld aan deze voorwaarde wordt geïnterpreteerd. De volgende tabel beschrijft de set beschikbare opties:
 
-Type     | Description
+Type     | Beschrijving
 ---------|------------
 Letterlijke  | Selecteer deze optie om te voorkomen dat de meeste tekens op speciale betekenis met behulp van hun [letterlijke waarde](cdn-rules-engine-reference.md#literal-values).
 Jokertekens | Selecteer deze optie om te profiteren van alle [jokertekens] ([jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
@@ -320,7 +320,7 @@ De volgende tabel bevat WURFL mogelijkheden en hun variabelen voor de regelengin
 > [!NOTE] 
 > De volgende variabelen worden ondersteund in de **wijzigen Client Header van** en **Client Reactieheader wijzigen** functies.
 
-Mogelijkheid | Variabele | Description | Voorbeeldwaarden
+Mogelijkheid | Variabele | Beschrijving | Voorbeeldwaarden
 -----------|----------|-------------|----------------
 De naam van het merk | %{wurfl_cap_brand_name} | Een tekenreeks die de merknaam van het apparaat aangeeft. | Samsung
 Besturingssysteem van het apparaat | %{wurfl_cap_device_os} | Een tekenreeks die aangeeft van het besturingssysteem op het apparaat geïnstalleerd. | IOS
@@ -971,8 +971,8 @@ user=joe              | Dit patroon wordt voldaan aan wanneer de query-tekenreek
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Content Delivery Network](cdn-overview.md)
-* [Naslaginformatie over de regelengine](cdn-rules-engine-reference.md)
-* [Voorwaardelijke expressies in de regelengine](cdn-rules-engine-reference-conditional-expressions.md)
-* [Functies van de regelengine](cdn-rules-engine-reference-features.md)
+* [Verwijzing regelengine](cdn-rules-engine-reference.md)
+* [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+* [Functies regelengine](cdn-rules-engine-reference-features.md)
 * [Standaardgedrag HTTP met behulp van de regelengine](cdn-rules-engine.md)
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279344"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Begrijpen en gebruiken van Azure IoT Hub SDK 's
@@ -47,16 +47,16 @@ Azure IoT Hub apparaat-SDK voor .NET:
 
 * Downloaden van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  De naamruimte is Microsoft.Azure.Devices.Clients die IoT Hub apparaat-Clients (DeviceClient, ModuleClient) bevat.
 * [Broncode](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
-* [Modulereferentie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
+* [API-naslaginformatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
+* [Moduleverwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Azure IoT Hub device-SDK voor C (ANSI C - C99):
 
 * Installeren van [apt-get, MBED, Arduino IDE of iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-c)
 * [Compileren van de C-apparaat-SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
-* [API-verwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-* [Modulereferentie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
+* [API-naslaginformatie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [Moduleverwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Overzetten van de C-SDK op andere platforms](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentatie voor ontwikkelaars](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) voor informatie over cross-compileren, aan de slag op verschillende platforms, enzovoort.
 * [Azure SDK voor IoT Hub-C resource informatie over het verbruik](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
@@ -65,15 +65,15 @@ Azure IoT Hub apparaat-SDK voor Java:
 
 * Toevoegen aan [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) project
 * [Broncode](https://github.com/Azure/azure-iot-sdk-java)
-* [API-verwijzing](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
-* [Modulereferentie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
+* [API-naslaginformatie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
+* [Moduleverwijzing](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
 
 Azure IoT Hub apparaat-SDK voor Node.js: 
 
 * Installeren van [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-node)
-* [API-verwijzing](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
-* [Modulereferentie](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
+* [API-naslaginformatie](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
+* [Moduleverwijzing](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 Azure IoT Hub apparaat-SDK voor Python: 
 
@@ -95,19 +95,19 @@ Azure IoT Hub-service SDK voor .NET:
 
 * Downloaden van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  De naamruimte is Microsoft.Azure.Devices die IoT Hub-Service-Clients (RegistryManager, ServiceClients) bevat.
 * [Broncode](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
+* [API-naslaginformatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
 Azure IoT Hub-service SDK voor Java: 
 
 * Toevoegen aan [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) project
 * [Broncode](https://github.com/Azure/azure-iot-sdk-java)
-* [API-verwijzing](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
+* [API-naslaginformatie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
 
 Azure IoT Hub-service SDK voor Node.js: 
 
 * Downloaden van [npm](https://www.npmjs.com/package/azure-iothub)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-node)
-* [API-verwijzing](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
+* [API-naslaginformatie](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
 
 Azure IoT Hub-service SDK voor Python: 
 
@@ -135,24 +135,24 @@ Azure Provisioning apparaat- en service-SDK's voor C#:
 
 * Downloaden van [apparaat-SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) en [SDK-Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) vanuit NuGet.
 * [Broncode](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [API-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
+* [API-naslaginformatie](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
 
 Azure Provisioning apparaat- en service-SDK's voor C:
 
 * Installeren van [apt-get, MBED, Arduino IDE of iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Broncode](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
-* [API-verwijzing](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [API-naslaginformatie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Azure Provisioning apparaat- en service-SDK's voor Java:
 
 * Toevoegen aan [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) project
 * [Broncode](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [API-verwijzing](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
+* [API-naslaginformatie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
 
 Azure Provisioning apparaat- en service-SDK's voor Node.js:
 
 * [Broncode](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [API-verwijzing](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
+* [API-naslaginformatie](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
 * Download [Device SDK](https://badge.fury.io/js/azure-iot-provisioning-device) en [Service SDK](https://badge.fury.io/js/azure-iot-provisioning-service) vanuit npm
 
 Azure Provisioning apparaat- en service-SDK's voor Python:

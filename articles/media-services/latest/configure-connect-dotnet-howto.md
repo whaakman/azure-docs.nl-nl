@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361237"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Verbinding maken met de API van Media Services v3 - .NET
@@ -225,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Uploaden, coderen en streamen van video's - .NET](stream-files-tutorial-with-api.md) 
-- [Zelfstudie: Stream live met Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Zelfstudie: Analyseren van video's met Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
-- [De Taakinvoer van een maken vanuit een lokaal bestand - .NET](job-input-from-local-file-how-to.md)
-- [De Taakinvoer van een maken van een HTTPS-URL - .NET](job-input-from-http-how-to.md)
+- [Zelfstudie: Video's uploaden, coderen en streamen - .NET](stream-files-tutorial-with-api.md) 
+- [Zelfstudie: Live streamen met Azure Media Services v3 - .NET](stream-live-tutorial-with-api.md)
+- [Zelfstudie: Video's analyseren met Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Een taakinvoer maken vanuit een lokaal bestand - .NET](job-input-from-local-file-how-to.md)
+- [Een taakinvoer maken vanuit een HTTPS-URL - .NET](job-input-from-http-how-to.md)
 - [Coderen met een aangepaste transformatie - .NET](customize-encoder-presets-how-to.md)
-- [Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice - .NET](protect-with-aes128.md)
-- [Gebruik DRM dynamische versleuteling en licentie leveringsservice - .NET](protect-with-drm.md)
-- [Ophalen van een ondertekeningssleutel van het bestaande beleid - .NET](get-content-key-policy-dotnet-howto.md)
+- [Dynamische AES-128-versleuteling en de sleutelleveringsservice gebruiken - .NET](protect-with-aes128.md)
+- [Dynamische DRM-versleuteling en licentielevering gebruiken - .NET](protect-with-drm.md)
+- [Een ondertekeningssleutel ophalen uit het bestaand beleid - .NET](get-content-key-policy-dotnet-howto.md)
 - [Filters maken met Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Geavanceerde video op aanvraag voorbeelden van Azure Functions-v2 met Media Services v3](https://aka.ms/ams3functions)
+- [Voorbeelden van geavanceerde video on demand van Azure Functions-v2 met Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Zie ook
 

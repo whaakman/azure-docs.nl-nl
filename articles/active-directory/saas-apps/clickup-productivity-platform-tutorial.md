@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Zelfstudie: Azure Active Directory-integratie met ClickUp Productivity Platform
@@ -50,7 +50,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van ClickUp Productivity Platform te configureren in Azure AD, moet u ClickUp Productivity Platform vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen ClickUp productiviteit Platform uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om ClickUp Productivity Platform toe te voegen vanuit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -104,9 +104,9 @@ Voer deze stappen uit om eenmalige aanmelding van Azure AD bij ClickUp Productiv
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij ClickUp Productivity Platform](common/sp-identifier.png)
 
-    a. In de **aanmeldings-URL** tekstvak typt u een URL: `https://app.clickup.com/login/sso`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL: `https://app.clickup.com/login/sso`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://api.clickup.com/v1/team/<team_id>/microsoft`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
     > [!NOTE]
     > De id-waarde is niet echt. Vervang deze waarde door de werkelijke id op de manier die verderop in deze zelfstudie wordt uitgelegd.
@@ -213,9 +213,9 @@ Wanneer u op de tegel ClickUp Productivity Platform klikt in het Toegangsvenster
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

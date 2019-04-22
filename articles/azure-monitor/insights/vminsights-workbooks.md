@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288709"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Interactieve rapporten maken met Azure Monitor-werkmappen
@@ -120,8 +120,8 @@ Elke sectie bevat een eigen geavanceerde instellingen, die toegankelijk via de i
 | **Aangepaste breedte**    | Maakt een item een willekeurige grootte, zodat u veel items op één regel zodat u kunt uw grafieken en tabellen beter te organiseren in uitgebreide interactieve rapporten passen.  |
 | **Voorwaardelijk zichtbaar** | Als u wilt verbergen stappen op basis van een parameter in de Leesmodus opgeven. |
 | **Een parameter exporteren**| Toestaan dat een geselecteerde rij in het raster of diagram ertoe leiden dat latere stappen waarden wijzigen of zichtbaar worden.  |
-| **Query weergeven als er geen bewerking wordt uitgevoerd** | Geeft de query boven de grafiek of de tabel, zelfs wanneer in de leesmodus.
-| **De knop Openen in Analytics weergeven wanneer er geen bewerkingen worden uitgevoerd** | De blauwe pictogram Analytics toevoegen aan de rechter hoek van de grafiek om één klik toegang te verlenen.|
+| **Query weergeven als er niet bewerken** | Geeft de query boven de grafiek of de tabel, zelfs wanneer in de leesmodus.
+| **Open op de knop analytics weergeven wanneer er geen bewerkingen** | De blauwe pictogram Analytics toevoegen aan de rechter hoek van de grafiek om één klik toegang te verlenen.|
 
 De meeste van deze instellingen zijn relatief gemakkelijk, maar om te begrijpen **exporteert u een parameter** is het beter om te controleren van een werkmap die van deze functionaliteit gebruikmaakt.
 
@@ -169,7 +169,7 @@ Er zijn vier typen parameters, die momenteel worden ondersteund:
 | **Tekst**    | Kan de gebruiker om een tekstvak te bewerken en kunt u desgewenst een query in te vullen in de standaard-waarde opgeven. |
 | **Vervolgkeuzelijst** | Kan de gebruiker om te kiezen uit een set waarden. |
 | **Tijdsbereikkiezer**| Kan de gebruiker om te kiezen uit een vooraf gedefinieerde set waarden voor tijd of kies uit meer dan een aangepast tijdsbereik.|
-| **Resourcekiezer** | Kan de gebruiker om te kiezen in de resources voor de werkmap geselecteerd.|
+| **Bronkiezer** | Kan de gebruiker om te kiezen in de resources voor de werkmap geselecteerd.|
 
 ### <a name="using-a-text-parameter"></a>Met behulp van een tekstparameter
 

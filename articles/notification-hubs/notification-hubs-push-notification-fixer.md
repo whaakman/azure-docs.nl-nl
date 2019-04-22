@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281638"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs - Diagnose meldingen over verloren
@@ -33,7 +33,7 @@ In een stroom voor typische verzenden, het bericht is verzonden vanaf de *back-e
 
 Met de doelen tot stand gebracht en de Notification Hubs-service pushes verzenden naar de *push notification service* voor het apparaatplatform. Voorbeelden hiervan zijn de Apple Push Notification service (APNs) van Apple en Firebase Cloud Messaging (FCM) voor Google. Notification Hubs pushes meldingen verdeeld over meerdere batches van registraties. Notification Hubs wordt geverifieerd met de respectieve push notification-service op basis van de referenties die u hebt ingesteld in de Azure-portal onder **Notification Hub configureren**. De pushmelding service stuurt vervolgens de meldingen naar de desbetreffende *clientapparaten*.
 
-De laatste fase van de levering van meldingen vindt plaats tussen de platform-push notification-service en het apparaat. Een van de vier belangrijke onderdelen in de push notification-proces (client, back-end toepassing, Notification Hubs en de platform-push notification service) kan leiden tot meldingen worden verwijderd. Zie voor meer informatie over de architectuur van Notification Hubs, [Notification Hubs-overzicht].
+De laatste fase van de levering van meldingen vindt plaats tussen de platform-push notification-service en het apparaat. Een van de vier belangrijke onderdelen in de push notification-proces (client, back-end toepassing, Notification Hubs en de platform-push notification service) kan leiden tot meldingen worden verwijderd. Zie voor meer informatie over de architectuur van Notification Hubs, [Overzicht van Notification Hubs].
 
 Verzenden-fout kan optreden tijdens de eerste test, fasering fase. Verloren meldingen in deze fase kunnen wijzen op een configuratieprobleem. Als de fout kunt verzenden in de productieomgeving optreedt, kunnen sommige of alle van de meldingen worden verwijderd. In dit geval wordt een uitgebreidere toepassing of messaging-patroon probleem aangegeven.
 
@@ -111,7 +111,7 @@ Omdat meldingsservices van het platform robuuste, meestal meldingen tot aan de a
 
 Als een pushmeldingsservice wil een melding te leveren, maar het apparaat offline is, wordt de melding wordt opgeslagen door de push notification-service voor een beperkte periode. De melding wordt weergegeven op het apparaat wanneer het apparaat beschikbaar komt.
 
-Voor elke app wordt slechts één recente melding opgeslagen. Als meerdere meldingen worden verzonden wanneer een apparaat offline is, is elke nieuwe melding zorgt ervoor dat de voorafgaande melding om te worden verwijderd. Alleen de meest recente melding houden wordt aangeduid als *samenvoegen meldingen* in APN, en *samenvouwen* in FCM (die gebruikmaakt van een samenvouwen sleutel). Als het apparaat gedurende een lange periode offline blijft, worden meldingen die zijn opgeslagen voor het apparaat verwijderd. Zie voor meer informatie [APN overview] en [berichten over FCM].
+Voor elke app wordt slechts één recente melding opgeslagen. Als meerdere meldingen worden verzonden wanneer een apparaat offline is, is elke nieuwe melding zorgt ervoor dat de voorafgaande melding om te worden verwijderd. Alleen de meest recente melding houden wordt aangeduid als *samenvoegen meldingen* in APN, en *samenvouwen* in FCM (die gebruikmaakt van een samenvouwen sleutel). Als het apparaat gedurende een lange periode offline blijft, worden meldingen die zijn opgeslagen voor het apparaat verwijderd. Zie voor meer informatie [APN overview] en [Over het FCM-berichten].
 
 U kunt met Azure Notification Hubs, een samenvoegen sleutel doorgeven via een HTTP-header met behulp van de algemene SendNotification-API. Bijvoorbeeld, voor de .NET SDK, gebruikt u `SendNotificationAsync`. De API SendNotification neemt ook HTTP-headers die worden doorgegeven, zoals-is naar de respectieve push notification-service.
 
@@ -125,7 +125,7 @@ Hier volgen om te achterhalen wat de hoofdoorzaak van verloren meldingen in Noti
 
 Controleer of de referenties in de respectieve push notification serviceportal voor ontwikkelaars (APNs, FCM, Windows Notification Service, enzovoort). Zie voor meer informatie, [aan de slag met Azure Notification Hubs].
 
-**Azure Portal**
+**Azure-portal**
 
 Om te controleren en overeenkomen met de referenties met deze die u hebt verkregen via de push notification serviceportal voor ontwikkelaars in Azure portal, gaat u naar de **toegangsbeleid** tabblad.
 
@@ -166,7 +166,7 @@ Veel klanten gebruiken [Service Bus Explorer](https://github.com/paolosalvatori/
 
 ### <a name="verify-message-notifications"></a>Controleer of u meldingen
 
-**Azure Portal**
+**Azure-portal**
 
 Een Testmelding verzenden naar uw clients zonder dat een service back-end ingesteld en geactiveerd, onder **ondersteuning + probleemoplossing**, selecteer **Test verzenden**.
 
@@ -227,7 +227,7 @@ Vervolgens kunt u de `EnableTestSend` Boole-eigenschap. Gebruik de `EnableTestSe
     }
 ```
 
-**Voorbeelduitvoer**
+**Voorbeeld van uitvoer**
 
 ```text
 DetailedStateAvailable
@@ -243,7 +243,7 @@ Dit bericht geeft aan dat ongeldige referenties zijn geconfigureerd in Notificat
 
 ### <a name="review-telemetry"></a>Telemetrie bekijken
 
-**Azure Portal**
+**Azure-portal**
 
 In de portal krijgt u een kort overzicht van alle activiteiten in uw notification hub.
 
@@ -261,7 +261,7 @@ In de portal krijgt u een kort overzicht van alle activiteiten in uw notificatio
 
 **Toegang op programmeerniveau**
 
-Zie voor meer informatie over toegang op programmeerniveau [programmatische telemetrie toegang].
+Zie voor meer informatie over toegang op programmeerniveau [Programmatische telemetrie-toegang].
 
 > [!NOTE]
 > Meerdere telemetrie-gerelateerde functies, zoals exporteren en importeren van registraties en telemetrie toegang via API's, zijn alleen beschikbaar op de servicelaag Standard. Als u probeert te gebruiken deze functies van de gratis of Basic-servicelaag, ontvangt u een bericht van uitzondering als u de SDK en een HTTP 403 (verboden)-fout als u de functies rechtstreeks vanuit de REST API's gebruiken.

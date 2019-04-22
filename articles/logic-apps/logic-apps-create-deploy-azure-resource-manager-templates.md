@@ -11,17 +11,17 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357083"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Logische apps met Azure Resource Manager-sjablonen implementeren
 
 Nadat u een Azure Resource Manager-sjabloon voor het implementeren van uw logische app maakt, kunt u de sjabloon op de volgende manieren implementeren:
 
-* [Azure Portal](#portal)
+* [Azure-portal](#portal)
 * [Azure PowerShell](#powershell)
 * [Azure-CLI](#cli)
 * [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
@@ -33,7 +33,7 @@ Nadat u een Azure Resource Manager-sjabloon voor het implementeren van uw logisc
 
 Als u wilt implementeren automatisch een sjabloon voor logische app in Azure, kunt u de volgende **implementeren in Azure** knop, waarmee u zich aanmeldt bij Azure portal en wordt u gevraagd voor informatie over uw logische app. U Breng eventueel benodigde wijzigingen aan de sjabloon voor logische app of de parameters.
 
-[![Deploy naar Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementeren in Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Bijvoorbeeld: u wordt gevraagd om deze gegevens nadat u zich aanmeldt bij Azure portal:
 
@@ -122,4 +122,4 @@ Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Logische apps bewaken](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Logische apps controleren](../logic-apps/logic-apps-monitor-your-logic-apps.md)

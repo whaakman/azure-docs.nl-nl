@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361349"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>De Azure Site Recovery deployment planner voor noodherstel van Hyper-V naar Azure uitvoeren
@@ -35,7 +35,7 @@ Hieronder ziet u een tabel met verplichte en optionele parameters van het hulppr
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
 
-| Parameternaam | Description |
+| Parameternaam | Beschrijving |
 |---|---|
 | -Operation | GetVMList |
 | -User | De gebruikersnaam om verbinding te maken met de Hyper-V-host of het Hyper-V-cluster. De gebruiker moet beheerderstoegang hebben.|
@@ -85,7 +85,7 @@ De volgende tabel bevat verplichte en optionele parameters van het hulpprogramma
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternaam | Description |
+| Parameternaam | Beschrijving |
 |---|---|
 | -Operation | StartProfiling |
 | -User | De gebruikersnaam om verbinding te maken met de Hyper-V-host of het Hyper-V-cluster. De gebruiker moet beheerderstoegang hebben.|
@@ -254,12 +254,12 @@ We raden u ten zeerste aan om rekening te houden met groei tijdens het plannen v
 
 Het gegenereerde Microsoft Excel-rapport bevat de volgende informatie:
 
-* [Samenvatting on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Samenvatting van on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Aanbevelingen](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-opslagplaatsing](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Plaatsing van VM-opslag](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatibele VM's](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Niet-compatibele VM's](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [On-premises opslagvereiste](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [Opslagvereiste voor on-premises](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR-batchverwerking](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Kostenraming](hyper-v-deployment-planner-cost-estimation.md)
 
@@ -275,7 +275,7 @@ Open een opdrachtregelconsole en ga naar de map voor de Azure Site Recovery-impl
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
 
- Parameternaam | Description |
+ Parameternaam | Beschrijving |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|Het type virtualisatie (VMware of Hyper-V).|
