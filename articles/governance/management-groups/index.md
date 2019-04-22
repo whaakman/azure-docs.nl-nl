@@ -1,12 +1,18 @@
 ---
 title: Uw resources organiseren met Azure-beheergroepen - Azure Governance
-description: 'Informatie over de managementgroepen, hoe hun machtigingen werken en hoe u ze gebruikt.'
+description: Informatie over de managementgroepen, hoe hun machtigingen werken en hoe u ze gebruikt.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699378"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -37,11 +43,11 @@ Eén toewijzing in de beheergroep kan gebruikers toegang geven tot alles wat ze 
 ## <a name="root-management-group-for-each-directory"></a>Hoofdbeheergroep voor elke map
 
 Elke map krijgt één beheergroep op het hoogste niveau, de 'hoofdbeheergroep'.
-Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen toepassen op mapniveau. De [globale beheerder van Azure AD moet zichzelf eerst instellen](../../role-based-access-control/elevate-access-global-admin.md) als eigenaar van deze hoofdgroep. Zodra de beheerder de eigenaar van de groep is, kan hij alle RBAC-rollen toewijzen aan andere Active Directory-gebruikers of -groepen om de hiërarchie te beheren.
+Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen op directoryniveau toepassen. De globale beheerder van Azure AD moet eerst de rol Beheerder gebruikerstoegang van deze hoofdgroep [aan zichzelf toewijzen](../../role-based-access-control/elevate-access-global-admin.md). Nadat hij dit heeft gedaan, kan de beheerder een RBAC-rol toewijzen aan andere directory-gebruikers of -groepen om de hiërarchie te beheren. Als beheerder kunt u uw eigen account toewijzen als eigenaar van de hoofdbeheergroep.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Belangrijke feiten over de hoofdbeheergroep
 
-- De naam en id van de hoofdbeheergroep worden standaard gegenereerd. De weergavenaam kan te allen tijde worden bijgewerkt, zodat die anders wordt weergegeven in de Azure-portal.
+- De naam en id van de hoofdbeheergroep worden standaard gegenereerd. De weergavenaam kan te allen tijde worden bijgewerkt, zodat die anders wordt weergegeven in de Azure-portal. Als u de [naam wilt wijzigen](manage.md#change-the-name-of-a-management-group), moet uw account eerst de rol Eigenaar of Inzender in de hoofdbeheergroep toegewezen hebben gekregen.
   - De naam wordt ‘Hoofdgroep tenant’.
   - De ID is de Azure Active Directory-id.
 - In tegenstelling tot andere beheergroepen kan de hoofdbeheergroep niet worden verplaatst of verwijderd.  
@@ -63,7 +69,7 @@ Wanneer een gebruiker start met het gebruik van beheergroepen, vindt er een proc
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemen met de weergave van alle abonnementen
 
-Bij een aantal mappen die vroeg in de preview (vóór 25 juni 2018) met beheergroepen begonnen te werken, deed zich een probleem voor waarbij niet alle abonnementen zich in de hiërarchie bevonden.  De processen voor het onderbrengen van alle abonnementen in de hiërarchie werden geïmplementeerd nadat er een rol- of beleidstoewijzing was uitgevoerd in de hoofdbeheergroep in de map.
+Bij een aantal mappen die vroeg in de preview (vóór 25 juni 2018) met beheergroepen begonnen te werken, deed zich een probleem voor waarbij niet alle abonnementen zich in de hiërarchie bevonden. Het proces voor het onderbrengen van alle abonnementen in de hiërarchie werden geïmplementeerd nadat er een rol- of beleidstoewijzing was uitgevoerd in de hoofdbeheergroep in de map. 
 
 ### <a name="how-to-resolve-the-issue"></a>Het probleem oplossen
 

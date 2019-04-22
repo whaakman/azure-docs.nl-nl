@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 36c4757feb367fd39ae94640cb8e8a0f1714a0d3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192122"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737048"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -66,7 +66,7 @@ az sig image-definition create \
 
 ## <a name="create-an-image-version"></a>De versie van een installatiekopie maken 
  
-Versies van de installatiekopie maken indien nodig met behulp van [az image galerie maken-image-versie](/cli/azure/sig/image-version#az-sig-image-version-create). U moet doorgeven in de ID van de beheerde installatiekopie gebruiken als een basislijn voor het maken van de versie van de installatiekopie. U kunt [az afbeeldingenlijst](/cli/azure/image?view#az-image-list) voor informatie over installatiekopieën die zich in een resourcegroep. In dit voorbeeld de versie van de installatiekopie is *1.0.0* en we gaan maken van 5-totaal aantal replica's in de *West-Centraal VS*, *Zuid-centraal VS* en VS-Oost 2 * regio's.
+Versies van de installatiekopie maken indien nodig met behulp van [az image galerie maken-image-versie](/cli/azure/sig/image-version#az-sig-image-version-create). U moet doorgeven in de ID van de beheerde installatiekopie gebruiken als een basislijn voor het maken van de versie van de installatiekopie. U kunt [az afbeeldingenlijst](/cli/azure/image?view#az-image-list) voor informatie over installatiekopieën die zich in een resourcegroep. In dit voorbeeld de versie van de installatiekopie is *1.0.0* en we gaan maken van 5-replica's in de *West-Centraal VS* regio, 1 replica in de *Zuid-centraal VS* regio en 1 replica's in de *VS-Oost 2* regio.
 
 ```azurecli-interactive 
 az sig image-version create \

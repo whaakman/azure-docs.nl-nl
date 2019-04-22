@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544143"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682677"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Herschrijf de HTTP-headers met Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Deze HTTP-headers voor het herschrijven helpt u bij het uitvoeren van verschillende belangrijke scenario's zoals het toevoegen van beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging verwijderen response-header velden die gevoelige informatie, stripping informatie over de poort van kan onthullen X doorgestuurd voor kopteksten, enzovoort. Application gateway ondersteunt de mogelijkheid voor het toevoegen, verwijderen of bijwerken van de HTTP-aanvraag- en reactieheaders terwijl de aanvraag en antwoordpakketten verplaatsen tussen de client en back-end-pools. Het biedt u ook de mogelijkheid om toe te voegen voorwaarden om ervoor te zorgen dat de opgegeven headers worden herschreven alleen als aan bepaalde voorwaarden wordt voldaan.
+Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Deze HTTP-headers voor het herschrijven helpt u bij het uitvoeren van verschillende belangrijke scenario's zoals het toevoegen van beveiligingsgerelateerde kopvelden, zoals HSTS / X-XSS-beveiliging verwijderen response-header velden die gevoelige informatie, verwijder informatie over de poort van kan onthullen X doorgestuurd voor kopteksten, enzovoort. Application gateway ondersteunt de mogelijkheid voor het toevoegen, verwijderen of bijwerken van de HTTP-aanvraag- en reactieheaders terwijl de aanvraag en antwoordpakketten verplaatsen tussen de client en back-end-pools. Het biedt u de mogelijkheid om toe te voegen voorwaarden om ervoor te zorgen dat de opgegeven headers worden herschreven alleen als aan bepaalde voorwaarden wordt voldaan. De mogelijkheid ondersteunt ook meerdere [servervariabelen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) welke aanvullende informatie over het aanvragen en antwoorden, zodat u kunt het maken van krachtige herschrijvingsregels voor help.
 > [!NOTE]
 >
 > De HTTP-ondersteuning voor het herschrijven van-header is alleen beschikbaar voor de [nieuwe Voorraadeenheid [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Voor het herschrijven van kopteksten](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Headers die worden ondersteund voor schrijven
 
@@ -35,7 +37,7 @@ Met behulp van het herschrijven voorwaarden evalueren van de inhoud van het HTTP
 - HTTP-headers in het antwoord
 - Application gateway-servervariabelen
 
-Een voorwaarde kan worden gebruikt om te beoordelen of de opgegeven variabele aanwezig, is of de opgegeven variabele exact overeenkomt met een specifieke waarde, of dat de opgegeven variabele exact overeenkomt met een specifiek patroon. [Perl compatibel reguliere expressies (PCRE)-bibliotheek](https://www.pcre.org/) wordt gebruikt voor het implementeren van reguliere-expressiepatroon die overeenkomt met de voorwaarden. Zie voor meer informatie over de syntaxis van de reguliere expressie, de [Perl reguliere expressies man pagina](http://perldoc.perl.org/perlre.html).
+Een voorwaarde kan worden gebruikt om te beoordelen of de opgegeven variabele aanwezig, is of de opgegeven variabele exact overeenkomt met een specifieke waarde, of dat de opgegeven variabele exact overeenkomt met een specifiek patroon. [Perl compatibel reguliere expressies (PCRE)-bibliotheek](https://www.pcre.org/) wordt gebruikt voor het implementeren van reguliere-expressiepatroon die overeenkomt met de voorwaarden. Zie voor meer informatie over de syntaxis van de reguliere expressie, de [Perl reguliere expressies man pagina](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Herschrijf de acties
 
@@ -124,6 +126,18 @@ Dit probleem kan worden opgelost door het instellen van de hostnaam in de locati
 Enkele beveiligingsproblemen kunnen worden opgelost door het implementeren van headers die nodig zijn in het antwoord van de toepassing. Sommige van deze beveiligingsheaders zijn X-XSS-beveiliging, strikt transportbeveiliging, inhoud-Security-beleid, enzovoort. U kunt application-gateway gebruiken om in te stellen deze headers voor alle antwoorden.
 
 ![Beveiligings-header](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Ongewenste headers verwijderen
+
+Kunt u deze headers verwijderen uit de HTTP-antwoord dat gevoelige informatie, zoals de naam van de back-end-server, besturingssysteem, details van tapewisselaar, enzovoort. U kunt de application gateway gebruiken om deze te verwijderen.
+
+![Koptekst verwijderen](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Controleren op aanwezigheid van een koptekst
+
+U kunt de HTTP-aanvraag of antwoord-header voor de aanwezigheid van een variabele kop- of server evalueren. Dit is handig als u van plan bent om uit te voeren van een koptekst herschrijven alleen wanneer een bepaalde header aanwezig is.
+
+![Controleren op aanwezigheid van een koptekst](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Beperkingen
 

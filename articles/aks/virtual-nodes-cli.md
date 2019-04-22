@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878227"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682964"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Voorbeeld: maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -57,6 +57,16 @@ De volgende regio's worden ondersteund voor implementaties met virtuele knooppun
 * West Europe (westeurope)
 * VS-West (VS West)
 
+## <a name="known-limitations"></a>Bekende beperkingen
+Virtuele knooppunten functionaliteit is sterk afhankelijk van de ACI-functieset. De volgende scenario's worden nog niet ondersteund met virtuele knooppunten
+
+* Met behulp van service-principal naar pull ACR afbeeldingen. [Tijdelijke oplossing](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is het gebruik van [Kubernetes-geheimen](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Beperkingen op het virtuele netwerk](../container-instances/container-instances-vnet.md) met inbegrip van VNet-peering, Kubernetes-netwerkbeleid en uitgaand verkeer naar internet met netwerkbeveiligingsgroepen.
+* Init containers
+* [Host-aliassen](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumenten](../container-instances/container-instances-exec.md#restrictions) voor exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribueert schillen niet aan de virtuele-knooppunt
+
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
 Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account.
@@ -93,7 +103,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.241.0.0/16
+    --address-prefixes 10.241.0.0/16
 ```
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
@@ -338,7 +348,7 @@ Virtuele knooppunten zijn vaak een onderdeel van een oplossing voor schalen in A
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482943"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699010"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -260,6 +260,18 @@ U kunt controleren welke modules worden uitgevoerd op een apparaat met de opdrac
    ```
 
 6. In de **sjabloon controleren** weergeeft, schakelt **indienen**.
+
+## <a name="open-ports-on-gateway-device"></a>Poorten openen op de gateway-apparaat
+
+Standard IoT Edge-apparaten hoeft geen binnenkomende verbindingen aan de functie, omdat alle communicatie met IoT Hub vindt plaats via uitgaande verbindingen. Gateway-apparaten zijn echter andere omdat ze nodig hebben om te kunnen ontvangen van berichten van hun downstream apparaten.
+
+Voor het gatewayscenario van een om te werken, moet ten minste één van de ondersteunde protocollen van de IoT Edge hub zijn geopend voor inkomend verkeer van de downstream-apparaten. De ondersteunde portocols zijn MQTT-, AMQP- en HTTPS.
+
+| Poort | Protocol |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT WS + <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Routeren van berichten van downstream-apparaten
 IoT Edge-runtime kunt versturen berichten worden verzonden van downstream apparaten net als bij berichten die worden verzonden door modules. Hiermee kunt u analyses uitvoeren in een module die wordt uitgevoerd op de gateway voor het verzenden van gegevens naar de cloud. 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298412"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682981"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snelstartgids: Een privé-containerregister maken met Azure Portal
 
@@ -61,7 +61,7 @@ De opdracht retourneert `Login Succeeded` nadat deze is voltooid.
 
 Als u de installatiekopieën in uw register wilt weergeven, gaat u naar het register in de portal en selecteert u **Opslagplaatsen**. Selecteer vervolgens de opslagplaats die u met `docker push` hebt gemaakt.
 
-In dit voorbeeld selecteert u de opslagplaats **busybox** en u ziet de met `v1` gelabelde installatiekopie onder **TAGS**.
+In dit voorbeeld selecteren we de **hello-world** opslagplaats, en zien we de `v1`-gelabelde installatiekopie onder **TAGS**.
 
 ![Containerinstallatiekopieën weergeven in de Azure-portal][qs-portal-09]
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243770"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698269"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor voor virtuele machines (preview): veelgestelde vragen
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Azure Monitor voor virtuele machines. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -100,7 +100,7 @@ De Azure-Monitor voor de functie voor toewijzing van virtuele machines is gebase
 * Bewaakte VM's zijn nu opgenomen in het knooppunt voor de client en het ringdiagram toont het deel van de bewaakte vs niet-bewaakte virtuele machines in de groep.  Het kan ook worden gebruikt voor het filteren van de lijst met computers wanneer de groep is uitgevouwen.
 * Bewaakte virtuele machines zijn nu opgenomen in de knooppunten poort groep en het ringdiagram toont het deel van de bewaakte vs niet-gecontroleerde computers in de groep.  Het kan ook worden gebruikt voor het filteren van de lijst met computers wanneer de groep is uitgevouwen.
 * De stijl van de kaart is meer consistent zijn met App-kaart van Application insights bijgewerkt.
-* De deelvensters aan clientzijde zijn bijgewerkt, maar nog niet de volledige set met integratie van die werden ondersteund in de Serviceoverzicht - updatebeheer, bijhouden, beveiliging en -servicedesk. 
+* De panelen aan clientzijde zijn bijgewerkt, en hoeft niet de volledige set met integratie van die werden ondersteund in de Serviceoverzicht - updatebeheer, bijhouden, beveiliging en -servicedesk. 
 * De optie voor het kiezen van groepen en computers toe te wijzen, is bijgewerkt en biedt nu ondersteuning voor abonnementen, resourcegroepen, schaalsets van virtuele Azure-machine en cloudservices.
 * U kunt nieuwe Serviceoverzicht machine-groepen maken in de Azure-Monitor voor de functie voor virtuele machines toewijzen.  
 
@@ -125,6 +125,12 @@ Terwijl we verbeteringen in kaart aangebracht hebben voor het afhandelen van gro
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Waarom ziet de grafiek netwerk op het tabblad prestaties er anders dan de grafiek netwerk op de pagina overzicht van Azure-VM?
 
 De overzichtspagina voor een Azure-VM wordt weergegeven voor diagrammen op basis van de meting van de host van de activiteit in de Gast-VM.  Voor op de Azure VM-overzicht van de grafiek netwerk alleen wordt weergegeven netwerkverkeer dat wordt in rekening gebracht.  Dit omvat geen inter-vnet-verkeer.  De gegevens en grafieken weergegeven voor Azure Monitor voor virtuele machines is gebaseerd op gegevens van de Gast-VM en de netwerk-grafiek wordt weergegeven voor alle TCP/IP-verkeer dat binnenkomend en uitgaand naar die virtuele machine, met inbegrip van inter-vnet.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Hoe wordt de reactietijd voor gegevens die zijn opgeslagen in VMConnection en weergegeven in het deelvenster van de verbinding en de werkmappen gemeten?
+
+Reactietijd is een benadering. Omdat we de code van de toepassing niet instrumenteren doen, weten we nog niet echt als een aanvraag wordt gestart en wanneer het antwoord wordt ontvangen. In plaats daarvan wordt meegerekend gegevens die worden verzonden via een verbinding en klik vervolgens op gegevens die via die verbinding. De agent houdt van deze verzendt en ontvangt en wil ze worden gekoppeld: een reeks verzendt, gevolgd door een reeks ontvangt wordt geïnterpreteerd als een paar aanvraag/antwoord. De tijd tussen deze bewerkingen is de reactietijd. Het bevat de netwerklatentie en de verwerkingstijd van de server.
+
+Deze benadering geschikt is voor protocollen die aanvraag/antwoord op basis van zijn: een enkele aanvraag wordt verwerkt via de verbinding en één antwoord wordt ontvangen. Dit is het geval voor HTTP (S) (zonder pipelining), maar niet tevreden voor andere protocollen.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Zijn de beperkingen ervan als ik op de Log Analytics gratis prijsstelling?
 Als u Azure Monitor hebt geconfigureerd met een Log Analytics-werkruimte met de *gratis* prijscategorie, Azure Monitor voor de functie voor toewijzing van virtuele machines ondersteunen alleen vijf verbonden machines verbonden met de werkruimte. Als u vijf virtuele machines die zijn verbonden met een gratis werkruimte hebt, u verbinding te verbreken van de virtuele machines en later verbindt vervolgens een nieuwe virtuele machine, de nieuwe virtuele machine wordt niet bewaakt en doorgevoerd op de pagina overzicht.  

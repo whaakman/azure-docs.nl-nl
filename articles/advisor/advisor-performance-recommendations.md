@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491576"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698942"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Prestaties van Azure-toepassingen met Azure Advisor
 
@@ -74,6 +74,25 @@ Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (Resou
 
 > [!NOTE]
 > Klassieke waarschuwingen in Azure Monitor zijn gepland voor het buiten gebruik stellen in juni 2019. Het is raadzaam dat u uw klassieke storage-account voor het gebruik van Resource Manager te behouden waarschuwingen functionaliteit met het nieuwe platform upgraden. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Ontwerp uw storage-accounts om te voorkomen dat te maken met de limiet voor het maximum aantal abonnementen
+
+Een Azure-regio kunt ondersteunt maximaal 250 storage-accounts per abonnement. Zodra de limiet is bereikt, kunt u zich niet voor het maken van meer storage accounts in deze combinatie van regio /-abonnement. Advisor controleert uw abonnementen en surface aanbevelingen voor u kunt ontwerpen voor minder storage-accounts voor die zich dicht bij de maximumlimiet is bereikt.
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimaliseer de prestaties van uw Azure MySQL, Azure PostgreSQL en Azure MariaDB-servers 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Druk op de CPU van uw Azure MySQL, Azure PostgreSQL en Azure MariaDB-servers met CPU-knelpunten oplossen
+Zeer hoog gebruik van de CPU gedurende een langere periode kan leiden tot trage queryprestaties voor uw workload. Vergroten van de CPU te helpen bij het optimaliseren van de runtime van de database-query's en de algehele prestaties verbeteren. Azure Advisor identificeert servers met een hoog CPU-gebruik die waarschijnlijk CPU beperkte workloads worden uitgevoerd en aan te bevelen Computing schalen.
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Geheugen beperkingen met betrekking tot uw Azure MySQL, Azure PostgreSQL en Azure MariaDB-servers beperken of verplaatsen naar een voor geheugen geoptimaliseerde SKU
+Een lage cache treffers verhouding kan leiden tot tragere prestaties van query's en meer IOPS. Dit kan zijn vanwege een ongeldige query-abonnement of het uitvoeren van een geheugen intensieve workload. Het queryplan oplossen of [verhogen van het geheugen](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) van de Azure Database for PostgreSQL-databaseserver, Azure MySQL-database-server of Azure MariaDB server ervoor dat de uitvoering van de database-werkbelasting te optimaliseren. Azure Advisor identificeert servers die worden beïnvloed door dit verloop van de pool hoog Buffergebruik en raadt aan om een van beide het verhelpen van het queryplan verplaatsen naar een hogere SKU met meer geheugen en opslag vergroten om meer IOPS.
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Een Azure MySQL of een Azure PostgreSQL-Leesreplica gebruiken om uit leesbewerkingen voor lees-intensieve workloads te schalen
+Azure Advisor maakt gebruik van heuristiek op basis van een werkbelasting, zoals de verhouding van leesbewerkingen en schrijfbewerkingen op de server gedurende de afgelopen zeven dagen voor het identificeren van lees-intensieve werkbelastingen. Uw Azure database voor PostgreSQL-bron of de Azure database voor MySQL-resource met een verhouding van zeer hoge lezen/schrijven kan resulteren in CPU-en/of geheugen contentions leiden tot trage prestaties van query's. Toevoegen van een [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) helpt bij het uitschalen van leesbewerkingen op de replica-server te voorkomen dat CPU-en/of geheugen beperkingen op de primaire server. Advisor worden servers geïdentificeerd met dergelijke hoge Lees-intensieve werkbelastingen, en kunt het beste toevoegen een [replica lezen](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) voor de offload van enkele van de werkbelastingen voor lezen.
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Schalen van uw Azure MySQL en Azure PostgreSQL en Azure MariaDB-server naar een hogere SKU om te voorkomen dat verbindingsbeperkingen
+Elke nieuwe verbinding met uw databaseserver geheugen in beslag neemt. Prestaties van de database-server minder als verbindingen met uw server vanwege mislukken een [bovengrens](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) in het geheugen. Azure Advisor worden geïdentificeerd van servers met veel fouten bij het verbinden met en kunt het beste een upgrade van uw server verbindingen limieten voor meer geheugen aan de server door omhoog schalen van compute of geheugen geoptimaliseerd SKU's, waarvoor meer rekencapaciteit per kern.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor prestaties in Advisor
 

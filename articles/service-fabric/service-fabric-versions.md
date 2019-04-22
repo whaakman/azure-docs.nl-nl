@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191644"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681604"
 ---
 # <a name="supported-service-fabric-versions"></a>Ondersteunde versies van de Service Fabric
 
@@ -30,7 +30,9 @@ Raadpleeg de volgende documenten voor meer informatie over het behouden van uw c
 - [Service Fabric-versie op een Azure-cluster upgraden](service-fabric-cluster-upgrade.md)
 - [Service Fabric-versie op een zelfstandige windows server-cluster upgraden](service-fabric-cluster-upgrade-windows-server.md)
 
-Hier volgen de lijst met de Service Fabric-versies die worden ondersteund en de einddatum van ondersteuning.
+## <a name="supported-versions"></a>Ondersteunde versies
+
+De volgende tabel geeft een lijst van de Service Fabric-versies die worden ondersteund en de einddatum van ondersteuning.
 
 | **Service Fabric-runtime in het cluster** | **Rechtstreeks vanuit de clusterversie kunt upgraden** |**Compatibel SDK / NuGet-pakket versies** | **Einde van ondersteuning voor datum** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Hier volgen de lijst met de Service Fabric-versies die worden ondersteund en de 
 | 6.2.* | 6.0.232.* |Kleiner dan of gelijk zijn aan versie 3.1 |Oktober 26,2018   |
 | 6.3.* | 6.1.480.* |Kleiner dan of gelijk zijn aan versie 3.2 |31,2019 maart  |
 | 6.4.* | 6.2.301.* |Kleiner dan of gelijk zijn aan versie 3.3 |Huidige versie en dus geen einddatum |
+
+## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
+
+ De volgende tabel bevat de ondersteunde besturingssystemen voor de ondersteunde versies van de Service Fabric.
+
+| **Besturingssysteem** | **Vroegste ondersteunde Service Fabric-versie** |
+| --- | --- |
+| Windows Server 2012 R2 | Alle versies |
+| Windows Server 2016 | Alle versies |
+| Windows Server 1709 | 6.0 |
+| WindowsServer 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505597"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698312"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
 
@@ -274,7 +274,7 @@ Om te leiden tijdzones:
 1. Open op de Active Directory-server, de **Group Policy Management Console**.
 2. Vouw uw domein en groepsbeleidsobjecten.
 3. Met de rechtermuisknop op de **Group Policy Object** dat u hebt gemaakt voor de instellingen voor Groepsbeleid en selecteer **bewerken**.
-4. In de **Editor voor Groepsbeleidsbeheer**, gaat u naar **Computerconfiguratie** > **beleid** > **Administrative Sjablonen** > **Windows-onderdelen** > **Horizon weergave RDSH Services** > **extern bureaublad-sessiehost Host** > **apparaat en Resource-omleiding**.
+4. In de **Editor voor Groepsbeleidsbeheer**, gaat u naar **Computerconfiguratie** > **beleid** > **Administrative Sjablonen** > **Windows-onderdelen** > **extern bureaublad-Services** > **extern bureaublad-sessiehost**   >  **Apparaat en Resource-omleiding**.
 5. Schakel de **tijdzoneomleiding toestaan** instelling.
 
 U kunt ook deze opdracht uitvoeren op de master-image tijdzones omleiden:
@@ -367,8 +367,8 @@ De volgende instructies wordt uitgelegd hoe u een master-image te uploaden naar 
 
 Nu dat u een installatiekopie hebt, kunt u maken of bijwerken van de host van toepassingen. Zie de volgende artikelen voor meer informatie over het maken en bijwerken van de host van toepassingen:
 
-- [Een hostpool maken met een Azure Resource Manager-sjabloon](create-host-pools-arm-template.md)
-- [Zelfstudie: Een hostpool maken met Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Een hostpool maken met PowerShell](create-host-pools-powershell.md)
-- [Een gebruikersprofielshare instellen voor een hostpool](create-host-pools-user-profile.md)
-- [De taakverdelingsmethode voor Windows Virtual Desktop configureren](configure-host-pool-load-balancing.md)
+- [Een host-pool maken met een Azure Resource Manager-sjabloon](create-host-pools-arm-template.md)
+- [Zelfstudie: Een host-pool maken met Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Een host-pool maken met PowerShell](create-host-pools-powershell.md)
+- [Instellen van een share van de gebruiker profiel voor een groep host](create-host-pools-user-profile.md)
+- [Configureren van de taakverdelingsmethode voor een virtuele Windows-bureaublad](configure-host-pool-load-balancing.md)

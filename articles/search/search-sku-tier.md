@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270942"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681562"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -64,35 +64,36 @@ Er zijn drie manieren u kosten maken in Azure Search in Azure Search en zijn er 
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. Servicekosten voor Core (vaste en variabele)
 
-Voor de service zelf, de minimale kosten is de eerste zoekeenheid (1 replica x 1 partitie) en deze hoeveelheid constant gedurende de levensduur van de service is omdat de service kan niet worden uitgevoerd op iets minder dan deze configuratie. 
+De minimale kosten is de eerste zoekeenheid (1 replica x 1 partitie) voor de service zelf, en dit bedrag wordt vastgesteld voor de levensduur van de service omdat de service op iets minder dan deze configuratie kan niet worden uitgevoerd. 
 
-In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis, basis en S1 (S2, S3, L1 en L2 worden niet weergegeven). Als u hebt gemaakt een **Basic**, **Standard**, of **met geoptimaliseerde opslag** -service, uw maandelijkse kosten zou de waarde die wordt weergegeven voor de gemiddelde *prijs-1*en *prijs 2* respectievelijk. Kosten per eenheid terecht voor elke laag omdat de rekenkundige power- en opslagcapaciteit op elke opeenvolgende laag valt.
+Meer dan het minimum, kunt u toevoegen replica's en partities onafhankelijk van elkaar. U kunt bijvoorbeeld alleen replica's of alleen de partities toevoegen. Incrementele verhogingen in capaciteit via de replica's en partities die deel uitmaken van de variabele kosten-component. 
+
+Facturering is gebaseerd op een [formule (replica's x partities x-tarief)](#search-units). Het tarief is afhankelijk van de prijscategorie die u selecteert.
+
+In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis, basis en S1 (S2, S3, L1 en L2 worden niet weergegeven). Als u hebt gemaakt een **Basic**, **Standard**, of **met geoptimaliseerde opslag** -service, uw maandelijkse kosten zou de waarde die wordt weergegeven voor de gemiddelde *prijs-1*en *prijs 2* respectievelijk. Kosten per eenheid terecht voor elke laag omdat de rekenkundige power- en opslagcapaciteit op elke opeenvolgende laag valt. De tarieven voor Azure Search worden gepubliceerd op de [Azure Search-pagina met prijzen](https://azure.microsoft.com/pricing/details/search/).
 
 ![Per eenheid prijzen](./media/search-sku-tier/per-unit-pricing.png "Per eenheid prijzen")
 
-Extra replica's en partities zijn een invoegtoepassing voor de initiële kosten in rekening gebracht. Een search-service vereist een replica en een partitie, zodat de minimale configuratie één van elk is. Dan het minimum voegt u replica's en partities onafhankelijk van elkaar. U kunt bijvoorbeeld alleen replica's of alleen de partities toevoegen. 
+Wanneer kosten van een zoekoplossing, ziet u de prijzen en -capaciteit niet lineair zijn (verdubbeling van capaciteit van meer dan verdubbeld de kosten). Zie voor een voorbeeld van hoe u van de formule werkt ["Het toewijzen van replica's en partities"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Extra replica's en partities worden in rekening gebracht op basis van een [formule](#search-units). De kosten zijn niet lineair (verdubbeling van capaciteit van meer dan verdubbeld de kosten). Zie voor een voorbeeld van hoe u van de formule werkt ["Het toewijzen van replica's en partities"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Kosten voor uitgaande gegevens tijdens het indexeren
 
-Het gebruik van [Azure Search-indexeerfuncties](search-indexer-overview.md) kan leiden tot facturering impact afhankelijk van waar de services die zich bevinden. Volledig als u de Azure Search-service in dezelfde regio als uw gegevens maakt, kunt u kosten voor uitgaande gegevens voorkomen.
+Het gebruik van [Azure Search-indexeerfuncties](search-indexer-overview.md) kan leiden tot facturering impact, afhankelijk van waar de services die zich bevinden. Volledig als u de Azure Search-service in dezelfde regio als uw gegevens maakt, kunt u kosten voor uitgaande gegevens voorkomen. De volgende punten zijn van de [bandbreedte pagina met prijzen](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ Er zijn geen kosten in rekening gebracht voor binnenkomende gegevens voor elke service op Azure.
++ Microsoft niet in rekening voor alle binnenkomende gegevens voor elke service op Azure, of voor alle uitgaande gegevens van Azure Search.
 
-+ Er zijn geen kosten in rekening gebracht voor uitgaande gegevens van Azure Search.
++ In oplossingen voor meerdere services zijn er geen kosten voor gegevens die via de kabel wanneer alle services zich in dezelfde regio bevinden.
 
-+ Er zijn geen kosten in rekening gebracht voor gegevens of bestanden, uitgaande van SQL DB, Cosmos, Blob-opslag (binnenkomend verkeer naar Azure Search), zolang alle services zich in dezelfde regio.
-
-+ In rekening gebracht voor uitgaande gegevens of bestanden als opslag en Azure Search in verschillende regio's.
-
-Wanneer kunnen gegevens tussen Azure-regio's, ziet u de bandbreedte kosten in rekening gebracht in de factuur voor die resources. Deze kosten zijn geen onderdeel van uw factuur voor Azure Search, maar ze hier worden genoemd omdat als u van indexeerfuncties gebruikmaakt voor het ophalen van gegevens of bestanden via de kabel, u dat kosten in rekening gebracht op uw algehele factuur ziet.
-
-Als u indexeerfuncties niet gebruikt, zijn er geen kosten verbonden aan bandbreedte. 
+In rekening gebracht voor uitgaande gegevens als services zich in verschillende regio's. Deze kosten zijn per se geen onderdeel van uw factuur voor Azure Search, maar ze hier worden genoemd omdat als u van gegevens of AI verrijkt indexeerfuncties gegevens wilt halen uit verschillende regio's gebruikmaakt, u de kosten die in uw algehele factuur weergegeven ziet. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-verrijkt indexeren met cognitieve Services
 
-Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. Andere enrichments, zoals de verwerking van natuurlijke taal, zijn gebaseerd op [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
+Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md), moet u van plan bent voor het koppelen van een factureerbare Cognitive Services-resource op de S0 prijscategorie voor de verwerking van betalen per gebruik. Er is geen 'vaste prijs' die is gekoppeld aan het koppelen van Cognitive Services. U betaalt alleen voor de verwerking die u nodig hebt.
+
+Afbeelding extractie tijdens documenten kraken is een Azure Search-kosten in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. 
+
+Andere enrichments, zoals de verwerking van natuurlijke taal, zijn gebaseerd op [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht op basis van een resource voor Cognitive Services, hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd. Zie voor meer informatie, [koppelen van een Cognitive Services-resource met een set vaardigheden](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 

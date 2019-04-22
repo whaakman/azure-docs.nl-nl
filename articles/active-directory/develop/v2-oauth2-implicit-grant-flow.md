@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501311"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698449"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft identity-platform en impliciet verlenen stroom
 
@@ -52,7 +52,7 @@ Het volgende diagram toont hoe het gehele impliciete-aanmeldingsstroom uitziet e
 
 ## <a name="send-the-sign-in-request"></a>De aanvraag voor aanmelding bij verzenden
 
-In eerste instantie het tekenen van de gebruiker in uw app, kunt u sturen een [OpenID Connect](v2-protocols-oidc.md) autorisatie-aanvraag aan en ontvang een `id_token` van het eindpunt van Microsoft identity-platform.
+In eerste instantie het tekenen van de gebruiker in uw app, kunt u sturen een [OpenID Connect](v2-protocols-oidc.md) verificatieaanvraag aan en ontvang een `id_token` van het eindpunt van Microsoft identity-platform.
 
 > [!IMPORTANT]
 > Om aan te vragen is een ID-token, dat de app-registratie in de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina moet de impliciete stroom correct ingeschakeld door het selecteren van **toegangstokens** en **ID-tokens** onder de **impliciete** sectie. Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: **De opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code'**
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Als u wilt testen met behulp van de impliciete flow aanmelden, klikt u op <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `id_token` in de adresbalk.
 >
 
-| Parameter |  | Description |
+| Parameter |  | Beschrijving |
 | --- | --- | --- |
 | `tenant` | vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | vereist | De toepassing (client)-ID die de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |

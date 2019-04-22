@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2019
 ms.author: glenga
 ms.custom: include file, fasttrack-edit
-ms.openlocfilehash: 3b0be31afbce78c0de8dc919245e92bee7af04b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b009fafc818a06bdda309b3e025251cc0997e47
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964122"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737046"
 ---
 ## <a name="update-the-function"></a>Functie bijwerken
 
@@ -33,7 +33,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="javascript"></a>Javascript
 
-Open het bestand function.json voor de nieuwe functie in een teksteditor, wijzig de eigenschap **authLevel** in **bindings.httpTrigger** in `anonymous` en sla de wijzigingen op.
+Open het bestand function.json voor de nieuwe functie in een teksteditor, bij te werken de **authLevel** eigenschap in **bindingen** naar `anonymous`, en sla de wijzigingen.
 
 ```json
   "bindings": [

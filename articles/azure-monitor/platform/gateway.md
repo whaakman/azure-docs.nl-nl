@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437336"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699267"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway in Azure Monitor
 
@@ -124,9 +124,9 @@ of
 1. In de blade van uw werkruimte onder **instellingen**, selecteer **geavanceerde instellingen**.
 1. Ga naar **verbonden bronnen** > **Windows Servers** en selecteer **downloaden Log Analytics gateway**.
 
-## <a name="install-the-log-analytics-gateway"></a>De Log Analytics-gateway installeren
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Met behulp van de wizard setup van Log Analytics-gateway installeren
 
-Volg deze stappen voor het installeren van een gateway.  (Als u een eerdere versie aangeroepen van Log Analytics Forwarder hebt geïnstalleerd, er wordt een upgrade uitgevoerd naar deze versie.)
+Volg deze stappen voor het installeren van een gateway met de wizard setup. 
 
 1. Dubbelklik in de doelmap op **Log Analytics gateway.msi**.
 1. Op de pagina **Welkom** selecteert u **Volgende**.
@@ -152,6 +152,40 @@ Volg deze stappen voor het installeren van een gateway.  (Als u een eerdere vers
 
    ![Schermafbeelding van lokale services of OMS-Gateway wordt uitgevoerd](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installeer de Log Analytics-gateway met behulp van de opdrachtregel
+Het gedownloade bestand voor de gateway is een Windows Installer-pakket die ondersteuning biedt voor installatie op de achtergrond van de opdrachtregel of andere geautomatiseerde methode. Als u niet bekend met de standaard opdrachtregelopties voor Windows Installer bent, Zie [opdrachtregelopties](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+De volgende tabel ziet u de parameters die worden ondersteund door setup.
+
+|Parameters| Opmerkingen|
+|----------|------| 
+|POORTNUMMER | TCP-poortnummer voor de gateway om te luisteren op |
+|PROXY | IP-adres van proxyserver |
+|INSTALLDIR | Volledig gekwalificeerde pad naar de installatiemap van de bestanden van de gateway-software opgeven |
+|GEBRUIKERSNAAM | Gebruikers-Id om te verifiëren bij de proxyserver |
+|WACHTWOORD | Wachtwoord van de gebruikers-Id om te verifiëren met proxy |
+|LicenseAccepted | Geef een waarde van **1** om te controleren of u de gebruiksrechtovereenkomst accepteren |
+|HASAUTH | Geef een waarde van **1** als parameters van de gebruikersnaam en wachtwoord worden opgegeven |
+|HASPROXY | Geef een waarde van **1** bij het opgeven van IP-adres voor **PROXY** parameter |
+
+Als u wilt op de achtergrond installeren van de gateway en configureer dit met een specifieke proxy-adres, poortnummer, typ het volgende:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+Installatie met behulp van de opdrachtregeloptie /qn verbergt, qb setup tijdens een installatie zonder toezicht wordt weergegeven.  
+
+Als u moet referenties voor verificatie met de proxy op te geven, typ het volgende:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Na de installatie, kunt u bevestigen de instellingen zijn geaccepteerd (exlcuding de gebruikersnaam en wachtwoord) met behulp van de volgende PowerShell-cmdlets:
+
+- **Get-OMSGatewayConfig** : retourneert de door de gateway is geconfigureerd om te luisteren op TCP-poort.
+- **Get-OMSGatewayRelayProxy** – het IP-adres van de proxyserver die u hebt geconfigureerd om communicatie met retourneert.
 
 ## <a name="configure-network-load-balancing"></a>Netwerktaakverdeling 
 U kunt de gateway voor hoge beschikbaarheid met behulp van netwerktaakverdeling (NLB) met behulp van Microsoft configureren [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), of op basis van hardware load balancers. De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de Log Analytics-agents of beheerservers van Operations Manager op de knooppunten. Als een Gateway-server uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.

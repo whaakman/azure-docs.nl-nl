@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438815"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683730"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Bewaarbeleid Azure Active Directory-rapporten
 
@@ -68,9 +68,9 @@ Voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aa
 
 | Rapport                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Directorycontrole        | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
-| Aanmeldingsactiviteit       | N/A           |  N/A           | 30 dagen             | 30 dagen             |
-| Azure MFA Usage        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
+| Auditlogboeken             | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
+| Aanmeldingen               | N/A           |  N/A           | 30 dagen             | 30 dagen             |
+| Gebruik van Azure MFA        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
 
 U kunt de gegevens van de activiteit controleren en meld u langer dan de bewaartermijn die hierboven worden beschreven door het routering naar Azure storage-account met behulp van Azure Monitor behouden. Zie voor meer informatie, [archief Azure AD vastgelegd in een Azure storage-account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

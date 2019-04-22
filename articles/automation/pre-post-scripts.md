@@ -1,22 +1,22 @@
 ---
-title: Configureren vóór en na-scripts in de Update Management-implementatie in Azure (Preview)
+title: Configureren vóór en na-scripts in de Update Management-implementatie in Azure
 description: In dit artikel wordt beschreven hoe u configureren en beheren van vóór en na-scripts voor update-implementaties
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263805"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698735"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
+# <a name="manage-pre-and-post-scripts"></a>Beheren van scripts voor vóór en na
 
 Scripts voor vóór en na kunnen u PowerShell-runbooks uitvoeren in uw Automation-Account voordat (vooraf taak) en na de (na taak) een update-implementatie. Scripts voor vóór en na uitvoeren in de context van Azure en niet lokaal. Scripts die voorafgaan aan uitvoeren vanaf het begin van de update-implementatie. Post-scripts uitgevoerd aan het einde van de implementatie en na een opnieuw opstarten die zijn geconfigureerd.
 
@@ -26,7 +26,7 @@ Voor een runbook moet worden gebruikt als een script voor vóór of na, moet u h
 
 ## <a name="using-a-prepost-script"></a>Met behulp van een vooraf/post-script
 
-Gebruik van een vooraf en boeken in een Update-implementatie een script, beginnen met het maken van een Update-implementatie. Selecteer **scripts die voorafgaan aan en bericht-Scripts (Preview)**. Deze actie opent u de **Selecteer scripts die voorafgaan aan en scripts die volgen op** pagina.  
+Gebruik van een vooraf en boeken in een Update-implementatie een script, beginnen met het maken van een Update-implementatie. Selecteer **scripts die voorafgaan aan en bericht Scripts**. Deze actie opent u de **Selecteer scripts die voorafgaan aan en scripts die volgen op** pagina.  
 
 ![Selecteer de optie scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Interactie met niet-Azure-machines
+## <a name="interacting-with-machines"></a>Interactie met virtuele machines
+
+Vóór en na-taken worden uitgevoerd als een runbook in uw Automation-Account en niet rechtstreeks op de virtuele machines in uw implementatie. Vóór en na taken ook uitvoeren in de context van Azure en geen toegang hebt tot niet-Azure-machines. De volgende secties tonen hoe u kunt werken met de virtuele machines rechtstreeks of ze een virtuele Azure-machine of een niet-Azure-machine zijn:
+
+### <a name="interacting-with-azure-machines"></a>Interactie met Azure-machines
+
+Vóór en na-taken worden uitgevoerd als runbooks en systeemeigen niet uitgevoerd op uw Azure-VM's in uw implementatie. Om te communiceren met uw Azure VM's, hebt u de volgende items:
+
+* Een uitvoeren als-account
+* Een runbook die uit te voeren
+
+Om te communiceren met Azure-machines, moet u de [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet om te communiceren met uw Azure VM's. Voor een voorbeeld van hoe u dit doet, Zie het voorbeeld runbook [Update Management - Script uitvoeren met de opdracht uitvoeren](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Interactie met niet-Azure-machines
 
 Vóór en na-taken uitvoeren in de context van Azure en geen toegang hebt tot niet-Azure-machines. Om te communiceren met de niet-Azure-machines, hebt u de volgende items:
 
@@ -215,38 +228,7 @@ Vóór en na-taken uitvoeren in de context van Azure en geen toegang hebt tot ni
 * Een runbook dat u wilt lokaal uitvoeren
 * Bovenliggend runbook
 
-Om te communiceren met niet-Azure-machines, wordt een bovenliggend runbook uitvoeren in de context van Azure. Dit runbook roept een onderliggend runbook met de [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Moet u de `-RunOn` parameter en geef de naam van de Hybrid Runbook Worker voor het script uit te voeren op.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+Om te communiceren met niet-Azure-machines, wordt een bovenliggend runbook uitvoeren in de context van Azure. Dit runbook roept een onderliggend runbook met de [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Moet u de `-RunOn` parameter en geef de naam van de Hybrid Runbook Worker voor het script uit te voeren op. Voor een voorbeeld van hoe u dit doet, Zie het voorbeeld runbook [Update Management - Script lokaal uitvoeren](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>De implementatie van de patch afbreken
 
@@ -268,5 +250,5 @@ if (<My custom error logic>)
 Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
 
 > [!div class="nextstepaction"]
-> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
+> [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
 

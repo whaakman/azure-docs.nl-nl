@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3fa261c6cb76cb95cffc602e5018e480afbb5dae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890920"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737050"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Wat is het verschil tussen een gateway van een virtueel Azure-netwerk (VPN Gateway) en een Azure Virtual WAN-VPN-gateway?
 
@@ -81,7 +81,7 @@ Ja. Zie de [prijzenpagina](https://azure.microsoft.com/pricing/details/virtual-w
 
 ### <a name="how-do-i-calculate-price-of-a-hub"></a>Hoe ik de prijs van een hub berekend?
  
-U moet betalen voor de service in de hub. Bijvoorbeeld, 10 vertakkingen of on-premises apparaten die verbinding maken met Azure virtuele WAN zou kunnen betekenen dat verbinding te maken met VPN-eindpunten in de hub. Hiermee kunnen Stel dat dit VPN van 1 schaaleenheid = 500 Mbps, dit wordt in rekening gebracht op $0.361/ uur. Elke verbinding tot stand is gebracht met $ 0,08/uur. Voor 10-verbindingen, de totale kosten van service/uur zou zijn $0.361 + $. 8 / uur. Gegevens voor het verkeer verlaat azure in rekening gebracht. 
+U moet betalen voor de service in de hub. Bijvoorbeeld, 10 vertakkingen of on-premises apparaten die verbinding maken met Azure virtuele WAN zou kunnen betekenen dat verbinding te maken met VPN-eindpunten in de hub. Hiermee kunnen Stel dat dit VPN van 1 schaaleenheid = 500 Mbps, dit wordt in rekening gebracht op $0.361/ uur. Elke verbinding tot stand is gebracht met $ 0,08/uur. Voor 10-verbindingen, de totale kosten van service/uur zou zijn $0.361 + $. 8 / uur. Gegevens voor verkeer dat Azure in rekening gebracht. 
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Hoe worden nieuwe partners die nog niet zijn vermeld in de startlijst van partners, opgenomen?
 

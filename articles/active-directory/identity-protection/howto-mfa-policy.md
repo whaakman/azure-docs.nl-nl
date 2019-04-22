@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520340"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698959"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procedure: Het registratiebeleid voor meervoudige verificatie configureren
 
-Azure AD Identity Protection kunt u het uitrollen van de multi-factor authentication (MFA)-inschrijving beheren door een beleid te configureren. Dit artikel wordt uitgelegd wat het beleid kan worden gebruikt voor een configureert.
+Azure AD Identity Protection kunt u het uitrollen van de multi-factor authentication (MFA)-inschrijving beheren door een beleid om te vereisen dat MFA-registratie te configureren. Dit artikel wordt uitgelegd wat het beleid kan worden gebruikt voor een configureert.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Wat is het registratiebeleid voor meervoudige verificatie?
 
-Verificatie met meerdere factoren van Azure is een methode om te controleren wie u bent die het gebruik van meer dan alleen een gebruikersnaam en wachtwoord vereist. Het biedt een tweede beveiligingslaag gebruikersaanmeldingen en transacties.  
+Verificatie met meerdere factoren van Azure is een methode om te controleren wie u bent die het gebruik van meer dan alleen een gebruikersnaam en wachtwoord vereist. Het biedt een tweede beveiligingslaag gebruikersaanmeldingen en transacties. In de volgorde voor gebruikers om te kunnen reageren op prompts van MFA, moeten ze eerst registreren voor MFA. 
 
 Het is raadzaam dat u Azure multi-factor authentication voor gebruikersaanmeldingen, vereisen omdat deze:
 
@@ -39,7 +39,7 @@ Het is raadzaam dat u Azure multi-factor authentication voor gebruikersaanmeldin
 - Speelt een belangrijke rol bij het voorbereiden van uw organisatie beveiligen en herstellen van account compromissen
 
 
-Zie voor meer informatie, [wat is Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
+Zie voor meer informatie over MFA [wat is Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>Hoe krijg ik toegang tot de MFA-registratiebeleid?
@@ -53,13 +53,13 @@ De MFA-registratiebeleid is in de **configureren** sectie op de [Azure AD Identi
 
 ## <a name="policy-settings"></a>Beleidsinstellingen
 
-Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
+Wanneer u de MFA-registratiebeleid configureert, moet u instellen:
 
 - De gebruikers en groepen die het beleid van toepassing op:
 
     ![Gebruikers en groepen](./media/howto-mfa-policy/11.png)
 
-- Het type toegang dat u wilt worden afgedwongen:  
+- Het besturingselement dat u afdwingen, vereiste van MFA-registratie wilt:  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

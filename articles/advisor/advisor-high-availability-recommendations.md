@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881185"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699301"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Verbeter de beschikbaarheid van uw toepassing met Azure Advisor
 
@@ -65,6 +65,10 @@ Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/s
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>De actief / actief VPN-gateway configureren voor verbindingstolerantie
 
 In de actief / actief-configuratie, beide exemplaren van een VPN-gateway S2S VPN-tunnels naar uw on-premises VPN-apparaat tot stand brengen. Als een gepland onderhoud of niet-geplande gebeurtenis op een gatewayexemplaar gebeurt, wordt verkeer omgeleid naar de andere actieve IPsec-tunnel automatisch. Azure Advisor worden VPN-gateways die niet zijn geconfigureerd als actief / actief-geïdentificeerd en voorstellen dat u deze voor hoge beschikbaarheid configureert.
+
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Productie-VPN-gateways gebruiken om uit te voeren van uw werkbelastingen voor productie
+
+Azure Advisor controleert alle VPN-gateways die zijn van een basis-SKU en kunt het beste een productie-SKU in plaats daarvan te gebruiken. De basis-SKU is bedoeld voor ontwikkelings- en testdoeleinden. Productie-SKU's bieden een groter aantal tunnels, BGP-ondersteuning, actief / actief-configuratie-opties, aangepast Ipsec/IKE-beleid, en hogere stabiliteit en beschikbaarheid.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor hoge beschikbaarheid in Advisor
 

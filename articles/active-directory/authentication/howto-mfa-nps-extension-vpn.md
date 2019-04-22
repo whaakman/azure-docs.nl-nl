@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ea409b1726e82557b564f93fbd35898e9cf2cb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372451"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699112"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -374,7 +374,7 @@ Voor het gebruik van het script, bieden u de extensie met uw beheerdersreferenti
 
 2. Voer vanaf de PowerShell-opdrachtprompt **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, en selecteer vervolgens Enter.
 
-3. Voer op de volgende opdrachtregel het volgende **.\AzureMfsNpsExtnConfigSetup.ps1**, en selecteer vervolgens Enter. Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
+3. Voer op de volgende opdrachtregel het volgende **.\AzureMfaNpsExtnConfigSetup.ps1**, en selecteer vervolgens Enter. Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
 
     ![De configuratie van AzureMfsNpsExtnConfigSetup.ps1 script is uitgevoerd](./media/howto-mfa-nps-extension-vpn/image38.png)
 

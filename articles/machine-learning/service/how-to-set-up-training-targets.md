@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046152"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683899"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -377,7 +377,6 @@ U hebt toegang tot de compute-doelen die gekoppeld aan uw werkruimte met zijn de
 
 Zie voor meer informatie, [resourcebeheer](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Indienen van training uitvoeren
 
 Nadat u een uitvoerconfiguratieprofiel gemaakt, kunt u deze gebruiken om uit te voeren van uw experiment.  De code-patroon om in te dienen een training-uitvoering is hetzelfde voor alle typen compute-doelen:
@@ -385,6 +384,13 @@ Nadat u een uitvoerconfiguratieprofiel gemaakt, kunt u deze gebruiken om uit te 
 1. Maken van een experiment uitvoeren
 1. De uitvoering verzenden.
 1. Wacht totdat de uitvoering om te voltooien.
+
+> [!IMPORTANT]
+> Wanneer u de uitvoering van de training verzendt, wordt een momentopname van de map waarin uw trainingsscripts gemaakt en verzonden naar de compute-doel. Dit wordt ook opgeslagen als onderdeel van het experiment in uw werkruimte. Als u bestanden wijzigen en het verzenden van de uitvoering opnieuw, alleen de gewijzigde bestanden worden geüpload.
+>
+> Om te voorkomen dat bestanden worden opgenomen in de momentopname maken van een [.gitignore](https://git-scm.com/docs/gitignore) of `.amlignore` -bestand in de map en de bestanden toevoegen. De `.amlignore` bestand maakt gebruik van dezelfde syntaxis en patronen als de [.gitignore](https://git-scm.com/docs/gitignore) bestand. Als beide bestanden bestaat, de `.amlignore` bestand heeft voorrang.
+> 
+> Zie voor meer informatie, [momentopnamen](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Een experiment maken
 
@@ -399,8 +405,6 @@ Verzenden van het experiment met een `ScriptRunConfig` object.  Dit object bevat
 * **bronmap**: De bronmap die met het trainingsscript
 * **script**: Het trainingsscript identificeren
 * **run_config**: De uitvoering configuratie, die op zijn beurt definieert waar de training wordt uitgevoerd.
-
-Wanneer u een uitvoering training verzendt, wordt een momentopname van de map waarin uw trainingsscripts gemaakt en verzonden naar de compute-doel. Zie voor meer informatie, [momentopnamen](concept-azure-machine-learning-architecture.md#snapshot).
 
 Bijvoorbeeld, gebruik [het lokale doel](#local) configuratie:
 
@@ -418,8 +422,8 @@ Of u kunt:
 ## <a name="notebook-examples"></a>Laptop-voorbeelden
 
 Zie deze laptops voor voorbeelden van training met diverse compute-doelen:
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [procedure-naar-gebruik-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [zelfstudies/img-classificatie-deel 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

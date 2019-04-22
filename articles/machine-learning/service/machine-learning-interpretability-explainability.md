@@ -1,7 +1,7 @@
 ---
 title: Interpreteerbaarheid van modellen
 titleSuffix: Azure Machine Learning service
-description: Informatie over het gebruik van de Azure Machine Learning Interpretability SDK waarin wordt uitgelegd waarom het model voorspellingen maakt. Het kan worden gebruikt tijdens de trainings- en inferentietaken om te begrijpen hoe het model voorspellingen maakt.
+description: Leer hoe u waarin wordt uitgelegd waarom uw model Hiermee worden voorspellingen gedaan met de Azure Machine Learning Interpretability SDK. Het kan worden gebruikt tijdens de trainings- en inferentietaken om te begrijpen hoe het model voorspellingen maakt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494437"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682454"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
 
 In dit artikel leert u hoe waarin wordt uitgelegd waarom de voorspellingen in uw model worden gemaakt die met behulp van Azure Machine Learning Interpretability SDK. De mogelijkheid om uit te leggen van uw model is het belangrijk om de volgende redenen:
 
@@ -25,9 +25,10 @@ In dit artikel leert u hoe waarin wordt uitgelegd waarom de voorspellingen in uw
 * Als een gegevenswetenschapper, die u wilt weten **hoe u query's van het model om te zoeken insights**. U moet ook hulpprogramma's om geïnformeerde beslissingen op **over het verbeteren van uw model**.
 * Als een bedrijf, moet u weten wat **het gedrag van het model met uiteenlopende invoer distributies** en **hoe het model gedragen bij het analyseren van specifieke invoer**.
 
-Machine learning interpretability is belangrijk in twee fasen van machine learning-ontwikkelingscyclus: **training** tijd en **inferentietaken** tijd:
+Machine learning interpretability is het belangrijk in twee fasen van machine learning-ontwikkeling: 
 
 * Tijdens de **training**: Modelontwerpers en evaluaties vereisen interpretability hulpprogramma's om uit te leggen van de uitvoer van een model belanghebbenden vertrouwen te bouwen. Ze moeten ook inzicht in het model zodat ze kunnen fouten opsporen in het model en beslissingen te nemen op of het gedrag komt overeen met hun doelstellingen. Tot slot moeten om ervoor te zorgen dat het model niet is gericht.
+
 * Tijdens de **inferentietaken**: Voorspellingen moeten explainable aan de mensen die gebruikmaken van uw model. Bijvoorbeeld, waarom het model een lening een weigeren of voorspellen dat een beleggingsportefeuille een hoger risico uitvoert?
 
 De Azure Machine Learning Interpretability SDK omvat technologieën die zijn ontwikkeld door Microsoft en bibliotheken van derden (bijvoorbeeld Shapegegevens en LICHTGROEN) een bewezen oplossing. De SDK maakt een gemeenschappelijke API in de geïntegreerde bibliotheken en Azure Machine Learning-services kan worden geïntegreerd. Met deze SDK, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.

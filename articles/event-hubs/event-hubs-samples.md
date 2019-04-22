@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104047"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682386"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>GIT-opslagplaatsen met voorbeelden voor Azure Event Hubs 
 U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Deze voorbeelden demonstreren belangrijke functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel worden gecategoriseerd en een beschrijving van de voorbeelden die beschikbaar zijn, met koppelingen naar elk.
@@ -50,7 +50,7 @@ U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/a
 Vindt u voorbeelden van Python voor Azure Event Hubs in de [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub-opslagplaats.
 
 ## <a name="nodejs-samples"></a>Node.js-voorbeelden
-U vindt Node.js-voorbeelden voor Azure Event Hubs in de [azure-event-hubs-knooppunt](https://github.com/Azure/azure-event-hubs-node) GitHub-opslagplaats.
+U vindt Node.js-voorbeelden voor Azure Event Hubs in de [azure sdk voor js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub-opslagplaats.
 
 ## <a name="go-samples"></a>Go-voorbeelden
 U vindt Go-voorbeelden voor Azure Event Hubs in de [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub-opslagplaats.

@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901947"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Zelfstudie: Azure Active Directory-integratie met BlueJeans
 
@@ -38,7 +39,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Voor het configureren van Azure AD-integratie met BlueJeans hebt u het volgende nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * Een abonnement op BlueJeans waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -105,14 +106,16 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Domein- en URL-gegevens voor eenmalige aanmelding bij BlueJeans](common/sp-signonurl.png)
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij BlueJeans](common/sp-identifier.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.BlueJeans.com`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.BlueJeans.com`
+
+    b. In het tekstvak **Id** typt u een URL: `http://samlsp.bluejeans.com`
 
     > [!NOTE]
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ondersteuningsteam van BlueJeans](https://support.bluejeans.com/contact) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarde voor de aanmeldings-URL is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [ondersteuningsteam van BlueJeans](https://support.bluejeans.com/contact) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
@@ -128,15 +131,15 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 ### <a name="configure-bluejeans-single-sign-on"></a>Eenmalige aanmelding voor BlueJeans configureren
 
-1. Meld u in een ander webbrowservenster bij uw **BlueJeans**-bedrijfssite aan als beheerder.
+1. In een ander browservenster aanmelden bij uw **BlueJeans** bedrijf site als beheerder.
 
 2. Ga naar **ADMIN \> GROEPSINSTELLINGEN \> BEVEILIGING**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. Voer in het gedeelte **BEVEILIGING** de volgende stappen uit:
 
-    ![SAML-eenmalige aanmelding](./media/bluejeans-tutorial/IC785869.png "SAML-eenmalige aanmelding")
+    ![SAML-eenmalige aanmelding](./media/bluejeans-tutorial/ic785869.png "SAML-eenmalige aanmelding")
 
     a. Selecteer **SAML-eenmalige aanmelding**.
 
@@ -144,7 +147,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 4. Ga verder met de volgende stappen:
 
-    ![Certificaatpad](./media/bluejeans-tutorial/IC785870.png "Certificaatpad")
+    ![Certificaatpad](./media/bluejeans-tutorial/ic785870.png "Certificaatpad")
 
     a. Klik op **Bestand kiezen** om het base-64 gecodeerde certificaat dat u hebt gedownload vanuit de Azure-portal te uploaden.
 
@@ -156,9 +159,9 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 5. Ga verder met de volgende stappen:
 
-    ![Wijzigingen opslaan](./media/bluejeans-tutorial/IC785874.png "Wijzigingen opslaan")
+    ![Wijzigingen opslaan](./media/bluejeans-tutorial/ic785874.png "Wijzigingen opslaan")
 
-    a. Typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **Gebruikers-id**.
+    a. In de **gebruikers-Id** tekstvak, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. Typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **E-mailadres**.
 
@@ -182,8 +185,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon\@yourcompanydomain.extension`. Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -221,22 +223,22 @@ Het doel van dit gedeelte is het maken van een gebruiker met de naam Britta Simo
 
 **Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
 
-1. Meld u bij uw **BlueJeans**-bedrijfssite aan als beheerder.
+1. Aanmelden bij uw **BlueJeans** bedrijf site als beheerder.
 
 2. Ga naar **ADMIN \> GEBRUIKERS BEHEREN \> GEBRUIKER TOEVOEGEN**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
 
-    >[!IMPORTANT]
-    >Het tabblad **GEBRUIKER TOEVOEGEN** is alleen beschikbaar als op het tabblad **BEVEILIGING** **Automatische inrichting inschakelen** niet is ingeschakeld. 
+    > [!IMPORTANT]
+    > Het tabblad **GEBRUIKER TOEVOEGEN** is alleen beschikbaar als op het tabblad **BEVEILIGING** **Automatische inrichting inschakelen** niet is ingeschakeld.
 
 3. Voer in het gedeelte **GEBRUIKER TOEVOEGEN** de volgende stappen uit:
 
-    ![Gebruiker toevoegen](./media/bluejeans-tutorial/IC785886.png "Gebruiker toevoegen")
+    ![Gebruiker toevoegen](./media/bluejeans-tutorial/ic785886.png "Gebruiker toevoegen")
 
     a. Voer in het tekstvak **Voornaam** de voornaam van de gebruiker in, zoals **Britta**.
 
-    b. Voer in het tekstvak **Achternaam** de achternaam van de gebruiker in, zoals **Simon**.
+    b. Typ in het tekstvak **Achternaam** de achternaam van de gebruiker, zoals **Simon**.
 
     c. Voer in het tekstvak **Pick a BlueJeans Username** de gebruikersnaam van de gebruiker in, bijvoorbeeld **Brittasimon**
 
@@ -244,7 +246,7 @@ Het doel van dit gedeelte is het maken van een gebruiker met de naam Britta Simo
 
     e. Voer in het tekstvak **Company** de naam van uw bedrijf in.
 
-    f. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
+    f. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals `brittasimon\@contoso.com`.
 
     g. Geef uw vergadering-id op in het tekstvak **Create a BlueJeans Meeting I.D**.
 
@@ -252,7 +254,7 @@ Het doel van dit gedeelte is het maken van een gebruiker met de naam Britta Simo
 
     i. Klik op **CONTINUE**.
 
-    ![Gebruiker toevoegen](./media/bluejeans-tutorial/IC785887.png "Gebruiker toevoegen")
+    ![Gebruiker toevoegen](./media/bluejeans-tutorial/ic785887.png "Gebruiker toevoegen")
 
     J. Klik op **ADD USER**.
 
@@ -272,4 +274,3 @@ Wanneer u op de tegel Bl in het toegangsvenster klikt, zou u automatisch moeten 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993229"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683916"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Azure Monitor.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
@@ -58,8 +58,8 @@ Uitleg van de kolommen zijn als volgt:
 | [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minuut |
 | [Een back-up maken](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | op de melding |
 | [Capaciteit en prestaties (Preview)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |bij ontvangst |
-| [Tracering wijzigen](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |elk uur |
-| [Tracering wijzigen](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |elk uur |
+| [Tracering wijzigen](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[Varieert](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
+| [Tracering wijzigen](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |[Varieert](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
 | [Containers](../../azure-monitor/insights/containers.md) | Windows en Linux | &#8226; | &#8226; |  |  |  | 3 minuten |
 | [Key Vault-analyse](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |op de melding |
 | [Malware-evaluatie](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |elk uur |

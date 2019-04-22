@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010204"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681213"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -136,21 +136,21 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
     - Toepassingssleutel
     - Tenant-id
 
-1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
+2. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
-1. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL:
+3. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code:
+4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
+5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Voorbeeld van de gekoppelde service die gebruikmaakt van verificatie van service-principal
@@ -184,36 +184,23 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
 
 Een data factory, kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md) die staat voor de specifieke factory. U kunt deze beheerde identiteit gebruiken voor verificatie van Azure SQL Data Warehouse. De aangewezen factory kunt openen en gegevens kopiëren van of naar uw data warehouse met behulp van deze identiteit.
 
-> [!IMPORTANT]
-> Houd er rekening mee dat PolyBase wordt momenteel niet ondersteund voor verificatie van de beheerde identiteit.
-
 Volg deze stappen voor het gebruik van beheerde verificatie:
 
-1. **Een groep maken in Azure AD.** De beheerde identiteit een lid van de groep maken.
+1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met beheerde identiteit een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
-   1. Zoek de identiteit van de data factory beheerd vanuit de Azure-portal. Ga naar uw data factory **eigenschappen**. Kopieer de SERVICE-identiteit-ID.
-
-   1. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Meld u aan met behulp van de `Connect-AzureAD` opdracht. Voer de volgende opdrachten een groep maken en toevoegen van de beheerde identiteit als een lid.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-
-1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan.
-
-1. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Azure AD-groep. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL. 
+2. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Data Factory beheerde identiteit. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL. 
     
     ```sql
-    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **De Azure AD-groep die nodig is machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer bijvoorbeeld de volgende code.
+3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Azure AD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
+5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
 
 **Voorbeeld:**
 
@@ -386,7 +373,7 @@ Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in
 | rejectType | Hiermee geeft u op of de **rejectValue** optie is een letterlijke waarde of een percentage.<br/><br/>Toegestane waarden zijn **waarde** (standaard) en **Percentage**. | Nee |
 | rejectSampleValue | Bepaalt het aantal rijen om op te halen voordat PolyBase berekent het percentage van geweigerde rijen opnieuw.<br/><br/>Toegestane waarden zijn 1, 2, enzovoort. | Ja, als de **rejectType** is **percentage**. |
 | useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard). | Nee |
-| writeBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
 | writeBatchTimeout | Wachttijd voor de bewerking voor het invoegen van batch worden voltooid voordat er een optreedt time-out. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Data Warehouse in elke uitvoering. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 
@@ -415,9 +402,6 @@ Met behulp van [PolyBase](https://docs.microsoft.com/sql/relational-databases/po
 * Als de brongegevens bevinden zich in Azure Blob storage of Azure Data Lake Store en de indeling compatibel met PolyBase, rechtstreeks van de kopie in Azure SQL Data Warehouse is met behulp van PolyBase. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)**.
 * Als de bron-gegevensopslag en -indeling wordt niet oorspronkelijk ondersteund door PolyBase, gebruikt u de **[gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase)** functie in plaats daarvan. De functie gefaseerd kopiëren biedt u ook betere doorvoer. De gegevens wordt automatisch geconverteerd in PolyBase-compatibele indeling. En de gegevens worden opgeslagen in Azure Blob-opslag. Vervolgens worden de gegevens in SQL Data Warehouse geladen.
 
-> [!IMPORTANT]
-> Houd er rekening mee dat PolyBase wordt momenteel niet ondersteund voor Azure AD-toepassing op basis van een MSI-token verificatie.
-
 ### <a name="direct-copy-by-using-polybase"></a>Directe kopiëren met behulp van PolyBase
 
 SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Storage en Azure Data Lake Store. Het service-principal gebruikt als een bron en vereisten voor een specifieke indeling heeft. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, moet u PolyBase gebruiken om te kopiëren direct van de bron-gegevensopslag naar Azure SQL Data Warehouse. Gebruik anders [gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase).
@@ -427,7 +411,7 @@ SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Sto
 
 Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of de instellingen en automatisch terugvalt op het mechanisme BULKINSERT voor de verplaatsing van gegevens.
 
-1. De **bron gekoppelde service** type Azure Blob-opslag is (**Azure BLOB Storage**/**AzureStorage**) met account-sleutelverificatie of Azure Data Lake Opslag Gen1 (**AzureDataLakeStore**) met service-principal verificatie.
+1. De **bron gekoppelde service** type Azure Blob-opslag is (**Azure BLOB Storage**/**AzureStorage**) met **sleutelverificatie account**  of Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) met **service-principal verificatie**.
 2. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
 
    1. `fileName` filteren op jokerteken bevat.
@@ -552,10 +536,10 @@ De volgende tabel bevat voorbeelden van hoe u de **tableName** eigenschap in de 
 
 | DB-Schema | Tabelnaam | **tableName** JSON-eigenschap |
 | --- | --- | --- |
-| dbo | MyTable | MyTable of dbo.MyTable of [dbo].[MyTable] |
-| dbo1 | MyTable | dbo1.MyTable of [dbo1].[MyTable] |
-| dbo | My.Table | [My.Table] of [dbo].[My.Table] |
-| dbo1 | My.Table | [dbo1].[My.Table] |
+| dbo | MyTable | MyTable of dbo. MyTable of [dbo]. [MyTable] |
+| dbo1 | MyTable | dbo1. MyTable of [dbo1]. [MyTable] |
+| dbo | My.Table | [My.Table] of [dbo]. [My.Table] |
+| dbo1 | My.Table | [dbo1]. [My.Table] |
 
 Als u de volgende fout ziet, is het probleem mogelijk de waarde die u hebt opgegeven voor de **tableName** eigenschap. Zie de voorgaande tabel voor de juiste manier om op te geven van de waarden voor de **tableName** JSON-eigenschap.
 
@@ -580,36 +564,36 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | Azure SQL Data Warehouse-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint | Int64 |
-| binary | Byte[] |
-| bit | Boolean |
-| char | String, Char[] |
+| binaire bestanden | Byte[] |
+| bits | Booleaans |
+| CHAR | Tekenreeks, Char] |
 | date | DateTime |
-| Datetime | DateTime |
+| Datum en tijd | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM attribute (varbinary(max)) | Byte[] |
-| Float | Double |
+| decimaal | decimaal |
+| FILESTREAM-kenmerk (varbinary(max)) | Byte[] |
+| Float | Double-waarde |
 | image | Byte[] |
 | int | Int32 |
-| money | Decimal |
-| nchar | String, Char[] |
-| ntext | String, Char[] |
-| numeric | Decimal |
-| nvarchar | String, Char[] |
-| real | Single |
-| rowversion | Byte[] |
+| money | decimaal |
+| nchar | Tekenreeks, Char] |
+| ntext | Tekenreeks, Char] |
+| numerieke | decimaal |
+| nvarchar | Tekenreeks, Char] |
+| echte | Enkelvoudig |
+| ROWVERSION | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal |
+| smallmoney | decimaal |
 | sql_variant | Object |
-| text | String, Char[] |
+| tekst | Tekenreeks, Char] |
 | time | TimeSpan |
-| timestamp | Byte[] |
+| tijdstempel | Byte[] |
 | tinyint | Byte |
-| uniqueidentifier | Guid |
+| uniqueidentifier | GUID |
 | varbinary | Byte[] |
-| varchar | String, Char[] |
+| varchar | Tekenreeks, Char] |
 | xml | Xml |
 
 ## <a name="next-steps"></a>Volgende stappen

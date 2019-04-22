@@ -1,137 +1,140 @@
 ---
-title: Aanvragen van tokens voor toegang in Azure Active Directory B2C | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een clienttoepassing instellen en een toegangstoken verkrijgen.
+title: Aanvragen van een toegangstoken - Azure Active Directory B2C | Microsoft Docs
+description: Informatie over het aanvragen van een toegangstoken van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5670d8b3c97cc1f9f6d149e8eadaa60d527e45f5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768339"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683933"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Toegangstokens aanvragen
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Aanvraag een toegangstoken in Azure Active Directory B2C
 
-Een toegangstoken (aangeduid als **toegang\_token** in de antwoorden van Azure AD B2C) is een vorm van een beveiligingstoken dat een client gebruiken kan voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md), zoals een web-API. Toegangstokens worden weergegeven als [JWTs](active-directory-b2c-reference-tokens.md) en bevatten informatie over de gewenste resource-server en de toegekende machtigingen op de server. Bij het aanroepen van de resource-server, is het toegangstoken moet worden gebruikt in de HTTP-aanvraag.
+Een *toegangstoken* claims die u in Azure Active Directory (Azure AD) B2C gebruiken kunt voor het identificeren van de toegekende machtigingen aan uw API's bevat. Bij het aanroepen van een resource-server, moet een toegangstoken aanwezig zijn in de HTTP-aanvraag. Een toegangstoken wordt aangeduid als **access_token** in de antwoorden van Azure AD B2C. 
 
-In dit artikel wordt beschreven hoe u voor het configureren van een clienttoepassing en web-API voor het verkrijgen van een **toegang\_token**.
-
-> [!NOTE]
-> **Web-API-ketens (On-Behalf-Of) wordt niet ondersteund door Azure AD B2C.**
->
-> Veel architecturen bevatten een web-API die u moet een andere downstream web-API, zowel beveiligd door Azure AD B2C aanroepen. In dit scenario is gemeenschappelijk in systeemeigen clients met een web-API-backend, dat op zijn beurt een Microsoft online services, zoals de Azure AD Graph API-aanroepen.
->
-> In dit scenario gekoppelde web-API kan worden ondersteund met behulp van de toekenning van OAuth 2.0 JWT Bearer referentie, ook bekend als de On-Behalf-Of-stroom. De On-Behalf-Of-stroom is echter niet op dit moment geïmplementeerd in Azure AD B2C.
-
-## <a name="register-a-web-api-and-publish-permissions"></a>Een web-API registreren en publiceren van machtigingen
-
-Voordat u een toegangstoken aanvraagt, moet u eerst een web-API registreren en machtigingen (bereiken) die kunnen worden verleend publiceren naar de clienttoepassing.
-
-### <a name="register-a-web-api"></a>Een web-API registreren
-
-1. Klik in het menu Azure AD B2C-functies in Azure portal op **toepassingen**.
-2. Klik op **+ toevoegen** aan de bovenkant van het menu.
-3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld 'Contoso-API' opgeven.
-4. Zet de schakeloptie **Inclusief web-app/web-API** op **Ja**.
-5. Voer een willekeurige waarde in voor de **antwoord-URL's**. Geef bijvoorbeeld `https://localhost:44316/` op. De waarde niet van belang omdat een API moet niet worden ontvangen van het token rechtstreeks vanuit Azure AD B2C.
-6. Voer een waarde in voor **URI voor de app-id**. Dit is de id die wordt gebruikt voor uw web-API. Voer bijvoorbeeld 'notities' in het vak. De **App ID URI** worden dan `https://{tenantName}.onmicrosoft.com/notes`.
-7. Klik op **Maken** om uw toepassing te registreren.
-8. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
-
-### <a name="publishing-permissions"></a>Machtigingen voor publiceren
-
-Bereiken die vergelijkbaar met de machtigingen zijn, zijn nodig als uw app is een API wordt aangeroepen. Enkele voorbeelden van bereiken zijn "lezen" of 'schrijven'. Stel dat u wilt dat uw web- of 'gelezen' van een API met systeemeigen app. Uw app in Azure AD B2C aanroepen en aanvragen van een toegangstoken dat toegang tot het bereik "lezen biedt". De app moet worden gemachtigd voor de specifieke API 'lezen' in order voor Azure AD B2C om te verzenden van een toegangstoken. U doet dit door moet uw API eerst voor het publiceren van het bereik 'lezen'.
-
-1. In de Azure AD B2C **toepassingen** menu, open de web-API-toepassing ('Contoso-API').
-2. Klik op **Gepubliceerd bereiken**. Dit is waar u de machtigingen (bereiken) definieert die kunnen worden verleend aan andere toepassingen.
-3. Voeg **bereikwaarden** zo nodig (bijvoorbeeld ' lezen'). Standaard wordt het bereik 'user_impersonation' gedefinieerd. Als u wilt, kunt u dit negeren. Voer een beschrijving van het bereik in de **scopenaam** kolom.
-4. Klik op **Opslaan**.
-
-> [!IMPORTANT]
-> De **scopenaam** is de beschrijving van de **bereikwaarde**. Wanneer u het bereik, zorg ervoor dat u de **bereikwaarde**.
-
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Verlenen van een systeemeigen of web-app-machtigingen aan een web-API
-
-Nadat een API is geconfigureerd voor het publiceren van bereiken, moet de clienttoepassing deze bereiken via Azure portal worden verleend.
-
-1. Navigeer naar de **toepassingen** in het menu van Azure AD B2C-functies.
-2. Registreren van een clienttoepassing ([web-app](active-directory-b2c-app-registration.md) of [native client](active-directory-b2c-app-registration.md)) als u er nog geen hebt. Als u als eerste stap in deze handleiding volgt, moet u het registreren van een clienttoepassing.
-3. Klik op **API-toegang**.
-4. Klik op **Toevoegen**.
-5. Selecteer uw web-API en scopes (machtigingen) u wilt verlenen.
-6. Klik op **OK**.
+In dit artikel wordt beschreven hoe u aan te vragen van een toegangstoken voor een web-App en web-API. Zie voor meer informatie over de tokens in Azure AD B2C, de [overzicht van de tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> Azure AD B2C wordt niet gevraagd uw client gebruikers van de toepassing om hun toestemming. In plaats daarvan wordt alle toestemming geleverd door de beheerder, op basis van de machtigingen die zijn geconfigureerd tussen de toepassingen die hierboven worden beschreven. Als een machtiging verlenen voor een toepassing is ingetrokken, kunnen alle gebruikers die eerder konden aan te schaffen die machtiging zich niet meer doen.
+> **Web-API-ketens (On-Behalf-Of) wordt niet ondersteund door Azure AD B2C.** -Veel architecturen bevatten een web-API die u moet een andere downstream web-API, zowel beveiligd door Azure AD B2C aanroepen. In dit scenario is gebruikelijk in clients met een web-API-backend, die op zijn beurt een andere service aanroept. In dit scenario gekoppelde web-API kan worden ondersteund met behulp van de toekenning van OAuth 2.0 JWT Bearer referentie, ook bekend als de On-Behalf-Of-stroom. De On-Behalf-Of-stroom is echter niet op dit moment geïmplementeerd in Azure AD B2C.
 
-## <a name="requesting-a-token"></a>Aanvragen van een token
+## <a name="prerequisites"></a>Vereisten
 
-Bij het aanvragen van een toegangstoken de clienttoepassing nodig heeft om op te geven van de gewenste machtigingen in de **bereik** parameter van de aanvraag. Bijvoorbeeld, om op te geven de **bereikwaarde** "lezen" voor de API waaraan de **App ID URI** van `https://contoso.onmicrosoft.com/notes`, het bereik worden `https://contoso.onmicrosoft.com/notes/read`. Hieronder volgt een voorbeeld van een autorisatieaanvraag code naar het `/authorize` eindpunt.
+- [Een gebruikersstroom maken](tutorial-create-user-flows.md) zodat gebruikers kunnen zich registreren en aanmelden bij uw toepassing.
+- Als u dit nog niet hebt gedaan, [toevoegen van een web-API-toepassing naar uw Azure Active Directory B2C-tenant](add-web-application.md).
 
-> [!NOTE]
-> Aangepaste domeinen worden op dit moment niet ondersteund, samen met toegangstokens. U moet uw domein tenantName.onmicrosoft.com in de aanvraag-URL.
+## <a name="scopes"></a>Bereiken
+
+Scopes bieden een manier om machtigingen tot beveiligde resources te beheren. Wanneer een toegangstoken wordt aangevraagd, de clienttoepassing nodig heeft om op te geven van de gewenste machtigingen in de **bereik** parameter van de aanvraag. Bijvoorbeeld, om op te geven de **bereikwaarde** van `read` voor de API waaraan de **App ID URI** van `https://contoso.onmicrosoft.com/api`, het bereik worden `https://contoso.onmicrosoft.com/api/read`.
+
+Bereiken worden door de web-API gebruikt om toegangsbeheer op basis van een bereik te implementeren. Bijvoorbeeld: gebruikers van de web-API kunnen zowel lees- als schrijftoegang hebben of alleen leestoegang. Als u wilt meerdere machtigingen in dezelfde aanvraag aanschaft, kunt u meerdere vermeldingen toevoegen in de ene **bereik** parameter van de aanvraag, gescheiden door spaties.
+
+Het volgende voorbeeld ziet u in een URL gedecodeerd bereiken:
+
+```
+scope=https://contoso.onmicrosoft.com/api/read openid offline_access
+```
+
+Het volgende voorbeeld ziet u bereiken in een URL gecodeerd:
+
+```
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
+```
+
+Als u meer bereiken dan wat wordt verleend voor uw clienttoepassing aangevraagd, wordt de aanroep slaagt als ten minste één machtiging is verleend. De **scp** claim in het resulterende toegangstoken is gevuld met alleen de machtigingen die met succes zijn verleend. De OpenID Connect-standaard bevat verschillende speciale bereikwaarden. De machtiging voor toegang tot het gebruikersprofiel, gelden voor de volgende bereiken:
+
+- **openid** -aanvragen van een ID-token.
+- **offline_access** -vraagt een vernieuwing token met [autorisatiecode stromen](active-directory-b2c-reference-oauth-code.md).
+
+Als de **response_type** parameter in een `/authorize` verzoek bevat `token`, wordt de **bereik** parameter moet ten minste één resource bereik dan bevatten `openid` en `offline_access`die wordt verleend. Anders wordt de `/authorize` aanvraag mislukt.
+
+## <a name="request-a-token"></a>Een token aanvragen
+
+Om aan te vragen een toegangstoken, moet u een autorisatiecode. Hieronder volgt een voorbeeld van een aanvraag naar de `/authorize` -eindpunt voor een autorisatiecode. Aangepaste domeinen worden niet ondersteund voor gebruik met toegangstokens. Gebruik uw tenant-name.onmicrosoft.com domein in de aanvraag-URL.
 
 In het volgende voorbeeld vervangt u deze waarden:
 
 - `<tenant-name>` -De naam van uw Azure AD B2C-tenant.
 - `<policy-name>` -De naam van uw aangepaste beleid of een gebruiker-stroom.
-- `<application-ID>` -De toepassings-id van de clienttoepassing die u hebt geregistreerd.
+- `<application-ID>` -De toepassings-id van de webtoepassing die u ter ondersteuning van de gebruikersstroom geregistreerd.
 - `<redirect-uri>` -De **omleidings-URI** dat u hebt ingevoerd toen u de clienttoepassing geregistreerd.
 
 ```
-https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+client_id=<application-ID>
+&nonce=anyRandomValue
+&redirect_uri=https://jwt.ms
+&scope=https://tenant-name>.onmicrosoft.com/api/read
+&response_type=code 
 ```
 
-Als u wilt meerdere machtigingen in dezelfde aanvraag aanschaft, kunt u meerdere vermeldingen toevoegen in de ene **bereik** parameter, gescheiden door spaties. Bijvoorbeeld:
-
-URL gedecodeerd:
+Het antwoord met de autorisatiecode moet zijn vergelijkbaar met het volgende voorbeeld:
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
+https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-URL-codering:
+Na de autorisatiecode ontvangen, kunt u deze gebruiken om aan te vragen van een toegangstoken:
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
+POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+Host: https://<tenant-name>.b2clogin.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&client_id=<application-ID>
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
+&redirect_uri=https://jwt.ms
+&client_secret=2hMG2-_:y12n10vwH...
 ```
 
-U kunt meer bereiken (machtigingen) aanvragen voor een resource dan wat voor uw clienttoepassing wordt verleend. Als dit het geval is, slaagt de aanroep als ten minste één machtiging is verleend. De resulterende **toegang\_token** heeft de claim "scp" is gevuld met alleen de machtigingen die verleend is zijn.
+U ziet er ongeveer uitzien als het volgende antwoord:
 
-> [!NOTE] 
-> We ondersteunen geen waarin machtiging wordt gevraagd op twee verschillende webresources in dezelfde aanvraag. Dit soort aanvraag mislukt.
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "token_type": "Bearer",
+    "not_before": 1549647431,
+    "expires_in": 3600,
+    "expires_on": 1549651031,
+    "resource": "f2a76e08-93f2-4350-833c-965c02483b11",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiJjNjRhNGY3ZC0zMDkxLTRjNzMtYTcyMi1hM2YwNjk0Z..."
+}
+```
 
-### <a name="special-cases"></a>Speciale gevallen
+Bij het gebruik van https://jwt.ms voor het onderzoeken van het toegangstoken dat is geretourneerd, moet u er ongeveer uitzien als in het volgende voorbeeld:
 
-De OpenID Connect-standaard bevat verschillende waarden voor het speciale 'bereik'. De volgende speciale bereiken, gelden voor de machtiging voor 'toegang tot het gebruikersprofiel':
-
-* **openid**: Dit aanvragen een ID-token
-* **offline\_access**: Hiermee vraagt een vernieuwingstoken (met behulp van [autorisatiecode stromen](active-directory-b2c-reference-oauth-code.md)).
-
-Als de `response_type` parameter in een `/authorize` verzoek bevat `token`, wordt de `scope` parameter moet ten minste één resource bereik bevatten (andere dan `openid` en `offline_access`) die wordt verleend. Anders wordt de `/authorize` -aanvraag wordt beëindigd met een fout.
-
-## <a name="the-returned-token"></a>Het geretourneerde token
-
-In een is geslagen **toegang\_token** (vanuit de `/authorize` of `/token` eindpunt), de volgende claims aanwezig zijn:
-
-| Name | Claim | Description |
-| --- | --- | --- |
-|Doelgroep |`aud` |De **toepassings-ID** van de afzonderlijke resource die de token verleent toegang tot. |
-|Bereik |`scp` |De machtigingen verleend aan de resource. Meerdere toegekende machtigingen worden gescheiden door een spatie. |
-|Geautoriseerde partij |`azp` |De **toepassings-ID** van de clienttoepassing die de aanvraag wordt gestart. |
-
-Als uw API krijgt de **toegang\_token**, moet het [valideren van het token](active-directory-b2c-reference-tokens.md) om te bewijzen dat het token authentiek is en de juiste claims heeft.
-
-We zijn altijd geopend zodat u kunt feedback en suggesties. Als u problemen met dit onderwerp hebt, kunt u plaatsen op Stack Overflow met het label ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Voor functieaanvragen, voeg deze toe aan [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
+}.{
+  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "exp": 1549651031,
+  "nbf": 1549647431,
+  "aud": "f2a76e08-93f2-4350-833c-965...",
+  "oid": "1558f87f-452b-4757-bcd1-883...",
+  "sub": "1558f87f-452b-4757-bcd1-883...",
+  "name": "David",
+  "tfp": "B2C_1_signupsignin1",
+  "nonce": "anyRandomValue",
+  "scp": "read",
+  "azp": "38307aee-303c-4fff-8087-d8d2...",
+  "ver": "1.0",
+  "iat": 1549647431
+}.[Signature]
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bouw een web-API via [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Bouw een web-API via [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Meer informatie over het [tokens configureren in Azure AD B2C](configure-tokens.md)

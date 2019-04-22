@@ -7,14 +7,14 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003465"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683569"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -29,8 +29,7 @@ Er zijn twee manieren om gegevens te migreren van on-premises naar Azure-omgevin
     2. Express Route - ExpressRoute is een Azure-service waarmee u particuliere verbindingen maken tussen Microsoft-datacenters en infrastructuur on-premises of in een CO-locatiefaciliteit. ExpressRoute-verbindingen niet het openbare Internet en bieden een hogere beveiliging, betrouwbaarheid en snelheid met kortere wachttijden dan gebruikelijke verbindingen via Internet. Zie voor meer informatie, [maken en aanpassen van een ExpressRoute-circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Data Box online-gegevensoverdracht - gegevens in het Edge- en Data Box-Gateway zijn online-gegevens overbrengen producten die fungeren als gateways voor het beheren van gegevens tussen uw locatie en Azure storage. Met Data Box Edge, een on-premises netwerkapparaat, worden gegevens overdragen van en naar Azure en worden gegevens verwerkt met behulp van Edge-rekenprocessen met artificial intelligence (AI). Data Box Gateway is een virtueel apparaat met opslaggatewaymogelijkheden. Zie voor meer informatie, [Azure Data Box-documentatie - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
 1.  Verzending van gegevens Offline
-    1. Import / Export-service - kunt u fysieke schijven naar Azure verzenden en ze voor u worden geüpload. Zie voor meer informatie, [wat is Azure Import/Export-service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
-    1. Gegevens vak offline gegevensoverdracht - gegevens in het Data Box-schijf, en gegevens in het zware apparaten kunnen u grote hoeveelheden gegevens overdragen naar Azure als het netwerk niet als een optie. Deze apparaten voor offlinegegevensoverdracht worden verzonden van het Azure-datacenter naar uw organisatie en vice versa. De apparaten maken gebruik van AES-versleuteling om uw gegevens tijdens de overdracht te beveiligen en ondergaan na het uploaden een grondig opschoningsproces om uw gegevens van het apparaat te verwijderen. Zie voor meer informatie, [Azure Data Box-documentatie - Offline Transfer](https://docs.microsoft.com/azure/databox/).
+    1. Gegevens vak offline gegevensoverdracht - gegevens in het Data Box-schijf, en gegevens in het zware apparaten kunnen u grote hoeveelheden gegevens overdragen naar Azure als het netwerk niet als een optie. Deze apparaten voor offlinegegevensoverdracht worden verzonden van het Azure-datacenter naar uw organisatie en vice versa. De apparaten maken gebruik van AES-versleuteling om uw gegevens tijdens de overdracht te beveiligen en ondergaan na het uploaden een grondig opschoningsproces om uw gegevens van het apparaat te verwijderen. Zie voor meer informatie over de apparaten van de offline transfer Data Box [Azure Data Box-documentatie - Offline overdracht](https://docs.microsoft.com/azure/databox/). Zie voor meer informatie over de migratie van Hadoop-clusters, [gebruik Azure Data Box voor het migreren van een on-premises HDFS gegevensopslag naar Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 De volgende tabel bevat geschatte data transfer duur op basis van de gegevens volume en de netwerkbandbreedte. Een Data box gebruiken als de gegevensmigratie wordt verwacht dat meer dan drie weken duren.
 

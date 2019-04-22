@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901522"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698396"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -119,6 +119,7 @@ Migratie geschiedenispagina bevat de volgende informatie als overzicht voor elke
 Als u dat meer gedetailleerde migratierapport over uw projecten, trainingen en documenten wilt, hebt u de optie exporteren als CSV-bestand.
 
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
+* Systemen met de taal paren nog niet beschikbaar in aangepaste Translator is alleen beschikbaar voor toegang tot gegevens of via aangepaste Translator worden geïmplementeerd. Deze projecten worden gemarkeerd als 'Niet beschikbaar' op de pagina projecten. Als we een nieuwe taal paren met aangepaste Translator inschakelt, worden de projecten actief te trainen en te implementeren. 
 * Migreren van een project van de Hub met aangepaste Translator hebben geen invloed op uw Hub trainingen of projecten. We niet verwijderen-projecten of documenten van Hub tijdens een migratie en we modellen kan niet worden geïmplementeerd.
 * Alleen is toegestaan voor het migreren van één keer per project. Als u herhalen van een migratie van een project wilt, neem dan contact met ons.
 * Aangepaste Translator ondersteunt NMT taal paren van en naar het Engels. [De volledige lijst van ondersteunde talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund. Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren. Er is niet mogelijk naar het nieuwe model te trainen. Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.

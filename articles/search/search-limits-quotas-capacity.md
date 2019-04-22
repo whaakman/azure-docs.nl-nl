@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273393"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699163"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
@@ -55,7 +55,7 @@ Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en an
 | Maximale [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximumaantal functies per profiel |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> basisservices gemaakt nadat laat 2017 een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebben. Services die eerder hebt gemaakt, hebben 5. Basic-laag is de enige SKU met een lagere limiet van 100 velden per index.
+<sup>1</sup> eenvoudige services die zijn gemaakt vóór December 2017 hebben lagere limieten (5 in plaats van 15) over indexen. Basic-laag is de enige SKU met een lagere limiet van 100 velden per index.
 
 <a name="document-limits"></a>
 
@@ -81,7 +81,7 @@ Voor services beperkt het document de volgende maximale limieten gelden:
 
 |  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10.000 |1 miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
+|  10.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
 
 Als uw service limiet die u blokkeren een, een nieuwe service maken en alle inhoud die service vervolgens opnieuw te publiceren. Er is geen mechanisme voor het naadloos beëindiging van uw service op de nieuwe hardware op de achtergrond.
 
@@ -99,9 +99,8 @@ Houd er rekening mee om te voorkomen dat documentgrootte omlaag, moeten worden u
 
 ## <a name="indexer-limits"></a>Indexeerfunctie limieten
 
-Eenvoudige services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 indexen, gegevensbronnen, kennis en vaardigheden en indexeerfuncties.
+Maximum aantal actieve keren herhaald bestaan voor het saldo en stabiliteit naar de service als geheel, maar grotere gegevenssets mogelijk meer indexering tijd dan is toegestaan door de maximale nodig hebt. Als een indexeringstaak kan niet worden voltooid binnen de maximale tijd die is toegestaan, probeert u deze volgens een schema uitvoert. De scheduler houdt van Indexstatus. Als een geplande taak voor indexering is onderbroken voor een bepaalde reden, de indexeerfunctie verder kan gaan waar het laatste bij de volgende geplande run afgebroken.
 
-Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure blob-indexering of verwerking van natuurlijke taal in cognitief zoeken hebben kortere maximum aantal actieve keren herhaald, zodat andere indexeertaken laten kunnen worden aangepast. Als een indexeringstaak kan niet worden voltooid binnen de maximale tijd die is toegestaan, probeert u deze volgens een schema uitvoert. De scheduler houdt van Indexstatus. Als een geplande taak voor indexering is onderbroken voor een bepaalde reden, de indexeerfunctie verder kan gaan waar het laatste bij de volgende geplande run afgebroken.
 
 | Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
@@ -109,14 +108,15 @@ Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure 
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
 | Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
 | Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
+| Minimale plannen | 5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten | 5 minuten |
 | Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
 | Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |
 | Indexeerfunctie voor BLOB: maximum blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N/A |4 miljoen |4 miljoen |
+| Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4&nbsp;miljoen |4&nbsp;miljoen |4&nbsp;miljoen |N/A |4&nbsp;miljoen |4&nbsp;miljoen |
 
 <sup>1</sup> gratis services hebben een maximale uitvoeringstijd van 3 minuten indexeerfunctie voor blob-bronnen en 1 minuut voor alle andere gegevensbronnen. Voor AI indexeren die aanroepen naar Cognitive Services, zijn gratis services beperkt tot 20 gratis transacties per dag, waarbij een transactie is gedefinieerd als een document dat is doorgegeven via de pijplijn verrijking.
 
-<sup>2</sup> basisservices gemaakt nadat laat 2017 een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebben. Services die eerder hebt gemaakt, hebben 5.
+<sup>2</sup> eenvoudige services die zijn gemaakt vóór December 2017 hebben lagere limieten (5 in plaats van 15) op Indexeerfuncties en gegevensbronnen kennis en vaardigheden.
 
 <sup>3</sup> S3 HD-services omvatten geen ondersteuning voor indexeerfuncties.
 
@@ -136,7 +136,7 @@ Voor de lagen met geoptimaliseerde opslag, moet u verwachten dat een lagere quer
 
 Een [cognitief zoeken pijplijn](cognitive-search-concept-intro.md) waardoor aanroepen naar een Text Analytics-resource voor [entiteit erkenning](cognitive-search-skill-entity-recognition.md), [sleutel vindt er sleuteltermextractie plaats](cognitive-search-skill-keyphrases.md), [sentimentanalyse ](cognitive-search-skill-sentiment.md), en [taaldetectie](cognitive-search-skill-language-detection.md) is onderhevig aan de limieten van gegevens. De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u splitst u uw gegevens wilt voordat deze worden verzonden naar de analyzer sentiment, gebruik de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
-## <a name="api-request-limits"></a>Limieten voor API-aanvraag
+## <a name="api-request-limits"></a>API-limieten voor aanvraag
 * Maximaal 16 MB per aanvraag <sup>1</sup>
 * Maximale URL-lengte van 8 KB
 * Maximaal 1000 documenten per batch van index wordt geüpload, worden samengevoegd of verwijderd
@@ -145,11 +145,11 @@ Een [cognitief zoeken pijplijn](cognitive-search-concept-intro.md) waardoor aanr
 
 <sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan een bovengrens van 16 MB, waarbij een praktische limiet op de inhoud van afzonderlijke velden of verzamelingen die zijn niet anders is beperkt door theoretische limieten (Zie [gegevens ondersteund typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor meer informatie over het veld samenstelling en beperkingen).
 
-## <a name="api-response-limits"></a>Limieten voor API-reactie
+## <a name="api-response-limits"></a>API-reactie-limieten
 * Maximaal 1000 documenten per pagina met zoekresultaten geretourneerd
 * Maximaal 100 suggesties per voorstellen API-aanvraag geretourneerd
 
-## <a name="api-key-limits"></a>Limieten voor API-sleutel
+## <a name="api-key-limits"></a>API-sleutel limieten
 API-sleutels worden gebruikt voor service-verificatie. Er zijn twee typen. Beheersleutels zijn opgegeven in de aanvraagheader en lezen-schrijven toegang verlenen tot de service. Querysleutels zijn alleen-lezen, opgegeven in de URL en doorgaans verleend aan clienttoepassingen.
 
 * Maximaal 2 beheersleutels per service

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542296"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737053"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -114,7 +114,7 @@ De beste manier om te meten van de prestatievereisten van uw toepassing, is met 
 
 De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processors en geheugen:
 
-| Teller | Description | PerfMon | Iostat |
+| Teller | Beschrijving | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOP's of transacties per seconde** |Het aantal i/o-aanvragen die zijn verleend aan de schijf voor opslag per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
 | **Schijf lees- en schrijfbewerkingen** |% van leesbewerkingen en bewerkingen die worden uitgevoerd op de schijf te schrijven. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
@@ -261,7 +261,8 @@ Vergeet niet dat de Premium Storage-schijven hebben hogere prestaties levert ver
 Hoge schaal-virtuele machines die gebruikmaken van Azure Premium Storage hebben een meerlagige cachetechnologie BlobCache genoemd. Een combinatie van de virtuele Machine RAM-geheugen en lokale SSD BlobCache gebruikt voor de cache. Deze cache is beschikbaar voor de permanente schijven voor Premium-opslag en de lokale VM-schijven. Standaard is deze cache-instelling ingesteld op lezen/schrijven van besturingssysteemschijven en alleen-lezen voor gegevensschijven die worden gehost op Premium Storage. Met opslaan in schijfcache ingeschakeld op de Premium-opslagschijven, kunt de grote schaal VM's zeer hoge prestatieniveau die groter zijn dan de onderliggende schijfprestaties bereiken.
 
 > [!WARNING]
-> Schijf opslaan in cache wordt alleen ondersteund voor schijfgrootten tot 4 TiB.
+> Schijf opslaan in cache wordt niet ondersteund voor schijven groter is dan 4 TiB. Als meerdere schijven zijn gekoppeld aan uw virtuele machine, elke schijf die is 4 TiB of kleiner wordt ondersteund in cache opslaan.
+>
 > Als u de cache-instelling van een Azure-schijf losgekoppeld en opnieuw wordt de doelschijf. Als de besturingssysteemschijf is, kan de virtuele machine opnieuw wordt opgestart. Stop alle toepassingen en services die kunnen worden beïnvloed door deze wordt onderbroken voordat u de schijf-cache-instelling wijzigt.
 
 Raadpleeg voor meer informatie over de werking van BlobCache binnen [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blogbericht.

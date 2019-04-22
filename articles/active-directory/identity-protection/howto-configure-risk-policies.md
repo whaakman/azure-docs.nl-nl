@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517535"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699028"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedure: Risico-beleid configureren in Azure Active Directory identity protection (vernieuwd)
 
@@ -41,7 +41,8 @@ Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse i
 
 Het beleid voor aanmeldingsrisico is een geautomatiseerd antwoord dat u voor een specifieke aanmeldingsrisico-niveau configureren kunt. U kunt toegang tot uw resources blokkeren of vereisen voor het doorgeven van een uitdaging multi-factor authentication (MFA) om toegang te krijgen in uw antwoord.
 
-   
+Als een gebruiker is een MFA-prompt geactiveerd door het beleid voor aanmeldingsrisico voltooid, biedt deze feedback tot Identity Protection dat de aanmelding afkomstig van de bevoegde gebruiker is. De gebeurtenis aanmeldingsrisico die de MFA-prompt geactiveerd automatisch worden gesloten en dus Identity Protection wordt voorkomen dat deze gebeurtenis die bijdragen aan de uitbreiding van het gebruikersrisico. Als u het beleid voor aanmeldingsrisico kunt noisiness in de weergave riskante aanmeldingen zodat gebruikers kunnen zelf herstellen wanneer u hierom wordt gevraagd voor MFA en minder vervolgens automatisch de bijbehorende riskante aanmelding wordt gesloten.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hoe krijg ik toegang tot het beleid voor aanmeldingsrisico?
    
 Het beleid voor aanmeldingsrisico is in de **configureren** sectie op de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

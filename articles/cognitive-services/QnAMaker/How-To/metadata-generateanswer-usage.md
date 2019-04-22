@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579407"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683584"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -46,7 +46,7 @@ In dat geval gebruikt u de API GenerateAnswer in uw Bot of toepassing in om op t
 Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), krijgt u de details van uw eindpunt GenerateAnswer.
 
 Uw eindpunt om informatie te krijgen:
-1. Meld u aan bij [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
+1. Meld u aan bij [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **mijn knowledge bases**, klikt u op **Code weergeven** voor uw knowledge base.
     ![Mijn knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. De details van uw GenerateAnswer-eindpunt ophalen.
@@ -64,7 +64,7 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
 De **aanvraag-URL** heeft de volgende indeling: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |De eigenschap van de HTTP-aanvraag|Name|Type|Doel|
@@ -84,7 +84,7 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 |`top`|optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
 |`userId`|optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
 |`isTest`|optioneel|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
-|`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn.|
+|`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Gebruik `none` om aan te geven antwoord moet er geen filters voor metagegevens. |
 
 Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 

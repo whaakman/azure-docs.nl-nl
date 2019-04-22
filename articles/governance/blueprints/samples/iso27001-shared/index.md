@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272747"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698908"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Overzicht van de voorbeeldblauwdruk voor ISO 27001 conforme gedeelde services
 
@@ -36,7 +36,7 @@ Deze omgeving bestaat uit diverse Azure-services die samen een veilige, volledig
 - Als eerste Azure-service wordt [Log Analytics](../../../../azure-monitor/overview.md) geïmplementeerd om te garanderen dat er op een centrale locatie logboeken worden bijgehouden voor alle acties en services zodra u begint met de beveiligde implementatie
 - Een virtueel netwerk dat ondersteuning biedt voor subnetten voor connectiviteit met een on-premises datacenter, een stack voor inkomend en uitgaand verkeer voor internetconnectiviteit, en een subnet voor gedeelde services waarin gebruik wordt gemaakt van netwerkbeveiligingsgroepen (NSG's) en toepassingsbeveiligingsgroepen (ASG's) voor volledige micro-segmentatie. Het netwerk bevat de volgende elementen:
   - Een jumpbox- of bastionhost die wordt gebruikt voor beheertaken en alleen kan worden benaderd via een [Azure-firewall](../../../../firewall/overview.md) die is geïmplementeerd in het subnet voor de stack voor inkomend verkeer
-  - Twee virtuele machines met Active Directory Directory Services (ADDS) en DNS die uitsluitend toegankelijk zijn via de jumpbox en alleen kunnen worden geconfigureerd voor replicatie van AD via een VPN- of [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-verbinding (niet geïmplementeerd door de blauwdruk)
+  - Twee virtuele machines met Active Directory Domain Services (ADDS) en DNS die uitsluitend toegankelijk zijn via de jumpbox en alleen kunnen worden geconfigureerd voor replicatie van AD via een VPN- of [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-verbinding (niet geïmplementeerd door de blauwdruk)
   - [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) en standaard-DDoS-bescherming
 - Een [Azure Key Vault](../../../../key-vault/key-vault-whatis.md)-exemplaar om de geheimen te bewaren voor de virtuele machines die in de omgeving met gedeelde services worden geïmplementeerd
 

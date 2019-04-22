@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900723"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699320"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Service verlagen met behulp van Azure Advisor
 
@@ -37,9 +37,9 @@ Advisor identificeert virtuele netwerk-poorten die meer dan 90 dagen inactief zi
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Gereserveerde virtuele machine-instanties om geld te besparen ten opzichte van betalen per gebruik kopen
 
-Advisor wordt uw gebruik van virtuele machines in de afgelopen 30 dagen bekijken en te bepalen als u geld besparen kunt door het aanschaffen van een Azure-reservering. Advisor ziet u de regio's en -grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparing bij de aanschaf van reserveringen. 
+Advisor wordt uw gebruik van virtuele machines in de afgelopen 30 dagen bekijken en te bepalen als u geld besparen kunt door het aanschaffen van een Azure-reservering. Advisor ziet u de regio's en -grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparing bij de aanschaf van reserveringen. Met Azure reserveringen, kunt u de basiskosten voor het vooraf kunt kopen voor uw virtuele machines. Kortingen wordt automatisch toegepast op nieuwe of bestaande virtuele machines met dezelfde grootte en regio als uw reserveringen. [Meer informatie over Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Met Azure reserveringen, kunt u de basiskosten voor het vooraf kunt kopen voor uw virtuele machines. Kortingen wordt automatisch toegepast op nieuwe of bestaande virtuele machines met dezelfde grootte en regio als uw reserveringen. [Meer informatie over Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+Advisor wordt ook een melding van gereserveerde instanties die u hebt die in de komende 30 dagen verloopt. Het wordt aangeraden dat u nieuwe gereserveerde instanties koopt om te voorkomen dat de prijzen voor betalen per gebruik betalen.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Verwijderen van niet-gekoppelde openbare IP-adressen om geld te besparen
 

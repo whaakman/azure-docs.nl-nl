@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59363002"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59783964"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Aangepaste regels voor de web application firewall voordeur met Azure
 Azure-web application firewall (WAF) met voordeur service kunt u voor het beheren van toegang tot uw webtoepassingen op basis van de voorwaarden die u definieert. Een aangepaste WAF-regel bestaat uit een aantal prioriteit, regeltype criteria voor overeenkomst en een actie. Er zijn twee typen aangepaste regels: overeenkomen met de regels en regels voor beoordelen. Een regel overeen beheert de toegang op basis van voorwaarden overeenkomst terwijl een tarief limiet regel controleert de toegang op basis van die overeenkomt met de voorwaarden en de tarieven van binnenkomende aanvragen. U kunt schakelen van een aangepaste regel om te voorkomen dat wordt geëvalueerd, maar behoud van de configuratie. Dit artikel worden de overeenkomende regels die zijn gebaseerd op http-parameters.

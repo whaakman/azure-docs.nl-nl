@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247899"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682794"
 ---
 # <a name="add-an-api-manually"></a>Handmatig een API toevoegen
 
-In dit artikel wordt uitgelegd hoe u handmatig een API moet toevoegen aan het exemplaar van API Management (APIM) met Azure Portal. Een veelvoorkomend scenario wanneer u een lege API wilt maken en het handmatig wilt definiëren om een gesimuleerde API te maken. Zie voor meer informatie over het simuleren van een API [Gesimuleerde API-antwoorden](mock-api-responses.md).
+De stappen in dit artikel laten zien hoe de Azure portal gebruiken voor het handmatig een API toevoegen aan het exemplaar van API Management (APIM). Een veelvoorkomend scenario wanneer u een lege API wilt maken en het handmatig wilt definiëren om een gesimuleerde API te maken. Zie voor meer informatie over het simuleren van een API [Gesimuleerde API-antwoorden](mock-api-responses.md).
 
 Als u een bestaande API wilt importeren, zie de sectie [Verwante onderwerpen](#related-topics).
 
-In dit artikel maken we een lege API en geven [httpbin.org](http://httpbin.org) (een openbare testservice) op als back-end-API.
+In dit artikel maken we een lege API en geven [httpbin.org](https://httpbin.org) (een openbare testservice) op als back-end-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md)
+Voltooi de volgende quickstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,10 +48,10 @@ Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-start
     |**Naam**|**Waarde**|**Beschrijving**|
     |---|---|---|
     |**Weergavenaam**|"*Lege API*" |Deze naam wordt weergegeven in de ontwikkelaarsportal.|
-    |**Webservice-URL** (optioneel)| "*http://httpbin.org*"| Als u een API wilt simuleren, kan het zijn dat u niets invoert. <br/>In dit geval voeren we [http://httpbin.org](http://httpbin.org) in. Dit is een openbare testservice. <br/>Als u een API wilt importeren die automatisch is toegewezen aan een back-end, lees dan een van de onderwerpen in de sectie [Verwante onderwerpen](#related-topics).|
+    |**Webservice-URL** (optioneel)| "*https://httpbin.org*"| Als u een API wilt simuleren, kan het zijn dat u niets invoert. <br/>In dit geval voeren we [https://httpbin.org](https://httpbin.org) in. Dit is een openbare testservice. <br/>Als u een API wilt importeren die automatisch is toegewezen aan een back-end, lees dan een van de onderwerpen in de sectie [Verwante onderwerpen](#related-topics).|
     |**URL-schema**|"*HTTPS*"|In dit geval geven we een beveiligde HTTPS APIM toegang tot de back-end, ondanks dat de back-end niet-beveiligde HTTP-toegang heeft. <br/>Dit soort scenario (HTTPS naar HTTP) wordt HTTPS-beëindiging genoemd. U kunt dit doen als uw API binnen een virtueel netwerk bestaat (waarvan u weet dat de toegang is beveiligd, zelfs als HTTPS wordt niet gebruikt). <br/>U kunt "HTTPS-beëindiging" op een aantal CPU-cycli gebruiken om op te slaan.|
     |**URL-achtervoegsel**|"*hbin*"| Het achtervoegsel is een naam die deze specifieke API in dit APIM-exemplaar identificeert. Hij moet uniek zijn in dit APIM-exemplaar.|
-    |**Producten**|"*Onbeperkt*" |Publiceer de API door deze aan een product te koppelen. Als u wilt dat de API wordt gepubliceerd en beschikbaar is voor ontwikkelaars, kunt u deze toevoegen aan een product. U kunt dit doen tijdens het maken van de API of het later instellen.<br/><br/>Producten zijn koppelingen van een of meer API's. U kunt een aantal API's opnemen en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. <br/>Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer ontwikkelaars zich abonneren, ontvangen ze een abonnementssleutel die toegang biedt tot elke API in het betreffende product. Als u de APIM-abonnementssleutel hebt gemaakt, bent u al een beheerder en bent u standaard geabonneerd op elk product.<br/><br/> Standaard wordt elke API Management-instantie geleverd met twee voorbeeldproducten: **Starter** en **Onbeperkt**.| 
+    |**Producten**|"*Onbeperkt*" |Publiceer de API door deze aan een product te koppelen. Als u wilt dat de API wordt gepubliceerd en beschikbaar is voor ontwikkelaars, kunt u deze toevoegen aan een product. U kunt dit doen tijdens het maken van de API of het later instellen.<br/><br/>Producten zijn koppelingen van een of meer API's. U kunt een aantal API's opnemen en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. <br/>Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer ontwikkelaars zich abonneren, ontvangen ze een abonnementssleutel die toegang biedt tot elke API in het betreffende product. Als u de APIM-abonnementssleutel hebt gemaakt, bent u al een beheerder en bent u standaard geabonneerd op elk product.<br/><br/> Standaard wordt elk API Management-exemplaar geleverd met twee voorbeeldproducten: **Starter** en **Onbeperkt**.| 
 5. Selecteer **Maken**.
 
 U hebt op dit moment geen bewerkingen in APIM die zijn toegewezen aan de bewerkingen in uw back-end-API. Als u een bewerking aanroept die beschikbaar is gesteld via de back-end maar niet via de APIM, krijgt u een **404**.

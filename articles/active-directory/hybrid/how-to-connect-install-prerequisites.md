@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835466"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683664"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -49,6 +49,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-server
 * Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
+* Azure AD Connect installeert op een domeincontroller wordt niet aanbevolen vanwege de procedures voor beveiliging en meer beperkende instellingen die kunnen voorkomen dat Azure AD Connect correct installeren
 * De Azure AD Connect-server moet een volledige GUI geïnstalleerd hebben. Het is **niet ondersteund** te installeren op server core.
 * Azure AD Connect moet worden geïnstalleerd op Windows Server 2008 R2 of hoger. Deze server moet domein toegevoegd en is mogelijk een domeincontroller of lidserver.
 * Als u Azure AD Connect op Windows Server 2008 R2 installeert, Controleer of de meest recente hotfixes toepassen van Windows Update. De installatie kan niet beginnen met een niet-gepatchte server.
@@ -60,6 +61,19 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 * Als Active Directory Federation Services wordt geïmplementeerd, moet u [SSL-certificaten](#ssl-certificate-requirements).
 * Als Active Directory Federation Services wordt geïmplementeerd, dan moet u configureren [naamomzetting](#name-resolution-for-federation-servers).
 * Als uw globale beheerders hebben MFA ingeschakeld, klikt u vervolgens de URL **https://secure.aadcdn.microsoftonline-p.com** moet zich in de lijst met vertrouwde sites. U wordt gevraagd deze website aan de lijst met vertrouwde sites toevoegen wanneer u wordt gevraagd om een MFA-controle en deze niet is toegevoegd voordat. U kunt Internet Explorer toe te voegen aan uw vertrouwde sites.
+* Microsoft raadt aan uw Azure AD Connect-server voor het verkleinen van de kwetsbaarheid van de beveiliging voor deze kritieke onderdeel van uw IT-omgeving beperken.  Na de onderstaande aanbevelingen, neemt het beveiligingsrisico voor uw organisatie.
+
+* Azure AD Connect op een domein gekoppelde server implementeren en administratieve toegang beperken tot beheerders van het domein of andere over nauwkeurig omschreven beveiligingsgroepen.
+
+Voor meer informatie zie: 
+
+* [Beveiligen beheerders groepen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Ingebouwde administrator-accounts beveiligen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Beveiliging verbeteren en sustainment door oppervlakteaanvallen verminderen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [De Active Directory kwetsbaarheid voor aanvallen verminderen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL-Server die wordt gebruikt door Azure AD Connect
 * Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. Een SQL Server 2012 Express LocalDB (een eenvoudige versie van SQL Server Express) wordt standaard geïnstalleerd. SQL Server Express heeft een limiet van 10GB waarmee u voor het beheren van ongeveer 100.000 objecten. Als u nodig hebt voor het beheren van een hoger aantal directory-objecten, moet u de installatiewizard verwijzen naar een andere installatie van SQL Server.
@@ -182,7 +196,7 @@ Wanneer u Azure AD Connect gebruikt om Active Directory Federation Services of d
 ## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect ondersteunende onderdelen
 Hier volgt een lijst van onderdelen die Azure AD Connect installeert op de server waarop Azure AD Connect is geïnstalleerd. Deze lijst is voor een basisinstallatie van Express. Als u een andere SQL Server op de pagina installatie synchronisatie services gebruiken wilt, is SQL Express LocalDB niet lokaal geïnstalleerd.
 
-* Azure AD Connect Health (Engelstalig)
+* Azure AD Connect Health
 * Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

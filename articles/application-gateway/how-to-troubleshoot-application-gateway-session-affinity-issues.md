@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 0c1c466149b4992d99e18cfb1fd5d8416834df35
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904522"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683144"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Oplossen van problemen met Azure Application Gateway-sessie-affiniteit
 
@@ -96,7 +96,7 @@ Dit probleem treedt op omdat Internet Explorer en andere browsers mogelijk niet 
 
 #### <a name="resolution"></a>Oplossing
 
-U kunt dit probleem oplossen, moet u toegang tot de toepassingsgateway met behulp van een FQDN-naam. Gebruik bijvoorbeeld [ http://website.com ](http://website.com/) of [ http://appgw.website.com ](http://appgw.website.com/) .
+U kunt dit probleem oplossen, moet u toegang tot de toepassingsgateway met behulp van een FQDN-naam. Gebruik bijvoorbeeld [ http://website.com ](https://website.com/) of [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Extra Logboeken om op te lossen
 

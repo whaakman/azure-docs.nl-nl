@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803246"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681723"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob-opslag beheren
 
@@ -45,7 +45,7 @@ De levenscyclus van management-functie is beschikbaar in alle openbare Azure-reg
 U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), de Azure CLI, [REST-API's](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), of een clienthulpprogramma. In dit artikel laat zien hoe beleid beheren met behulp van de portal en PowerShell-methoden.  
 
 > [!NOTE]
-> Als u firewallregels voor uw opslagaccount inschakelt, worden lifecycle management-aanvragen geblokkeerd. U kunt deze aanvragen blokkering opheffen door op te geven van uitzonderingen. Zie voor meer informatie de sectie uitzonderingen in [firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Als u firewallregels voor uw opslagaccount inschakelt, worden lifecycle management-aanvragen geblokkeerd. U kunt deze aanvragen blokkering opheffen door op te geven van uitzonderingen. De vereiste toegang zijn: `Logging,  Metrics,  AzureServices`. Zie voor meer informatie de sectie uitzonderingen in [firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -189,7 +189,7 @@ Levenscyclusbeheer biedt ondersteuning voor opslaglagen en verwijderen van blobs
 
 De uitvoering voorwaarden zijn gebaseerd op leeftijd. Basis-blobs gebruikt u de laatst gewijzigd om bij te houden van de leeftijd en blob-momentopnamen gebruiken de aanmaaktijd van de momentopname voor het bijhouden van leeftijd.
 
-| Actie uitvoeren van voorwaarde | Voorwaarde-waarde | Beschrijving |
+| Actie uitvoeren van voorwaarde | Voorwaarde-waarde | Description |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor base blob-acties |
 | daysAfterCreationGreaterThan     | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor acties van blob-momentopname | 

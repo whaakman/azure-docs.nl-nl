@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: a8d071544462361e9750d3fa622467cd0000a040
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 43d0ab6552847df7f1f2a8599dcc7cb9a8fcb57b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056780"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698826"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>COMPUTE benchmarkscores voor Windows-VM 's
-De volgende SPECInt benchmarkscores weergeven computerprestaties voor van Azure VM-selectie voor hoge prestaties met Windows Server. COMPUTE benchmarkscores zijn ook beschikbaar voor [virtuele Linux-machines](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+De volgende SPECInt benchmarkscores weergeven computerprestaties voor van Azure VM-selectie voor hoge prestaties met Windows Server. COMPUTE benchmarkscores zijn ook beschikbaar voor [virtuele Linux-machines](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > De Linux-getallen onlangs hebt bijgewerkt en een uitgebreidere set van virtuele machines bevatten.

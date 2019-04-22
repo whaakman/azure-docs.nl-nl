@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306571"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698673"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Verificatie toevoegen aan uw Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,15 +35,13 @@ In deze zelfstudie is gebaseerd op de Mobile Apps quickstart. U moet eerst de ze
 
 Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren. Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer uw App Service in de [Azure-portal].
+1. In de [Azure-portal](https://ms.portal.azure.com), selecteert u uw App Service.
 
 2. Klik op de **verificatie / autorisatie** menu-optie.
 
 3. In de **toegestane externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze reeks wordt het URL-schema voor uw mobiele toepassing.  Het moet normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en beginnen met een letter) volgen.  U moet een notitie van de tekenreeks die u kiest, aangezien u nodig hebt om aan te passen van de code van uw mobiele toepassing met de URL-schema op verschillende plaatsen.
 
-4. Klik op **OK**.
-
-5. Klik op **Opslaan**.
+4. Klik op **Opslaan**.
 
 ## <a name="permissions"></a>Machtigingen beperken voor geverifieerde gebruikers
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

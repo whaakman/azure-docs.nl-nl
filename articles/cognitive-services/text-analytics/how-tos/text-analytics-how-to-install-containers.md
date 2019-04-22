@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d6c0d04966d3a713493485d52ca4e81ba25ab743
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 3fd2f257119595311e9d31ad2068fd12c8cf51ee
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521479"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683373"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -36,7 +36,7 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van Text Analytics
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Text Analytics-resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een [ _Tekstanalyse_ ](text-analytics-how-to-access-key.md) Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de pagina overzicht van de Text Analytics en sleutels van de Azure portal en zijn verplicht om de container te starten.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de pagina overzicht van Cognitive Services en sleutels van de Azure portal en zijn verplicht om de container te starten. U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -112,8 +112,10 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandli
 
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de pagina van de Text Analytics sleutels van de Azure portal.  |
-|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de pagina van de Text Analytics overzicht van de Azure portal.|
+|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de Azure-portal `Cognitive Services` op de pagina sleutels.  |
+|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de Azure `Cognitive Services` pagina overzicht. <br><br>Voorbeeld:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+
+U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het voorgaande voorbeeld van BILLING_ENDPOINT_URI.
 
 Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
 
@@ -159,7 +161,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](../text-analytics
 
 ## <a name="billing"></a>Billing
 
-De Text Analytics containers verzenden factuurgegevens naar Azure, met behulp van een _Tekstanalyse_ resource voor uw Azure-account. 
+De Text Analytics containers verzenden factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

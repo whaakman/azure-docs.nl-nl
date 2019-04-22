@@ -1,45 +1,38 @@
 ---
 title: 'Zelfstudie: een toepassingsgateway maken met een web application firewall - Azure portal | Microsoft Docs'
-description: Meer informatie over het maken van een toepassingsgateway met een firewall voor webtoepassingen met behulp van de Azure-portal.
+description: In deze zelfstudie leert u hoe u een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure-portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: tutorial
+ms.date: 4/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1284ddec4cd9cea3ea53c20d437550405dd614d9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 206895768ea48e352e4f7fe90ab597f3756586dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905865"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682845"
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
+# <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Zelfstudie: Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
-> [!div class="op_single_selector"]
->
-> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure-CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Deze zelfstudie leert u hoe u de Azure portal gebruiken voor het maken van een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen. Nadat de toepassingsgateway is gemaakt, testen u deze om te controleren of dat deze correct werkt. Met Azure Application Gateway, kunt u uw toepassing beveiligd webverkeer specifieke resources sturen door listeners toewijzen aan poorten, het maken van regels en resources toe te voegen aan een back-endpool. Om het eenvoudig, te zijn in deze zelfstudie wordt een eenvoudige configuratie met een openbaar front-end-IP-adres, een basislistener naar één site op deze application gateway-host, twee virtuele machines die worden gebruikt voor de back endpool en een regel voor het doorsturen van een algemene aanvraag.
 
-Deze zelfstudie leert u hoe u de Azure portal gebruiken voor het maken van een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen. Nadat de toepassingsgateway is gemaakt, testen u deze om te controleren of dat deze correct werkt. Met Azure Application Gateway, kunt u uw toepassing beveiligd webverkeer specifieke resources sturen door listeners toewijzen aan poorten, het maken van regels en resources toe te voegen aan een back-endpool. Om het eenvoudig, te worden in dit artikel wordt een eenvoudige configuratie met een openbaar front-end-IP-adres, een basislistener naar één site op deze application gateway-host, twee virtuele machines die worden gebruikt voor de back endpool en een regel voor het doorsturen van een algemene aanvraag.
-
-In dit artikel leert u het volgende:
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken met WAF ingeschakeld
 > * De virtuele machines die worden gebruikt als back-endservers maken
 > * Een opslagaccount maken en diagnostische gegevens configureren
+> * De toepassingsgateway testen
 
 ![Voorbeeld van een WAF (Web Application Firewall)](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Als u liever, u kunt deze zelfstudie volgen met behulp [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) of [Azure CLI](tutorial-restrict-web-traffic-cli.md).
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -47,7 +40,7 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. U kunt een nieuw virtueel netwerk maken of gebruik een bestaande resourcegroep. In dit voorbeeld maken we een nieuw virtueel netwerk. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt. Application Gateway-instanties worden gemaakt in afzonderlijke subnetten. In dit voorbeeld maakt u twee subnetten: één voor de toepassingsgateway en één voor de back-endservers.
+Voor Azure om te communiceren tussen resources, moet deze een virtueel netwerk. U kunt een nieuw virtueel netwerk maken of gebruik een bestaande resourcegroep. In dit voorbeeld maakt u een nieuw virtueel netwerk. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt. Application Gateway-instanties worden gemaakt in afzonderlijke subnetten. In dit voorbeeld maakt u twee subnetten: één voor de toepassingsgateway en één voor de back-endservers.
 
 Selecteer **Een resource maken** in het linkermenu van de Azure-portal. Het venster **Nieuw** wordt weergegeven.
 
@@ -71,9 +64,9 @@ Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
    - **Subnetnaam**: Typ *myAGSubnet* als naam voor het subnet.<br>Het subnet van de toepassingsgateway kan alleen bestaan uit toepassingsgateways. Andere resources zijn niet toegestaan.
    - **Subnetadresbereik**: Voer *10.0.0.0/24* voor het adresbereik van het subnet.![ Virtueel netwerk maken](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 3. Klik op **OK** om het virtuele netwerk en subnet te maken.
-4. Kies de **Frontend-IP-configuratie**. Controleer onder **Frontend-IP-configuratie** of **Type IP-adres** is ingesteld op **Openbaar**. Controleer onder **Openbaar IP-adres** of **Nieuw** is geselecteerd. <br>U kunt configureren dat de Frontend-IP om openbare of particuliere aan de hand van uw situatie. In dit voorbeeld kiezen we een openbare front-end-IP-adres. 
-5. Typ *myAGPublicIPAddress* als naam voor het openbare IP-adres. 
-6. Accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**.<br>We kiezen standaardwaarden in dit artikel voor het gemak, maar u kunt aangepaste waarden voor de overige instellingen configureren, afhankelijk van uw situatie 
+4. Kies de **Frontend-IP-configuratie**. Controleer onder **Frontend-IP-configuratie** of **Type IP-adres** is ingesteld op **Openbaar**. Controleer onder **Openbaar IP-adres** of **Nieuw** is geselecteerd. <br>U kunt configureren dat de Frontend-IP om openbare of particuliere aan de hand van uw situatie. Hier, kiest u een openbaar front-end-IP-adres.
+5. Typ *myAGPublicIPAddress* als naam voor het openbare IP-adres.
+6. Accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**.<br>U standaardwaarden in deze zelfstudie voor het gemak kiezen, maar u kunt aangepaste waarden voor de overige instellingen configureren, afhankelijk van uw situatie.
 
 ### <a name="summary-page"></a>Overzichtspagina
 
@@ -81,12 +74,12 @@ Controleer de instellingen op de **overzichtspagina** en selecteer **OK** om het
 
 ## <a name="add-backend-pool"></a>Een back-endpool toevoegen
 
-De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-endservers die behoeve van de aanvraag. Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-adressen, namen van interne IP-adressen, de volledig gekwalificeerde domeinnaam (FQDN) en multitenant back-ends, zoals Azure Appservice. U moet de doelen van uw back-end toevoegen aan een back-endpool.
+De back-endpool wordt gebruikt voor het routeren van aanvragen naar de back-endservers, die de aanvraag dienen. Back-endpools kunnen hebben NIC's, virtuele-machineschaalsets, openbare IP-adressen, interne IP-adressen, volledig gekwalificeerde domeinnamen (FQDN) en multitenant back-ends, zoals Azure App Service. De doelen van uw back-end toevoegen aan een back-endpool.
 
-In dit voorbeeld gebruiken we virtuele machines als de doel-back-end. We kunnen bestaande virtuele machines gebruiken of nieuwe labels maken. In dit voorbeeld maken we twee virtuele machines die Azure als back-endservers voor application gateway gebruikt. Wij zullen u doet dit door:
+In dit voorbeeld kunt u virtuele machines gebruikt als de doel-back-end. U kunt bestaande virtuele machines gebruiken of nieuwe labels maken. Hier kunt maken u twee virtuele machines die Azure als back-endservers voor application gateway gebruikt. Hiervoor u:
 
 1. Maak een nieuw subnet *myBackendSubnet*, waarin de nieuwe virtuele machines wordt gemaakt. 
-2. 2 nieuwe virtuele machines maken *myVM* en *myVM2*moet worden gebruikt als back-endservers.
+2. Maak twee nieuwe VM's, *myVM* en *myVM2*moet worden gebruikt als back-endservers.
 3. IIS installeren op de virtuele machines om te controleren of de application gateway is gemaakt.
 4. De back-endservers toevoegen aan de back-endpool.
 
@@ -113,14 +106,14 @@ Voeg een subnet toe aan het virtuele netwerk dat u zojuist hebt gemaakt door de 
    - **Wachtwoord**: Typ *Azure123456!* als beheerderswachtwoord.
 4. Accepteer de overige standaardwaarden en klik op **Volgende: Schijven**.  
 5. Accepteer de standaardwaarden op het tabblad **Schijven** en selecteer **Volgende: Netwerken**.
-6. Zorg ervoor dat, op het tabblad **Netwerken**, **myVNet** is geselecteerd bij **Virtueel netwerk** en dat **Subnet** is ingesteld op **myBackendSubnet**. Accepteer de overige standaardwaarden en klik op **Volgende: Beheer**.<br>Application Gateway kan communiceren met exemplaren buiten het virtuele netwerk dat deel uitmaakt van, maar we wilt controleren of er een IP-verbinding is. 
+6. Zorg ervoor dat, op het tabblad **Netwerken**, **myVNet** is geselecteerd bij **Virtueel netwerk** en dat **Subnet** is ingesteld op **myBackendSubnet**. Accepteer de overige standaardwaarden en klik op **Volgende: Beheer**.<br>Application Gateway kan communiceren met exemplaren buiten het virtuele netwerk dat deel uitmaakt van, maar u wilt controleren of er is IP-connectiviteit.
 7. Op het tabblad **Beheer** stelt u **Diagnostische gegevens over opstarten** in op **Uit**. Accepteer de overige standaardwaarden en selecteer **Beoordelen en maken**.
 8. Controleer de instellingen op het tabblad **Beoordelen en maken**, corrigeer eventuele validatiefouten en selecteer vervolgens **Maken**.
 9. Wacht tot de virtuele machine is gemaakt voordat u verder gaat.
 
 ### <a name="install-iis-for-testing"></a>IIS installeren voor het testen
 
-In dit voorbeeld zijn we IIS installeren op de virtuele machines alleen voor het controleren van dat Azure application gateway is gemaakt. 
+In dit voorbeeld kunt u IIS installeren op de virtuele machines alleen voor het controleren van dat Azure application gateway is gemaakt. 
 
 1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Hiertoe selecteert u **Cloud Shell** in de bovenste navigatiebalk van de Azure-portal en vervolgens **PowerShell** in de vervolgkeuzelijst. 
 
@@ -188,7 +181,7 @@ Het is niet nodig IIS te installeren om de toepassingsgateway te maken, maar u h
 
 1. Het openbare IP-adres vinden voor de toepassingsgateway op de **overzicht** pagina.![ Openbare IP-adres van application gateway registreren](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)u kunt ook selecteren **alle resources**, voer *myAGPublicIPAddress* in het zoekvak vak en selecteert u deze in de zoekopdracht resultaten. Het openbare IP-adres wordt weergegeven op de pagina **Overzicht**.
 2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
-3. Controleer het antwoord. Een geldige reactie wordt gecontroleerd of de application gateway is gemaakt en uitgevoerd wordt om verbinding te maken met de back-end.![Toepassingsgateway testen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. Controleer het antwoord. Een geldige reactie wordt gecontroleerd of de application gateway is gemaakt en deze verbinding met de back-end maken kan.![Toepassingsgateway testen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -203,11 +196,5 @@ Ga als volgt te werk om de resourcegroep te verwijderen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een toepassingsgateway maken met WAF ingeschakeld
-> * De virtuele machines die worden gebruikt als back-endservers maken
-> * Een opslagaccount maken en diagnostische gegevens configureren
-
-Voor meer informatie over Toepassingsgateways en de bijbehorende resources, gaat u naar de artikelen met procedures.
+> [!div class="nextstepaction"]
+> [Meer informatie over wat u met Azure Application Gateway doen kunt](application-gateway-introduction.md)

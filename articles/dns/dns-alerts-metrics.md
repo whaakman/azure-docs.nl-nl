@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434458"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683025"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
 
 ## <a name="azure-dns-metrics"></a>Metrische gegevens van Azure DNS
 
-Azure DNS biedt metrische gegevens voor klanten in te schakelen voor het bewaken van specifieke aspecten van hun DNS-labels die worden gehost in de service. Bovendien met Azure DNS-statistieken, kunt u configureren en waarschuwingen op basis van de voorwaarden die van belang zijn ontvangen. De metrische gegevens worden geleverd via de [Azure Monitor service](../azure-monitor/index.yml). Azure DNS biedt de volgende metrische gegevens via Azure Monitor voor uw DNS-zones:
+Azure DNS biedt metrische gegevens voor klanten in te schakelen voor het bewaken van specifieke aspecten van hun DNS-zones die worden gehost in de service. Bovendien met Azure DNS-statistieken, kunt u configureren en waarschuwingen op basis van de voorwaarden die van belang zijn ontvangen. De metrische gegevens worden geleverd via de [Azure Monitor service](../azure-monitor/index.yml). Azure DNS biedt de volgende metrische gegevens via Azure Monitor voor uw DNS-zones:
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ De gedetailleerde niveau van de dimensie voor deze metrische gegevens is DNS-Zon
 
 ### <a name="query-volume"></a>Queryvolume
 
-De *queryvolume* metrische gegevens in Azure DNS bevat het volume van DNS-query's (queryverkeer) die wordt ontvangen door Azure DNS voor de DNS-zone. De maateenheid Count is en de aggregatie is het totaal van alle query's ontvangen gedurende een bepaalde periode. Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Uw DNS-zone in de vervolgkeuzelijst Resource selecteren, selecteert u de Query Volume metrische gegevens en som selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld.  Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
+De *queryvolume* metrische gegevens in Azure DNS bevat het volume van DNS-query's (queryverkeer) die wordt ontvangen door Azure DNS voor de DNS-zone. De maateenheid Count is en de aggregatie is het totaal van alle query's ontvangen gedurende een bepaalde periode. 
+
+Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Uw DNS-zone in de vervolgkeuzelijst Resource selecteren, selecteert u de Query Volume metrische gegevens en som selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld.  Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 ![Queryvolume](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 

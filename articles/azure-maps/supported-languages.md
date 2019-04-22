@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358125"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784157"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure Maps ondersteunde talen
 Azure Maps zijn voor services in verschillende talen gelokaliseerd.  De volgende tabel bevat de ondersteunde taalcodes voor elke service.  

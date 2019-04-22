@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875133"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683170"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -103,7 +103,6 @@ Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van prob
 Zie voor meer informatie over het oplossen van dit soort problemen:
 
 - Dit [Pluk een parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) blogbericht
-- Dit [parameter probleem en tijdelijke oplossingen bekijken](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) blogbericht
 - Dit [elephant en muis parameter bekijken](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogbericht
 - Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
 

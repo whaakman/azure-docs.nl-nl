@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 7d38120c530b89230893b85829d201c14a8cba04
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579577"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697291"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
 
@@ -114,4 +114,4 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://
 In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en deze gebruikt met een Azure-functie. Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
-> [Beheerde identiteiten voor de integratie van Azure-resources](./integrate-azure-managed-service-identity.md)
+> [Beheerde identiteiten voor de integratie van Azure-resources](./howto-integrate-azure-managed-service-identity.md)

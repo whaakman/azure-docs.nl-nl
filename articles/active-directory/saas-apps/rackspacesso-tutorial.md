@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 61466f3574ba7a88665a8d78818d0a4c12716bbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269789"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Zelfstudie: Azure Active Directory-integratie met Rackspace SSO
 
@@ -38,7 +38,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Voor het configureren van Azure AD-integratie met Rackspace SSO, moet u de volgende items:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * Eenmalige aanmelding Rackspace SSO ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -101,11 +101,21 @@ Voor het configureren van Azure AD eenmalige aanmelding met Rackspace SSO, moet 
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+4. Op de **SAML-basisconfiguratie** sectie, Upload het **Service Provider-bestand met metagegevens** die u kunt downloaden van de [URL](https://login.rackspace.com/federate/sp.xml) en voer de volgende stappen uit:
 
-    ![Rackspace SSO-domein en URL's, eenmalige aanmelding informatie](common/sp-signonurl.png)
+    a. Klik op **Metagegevensbestand uploaden**.
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://login.rackspace.com/federate/`
+    ![image](common/upload-metadata.png)
+
+    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+
+    ![image](common/browse-upload-metadata.png)
+
+    c. Zodra het bestand met metagegevens is geüpload, krijgen de vereiste URL's automatisch automatisch ingevuld.
+
+    d. Typ een URL in het tekstvak **Aanmeldings-URL**: `https://login.rackspace.com/federate/`
+
+    ![Rackspace SSO-domein en URL's, eenmalige aanmelding informatie](common/sp-signonurl.png)   
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -143,7 +153,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -187,9 +197,9 @@ Wanneer u op de tegel Rackspace SSO in het toegangsvenster, moet u worden automa
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

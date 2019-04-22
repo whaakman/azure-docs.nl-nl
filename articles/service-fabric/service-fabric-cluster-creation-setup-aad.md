@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 132609529fbeda9b6dbd76a3ef6c824e84c15164
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670758"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699180"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Azure Active Directory instellen voor clientverificatie
 
@@ -39,7 +39,7 @@ Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure Ac
 2. Met de rechtermuisknop op het zip-bestand, selecteer **eigenschappen**, selecteer de **opheffen van blokkeringen** selectievakje en klik vervolgens op **toepassen**.
 3. Pak het gecomprimeerde bestand uit.
 
-## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Azure AD-toepassingen en asssign gebruikers aan rollen maken
+## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Azure Active Directory-toepassingen maken en gebruikers toewijzen aan rollen
 Maak twee Azure Active Directory-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing. Nadat u de toepassingen voor uw cluster hebt gemaakt, wijst u uw gebruikers toe aan de [rollen die worden ondersteund door Service Fabric](service-fabric-cluster-security-roles.md): alleen-lezen en beheerder.
 
 Voer `SetupApplications.ps1` uit, en geef de tenant-ID, de naam van het cluster en de antwoord-URL van de webtoepassing op als parameters.  Geef ook gebruikersnamen en wachtwoorden voor de gebruikers op.  Bijvoorbeeld:

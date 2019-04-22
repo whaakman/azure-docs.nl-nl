@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983248"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683457"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Verwijderen van installatiekopieën van containers in Azure Container Registry
 
 Als u wilt de grootte van uw Azure container registry behouden, moet u periodiek verouderde image-gegevens verwijderen. Terwijl sommige containerinstallatiekopieën in productie is geïmplementeerd, vereist op de langere termijn opslag is mogelijk, kunnen anderen doorgaans sneller worden verwijderd. Bijvoorbeeld in een geautomatiseerde build en Testscenario, kunt het register snel vullen met installatiekopieën die mogelijk nooit worden geïmplementeerd en kunnen worden opgeschoond kort na het voltooien van de compilatie- en configuratiefase.
 
-Omdat u de image-gegevens op verschillende manieren verwijderen kunt, is het belangrijk om te begrijpen hoe elk verwijderbewerking is van invloed op gebruik van opslag. In dit artikel eerst introduceert de onderdelen van een Docker-register en container-installatiekopieën en bevat informatie over de verschillende methoden voor het verwijderen van image-gegevens.
+Omdat u de image-gegevens op verschillende manieren verwijderen kunt, is het belangrijk om te begrijpen hoe elk verwijderbewerking is van invloed op gebruik van opslag. In dit artikel eerst introduceert de onderdelen van een Docker-register en container-installatiekopieën en bevat informatie over de verschillende methoden voor het verwijderen van image-gegevens. Voorbeeldscripts voor het automatiseren van delete-bewerkingen.
 
 ## <a name="registry"></a>Register
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Namen van de opslagplaats kunnen ook bevatten [naamruimten](container-registry-best-practices.md#repository-namespaces). Naamruimten kunt u afbeeldingen met behulp van de namen van forward slash gescheiden opslagplaats, bijvoorbeeld groep:
+Namen van de opslagplaats kunnen ook bevatten [naamruimten](container-registry-best-practices.md#repository-namespaces). Naamruimten kunt u afbeeldingen van de groep met behulp van de namen van forward slash gescheiden opslagplaats, bijvoorbeeld:
 
 ```
 marketing/campaign10-18/web:v2
@@ -50,11 +50,11 @@ Een containerinstallatiekopie binnen een register is gekoppeld aan een of meer l
 
 ### <a name="tag"></a>Label
 
-Van een installatiekopie *tag* Hiermee geeft u de versie ervan. Een één installatiekopie binnen een opslagplaats een of meer labels kan worden toegewezen en kan ook worden als "niet-gecodeerde." Dat wil zeggen, kunt u alle tags verwijderen van een installatiekopie van het image-gegevens (de lagen) blijven het register.
+Van een installatiekopie *tag* Hiermee geeft u de versie ervan. Een één installatiekopie binnen een opslagplaats een of meer labels kan worden toegewezen en kan ook worden als "niet-gecodeerde." Dat wil zeggen, kunt u alle tags verwijderen van een installatiekopie van het image-gegevens (de lagen) blijven in het register.
 
 De opslagplaats (of opslagplaats en naamruimte) plus een tag definieert de naam van een installatiekopie. U kunt pushen en ophalen van een installatiekopie van een door de naam op te geven in de bewerking push of pull.
 
-In een privéregister zoals Azure Container Registry bevat naam van de installatiekopie ook de volledig gekwalificeerde naam van de Register-host. De host register voor installatiekopieën in de ACR is in de indeling *acrname.azurecr.io*. Bijvoorbeeld, zou de volledige naam van de eerste afbeelding in de naamruimte 'marketing' in de vorige sectie:
+In een privéregister zoals Azure Container Registry bevat naam van de installatiekopie ook de volledig gekwalificeerde naam van de Register-host. De host register voor installatiekopieën in de ACR is in de indeling *acrname.azurecr.io* (zonder hoofdletters). Bijvoorbeeld, zou de volledige naam van de eerste afbeelding in de naamruimte 'marketing' in de vorige sectie:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Verwijderen van *op label* mag niet worden verward met het verwijderen van een label (label). U kunt een label met de Azure CLI-opdracht verwijderen [az acr repository label verwijderen][az-acr-repository-untag]. Er is geen ruimte vrijgemaakt als u een installatiekopie van een label verwijderen, omdat de [manifest](#manifest) en gegevens blijven in het register laag. De tag-verwijzing zelf wordt verwijderd.
+> Verwijderen van *op label* mag niet worden verward met het verwijderen van een label (label). U kunt een label met de Azure CLI-opdracht verwijderen [az acr repository label verwijderen][az-acr-repository-untag]. Er is geen ruimte vrijgemaakt als u een installatiekopie van een label verwijderen, omdat de [manifest](#manifest) en laaggegevens blijven in het register. De tag-verwijzing zelf wordt verwijderd.
 
 ## <a name="delete-by-manifest-digest"></a>Manifest digest verwijderen
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-De ' acr-helloworld:v2 ' installatiekopie wordt verwijderd uit het register, omdat alle laaggegevens uniek is voor die installatiekopie. Als een manifest gekoppeld aan meerdere labels is, worden ook alle gekoppelde tags verwijderd.
+De `acr-helloworld:v2` installatiekopie wordt verwijderd uit het register, omdat alle laaggegevens uniek is voor die installatiekopie. Als een manifest gekoppeld aan meerdere labels is, worden ook alle gekoppelde tags verwijderd.
+
+### <a name="list-digests-by-timestamp"></a>Lijst met verwerkingen op timestamp
+
+Voor het onderhouden van de grootte van een opslagplaats of het register, moet u wellicht periodiek verwijderen manifest verwerkingen die ouder zijn dan een bepaalde datum.
+
+De volgende Azure CLI-opdracht worden alle manifest Digest-schema in een opslagplaats die ouder zijn dan een opgegeven timestamp, in oplopende volgorde. Vervang `<acrName>` en `<repositoryName>` met waarden die geschikt is voor uw omgeving. De tijdstempel wordt mogelijk een volledige datum / tijd-expressie of een datum, zoals in dit voorbeeld.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>Verwijderen van verwerkingen met tijdstempel
+
+Na het verlopen manifest verwerkingen identificeren, kunt u het volgende Bash-script als u wilt verwijderen manifest verwerkingen die ouder zijn dan een opgegeven tijdstempel uitvoeren. Hiervoor de Azure CLI en **xargs**. Standaard voert het script niet verwijderen. Wijzig de `ENABLE_DELETE` waarde die moet worden `true` om in te schakelen van de installatiekopie verwijderen.
+
+> [!WARNING]
+> Gebruik het volgende voorbeeldscript voorzichtig--verwijderde image-gegevens is ONHERSTELBAAR. Als u systemen die pull installatiekopieën door manifest digest (in plaats van de installatiekopie met de naam) hebt, moet u deze scripts niet uitvoeren. Verwijderen van het manifest verwerkingen wordt voorkomen dat deze systemen de installatiekopieën binnenhaalt uit het register. In plaats van in het manifest van binnenhalen, Overweeg de overstap naar een *unieke tagging* schema, een [aanbevolen best practices][tagging-best-practices]. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>Niet-gelabelde afbeeldingen verwijderen
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>Verwijderen van alle niet-gelabelde afbeeldingen
 
-Gebruik de volgende voorbeeldscripts voorzichtig--verwijderd image-gegevens is ONHERSTELBAAR.
+> [!WARNING]
+> Gebruik de volgende voorbeeldscripts voorzichtig--verwijderd image-gegevens is ONHERSTELBAAR. Als u systemen die pull installatiekopieën door manifest digest (in plaats van de installatiekopie met de naam) hebt, moet u deze scripts niet uitvoeren. Verwijderen van niet-gelabelde afbeeldingen om deze systemen van het ophalen van de installatiekopieën uit het register te voorkomen. In plaats van in het manifest van binnenhalen, Overweeg de overstap naar een *unieke tagging* schema, een [aanbevolen best practices][tagging-best-practices].
 
 **Azure CLI in Bash**
 
 Het volgende Bash-script worden alle niet-gelabelde afbeeldingen uit een opslagplaats verwijderd. Hiervoor de Azure CLI en **xargs**. Standaard voert het script niet verwijderen. Wijzig de `ENABLE_DELETE` waarde die moet worden `true` om in te schakelen van de installatiekopie verwijderen.
-
-> [!WARNING]
-> Als u systemen die pull installatiekopieën door manifest digest (in plaats van de installatiekopie met de naam) hebt, moet u dit script niet uitvoeren. Verwijderen van niet-gelabelde afbeeldingen om deze systemen van het ophalen van de installatiekopieën uit het register te voorkomen. In plaats van in het manifest van binnenhalen, Overweeg de overstap naar een *unieke tagging* schema, een [aanbevolen best practices][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **Azure CLI in PowerShell**
 
 De volgende PowerShell-script worden alle niet-gelabelde afbeeldingen uit een opslagplaats verwijderd. Het vereist dat PowerShell en de Azure CLI. Standaard voert het script niet verwijderen. Wijzig de `$enableDelete` waarde die moet worden `$TRUE` om in te schakelen van de installatiekopie verwijderen.
-
-> [!WARNING]
-> Als u systemen die pull installatiekopieën door manifest digest (in plaats van de installatiekopie met de naam) hebt, moet u dit script niet uitvoeren. Verwijderen van niet-gelabelde afbeeldingen om deze systemen van het ophalen van de installatiekopieën uit het register te voorkomen. In plaats van in het manifest van binnenhalen, Overweeg de overstap naar een *unieke tagging* schema, een [aanbevolen best practices][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!

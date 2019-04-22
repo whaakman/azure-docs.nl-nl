@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856019"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699044"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -84,7 +84,7 @@ In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden d
 * De gegarandeerde FIFO-patroon in Service Bus-wachtrijen vereist het gebruik van de messaging-sessies. In het geval dat de toepassing vastloopt tijdens het verwerken van een bericht wordt ontvangen in de **bekijken & vergrendelen** modus, de volgende keer dat de ontvanger van een wachtrij een berichtensessie accepteert deze begint met het bericht is mislukt nadat de time-to-live (TTL) periode is verlopen.
 * Storage-wachtrijen zijn ontworpen ter ondersteuning van standard queuing's, zoals toepassingsonderdelen ontkoppeling zodat de schaalbaarheid en tolerantie voor fouten, load leveling en het samenstellen van proceswerkstromen.
 * Service Bus-wachtrijen ondersteunen de *op-één keer* bezorging gegarandeerd. 
-* Inconsistenties met betrekking tot de afhandeling van berichten in de context van Service Bus-sessies kunnen worden voorkomen met behulp van de sessiestatus voor het opslaan van de status van de toepassing ten opzichte van de voortgang van de verwerking van de sessie berichtenstroom en met behulp van transacties om vereffenen ontvangen berichten en de sessiestatus bij te werken. Dit soort consistentie is soms aangeduid als *exact-één keer worden verwerkt* fouten wordt duidelijk dat berichten worden redeliveried in de producten van andere leveranciers maar de transactie en de term is daarom niet precies voldoende.
+* Inconsistenties met betrekking tot de afhandeling van berichten in de context van Service Bus-sessies kunnen worden voorkomen met behulp van de sessiestatus voor het opslaan van de status van de toepassing ten opzichte van de voortgang van de verwerking van de sessie berichtenstroom en met behulp van transacties om vereffenen ontvangen berichten en de sessiestatus bij te werken. Dit soort consistentie is soms aangeduid als *exact-één keer worden verwerkt* in de producten van andere leveranciers maar de transactie fouten wordt duidelijk dat berichten opnieuw worden bezorgd en de term is daarom niet precies voldoende.
 * Storage-wachtrijen bieden een uniforme en consistente programmeermodel voor wachtrijen, tabellen en BLOBs – voor ontwikkelaars en bewerkingsteams.
 * Service Bus-wachtrijen bieden ondersteuning voor lokale transacties in de context van één wachtrij.
 * De **ontvangt en verwijdert** modus wordt ondersteund door Service Bus biedt de mogelijkheid om te beperken van de berichten item (en de bijbehorende kosten) ruil verlaagde levering assurance.

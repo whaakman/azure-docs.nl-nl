@@ -8,75 +8,44 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361971"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681451"
 ---
-# <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen (beperkte openbare preview-versie)
+# <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen
 
 In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd voor Azure Backup voor Azure-abonnementen of naar een andere resourcegroep in hetzelfde abonnement verplaatsen. U kunt de Azure portal of PowerShell gebruiken om te verplaatsen van een Recovery Services-kluis.
 
-> [!NOTE]
-> Als u wilt een Recovery Services-kluis en alle bijbehorende resources verplaatsen naar andere resourcegroep, moet u eerst [registreren van het bronabonnement](#register-the-source-subscription-to-move-your-recovery-services-vault).
-
-## <a name="supported-geos"></a>Ondersteunde geografische gebieden
+## <a name="supported-region"></a>Ondersteunde regio
 
 Verplaatsen van de resource voor de Recovery Services-kluis wordt ondersteund in Australië-Oost, Australië-Zuidoost, Canada-centraal, Canada-Oost, Zuidoost-Azië, Oost-Azië, VS-midden, Noord-centraal VS, VS-Oost, VS-Oost 2, Zuid-centraal VS, West-Centraal VS, West-Centraal 2, VS-West Centraal-India, Zuid-India, Japan-Oost, Japan-West, Korea centraal, Korea Zuid, Noord-Europa, West-Europa, Zuid-Afrika Noord, Zuid-Afrika West, UK-Zuid, UK-West, VAE-centraal en VAE-Noord.
 
-## <a name="prerequisites-for-moving-a-vault"></a>Vereisten voor het verplaatsen van een kluis
+## <a name="prerequisites-for-moving-recovery-services-vault"></a>Vereisten voor het verplaatsen van Recovery Services-kluis
 
-- Bij het verplaatsen tussen resourcegroepen, worden zowel de bron-resourcegroep en de doelresourcegroep vergrendeld tijdens de bewerking. Totdat de verplaatsing is voltooid, schrijven en verwijderen van bewerkingen op de brongroepen zijn geblokkeerd.
-- Alleen de beheerder van het abonnement heeft de machtigingen voor het verplaatsen van een kluis.
-- Bij het verplaatsen van een kluis voor abonnementen, het doelabonnement moet aanwezig zijn in een status ingeschakeld en moet zich in dezelfde tenant als de bronabonnement.
+- Tijdens de kluis verplaatsen tussen resourcegroepen, zowel de bron- en -resourcegroepen zijn vergrendeld zo wordt voorkomen dat de voor schrijven en verwijderen van bewerkingen. Zie voor meer informatie dit [artikel](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Alleen beheerderabonnement heeft de machtigingen voor het verplaatsen van een kluis.
+- Voor het verplaatsen van kluis voor abonnementen, het doelabonnement moet zich bevinden in dezelfde tenant als van het bronabonnement en de status moet worden ingeschakeld.
 - U moet gemachtigd om uit te voeren schrijfbewerkingen op de doelresourcegroep.
-- U kunt de locatie van de Recovery Services-kluis niet wijzigen. De resourcegroep verplaatsen van de kluis alleen worden gewijzigd. De nieuwe resourcegroep mogelijk in een andere locatie, maar dat de locatie van de kluis niet wijzigen.
-- Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip.
-- Als een virtuele machine niet met de Recovery Services-kluis voor abonnementen, of naar een nieuwe resourcegroep verplaatsen, blijven de huidige VM-herstelpunten behouden in de kluis totdat ze zijn verlopen.
+- De resourcegroep verplaatsen van de kluis alleen worden gewijzigd. De Recovery Services-kluis wordt opgeslagen op dezelfde locatie en kan niet worden gewijzigd.
+- U kunt slechts één Recovery Services-kluis verplaatsen per regio, op een tijdstip.
+- Als een virtuele machine niet met de Recovery Services-kluis voor abonnementen, of naar een nieuwe resourcegroep verplaatsen, blijft de huidige herstelpunten voor de virtuele machine behouden in de kluis totdat ze zijn verlopen.
 - Of de virtuele machine wordt verplaatst met de kluis of niet, kunt u altijd de virtuele machine herstellen vanuit de bewaarde back-upgeschiedenis in de kluis.
-- De Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden.
+- De Azure Disk Encryption is vereist dat de sleutelkluis en de VM's zich in de dezelfde Azure-regio en het abonnement bevinden.
 - Zie voor het verplaatsen van een virtuele machine met beheerde schijven, dit [artikel](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - De opties voor het verplaatsen van resources die zijn geïmplementeerd via het klassieke model zijn afhankelijk van of u de resources binnen een abonnement of naar een nieuw abonnement worden verplaatst. Zie voor meer informatie dit [artikel](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
 - Back-upbeleid gedefinieerd voor de kluis worden bewaard nadat de kluis tussen abonnementen of naar een nieuwe resourcegroep verplaatst.
-- U kunt met de Azure-bestanden, Azure File Sync of SQL in IaaS-VM's voor abonnementen en resourcegroepen kluizen op dit moment niet verplaatsen.
+- Kluis met de Azure File Sync-, Azure Files- of SQL in IaaS-VM's verplaatsen tussen abonnementen en resourcegroepen wordt niet ondersteund.
 - Als u een kluis back-upgegevens van virtuele machine, met verschillende abonnementen, moet u uw virtuele machines verplaatsen naar het hetzelfde abonnement en de dezelfde doelresourcegroep gebruiken om door te gaan van de back-ups.<br>
 
 > [!NOTE]
 >
 > Recovery Services-kluizen geconfigureerd voor gebruik met **Azure Site Recovery** kan niet worden verplaatst, nog. Als u virtuele machines hebt geconfigureerd (Azure IaaS, Hyper-V, VMware) of fysieke machines voor het gebruik van disaster recovery de **Azure Site Recovery**, de verplaatsing worden geblokkeerd. De functie voor het verplaatsen van resources voor Site Recovery-service is nog niet beschikbaar.
 
-## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registratie van het bronabonnement voor het verplaatsen van uw Recovery Services-kluis
 
-Voor het registreren van het abonnement van bron naar **verplaatsen** uw Recovery Services-kluis, de volgende cmdlets uitvoeren vanuit de PowerShell-terminal:
-
-1. Aanmelden bij uw Azure-account
-
-   ```
-   Connect-AzureRmAccount
-   ```
-
-2. Selecteer het abonnement dat u wilt registreren
-
-   ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-3. Dit abonnement registreren
-
-   ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-   ```
-
-4. De opdracht uitvoeren
-
-   ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-Wacht 30 minuten voor het abonnement om te worden goedgekeurd voordat u begint met de bewerking voor verplaatsen met behulp van de Azure portal of PowerShell.
-
-## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-different-resource-group"></a>Azure portal gebruiken voor een Recovery Services-kluis naar een andere resourcegroep verplaatsen
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Azure portal gebruiken voor de Recovery Services-kluis naar een andere resourcegroep verplaatsen
 
 Een recovery services-kluis en alle bijbehorende resources naar andere resourcegroep verplaatsen
 
@@ -106,7 +75,7 @@ Een recovery services-kluis en alle bijbehorende resources naar andere resourceg
    ![Bevestigingsbericht](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
-## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Azure portal gebruiken voor het verplaatsen van een Recovery Services-kluis naar een ander abonnement
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>Azure portal gebruiken voor de Recovery Services-kluis verplaatsen naar een ander abonnement
 
 U kunt een Recovery Services-kluis en alle bijbehorende resources verplaatsen naar een ander abonnement
 
@@ -139,7 +108,7 @@ U kunt een Recovery Services-kluis en alle bijbehorende resources verplaatsen na
 >
 >
 
-## <a name="use-powershell-to-move-a-vault"></a>PowerShell gebruiken voor het verplaatsen van een kluis
+## <a name="use-powershell-to-move-recovery-services-vault"></a>PowerShell gebruiken voor het verplaatsen van de dat Recovery Services-kluis
 
 Als u een Recovery Services-kluis naar een andere resourcegroep, gebruikt u de `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` vereist de resourcenaam en het type resource. U krijgt van de `Get-AzureRmRecoveryServicesVault` cmdlet.
 
@@ -157,7 +126,7 @@ Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -D
 
 Na het uitvoeren van de bovenstaande cmdlets, wordt u gevraagd om te bevestigen dat u wilt verplaatsen van de opgegeven resources. Type **Y** om te bevestigen. Na een validatie is geslaagd, is de resource worden verplaatst.
 
-## <a name="use-cli-to-move-a-vault"></a>CLI gebruiken voor het verplaatsen van een kluis
+## <a name="use-cli-to-move-recovery-services-vault"></a>CLI gebruiken voor het verplaatsen van de dat Recovery Services-kluis
 
 Om een Recovery Services-kluis naar een andere resourcegroep verplaatsen, gebruikt u de volgende cmdlet:
 

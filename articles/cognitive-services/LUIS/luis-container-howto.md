@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 54a51c567e8dd655ee3a575d1d4887ec6e094e40
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894675"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684053"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
-De container Language Understanding (LUIS) uw Language Understanding getrainde of gepubliceerde model wordt geladen, ook weten als een [LUIS-app](https://www.luis.ai), in een docker-container en biedt toegang tot de voorspellingen van de query uit van de container-API eindpunten. U kunt het verzamelen van Logboeken voor query's uit de container en deze terug naar het Azure Language Understanding-model voor het verbeteren van de nauwkeurigheid van de app uploaden.
+De container Language Understanding (LUIS) uw Language Understanding getrainde of gepubliceerde model wordt geladen, ook weten als een [LUIS-app](https://www.luis.ai), in een docker-container en biedt toegang tot de voorspellingen van de query uit van de container-API eindpunten. U kunt het verzamelen van Logboeken voor query's uit de container en deze terug naar de Language Understanding-app voor het verbeteren van de nauwkeurigheid van de app uploaden.
 
 De volgende video ziet u met behulp van deze container.
 
-[![Container demonstratie voor Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Demonstratie van de container voor Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -36,7 +36,14 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Language Understanding (LUIS) resource en de bijbehorende app |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A [ _Language Understanding_ Azure-resource](luis-how-to-azure-subscription.md), samen met de bijbehorende eindpuntsleutel en het eindpunt URI (die wordt gebruikt als het eindpunt van de facturering).<br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID.<br>* De ontwerp-sleutel voor het downloaden van het app-pakket, als u dit vanuit de API doen.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Language Understanding_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal. Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
+|Azure `Cognitive Services` resource en LUIS [app-pakket](/luis-how-to-start-new-app.md#export-app-for-containers) bestand |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID. U kunt de pakketbestanden ophalen vanuit de LUIS-portal of de API's voor ontwerpen. Als uw LUIS-verpakte app uit de [API's ontwerpen](#authoring-apis-for-package-file), moet u ook uw _ontwerpen sleutel_.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Cognitive Services_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
+
+### <a name="authoring-apis-for-package-file"></a>API's ontwerpen voor pakketbestand
+
+API's voor verpakte apps ontwerpen:
+
+* [Gepubliceerd pakket API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
+* [Niet-gepubliceerde, alleen-getraind pakket API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -114,7 +121,7 @@ Voordat u een LUIS-toepassing verpakken, moet u het volgende hebt:
 
 |Verpakking-vereisten|Details|
 |--|--|
-|Azure _Language Understanding_ bronexemplaar|Ondersteunde regio 's<br><br>VS-West (```westus```)<br>West Europe (```westeurope```)<br>Australië-Oost (```australiaeast```)|
+|Azure _Cognitive Services_ bronexemplaar|Ondersteunde regio 's<br><br>VS-West (```westus```)<br>West Europe (```westeurope```)<br>Australië-Oost (```australiaeast```)|
 |Getrainde of gepubliceerd LUIS-app|Zonder [afhankelijkheden niet-ondersteunde](#unsupported-dependencies). |
 |Toegang tot de [hostcomputer](#the-host-computer)van bestandssysteem |De computer moet toestaan een [invoer koppelpunt](luis-container-configuration.md#mount-settings).|
   
@@ -166,7 +173,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | De toepassings-ID van de gepubliceerde LUIS-app. |
 |{APPLICATION_ENVIRONMENT} | De omgeving van de gepubliceerde LUIS-app. Gebruik een van de volgende waarden:<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal. |
-|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` - West Europe<br/>```australiaeast``` -Australië-Oost |
+|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
 
 Gebruik de volgende CURL-opdracht voor het downloaden van het gepubliceerde pakket, waarbij u uw eigen waarden vervangt:
 
@@ -194,7 +201,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | De toepassings-ID van het getrainde LUIS-toepassing. |
 |{APPLICATION_VERSION} | De versie van de toepassing van het getrainde LUIS-toepassing. |
 |{AUTHORING_KEY} | De ontwerphandleiding sleutel van de LUIS-account voor de gepubliceerde LUIS-app.<br/>U krijgt uw authoring sleutel uit de **gebruikersinstellingen** pagina op de LUIS-portal.  |
-|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` - West Europe<br/>```australiaeast``` -Australië-Oost |
+|{AZURE_REGION} | De juiste Azure-regio:<br/><br/>```westus``` -VS-west<br/>```westeurope``` -West-Europa<br/>```australiaeast``` -Australië-Oost |
 
 Gebruik de volgende CURL-opdracht het getrainde pakket te downloaden:
 
@@ -214,7 +221,7 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandli
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Deze sleutel wordt gebruikt voor het starten van de container. Gebruik niet de starter-sleutel. |
-|{BILLING_ENDPOINT} | De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal.|
+|{BILLING_ENDPOINT} | De eindpuntwaarde facturering vindt u op de Azure-portal `Cognitive Services` pagina overzicht. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende voorbeeld: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
 Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
 
@@ -245,7 +252,7 @@ Meer [voorbeelden](luis-container-configuration.md#example-docker-run-commands) 
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
-> De waarde ApiKey is de **sleutel** pagina van de sleutels en de eindpunten in de portal LUIS en is ook beschikbaar op de pagina sleutels in Azure Language Understanding Resource.  
+> De waarde ApiKey is de **sleutel** pagina van de sleutels en de eindpunten in de portal LUIS en is ook beschikbaar in de Azure `Cognitive Services` resourcepagina sleutels.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -324,7 +331,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-co
 
 ## <a name="billing"></a>Billing
 
-De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Language Understanding_ resource voor uw Azure-account. 
+De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

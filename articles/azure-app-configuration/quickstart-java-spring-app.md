@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: e52c14051d038ae36af9f31f1ab13da11d032a17
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050506"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699284"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Quickstart: een Java Spring-app maken met App Configuration
 
@@ -43,7 +43,7 @@ Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development
 
 3. Op de **Appconfiguratie** > **maken** pagina, voer de volgende instellingen.
 
-    | Instelling | Voorgestelde waarde | Description |
+    | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
     | **Resourcenaam** | Wereldwijd unieke naam | Voer een unieke resourcenaam in voor de resource van het app-configuratiearchief. De naam moet een tekenreeks zijn van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De naam mag niet beginnen of eindigen met de `-` teken en opeenvolgende `-` tekens zijn niet geldig.  |
     | **Abonnement** | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken om App Configuration te testen. Als uw account slechts één abonnement heeft, wordt deze automatisch geselecteerd en de **abonnement** vervolgkeuzelijst wordt niet weergegeven. |
@@ -172,4 +172,4 @@ In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en dez
 Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
 
 > [!div class="nextstepaction"]
-> [Beheerde identiteiten voor de integratie van Azure-resources](./integrate-azure-managed-service-identity.md)
+> [Beheerde identiteiten voor de integratie van Azure-resources](./howto-integrate-azure-managed-service-identity.md)

@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: jonbeck7
+author: ayshakeen
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e0b78d1e492e4d0fbbf0a44b57bebc2d8d3b1e7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d76a3bb463452207e4b5b023cfe07dfd156e95f4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763291"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684681"
 ---
 De B-serie VM-reeks kunt u kiezen welke VM-grootte biedt u de benodigde basisniveau prestaties voor uw werkbelasting, de mogelijkheid om uit te breiden CPU-prestaties tot 100% van een Intel® Broadwell E5-2673 v4-processors 2,3 GHz, of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
@@ -21,9 +21,9 @@ De B-serie VM's zijn ideaal voor workloads die niet de volledige prestaties van 
 
 De B-serie wordt geleverd in de volgende zes VM-grootten:
 
-| Grootte             | vCPU  | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Basis-CPU-prestaties van virtuele machine | Maximum aantal CPU-prestaties van virtuele machine | Tegoed gestort / uur | Max gestort tegoed | Max. aantal gegevensschijven | Max. doorvoer van caching en tijdelijke opslag: IOPS / MBps | Max. doorvoer voor schijfbewerkingen zonder schijf: IOPS / MBps | Max. aantal NIC's |          
+| Grootte             | vCPU  | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Basis-CPU-prestaties van virtuele machine | Maximum aantal CPU-prestaties van virtuele machine | Tegoed gestort / uur | Max gestort tegoed | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1ls<sup>1</sup>  | 1           | 0.5              | 4                          | 5%                   | 100%                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
+| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5%                   | 100%                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100%                   | 6                  | 144            | 2                       | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100%                   | 12                 | 288           | 2                        | 800 / 10                                  | 640 / 10                                  | 2  |
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |

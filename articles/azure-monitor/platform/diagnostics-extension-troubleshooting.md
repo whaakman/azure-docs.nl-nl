@@ -4,17 +4,16 @@ description: Problemen oplossen bij het gebruik van Azure diagnostics in Azure V
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822133"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699095"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics oplossen van problemen
 Dit artikel bevat informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](diagnostics-extension-overview.md).
@@ -82,7 +81,7 @@ Als er geen gegevens voor de specifieke metrische gegevens zijn, controleert u *
 Als de configuratie juist is ingesteld, maar kunt u de metrische gegevens nog steeds niet zien, gebruikt u de volgende richtlijnen om op te lossen.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics is niet gestart
+## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics wordt niet gestart
 Zie voor informatie over waarom Azure Diagnostics kan niet worden gestart, de **DiagnosticsPluginLauncher.log** en **DiagnosticsPlugin.log** bestanden in de locatie van het logboek-bestanden die eerder is opgegeven.
 
 Als u deze logboeken geven aan `Monitoring Agent not reporting success after launch`, betekent dit dat er is een fout opgetreden bij het starten van MonAgentHost.exe. Bekijk de logboeken op de locatie die opgegeven voor `MonAgentHost log file` in de vorige sectie.
@@ -105,9 +104,16 @@ De meest voorkomende reden die gebeurtenisgegevens niet helemaal wordt weergegev
 
 Oplossing: Corrigeer de configuratie van de diagnostische gegevens en diagnostische gegevens opnieuw.
 
-Als het opslagaccount is correct geconfigureerde externe toegang in de machine en controleer of DiagnosticsPlugin.exe en MonAgentCore.exe worden uitgevoerd. Als ze niet worden uitgevoerd, volgt u de stappen in Azure Diagnostics is niet gestart.
+Als het opslagaccount dat correct geconfigureerde externe toegang in de machine en Controleer *DiagnosticsPlugin.exe* en *MonAgentCore.exe* worden uitgevoerd. Als ze niet worden uitgevoerd, volgt u de stappen in [Azure Diagnostics wordt niet gestart](#azure-diagnostics-is-not-starting).
 
 Als de processen worden uitgevoerd, gaat u naar [gegevens lokaal ophalen vastgelegd?](#is-data-getting-captured-locally) en volg de instructies.
+
+Als dit niet het probleem is opgelost, probeert u aan:
+
+1. De agent verwijderen
+2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Agent opnieuw installeren
+
 
 ### <a name="part-of-the-data-is-missing"></a>Onderdeel van de gegevens ontbreekt
 Als u bepaalde gegevens, maar niet alle ontvangt, betekent dit dat de gegevenspijplijn verzameling per overdracht correct is ingesteld. Volg de subsecties hier als u het probleem wilt beperken.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579339"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698772"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -334,7 +334,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="account-level"></a>Accountniveau
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | De hoeveelheid opslag die wordt gebruikt door de storage-account. Voor standard storage-accounts is het de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium-opslagaccounts en Blob storage-accounts is het hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
@@ -342,14 +342,14 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 | Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Het totaal van Blob-opslag die wordt gebruikt in de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
-| BlobCount    | Het aantal blob-objecten die zijn opgeslagen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
+| BlobCapacity | Het totaal van Blob-opslag die wordt gebruikt in de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Afmetingen: **BlobType**, en **BlobTier** ([definitie](#metrics-dimensions)) |
+| BlobCount    | Het aantal blob-objecten die zijn opgeslagen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 <br/> Afmetingen: **BlobType**, en **BlobTier** ([definitie](#metrics-dimensions)) |
 | ContainerCount    | Het aantal containers in het opslagaccount. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | IndexCapacity     | De hoeveelheid opslag die wordt gebruikt door ADLS Gen2 hiërarchische Index <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | TableCapacity | De hoeveelheid van Table storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | TableCount   | Het aantal tabellen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
@@ -357,7 +357,7 @@ Azure Storage biedt de volgende metrische gegevens over capaciteit in Azure Moni
 
 ### <a name="queue-storage"></a>Queue Storage
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | De hoeveelheid van Queue storage die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
 | QueueCount   | Het aantal wachtrijen in de storage-account. <br/><br/> Eenheid: Count <br/> Aggregatietype: Gemiddeld <br/> Voorbeeld van een waarde: 1024 |
@@ -390,13 +390,14 @@ Azure Storage biedt de volgende metrische gegevens van de transactie uit in Azur
 
 Azure Storage ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor.
 
-| Dimensienaam | Description |
+| Dimensienaam | Beschrijving |
 | ------------------- | ----------------- |
-| BlobType | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder meer: <br/><br/> <li>ServerOtherError: alle overige serverfouten, behalve diegene die zijn beschreven </li> <li> ServerBusyError: geverifieerde aanvraag waardoor een HTTP 503-statuscode is geretourneerd. </li> <li> ServerTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een autorisatiefout. </li> <li> NetworkError: geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op als dooreen client voortijdig een verbinding wordt verbroken voordat de time-out voorbij is. </li> <li>    ClientThrottlingError: Beperkingsfout aan de client-zijde. </li> <li> ClientTimeoutError: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. Als de time-out van het clientnetwerk of van de aanvraag is ingesteld op een lagere waarde dan door de opslagservice wordt verwacht, is er sprake van een verwachte time-out. Anders wordt deze als ServerTimeoutError gerapporteerd. </li> <li> ClientOtherError: alle overige fouten aan de clientzijde, behalve diegene die zijn beschreven. </li> <li> Geslaagd: De aanvraag is gelukt.|
-| GeoType | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere primaire en secundaire database. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
-| ApiName | De naam van bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| Authentication | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder meer: <br/> <li>AccountKey: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>SAS: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>OAuth: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>Anoniem: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>AnonymousPreflight: De transactie is voorbereidende aanvraag.</li> |
+| **BlobType** | Het type blob voor alleen Blob-metrische gegevens. De ondersteunde waarden zijn **BlockBlob**, **PageBlob**, en **Azure Data Lake Storage**. Toevoeg-Blob is opgenomen in BlockBlob. |
+| **BlobTier** | Azure storage biedt verschillende toegangslagen, waarmee u kunt voor het opslaan van gegevens voor blob-object in de meest kostenefficiënte manier. Zie voor meer informatie in [Azure Storage blob-laag](../blobs/storage-blob-storage-tiers.md). De ondersteunde waarden zijn: <br/> <li>**Hot**: Warme laag</li> <li>**' Cool '**: Koude laag</li> <li>**Archief**: Archive-laag</li> <li>**Premium**: Premium-laag voor blok-blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Laag-typen voor premium-pagina-blobs</li> <li>**Standard**: Laagtype voor standard-pagina Blob</li> <li>**Untiered**: Laagtype voor opslagaccount voor algemeen gebruik v1</li> |
+| **GeoType** | De transactie van primaire of secundaire cluster. De beschikbare waarden zijn onder andere **primaire** en **secundaire**. Dit geldt voor Read Access-Geo Redundant Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
+| **ResponseType** | Transactietype antwoord. De beschikbare waarden zijn onder meer: <br/><br/> <li>**ServerOtherError**: alle overige serverfouten, behalve diegene die zijn beschreven </li> <li>**ServerBusyError**: geverifieerde aanvraag waardoor een HTTP 503-statuscode is geretourneerd. </li> <li>**ServerTimeoutError**: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li>**AuthorizationError**: geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een autorisatiefout. </li> <li>**NetworkError**: geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op als dooreen client voortijdig een verbinding wordt verbroken voordat de time-out voorbij is. </li> <li>**ClientThrottlingError**: Beperkingsfout aan de client-zijde. </li> <li>**ClientTimeoutError**: geverifieerde aanvraag met time-out waardoor een HTTP 500-statuscode is geretourneerd. Als de time-out van het clientnetwerk of van de aanvraag is ingesteld op een lagere waarde dan door de opslagservice wordt verwacht, is er sprake van een verwachte time-out. Anders wordt deze als ServerTimeoutError gerapporteerd. </li> <li>**ClientOtherError**: alle overige fouten aan de clientzijde, behalve diegene die zijn beschreven. </li> <li>**Geslaagd**: succesvolle aanvraag</li> |
+| **ApiName** | De naam van bewerking. Bijvoorbeeld: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Verificatie** | Verificatietype dat wordt gebruikt in transacties. De beschikbare waarden zijn onder meer: <br/> <li>**AccountKey**: De transactie is geverifieerd met de sleutel van het opslagaccount.</li> <li>**SAS**: De transactie wordt geverifieerd met handtekeningen voor gedeelde toegang.</li> <li>**OAuth**: De transactie wordt geverifieerd met OAuth-toegangstokens.</li> <li>**Anonieme**: De transactie is anoniem aangevraagd. Deze bevat geen voorbereidende aanvragen.</li> <li>**AnonymousPreflight**: De transactie is voorbereidende aanvraag.</li> |
 
 Voor de metrische gegevens over ondersteunende dimensies moet u de dimensiewaarde om te zien van de bijbehorende metrische waarden op te geven. Bijvoorbeeld, als u bekijkt **transacties** waarde voor gelukt-antwoorden, moet u voor het filteren van de **ResponseType** dimensie met **succes**. Of als u bekijkt **BlobCount** waarde voor blok-Blob, moet u voor het filteren van de **BlobType** dimensie met **BlockBlob**.
 

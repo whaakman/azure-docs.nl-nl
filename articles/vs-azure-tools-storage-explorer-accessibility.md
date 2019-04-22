@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer toegankelijkheid (Preview) | Microsoft Docs
-description: Azure Storage Explorer toegankelijkheid (Preview)
+title: Toegankelijkheid van Azure Storage Explorer (Preview) | Microsoft Docs
+description: Toegankelijkheid van Azure Storage Explorer (Preview)
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,79 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: 617a5c35ce059bf13fcf0b5aab415d8e431041e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525930"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698090"
 ---
-# <a name="storage-explorer-accessibility"></a>Storage Explorer toegankelijkheid
-## <a name="screen-readers"></a>Schermlezers
-Opslagverkenner ondersteunt het gebruik van een schermlezer voor Windows en Mac. De volgende schermlezers worden aanbevolen voor elk platform:
-* Windows: NVDA
-* Mac: Voice-over
-* Linux: Schermlezers worden niet ondersteund op Linux
+# <a name="storage-explorer-accessibility"></a>Toegankelijkheid van Storage Explorer
 
-Als u een probleem toegankelijkheid ondervonden bij gebruik van Storage Explorer, neemt u [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+## <a name="screen-readers"></a>Schermlezers
+
+Storage Explorer biedt ondersteuning voor het gebruik van een schermlezer op Windows en Mac. De volgende schermlezers worden aanbevolen voor elk platform:
+
+Platform | Schermlezer
+---------|--------------
+Windows  | NVDA
+Mac      | Voice-over
+Linux    | (schermlezers worden niet ondersteund op Linux)
+
+Als u een probleem toegankelijkheid ondervindt bij het gebruik van Storage Explorer, [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="zoom"></a>In-/uitzoomen
-U kunt de tekst in Opslagverkenner groter maken via inzoomt. Als u wilt inzoomen, klikt u op **inzoomen** in het menu Help. U kunt ook het Help-menu om uit te zoomen en opnieuw instellen van het zoomniveau terug naar het standaard beveiligingsniveau.
+
+U kunt de tekst in Storage Explorer groter maken via inzoomen. Als u wilt inzoomen, klikt u op **inzoomen** in het menu Help. U kunt ook het Help-menu om uit te zoomen en opnieuw instellen van het zoomniveau terug naar het standaardniveau gebruiken.
 
 ![Inzoomen op opties in het menu help][0]
 
-De zoominstelling neemt de grootte van de meeste UI-elementen. Het verdient aanbeveling ook grote tekst inschakelen en instellingen voor uw besturingssysteem om ervoor te zorgen dat alle gebruikersinterface-elementen correct zijn aangepast zoomen.
+De instelling neemt de omvang van de meeste UI-elementen. Het verdient ook in grote tekst-en uitzoomen-instellingen voor uw besturingssysteem om ervoor te zorgen dat alle elementen van de gebruikersinterface goed worden geschaald.
 
-## <a name="high-contrast-theming"></a>Hoog Contrast thema 's
-Opslagverkenner heeft twee hoog contrast thema's, **Hoog Contrast licht** en **Hoog Contrast donker**. U kunt uw thema wijzigen door te gaan naar het submenu thema's in het menu Help.
+## <a name="high-contrast-themes"></a>Hoog Contrast thema 's
 
-![Thema's submenu][1]
+Storage Explorer heeft twee hoog contrast thema's, **Hoog Contrast licht** en **Hoog Contrast donker**. U kunt het thema wijzigen door te selecteren in de Help > menu thema's.
 
-De thema-instelling wordt de kleur van de meeste UI-elementen. Het is raadzaam ook inschakelen uw besturingssysteem overeenkomende thema met hoog contrast om ervoor te zorgen dat alle gebruikersinterface-elementen juist zijn gekleurd.
+![Submenu thema 's][1]
+
+De instelling thema verandert de kleur van de meeste UI-elementen. Het verdient aanbeveling om in te schakelen ook uw besturingssystemen die overeenkomt met thema met hoog contrast om ervoor te zorgen dat alle elementen van de gebruikersinterface goed zijn gekleurd.
 
 ## <a name="shortcut-keys"></a>Sneltoetsen
+
 ### <a name="window-commands"></a>Opdrachten
-|Opdracht|Sneltoets|
-|--------------|------------------------|
-|Nieuw venster|**Besturingselement + Shift + N**|
-|Sluit de Editor|**Besturingselement + F4**|
-|Afsluiten|**Ctrl + Shift + W**|
+
+Opdracht       | Sneltoets
+--------------|--------------------
+Nieuw venster    | **Control+Shift+N**
+Editor sluiten  | **Control+F4**
+Afsluiten          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>Navigatie-opdrachten
-|Opdracht|Sneltoets|
-|--------------|------------------------|
-|Het volgende deelvenster focus|**F6**|
-|Het vorige deelvenster focus|**SHIFT + F6**|
-|Verkenner|**Besturingselement + Shift + E**|
-|Accountbeheer|**Ctrl + Shift + A**|
-|De zijmarge in-of uitschakelen|**CTRL + B**|
-|Activiteitenlogboek|**Besturingselement + Shift + L**|
-|Eigenschappen en acties|**Besturingselement + Shift + P**|
-|Huidige Editor|**Besturingselement + Home**|
-|Volgende Editor|**Besturingselement + Page Down**|
-|Vorige Editor|**Besturingselement + Page Up**|
 
-### <a name="zoom-commands"></a>Opdrachten zoomen
-|Opdracht|Sneltoets|
-|--------------|------------------------|
-|Inzoomen|**Control +=**|
-|Uitzoomen|**Control +-**|
+Opdracht                | Sneltoets
+-----------------------|----------------------
+Het volgende deelvenster focus       | **F6**
+Vorige deelvenster focus   | **Shift+F6**
+Verkenner               | **Control+Shift+E**
+Accountbeheer     | **Control+Shift+A**
+Zijbalk voor in-/ uitschakelen        | **Control+B**
+Activiteitenlogboek           | **Control+Shift+L**
+Eigenschappen en acties | **Control+Shift+P**
+Huidige Editor         | **Besturingselement + Home**
+Volgende Editor            | **Besturingselement + Page Down**
+Vorige Editor        | **Besturingselement + Page Up**
 
-### <a name="blob-and-file-share-editor-commands"></a>BLOB en File Share Editor opdrachten
-|Opdracht|Sneltoets|
-|--------------|------------------------|
-|Terug|**ALT + pijl-links**|
-|Vooruit|**ALT + pijl-rechts**|
-|Omhoog|**ALT + pijl-omhoog**|
+### <a name="zoom-commands"></a>Inzoomen op opdrachten
+
+Opdracht  | Sneltoets
+---------|------------------
+Inzoomen  | **Control+=**
+Uitzoomen | **Control+-**
+
+### <a name="blob-and-file-share-editor-commands"></a>BLOB en bestand delen Editor opdrachten
+
+Opdracht | Sneltoets
+--------|--------------------
+Terug    | **ALT + pijl-links**
+Doorsturen | **ALT + pijl-rechts**
+Omhoog      | **ALT + pijl-omhoog**
+
+### <a name="editor-commands"></a>Editor-opdrachten
+
+Opdracht | Sneltoets
+--------|------------------
+Exemplaar    | **Control+C**
+Knippen     | **Control+X**
+Plakken   | **CTRL + V**
+Vernieuwen  | **Besturingselement + R**
 
 ### <a name="other-commands"></a>Andere opdrachten
-|Opdracht|Sneltoets|
-|--------------|------------------------|
-|Exemplaar|**CTRL + C**|
-|Knippen|**CTRL + X**|
-|Plakken|**CTRL + V**|
-|Wisselknop-hulpprogramma's voor ontwikkelaars|**F12**|
-|Opnieuw laden|**Besturingselement + R**|
+
+Opdracht                | Sneltoets
+-----------------------|------------------
+Hulpprogramma's voor ontwikkelaars in-/ uitschakelen | **F12**
+Opnieuw laden                 | **Alt+Control+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

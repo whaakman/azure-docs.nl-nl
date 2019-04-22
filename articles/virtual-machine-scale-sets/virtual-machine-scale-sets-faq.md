@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541023"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683950"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -29,13 +29,13 @@ Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Boven de veelgestelde vragen over schaalsets
 
-**V:** Hoeveel virtuele machines kan een schaalset bevatten?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Hoeveel virtuele machines kan een schaalset bevatten?
 
-**A:** Een schaalset kan 0 tot 1000 virtuele machines op basis van platforminstallatiekopieën, of 0-600 virtuele machines op basis van aangepaste installatiekopieën hebben.
+Een schaalset kan 0 tot 1000 virtuele machines op basis van platforminstallatiekopieën, of 0-600 virtuele machines op basis van aangepaste installatiekopieën hebben.
 
-**V:** Worden gegevensschijven binnen schaalsets ondersteund?
+### <a name="are-data-disks-supported-within-scale-sets"></a>Worden gegevensschijven binnen schaalsets ondersteund?
 
-**A:** Ja. Een schaalset kan een configuratie voor gekoppelde gegevensschijven definiëren die op alle VM's in de set wordt toegepast. Zie [Schaalsets en gekoppelde gegevensschijven in Azure](virtual-machine-scale-sets-attached-disks.md) voor meer informatie. Andere opties voor het opslaan van gegevens zijn:
+Ja. Een schaalset kan een configuratie voor gekoppelde gegevensschijven definiëren die op alle VM's in de set wordt toegepast. Zie [Schaalsets en gekoppelde gegevensschijven in Azure](virtual-machine-scale-sets-attached-disks.md) voor meer informatie. Andere opties voor het opslaan van gegevens zijn:
 
 * Azure-bestanden (gedeelde SMB-stations)
 * Station van het besturingssysteem
@@ -43,33 +43,33 @@ Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure
 * Azure-gegevensservice (bijvoorbeeld Azure-tabellen, Azure-blobs)
 * Externe gegevensservice (bijvoorbeeld externe database)
 
-**V:** Welke Azure-regio's ondersteunen schaalsets?
+### <a name="which-azure-regions-support-scale-sets"></a>Welke Azure-regio's ondersteunen schaalsets?
 
-**A:** Alle regio's ondersteunen schaalsets.
+Alle regio's ondersteunen schaalsets.
 
-**V:** Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
 
-**A:** Maken en vastleggen van een VM-installatiekopie en vervolgens gebruiken die als bron voor uw schaalset. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Maken en vastleggen van een VM-installatiekopie en vervolgens gebruiken die als bron voor uw schaalset. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
 
-**A:** Virtuele machines worden gelijkmatig verwijderd uit updatedomeinen en foutdomeinen van de schaalset om de beschikbaarheid te maximaliseren. VM's met de hoogste id's worden het eerst verwijderd.
+Virtuele machines worden gelijkmatig verwijderd uit updatedomeinen en foutdomeinen van de schaalset om de beschikbaarheid te maximaliseren. VM's met de hoogste id's worden het eerst verwijderd.
 
-**V:** Wat gebeurt er als ik de capaciteit verhoog van 15 naar 18?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Wat gebeurt er als ik de capaciteit verhoog van 15 naar 18?
 
-**A:** Als u de capaciteit verhoogt naar 18, worden er 3 nieuwe virtuele machines gemaakt. De id van elk VM-exemplaar wordt oplopend gegenereerd vanaf de vorige hoogste waarde (bijvoorbeeld 20, 21, 22). VM's worden verdeeld over foutdomeinen en updatedomeinen.
+Als u de capaciteit verhoogt naar 18, worden er 3 nieuwe virtuele machines gemaakt. De id van elk VM-exemplaar wordt oplopend gegenereerd vanaf de vorige hoogste waarde (bijvoorbeeld 20, 21, 22). VM's worden verdeeld over foutdomeinen en updatedomeinen.
 
-**V:** Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een schaalset gebruik?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een schaalset gebruik?
 
-**A:** Ja, u kunt gebruiken met schaalset [extensievolgorde](virtual-machine-scale-sets-extension-sequencing.md).
+Ja, u kunt gebruiken met schaalset [extensievolgorde](virtual-machine-scale-sets-extension-sequencing.md).
 
-**V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Maken schaalsets gebruik van beschikbaarheidssets van Azure?
 
-**A:** Regionale (niet-zonegebonden) van de schaalset maakt gebruik van *plaatsingsgroepen*, die dienen als een impliciete met vijf foutdomeinen beschikbaarheidsset en vijf updatedomeinen. Schaalsets met meer dan 100 virtuele machines omvatten meerdere plaatsingsgroepen. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
+Regionale (niet-zonegebonden) van de schaalset maakt gebruik van *plaatsingsgroepen*, die dienen als een impliciete met vijf foutdomeinen beschikbaarheidsset en vijf updatedomeinen. Schaalsets met meer dan 100 virtuele machines omvatten meerdere plaatsingsgroepen. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
 
-**V:** Schalen sets in combinatie met Azure-beschikbaarheidszones?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Schalen sets in combinatie met Azure-beschikbaarheidszones?
 
-**A:** Ja. Zie voor meer informatie de [Virtual Machine scale sets zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Ja. Zie voor meer informatie de [Virtual Machine scale sets zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisch schalen

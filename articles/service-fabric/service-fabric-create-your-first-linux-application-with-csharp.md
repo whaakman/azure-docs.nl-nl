@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 04163bea8f4c1247f42b65c35c2b82910e623bc9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661374"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699129"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.
 
-   In het geval van MAC OS X moet u de map myactorsvcTestClient kopiëren naar de enige locatie in de container door het uitvoeren van de volgende aanvullende opdrachten.
+   In het geval van MAC OS X moet u de map myactorsvcTestClient kopiëren naar dezelfde locatie in de container door het uitvoeren van de volgende aanvullende opdrachten.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

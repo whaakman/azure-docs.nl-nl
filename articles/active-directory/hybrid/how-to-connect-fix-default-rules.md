@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501254"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698158"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Gewijzigde standaardregels in Azure AD Connect oplossen
 
@@ -76,12 +76,12 @@ Regel voor inkomende synchronisatie betekent dat de bron voor het kenmerk is een
 
  ![Standaardregels](media/how-to-connect-fix-default-rules/default3a.png)
 
-Uw eigen naamconventie om een naam van de regel te volgen, wordt hier gebruikt we **aangepaste In uit Active Directory - gebruiker**, dit betekent dat de regel een aangepaste regel is en een inkomende regel van de AD-connectorgebied naar de Metaverse is. 
+Uw eigen naamconventie om een naam van de regel te volgen, wordt hier gebruikt we **aangepaste In uit Active Directory - gebruiker**, dit betekent dat de regel een aangepaste regel is en een inkomende regel van de AD-connectorgebied naar de Metaverse is.   
 
  ![Standaardregels](media/how-to-connect-fix-default-rules/default3b.png)
 
 Geef uw eigen beschrijving van de regel zodat het toekomstig onderhoud van de regel is eenvoudig, zoals wat het doel van deze regel is en waarom het nodig is.
-Verbonden systeem (het forest) hebt geselecteerd de bron van het kenmerk. Vervolgens objecttype verbonden systeem en het Type Metaverse-Object.
+Selecteer een verbonden systeem (het forest) - bron van het kenmerk. Selecteer het objecttype verbonden systeem en het Metaverse-objecttype.
 
 Geef de prioriteitswaarde tussen 0 en 99 (lagere waarde, hoger de prioriteit). Houd andere velden, zoals 'Tag', 'Wachtwoordsynchronisatie inschakelen' en 'Uitgeschakeld' als standaard.
 

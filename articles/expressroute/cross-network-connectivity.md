@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052655"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784736"
 ---
-# <a name="cross-network-connectivity"></a>Cross-netwerkverbinding
+# <a name="cross-network-connectivity"></a>Onderlinge netwerkconnectiviteit
 
 Fabrikam, Inc. is een grote fysieke aanwezigheid en Azure-implementatie in VS-Oost. Fabrikam is back-end-connectiviteit tussen de on-premises en Azure-implementaties via ExpressRoute. Contoso Ltd. heeft op dezelfde manier een aanwezigheid en een Azure-implementatie in VS-West. Contoso heeft een back-end-connectiviteit tussen de on-premises en Azure-implementaties via ExpressRoute.  
 

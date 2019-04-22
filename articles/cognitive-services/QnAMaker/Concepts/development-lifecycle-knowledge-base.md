@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276776"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684018"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Levenscyclus van de Knowledge base in QnA Maker
 QnA Maker leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
@@ -35,14 +35,23 @@ De knowledge base is klaar voor testen wanneer het wordt gevuld met inhoud, reda
 
 Deze lus van test-update gaat door totdat u tevreden met de resultaten bent. Meer informatie over het [uw knowledge base test](../How-To/test-knowledge-base.md).
 
-Voor grote kB's, gebruik automatisch testen met de [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) en de `isTest=true` query-tekenreeksparameter welke query's de `test` knowledge base in plaats van de gepubliceerde knowledge base. 
+Voor grote kB's, gebruik automatisch testen met de [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) en de `isTest` body eigenschap welke query's de `test` knowledge base in plaats van de gepubliceerde knowledge base. 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>De knowledge base publiceren
 Zodra u klaar bent met testen van de knowledge base, kunt u deze publiceert. De nieuwste versie van de geteste knowledge base voor een specifieke Azure Search-index vertegenwoordigt pushes publiceren de **gepubliceerd** knowledge base. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 
 Op deze manier alle wijzigingen aan de testversie van de knowledge base niet van invloed op de gepubliceerde versie die mogelijk live in een productietoepassing.
 
-Elk van deze knowledge bases kan worden gericht voor het testen van afzonderlijk. Met de API's, kunt u de testversie van de knowledge base met richten `isTest=true` vlag in de aanroep van generateAnswer.
+Elk van deze knowledge bases kan worden gericht voor het testen van afzonderlijk. Met de API's, kunt u de testversie van de knowledge base met richten `isTest` eigenschap in de aanroep van generateAnswer hoofdtekst.
 
 Meer informatie over het [kennisbank publiceren](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

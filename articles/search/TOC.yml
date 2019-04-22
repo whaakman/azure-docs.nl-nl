@@ -1,315 +1,308 @@
-items:
 - name: Documentatie voor Azure Search
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Azure Search?
-    href: search-what-is-azure-search.md
-  - name: Wat is cognitief zoeken?
-    href: cognitive-search-concept-intro.md
+    - name: Wat is Azure Search?
+      href: search-what-is-azure-search.md
+    - name: Wat is cognitief zoeken?
+      href: cognitive-search-concept-intro.md
 - name: Snelstartgidsen
-  items:
-  - name: Een service maken
-    href: search-create-service-portal.md
-  - name: Portal
-    items:
-    - name: Een index laden en er query's op uitvoeren
-      href: search-get-started-portal.md
-    - name: Verrijken met AI (cognitief zoeken)
-      href: cognitive-search-quickstart-blob.md
-  - name: C#
-    items:
-    - name: 1 - Een index maken
-      href: search-create-index-dotnet.md
-    - name: 2 - Gegevens laden
-      href: search-import-data-dotnet.md
-    - name: 3 - Een index doorzoeken
-      href: search-query-dotnet.md
-  - name: Postman
-    href: search-fiddler.md
-  - name: PowerShell
-    href: search-create-index-rest-api.md
   expanded: true
+  items:
+    - name: Een service maken
+      href: search-create-service-portal.md
+    - name: Portal
+      items:
+        - name: Een index laden en er query's op uitvoeren
+          href: search-get-started-portal.md
+        - name: Verrijken met AI (cognitief zoeken)
+          href: cognitive-search-quickstart-blob.md
+    - name: 'C#'
+      items:
+        - name: 1 - Een index maken
+          href: search-create-index-dotnet.md
+        - name: 2 - Gegevens laden
+          href: search-import-data-dotnet.md
+        - name: 3 - Een index doorzoeken
+          href: search-query-dotnet.md
+    - name: Postman
+      href: search-fiddler.md
+    - name: PowerShell
+      href: search-create-index-rest-api.md
 - name: Zelfstudies
   items:
-  - name: Azure SQL Database indexeren
-    href: search-indexer-tutorial.md
-  - name: Azure JSON-blobs indexeren
-    href: search-semi-structured-data.md
-  - name: Indexeren met AI (Cognitive Services)
-    href: cognitive-search-tutorial-blob.md
+    - name: Azure SQL Database indexeren
+      href: search-indexer-tutorial.md
+    - name: Azure JSON-blobs indexeren
+      href: search-semi-structured-data.md
+    - name: Indexeren met AI (Cognitive Services)
+      href: cognitive-search-tutorial-blob.md
 - name: Voorbeelden
   items:
-  - name: Azure-codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=search
+    - name: Azure-codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=search'
 - name: Training
   items:
-  - name: Bootcamp voor knowledge mining
-    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
-  - name: Zoekfunctionaliteit toevoegen aan apps (Pluralsight)
-    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Microsoft Azure Developer-cursus (Pluralsight)
-    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
+    - name: Bootcamp voor knowledge mining
+      href: 'https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/'
+    - name: Zoekfunctionaliteit toevoegen aan apps (Pluralsight)
+      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+    - name: Microsoft Azure Developer-cursus (Pluralsight)
+      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Concepten
   items:
-  - name: Zoeken in volledige tekst
-    href: search-lucene-query-architecture.md
-  - name: Patronen voor multitenancy ontwerpen
-    href: search-modeling-multitenant-saas-applications.md
+    - name: Zoeken in volledige tekst
+      href: search-lucene-query-architecture.md
+    - name: Patronen voor multitenancy ontwerpen
+      href: search-modeling-multitenant-saas-applications.md
 - name: Handleidingen
   items:
-  - name: Capaciteitsplanning
-    items:
-    - name: Een laag kiezen
-      href: search-sku-tier.md
-    - name: Servicelimieten
-      href: search-limits-quotas-capacity.md
-    - name: De schaal van partities en replica's wijzigen
-      href: search-capacity-planning.md
-    - name: Implementatiestrategieën en best practices
-      href: search-performance-optimization.md
-  - name: Beveiliging
-    items:
-    - name: Beveiligingsoverzicht
-      href: search-security-overview.md
-    - name: Beheer van servicesleutels
-      href: search-security-api-keys.md
-    - name: Op rollen gebaseerde beheerderstoegang
-      href: search-security-rbac.md
-    - name: Beveiligingsfilters
-      href: search-security-trimming-for-azure-search.md
-    - name: Filteren op AAD-identiteiten
-      href: search-security-trimming-for-azure-search-with-aad.md
-  - name: Ontwikkeling
-    items:
-    - name: API-versies
-      href: search-api-versions.md
-    - name: Ontwikkelen in .NET
-      href: search-howto-dotnet-sdk.md
-    - name: Ontwikkelen in Node.js
-      href: search-get-started-nodejs.md
-    - name: Ontwikkelen in Java
-      href: search-get-started-java.md
-    - name: Upgrade uitvoeren voor de SDK
+    - name: Capaciteitsplanning
       items:
-      - name: .NET SDK 5.0
-        href: search-dotnet-sdk-migration-version-5.md
-      - name: .NET SDK 3.0
-        href: search-dotnet-sdk-migration.md
-      - name: .NET SDK 1.1
-        href: search-dotnet-sdk-migration-version-1.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
-    - name: Upgrade uitvoeren voor de REST-API
-      href: search-api-migration.md
-  - name: Indexen maken
-    items:
-    - name: Een basisindex maken
-      href: search-what-is-an-index.md
-    - name: Een index maken (portal)
-      href: search-create-index-portal.md
-    - name: Analyses
+        - name: Een laag kiezen
+          href: search-sku-tier.md
+        - name: Servicelimieten
+          href: search-limits-quotas-capacity.md
+        - name: De schaal van partities en replica's wijzigen
+          href: search-capacity-planning.md
+        - name: Implementatiestrategieën en best practices
+          href: search-performance-optimization.md
+    - name: Beveiliging
       items:
-      - name: Analyses toevoegen
-        href: search-analyzers.md
-      - name: Een taalanalyse toevoegen
-        href: index-add-language-analyzers.md
-      - name: Een aangepaste analyse toevoegen
-        href: index-add-custom-analyzers.md
-    - name: Typeahead
+        - name: Beveiligingsoverzicht
+          href: search-security-overview.md
+        - name: Beheer van servicesleutels
+          href: search-security-api-keys.md
+        - name: Op rollen gebaseerde beheerderstoegang
+          href: search-security-rbac.md
+        - name: Beveiligingsfilters
+          href: search-security-trimming-for-azure-search.md
+        - name: Filteren op AAD-identiteiten
+          href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Ontwikkeling
       items:
-      - name: Een suggester maken
-        href: index-add-suggesters.md
-      - name: Voorbeelden (suggesties, automatisch aanvullen)
-        href: search-autocomplete-tutorial.md
-    - name: Synoniemen
+        - name: API-versies
+          href: search-api-versions.md
+        - name: Ontwikkelen in .NET
+          href: search-howto-dotnet-sdk.md
+        - name: Ontwikkelen in Node.js
+          href: search-get-started-nodejs.md
+        - name: Ontwikkelen in Java
+          href: search-get-started-java.md
+        - name: Upgrade uitvoeren voor de SDK
+          items:
+            - name: .NET SDK 5.0
+              href: search-dotnet-sdk-migration-version-5.md
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: .NET Management SDK
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: Upgrade uitvoeren voor de REST-API
+          href: search-api-migration.md
+    - name: Indexen maken
       items:
-      - name: Synoniemen toevoegen
-        href: search-synonyms.md
-      - name: Voorbeeld van synoniemen
-        href: search-synonyms-tutorial-sdk.md
-    - name: Complexe gegevenstypen modelleren
-      href: search-howto-complex-data-types.md
-    - name: Relationele gegevens modelleren
-      href: search-example-adventureworks-modeling.md
-    - name: Facetten op meerdere niveaus modelleren
-      href: search-example-adventureworks-multilevel-faceting.md
-  - name: Gegevens laden
-    items:
-    - name: Overzicht van gegevensimport
-      href: search-what-is-data-import.md
-    - name: Gegevens importeren (portal)
-      href: search-import-data-portal.md
-    - name: Een index opnieuw maken
-      href: search-howto-reindex.md
-    - name: Grote gegevenssets indexeren
-      href: search-howto-large-index.md
-    - name: Gelijktijdige updates verwerken
-      href: search-howto-concurrency.md
-    - name: Indexeerfuncties
+        - name: Een basisindex maken
+          href: search-what-is-an-index.md
+        - name: Een index maken (portal)
+          href: search-create-index-portal.md
+        - name: Analyses
+          items:
+            - name: Analyses toevoegen
+              href: search-analyzers.md
+            - name: Een taalanalyse toevoegen
+              href: index-add-language-analyzers.md
+            - name: Een aangepaste analyse toevoegen
+              href: index-add-custom-analyzers.md
+        - name: Typeahead
+          items:
+            - name: Een suggester maken
+              href: index-add-suggesters.md
+            - name: 'Voorbeelden (suggesties, automatisch aanvullen)'
+              href: search-autocomplete-tutorial.md
+        - name: Synoniemen
+          items:
+            - name: Synoniemen toevoegen
+              href: search-synonyms.md
+            - name: Voorbeeld van synoniemen
+              href: search-synonyms-tutorial-sdk.md
+        - name: Complexe gegevenstypen modelleren
+          href: search-howto-complex-data-types.md
+        - name: Relationele gegevens modelleren
+          href: search-example-adventureworks-modeling.md
+        - name: Facetten op meerdere niveaus modelleren
+          href: search-example-adventureworks-multilevel-faceting.md
+    - name: Gegevens laden
       items:
-      - name: Overzicht van indexeerfuncties
-        href: search-indexer-overview.md
-      - name: Indexeerfunctie voor Blob-opslag
-        href: search-howto-indexing-azure-blob-storage.md
-      - name: Indexeerfunctie voor Table-opslag
-        href: search-howto-indexing-azure-tables.md
-      - name: Indexeerfunctie voor SQL DB
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Indexeerfunctie voor Cosmos DB
-        href: search-howto-index-cosmosdb.md
-      - name: Een-op-veel-blob-indexering
-        href: search-howto-index-one-to-many-blobs.md
-      - name: Blob-indexering met CSV
-        href: search-howto-index-csv-blobs.md
-      - name: Blob-indexering met JSON
-        href: search-howto-index-json-blobs.md
-      - name: Verbinding maken met SQL Server-VM's
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Veldtoewijzingen
-        href: search-indexer-field-mappings.md
-      - name: Algemene problemen oplossen
-        href: search-indexer-troubleshooting.md
-  - name: AI-indexering (cognitief zoeken)
-    items:
-    - name: Een Cognitive Services-resource toevoegen
-      href: cognitive-search-attach-cognitive-services.md
-    - name: Een set vaardigheden definiëren
-      href: cognitive-search-defining-skillset.md
-    - name: Naar een aantekening verwijzen
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Toewijzen aan indexvelden
-      href: cognitive-search-output-field-mapping.md
-    - name: Informatie uit installatiekopieën verwerken en extraheren
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Aangepaste vaardigheden integreren
-      href: cognitive-search-custom-skill-interface.md
-    - name: Voorbeeld - aangepaste vaardigheden
-      href: cognitive-search-create-custom-skill-example.md
-    - name: Tips voor probleemoplossing
-      href: cognitive-search-concept-troubleshooting.md
-    - name: Documentatielinks
-      href: cognitive-search-resources-documentation.md
-  - name: Querygegevens
-    items:
-    - name: Een basisquery maken
-      href: search-query-overview.md
-    - name: Search Explorer (portal)
-      href: search-explorer.md
-    - name: Vereenvoudigde querysyntaxis
-      href: query-simple-syntax.md
-    - name: Volledige Lucene-querysyntaxis
-      href: query-lucene-syntax.md
-    - name: Voorbeelden (eenvoudige syntaxis)
-      href: search-query-simple-examples.md
-    - name: Voorbeelden (volledige Lucene)
-      href: search-query-lucene-examples.md
-  - name: Gegevens filteren en sorteren
-    items:
-    - name: Filteroverzicht
-      href: search-filters.md
-    - name: Facetfilters
-      href: search-filters-facets.md
-    - name: Facetnavigatie toevoegen
-      href: search-faceted-navigation.md
-    - name: Syntaxis en voorbeelden voor filteren en sorteren op expressies
-      href: query-odata-filter-orderby-syntax.md
-  - name: Resultaten verwerken
-    items:
-    - name: Paginagerelateerde functies
-      href: search-pagination-page-layout.md
-  - name: Relevantie afstemmen
-    items:
-    - name: Scoringprofielen toevoegen
-      href: index-add-scoring-profiles.md
-  - name: Beheer
-    items:
-    - name: Portaalbeheer
-      href: search-manage.md
-    - name: PowerShell-beheer
-      href: search-manage-powershell.md
-  - name: Bewaking
-    items:
-    - name: Activiteit en logboekregistratie bewaken
-      href: search-monitor-usage.md
-    - name: Analyse zoekverkeer
-      href: search-traffic-analytics.md
+        - name: Overzicht van gegevensimport
+          href: search-what-is-data-import.md
+        - name: Gegevens importeren (portal)
+          href: search-import-data-portal.md
+        - name: Een index opnieuw maken
+          href: search-howto-reindex.md
+        - name: Grote gegevenssets indexeren
+          href: search-howto-large-index.md
+        - name: Gelijktijdige updates verwerken
+          href: search-howto-concurrency.md
+    - name: Gegevens laden met indexeerfuncties
+      items:
+        - name: Overzicht van indexeerfuncties
+          href: search-indexer-overview.md
+        - name: Indexeerfunctie voor Blob-opslag
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Indexeerfunctie voor Table-opslag
+          href: search-howto-indexing-azure-tables.md
+        - name: Indexeerfunctie voor SQL DB
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Indexeerfunctie voor Cosmos DB
+          href: search-howto-index-cosmosdb.md
+        - name: Een-op-veel-blob-indexering
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Blob-indexering met CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Blob-indexering met JSON
+          href: search-howto-index-json-blobs.md
+        - name: Verbinding maken met SQL Server-VM's
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Veldtoewijzingen
+          href: search-indexer-field-mappings.md
+        - name: Algemene problemen oplossen
+          href: search-indexer-troubleshooting.md
+    - name: AI-indexering (cognitief zoeken)
+      items:
+        - name: Een Cognitive Services-resource toevoegen
+          href: cognitive-search-attach-cognitive-services.md
+        - name: Een set vaardigheden definiëren
+          href: cognitive-search-defining-skillset.md
+        - name: Naar een aantekening verwijzen
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Toewijzen aan indexvelden
+          href: cognitive-search-output-field-mapping.md
+        - name: Informatie uit installatiekopieën verwerken en extraheren
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Aangepaste vaardigheden integreren
+          href: cognitive-search-custom-skill-interface.md
+        - name: Voorbeeld - aangepaste vaardigheden
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Tips voor probleemoplossing
+          href: cognitive-search-concept-troubleshooting.md
+        - name: Documentatielinks
+          href: cognitive-search-resources-documentation.md
+    - name: Querygegevens
+      items:
+        - name: Een basisquery maken
+          href: search-query-overview.md
+        - name: Search Explorer (portal)
+          href: search-explorer.md
+        - name: Vereenvoudigde querysyntaxis
+          href: query-simple-syntax.md
+        - name: Volledige Lucene-querysyntaxis
+          href: query-lucene-syntax.md
+        - name: Voorbeelden (eenvoudige syntaxis)
+          href: search-query-simple-examples.md
+        - name: Voorbeelden (volledige Lucene)
+          href: search-query-lucene-examples.md
+    - name: Gegevens filteren en sorteren
+      items:
+        - name: Filteroverzicht
+          href: search-filters.md
+        - name: Facetfilters
+          href: search-filters-facets.md
+        - name: Facetnavigatie toevoegen
+          href: search-faceted-navigation.md
+        - name: Syntaxis en voorbeelden voor filteren en sorteren op expressies
+          href: query-odata-filter-orderby-syntax.md
+    - name: Resultaten verwerken
+      items:
+        - name: Paginagerelateerde functies
+          href: search-pagination-page-layout.md
+    - name: Relevantie afstemmen
+      items:
+        - name: Scoringprofielen toevoegen
+          href: index-add-scoring-profiles.md
+    - name: Beheer
+      items:
+        - name: Portaalbeheer
+          href: search-manage.md
+        - name: PowerShell-beheer
+          href: search-manage-powershell.md
+    - name: Bewaking
+      items:
+        - name: Activiteit en logboekregistratie bewaken
+          href: search-monitor-usage.md
+        - name: Analyse zoekverkeer
+          href: search-traffic-analytics.md
 - name: Naslaginformatie
   items:
-  - name: Azure-CLI
-    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
-  - name: Azure PowerShell
-    href: /powershell/module/az.search
-  - name: .NET
-    href: /dotnet/api/?term=microsoft.azure.search
-  - name: .NET (beheer)
-    href: /dotnet/api/?term=microsoft.azure.management.search
-  - name: Python (beheer)
-    href: /python/api/?view=azure-python&term=search
-  - name: REST
-    href: /rest/api/searchservice
-  - name: REST (beheer)
-    href: /rest/api/searchmanagement
-  - name: REST (preview)
-    href: search-api-preview.md
-  - name: Resource Manager-sjabloon
-    href: /azure/templates/microsoft.search/searchservices
-  - name: Verwijzing voor cognitieve vaardigheden
-    href: cognitive-search-predefined-skills.md
-    items:
-    - name: Sleuteltermextractie
-      href: cognitive-search-skill-keyphrases.md
-    - name: Taaldetectie
-      href: cognitive-search-skill-language-detection.md
-    - name: Herkenning van benoemde entiteiten
-      href: cognitive-search-skill-named-entity-recognition.md
-    - name: Herkenning van entiteiten
-      href: cognitive-search-skill-entity-recognition.md
-    - name: Tekst samenvoegen
-      href: cognitive-search-skill-textmerger.md
-    - name: Tekst splitsen
-      href: cognitive-search-skill-textsplit.md
-    - name: Stemming
-      href: cognitive-search-skill-sentiment.md
-    - name: Analyse van de afbeelding
-      href: cognitive-search-skill-image-analysis.md
-    - name: OCR
-      href: cognitive-search-skill-ocr.md
-    - name: Shaper
-      href: cognitive-search-skill-shaper.md
-    - name: Afgeschafte vaardigheden
-      href: cognitive-search-skill-deprecated.md
-  - name: Aangepaste vaardigheden (preview)
-    items:
-    - name: Aangepaste Web-API
-      href: cognitive-search-custom-skill-web-api.md
+    - name: Azure-CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: /powershell/module/az.search
+    - name: .NET
+      href: /dotnet/api/?term=microsoft.azure.search
+    - name: .NET (beheer)
+      href: /dotnet/api/?term=microsoft.azure.management.search
+    - name: Python (beheer)
+      href: /python/api/?view=azure-python&term=search
+    - name: REST
+      href: /rest/api/searchservice
+    - name: REST (beheer)
+      href: /rest/api/searchmanagement
+    - name: REST (preview)
+      href: search-api-preview.md
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.search/searchservices
+    - name: Verwijzing voor cognitieve vaardigheden
+      href: cognitive-search-predefined-skills.md
+      items:
+        - name: Sleuteltermextractie
+          href: cognitive-search-skill-keyphrases.md
+        - name: Taaldetectie
+          href: cognitive-search-skill-language-detection.md
+        - name: Herkenning van benoemde entiteiten
+          href: cognitive-search-skill-named-entity-recognition.md
+        - name: Herkenning van entiteiten
+          href: cognitive-search-skill-entity-recognition.md
+        - name: Tekst samenvoegen
+          href: cognitive-search-skill-textmerger.md
+        - name: Tekst splitsen
+          href: cognitive-search-skill-textsplit.md
+        - name: Stemming
+          href: cognitive-search-skill-sentiment.md
+        - name: Analyse van de afbeelding
+          href: cognitive-search-skill-image-analysis.md
+        - name: OCR
+          href: cognitive-search-skill-ocr.md
+        - name: Shaper
+          href: cognitive-search-skill-shaper.md
+        - name: Afgeschafte vaardigheden
+          href: cognitive-search-skill-deprecated.md
+    - name: Aangepaste vaardigheden (preview)
+      items:
+        - name: Aangepaste Web-API
+          href: cognitive-search-custom-skill-web-api.md
 - name: Resources
   items:
-  - name: Ondersteuning van de Azure-community
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure-updates
-    href: https://azure.microsoft.com/updates/?product=search
-  - name: Demosites
-    items:
-    - name: Demo met financiële bestanden
-      href: https://wolterskluwereap.azurewebsites.net/
-    - name: Demo met JFK-bestanden
-      href: https://aka.ms/jfkfiles
-    - name: Demo met NYC-taken
-      href: https://aka.ms/azjobsdemo
-    - name: Search Analyzer-demo
-      href: https://alice.unearth.ai/
-    - name: Scenario’s zoeken
-      href: https://searchsamples.azurewebsites.net/
-  - name: Veelgestelde vragen
-    href: search-faq-frequently-asked-questions.md
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/search/
-  - name: Video's
-    href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 4dd56447ccedca7b01022b914502d5ad76e3e6a7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492665"
+    - name: Ondersteuning van de Azure-community
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure-updates
+      href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Demosites
+      items:
+        - name: Demo met financiële bestanden
+          href: 'https://wolterskluwereap.azurewebsites.net/'
+        - name: Demo met JFK-bestanden
+          href: 'https://aka.ms/jfkfiles'
+        - name: Demo met NYC-taken
+          href: 'https://aka.ms/azjobsdemo'
+        - name: Search Analyzer-demo
+          href: 'https://alice.unearth.ai/'
+        - name: Scenario’s zoeken
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: Veelgestelde vragen
+      href: search-faq-frequently-asked-questions.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/search/'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

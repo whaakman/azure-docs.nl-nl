@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005544"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784990"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Container Instances
 
@@ -73,7 +73,7 @@ Containergroepen delen een IP-adres en een poort-naamruimte op dat IP-adres. Als
 
 (Optioneel) implementeren containergroepen in een [virtueel Azure-netwerk] [ virtual-network] (preview) om toe te staan van containers om veilig te communiceren met andere resources in het virtuele netwerk.
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 U kunt externe volumes te koppelen binnen een containergroep opgeven. U kunt deze volumes in specifieke paden binnen de afzonderlijke containers in een groep toewijzen.
 

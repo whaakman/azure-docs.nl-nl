@@ -4,20 +4,20 @@ description: Meer informatie over het vinden van de kosten van de aanvraag-eenhe
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053165"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683831"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Zoek de aanvraageenheid (RU) kosten in rekening gebracht in Azure Cosmos DB
 
 In dit artikel geeft de verschillende manieren om te zoeken de [aanvraageenheid](request-units.md) verbruik voor elke bewerking die wordt uitgevoerd op een Azure Cosmos-container. Het is momenteel mogelijk is voor het meten van dit verbruik met behulp van Azure portal of door het antwoord van het Azure Cosmos DB via een van de SDK's teruggestuurd.
 
-## <a name="core-api"></a>Core API
+## <a name="sql-core-api"></a>SQL (Core) API
 
 ### <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
@@ -25,13 +25,13 @@ De Azure-portal kunt op dit moment u de kosten van de aanvraag voor een SQL-quer
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. [Maak een nieuw Azure Cosmos DB-account](create-sql-api-dotnet.md#create-account) en deze feed met gegevens, of Selecteer een bestaand account die al gegevens bevat.
+1. [Maak een nieuw Azure Cosmos-account](create-sql-api-dotnet.md#create-account) en deze feed met gegevens, of Selecteer een bestaand Azure-Cosmos-account dat al gegevens bevat.
 
 1. Open de **Data Explorer** deelvenster en selecteer de container die u wilt werken.
 
 1. Klik op **nieuwe SQL-Query**.
 
-1. Voer een geldige query en klik op **Query uitvoeren**.
+1. Voer een geldige query en klik vervolgens op **Query uitvoeren**.
 
 1. Klik op **Query statistieken** om weer te geven van de werkelijke kosten in rekening gebracht voor de aanvraag die u zojuist hebt uitgevoerd.
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB-API voor MongoDB
 
-Aanvraag kosten-eenheden wordt weergegeven met een aangepaste [opdracht database](https://docs.mongodb.com/manual/reference/command/) met de naam `getLastRequestStatistics`. Met deze opdracht retourneert een document met de naam van de laatste bewerking die is uitgevoerd, de kosten van de aanvraag en de duur.
+Kosten voor aanvraag-eenheden wordt weergegeven met een aangepaste [opdracht database](https://docs.mongodb.com/manual/reference/command/) met de naam `getLastRequestStatistics.` met deze opdracht retourneert een document met de naam van de laatste bewerking die is uitgevoerd, de kosten van de aanvraag en de duur.
 
 ### <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
@@ -155,7 +155,7 @@ De Azure-portal kunt op dit moment u de kosten van de aanvraag voor een query al
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. [Maak een nieuw Azure Cosmos DB-account](create-mongodb-dotnet.md#create-a-database-account) en deze feed met gegevens, of Selecteer een bestaand account die al gegevens bevat.
+1. [Maak een nieuw Azure Cosmos-account](create-mongodb-dotnet.md#create-a-database-account) en deze feed met gegevens, of Selecteer een bestaand account die al gegevens bevat.
 
 1. Open de **Data Explorer** deelvenster en selecteer de verzameling die u wilt werken.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Het stuurprogramma Node.js voor MongoDB gebruiken
 
-Wanneer u de [officiële MongoDB Node.js-stuurprogramma](https://mongodb.github.io/node-mongodb-native/) (Zie [in deze snelstartgids](create-mongodb-nodejs.md) met betrekking tot het gebruik ervan), opdrachten kunnen worden uitgevoerd door het aanroepen van de `command` methode op een `Db` object.
+Wanneer u de [officiële MongoDB Node.js-stuurprogramma](https://mongodb.github.io/node-mongodb-native/) (Zie [in deze snelstartgids](create-mongodb-nodejs.md) met betrekking tot het gebruik ervan), opdrachten kunnen worden uitgevoerd door het aanroepen van de `command` methode op een `db` object.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -230,7 +230,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### <a name="use-drivers-and-sdk"></a>Gebruik stuurprogramma's en SDK
 
-Headers die wordt geretourneerd door de Gremlin-API zijn toegewezen aan de status van de aangepaste kenmerken die momenteel worden opgehaald door de Gremlin-.NET en Java-SDK. De kosten van de aanvraag is beschikbaar onder de `x-ms-request-charge` sleutel.
+Headers die wordt geretourneerd door de Gremlin-API worden toegewezen aan de status van de aangepaste kenmerken, die momenteel worden opgehaald door de Gremlin-.NET en Java-SDK. De kosten van de aanvraag is beschikbaar onder de `x-ms-request-charge` sleutel.
 
 ### <a name="use-the-net-sdk"></a>De .NET SDK gebruiken
 
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Zie de volgende artikelen voor meer informatie over het optimaliseren van uw gebruik van de eenheid aanvraag:
 
+* [Aanvraageenheden en doorvoer in Azure Cosmos DB](request-units.md)
 * [Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren](optimize-cost-throughput.md)
 * [Kosten van de query in Azure Cosmos DB optimaliseren](optimize-cost-queries.md)
+* [Ingerichte doorvoer wereldwijd schalen](scaling-throughput.md)
+* [Doorvoer voor containers en databases inrichten](set-throughput.md)
+* [Doorvoer inrichten voor een container](how-to-provision-container-throughput.md)

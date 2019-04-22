@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
-ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/20/2019
+ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893999"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682998"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
@@ -108,7 +108,7 @@ Zie [Algoritmen kiezen voor Microsoft Azure Machine Learning Studio](algorithm-c
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Een predictive analytics-web service implementeren
 Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine Learning Studio implementeren als webservice. Voor meer informatie over dit proces raadpleegt u [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md) (Een Azure Machine Learning-webservice implementeren).
 
-
+<a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Waarin verschilt Azure Machine Learning Service van Azure Machine Learning Studio?
 
 De [Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. 

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853002"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684086"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -74,6 +74,8 @@ Voor tenants met meerdere connectors gericht op de automatische updates één co
 U ondervindt mogelijk downtime tijdens uw connector bijgewerkt als:  
 - U slechts één connector hebben wij raden u een tweede connector te installeren en [maken van een connectorgroep](application-proxy-connector-groups.md). Dit wordt uitvaltijd te voorkomen en een hogere beschikbaarheid bieden.  
 - Er is een connector in het midden van een transactie wanneer de update is begonnen. Hoewel de initiële transactie verloren gegaan is, uw browser moet automatisch probeer het opnieuw of u kunt de pagina vernieuwen. Wanneer de aanvraag is verzonden, wordt het verkeer wordt doorgestuurd naar een back-connector.
+
+Voor informatie over de eerder uitgebrachte versies en welke wijzigingen ze omvatten, Zie [Application Proxy - versiegeschiedenis van Release](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Het maken van connectorgroepen
 

@@ -7,36 +7,35 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880412"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683967"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
-AI-algoritmen station de [cognitief zoeken pijplijnen](cognitive-search-concept-intro.md) gebruikt voor het verwerken van niet-gestructureerde gegevens in een Azure Search indexeren bewerking. Deze algoritmen zijn gebaseerd op [Cognitive Services-resources](https://azure.microsoft.com/services/cognitive-services/), waaronder [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) voor analyse van de afbeelding en optische tekenherkenning (OCR) en [Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/)voor herkenning entiteit, sleuteltermextractie en andere enrichments.
+AI-algoritmen station de [cognitieve indexering pijplijnen](cognitive-search-concept-intro.md) gebruikt voor het verwerken van niet-gestructureerde gegevens in Azure Search. Deze algoritmen zijn gebaseerd op [Cognitive Services-resources](https://azure.microsoft.com/services/cognitive-services/), waaronder [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) voor analyse van de afbeelding en optische tekenherkenning (OCR) en [Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/)voor herkenning entiteit, sleuteltermextractie en andere enrichments.
 
-U kunt een beperkt aantal documenten gratis verrijken of een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden uit om gegevens tijdens waardevoller [Azure Search indexeren](search-what-is-an-index.md).
+U kunt een beperkt aantal documenten gratis verrijken, of een factureerbare Cognitive Services-resource bijvoegen voor grotere en frequentere workloads. In dit artikel leert u hoe u een Cognitive Services-resource koppelen aan uw cognitieve vaardigheden uit om gegevens tijdens waardevoller [Azure Search indexeren](search-what-is-an-index.md).
 
 Als uw pijplijn uit de vaardigheden die geen verband houdt met Cognitive Services-API's bestaat, moet u nog steeds een Cognitive Services-resource koppelen. Doet dit het geval is onderdrukkingen de **gratis** resource waarmee u een kleine hoeveelheid enrichments per dag wordt beperkt. Er zijn geen kosten voor de vaardigheden die niet zijn gebonden aan Cognitive Services API's. Deze vaardigheden opnemen: [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), [tekst samenvoegen](cognitive-search-skill-textmerger.md), [tekst splitsen](cognitive-search-skill-textsplit.md), en [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
-> U kunt vanaf 21 December 2018, een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Dit kan we kosten in rekening gebracht voor de uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
+> Als u een bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u een factureerbare Cognitive Services-resource koppelen. Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
 >
-> [Ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) uitvoering in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services), op hetzelfde tarief als u de taak rechtstreeks heeft uitgevoerd. Uitpakken van de installatiekopie is een gratis Azure Search, momenteel aangeboden tegen een preview-prijzen. Zie voor meer informatie, de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400) of [hoe het factureren werkt](search-sku-tier.md#how-billing-works).
+> Uitvoering van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) uitvoering in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services), op hetzelfde tarief als u de taak rechtstreeks heeft uitgevoerd. Uitpakken van de installatiekopie is een gratis Azure Search, weergegeven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="use-free-resources"></a>Gratis resources gebruiken
 
 Een beperkte, gratis verwerkingsoptie kunt u de cognitief zoeken zelfstudie en de Snelstartgids oefeningen. 
 
-> [!Important]
-> Vanaf 1 februari 2019 de **gratis (beperkte Enrichments)** worden beperkt tot 20 documenten per dag. 
+**Gratis (beperkte Enrichments)** zijn beperkt tot 20 documenten per dag, per abonnement.
 
 1. Open de **gegevens importeren** wizard.
 
@@ -56,15 +55,21 @@ Voor workloads die meer dan 20 enrichments dagelijks nummering, moet u een factu
 
 U betaalt alleen voor de vaardigheden die de Cognitive Services-API's aanroepen. Niet-API's gebaseerd vaardigheden, zoals [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), [tekst samenvoegen](cognitive-search-skill-textmerger.md), [tekst splitsen](cognitive-search-skill-textsplit.md), en [shaper](cognitive-search-skill-shaper.md) vaardigheden zijn niet in rekening gebracht.
 
-1. In de **gegevens importeren** wizard in **Cognitive Services koppelen**, selecteert u een bestaande resource of klik op **nieuwe Cognitive Services-resource maken**.
+1. Open de **gegevens importeren** wizard, kiest u een gegevensbron en blijven **cognitief zoeken toevoegen (optioneel)**. 
 
-1. Voor **nieuwe Cognitive Services-resource maken**, er wordt een nieuw tabblad geopend zodat u van de resource maken kunt. De resource een unieke naam geven.
+1. Vouw **Cognitive Services koppelen** en selecteer vervolgens **nieuwe Cognitive Services-resource maken**. Een nieuw tabblad geopend zodat u van de resource maken kunt. 
 
-1. Als u een nieuwe Cognitive Services-resource maakt **kiest u de dezelfde regio** als uw Azure Search-resource.
+   ![Een Cognitive Services-resource maken](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "een Cognitive Services-resource maken")
 
-1. Kies de prijscategorie All-in-one, **S0**. Deze laag biedt de visie en taal-functies die de vooraf gedefinieerde vaardigheden in cognitief zoeken back-ups maken.
+1. Kies in de locatie, dezelfde regio als de Azure Search uitgaande bandbreedte om kosten te vermijden tussen regio's.
 
-    ![Maak een nieuwe Cognitive Services-resource](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Maak een nieuwe Cognitive Services-resource")
+1. Kies in de prijscategorie, **S0** om op te halen, de alles-in-één-verzameling van Cognitive Services-functies, met inbegrip van de visie en taal-functies die de vooraf gedefinieerde vaardigheden die worden gebruikt door Azure Search back-ups maken. 
+
+   Voor de S0-laag, kunt u tarieven vinden voor specifieke werkbelastingen op de [pagina prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+  
+   + In **Selecteer bieden**, zorg ervoor dat *Cognitive Services* is geselecteerd.
+   + Onder functies van de taal, de tarieven voor *Text Analytics Standard* zijn van toepassing op het indexeren van AI. 
+   + Onder Vision-functies, de tarieven voor *Computer Vision S1* worden toegepast.
 
 1. Klik op **maken** voor het inrichten van de nieuwe Cognitive Services-resource. 
 

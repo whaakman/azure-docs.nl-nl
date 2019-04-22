@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004584"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697886"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Wat is Azure Monitor voor virtuele machines (preview)?
 
-Azure Monitor voor virtuele machines bewaakt uw Azure virtual machines (VM) en virtuele-machineschaalsets op schaal. Deze analyseert de prestaties en status van uw Windows en Linux-VM's en hun processen en afhankelijkheden van andere bronnen en de externe processen bewaakt. 
+Azure Monitor voor virtuele machines bewaakt uw Azure virtual machines (VM) en virtuele-machineschaalsets op schaal. De service analyseert de prestaties en status van uw Windows- en Linux-VM's en bewaakt hun processen en afhankelijkheden van andere resources en externe processen. 
 
 Azure Monitor voor virtuele machines bevat als een oplossing, ondersteuning voor het bewaken van prestatie- en afhankelijkheden voor virtuele machines die zich on-premises gehost of in een andere cloudprovider. Drie belangrijke functies bieden een diepgaande informatie:
 
@@ -39,7 +39,7 @@ De functies zijn ingedeeld in drie perspectieven:
 * Kaart
 
 >[!NOTE]
->Op dit moment wordt de Health-functie aangeboden alleen voor virtuele Azure-machines en virtuele-machineschaalset sets. Prestaties en functies van de kaart ondersteuning voor zowel virtuele Azure-machines en virtuele machines die worden gehost in uw omgeving of andere cloudprovider.
+>De Health-functie wordt momenteel aangeboden alleen voor virtuele machines van Azure. Prestaties en functies van de kaart ondersteuning voor Azure-VM's, Azure VM-schaalsets en virtuele machines die worden gehost in uw omgeving of andere cloudprovider.
 
 Integratie met Azure Monitor Logboeken biedt krachtige aggregatie en filteren, en deze gegevenstrends na verloop van tijd kunt analyseren. Dergelijke uitgebreide werkbelasting bewaking kan niet worden bereikt met Azure Monitor of alleen Serviceoverzicht.  
 
