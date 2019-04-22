@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493022"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Azure Monitor
@@ -31,9 +31,9 @@ Zie voor meer informatie over Designer bekijken:
 
 De beschikbare typen van de Weergaveontwerper-tegel worden in de volgende tabel beschreven:
 
-| Weergavetype | Description |
+| Weergavetype | Beschrijving |
 |:--- |:--- |
-| [Lijst met query's](#list-of-queries-part) |Geeft een lijst van Logboeken-query's. U kunt elke query om de resultaten weer te geven. |
+| [Lijst met query 's](#list-of-queries-part) |Geeft een lijst van Logboeken-query's. U kunt elke query om de resultaten weer te geven. |
 | [Getal en lijst](#number-and-list-part) |De koptekst wordt weergegeven een enkel getal dat geeft het aantal records in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
 | [Twee getallen en lijst](#two-numbers-and-list-part) |Twee getallen waarin het aantal records uit afzonderlijke logboeken-query's worden weergegeven in de header. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
 | [Ring en lijst](#donut-and-list-part) |De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van een waarde in een logboekquery. De Ring worden de resultaten van de top drie records grafisch weergegeven. |
@@ -53,7 +53,7 @@ De lijst met query's onderdeel geeft een lijst van Logboeken-query's. U kunt elk
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-list-queries.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Titel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -80,17 +80,17 @@ De koptekst wordt weergegeven een enkel getal dat geeft het aantal records in ee
 | Legenda |De tekst die wordt weergegeven aan de bovenkant van de header. |
 | Query’s uitvoeren |De query wilt uitvoeren voor de header. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Navigatie via klikken | Wanneer u op de kop klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. De eerste twee eigenschappen voor de eerste tien records in de resultaten worden weergegeven. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Balken worden automatisch gemaakt die zijn gebaseerd op de relatieve waarde van de numerieke kolom.<br><br>Gebruik de `Sort` opdracht in de query om de records in de lijst te sorteren. Voor het uitvoeren van de query en alle records retourneren, kunt u **alle**. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Kleur |De kleur van de balken of sparklines. |
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Twee getallen en lijst onderdeel
@@ -98,7 +98,7 @@ De header heeft twee getallen die een aantal records uit afzonderlijke logboeken
 
 ![Twee getallen en lijst weergeven](media/view-designer-parts/view-two-numbers-list.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -110,7 +110,7 @@ De header heeft twee getallen die een aantal records uit afzonderlijke logboeken
 | **Titel** | |
 | Legenda |De tekst die wordt weergegeven aan de bovenkant van de header. |
 | Query’s uitvoeren |De query wilt uitvoeren voor de header. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. De eerste twee eigenschappen voor de eerste tien records in de resultaten worden weergegeven. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Balken worden automatisch gemaakt op basis van de relatieve waarde van de numerieke kolom.<br><br>Gebruik de `Sort` opdracht in de query om de records in de lijst te sorteren. Voor het uitvoeren van de query en alle records retourneren, kunt u **alle**. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
@@ -118,10 +118,10 @@ De header heeft twee getallen die een aantal records uit afzonderlijke logboeken
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Ring en lijst
@@ -139,10 +139,10 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | **Header** | |
 | Titel |De tekst die wordt weergegeven aan de bovenkant van de header. |
 | Subtitel |De tekst die wordt weergegeven onder de titel aan de bovenkant van de header. |
-| **Donut** | |
+| **ringdiagram** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. |
 | Navigatie via klikken | Wanneer u op de kop klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Donut** |**> Center** |
+| **ringdiagram** |**> Center** |
 | Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
 | Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: Hiermee voegt u de waarden van alle records toe.</li><li>Percentage: De verhouding van de records die zijn geretourneerd door de waarden in **leiden tot waarden die worden gebruikt in middenbewerking** naar het totaal aantal records in de query.</li></ul> |
 | Resultaatwaarden gebruikt in middenbewerking |(Optioneel) Selecteer het plusteken (+) om toe te voegen een of meer waarden. De resultaten van de query zijn beperkt tot records met de eigenschapswaarden die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records worden opgenomen in de query. |
@@ -151,7 +151,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | **Aanvullende opties** |**> Geavanceerde kleurtoewijzing** |
 | Veldwaarde |Typ de naam van een veld weer te geven als een andere kleur als het is opgenomen in de ring. |
 | Kleur |Selecteer de kleur voor het uniek veld. |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
@@ -159,10 +159,10 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Twee tijdlijnen en lijst onderdeel
@@ -170,7 +170,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 
 ![Twee tijdlijnen en lijst weergeven](media/view-designer-parts/view-two-timelines-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -179,22 +179,22 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 | Pictogram gebruiken |Selecteer deze koppeling om het pictogram weer te geven. |
 | **Titel navigatie** | |
 | Navigatie via klikken | Wanneer u op de kop klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Eerste grafiek<br>Tweede grafiek** | |
+| **Eerste grafiek<br>tweede grafiek** | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de eerste reeks. |
 | Kleur |De kleur moet worden gebruikt voor de kolommen in de reeks. |
 | Query’s uitvoeren |De query wilt uitvoeren voor de eerste reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
 | Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Som: De som van de waarden van alle records.</li><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Eerste voorbeeld: De waarde van het eerste interval dat opgenomen in de grafiek.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li></ul> |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Kleur |De kleur van de balken of sparklines. |
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="information-part"></a>Informatiegedeelte
@@ -202,7 +202,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 
 ![Informatie weergeven](media/view-designer-parts/view-information.png)
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -211,7 +211,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 | **Header** | |
 | Installatiekopie |Het afbeeldingsbestand dat wordt weergegeven in de header. |
 | Label |De tekst die wordt weergegeven in de header. |
-| **Header** |**> Koppeling** |
+| **Header** |**> Link** |
 | Label |De tekst van de koppeling. |
 | URL |De Url voor de koppeling. |
 | **Informatie-items** | |
@@ -244,7 +244,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
 | Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
@@ -252,10 +252,10 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Grafiek en een lijst met onderdeel van regel
@@ -280,7 +280,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
 | Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
-| **Lijst** | |
+| **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
@@ -288,10 +288,10 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
-| **Lijst** |**> Aangepaste titels** |
+| **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
-| **Lijst** |**> Drempelwaarden** |
+| **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Stack van regel grafieken onderdeel
@@ -299,16 +299,16 @@ De stack van lijndiagram weergegeven drie afzonderlijke lijndiagrammen, met meer
 
 ![Stapel lijndiagrammen](media/view-designer-parts/view-stack-line-charts.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Nieuwe groep |Selecteer deze koppeling naar een nieuwe groep maken in de weergave, vanaf de huidige weergave. |
 | Pictogram |Het afbeeldingsbestand dat wordt weergegeven naast het resultaat in de header. |
-| **Grafiek 1<br>Grafiek 2<br>Grafiek 3** |**> Header** |
+| **Grafiek 1<br>grafiek 2<br>grafiek 3** |**> Header** |
 | Titel |De tekst die wordt weergegeven aan de bovenkant van de grafiek. |
 | Subtitel |De tekst die wordt weergegeven onder de titel aan de bovenkant van de grafiek. |
-| **Grafiek 1<br>Grafiek 2<br>Grafiek 3** |**Lijndiagram** |
+| **Grafiek 1<br>grafiek 2<br>grafiek 3** |**Lijndiagram** |
 | Query’s uitvoeren |De query wilt uitvoeren voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* trefwoord, de x-as van de grafiek wordt gebruikt voor dit tijdsinterval. Als de query niet onder de *interval* #trefwoord, de x-as wordt per uur intervallen. |
 | Navigatie via klikken | Wanneer u op de kop klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Grafiek** |**> Y-as** |
@@ -329,7 +329,7 @@ Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wann
 
 De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 
-| Instelling           | Description |
+| Instelling           | Beschrijving |
 |:--|:--|
 | Zoeken in logboeken (automatisch) | Query voor worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboekquery die het item is gebaseerd op.
 | Zoeken in logboeken        | Query voor worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
@@ -356,7 +356,7 @@ Elke set drempelwaarde heeft een drempelwaarde met een waarde van **standaard**.
 
 De volgende tabel beschrijft de instellingen voor de drempelwaarden:
 
-| Instelling | Description |
+| Instelling | Beschrijving |
 |:--- |:--- |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om een Kleurenpictogram aan de linkerkant van elke waarde weer te geven. Het pictogram geeft de status van de waarde ten opzichte van de opgegeven drempelwaarden. |
 | Name |De naam van de drempelwaarde. |

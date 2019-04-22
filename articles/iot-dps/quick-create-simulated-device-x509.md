@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500580"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd X.509-apparaat inrichten met de Azure IoT C SDK
@@ -127,7 +127,7 @@ U gaat voorbeeldcode van de Azure IoT C-SDK gebruiken om het certificaat te make
     - **Pem- of cer-bestand voor primair certificaat:** Klik op **Een bestand selecteren** om het certificaatbestand X509testcert.pem te selecteren dat u eerder hebt gemaakt.
     - **Apparaat-id voor IoT Hub:** Voer **test-docs-cert-device** in als id voor het apparaat.
 
-      [![Add afzonderlijke inschrijving voor X.509-attestation in de portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
       Als het apparaat is ingeschreven, wordt uw X.509-apparaat weergegeven als **riot-device-cert** onder de kolom *Registratie-id* op het tabblad *Afzonderlijke registraties*. 
 
@@ -198,4 +198,4 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 In deze quickstart hebt u een gesimuleerd X.509-apparaat op uw Windows-computer gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service in de portal. Als u wilt weten hoe u uw X.509-apparaat programmatisch kunt registreren, gaat u verder met de quickstart voor programmatische registratie van een X.509-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Azure-Quickstart: X.509-apparaten inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure-quickstart: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)

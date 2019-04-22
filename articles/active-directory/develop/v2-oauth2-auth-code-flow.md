@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500954"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-platform en OAuth 2.0-autorisatiecodestroom
@@ -62,7 +62,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Klik op de onderstaande koppeling voor het uitvoeren van deze aanvraag. Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `code` in de adresbalk.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parameter    | Vereist/optioneel | Beschrijving |
+| Parameter    | Vereist/optioneel | Description |
 |--------------|-------------|--------------|
 | `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
@@ -115,7 +115,7 @@ error=access_denied
 
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
-| Foutcode  | Description    | Clientactie   |
+| Foutcode  | Beschrijving    | Clientactie   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Protocolfout in, zoals een ontbrekende vereiste parameter. | Los en verzend de aanvraag opnieuw. Dit is een ontwikkeling fout meestal aangetroffen tijdens de eerste test. |
 | `unauthorized_client` | De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. | Deze fout treedt meestal op wanneer de clienttoepassing niet is geregistreerd bij Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
@@ -149,7 +149,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Probeer deze aanvraag wordt uitgevoerd in Postman. (Vergeet niet om te vervangen de `code`) [ ![uitvoeren in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Parameter  | Vereist/optioneel | Beschrijving     |
+| Parameter  | Vereist/optioneel | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | vereist  | De toepassing (client)-ID die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |

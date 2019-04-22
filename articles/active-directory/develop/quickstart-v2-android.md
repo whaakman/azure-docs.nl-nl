@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495308"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
@@ -70,14 +70,14 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
 > Voor een juiste werking van het codevoorbeeld uit deze snelstart, moet u een antwoord-URL als **msal{AppId}://auth** toevoegen (waarbij {AppId} de toepassings-id is van uw app).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging hebt aangebracht voor mij]()
+> > [Deze wijziging voor mij maken]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-android/green-check.png) uw toepassing is geconfigureerd met deze kenmerken
+> > ![Al geconfigureerd](media/quickstart-v2-android/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken
 
 #### <a name="step-2-download-the-project"></a>Stap 2: Het project downloaden
 
-* [Download de Android Studio-Project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Het Android Studio-project downloaden](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Stap 3: Het project configureren
 
@@ -175,7 +175,7 @@ Vervolgens initialiseert u MSAL met de volgende code:
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 
-MSAL heeft twee methoden die worden gebruikt voor het verkrijgen van tokens: `acquireToken` en `acquireTokenSilentAsync`
+MSAL biedt twee methoden om tokens te verkrijgen: `acquireToken` en `acquireTokenSilentAsync`
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
@@ -221,7 +221,7 @@ if (sample.size() == 1) {
 Volg de Android-zelfstudie voor een volledige stapsgewijze handleiding voor het bouwen van toepassingen en nieuwe functies, met inbegrip van een volledige uitleg van deze snelstart.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Graph API Android aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Android-zelfstudie voor Graph API-aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
 
 ### <a name="msal-for-android-library-wiki"></a>MSAL voor Android-bibliotheek wiki
 

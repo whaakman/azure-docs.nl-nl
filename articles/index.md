@@ -7,10 +7,10 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496502"
 ---
 <div id="main" class="v2">
@@ -170,12 +170,12 @@ Node.js</a>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
-Aan de slag</a>
+Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>App-modellen</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web-apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverloze functies</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Microservices met Kubernetes</a></li>
@@ -197,7 +197,7 @@ Aan de slag</a>
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server in een Azure-VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a Service</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL-database as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
@@ -210,7 +210,7 @@ Aan de slag</a>
                                                 </ul>
                                                 <h4>AI en Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
                                                     <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
@@ -229,7 +229,7 @@ Aan de slag</a>
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
-Azure-CLI </a>
+Azure CLI</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
@@ -267,7 +267,7 @@ Azure DevOps </a>
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
                                                             <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
-Azure-pijplijnen </a>
+Azure Pipelines</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/ansible/">
@@ -1827,7 +1827,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a data-default="true" href="#Compute">Computing</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2350,7 +2350,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Opslag</a>
+                        <a href="#storage">Storage</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -2363,7 +2363,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Opslag</h3>
+                                                    <h3>Storage</h3>
                                                     <p>Duurzame, in hoge mate beschikbare en zeer schaalbare cloudopslag</p>
                                                 </div>
                                             </div>
@@ -2759,7 +2759,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Mobiele telefoon</a>
+                        <a href="#mobile">Mobiel</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -5948,10 +5948,10 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                 </ul>
             </li>
              <li>
-                <a href="#sdkstools">SDK’s/hulpprogramma’s</a>
+                <a href="#sdkstools">SDK's/hulpmiddelen</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">all</a>
+                        <a href="#sdkstools-all">Alles</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -5974,7 +5974,7 @@ Azure voor .NET-ontwikkelaars </h3>
                                                     <a href="/dotnet/azure">Aan de slag</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API-verwijzing</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API-naslaginformatie</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5997,7 +5997,7 @@ Azure voor Python-ontwikkelaars </h3>
                                                     <a href="/python/azure">Aan de slag</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API-verwijzing</a>
+                                                    <a href="/python/api/overview/azure/">API-naslaginformatie</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6020,7 +6020,7 @@ Azure voor Node.js-ontwikkelaars </h3>
                                                     <a href="/javascript/azure/">Aan de slag</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/javascript/api/overview/azure/">API-verwijzing</a>
+                                                    <a href="/javascript/api/overview/azure/">API-naslaginformatie</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6043,7 +6043,7 @@ Azure voor Java-ontwikkelaars </h3>
                                                     <a href="/java/azure">Aan de slag</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api">API-verwijzing</a>
+                                                    <a href="/java/api">API-naslaginformatie</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6230,7 +6230,7 @@ Azure-CLI </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Opslag</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
@@ -6253,7 +6253,7 @@ Azure-CLI </h3>
                                                 <h3>
 Docker </h3>
                                                 <p>
-                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio-hulpprogramma's voor Docker</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools voor Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Download voor Visual Studio</a>
@@ -6306,7 +6306,7 @@ Java-hulpprogramma's </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python-hulpprogramma's</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
@@ -6359,7 +6359,7 @@ Azure Resource Manager </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://storageexplorer.com">Opslagverkenner</a>
+                                                    <a href="https://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Aan de slag</a>
@@ -6400,7 +6400,7 @@ Service Fabric-SDK en -hulpprogramma's </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X downloaden</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric-CLI downloaden </a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric-CLI downloaden</a>
                                                 </p>
                                             </div>
                                         </div>

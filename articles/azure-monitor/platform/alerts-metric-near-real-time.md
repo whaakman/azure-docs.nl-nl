@@ -9,10 +9,10 @@ ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 0dd8d7c1e004472d230337b72d55ac7ced905b41
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490925"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
@@ -32,14 +32,14 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 |Resourcetype  |Dimensies ondersteund  | Metrische gegevens beschikbaar|
 |---------|---------|----------------|
 |Microsoft.ApiManagement/service     | Ja        | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
-|Microsoft.Automation/automationAccounts     |     Ja   | [Automation-accounts](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
-|Microsoft.Batch/batchAccounts | N/A| [Batch-accounts](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
+|Microsoft.Automation/automationAccounts     |     Ja   | [Automation-Accounts](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/A| [Batch-Accounts](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis     |    N/A     |[Azure Cache voor Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Virtuele machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtuele-machineschaalsets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Ja| [Containergroepen](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
-|Microsoft.ContainerService/managedClusters | Ja | [Beheerde clusters](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
+|Microsoft.ContainerService/managedClusters | Ja | [Beheerde Clusters](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataFactory/datafactories| Ja| [Data Factory V1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   Ja     |[Data Factory V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB voor MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
@@ -50,19 +50,19 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 |Microsoft.KeyVault/vaults| Nee | [Kluizen](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Toepassingsgateways](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/dnsZones | N/A| [DNS-zones](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/A |  [Express Route-circuits](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/loadBalancers (alleen voor standaard-SKU's)| Ja| [Load balancers](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
+|Microsoft.Network/dnsZones | N/A| [DNS-Zones](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/expressRouteCircuits | N/A |  [Express Route-Circuits](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/loadBalancers (alleen voor standaard-SKU's)| Ja| [Load Balancers](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Openbare IP-adressen](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | Ja | [Traffic Manager-profielen](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics-werkruimten](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft.PowerBIDedicated/capacities | N/A | [Capaciteiten](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Search/searchServices     |   N/A      |[Services zoeken](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
+|Microsoft.Network/trafficManagerProfiles | Ja | [Traffic Manager Profiles](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [Capaciteit](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
+|Microsoft.Search/searchServices     |   N/A      |[Search-services](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Ja     | [Opslagaccounts](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Bestandsservices](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Services in de wachtrij](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) en [tabel Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
-| Microsoft.Web/serverfarms | Ja | [App Service-abonnementen](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
+| Microsoft.Web/serverfarms | Ja | [App Service-plannen](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | Ja | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) en [functies](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 | Microsoft.Web/sites/slots | Ja | [App Service-sleuven](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 

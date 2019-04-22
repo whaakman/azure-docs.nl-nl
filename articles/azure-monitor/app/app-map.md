@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009192"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678536"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -90,9 +90,9 @@ Als u wilt weergeven van actieve waarschuwingen en de onderliggende regels die e
 
 ![Schermafbeelding van de analytics-ervaring](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Set cloud_RoleName
+## <a name="set-cloud-role-name"></a>Set-cloudrolnaam
 
-Overzicht van de toepassing maakt gebruik van de `cloud_RoleName` eigenschap om de onderdelen op de kaart te identificeren. De Application Insights-SDK wordt automatisch toegevoegd de `cloud_RoleName` eigenschap in op de telemetrie die is verzonden door onderdelen. Bijvoorbeeld, de SDK wordt toegevoegd een naam van website of servicenaam die rol moet de `cloud_RoleName` eigenschap. Er zijn echter gevallen waar kunt u de standaardwaarde overschrijven. Cloud_RoleName overschrijven en wat wordt weergegeven op de kaart van de toepassing wijzigen:
+Overzicht van de toepassing maakt gebruik van de **cloudrolnaam** eigenschap om de onderdelen op de kaart te identificeren. De Application Insights-SDK wordt automatisch de naameigenschap van de cloud-rol toegevoegd aan de telemetrie die is verzonden door onderdelen. Bijvoorbeeld, wordt de SDK een naam van website of naam van de rol service toevoegen aan de naameigenschap van de cloud-rol. Er zijn echter gevallen waar kunt u de standaardwaarde overschrijven. Cloudrolnaam overschrijven en wat wordt weergegeven op de kaart van de toepassing wijzigen:
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ Als u Spring Boot aan de Application Insights Spring Boot starter gebruiken, wor
 
 `spring.application.name=<name-of-app>`
 
-De Spring Boot starter wordt cloudRoleName automatisch toegewezen aan de opgegeven waarde voor de eigenschap spring.application.name.
+De Spring Boot starter wordt cloudrolnaam automatisch toegewezen aan de opgegeven waarde voor de eigenschap spring.application.name.
 
-Voor meer informatie over Java correlatie- en cloudRoleName configureren voor niet-SpringBoot toepassingen afhandeling dit [sectie](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) op correlatie.
+Voor meer informatie over de Java correlatie- en het configureren van cloudrol naam voor de afhandeling van niet-SpringBoot toepassingen [sectie](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) op correlatie.
 
 ### <a name="clientbrowser-side-javascript"></a>Browser-client-side-JavaScript
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Understanding Cloud.RoleName binnen de context van het Toepassingsoverzicht
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Cloudrolnaam inzicht in de context van het Toepassingsoverzicht
 
-Wat hoe om na te denken over Cloud.RoleName het kan handig zijn om te kijken naar een overzicht van de toepassing die meerdere Cloud.RoleNames aanwezig is:
+Zo denken over het **cloudrolnaam**, kan het handig om te kijken naar een toepassingstoewijzing met meerdere cloud functienamen aanwezig zijn:
 
 ![Schermafbeelding van de toepassing-kaart](media/app-map/cloud-rolename.png)
 
-In het Toepassingsoverzicht boven elk van de namen in groen vakken zijn Cloud.RoleName/role waarden voor verschillende aspecten van deze bepaalde gedistribueerde toepassing. Dus voor deze app bijbehorende rollen bestaan uit: `Authentication`, `acmefrontend`, `Inventory Management`, een `Payment Processing Worker Role`. 
+In het Toepassingsoverzicht boven elk van de namen in groen vakken zijn cloud rol waarden voor verschillende aspecten van deze bepaalde gedistribueerde toepassing. Dus voor deze app bijbehorende rollen bestaan uit: `Authentication`, `acmefrontend`, `Inventory Management`, een `Payment Processing Worker Role`. 
 
-In het geval van deze app elke van deze `Cloud.RoleNames` vertegenwoordigt ook een andere unieke Application Insights-resource met hun eigen instrumentatiesleutels. Omdat de eigenaar van deze toepassing toegang tot elk van deze vier verschillende Application Insights-resources heeft, kan overzicht van de toepassing een overzicht van de onderliggende relaties samen te voegen.
+In het geval van deze app vertegenwoordigt elk van deze cloud-functienamen ook een andere unieke Application Insights-resource met hun eigen instrumentatiesleutels. Omdat de eigenaar van deze toepassing toegang tot elk van deze vier verschillende Application Insights-resources heeft, kan overzicht van de toepassing een overzicht van de onderliggende relaties samen te voegen.
 
 Voor de [officiële definities](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ Voor de [officiële definities](https://github.com/Microsoft/ApplicationInsights
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-U kunt ook is Cloud.RoleInstance handig voor scenario's waarbij Cloud.RoleName u leest het probleem zich ergens in uw web-front-end, maar u mogelijk actief uw web-front-end op meerdere servers met load balancing, de mogelijkheid om in te zoomen op een dieper laag via Kusto-query's en de wetenschap dat als het probleem van invloed is op kan alle web-front-servers /-exemplaren of slechts een zeer belangrijk zijn.
+U kunt ook **cloudrolinstantie** kan nuttig zijn voor scenario's waarbij **cloudrolnaam** leest u het probleem is ergens in uw web-front-end, maar u uw web-front-end via kan worden uitgevoerd meerdere servers met Netwerktaakverdeling dus is het kunnen inzoomen in een laag diepere via Kusto-query's en als het probleem is van invloed op alle web-front-servers/exemplaren of slechts een zeer belangrijk kan zijn.
 
-Een scenario waarin u mogelijk wilt overschrijven van de waarde voor Cloud.RoleInstance kan zijn als uw app wordt uitgevoerd in een omgeving met beperkte waarbij alleen de afzonderlijke server weet mogelijk niet voldoende informatie te vinden van een bepaald probleem.
+Een scenario waarin u mogelijk wilt overschrijven van de waarde voor cloudrolinstantie kan zijn als uw app wordt uitgevoerd in een omgeving met beperkte waarbij alleen de afzonderlijke server weet mogelijk niet voldoende informatie te vinden van een bepaald probleem.
 
-Zie voor meer informatie over het onderdrukken van de eigenschap cloud_RoleName met telemetrie initializers, [eigenschappen toevoegen: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Zie voor meer informatie over het onderdrukken van de naameigenschap van de cloud-rol met telemetrie initializers, [eigenschappen toevoegen: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren werkt, probeert u deze stappen:
+
+### <a name="general"></a>Algemeen
 
 1. Zorg ervoor dat u een officieel ondersteunde SDK gebruikt. Niet-ondersteunde SDK's of community-SDK's bieden mogelijk geen ondersteuning voor correlatie.
 
@@ -226,9 +228,23 @@ Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren
 
 3. Als u Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Controleer of [cloud_RoleName](#set-cloud_rolename) correct is geconfigureerd.
+4. Controleer of [cloudrolnaam](#set-cloud-role-name) correct is geconfigureerd.
 
 5. Als er een afhankelijkheid ontbreekt, zorgt u ervoor dat deze in de lijst met [automatisch verzamelde afhankelijkheden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) staat. Als dat niet zo is, kunt u de afhankelijkheid nog steeds handmatig traceren met een [aanroep voor het traceren van de afhankelijkheid](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### <a name="too-many-nodes-on-the-map"></a>Te veel knooppunten op de kaart
+
+Overzicht van de toepassing wordt een toepassing voor elke unieke cloudrolnaam die aanwezig zijn in de aanvraagtelemetrie van uw en de knooppunten van een afhankelijkheid voor elke unieke combinatie van type, doel en de cloudrolnaam in uw afhankelijkheidstelemetrie. Als er meer dan 10.000 knooppunten in uw telemetrie, pas overzicht van de toepassing weer voor het ophalen van de knooppunten en koppelingen, zodat de kaart wordt niet volledig. Als dit het geval is, wordt een waarschuwing weergegeven bij het weergeven van de kaart.
+
+Overzicht van de toepassing ondersteunt bovendien alleen maximaal 1000 afzonderlijke niet-gegroepeerde knooppunten in één keer weergegeven. Overzicht van de toepassing vermindert de visuele complexiteit door het groeperen van afhankelijkheden met hetzelfde type en bellers, maar als uw telemetrie te veel unieke cloud role-namen of typen te veel afhankelijkheden heeft, deze groepering niet toereikend zijn en de kaart kan niet worden weergegeven.
+
+U kunt dit verhelpen, moet u uw instrumentation om in te stellen juist de cloudrolnaam, afhankelijkheidstype en afhankelijkheid doelvelden wijzigen.
+
+* Doel van afhankelijkheid moet de logische naam van een afhankelijkheid vertegenwoordigen. In veel gevallen is het equivalent zijn aan de server of de resourcenaam van de afhankelijkheid. Bijvoorbeeld, wordt deze in het geval van een HTTP-afhankelijkheden ook ingesteld op de hostnaam. Het mag geen unieke id's of van een aanvraag naar de andere wijzigen parameters bevatten.
+
+* Afhankelijkheid van het type moet het logische type van een afhankelijkheid vertegenwoordigen. HTTP-, SQL of Azure Blob zijn bijvoorbeeld typen typische afhankelijkheden. Het mag geen unieke id's bevatten.
+
+* Het doel van cloud-rolnaam wordt beschreven in de [boven de sectie](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Portal feedback
 

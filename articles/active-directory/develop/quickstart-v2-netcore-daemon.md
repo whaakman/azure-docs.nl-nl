@@ -18,10 +18,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491318"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
@@ -75,14 +75,14 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
 > Om ervoor te zorgen dat het codevoorbeeld voor deze quickstart werkt, moet u een clientgeheim maken en de toepassingstoestemming **User.Read.All** van Graph API toevoegen.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijzigingen aanbrengt voor mij]()
+> > [Breng deze wijzigingen voor mij aan]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-windows-desktop/green-check.png) uw toepassing is geconfigureerd met deze kenmerken.
+> > ![Al geconfigureerd](media/quickstart-v2-windows-desktop/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Stap 2: uw Visual Studio-project downloaden
 
-[Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Download het Visual Studio-project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
@@ -96,13 +96,13 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     "ClientSecret": "Enter_the_Client_Secret_Here"
     ```
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Een nieuwe clientgeheim genereren]()
+    > > [Een nieuw clientgeheim genereren]()
     
     > [!div renderon="docs"]
     >> Waar:
-    >> * `Enter_the_Application_Id_Here` -is de **(client) toepassings-ID** voor de toepassing die u hebt geregistreerd.
-    >> * `Enter_the_Tenant_Id_Here` -Deze waarde vervangen door de **Tenant-Id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` -Deze waarde vervangen door de clientgeheim dat is gemaakt in stap 1.
+    >> * `Enter_the_Application_Id_Here`: is de **toepassings-id (client-id)** voor de toepassing die u hebt geregistreerd.
+    >> * `Enter_the_Tenant_Id_Here`: vervang deze waarde door de **Tenant-id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here`: vervang deze waarde door het clientgeheim dat is gemaakt in stap 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
@@ -120,7 +120,7 @@ Als u op dit moment probeert de toepassing uit te voeren, krijgt u de foutmeldin
 > [!div renderon="portal" class="sxs-lookup"]
 > Als u een globale beheerder bent, gaat u naar de pagina **API-machtigingen** en selecteert u **Beheerder toestemming verlenen voor Enter_the_Tenant_Name_Here**
 > > [!div id="apipermissionspage"]
-> > [Ga naar de pagina van de API-machtigingen]()
+> > [Ga naar de pagina API-machtigingen]()
 
 ##### <a name="standard-user"></a>Standaardgebruiker
 
@@ -132,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Waar:
->> * `Enter_the_Tenant_Id_Here` -Deze waarde vervangen door de **Tenant-Id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` -is de **(client) toepassings-ID** voor de toepassing die u hebt geregistreerd.
+>> * `Enter_the_Tenant_Id_Here`: vervang deze waarde door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here`: is de **toepassings-id (client-id)** voor de toepassing die u hebt geregistreerd.
 
 > [!NOTE]
 > Mogelijk ziet u de fout *AADSTS50011: Er is geen antwoordadres geregistreerd voor de toepassing* na het verlenen van toestemming voor de app met behulp van de voorgaande URL. Dit gebeurt omdat deze toepassing en de URL geen omleidings-URI hebben. Negeer deze fout.
@@ -233,4 +233,4 @@ Zie de Oauth 2.0-clientreferentiestroom voor meer informatie over de auth-stroom
 > [Oauth-clientreferentiestroom](v2-oauth2-client-creds-grant-flow.md)
 
 > [!div class="nextstepaction"]
-> [Client referentie stromen met MSAL.NET](https://aka.ms/msal-net-client-credentials)
+> [Clientreferentiestromen met MSAL.NET](https://aka.ms/msal-net-client-credentials)

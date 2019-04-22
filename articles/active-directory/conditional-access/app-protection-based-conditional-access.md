@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496927"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>App-beveiligingsbeleid vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang (preview)
@@ -208,7 +208,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
    - **Vereisen dat het apparaat moet worden gemarkeerd als compatibel**
 
-   - **Beleid voor app-beveiliging vereisen (preview)**
+   - **Vereisen dat de app-beveiligingsbeleid (preview)**
 
    - **Een van de geselecteerde besturingselementen vereisen**   
  
@@ -240,7 +240,7 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
    - **Vereisen dat het apparaat moet worden gemarkeerd als compatibel**
 
-   - **Beleid voor app-beveiliging vereisen (preview)**
+   - **Vereisen dat de app-beveiligingsbeleid (preview)**
 
    - **Een van de geselecteerde besturingselementen vereisen**
 
@@ -310,9 +310,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
    - **Vereisen dat het apparaat moet worden gemarkeerd als compatibel**
 
-   - **Beleid voor app-beveiliging vereisen (preview)**
+   - **Vereisen dat de app-beveiligingsbeleid (preview)**
 
-   - **Alle geselecteerde besturingselementen vereisen**   
+   - **De geselecteerde besturingselementen vereisen**   
  
      ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/13.png)
 
@@ -342,9 +342,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
    - **Vereisen dat het apparaat moet worden gemarkeerd als compatibel**
 
-   - **Beleid voor app-beveiliging vereisen (preview)**
+   - **Vereisen dat de app-beveiligingsbeleid (preview)**
 
-   - **Alle geselecteerde besturingselementen vereisen**   
+   - **De geselecteerde besturingselementen vereisen**   
  
      ![Voorwaardelijke toegang](./media/app-protection-based-conditional-access/13.png)
 
@@ -415,9 +415,9 @@ Voor het beleid voor voorwaardelijke toegang in deze stap configureert u de volg
 
 5. Onder **besturingselementen voor toegang**, selecteert u de volgende opties:
 
-   - **Goedgekeurde client-apps vereisen**
+   - **Goedgekeurde client-app vereisen**
 
-   - **Beleid voor app-beveiliging vereisen (preview)**
+   - **Vereisen dat de app-beveiligingsbeleid (preview)**
 
    - **Een van de geselecteerde besturingselementen vereisen**
  

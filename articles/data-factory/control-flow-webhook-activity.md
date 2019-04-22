@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495905"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-activiteit in Azure Data Factory
@@ -75,9 +75,9 @@ De web-hook-activiteit zelf niet kan alleen als de aanroep naar de aangepast ein
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund:
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
-- [Activiteit uitvoeren van pijplijn](control-flow-execute-pipeline-activity.md)
+- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)
-- [Activiteit ophalen van metagegevens](control-flow-get-metadata-activity.md)
-- [Opzoekactiviteit](control-flow-lookup-activity.md)
-- [Web Activity](control-flow-web-activity.md)
-- [Until-activiteit](control-flow-until-activity.md)
+- [Get Metadata Activity](control-flow-get-metadata-activity.md)
+- [Lookup Activity](control-flow-lookup-activity.md)
+- [Webactiviteit](control-flow-web-activity.md)
+- [Until Activity](control-flow-until-activity.md)

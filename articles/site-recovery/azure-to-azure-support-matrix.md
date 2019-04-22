@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609401"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679003"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
@@ -225,6 +225,7 @@ Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
 Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |20 MB/s | 1684 GB per schijf
+
 ## <a name="replicated-machines---networking"></a>Gerepliceerde machines - netwerken
 **Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
@@ -236,6 +237,7 @@ NSG op de NIC | Ondersteund | De NSG koppelen aan de NIC met behulp van een Azur
 NSG voor subnet | Ondersteund | De NSG koppelen aan het subnet met behulp van een Azure Automation-script van een herstelplan te gaan.
 Gereserveerd (statisch) IP-adres | Ondersteund | Als de NIC op de bron-VM een statisch IP-adres heeft en het doelsubnet de hetzelfde IP-adres is, deze toegewezen aan de failover VM.<br/><br/> Als het doelsubnet niet hetzelfde IP-adres beschikbaar is, wordt een van de beschikbare IP-adressen in het subnet is gereserveerd voor de virtuele machine.<br/><br/> U kunt ook opgeven een vast IP-adres en subnetmasker in **gerepliceerde items** > **instellingen** > **berekening en netwerk**  >  **Netwerkinterfaces**.
 Dynamisch IP-adres | Ondersteund | Als de NIC op de broncomputer dynamische IP heeft-adressering, is het ook de NIC uitvoert voor virtuele machine op de standaard dynamisch.<br/><br/> U kunt dit wijzigen naar een vaste IP-adres indien nodig.
+Meerdere IP-adressen | Niet ondersteund | Als u een virtuele machine die een NIC met meerdere IP-adressen heeft een failover, wordt alleen het primaire IP-adres van de NIC in de regio van de gegevensbron wordt opgeslagen. Als u wilt meerdere IP-adressen toewijzen, kunt u virtuele machines toevoegen een [herstelplan](recovery-plan-overview.md) en koppelen van een script voor extra IP-adressen toewijzen aan het abonnement, of kunt u de wijziging handmatig of met een script dat na een failover. 
 Traffic Manager     | Ondersteund | U kunt Traffic Manager vooraf configureren zodat verkeer wordt doorgestuurd naar het eindpunt in de bronregio op gezette tijden en naar het eindpunt in de doelregio in het geval van failover.
 Azure DNS | Ondersteund |
 Aangepaste DNS  | Ondersteund |

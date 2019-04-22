@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500869"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snelstart: X.509-apparaten registreren bij Device Provisioning Service met behulp van C#
@@ -176,4 +176,4 @@ Als u van plan bent om het voorbeeld van de C#-service te verkennen, verwijdert 
 In deze quickstart hebt u een registratiegroep voor een X.509 CA-tussen- of -basiscertificaat gemaakt met Azure IoT Hub Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
  
 > [!div class="nextstepaction"]
-> [Zelfstudies voor Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)
+> [Zelfstudies over Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

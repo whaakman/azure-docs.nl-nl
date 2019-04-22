@@ -31,7 +31,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="front-door-custom-domain.md">Een aangepast domein aan uw Front Door toevoegen</a>
+          - html: <a href="front-door-custom-domain.md">Voeg een aangepast domein toe aan uw Front Door</a>
           - html: <a href="front-door-custom-domain-https.md">HTTPS inschakelen voor een aangepast domein</a>
   - title: Naslaginformatie
     items:
@@ -42,4 +42,4 @@ sections:
           - title: Opdrachtregel
             html: '<p><a href="/cli/azure/ext/front-door">Azure-CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>'
           - title: REST
-            html: <p><a href="/rest/api/frontdoor">REST-API</a></p>
+            html: <p><a href="/rest/api/frontdoor">REST API</a></p>

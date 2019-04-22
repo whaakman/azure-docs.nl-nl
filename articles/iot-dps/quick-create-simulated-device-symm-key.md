@@ -10,10 +10,10 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 93fc426d9de027100e70502bcf6ea3aad2c44e10
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500206"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels
@@ -205,4 +205,4 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 In deze snelstartgids hebt u een gesimuleerd apparaat op uw Windows-computer gemaakt en het ingericht voor uw IoT-hub met behulp van een symmetrische sleutel met de Azure IoT Hub Device Provisioning Service in de portal. Als u wilt weten hoe u uw apparaat programmatisch kunt inschrijven, gaat u verder met de snelstartgids voor programmatische inschrijving van X.509-apparaten. 
 
 > [!div class="nextstepaction"]
-> [Azure-Quickstart: X.509-apparaten inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure-quickstart: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)

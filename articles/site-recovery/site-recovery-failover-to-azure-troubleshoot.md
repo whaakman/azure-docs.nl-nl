@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492852"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Fouten bij het uitvoeren van een failover VM met VMware of fysieke machine naar Azure oplossen
@@ -77,9 +77,9 @@ Handmatig wijzigen het opstarttype van de stuurprogramma's voor **Windows Guest 
 Als de **Connect** knop op de failover-VM in Azure is uitgeschakeld en u bent niet verbonden met Azure via een Express Route of Site-naar-Site VPN-verbinding, vervolgens
 
 1. Ga naar **virtuele machine** > **netwerken**, klik op de naam van de netwerkinterface vereist.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IP-configuraties](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om in te schakelen openbaar IP-adres, klikt u op **inschakelen**. ![IP inschakelen](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klik op **vereiste instellingen configureren** > **nieuw**. ![Nieuwe maken](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Klik op **vereiste instellingen configureren** > **nieuw**. ![Maak een nieuwe](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Voer de naam van het openbare adres, kiest u de standaardopties voor **SKU** en **toewijzing**, klikt u vervolgens op **OK**.
 6. Nu, om de wijzigingen hebt opgeslagen, klikt u op **opslaan**.
 7. De deelvensters sluiten en vervolgens naar **overzicht** sectie van de virtuele machine verbinding maken/RDP.

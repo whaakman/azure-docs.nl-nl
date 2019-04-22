@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520646"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679598"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
 
@@ -34,7 +34,7 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers tek
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Herkennen tekst resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een [ _tekst herkennen_ ](vision-api-how-to-topics/howtosubscribe.md) Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op herkennen tekst overzicht en sleutels van de Azure portal-pagina's en zijn vereist om te starten van de container.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure `Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `vision/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Aanvraag voor toegang tot de privécontainerregister
@@ -91,8 +91,10 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandli
 
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de Azure-portal op de pagina herkennen tekst-sleutels.  |
-|{BILLING_ENDPOINT_URI} | De facturering eindpunt URI-waarde.|
+|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de Azure `Cognitive Services` op de pagina sleutels.  |
+|{BILLING_ENDPOINT_URI} | De facturering eindpunt URI-waarde. Voorbeeld is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+U moet toevoegen de `vision/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.
 
 Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
 

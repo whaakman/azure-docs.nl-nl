@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094607"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679258"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Gebeurtenissen ontvangen van Event Hubs met behulp van Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) is een gedistribueerde realtime berekeningssysteem voor het vereenvoudigen van betrouwbare verwerking van niet-gebonden gegevensstromen. Deze sectie wordt beschreven hoe u een Azure Event Hubs Storm spout voor het ontvangen van gebeurtenissen van Event Hubs. Met behulp van Apache Storm, kunt u gebeurtenissen splitsen over meerdere processen die worden gehost in verschillende knooppunten. De integratie met Event Hubs met Storm verbruik van gebeurtenissen wordt vereenvoudigd door transparant plaatsen van controlepunten in de voortgang van de Storm Zookeeper-installatie gebruikmaakt, het beheren van permanente controlepunten en parallelle ontvangst van Event Hubs.
 
 Voor meer informatie over Event Hubs ontvangt u patronen, Zie de [overzicht van Event Hubs][Event Hubs overview].
+
+## <a name="prerequisites"></a>Vereisten
+Voordat u met de Snelstartgids begint **maken van een Event Hubs-naamruimte en een event hub**. Gebruik de [Azure-portal](https://portal.azure.com) voor het maken van een naamruimte van het type Event Hubs en de beheerreferenties die de toepassing nodig heeft om te communiceren met de event hub te verkrijgen. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een Event Hub te maken. 
 
 ## <a name="create-project-and-add-code"></a>Project maken en code toevoegen
 

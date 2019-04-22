@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
 ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502481"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Voorbeeld van de gebruiker scenario's voor de Tekstanalyse-API
@@ -47,5 +47,5 @@ Feedback van gebruikers product op de twitter of Facebook-pagina van uw product 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Wat is Text Analytics-API?](overview.md)
+* [Wat is de Tekstanalyse-API?](overview.md)
 * [Een aanvraag verzenden naar de Tekstanalyse-API gebruikenC#](quickstarts/csharp.md)

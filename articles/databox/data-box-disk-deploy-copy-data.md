@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548743"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678493"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -52,7 +52,7 @@ Bekijk de volgende punten voordat u de gegevens naar de schijven kopieert:
 - De vaste VHD's kunnen worden geüpload voor het maken van beheerde schijven. Dynamische VHD's, differentiërende VHD's of VHDX-bestanden worden niet ondersteund.
 
 
-## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer naar de Data Box-schijf te kopiëren.
+Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer naar de Data Box-schijf te kopiëren.
 
 1. Geef de inhoud van het ontgrendelde station weer. De lijst van de precreated mappen en submappen in het station is afhankelijk van de opties geselecteerd bij het plaatsen van de Data Box-schijforder.
 

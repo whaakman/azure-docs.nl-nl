@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500461"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680873"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -28,9 +28,9 @@ Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-o
 
 ## <a name="deploying-your-app"></a>Implementeren van uw app
 
-De Maven-invoegtoepassing kunt u zowel .war als JAR-bestanden implementeren. Raadpleeg [deze documentatie](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) voor meer informatie over de Maven-invoegtoepassing.
+U kunt [Maven-invoegtoepassing voor Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) zowel .war als JAR-bestanden implementeren. Implementatie met populaire IDE's wordt ook ondersteund met [Azure Toolkit voor IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) of [Azure Toolkit voor Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Als u niet met behulp van Maven, wordt uw implementatiemethode afhankelijk van uw archieftype:
+Uw implementatiemethode wordt anders, afhankelijk van uw archieftype:
 
 - Als u wilt implementeren WAR-bestanden op Tomcat, gebruikt u de `/api/wardeploy/` eindpunt naar het archiefbestand plaatsen. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Voor het implementeren van de JAR-bestanden in de Java SE-installatiekopieën, gebruikt u de `/api/zipdeploy/` eindpunt van de Kudu-site. Zie voor meer informatie over deze API [deze documentatie](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -79,7 +79,7 @@ De ingebouwde Java-installatiekopieën op basis van de [Alpine Linux](https://al
 
 ## <a name="customization-and-tuning"></a>Aanpassing en afstemmen
 
-Azure App Service voor Linux ondersteunt buiten het vak afstemmen en aanpassen via de Azure Portal en de CLI. Raadpleeg de volgende artikelen voor de configuratie van specifieke niet-Java-web-app:
+Azure App Service voor Linux ondersteunt buiten het vak afstemmen en aanpassen via de Azure portal en CLI. Raadpleeg de volgende artikelen voor de configuratie van specifieke niet-Java-web-app:
 
 - [App Service-instellingen configureren](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Een aangepast domein instellen](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -93,7 +93,7 @@ Toegewezen geheugen of andere JVM-runtime-opties instellen in de Tomcat- en Java
 
 In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` die bevat de aanvullende instellingen, zoals `-Xms512m -Xmx1204m`.
 
-Voor het configureren van de app-instelling van de Maven-invoegtoepassing toevoegen/waarde-codes in de sectie Azure-invoegtoepassing. Het volgende voorbeeld wordt een specifieke minimale en maximale Java heapsize:
+Voor het configureren van de app-instelling van de Maven-invoegtoepassing toevoegen/waarde-codes in de sectie Azure-invoegtoepassing. Het volgende voorbeeld wordt een specifieke minimale en maximale Java heap-grootte:
 
 ```xml
 <appSettings>
@@ -112,7 +112,7 @@ Ontwikkelaars van één toepassing uitvoert met een implementatiesite in hun App
 
 Wanneer de instellingen voor de heap afstemmen, bekijk de details van uw App Service-plan en rekening gehouden met meerdere toepassingen en implementatiesite moeten vinden van de optimale toewijzing van geheugen.
 
-Als u een JAR-toepassing implementeert, wordt de naam van `app.jar` zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar `app.jar`, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de Portal.
+Als u een JAR-toepassing implementeert, wordt de naam van `app.jar` zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar `app.jar`, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de portal.
 
 ### <a name="turn-on-web-sockets"></a>Websockets inschakelen
 
@@ -156,7 +156,7 @@ Java-toepassingen die worden uitgevoerd in App Service for Linux hebben dezelfde
 
 ### <a name="authenticate-users"></a>Gebruikers verifiëren
 
-Instellen van app-verificatie in de Azure Portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider.  Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](/azure/app-service/configure-authentication-provider-aad) en de bijbehorende artikelen voor andere id-providers.
+Instellen van app-verificatie in Azure portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider.  Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](/azure/app-service/configure-authentication-provider-aad) en de bijbehorende artikelen voor andere id-providers.
 
 Als u nodig hebt om in te schakelen van meerdere providers voor aanmelden, volg de instructies in de [App Service-verificatie aanpassen](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) artikel.
 
@@ -293,11 +293,11 @@ Als u wilt verbinding maken met gegevensbronnen in Spring Boot-toepassingen, ste
 
 1. In de sectie 'Instellingen' van de App Service-blade een naam voor de tekenreeks instellen, plak uw JDBC-verbindingsreeks in het waardeveld en het type in 'Aangepast' instellen. U kunt deze verbindingsreeks (optioneel) instellen als site-instelling.
 
-    ![Het maken van een verbindingsreeks in de Portal.][1]
+    ![Het maken van een verbindingsreeks in de portal.][1]
 
     Deze verbindingsreeks is toegankelijk voor de toepassing als een omgevingsvariabele met de naam `CUSTOMCONNSTR_<your-string-name>`. Bijvoorbeeld, de verbindingsreeks die eerder is gemaakt de naam `CUSTOMCONNSTR_exampledb`.
 
-2. In uw `application.properties` bestand, verwijzen naar deze tekenreeks voor verbinding met de naam van de omgevingsvariabele. In ons voorbeeld gebruiken we het volgende.
+2. In uw `application.properties` bestand, verwijzen naar deze verbindingsreeks met de naam van de omgevingsvariabele. In ons voorbeeld gebruiken we het volgende.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}

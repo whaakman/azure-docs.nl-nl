@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891426"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679641"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de portal LUIS
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -67,10 +67,19 @@ Mogelijke fouten zijn:
 
 * Er bestaat al een app met die naam. Importeer de app en stel de **optionele naam** naar een nieuwe naam. 
 
-## <a name="export-app"></a>App exporteren
+## <a name="export-app-for-backup"></a>Uitvoer-app voor back-up
 
-1. Op **mijn Apps** weergeeft, schakelt **importeren nieuwe app**.
-1. In de **importeren nieuwe app** dialoogvenster, selecteer het JSON-bestand definiëren van de LUIS-app.
+1. Op **mijn Apps** weergeeft, schakelt **exporteren**.
+1. Selecteer **exporteren als JSON**. De browser de actieve versie van de app is gedownload.
+1. Dit bestand toevoegen aan uw back-upsysteem voor het archiveren van het model.
+
+## <a name="export-app-for-containers"></a>Uitvoer-app voor containers
+
+1. Op **mijn Apps** weergeeft, schakelt **exporteren**.
+1. Selecteer **exporteren als container** Selecteer welke gepubliceerde sleuf (productie- of fase) die u wilt exporteren.
+1. Gebruik dit bestand met uw [LUIS container](luis-container-howto.md). 
+
+    Als u geïnteresseerd in een getraind, maar niet exporteren nog gepubliceerde model bent te gebruiken met de container LUIS, gaat u naar de **versies** pagina en van daaruit exporteren. 
 
 ## <a name="delete-app"></a>App verwijderen
 

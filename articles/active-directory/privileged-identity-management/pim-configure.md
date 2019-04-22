@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496075"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
@@ -93,13 +93,13 @@ PIM ondersteunt de volgende scenario’s:
 - Gebruikers en/of groepen toewijzen als fiatteur om aanvragen goed te keuren
 - De geschiedenis van aanvragen en goedkeuringen bekijken voor alle bevoorrechte rollen
 
-**Als een goedkeurder, kunt u het volgende doen:**
+**Als een fiatteur kunt u het volgende doen:**
 
 - Goedkeuringen in behandeling (aanvragen) bekijken
 - Aanvragen voor rolverhoging goedkeuren of afwijzen (afzonderlijk en/of bulksgewijs)
 - De reden voor de goedkeuring/afwijzing opgeven 
 
-**Als een gebruiker in aanmerking komende rol, kunt u het volgende doen:**
+**Als een in aanmerking komende rolgebruiker kunt u het volgende doen:**
 
 - Activering van een rol waarvoor goedkeuring nodig is, aanvragen
 - De status van uw aanvraag voor activeren bekijken
@@ -107,6 +107,6 @@ PIM ondersteunt de volgende scenario’s:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Licentievereisten PIM gaat gebruiken](subscription-requirements.md)
-- [Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Licentievereisten voor het gebruik van PIM](subscription-requirements.md)
+- [Bevoegde toegang beveiligen voor hybride implementaties en cloudimplementaties in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [PIM implementeren](pim-deployment-plan.md)

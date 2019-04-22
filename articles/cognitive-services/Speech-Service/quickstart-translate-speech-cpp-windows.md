@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499815"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Quickstart: Spraak omzetten met de Speech SDK voor C++
@@ -65,7 +65,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 Op GitHub vindt u aanvullende voorbeelden, zoals hoe u spraak kunt lezen vanuit een audiobestand en omgezette tekst als kunstmatige spraak kunt uitvoeren.
 
 > [!div class="nextstepaction"]
-> [C++-voorbeelden op GitHub verkennen](https://aka.ms/csspeech/samples)
+> [C++-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 

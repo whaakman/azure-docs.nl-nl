@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 879b3cabcab6f10d46904bd3a479568756d877b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777801"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681060"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Maak een HTTPS-controller voor binnenkomend verkeer op Azure Kubernetes Service (AKS)
 
@@ -41,10 +41,14 @@ In dit artikel is ook vereist dat u de Azure CLI versie 2.0.59 worden uitgevoerd
 Gebruik voor het maken van de controller voor binnenkomend verkeer `Helm` voor het installeren van *nginx-inkomend*. Voor extra redundantie, twee replica's van de controllers van NGINX inkomend verkeer zijn geïmplementeerd met de `--set controller.replicaCount` parameter. Om volledig te profiteren van het uitvoeren van replica's van de controller voor binnenkomend verkeer, zorg ervoor dat er meer dan één knooppunt in uw AKS-cluster.
 
 > [!TIP]
-> Het volgende voorbeeld installeert de controller voor binnenkomend verkeer in de `kube-system` naamruimte. Indien gewenst, kunt u een andere naamruimte voor uw eigen omgeving. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` voor de opdrachten.
+> Het volgende voorbeeld wordt een Kubernetes-naamruimten voor de resources die inkomend verkeer met de naam *ingress-basic*. Geef een naamruimte voor uw omgeving zo nodig. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` aan de Helm-opdrachten.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
+helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
 ```
 
 Tijdens de installatie van is een openbaar IP-adres van Azure gemaakt voor de controller voor binnenkomend verkeer. Dit openbare IP-adres wordt statisch voor de levensduur van de controller voor binnenkomend verkeer. Als u de controller voor binnenkomend verkeer verwijdert, wordt de toewijzing van het openbare IP-adres gaat verloren. Als u vervolgens een extra ingangscontroller maakt, wordt een nieuw openbaar IP-adres toegewezen. Als u het gebruik van het openbare IP-adres behouden wilt, kunt u in plaats daarvan [maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres][aks-ingress-static-tls].
@@ -52,7 +56,7 @@ Tijdens de installatie van is een openbaar IP-adres van Azure gemaakt voor de co
 Als u het openbare IP-adres, gebruikt de `kubectl get service` opdracht. Het duurt een paar minuten voor het IP-adres moet worden toegewezen aan de service.
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
+$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                             TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 billowing-kitten-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
@@ -93,36 +97,27 @@ De NGINX-controller voor binnenkomend verkeer biedt ondersteuning voor TLS-beëi
 Als u wilt de certificaat-manager-domeincontroller installeren in een cluster RBAC is ingeschakeld, gebruikt u de volgende `helm install` opdracht:
 
 ```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Install the CustomResourceDefinition resources separately
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --version v0.6.6
-```
+# Create the namespace for cert-manager
+kubectl create namespace cert-manager
 
-> [!TIP]
-> Als u een foutbericht, zoals ontvangt `Error: failed to download "stable/cert-manager"`, zorg ervoor dat u hebt met succes is uitgevoerd `helm repo update` voor een lijst van de meest recente beschikbare Helm-grafieken.
+# Label the cert-manager namespace to disable resource validation
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
 
-Als uw cluster niet RBAC ingeschakeld is, gebruikt u in plaats daarvan de volgende opdracht uit:
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
 
-```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Update your local Helm chart repository cache
+helm repo update
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --set rbac.create=false \
-    --set serviceAccount.create=false \
-    --version v0.6.6
+# Install the cert-manager Helm chart
+helm install \
+  --name cert-manager \
+  --namespace cert-manager \
+  --version v0.7.0 \
+  jetstack/cert-manager
 ```
 
 Zie voor meer informatie over Certificaatbeheer configuratie, de [Certificaatbeheer project][cert-manager].
@@ -138,6 +133,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
+  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -155,54 +151,6 @@ $ kubectl apply -f cluster-issuer.yaml
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
-## <a name="create-a-certificate-object"></a>Een certificaatobject maken
-
-Vervolgens moet een certificaat-bron worden gemaakt. De certificaatresource definieert de gewenste X.509-certificaat. Zie voor meer informatie, [Certificaatbeheer certificaten][cert-manager-certificates].
-
-Een certificaatobject CERT-manager waarschijnlijk automatisch voor u met behulp van ingress-shim, die wordt geïmplementeerd met Certificaatbeheer sinds v0.2.2 gemaakt. Zie voor meer informatie de [ingress-shim documentatie][ingress-shim].
-
-Om te controleren of het certificaat correct is gemaakt, gebruikt u de `kubectl describe certificate tls-secret` opdracht. Als een certificaat is uitgegeven, wordt de uitvoer in de *gebeurtenissen* uitvoer is vergelijkbaar met het volgende voorbeeld:
-
-```
-Type    Reason          Age   From          Message
-----    ------          ----  ----          -------
-  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
-  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
-  Normal  IssueCert       10m   cert-manager  Issuing certificate...
-  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
-  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
-```
-
-Als u nodig hebt om de bron van een certificaat te maken, kunt u dit doen met het volgende voorbeeld-manifest. Update de *dnsNames* en *domeinen* aan de DNS-naam die u in de vorige stap hebt gemaakt. Als u een controller voor intern gebruik bestemde binnenkomend verkeer gebruikt, geeft u de interne DNS-naam voor uw service.
-
-```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Certificate
-metadata:
-  name: tls-secret
-spec:
-  secretName: tls-secret
-  dnsNames:
-  - demo-aks-ingress.eastus.cloudapp.azure.com
-  acme:
-    config:
-    - http01:
-        ingressClass: nginx
-      domains:
-      - demo-aks-ingress.eastus.cloudapp.azure.com
-  issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
-```
-
-Gebruik voor het maken van de certificaatresource de `kubectl apply -f certificates.yaml` opdracht.
-
-```
-$ kubectl apply -f certificates.yaml
-
-certificate.certmanager.k8s.io/tls-secret created
-```
-
 ## <a name="run-demo-applications"></a>Demotoepassingen uitvoeren
 
 Een controller voor binnenkomend verkeer en een oplossing voor het beheer van certificaten zijn geconfigureerd. Nu gaan we twee run demo voor toepassingen in uw AKS-cluster. In dit voorbeeld Helm gebruikt om twee instanties van een eenvoudige 'Hallo wereld'-toepassing implementeren.
@@ -216,13 +164,16 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 De eerste demo-toepassing maken van een Helm-diagram met de volgende opdracht:
 
 ```console
-helm install azure-samples/aks-helloworld
+helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 Nu een tweede exemplaar van de demo-toepassing installeren. Voor de tweede instantie geeft u een nieuwe titel zodat de twee toepassingen, visueel verschilt. U ook opgeven een unieke naam:
 
 ```console
-helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+helm install azure-samples/aks-helloworld \
+    --namespace ingress-basic \
+    --set title="AKS Ingress Demo" \
+    --set serviceName="ingress-demo"
 ```
 
 ## <a name="create-an-ingress-route"></a>Een binnenkomende route maken
@@ -238,6 +189,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
@@ -269,6 +221,56 @@ $ kubectl apply -f hello-world-ingress.yaml
 ingress.extensions/hello-world-ingress created
 ```
 
+## <a name="create-a-certificate-object"></a>Een certificaatobject maken
+
+Vervolgens moet een certificaat-bron worden gemaakt. De certificaatresource definieert de gewenste X.509-certificaat. Zie voor meer informatie, [Certificaatbeheer certificaten][cert-manager-certificates].
+
+CERT-manager heeft automatisch waarschijnlijk een certificaatobject voor u met behulp van ingress-shim, die automatisch wordt geïmplementeerd met Certificaatbeheer sinds v0.2.2 gemaakt. Zie voor meer informatie de [ingress-shim documentatie][ingress-shim].
+
+Om te controleren of het certificaat correct is gemaakt, gebruikt u de `kubectl describe certificate tls-secret --namespace ingress-basic` opdracht.
+
+Als het certificaat is uitgegeven, ziet u uitvoer die vergelijkbaar is met het volgende:
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
+Als u maken van een extra certificaatresource wilt, kunt u dit doen met het volgende voorbeeld-manifest. Update de *dnsNames* en *domeinen* aan de DNS-naam die u in de vorige stap hebt gemaakt. Als u een controller voor intern gebruik bestemde binnenkomend verkeer gebruikt, geeft u de interne DNS-naam voor uw service.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+  namespace: ingress-basic
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+```
+
+Gebruik voor het maken van de certificaatresource de `kubectl apply -f certificates.yaml` opdracht.
+
+```
+$ kubectl apply -f certificates.yaml
+
+certificate.certmanager.k8s.io/tls-secret created
+```
+
 ## <a name="test-the-ingress-configuration"></a>De configuratie van de inkomende gegevens testen
 
 Open een webbrowser naar de FQDN-naam van uw ingangscontroller Kubernetes zoals *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
@@ -291,7 +293,25 @@ Voeg nu de */hello-world-two* pad naar de FQDN-naam, zoals *https://demo-aks-ing
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In dit artikel gebruikt Helm voor het installeren van de onderdelen van inkomend verkeer, certificaten en voorbeeld-apps. Wanneer u een Helm-diagram implementeert, wordt een aantal Kubernetes-resources worden gemaakt. Deze resources bevat schillen, implementaties en services. Als u wilt opschonen, moet u eerst de certificaat-resources verwijderen:
+In dit artikel gebruikt Helm voor het installeren van de onderdelen van inkomend verkeer, certificaten en voorbeeld-apps. Wanneer u een Helm-diagram implementeert, wordt een aantal Kubernetes-resources worden gemaakt. Deze resources bevat schillen, implementaties en services. Als u wilt deze resources opschonen, kunt u ofwel de gehele voorbeeld-naamruimte of de afzonderlijke resources verwijderen.
+
+### <a name="delete-the-sample-namespace-and-all-resources"></a>De voorbeeld-naamruimte en alle resources verwijderen
+
+Als u wilt verwijderen van de naamruimte van het volledige voorbeeld, gebruiken de `kubectl delete` opdracht en geeft u de naamruimtenaam van uw. Alle resources in de naamruimte worden verwijderd.
+
+```console
+kubectl delete namespace ingress-basic
+```
+
+Verwijder vervolgens de Helm-opslagplaats voor de AKS hello world-app:
+
+```console
+helm repo remove azure-samples
+```
+
+### <a name="delete-resources-individually"></a>Afzonderlijke resources verwijderen
+
+U kunt ook is een gedetailleerdere aanpak om de afzonderlijke resources gemaakt te verwijderen. Verwijder eerst de certificaat-resources:
 
 ```console
 kubectl delete -f certificates.yaml
@@ -325,6 +345,12 @@ Verwijder vervolgens de Helm-opslagplaats voor de AKS hello world-app:
 
 ```console
 helm repo remove azure-samples
+```
+
+Het zelf naamruimte verwijderen. Gebruik de `kubectl delete` opdracht en geeft u de naamruimtenaam van uw:
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 Ten slotte verwijdert u de route voor inkomend verkeer die doorgestuurd verkeer naar de voorbeeld-apps:

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
 ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493039"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: een IoT Edge-module in Java ontwikkelen en implementeren op uw gesimuleerde apparaat
@@ -324,5 +324,5 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 In deze zelfstudie hebt u een IoT Edge-module gemaakt met code voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT Edge-apparaat. U kunt verdergaan met de volgende zelfstudies om te leren hoe Azure IoT Edge u nog meer kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
 > [!div class="nextstepaction"]
-> [Gegevens aan de rand opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)
+> [Gegevens opslaan met SQL Server-databases](tutorial-store-data-sql-server.md)
 

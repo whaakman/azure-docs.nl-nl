@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361278"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680366"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -88,6 +88,9 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
     ![Navigatievenster][3]
 
 5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Azure Monitor-Logboeken of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
+
+   > [!WARNING]
+   > Inschakelen van controle met Log Analytics wordt in rekening gebracht op basis van de tarieven voor gegevensopname kosten. Houd rekening met de bijbehorende kosten bij het gebruik van dit [optie](https://azure.microsoft.com/en-us/pricing/details/monitor/), of houd rekening met het opslaan van de audit-Logboeken in Azure storage-account.
 
     ![Opties voor opslag](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -232,7 +235,7 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 - [Maken of bijwerken van de Database controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Maken of bijwerken van controlebeleid van Server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Controlebeleid (Get-AzSqlServerAuditing) Server ophalen](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Get Server Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

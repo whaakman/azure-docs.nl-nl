@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268345"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677881"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: Technische details
 
@@ -44,7 +44,7 @@ Naadloze eenmalige aanmelding is ingeschakeld met behulp van Azure AD Connect, z
 - Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD. Als er meerdere AD-forests, is elke computeraccount heeft een eigen unieke ontsleutelingssleutel van Kerberos.
 
 >[!IMPORTANT]
-> De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld. Store het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn en waar alleen Domeinadministrators toegang hebben. De Kerberos-ontsleutelingssleutel op het computeraccount moet ook worden behandeld als gevoelig. Is het raadzaam dat u [Beweeg de muis over de ontsleutelingssleutel Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) van de `AZUREADSSOACC` computeraccount ten minste elke 30 dagen.
+> De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld en dat er geen ander account in Active Directory delegeren machtigingen heeft op de `AZUREADSSOACC` computeraccount... Store het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn en waar alleen Domeinadministrators toegang hebben. De Kerberos-ontsleutelingssleutel op het computeraccount moet ook worden behandeld als gevoelig. Is het raadzaam dat u [Beweeg de muis over de ontsleutelingssleutel Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) van de `AZUREADSSOACC` computeraccount ten minste elke 30 dagen.
 
 Nadat de installatie voltooid is, wordt met naadloze eenmalige aanmelding als een andere aanmelding die gebruikmaakt van geïntegreerde Windows-verificatie (IWA) op dezelfde manier werkt.
 

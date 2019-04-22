@@ -1,44 +1,42 @@
 ---
-title: Een toepassingsgateway configureren met SSL-beëindiging - Azure portal | Microsoft Docs
-description: Informatie over het configureren van een application gateway en het toevoegen van een certificaat voor SSL-beëindiging met Azure portal.
+title: 'Zelfstudie: een toepassingsgateway met SSL-beëindiging - Azure-portal configureren'
+description: In deze zelfstudie leert u hoe u een toepassingsgateway configureren en het toevoegen van een certificaat voor SSL-beëindiging met Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.date: 5/15/2018
+ms.topic: tutorial
+ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091831"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677847"
 ---
-# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Een toepassingsgateway met SSL-beëindiging met Azure portal configureren
+# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Zelfstudie: Een toepassingsgateway met SSL-beëindiging met Azure portal configureren
 
 U kunt de Azure-portal gebruiken om te configureren een [toepassingsgateway](overview.md) met een certificaat voor SSL-beëindiging die gebruikmaakt van virtuele machines voor back-endservers.
 
-In dit artikel leert u het volgende:
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een zelfondertekend certificaat maken
 > * Een toepassingsgateway maken met behulp van het certificaat
 > * De virtuele machines die worden gebruikt als back-endservers maken
+> * De toepassingsgateway testen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
+Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
 
-In deze sectie maakt u [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) te maken van een zelfondertekend certificaat dat u naar Azure portal uploadt wanneer u de listener voor de toepassingsgateway maakt.
+In deze sectie maakt u [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) een zelf-ondertekend certificaat maken. Upload het certificaat naar de Azure-portal wanneer u de listener voor de toepassingsgateway maakt.
 
 Open een Windows PowerShell-venster als beheerder op de lokale computer. Voer de volgende opdracht om het certificaat te maken:
 
@@ -72,11 +70,11 @@ Export-PfxCertificate \
 
 U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
-1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
+1. Selecteer **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
 3. Voer *myAppGateway* voor de naam van de toepassingsgateway en *myResourceGroupAG* voor de nieuwe resourcegroep.
-4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
+4. Accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**.
+5. Selecteer **een virtueel netwerk kiezen**, selecteer **nieuw**, en voer vervolgens deze waarden voor het virtuele netwerk:
 
    - *myVnet* als de naam van het virtuele netwerk.
    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
@@ -85,33 +83,33 @@ U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u ma
 
      ![Virtueel netwerk maken](./media/create-ssl-portal/application-gateway-vnet.png)
 
-6. Klik op **OK** om het virtuele netwerk en subnet te maken.
-7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-8. Klik op **HTTPS** voor het protocol van de listener en zorg ervoor dat de poort is gedefinieerd als **443**.
-9. Klik op het mappictogram en blader naar de *appgwcert.pfx* certificaat dat u eerder hebt gemaakt om te uploaden.
-10. Voer *mycert1* voor de naam van het certificaat en *Azure123456!* voor het wachtwoord en klik vervolgens op **OK**.
+6. Selecteer **OK** te maken van het virtuele netwerk en subnet.
+7. Selecteer **een openbaar IP-adres kiezen**, selecteer **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**.
+8. Selecteer **HTTPS** voor het protocol van de listener en zorg ervoor dat de poort is gedefinieerd als **443**.
+9. Selecteer het mappictogram en blader naar de *appgwcert.pfx* certificaat dat u eerder hebt gemaakt om te uploaden.
+10. Voer *mycert1* voor de naam van het certificaat en *Azure123456!* voor het wachtwoord en selecteer vervolgens **OK**.
 
     ![Nieuwe toepassingsgateway maken](./media/create-ssl-portal/application-gateway-create.png)
 
-11. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
+11. Controleer de instellingen op de pagina Samenvatting en selecteer vervolgens **OK** om de netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
 
 ### <a name="add-a-subnet"></a>Een subnet toevoegen
 
-1. Klik in het menu links op **Alle resources** en vervolgens in de lijst met resources op **myVNet**.
-2. Klik op **subnetten**, en klik vervolgens op **Subnet**.
+1. Selecteer **alle resources** in het menu links, en selecteer vervolgens **myVNet** in de lijst met resources.
+2. Selecteer **subnetten**, en selecteer vervolgens **Subnet**.
 
     ![Subnet maken](./media/create-ssl-portal/application-gateway-subnet.png)
 
-3. Voer *myBackendSubnet* in als naam van het subnet en klik op **OK**.
+3. Voer *myBackendSubnet* voor de naam van het subnet en selecteer vervolgens **OK**.
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
-In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-endservers voor de toepassingsgateway. U installeert ook IIS op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
+In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-endservers voor application gateway. U kunt ook IIS installeren op de virtuele machines om te controleren of dat de application gateway is gemaakt.
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-1. Klik op **Nieuw**.
-2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
+1. Selecteer **Nieuw**.
+2. Selecteer **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de virtuele machine:
 
     - *myVM* als naam van de virtuele machine.
@@ -119,15 +117,15 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
     - *Azure123456!* als het wachtwoord.
     - Selecteer **Bestaande gebruiken** en selecteer *myResourceGroupAG*.
 
-4. Klik op **OK**.
-5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
+4. Selecteer **OK**.
+5. Selecteer **DS1_V2** voor de grootte van de virtuele machine en selecteer **Selecteer**.
 6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en dat het subnet **myBackendSubnet** is. 
-7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
-8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
+7. Selecteer **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
+8. Selecteer **OK**, controleer de instellingen op de overzichtspagina en selecteer **Maken**.
 
 ### <a name="install-iis"></a>IIS installeren
 
-1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
+1. Open de interactieve shell en controleer of deze is ingesteld op **PowerShell**.
 
     ![Aangepaste extensie installeren](./media/create-ssl-portal/application-gateway-extension.png)
 
@@ -149,17 +147,17 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
-1. Klik op **Alle resources** en vervolgens op **myAppGateway**.
-1. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGatewayBackendPool**.
-1. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
+1. Selecteer **Alle resources** en vervolgens **myAppGateway**.
+1. Selecteer **back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. select **appGatewayBackendPool**.
+1. Selecteer **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
 
     ![Back-endservers toevoegen](./media/create-ssl-portal/application-gateway-backend.png)
 
-1. Klik op **Opslaan**.
+1. Selecteer **Opslaan**.
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-1. Klik op **alle resources**, en klik vervolgens op **myAGPublicIPAddress**.
+1. Selecteer **alle resources**, en selecteer vervolgens **myAGPublicIPAddress**.
 
     ![Registreer het openbare IP-adres van de toepassingsgateway](./media/create-ssl-portal/application-gateway-ag-address.png)
 
@@ -173,11 +171,5 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een zelfondertekend certificaat maken
-> * Een toepassingsgateway maken met behulp van het certificaat
-> * De virtuele machines die worden gebruikt als back-endservers maken
-
-Voor meer informatie over Toepassingsgateways en de bijbehorende resources, gaat u naar de artikelen met procedures.
+> [!div class="nextstepaction"]
+> [Meer informatie over wat u met Azure Application Gateway doen kunt](application-gateway-introduction.md)

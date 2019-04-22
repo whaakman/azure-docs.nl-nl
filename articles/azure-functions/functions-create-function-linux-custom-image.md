@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
 ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491454"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux met behulp van een aangepaste installatiekopie maken
@@ -65,9 +65,9 @@ Wanneer u de optie `--docker` opneemt, wordt een dockerfile voor het project geg
 
 Wanneer u hierom wordt gevraagd, kiest u een runtime voor de werkrol uit de volgende talen:
 
-* `dotnet`: Hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
-* `node`: Hiermee maakt u een JavaScript-project.
-* `python`: Hiermee maakt u een Python-project.
+* `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
+* `node`: hiermee maakt u een JavaScript-project.
+* `python`: hiermee maakt u een Python-project.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 

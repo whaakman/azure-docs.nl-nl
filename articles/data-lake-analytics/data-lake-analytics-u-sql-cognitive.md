@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492937"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Aan de slag met de herkenning van U-SQL
@@ -33,5 +33,5 @@ Voordat u begint, volg de stappen in dit artikel voor het registreren van cognit
 
 ## <a name="next-steps"></a>Volgende stappen
 * [U-SQL/cognitieve-voorbeelden](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [U-SQL-scripts ontwikkelen met Data Lake-hulpmiddelen voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [U-SQL-vensterfuncties gebruiken voor Azure Data Lake Analytics-taken](data-lake-analytics-use-window-functions.md)

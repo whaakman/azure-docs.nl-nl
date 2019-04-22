@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407586"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678425"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC voor Azure-resources oplossen
 
@@ -29,20 +29,20 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseer
 ## <a name="problems-with-rbac-role-assignments"></a>Problemen met RBAC-roltoewijzingen
 
 - Als u zich niet op toe te voegen een roltoewijzing in de Azure-portal **toegangsbeheer (IAM)** omdat de **toevoegen** > **roltoewijzing toevoegen** optie is uitgeschakeld of omdat u krijgt de Machtigingsfout 'de client met object-id is niet gemachtigd om uit te voeren actie', controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Authorization/roleAssignments/write` machtiging zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator) bij het bereik dat u wilt de rol toe te wijzen.
-- Als u het foutbericht ' kunnen geen roltoewijzingen meer worden gemaakt (code: RoleAssignmentLimitExceeded) ' wanneer u probeert een rol toewijzen, probeert te verminderen van het aantal roltoewijzingen door rollen toewijzen aan groepen in plaats daarvan. Azure biedt ondersteuning voor maximaal **2000** roltoewijzingen per abonnement.
+- Als u het foutbericht ' kunnen geen roltoewijzingen meer worden gemaakt (code: RoleAssignmentLimitExceeded)' optreedt, vermindert u het aantal roltoewijzingen door in plaats hiervan rollen toe te wijzen aan groepen. Azure ondersteunt maximaal **2000** roltoewijzingen per abonnement.
 
 ## <a name="problems-with-custom-roles"></a>Problemen met aangepaste rollen
 
 - Als u stappen voor het maken van een aangepaste rol nodig hebt, raadpleegt u de aangepaste rol zelfstudies met behulp van [Azure PowerShell](tutorial-custom-role-powershell.md) of [Azure CLI](tutorial-custom-role-cli.md).
 - Als u zich niet aan een bestaande aangepaste rol bijwerken, controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Authorization/roleDefinition/write` machtiging zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
-- Als u niet wilt verwijderen van een aangepaste rol en het foutbericht "Er zijn bestaande roltoewijzingen die verwijzen naar de rol (code: RoleDefinitionHasAssignments) ', worden er nog steeds met behulp van de aangepaste rol roltoewijzingen. Deze roltoewijzingen verwijderen en probeer het verwijderen van de aangepaste rol die het opnieuw.
-- Als u het foutbericht 'limiet voor roldefinities is overschreden. Geen roldefinities meer kunnen worden gemaakt (code: RoleDefinitionLimitExceeded) ' wanneer u probeert te maken van een nieuwe aangepaste rol, verwijdert u eventuele aangepaste rollen die niet worden gebruikt. Azure biedt ondersteuning voor maximaal **2000** aangepaste rollen in een tenant.
-- Als u een fout optreedt die vergelijkbaar is met het "de client is gemachtigd om uit te voeren actie 'Microsoft.Authorization/roleDefinitions/write' over scope '/ subscriptions / {subscriptionid}', maar het gekoppelde abonnement is niet gevonden" wanneer u probeert een aangepaste rol bijwerken, controleren of een of meer [toewijsbare bereiken](role-definitions.md#assignablescopes) in de tenant is verwijderd. Als het bereik is verwijderd, maakt u een ondersteuningsticket als er geen oplossing selfservice beschikbaar is op dit moment is.
+- Als het u niet lukt om een aangepaste rol te verwijderen en het foutbericht 'There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)' (Er zijn bestaande roltoewijzingen die aan een rol refereren (code: RoleDefinitionHasAssignments)) verschijnt, dan zijn er roltoewijzingen die nog altijd de aangepaste rol gebruiken. Verwijder deze roltoewijzingen en probeer de aangepaste rol opnieuw te verwijderen.
+- Als tijdens het maken van een nieuwe aangepaste rol het foutbericht 'Role definition limit exceeded. No more role definitions can be created (RoleDefinitionLimitExceeded)' Geen roldefinities meer kunnen worden gemaakt (code: RoleDefinitionLimitExceeded) ' wanneer u probeert te maken van een nieuwe aangepaste rol, verwijdert u eventuele aangepaste rollen die niet worden gebruikt. Azure biedt ondersteuning voor maximaal **2000** aangepaste rollen in een tenant.
+- Als u een fout optreedt die vergelijkbaar is met het "de client is gemachtigd om uit te voeren actie 'Microsoft.Authorization/roleDefinitions/write' over scope '/ subscriptions / {subscriptionid}', maar het gekoppelde abonnement is niet gevonden" wanneer u probeert een aangepaste rol bijwerken, controleren of een of meer [toewijsbare bereiken](role-definitions.md#assignablescopes) in de tenant is verwijderd. Als het bereik is verwijderd, maakt u een ondersteuningsticket, aangezien hiervoor op dit moment geen selfserviceoplossing beschikbaar is.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>RBAC herstellen als abonnementen tussen tenants zijn verplaatst
 
 - Als u de stappen voor het overdragen van een abonnement moet naar een andere Azure AD-tenant, Zie [eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md).
-- Als u een abonnement overdraagt naar een andere Azure AD-tenant, worden alle roltoewijzingen permanent worden verwijderd uit de bron Azure AD-tenant en worden niet gemigreerd naar de doel-Azure AD-tenant. U moet de roltoewijzingen in de doel-tenant opnieuw maken.
+- Als u een abonnement verplaatst naar een ander Azure AD-tenant, worden alle roltoewijzingen permanent verwijderd uit de Azure AD-brontenant en worden deze niet gemigreerd naar de Azure AD-doeltenant. U moet uw roltoewijzingen opnieuw maken in de doel-tenant. U moet ook handmatig opnieuw maken van beheerde identiteiten voor Azure-resources. Zie voor meer informatie, [Veelgestelde vragen en bekende problemen met beheerde identiteiten](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Als u een Azure AD-hoofdbeheerder en u geen toegang hebt tot een abonnement nadat deze is verplaatst tussen tenants, gebruikt u de **Access management voor Azure-resources** in-/ uitschakelen tijdelijk [toegangsrechten](elevate-access-global-admin.md) toegang te krijgen tot het abonnement.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemen met servicebeheerders of co-beheerders
@@ -51,7 +51,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseer
 
 ## <a name="access-denied-or-permission-errors"></a>Toegang geweigerd of machtiging fouten
 
-- Als u de machtigingen voor de foutmelding ' de client met object-id is niet gemachtigd om uit te voeren actie bereik (code: AuthorizationFailed) ' wanneer u probeert om een resource te maken, moet u controleren of u momenteel bent aangemeld bij een gebruiker die een rol schrijfrechten heeft op de resource op de geselecteerde scope heeft die is toegewezen. Bijvoorbeeld, voor het beheren van virtuele machines in een resourcegroep, moet u hebt de [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) -rol op de resourcegroep (of een overkoepelend bereik). Zie voor een lijst van de machtigingen voor elke ingebouwde rol, [ingebouwde rollen voor Azure-resources](built-in-roles.md).
+- Als de machtigingsfout 'Client met object-id is niet gemachtigd om actie uit te voeren over bereik (code: AuthorizationFailed)' wanneer u een resource wilt maken, controleert u of u momenteel bent aangemeld met een gebruiker die een rol heeft met schrijfrechten voor de resource in het geselecteerde bereik. Als u bijvoorbeeld virtuele machines in een resourcegroep wilt beheren, moet u de rol [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) toewijzen aan de resourcegroep (of bovenliggend bereik). Voor een lijst met machtigingen voor elke ingebouwde rol, raadpleegt u [Ingebouwde rollen voor Azure-resources](built-in-roles.md).
 - Als u de Machtigingsfout 'U bent niet gemachtigd om te maken van een ondersteuningsaanvraag' wanneer u probeert te maken of bijwerken van een ondersteuningsticket, controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Support/supportTickets/write` machtiging, zoals [Ondersteunen bijdrager voor ondersteuningsaanvragen](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>RBAC wijzigingen worden niet wordt gedetecteerd.

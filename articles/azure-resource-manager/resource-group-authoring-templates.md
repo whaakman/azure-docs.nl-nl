@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492190"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
@@ -49,8 +49,8 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 | apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie in Resource Manager gebruikt voor dat resourcetype die is gedefinieerd in het profiel.<br><br>De API-profiel-eigenschap is vooral handig bij het implementeren van een sjabloon in verschillende omgevingen, zoals Azure Stack en globale Azure. Gebruik de API-profiel-versie om te controleren of dat uw sjabloon maakt automatisch gebruik van versies die worden ondersteund in beide omgevingen. Zie voor een lijst van de huidige versies van de API-profiel en de API-versies die zijn gedefinieerd in het profiel van de resources, [API profiel](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
 | [Variabelen](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
-| [functions](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| [bronnen](#resources) |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
+| [Functies](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| [resources](#resources) |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
 | [uitvoer](#outputs) |Nee |De waarden die zijn geretourneerd na de implementatie. |
 
 Elk element heeft eigenschappen die u kunt instellen. Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
@@ -119,7 +119,7 @@ De beschikbare eigenschappen voor een parameter zijn:
 }
 ```
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
 | parameterName |Ja |Naam van de parameter. Moet een geldige JavaScript-id. |
 | type |Ja |Het type van de waarde van parameter. De toegestane typen en de waarden zijn **tekenreeks**, **securestring**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
@@ -265,7 +265,7 @@ Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van d
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van parameters. Te testen hoe parameters worden verwerkt in verschillende scenario's implementeren.
 
-|Template  |Description  |
+|Template  |Beschrijving  |
 |---------|---------|
 |[parameters met functies voor standaardwaarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloonfuncties gebruiken bij het definiëren van de standaardwaarden voor parameters. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
 |[Parameter-object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ziet u met behulp van een object voor een parameter. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
@@ -368,7 +368,7 @@ Ophalen van de huidige instellingen met:
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van variabelen. Te testen hoe variabelen worden verwerkt in verschillende scenario's implementeren. 
 
-|Template  |Description  |
+|Template  |Beschrijving  |
 |---------|---------|
 | [definities van variabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Ziet u de verschillende typen variabelen. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
 | [van configuratievariabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Ziet u het gebruik van een variabele die de configuratiewaarden definieert. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
@@ -491,7 +491,7 @@ Definieert u resources met de volgende structuur:
 ]
 ```
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | Beschrijving |
 |:--- |:--- |:--- |
 | voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. Zie [voorwaarde](#condition). |
 | apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |

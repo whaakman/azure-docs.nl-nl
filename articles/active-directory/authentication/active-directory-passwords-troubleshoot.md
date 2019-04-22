@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496400"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
@@ -97,7 +97,7 @@ Er is een best practice bij het oplossen van problemen met wachtwoord terugschri
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Als de bron van de gebeurtenis ADSync is
 
-| Code | Naam of het bericht | Description |
+| Code | Naam of het bericht | Beschrijving |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Een beperking voorkomt dat het wachtwoord wordt gewijzigd in de huidige versie die is opgegeven." | Deze gebeurtenis treedt op wanneer de service wachtwoord terugschrijven wordt geprobeerd om in te stellen van een wachtwoord op uw lokale directory die niet voldoet aan de leeftijd van wachtwoord, geschiedenis, complexiteit of filteren van de vereisten van het domein. <br> <br> Als u een minimale wachtwoordduur en het wachtwoord in die periode onlangs hebt gewijzigd, bent u niet kunt wijzigen van het wachtwoord opnieuw totdat de opgegeven leeftijd in uw domein is bereikt. Voor testdoeleinden, de minimale ouderdom van moet worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordgeschiedenis ingeschakeld hebt, dan moet u een wachtwoord dat niet is gebruikt in de laatste *N* keer, waar u *N* is de instelling van de geschiedenis van wachtwoorden. Als u een wachtwoord dat is gebruikt in de afgelopen selecteert *N* time-out, ziet u een fout in dit geval. Voor testdoeleinden beschikt, moet de geschiedenis van apparaatwachtwoorden worden ingesteld op 0. <br> <br> Als u vereisten voor wachtwoordcomplexiteit hebt, worden ze allemaal afgedwongen wanneer de gebruiker probeert te wijzigen of opnieuw instellen van een wachtwoord. <br> <br> Als u wachtwoord schrijffilters zijn ingeschakeld en een gebruiker een wachtwoord selecteert dat voldoet niet aan de filtercriteria, klikt u vervolgens het opnieuw instellen of wijzigingsbewerking is mislukt. |
 | 6329 | MMS(3040): admaexport.cpp(2837): De server bevat het hulpprogramma voor het beleid van de LDAP-wachtwoordbeheer. | Dit probleem treedt op als LDAP_SERVER_POLICY_HINTS_OID besturingselement (1.2.840.113556.1.4.2066) is niet ingeschakeld op de DC's. Voor het gebruik van de wachtwoordfunctie terugschrijven van wachtwoorden, moet u het besturingselement inschakelen. Om dit te doen, moet de DC's in Windows Server 2008R2 of hoger. |
@@ -285,14 +285,14 @@ Goed om u te helpen, vragen we u om zoveel mogelijk details mogelijk te bieden b
 
 De volgende artikelen bevatten aanvullende informatie over wachtwoordherstel via Azure AD:
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Uw wachtwoord wijzigen of opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord](../user-help/active-directory-passwords-reset-register.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md)
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
-* [Welke gegevens worden gebruikt door selfservice voor Wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)
-* [Wat zijn de beleidsopties bij selfservice voor Wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is wachtwoord terugschrijven en waarom dit van belang deze?](howto-sspr-writeback.md)
-* [Hoe rapporteer ik op activiteit in selfservice voor Wachtwoordherstel?](howto-sspr-reporting.md)
-* [Wat zijn alle van de opties in selfservice voor Wachtwoordherstel en wat die betekenen?](concept-sspr-howitworks.md)
-* [Ik heb een vraag die werd niet is beantwoord](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](howto-sspr-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)

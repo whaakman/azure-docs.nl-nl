@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256886"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680894"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -93,7 +93,7 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 ![Azure Portal: Deelvenster in de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` in uw on-premises Active Directory (AD) in elk AD-forest. De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld. Store het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn en waar alleen Domeinadministrators toegang hebben.
+> Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` in uw on-premises Active Directory (AD) in elk AD-forest. De `AZUREADSSOACC` computeraccount moet worden uit veiligheidsoverwegingen raden beveiligd. Alleen Domeinadministrators zou het mogelijk voor het beheren van het computeraccount. Zorg ervoor dat de Kerberos-delegering op het computeraccount is uitgeschakeld en dat er geen ander account in Active Directory delegeren machtigingen heeft op de `AZUREADSSOACC` computeraccount. Store het computeraccount in een organisatie-eenheid (OE) waar ze beveiligd tegen onbedoelde verwijderingen zijn en waar alleen Domeinadministrators toegang hebben.
 
 >[!NOTE]
 > Als u van Pass-the-Hash en Credential Theft Mitigation architecturen in uw on-premises-omgeving gebruikmaakt, moet u benodigde wijzigingen om ervoor te zorgen dat de `AZUREADSSOACC` computeraccount niet in de quarantaine-container terechtkomen. 

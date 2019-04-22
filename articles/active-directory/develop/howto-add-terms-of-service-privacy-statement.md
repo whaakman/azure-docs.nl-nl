@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500294"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedure: Gebruiksvoorwaarden en privacyverklaring voor een app configureren
@@ -44,7 +44,7 @@ De volgende voorbeelden ziet de gebruiker toestemming geven ervaring wanneer de 
 
 Voordat u koppelingen naar van uw app en de gebruiksvoorwaarden en privacyverklaring instructie documenten toevoegen, controleert u dat de URL's de volgende richtlijnen hanteren.
 
-| Richtlijn     | Beschrijving                           |
+| Richtlijn     | Description                           |
 |---------------|---------------------------------------|
 | Indeling        | Geldige URL                             |
 | Geldige schema 's | HTTP en HTTPS<br/>We raden aan HTTPS |

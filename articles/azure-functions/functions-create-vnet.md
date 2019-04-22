@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523729"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680341"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Een functie-app integreren met een Azure-netwerk
 
-Deze stapsgewijze zelfstudie leert u hoe u Azure Functions gebruiken voor het verbinding maken met bronnen in een Azure VNET.
+Deze zelfstudie leert u hoe u Azure Functions gebruiken voor het verbinding maken met bronnen in een Azure VNET.
 
 Voor deze zelfstudie wordt er een WordPress-site op een virtuele machine in een particulier, niet-toegankelijk is via internet, VNET implementeren. We gaan een functie met een toegang vervolgens implementeren op het internet en het VNET. We die functie gebruiken voor toegang tot resources van de WordPress-site binnen het VNET geïmplementeerd.
 

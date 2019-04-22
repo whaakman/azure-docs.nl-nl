@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496298"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
@@ -121,5 +121,5 @@ Zie voor meer informatie over de licenties die uw organisatie nodig heeft om te 
 
 ### <a name="next-steps"></a>Volgende stappen
 
-- [Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)](what-is-b2b.md)
+- [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 

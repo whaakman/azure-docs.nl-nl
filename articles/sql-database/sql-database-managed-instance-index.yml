@@ -69,16 +69,15 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="sql-database-managed-instance#business-critical-service-tier">Kritieke-bedrijfslaag</a> is nu in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">algemene beschikbaarheid (GA)</a>.'
-          - html: '(Preview) Maak <a href="https://aka.ms/managed-instance-aadlogins">Instance-level principals met Azure AD-server (aanmeldingen)</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .'
-          - html: '(Preview) Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.'
-          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Configureren van back-upretentie van 35 dagen</a> voor Point-in-time restore. Houd er rekening mee dat langetermijnretentie (maximaal 10 jaar) nog niet is ingeschakeld, zodat u kunt <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">kopie-alleen back-ups</a> als alternatief.'
-          - html: '(Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.'
-          - html: '(Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.'
-          - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">ingebouwde firewall</a>.
-          - html: '(Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Opnieuw te maken verwijderde databases met behulp van PowerShell</a>'
-          - html: 'Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.'
           - html: '(Preview) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configureren tijdzone</a> tijdens het maken van het exemplaar.'
+          - html: 'Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.'
+          - html: '(Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Opnieuw te maken verwijderde databases met behulp van PowerShell</a>'
+          - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">ingebouwde firewall</a>.
+          - html: '(Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.'
+          - html: '(Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.'
+          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Configureren van back-upretentie van 35 dagen</a> voor Point-in-time restore. Houd er rekening mee dat langetermijnretentie (maximaal 10 jaar) nog niet is ingeschakeld, zodat u kunt <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">kopie-alleen back-ups</a> als alternatief.'
+          - html: '(Preview) Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.'
+          - html: '(Preview) Maak <a href="https://aka.ms/managed-instance-aadlogins">Instance-level principals met Azure AD-server (aanmeldingen)</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .'
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph

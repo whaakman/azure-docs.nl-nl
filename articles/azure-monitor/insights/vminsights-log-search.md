@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492085"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
@@ -62,7 +62,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 Voor het account voor de impact van groepering, informatie over het aantal gegroepeerde fysieke verbindingen vindt u in de volgende eigenschappen van de record:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 |LinksEstablished |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
 |LinksTerminated |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
@@ -112,7 +112,7 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
-|Beschrijving |Beschrijving van de waargenomen bedreiging. |
+|Description |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
 |Betrouwbaarheid |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
@@ -134,7 +134,7 @@ Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer o
 
 Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 |:--|:--|
 |Verwerken | De identiteit van proces (of groepen van processen) waarmee de poort gekoppeld is.|
 |IP | IP-adres-poort (mag jokertekens IP-adres, *0.0.0.0*) |

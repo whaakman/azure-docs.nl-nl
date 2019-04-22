@@ -12,10 +12,10 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496434"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of gepoolde database beveiligen
@@ -143,10 +143,10 @@ Zie voor informatie over het configureren van Azure AD:
 
 - [Uw on-premises identiteiten integreren met Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure ondersteunt nu Federatie met Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure ondersteunt nu federatie met Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Uw Azure AD-directory beheren](../active-directory/fundamentals/active-directory-administer.md)
-- [Azure AD beheren met PowerShell](/powershell/azure/overview?view=azureadps-2.0)
-- [Hybride identiteit benodigde poorten en protocollen](../active-directory/hybrid/reference-connect-ports.md)
+- [Azure AD beheren met behulp van PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Voor hybride identiteit benodigde poorten en protocollen](../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Databasetoegang beheren
 

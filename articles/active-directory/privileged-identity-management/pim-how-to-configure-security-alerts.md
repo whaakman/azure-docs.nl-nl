@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496706"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD-rollen in PIM configureren
@@ -39,7 +39,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Laag |
+| **Ernst** | Laag |
 | **Waarom krijg ik deze waarschuwing?** | Gebruikers die zijn toegewezen aan de bevoorrechte rollen die ze nodig hebben geen verhoogt de kans op een aanval. Ook is het gemakkelijker voor aanvallers om te blijven ongemerkt in accounts die zijn niet actief wordt gebruikt. |
 | **Over het oplossen van?** | Bekijk de gebruikers in de lijst en verwijder ze van bevoorrechte rollen die ze niet hoeven. |
 | **Preventie** | Alleen bevoorrechte rollen toewijzen aan gebruikers die een zakelijke rechtvaardiging hebben. </br>Plannen van regelmatige [toegangsbeoordelingen](pim-how-to-start-security-review.md) om te controleren dat gebruikers nog steeds hun toegang nodig. |
@@ -51,7 +51,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Laag |
+| **Ernst** | Laag |
 | **Waarom krijg ik deze waarschuwing?** | Zonder MFA, kunnen verdachte gebruikers bevoorrechte rollen activeren. |
 | **Over het oplossen van?** | Bekijk de lijst met rollen en [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol. |
 | **Preventie** | [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol.  |
@@ -61,7 +61,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Laag |
+| **Ernst** | Laag |
 | **Waarom krijg ik deze waarschuwing?** | De huidige tenant heeft geen Azure AD Premium P2. |
 | **Over het oplossen van?** | Lees de informatie over [Azure AD-edities](../fundamentals/active-directory-whatis.md). Een upgrade uitvoeren naar Azure AD Premium P2. |
 
@@ -69,7 +69,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Middelgroot |
+| **Ernst** | Middelgroot |
 | **Waarom krijg ik deze waarschuwing?** | Accounts in een bevoorrechte rol die niet hun wachtwoord hebben gewijzigd in de afgelopen 90 dagen. Deze accounts kunnen service of gedeelde accounts die niet worden bijgehouden en zijn kwetsbaar voor aanvallen. |
 | **Over het oplossen van?** | Bekijk de accounts in de lijst. Als deze toegang niet meer nodig hebt, kunt u ze uit hun bevoorrechte rollen verwijderen. |
 | **Preventie** | Zorg ervoor dat de accounts die worden gedeeld sterke wachtwoorden zijn draaien wanneer er een wijziging in de gebruikers die het wachtwoord weten. </br>Controleer regelmatig accounts met bevoorrechte rollen met behulp van [toegangsbeoordelingen](pim-how-to-start-security-review.md) en verwijderen van roltoewijzingen die niet meer nodig zijn. |
@@ -80,7 +80,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Hoog |
+| **Ernst** | Hoog |
 | **Waarom krijg ik deze waarschuwing?** | Toewijzingen van bevoorrechte rollen die buiten PIM niet correct worden bewaakt en kunnen duiden op een actieve aanval. |
 | **Over het oplossen van?** | Bekijk de gebruikers in de lijst en verwijder ze van bevoorrechte rollen toegewezen buiten PIM. |
 | **Preventie** | Onderzoeken waar gebruikers bevoorrechte rollen buiten PIM worden toegewezen en toekomstige toewijzingen van daaruit verbieden. |
@@ -90,7 +90,7 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Laag |
+| **Ernst** | Laag |
 | **Waarom krijg ik deze waarschuwing?** | Globale beheerder is de hoogste bevoorrechte rol. Als een globale beheerder is geknoeid, is de aanvaller heeft toegang tot hun machtigingen, waardoor het hele systeem lopen. |
 | **Over het oplossen van?** | De gebruikers in de lijst bekijken en verwijderen die de rol globale beheerder niet absoluut nodig. </br>Deze gebruikers lagere bevoorrechte rollen toewijzen. |
 | **Preventie** | Gebruikers toewijzen in de minste bevoorrechte rollen die ze nodig hebben. |
@@ -103,13 +103,13 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor Azure AD
 
 | | |
 | --- | --- |
-| **Severity** | Laag |
+| **Ernst** | Laag |
 | **Waarom krijg ik deze waarschuwing?** | Meerdere activeringen naar dezelfde bevoorrechte rol door dezelfde gebruiker is een teken van een aanval. |
 | **Over het oplossen van?** | Bekijk de gebruikers in de lijst en zorg ervoor dat de [activeringsduur](pim-how-to-change-default-settings.md) voor hun bevoegde rol lang genoeg zijn voor ze hun taken uit te voeren is ingesteld. |
 | **Preventie** | Zorg ervoor dat de [activeringsduur](pim-how-to-change-default-settings.md) voor bevoorrechte rollen is ingesteld lang genoeg is voor gebruikers hun taken uit te voeren.</br>[MFA vereisen](pim-how-to-change-default-settings.md) voor bevoorrechte rollen die accounts die worden gedeeld door meerdere beheerders hebt. |
 | **In de portal risicobeperking actie** | N/A |
 | **Trigger** | Geactiveerd als een gebruiker dezelfde bevoorrechte rol meerdere keren binnen een opgegeven periode activeert. U kunt zowel de periode en het aantal activeringen configureren. |
-| **Tijdsduur voor activeringsvernieuwing** | Deze instelling bepaalt u in dagen, uren, minuten en vervolgens de periode die u wilt gebruiken voor het bijhouden van verdachte vernieuwingen. |
+| **Activeringsvernieuwing** | Deze instelling bepaalt u in dagen, uren, minuten en vervolgens de periode die u wilt gebruiken voor het bijhouden van verdachte vernieuwingen. |
 | **Aantal vernieuwingen van activering** | Deze instelling bepaalt u het aantal activeringen van 2 tot en met 100, waarmee u rekening houden daling van waarschuwing in de periode die u hebt gekozen. U kunt deze instelling wijzigen door de schuifregelaar of een getal in het tekstvak te typen. |
 
 ## <a name="configure-security-alert-settings"></a>Instellingen voor beveiligingswaarschuwingen configureren

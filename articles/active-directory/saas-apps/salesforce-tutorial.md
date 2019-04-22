@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce
@@ -56,7 +56,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Salesforce in Azure AD moet u Salesforce vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Salesforce uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u Salesforce vanuit de galerie wilt toevoegen, voert u de volgende stappen uit:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** klikt u in het navigatievenster aan de linkerkant op het pictogram **Azure Active Directory**.
 
@@ -112,15 +112,15 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Salesforce voert u d
 
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met de volgende indeling:
 
-    Enterprise-account: `https://<subdomain>.my.salesforce.com`
+    Bedrijfsaccount: `https://<subdomain>.my.salesforce.com`
 
-    Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Ontwikkelaarsaccount: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     b. Typ in het tekstvak **Id** een waarde met de volgende indeling:
 
-    Enterprise-account: `https://<subdomain>.my.salesforce.com`
+    Bedrijfsaccount: `https://<subdomain>.my.salesforce.com`
 
-    Developer-account: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Ontwikkelaarsaccount: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en -id. Neem contact op met het [Salesforce-klantondersteuningsteam](https://help.salesforce.com/support) om deze waarden te verkrijgen.
@@ -251,9 +251,9 @@ Wanneer u op de Salesforce-tegel in het toegangsvenster klikt, zou u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

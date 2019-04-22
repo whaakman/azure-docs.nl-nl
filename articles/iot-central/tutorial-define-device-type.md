@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259535"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681247"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing (nieuwe gebruikersinterface)
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
 Deze zelfstudie laat zien hoe u als bouwer een apparaatsjabloon kunt gebruiken om een nieuw apparaattype te definiëren in uw Microsoft Azure IoT Central-toepassing. Een apparaatsjabloon definieert de telemetrie, status, eigenschappen en instellingen voor uw apparaattype.
 
@@ -307,7 +307,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | Weergavenaam         | Laatste servicedatum       |
     | Veldnaam           | Servicedatum             |
     | Initiële waarde        | 1/1/2019                |
-    | Description          | Laatste servicebeurt           |
+    | Beschrijving          | Laatste servicebeurt           |
 
     ![De apparaateigenschappen configureren](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -324,7 +324,7 @@ U gebruikt *toepassingseigenschappen* om gegevens over uw apparaat in de toepass
     | Weergavenaam         | Firmwareversie        |
     | Veldnaam           | firmwareversie         |
     | Gegevenstype            | tekst                    |
-    | Description          | De firmwareversie van de airconditioner |
+    | Beschrijving          | De firmwareversie van de airconditioner |
 
     ![Firmwareversie configureren](./media/tutorial-define-device-type/configureproperties3.png)
 

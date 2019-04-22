@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496126"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een systeemeigen iOS-app
@@ -46,14 +46,14 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een systeemeigen iOS-
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
 > Voor het codevoorbeeld voor deze Quick Start om te werken, moet u een antwoord-URL als toevoegen `msal<AppId>://auth` (waarbij msal\<AppId > deze toepassings-Id is).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Deze wijziging hebt aangebracht voor mij]()
+> > [Deze wijziging voor mij maken]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-ios/green-check.png) uw toepassing is geconfigureerd met dit kenmerk
+> > ![Al geconfigureerd](media/quickstart-v2-ios/green-check.png) Uw toepassing is al geconfigureerd met dit kenmerk
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Stap 2: Uw webserver of project downloaden
 
-- [Het XCode-Project downloaden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Het XCode-project downloaden](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Stap 3: Het project configureren
 
@@ -187,9 +187,9 @@ applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicat
 
 Volg de iOS-zelfstudie voor een volledige stapsgewijze handleiding voor het bouwen van toepassingen en nieuwe functies, met inbegrip van een volledige uitleg van deze snelstart.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>De stappen voor het maken van de toepassing die wordt gebruikt in deze snelstart
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Leer wat de stappen zijn voor het maken van de toepassing die wordt gebruikt in deze snelstart
 
 > [!div class="nextstepaction"]
-> [IOS-zelfstudie voor Graph API aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [iOS-zelfstudie voor Graph API-aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

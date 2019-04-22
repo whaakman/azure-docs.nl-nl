@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: Leeftijdsbeperking configureren
     href: basic-age-gating.md
-  - name: Tokens configureren
-    href: active-directory-b2c-token-session-sso.md
+  - name: Sessiegedrag configureren
+    href: session-behavior.md
   - name: Taal aanpassen
     href: active-directory-b2c-reference-language-customization.md
   - name: Wachtwoord aanpassen
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: De gebruikersinterface dynamisch aanpassen
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Tokens aanpassen
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Aangepaste kenmerken definiëren
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Aangemeld blijven inschakelen
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Paginacontract
       href: page-contract.md
-    - name: Toegangstoken doorgeven
-      href: idp-pass-through-custom.md
     - name: Wachtwoordcomplexiteit
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Wachtwoord wijzigen
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: SalesForce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Tokens
+      items:
+      - name: Tokens aanpassen
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Toegangstoken doorgeven
+        href: idp-pass-through-custom.md
     - name: Gebruikersgedrag bijhouden
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Naslaginformatie
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android met App Auth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Toegangstokens verkrijgen
-    href: active-directory-b2c-access-tokens.md
-  - name: Toegangstoken doorgeven
-    href: idp-pass-through-user-flow.md
   - name: Gebruik rapporteren
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Referenties voor wachtwoord van resource-eigenaar
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: Zelf een wachtwoord opnieuw instellen configureren
     href: active-directory-b2c-reference-sspr.md
+  - name: Tokens
+    items:
+    - name: Tokens configureren
+      href: configure-tokens.md
+    - name: Toegangstoken doorgeven
+      href: idp-pass-through-user-flow.md
+    - name: Toegangstoken aanvragen
+      href: active-directory-b2c-access-tokens.md
   - name: B2clogin.com gebruiken
     href: b2clogin.md
   - name: De Azure AD Graph API gebruiken
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886570"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681128"

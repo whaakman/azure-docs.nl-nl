@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
 ms.openlocfilehash: a861bc52734f5b2bc6e455965428328cd1415b76
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500665"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Snelstartgids: X.509-apparaten registreren bij Device Provisioning Service met behulp van Node.js
@@ -147,4 +147,4 @@ Als u van plan bent om de voorbeelden van de Node.js-service te verkennen, verwi
 In deze quickstart hebt u een groepsregistratie voor een X.509 CA-tussen- of -basiscertificaat gemaakt met Azure IoT Hub Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
  
 > [!div class="nextstepaction"]
-> [Zelfstudies voor Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)
+> [Zelfstudies over Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

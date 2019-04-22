@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496180"
 ---
 # <a name="export-a-u-sql-database"></a>Een U-SQL-database exporteren
@@ -51,7 +51,7 @@ In deze stap controleert u of de geselecteerde objecten in de **Export objectenl
 
 U kunt ook andere instellingen voor de doel-export configureren. Beschrijvingen van de configuratie worden weergegeven in de volgende tabel:
 
-|Configuratie|Beschrijving|
+|Configuratie|Description|
 |-------------|-----------|
 |Doelnaam|Deze naam wordt aangegeven waar u de geëxporteerde database-resources. Voorbeelden zijn assembly's, aanvullende bestanden en voorbeeldgegevens. Een map met deze naam wordt gemaakt onder de hoofdmap van uw lokale gegevens.|
 |Project Directory|Dit pad definieert waar u het geëxporteerde U-SQL-script. Alle objectdefinities van de database worden opgeslagen op deze locatie.|
@@ -85,6 +85,6 @@ Op dit moment als u selecteert de **Schema en gegevens** optie in stap 3, het hu
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over U-SQL-databases](/u-sql/data-definition-language-ddl-statements) 
-* [Testen en fouten opsporen in U-SQL-taken met behulp van lokaal uitvoeren en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
+* [U-SQL-taken testen en controleren op fouten met behulp van lokale uitvoering en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 

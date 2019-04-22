@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357247"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680856"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
 
@@ -34,27 +34,27 @@ In dit artikel leert u hoe u met het trainen van een time series regressie progn
 
 Het belangrijkste verschil tussen een prognoses taaktype regressie en regressie taaktype binnen geautomatiseerde machine learning is met inbegrip van een functie in uw gegevens met een geldige tijdreeks. Een regelmatige tijds-serie is een goed gedefinieerde en consistente frequentie en heeft een waarde op elk punt van het voorbeeld in een continue tijdspanne. Houd rekening met de volgende momentopname van een bestand `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Deze gegevensset is een eenvoudig voorbeeld van wekelijkse verkoopgegevens voor een bedrijf dat twee verschillende winkels, A en B. Bovendien heeft, wordt er een functie voor `week_of_year` waarmee het model voor het detecteren van wekelijkse seizoensgebondenheid. Het veld `week_starting` vertegenwoordigt een schone tijdreeks met weekfrequentie, en het veld `sales_quantity` is de doelkolom voor het uitvoeren van voorspellingen. De gegevens in een Pandas dataframe lezen en gebruik vervolgens de `to_datetime` functie om te controleren of de time-serie is een `datetime` type.
+Deze gegevensset is een eenvoudig voorbeeld van dagelijkse verkoopgegevens voor een bedrijf dat twee verschillende winkels, A en B. Bovendien heeft, wordt er een functie voor `week_of_year` waarmee het model voor het detecteren van wekelijkse seizoensgebondenheid. Het veld `day_datetime` vertegenwoordigt een schone tijdreeks met dagelijkse frequentie en het veld `sales_quantity` is de doelkolom voor het uitvoeren van voorspellingen. De gegevens in een Pandas dataframe lezen en gebruik vervolgens de `to_datetime` functie om te controleren of de time-serie is een `datetime` type.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In dit geval de gegevens is al oplopend gesorteerd door het tijdveld `week_starting`. Echter, bij het instellen van een experiment, zorg ervoor dat de gewenste tijd-kolom is gesorteerd in oplopende volgorde voor het bouwen van een geldige tijdreeks. Wordt ervan uitgegaan dat de gegevens 1000 records bevat en een deterministische splitsing in de gegevens kunt maken van training en testen van gegevenssets. Scheidt het doelveld `sales_quantity` stelt de voorspelling trainen en testen te maken.
+In dit geval de gegevens is al oplopend gesorteerd door het tijdveld `day_datetime`. Echter, bij het instellen van een experiment, zorg ervoor dat de gewenste tijd-kolom is gesorteerd in oplopende volgorde voor het bouwen van een geldige tijdreeks. Wordt ervan uitgegaan dat de gegevens 1000 records bevat en een deterministische splitsing in de gegevens kunt maken van training en testen van gegevenssets. Scheidt het doelveld `sales_quantity` stelt de voorspelling trainen en testen te maken.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ De `AutoMLConfig` object definieert de instellingen en gegevens die nodig zijn v
 |`time_column_name`|Hiermee geeft de datum/tijd-kolom in de ingevoerde gegevens gebruikt voor het bouwen van de tijdreeks en afleiden van de frequentie ervan.|✓|
 |`grain_column_names`|Namen om afzonderlijke Reeksgroepen te definiëren in de ingevoerde gegevens. Als het tijdsinterval is niet gedefinieerd, wordt aangenomen dat de gegevensset een time series zijn.||
 |`max_horizon`|Maximum aantal gewenste prognose horizon in eenheden van time series-frequentie.|✓|
+|`target_lags`|*n* perioden aan zone voor forward lag doelwaarden vóór modeltraining.||
+|`target_rolling_window_size`|*n* historische perioden moet worden gebruikt voor het genereren van de voorspelde waarden < = grootte training. Als u dit weglaat, *n* is de volledige training grootte instellen.||
 
-De time series-instellingen als een dictionary-object maken. Stel de `time_column_name` naar de `week_starting` veld in de gegevensset. Definieer de `grain_column_names` parameter om ervoor te zorgen dat **twee afzonderlijke groepen van time series** worden gemaakt voor onze gegevens, een voor store A en B. ten slotte, stel de `max_horizon` ingesteld op 50 om te voorspellen voor de hele test.
+De time series-instellingen als een dictionary-object maken. Stel de `time_column_name` naar de `day_datetime` veld in de gegevensset. Definieer de `grain_column_names` parameter om ervoor te zorgen dat **twee afzonderlijke groepen van time series** worden gemaakt voor de gegevens, een voor store A en B. ten slotte, stel de `max_horizon` ingesteld op 50 om te voorspellen voor de hele test. Een prognose venster ingesteld op 10 perioden met `target_rolling_window_size`, en een vertraging van het doel 2 perioden verder met waarden de `target_lags` parameter.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Nu dat de algehele de nauwkeurigheid van model is bepaald, de meest realistische volgende stap is het gebruik van het model onbekende toekomstige waarden te voorspellen. Een gegevensset in dezelfde indeling als de testset zijn simpelweg `X_test` maar met toekomstige datum/tijd en de resulterende voorspelling is ingesteld, is de voorspelde waarden voor elke stap van de time series. Wordt ervan uitgegaan dat de laatste time series-records in de gegevensset zijn voor het starten van de week 12/31 januari 2018. Prognose van vraag naar de volgende week (of zo veel punten als u nodig hebt om te voorspellen, < = `max_horizon`), maken van een enkel time series-record voor elke winkel voor het starten van de week 07-01/2019.
+Nu dat de algehele de nauwkeurigheid van model is bepaald, de meest realistische volgende stap is het gebruik van het model onbekende toekomstige waarden te voorspellen. Een gegevensset in dezelfde indeling als de testset zijn simpelweg `X_test` maar met toekomstige datum/tijd en de resulterende voorspelling is ingesteld, is de voorspelde waarden voor elke stap van de time series. Wordt ervan uitgegaan dat de laatste time series-records in de gegevensset zijn voor 31-12 januari 2018. Prognose van vraag naar de volgende dag (of zo veel punten als u nodig hebt om te voorspellen, < = `max_horizon`), maken van een enkel record van de reeks tijd voor elke winkel voor 01/01/2019.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Herhaal de stappen die nodig zijn om deze gegevens uit de toekomst om een dataframe te laden en voer `best_run.predict(X_test)` om toekomstige waarden te voorspellen.
 

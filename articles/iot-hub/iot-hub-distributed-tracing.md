@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501357"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Traceringsberichten Azure IoT-apparaat-naar-cloud met gedistribueerde tracering (preview)
@@ -34,9 +34,9 @@ In dit artikel gebruikt u de [Azure IoT device-SDK voor C](./iot-hub-device-sdk-
 
 - De Preview-versie van gedistribueerde tracering is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
-  - **Europa - noord**
-  - **Azië - zuidoost**
-  - **US - west 2**
+  - **Noord-Europa**
+  - **Zuidoost-Azië**
+  - **VS-West 2**
 
 - In dit artikel wordt ervan uitgegaan dat u bekend bent met berichten over telemetrie verzenden naar uw IoT-hub. Zorg ervoor dat u hebt voltooid, de [verzenden van telemetrie C snelstartgids](./quickstart-send-telemetry-c.md).
 

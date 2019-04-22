@@ -15,10 +15,10 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505795"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
@@ -27,7 +27,7 @@ Deze handleiding laat zien hoe u aanmelden met Microsoft met behulp van een ASP.
 
 Aan het einde van deze handleiding, is uw toepassing mogelijk om te accepteren van aanmeldingen van persoonlijke accounts (waaronder outlook.com, live.com en andere) evenals werk en schoolaccounts van een bedrijf of organisatie die is geïntegreerd met Azure Active Directory.
 
-> Deze handleiding is vereist voor Visual Studio 2017.  Is dit niet het geval?  [Gratis Visual Studio 2017 downloaden](https://www.visualstudio.com/downloads/)
+> Deze handleiding is vereist voor Visual Studio 2017.  Is dit niet het geval?  U kunt [Visual Studio 2017 gratis downloaden](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>De werking van de voorbeeld-app die is gegenereerd door deze handleiding
 
@@ -39,7 +39,7 @@ De voorbeeldtoepassing die is gemaakt in deze handleiding is gebaseerd op het sc
 
 Deze handleiding maakt gebruik van de volgende bibliotheken:
 
-|Bibliotheek|Description|
+|Bibliotheek|Beschrijving|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware die een toepassing in staat stelt om OpenIdConnect te gebruiken voor verificatie|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware die een toepassing in staat stelt om een gebruikerssessie te onderhouden met behulp van cookies|

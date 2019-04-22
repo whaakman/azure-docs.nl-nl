@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500444"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-platform en de stroom voor OAuth 2.0-apparaat code
@@ -64,7 +64,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | `tenant` | Vereist |De directory-tenant die u wilt toestemming van aanvragen. Dit kan zijn in de beschrijvende naamindeling of GUID.  |
 | `client_id` | Vereist | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
@@ -109,7 +109,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 Omdat de stroom van het apparaat een polling-protocol is, moet uw client verwacht voor het ontvangen van fouten voordat de verificatie van de gebruiker is voltooid.  
 
-| Fout | Description | Clientactie |
+| Fout | Beschrijving | Clientactie |
 | ------ | ----------- | -------------|
 | `authorization_pending` | De gebruiker is nog niet voltooid verificatie, maar niet de stroom is geannuleerd. | De aanvraag opnieuw nadat ten minste `interval` seconden. |
 | `authorization_declined` | De eindgebruiker de autorisatieaanvraag geweigerd.| Stop polling en terugkeren naar een niet-geverifieerde status.  |

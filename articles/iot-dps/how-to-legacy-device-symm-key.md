@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500274"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
@@ -279,7 +279,7 @@ Let erop dat dit de afgeleide apparaatsleutel opgenomen als onderdeel van de ins
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer meer Reprovisioning [beëindiging van de concepten van IoT Hub Device](concepts-device-reprovision.md) 
-* [Quickstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
+* [Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
 * Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 

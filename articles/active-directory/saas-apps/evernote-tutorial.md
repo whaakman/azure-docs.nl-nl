@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Zelfstudie: Integratie van Microsoft Azure Active Directory met Evernote
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de configuratie van Evernote in Microsoft Azure Active Directory te configureren, moet u Evernote vanuit de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
-**Als u wilt toevoegen Evernote uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u Evernote vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** klikt u in het navigatievenster aan de linkerkant op het pictogram **Azure Active Directory**.
 
@@ -216,7 +216,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 Als u gebruikers van Microsoft Azure Active Directory de mogelijkheid wilt bieden om zich aan te melden bij Evernote, moeten ze worden ingericht voor Evernote.  
 In het geval van Evernote is inrichten een handmatige taak.
 
-**Ga als volgt te werk om een gebruikersaccount in te richten:**
+**Voer de volgende stappen uit om een gebruikersaccount in te richten:**
 
 1. Meld u bij uw Evernote-bedrijfssite als beheerder aan.
 
@@ -242,9 +242,9 @@ Wanneer u in het toegangsvenster op de tegel Evernote klikt, zou u automatisch m
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

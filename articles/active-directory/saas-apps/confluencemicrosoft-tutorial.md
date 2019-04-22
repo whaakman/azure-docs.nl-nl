@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met Confluence SAML SSO by Microsoft
@@ -92,7 +92,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Om de integratie van Confluence SAML SSO by Microsoft te configureren in Azure AD, moet u Confluence SAML SSO by Microsoft vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen samenloop SAML SSO door Microsoft uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Confluence SAML SSO by Microsoft vanuit de galerie toe te voegen:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -146,9 +146,9 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van Confluence SAML SSO by Microsoft](common/sp-identifier-reply.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Typ in het vak **Id** een URL met het volgende patroon: `https://<domain:port>/`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<domain:port>/`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -260,7 +260,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden met samenloop on-premises server, moeten deze in samenloop SAML SSO worden ingericht door Microsoft. In het geval van Confluence SAML SSO by Microsoft is dat een handmatige taak.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u met uw on-premises samenloop server aan als beheerder.
 
@@ -292,9 +292,9 @@ Als u in het toegangsvenster op de tegel Confluence SAML SSO by Microsoft klikt,
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

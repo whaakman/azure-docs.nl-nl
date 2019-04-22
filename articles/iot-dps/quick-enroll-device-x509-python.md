@@ -11,10 +11,10 @@ manager: philmea
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500767"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Snelstart: X.509-apparaten registreren bij Device Provisioning Service met behulp van Python
@@ -148,4 +148,4 @@ Als u van plan bent om het voorbeeld van de Java.js-service te verkennen, verwij
 In deze quickstart hebt u een gesimuleerde groep met X.509-apparaten ingeschreven met Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
 
 > [!div class="nextstepaction"]
-> [Zelfstudies voor Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)
+> [Zelfstudies over Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

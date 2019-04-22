@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO
@@ -79,7 +79,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van JIRA SAML SSO by Microsoft in Azure AD, moet u JIRA SAML SSO by Microsoft uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen JIRA SAML SSO door Microsoft uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om JIRA SAML SSO by Microsoft toe te voegen vanuit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -133,9 +133,9 @@ Voor het configureren van Azure AD-eenmalige aanmelding met JIRA SAML SSO by Mic
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij JIRA SAML SSO by Microsoft](common/sp-identifier-reply.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Typ in het vak **Id** een URL met het volgende patroon: `https://<domain:port>/`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<domain:port>/`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -262,7 +262,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden met JIRA on-premises server, moeten deze in JIRA SAML SSO worden ingericht door Microsoft. In het geval van JIRA SAML SSO by Microsoft is dat een handmatige taak.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u met uw on-premises JIRA server aan als beheerder.
 
@@ -300,8 +300,8 @@ Als u in het toegangsvenster op de tegel JIRA SAML SSO by Microsoft klikt, zou u
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

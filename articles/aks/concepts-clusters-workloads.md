@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181347"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678785"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -196,6 +196,9 @@ De DaemonSet Controller kunt plannen dat schillen op knooppunten vroeg in het op
 Zoals StatefulSets, een DaemonSet is gedefinieerd als onderdeel van een YAML-definitie met `kind: DaemonSet`.
 
 Zie voor meer informatie, [Kubernetes DaemonSets][kubernetes-daemonset].
+
+> [!NOTE]
+> Als de [virtuele knooppunten invoegtoepassing](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets maakt geen schillen op de virtuele-knooppunt.
 
 ## <a name="namespaces"></a>Naamruimten
 

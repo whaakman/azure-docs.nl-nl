@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500920"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity-platform en de OAuth 2.0-clientreferentiestroom
@@ -142,7 +142,7 @@ Als de beheerder worden niet goedgekeurd voor de machtigingen voor uw toepassing
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `error` | Een tekenreeks voor de foutcode die u gebruiken kunt voor het classificeren van typen fouten, en die u kunt gebruiken om te reageren op fouten. |
 | `error_description` | Een specifiek foutbericht die u kan helpen de hoofdoorzaak van een fout identificeren. |
@@ -173,7 +173,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parameter | Voorwaarde | Beschrijving |
+| Parameter | Voorwaarde | Description |
 | --- | --- | --- |
 | `tenant` | Vereist | De directory-tenant de toepassing wil werken tegen in GUID of domeinnaam indeling. |
 | `client_id` | Vereist | De toepassings-ID die toegewezen aan uw app. U kunt deze informatie vinden in de portal waar u uw app hebt geregistreerd. |
@@ -272,7 +272,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 Lees de [clientreferenties overzicht documentatie](https://aka.ms/msal-net-client-credentials) van de Microsoft Authentication Library
 
-| Voorbeeld | Platform |Description |
+| Voorbeeld | Platform |Beschrijving |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET core 2.1-Console | Een eenvoudige .NET Core-toepassing die de gebruikers van een tenant met behulp van de identiteit van de toepassing namens een gebruiker in plaats van Microsoft Graph uitvoeren van query's weergegeven. Het voorbeeld ziet u ook de variatie met behulp van certificaten voor verificatie. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Een webtoepassing die worden gesynchroniseerd met gegevens uit met behulp van de identiteit van de toepassing namens een gebruiker in plaats van Microsoft Graph. |

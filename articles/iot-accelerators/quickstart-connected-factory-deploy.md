@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491267"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Quickstart: Een cloudgebaseerde oplossing proberen voor het beheren van mijn industriële IoT-apparaten
@@ -64,7 +64,7 @@ Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsda
 
 De standaardweergave is het *dashboard*. U kunt naar andere gebieden van de portal navigeren met het menu aan de linkerkant van de pagina:
 
-[![Sdashboard ssing](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
+[![Oplossingsdashboard](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
 U gebruikt het dashboard om uw industriële IoT-apparaten te beheren. Verbonden factory gebruikt een hiërarchie om een algemene factoryconfiguratie weer te geven. Het hoogste niveau van de hiërarchie is de onderneming die een of meer factory's bevat. Elke factory bevat productielijnen en elke productielijn bestaat uit stations. Op elk niveau kunt u OEE en KPI's weergeven, nieuwe knooppunten voor telemetrie publiceren en reageren op waarschuwingen.
 
@@ -74,13 +74,13 @@ Op het dashboard kunt u het volgende zien:
 
 In het deelvenster **Overall Equipment Efficiency** worden de OEE-waarden weergegeven voor de hele onderneming of voor de factory, de productielijn of het station die/dat u bekijkt. Deze waarde wordt geaggregeerd van de stationsweergave naar het ondernemingsniveau. De OEE-gegevens en de bijbehorende elementen kunnen nader worden geanalyseerd.
 
-[![Overall apparatuurefficiëntie](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![Algemene apparatuurefficiëntie (OEE)](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 De OEE bepaalt de efficiëntie van het productieproces met behulp van operationele parameters gerelateerd aan productie. OEE is een standaardmeeteenheid binnen de industrie die wordt berekend door de beschikbaarheidswaarde te vermenigvuldigen met de prestatiewaarde en de kwaliteitswaarde: OEE = beschikbaarheid x prestaties x kwaliteit.
 
 Verder kunt u de OEE voor elk niveau in de hiërarchiegegevens analyseren. Klik op het percentage voor OEE, beschikbaarheid, prestaties of kwaliteit. Er wordt een contextvenster weergegeven met visualisaties die gegevens weergeven voor verschillende tijdschalen:
 
-[![ODetails van verall equipment efficiency](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Details van algemene apparatuurefficiëntie](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 U kunt op een grafiek klikken om de gegevens verder te analyseren.
 
@@ -88,11 +88,11 @@ U kunt op een grafiek klikken om de gegevens verder te analyseren.
 
 In het venster **Key Performance Indicators** worden het aantal geproduceerde eenheden per uur en de energie (kWh) die wordt verbruikt door de hele onderneming of door de factory, de productielijn of het station die/dat u bekijkt weergegeven. Deze waarden worden geaggregeerd van de stationsweergave naar het ondernemingsniveau.
 
-[![KEY prestatie-indicatoren](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![Key Performance Indicators](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Verder kunt u de KPI’s voor elk niveau in de hiërarchiegegevens analyseren. Klik op het percentage voor OEE, beschikbaarheid, prestaties of kwaliteit. Er wordt een contextvenster weergegeven met visualisaties die gegevens weergeven voor verschillende tijdschalen:
 
-[![KDetails van PI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KPI-details](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 U kunt op een grafiek klikken om de gegevens verder te analyseren.
 
@@ -100,7 +100,7 @@ U kunt op een grafiek klikken om de gegevens verder te analyseren.
 
 Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossingsversneller voor het eerst uitvoert,wordt in het dashboard een gesimuleerde set met factory's weergegeven. De simulatie van elke productielijn bestaat uit drie echte OPC UA-servers die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen over verbonden factory's](iot-accelerators-faq-cf.md) voor meer informatie over OPC UA:
 
-[![Factory locaties](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Factory-locaties](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 U kunt door de oplossingshiërarchie navigeren en waarden van de OEE en KPI's op elk niveau weergeven:
 
@@ -112,19 +112,19 @@ U kunt door de oplossingshiërarchie navigeren en waarden van de OEE en KPI's op
 
 1. Klik op **Energieverbruik**. U ziet enkele grafieken waarin deze waarde in verschillende tijdschalen is uitgezet. U kunt op een grafiek klikken om de gegevens verder te analyseren.
 
-[![VDetails weergeven energieverbruik](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![Energieverbruik weergeven](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Kaart
 
 Als u met uw abonnement toegang hebt tot de [Bing Kaarten-API](iot-accelerators-faq-cf.md), wordt op de kaart *Factory's* de geografische locatie en de status van alle factory's in de oplossing weergegeven. Klik op de locaties op de kaart om in te zoomen op de locatiedetails.
 
-[![Map](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Kaart](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Waarschuwingen
 
 In het venster **Waarschuwingen** worden waarschuwingen weergegeven die worden gegenereerd wanneer een gemelde waarde of een berekende OEE-/KPI-waarde een drempelwaarde overschrijdt. In dit venster worden waarschuwingen van elk niveau van de hiërarchie weergegeven, van stationsniveau tot het gehele bedrijf. Elke waarschuwing bevat een beschrijving, datum, tijd, locatie en het aantal instanties:
 
-[![Alarms](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
+[![Waarschuwingen](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
 U kunt de gegevens die de waarschuwing hebben veroorzaakt vanuit het dashboard analyseren. Als u een beheerder bent, kunt u standaardacties uitvoeren voor de waarschuwingen, zoals:
 
@@ -133,7 +133,7 @@ U kunt de gegevens die de waarschuwing hebben veroorzaakt vanuit het dashboard a
 
 Klik op een van de waarschuwingen in de vervolgkeuzelijst **Kies een actie**, kies **Waarschuwing bevestigen** en klik vervolgens op **Toepassen**:
 
-[![Acknowledge alarm](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![Waarschuwing bevestigen](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Klik op de grafiek in het paneel Waarschuwingen om de waarschuwingsgegevens verder te analyseren.
 
@@ -154,4 +154,4 @@ In deze snelstart hebt u de oplossingsversneller voor verbonden factory’s geï
 Voor informatie over het gebruik van andere functies in het dashboard voor het beheren van uw industriële IoT-apparaten gaat u verder met de volgende handleiding:
 
 > [!div class="nextstepaction"]
-> [Gebruik het dashboard van Connected Factory](iot-accelerators-connected-factory-dashboard.md)
+> [Het dashboard Verbonden factory gebruiken](iot-accelerators-connected-factory-dashboard.md)

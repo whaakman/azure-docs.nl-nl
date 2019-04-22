@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495733"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Voorbeeld: Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-De bovenstaande code wordt uitgevoerd in de browser laden van de pagina jQuery gebruikersinterface automatisch aanvullen voor het invoervak "example1a" configureren.  `minLength: 3` zorgt ervoor dat aanbevelingen alleen worden weergegeven wanneer er ten minste drie tekens in het zoekvak.  De bronwaarde is belangrijk:
+De bovenstaande code wordt uitgevoerd in de browser laden van de pagina jQuery gebruikersinterface automatisch aanvullen voor het invoervak "example1a" configureren.  `minLength: 3` zorgt ervoor dat aanbevelingen alleen worden weergegeven wanneer er zich ten minste drie tekens in het zoekvak bevinden.  De bronwaarde is belangrijk:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

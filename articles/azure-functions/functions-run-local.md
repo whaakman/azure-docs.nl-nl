@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495529"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
@@ -138,7 +138,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
 | **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
@@ -181,7 +181,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 }
 ```
 
-| Instelling      | Description                            |
+| Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
 | **`Values`** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [ `FUNCTIONS_WORKER_RUNTIME` ] instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
@@ -193,10 +193,10 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
 
 * [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
-* [C#-script (.csx)](functions-reference-csharp.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
 * [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
-* [Javascript](functions-reference-node.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 Wanneer er is geen geldige verbindingsreeks is ingesteld voor [ `AzureWebJobsStorage` ] en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
 
@@ -265,7 +265,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 U kunt deze opties ook opgeven in de opdracht met behulp van de volgende argumenten:
 
-| Argument     | Description                            |
+| Argument     | Beschrijving                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versie 2.x) Genereert de dezelfde C#-script (.csx) sjablonen die worden gebruikt in versie 1.x en in de portal. |
 | **`--language -l`**| De sjabloon programmeertaal, zoals C#, F#, of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x gebruikt, geen gebruik deze optie of kies een taal die overeenkomt met de worker-runtime. |
@@ -296,7 +296,7 @@ De `host` opdracht is alleen vereist in versie 1.x.
 
 `func host start` ondersteunt de volgende opties:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Er is geen huidige project build voordat u doen. Voor dotnet projecten. Standaard is ingesteld op false. Versie 2.x alleen. |
 | **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. |
@@ -435,7 +435,7 @@ Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van t
 
 Opties voor het volgende project publiceren worden alleen ondersteund in versie 2.x:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
@@ -485,7 +485,7 @@ Naar het bestand een bug of functie-aanvraag [opent u een GitHub-probleem](https
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 ['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

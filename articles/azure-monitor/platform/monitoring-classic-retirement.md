@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983165"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678102"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -23,7 +23,7 @@ Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingestel
 
  ![Klassieke waarschuwing in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-We raden u aan de slag en opnieuw maken van uw waarschuwingen in het nieuwe platform. Voor klanten met een groot aantal waarschuwingen kunnen wij werken aan een geautomatiseerde manier om te verplaatsen van bestaande klassieke waarschuwingen naar de nieuwe waarschuwingensysteem zonder onderbreking of kosten toegevoegd.
+We raden u aan de slag en opnieuw maken van uw waarschuwingen in het nieuwe platform. Voor klanten die een groot aantal waarschuwingen hebt, zijn we [rolling out in fasen](alerts-understand-migration.md#roll-out-phases), een [hulpprogramma voor migratie op vrijwillige](alerts-using-migration-tool.md) bestaande klassieke waarschuwingen verplaatsen naar het nieuwe waarschuwingensysteem zonder onderbreking of extra kosten.
 
 > [!IMPORTANT]
 > Klassieke waarschuwingsregels die zijn gemaakt voor activiteitenlogboeken wordt niet afgeschaft of gemigreerd. Alle klassieke waarschuwingsregels voor activiteitenlogboeken gemaakt kunnen worden geopend en gebruikt als-afkomstig is van de nieuwe Azure Monitor - waarschuwingen. Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). Waarschuwingen over Service Health op deze manier kunnen worden geopend en gebruikt als-afkomstig is van de nieuwe sectie van de status van de Service. Zie voor meer informatie, [waarschuwingen op servicestatusmeldingen](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -60,13 +60,14 @@ Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bi
 
 Aan het einde van juni 2019, in Azure Monitor:
 
-- Klassieke service voor bewaking en waarschuwingen worden buiten gebruik is gesteld en niet meer beschikbaar zijn voor het maken van nieuwe regels voor waarschuwingen
+- Klassieke service voor bewaking en waarschuwingen worden buiten gebruik is gesteld en niet meer beschikbaar zijn voor het maken van nieuwe regels voor waarschuwingen.
 - Geen waarschuwingsregels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijven uitvoeren en meldingen worden geactiveerd, maar niet meer beschikbaar voor de wijziging.
-- Vanaf juli 2019, worden geen waarschuwingsregels in klassieke bewaking en waarschuwingen automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe Azure monitor-platform. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
-- Ontvang een waarschuwing regels die zijn gemigreerd naar de nieuwe waarschuwingen platform biedt controle dekking als voorheen maar melding met de nieuwe nettoladingen wordt geactiveerd. Een e-mailadres, een webhook-eindpunt of een logic app-koppeling die is gekoppeld aan een klassieke waarschuwingsregel getransporteerd wanneer gemigreerd, maar mogelijk niet juist werken als alert payload verschillend voor het nieuwe platform zijn
+- Vanaf juli 2019, waarschuwingsregels in klassieke bewaking en waarschuwingen die kunnen worden gemigreerd, worden automatisch verplaatst door Microsoft aan het equivalent hiervan in het nieuwe Azure monitor-platform. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
+- Ontvang een waarschuwing regels die zijn gemigreerd naar de nieuwe waarschuwingen platform biedt controle dekking als voorheen maar melding met de nieuwe nettoladingen wordt geactiveerd. Een e-mailadres, een webhook-eindpunt of een logic app-koppeling die is gekoppeld aan een klassieke waarschuwingsregel getransporteerd wanneer gemigreerd, maar mogelijk niet juist werken als alert payload verschillend voor het nieuwe platform zijn.
+- Sommige [klassieke waarschuwingsregels die automatisch kunnen niet worden gemigreerd](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) en vereisen handmatige actie van de gebruikers blijven actief tot juni 2020.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor biedt hulpprogramma's voor klanten voor het migreren van automatisch hun klassieke waarschuwingsregels u aan bij het nieuwe platform beschikbaar. En voer dit geforceerd beëindigd voor alle klassieke waarschuwingsregels die nog steeds aanwezig, vanaf juli 2019. Klanten moet ervoor zorgen automation in beslag nemen klassieke waarschuwingsregel nettolading is aangepast voor het afhandelen van de nettolading van de nieuwe van [Unified metrische gegevens en waarschuwingen in Application Insights](#unified-metrics-and-alerts-in-application-insights) of [Unified metrische gegevens en waarschuwingen voor andere Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), na de migratie van de klassieke waarschuwingsregels. 
+> Microsoft Azure Monitor is geïmplementeerd in fasen [hulpprogramma voor het migreren van vrijwillig](alerts-using-migration-tool.md) hun klassieke waarschuwingsregels u aan bij het nieuwe platform beschikbaar. En voer dit geforceerd beëindigd voor alle klassieke waarschuwingsregels die nog steeds aanwezig zijn en kunnen worden gemigreerd, vanaf juli 2019. Klanten moet ervoor zorgen automation in beslag nemen klassieke waarschuwingsregel nettolading is aangepast voor het afhandelen van de nettolading van de nieuwe van [Unified metrische gegevens en waarschuwingen in Application Insights](#unified-metrics-and-alerts-in-application-insights) of [Unified metrische gegevens en waarschuwingen voor andere Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), na de migratie van de klassieke waarschuwingsregels. Zie voor meer informatie, [voorbereiden voor migratie van een klassieke waarschuwingsregel](alerts-prepare-migration.md)
 
 Hulpprogramma's kunt u uw waarschuwingen van vrijwillig migratie zal binnenkort worden geboden [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure-portal naar de nieuwe Azure-waarschuwingen. Alle regels die zijn geconfigureerd in waarschuwingen (klassiek) die worden gemigreerd naar nieuwe Azure Monitor, gratis blijven en niet in rekening gebracht. Gemigreerde regels voor klassieke waarschuwingen worden kosten in rekening gebracht voor het pushen van meldingen via e-mail, webhook of LogicApp ook niet voorzien. Gebruik van de nieuwere melding of actie typen (zoals SMS, Spraakoproep, ITSM-integratie, enzovoort) is gebracht of toegevoegd aan een gemigreerde of een nieuwe waarschuwing. Zie voor meer informatie, [prijzen voor Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -84,4 +85,3 @@ In dit artikel wordt voortdurend bijgewerkt met informatie over de nieuwe Azure 
 
 * Meer informatie over de [nieuwe geïntegreerde Azure Monitor](../../azure-monitor/overview.md).
 * Meer informatie over de nieuwe [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
-

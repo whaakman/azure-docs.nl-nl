@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852590"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Zelfstudie: Azure Active Directory-integratie met Apex Portal
 
@@ -68,7 +69,7 @@ Als u de integratie van Apex Portal met Azure AD wilt configureren, moet u Apex 
 
 4. Typ in het zoekvak **Apex Portal** in, selecteer **Apex Portal** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![Apex Portal in de resultatenlijst](common/search-new-app.png)
+    ![Apex Portal in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -106,9 +107,9 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Apex Porta
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Apex Portal](common/idp-intiated.png)
 
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met het [Apex Portal Client-ondersteuningsteam](mailto:support@apexanalytix.com) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -120,7 +121,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Apex Porta
 6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
     | Name | Bronkenmerk|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | VOORNAAM | user.givenname |
     | ACHTERNAAM | user.surname |
     | E-MAIL | user.mail |
@@ -180,8 +181,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In de **gebruikersnaam** veldtype `brittasimon\@yourcompanydomain.extension`. Bijvoorbeeld BrittaSimon@contoso.com.
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -233,4 +233,3 @@ Wanneer u in het toegangsvenster op de tegel Apex Portal klikt, wordt u automati
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

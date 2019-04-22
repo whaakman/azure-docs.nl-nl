@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540666"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680895"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -216,7 +216,7 @@ Nee. In openbare preview, kunt u een grote database niet verplaatsen naar een an
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Ik alle functionaliteit en mogelijkheden na de migratie naar de servicelaag grootschalige verlies
 
-Ja. Sommige functies van Azure SQL Database worden niet ondersteund in grootschalige tijdens de openbare preview, inclusief maar niet beperkt tot de lange termijn bewaren back-up. Nadat u uw databases naar grootschalige migreren, deze functies werken niet meer.
+Ja. Langdurige retentie back-ups in Azure SQL Database wordt niet ondersteund in grootschalige tijdens de openbare preview. Nadat u uw databases naar grootschalige migreert, wordt met deze functie werkt niet.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Ik kan mijn on-premises SQL Server-database of de SQL Server-database voor virtuele machine verplaatsen naar grootschalige
 
@@ -295,7 +295,7 @@ Nee. De opslagindeling voor grote databases verschilt van traditionele SQL Serve
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Ik alle functionaliteit en mogelijkheden na de migratie naar de servicelaag grootschalige verlies
 
-Ja. Sommige functies van Azure SQL Database worden niet ondersteund in grootschalige tijdens de openbare preview, inclusief maar niet beperkt tot de TDE en lange termijn bewaren back-up. Nadat u uw databases naar grootschalige migreren, deze functies werken niet meer.
+Ja. Langdurige retentie back-ups in Azure SQL Database wordt niet ondersteund in grootschalige tijdens de openbare preview. Nadat u uw databases naar grootschalige migreert, wordt met deze functie werkt niet.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Will Polybase in combinatie met SQL Database grootschalige
 

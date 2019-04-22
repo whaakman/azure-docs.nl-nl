@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 1468268e407eeac6196c8e8e4db0fc5a52ca09c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501566"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Quickstart: SSH/RDP via IoT Hub-apparaatstreams met behulp van C#-proxytoepassingen (preview)
@@ -53,7 +53,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 * De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
   * **US - centraal**
-  * **US - centraal EUAP**
+  * **VS-midden EUAP**
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
@@ -210,4 +210,4 @@ In deze quickstart hebt u een IoT Hub ingesteld, een apparaat geregistreerd, een
 Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 
 > [!div class="nextstepaction"]
-> [Overzicht van de stromen van apparaat](./iot-hub-device-streams-overview.md)
+> [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)

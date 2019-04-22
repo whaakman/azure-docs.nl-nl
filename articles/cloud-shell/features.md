@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500614"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
@@ -65,7 +65,7 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 |Broncodebeheer         |git                    |
 |Hulpprogramma's bouwen            |Maken<br> maven<br> npm<br> pip         |
 |Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Databases              |MySQL-client<br> PostgreSql-client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-scripts](https://github.com/Microsoft/sql-xplat-cli) |
+|Databases              |MySQL-client<br> PostgreSql-client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>Taalondersteuning

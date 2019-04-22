@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792396"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680278"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Functies van Azure AD Connect sync-service
 
@@ -96,7 +96,7 @@ In het verleden updates voor het kenmerk UserPrincipalName met behulp van de syn
 
 Zie voor meer informatie, [gebruikersnamen in Office 365, Azure of Intune komen niet overeen met de on-premises UPN of alternatieve aanmeldings-ID](https://support.microsoft.com/kb/2523192).
 
-Inschakelen van deze functie kunt de synchronisatie-engine bijwerken van de userPrincipalName wanneer het gewijzigde on-premises is en u synchronisatie van wachtwoordhashes gebruiken. Als u Federatie, wordt deze functie wordt niet ondersteund.
+Inschakelen van deze functie kunt de synchronisatie-engine bijwerken van de userPrincipalName wanneer het gewijzigde on-premises is en u wachtwoord-hash-synchronisatie of Pass through-verificatie gebruiken. Als u Federatie, wordt deze functie wordt niet ondersteund.
 
 Deze functie is standaard ingeschakeld voor zojuist gemaakt Azure AD-mappen. U kunt zien of deze functie is ingeschakeld voor u door te voeren:  
 

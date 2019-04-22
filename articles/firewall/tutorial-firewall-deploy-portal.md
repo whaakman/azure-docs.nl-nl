@@ -9,10 +9,10 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492308"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
@@ -257,4 +257,4 @@ U kunt de firewall-resources voor de volgende zelfstudie bewaren. Als u ze niet 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Azure-Firewall-logboeken bewaken](./tutorial-diagnostics.md)
+> [Zelfstudie: Azure Firewall-logboeken bewaken](./tutorial-diagnostics.md)

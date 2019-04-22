@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496587"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor
@@ -68,8 +68,7 @@ Als u wilt zoeken de *naam* van uw Automation-account, selecteert u in Azure por
 
 Na dit script is uitgevoerd, duurt een uur voordat u begint met de records worden weergegeven in Azure Monitor-logboeken van de nieuwe JobLogs of JobStreams wordt geschreven.
 
-Als u wilt zien van de logboeken, moet u de volgende query uitvoeren in log analytics zoeken in Logboeken:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Als u wilt zien van de logboeken, moet u de volgende query uitvoeren in log analytics zoeken in Logboeken: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Configuratie controleren
 
@@ -90,7 +89,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 
 ### <a name="job-logs"></a>Taaklogboeken
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
 | RunbookName_s |De naam van het runbook. |
@@ -137,8 +136,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 
 Nu dat u uw Automation-taaklogboeken verzenden naar Azure Monitor-logboeken eerst, laten we zien wat u kunt doen met deze logboeken in Logboeken van Azure Monitor.
 
-Als u wilt zien van de logboeken, voer de volgende query uit:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Als u wilt zien van de logboeken, voer de volgende query uit: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Een e-mailbericht verzenden wanneer een runbook-taak is mislukt of wordt onderbroken
 Een van de grote klanten wordt gevraagd de mogelijkheid voor het verzenden van een e-mailadres of een SMS-bericht wanneer er iets met een runbook-taak misgaat.   

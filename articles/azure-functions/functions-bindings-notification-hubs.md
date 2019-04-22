@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490959"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs-Uitvoerbinding voor Azure Functions
@@ -46,11 +46,11 @@ De meldingen die u verzendt systeemeigen meldingen kunnen worden of [Sjabloonmel
 Zie het voorbeeld taalspecifieke:
 
 * [C#-script - uit-parameter](#c-script-template-example---out-parameter)
-* [C#-script - asynchrone](#c-script-template-example---asynchronous)
+* [C# script - asynchronous](#c-script-template-example---asynchronous)
 * [C# script - JSON](#c-script-template-example---json)
 * [C#-script - bibliotheek typen](#c-script-template-example---library-types)
 * [F#](#f-template-example)
-* [Javascript](#javascript-template-example)
+* [JavaScript](#javascript-template-example)
 
 ### <a name="c-script-template-example---out-parameter"></a>C#-script-voorbeeldsjabloon - uit-parameter
 
@@ -256,12 +256,12 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** |N.v.t.| Moet worden ingesteld op 'notificationHub'. |
-|**richting** |N.v.t.| Moet worden ingesteld op 'out'. | 
-|**naam** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
+|**direction** |N.v.t.| Moet worden ingesteld op 'out'. | 
+|**De naam** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
 |**tagExpression** |**TagExpression** | Code-expressies kunnen u opgeven dat meldingen worden geleverd aan een set met apparaten die zijn geregistreerd voor het ontvangen van meldingen die overeenkomen met de tagexpressie.  Zie voor meer informatie, [Routering en tag expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | De naam van de resource voor notification hub in Azure portal. |
 |**verbinding** | **connectionStringSetting** | De naam van een app-instelling met een verbindingsreeks Notification Hubs.  De verbindingsreeks moet worden ingesteld op de *DefaultFullSharedAccessSignature* waarde voor de notification hub. Zie [verbindingsinstellingen voor tekenreeks](#connection-string-setup) verderop in dit artikel.|
-|**Platform** | **Platform** | De eigenschap platform geeft het clientplatform uw doelen melding. Standaard, als de eigenschap platform wordt weggelaten uit de Uitvoerbinding kunnen Sjabloonmeldingen worden gebruikt om u te richten op elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen voor het verzenden van cross-platform kunt verzenden met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Als de waarde, **platform** moet een van de volgende waarden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APN's en de melding ontvangen in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een app Kindle [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie, [aan de slag met Notification Hubs voor Windows Universal Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie, [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**platform** | **Platform** | De eigenschap platform geeft het clientplatform uw doelen melding. Standaard, als de eigenschap platform wordt weggelaten uit de Uitvoerbinding kunnen Sjabloonmeldingen worden gebruikt om u te richten op elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen voor het verzenden van cross-platform kunt verzenden met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Als de waarde, **platform** moet een van de volgende waarden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APN's en de melding ontvangen in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een app Kindle [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie, [aan de slag met Notification Hubs voor Windows Universal Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie, [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

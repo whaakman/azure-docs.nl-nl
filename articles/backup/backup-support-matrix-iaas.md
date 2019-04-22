@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496092"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
@@ -28,7 +28,7 @@ Andere matrices ondersteuning:
 
 Hier volgt hoe u een back-up en herstellen van virtuele Azure-machines met de Azure Backup-service.
 
-**Scenario** | **Backup** | **Agent** |**Herstellen**
+**Scenario** | **Een back-up maken** | **Agent** |**Herstellen**
 --- | --- | --- | ---
 Directe back-ups van virtuele Azure-machines  | Back-up de hele virtuele machine.  | Geen agent is vereist op de virtuele machine van Azure. Azure Backup wordt geïnstalleerd en maakt gebruik van een uitbreiding van de [Azure VM-agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) die wordt uitgevoerd op de virtuele machine. | Als volgt herstellen:<br/><br/> - **Een basis-VM maken**. Dit is handig als de virtuele machine geen speciale configuratie, zoals meerdere IP-adressen heeft.<br/><br/> - **De VM-schijf herstellen**. Herstel de schijf. Vervolgens koppelt u deze aan een bestaande virtuele machine of een nieuwe virtuele machine maken van de schijf met behulp van PowerShell.<br/><br/> - **VM-schijf vervangen**. Als een virtuele machine bestaat en maakt gebruik van beheerde schijven (niet-versleutelde), kunt u een schijf herstellen en deze gebruiken om te vervangen door een bestaande schijf op de virtuele machine.<br/><br/> - **Specifieke bestanden/mappen herstellen**. U kunt bestanden/mappen herstellen van een virtuele machine in plaats van uit de hele virtuele machine.
 Directe back-ups van virtuele Azure-machines (alleen Windows)  | Back-up van bepaalde bestanden/mappen/volume. | Installeer de [Azure Recovery Services-agent](backup-azure-file-folder-backup-faq.md).<br/><br/> U kunt de MARS-agent samen met de Backup-extensie voor de Azure VM-agent back-up van de virtuele machine op het niveau van bestanden/mappen kunt uitvoeren. | Specifieke mappen/bestanden herstellen.
@@ -38,7 +38,7 @@ Meer informatie over back-up [met behulp van een back-upserver](backup-architect
 
 ## <a name="supported-backup-actions"></a>Ondersteunde back-acties
 
-**Bewerking** | **Ondersteuning**
+**Actie** | **Ondersteuning**
 --- | ---
 Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
 Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
@@ -69,7 +69,7 @@ Back-up met DPM/MABS | Ondersteunde besturingssystemen voor back-up met [MABS](b
 
 Dit wordt ondersteund als u een back-up wilt maken van Linux-machines.
 
-**Bewerking** | **Ondersteuning**
+**Actie** | **Ondersteuning**
 --- | ---
 Back-up van Linux Azure-VM's met de Linux Azure VM-agent | Consistente back-up.<br/><br/> App-consistente back-up met behulp van [aangepaste scripts](backup-azure-linux-app-consistent.md).<br/><br/> Tijdens het terugzetten, kunt u een nieuwe virtuele machine maken, een schijf herstellen en deze gebruiken om te maken van een virtuele machine, of een schijf herstellen en deze gebruiken om te vervangen door een schijf op een bestaande virtuele machine. U kunt ook afzonderlijke bestanden en mappen herstellen.
 Back-up van Linux Azure-VM's met de MARS-agent | Wordt niet ondersteund.<br/><br/> De MARS-agent kan alleen worden geïnstalleerd op Windows-machines.
@@ -212,7 +212,7 @@ Gegevensbeveiliging:
 - Op de backend maakt Azure Backup gebruik van [Azure Storage Service-versleuteling](../storage/common/storage-service-encryption.md), waarmee data-at-rest worden beschermd.
 
 
-**Machine** | **In-transit** | **AT-rest**
+**Machine** | **In-transit** | **Inactief**
 --- | --- | ---
 On-premises Windows-machines zonder DPM/MABS | ![Ja][green] | ![Ja][green]
 Azure-VM's | ![Ja][green] | ![Ja][green]

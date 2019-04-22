@@ -13,18 +13,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203672"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679105"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnose van fouten met de Azure Active Directory Connected Service
 
 Tijdens het detecteren van vorige verificatiecode op te geven, de Azure Active Directory connect-server heeft een niet-compatibele verificatietype dat wordt gedetecteerd.
 
-Als u wilt detecteren correct vorige verificatiecode op te geven in een project, moet het project worden gebouwd.  Als u deze fout is opgetreden en u geen een vorige verificatiecode op te geven in uw project, opnieuw en probeer het opnieuw.
+Als u wilt detecteren correct vorige verificatiecode op te geven in een project, moet het project worden gebouwd.  Als u deze fout ziet en u geen een vorige verificatiecode op te geven in uw project, opnieuw en probeer het opnieuw.
 
 ## <a name="project-types"></a>Projecttypen
 
@@ -32,7 +32,7 @@ De gekoppelde service controleert het type project dat u ontwikkelt, zodat deze 
 
 ## <a name="compatible-authentication-code"></a>Compatibel verificatiecode op te geven
 
-Verificatie-instellingen die eerder zijn geconfigureerd of compatibel zijn met de service controleert ook de gekoppelde service. Alle instellingen aanwezig zijn, dit als een herhaalde aanvraag wordt beschouwd als de gekoppelde service, verschijnt de instellingen worden weergegeven.  Als er slechts enkele van de instellingen aanwezig zijn, wordt deze beschouwd als een foutaanvraag.
+Verificatie-instellingen die eerder zijn geconfigureerd of compatibel zijn met de service controleert ook de gekoppelde service. Als alle instellingen aanwezig zijn, heeft deze een herhaalde aanvraag beschouwd en de instellingen worden weergegeven door de gekoppelde service wordt geopend.  Als er slechts enkele van de instellingen aanwezig zijn, is het geval is een fout beschouwd.
 
 In een MVC-project controleert de gekoppelde service voor het gebruik van de volgende instellingen, die het resultaat zijn van vorige gebruik van de service:
 
@@ -41,7 +41,7 @@ In een MVC-project controleert de gekoppelde service voor het gebruik van de vol
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Bovendien worden de verbonden service voor het gebruik van de volgende instellingen in een Web-API-project die het resultaat zijn van vorige gebruik van de service controleert:
+De gekoppelde service controleert ook voor het gebruik van de volgende instellingen in een Web-API-project die het resultaat zijn van vorige gebruik van de service:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -60,7 +60,7 @@ Voor het detecteren van Windows-verificatie in een MVC-project, het verbonden zo
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ Voor het detecteren van Windows-verificatie in een Web-API-project, de gekoppeld
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ Voor het detecteren van afzonderlijke gebruikersaccounts verificatie, de gekoppe
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ Voor het detecteren van een oude vorm van verificatie van de organisatie-Account
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

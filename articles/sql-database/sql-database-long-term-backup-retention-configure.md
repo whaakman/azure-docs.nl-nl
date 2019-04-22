@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/17/2019
+ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855466"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680516"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
@@ -43,6 +43,9 @@ U kunt SQL-Database te configureren [automatische back-ups](sql-database-long-te
    ![configureren van beleid](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 3. Als u klaar bent, klikt u op **toepassen**.
+
+> [!IMPORTANT]
+> Wanneer u een beleid met een langetermijnbewaarperiode back-up inschakelt, is het duurt maximaal zeven dagen voor de eerste back-up zichtbaar en beschikbaar zijn om terug te zetten. Zie voor meer informatie van de LTR-back-up cadance [langetermijnretentie](sql-database-long-term-retention.md).
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Weergeven van back-ups en herstellen vanuit een back-up met behulp van Azure portal
 

@@ -1,21 +1,21 @@
 ---
 title: Informatie over het beheren van conflicten tussen regio’s in Azure Cosmos DB
 description: Informatie over het beheren van conflicten in Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: 6f4e6fce88815490ceffd7456cde045b38e32b29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548816"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680210"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Conflictoplossingsbeleid beheren in Azure Cosmos DB
 
-Wanneer een conflict optreedt bij schrijfbewerkingen in meerdere regio’s, kunt u het conflict oplossen met behulp van verschillende beleidsregels voor conflictoplossing. In dit artikel wordt beschreven hoe u conflictoplossingsbeleid beheert met behulp van verschillende taalplatformen.
+Wanneer meerdere clients naar hetzelfde item schrijven, kunnen met schrijfbewerkingen in meerdere regio's, veroorzaakt een conflict optreden. Wanneer er een conflict optreedt, kunt u het conflict kan oplossen met behulp van verschillende conflict resolutie beleid. In dit artikel wordt beschreven hoe u conflict resolutie beleidsregels beheren.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Aangepast conflictoplossingsbeleid maken
 
@@ -82,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Een aangepast conflictoplossingsbeleid maken met een opgeslagen procedure
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure.
+Deze voorbeelden laten zien hoe het instellen van een container met een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -162,9 +162,9 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
+## <a name="create-a-last-writer-wins-lww-conflict-resolution-policy"></a>Laatste schrijver Wins (LWW) conflict resolutie beleid maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Als het pad niet is ingesteld of ongeldig is, wordt het standaard ingesteld op de eigenschap `_ts`. Deze eigenschap is het tijdstempelveld. Deze conflicten worden niet weergegeven in de conflictfeed.
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Als het pad niet is ingesteld of ongeldig is, wordt het standaard ingesteld op de eigenschap `_ts`. Deze eigenschap is het tijdstempelveld. Deze conflicten, niet weergegeven in de feed conflict.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -233,7 +233,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Lezen uit conflictfeed
 
-Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Conflicten worden alleen in de conflictfeed weergegeven als ze niet automatisch zijn opgelost.
+Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Veroorzaakt een conflict weergegeven in het conflict feed alleen als ze niet automatisch, bijvoorbeeld, opgelost zijn u hebt ervoor gekozen een handmatige conflict resolutie beleid en de opgeslagen procedure niet registreren.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -285,6 +285,10 @@ while conflict:
 
 Meer informatie over de volgende Azure Cosmos DB-concepten:
 
+* [Wereldwijde distributie - achter de schermen](global-dist-under-the-hood.md)
+* [Meerdere masters in uw toepassingen configureren](how-to-multi-master.md)
+* [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Toevoegen of verwijderen van regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Meerdere masters configureren in uw toepassingen](how-to-multi-master.md).
 * [Partitionering en gegevensdistributie](partition-data.md)
 * [Indexering in Azure Cosmos DB](indexing-policies.md)

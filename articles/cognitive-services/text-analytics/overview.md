@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
 ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500376"
 ---
 # <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
@@ -67,7 +67,7 @@ U kunt beginnen met de Tekstanalyse-API in uw processen, zelfs als u geen veel e
     * [Gebruik de Tekstanalyse-API en Microsoft Flow voor het identificeren van het gevoel van opmerkingen in een Yammer-groep](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Power BI integreren met de Tekstanalyse-API voor het analyseren van feedback van klanten](tutorials/tutorial-power-bi-key-phrases.md)
 * De ervaring voor programmeren aanbevolen:
-    * [Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Sentimentanalyse over het streamen van gegevens met behulp van Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Tekst vertalen, sentiment analyseren en spraak bootsen een Flask-app bouwen](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
 
 

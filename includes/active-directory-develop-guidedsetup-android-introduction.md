@@ -15,10 +15,10 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59503070"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph aanroepen vanuit een Android-app
@@ -52,6 +52,6 @@ In dit voorbeeld maakt gebruik van de Microsoft Authentication library voor Andr
 
 Deze handleiding worden de volgende verificatiebibliotheek gebruikt:
 
-|Bibliotheek|Description|
+|Bibliotheek|Beschrijving|
 |---|---|
 |[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|

@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499934"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-platform en de wachtwoordreferenties van OAuth 2.0-resource-eigenaar
@@ -86,7 +86,7 @@ Hier volgt een voorbeeld van een geslaagde respons token:
 }
 ```
 
-| Parameter | Indeling | Beschrijving |
+| Parameter | Indeling | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String | Altijd ingesteld op `Bearer`. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn deze parameter de scopes die het toegangstoken is ongeldig voor. |

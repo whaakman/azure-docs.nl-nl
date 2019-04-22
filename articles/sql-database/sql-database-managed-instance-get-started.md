@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/10/2019
 ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495034"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Een beheerd exemplaar van Azure SQL Database maken
@@ -42,11 +42,11 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 
 4. Vul het formulier voor het **Met SQL beheerd exemplaar** in met behulp van de gegevens in onderstaande tabel:
 
-   | Instelling| Voorgestelde waarde | Beschrijving |
+   | Instelling| Voorgestelde waarde | Description |
    | ------ | --------------- | ----------- |
    | **Abonnement** | Uw abonnement | Een abonnement met toestemming voor het maken van nieuwe resources. |
    |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen.|
-   |**Beheerdersaanmeldgegevens voor het beheerde exeplaar**|Een geldige gebruikersnaam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.|
+   |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.|
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Tijdzone**|De tijdzone moet worden gevolgd door uw beheerde exemplaar|Zie voor meer informatie, [tijdzones](sql-database-managed-instance-timezone.md)|
    |**Sortering**|De sortering die u wilt gebruiken voor uw beheerde exemplaar|Als u SQL Server-databases wilt migreren, moet u de bronsortering `SELECT SERVERPROPERTY(N'Collation')` controleren en die waarde gebruiken. Zie [Server-level collations](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) (Sorteringen op serverniveau) voor informatie over sorteringen.|

@@ -18,10 +18,10 @@ ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501328"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
@@ -722,8 +722,7 @@ Express Route kan meerdere Azure-abonnementen via een ExpressRoute-circuit, zoal
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Geforceerde tunneling in het geval van cross-premises
 Voor virtuele machines on-premises domeinen via site-naar-site-, punt-naar-site- of ExpressRoute toevoegen, moet u om ervoor te zorgen dat de Internet-proxy-instellingen voor alle gebruikers in deze virtuele machines ook zijn ophalen geïmplementeerd. Standaard software die wordt uitgevoerd in deze virtuele machines of gebruikers via een browser voor toegang tot het internet niet via de proxy-bedrijf wilt gaan, maar rechtstreeks via Azure met het internet verbinding te maken. Maar zelfs de proxy-instellingen is niet een 100%-oplossing om te leiden van het verkeer via de proxy-bedrijf omdat het is de verantwoordelijkheid van de software en services om te controleren voor de proxy. Als software die wordt uitgevoerd in de virtuele machine die niet actief of een beheerder de instellingen wordt bewerkt, verkeer naar Internet opnieuw kunt detoured rechtstreeks via Azure met het Internet.
 
-Om te voorkomen dat deze een directe verbinding met internet, kunt u geforceerde Tunneling configureren met site-naar-site-connectiviteit tussen on-premises en Azure. De gedetailleerde beschrijving van de functie geforceerde Tunneling is hier gepubliceerd
-<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+Om te voorkomen dat deze een directe verbinding met internet, kunt u geforceerde Tunneling configureren met site-naar-site-connectiviteit tussen on-premises en Azure. De gedetailleerde beschrijving van de functie geforceerde Tunneling is hier gepubliceerd <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 Geforceerde Tunneling met ExpressRoute wordt ingeschakeld door klanten kondigt een standaardroute via de ExpressRoute-BGP-peeringsessies.
 
@@ -754,8 +753,7 @@ Als een ruwe beslissingsstructuur om te bepalen of een SAP-systeem in Azure-Serv
 
 **Stap 1**: De belangrijkste informatie is te beginnen met de vereiste SAP's voor een bepaald SAP-systeem. De vereisten voor SAP's moeten worden onderverdeeld in het gedeelte DBMS en de SAP-toepassing-onderdeel, zelfs als de SAP-systeem al on-premises geïmplementeerd in een tier-2-configuratie is. Voor bestaande systemen, kunnen de SAP's vaak met betrekking tot de hardware gebruikt worden bepaald of geschat op basis van bestaande SAP benchmarks. De resultaten vindt u hier: <https://sap.com/about/benchmark.html>.
 Voor de zojuist geïmplementeerde SAP-systemen, moet u hebben doorlopen een oefening grootte, die de vereisten voor SAP's van het systeem te bepalen.
-Zie ook deze blog en bijgevoegde document voor schaling voor SAP op Azure:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Zie ook deze blog en bijgevoegde document voor schaling voor SAP op Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **Stap 2**: Voor bestaande systemen, moeten de i/o-volume en i/o-bewerkingen per seconde op de DBMS-server worden gemeten. Voor nieuwe geplande systemen geeft de grootte oefening voor het nieuwe systeem ook ruwe ideeën van de i/o-vereisten aan de DBMS-systemen. Als u niet zeker, moet u uw voor het uitvoeren van een Proof of Concept.
 
@@ -800,8 +798,7 @@ Meer gedetailleerde instructies over het installeren, bijwerken en configureren 
 
 Klantervaring is tot nu toe PowerShell (PS) is zeker de krachtige hulpprogramma voor virtuele machines te implementeren en te maken van aangepaste stappen in de implementatie van virtuele machines. Alle klanten die SAP-exemplaren worden uitgevoerd in Azure PS-cmdlets gebruiken om te voorzien in beheertaken zij in Azure portal of zelfs PS-cmdlets gebruikt uitsluitend bedoeld voor het beheren van implementaties in Azure. Omdat de Azure-specifieke cmdlets de dezelfde naamgevingsregel als de meer dan 2000 met betrekking tot Windows-cmdlets delen, is het een eenvoudige taak voor Windows-beheerders gebruikmaken van deze cmdlets.
 
-In dit voorbeeld Zie:
-<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+In dit voorbeeld Zie: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
 Implementatie van de Azure Monitoring-extensie voor SAP (Zie hoofdstuk [Azure Monitoring oplossing voor SAP] [ planning-guide-9.1] in dit document) is alleen mogelijk via PowerShell of CLI. Daarom is het verplicht te installeren en configureren van PowerShell of CLI bij het implementeren of beheren van een SAP NetWeaver-systeem in Azure.  
@@ -946,7 +943,7 @@ Een virtuele machine hoeft niet te worden gegeneraliseerd en in de status en vor
 ##### <a name="uploading-a-vhd-and-making-it-an-azure-disk"></a>Een VHD uploaden en het maken van een Azure-schijf
 In dit geval willen we een VHD, met of zonder een besturingssysteem, uploaden en koppelen aan een virtuele machine als gegevensschijf of die als besturingssysteemschijf. Dit is een proces met meerdere stappen
 
-**PowerShell**
+**Powershell**
 
 * Meld u aan bij uw abonnement met *Connect AzAccount*
 * Instellen van het abonnement van uw context met *Set AzContext* en parameter abonnements-id of SubscriptionName - bekijken <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
@@ -965,7 +962,7 @@ In dit geval willen we een VHD, met of zonder een besturingssysteem, uploaden en
 * Maak een nieuwe virtuele machine op te geven de geüploade VHD of beheerde schijf als besturingssysteemschijf met *az vm maken* en de parameter *--koppelen-os-schijf*
 * Een gegevensschijf toevoegen aan een nieuwe virtuele machine met *az vm disk attach* en de parameter *--nieuwe*
 
-**Template**
+**Sjabloon**
 
 * Uploaden van de VHD met Powershell of Azure CLI
 * (Optioneel) Maak een beheerde schijf van de VHD met Powershell, Azure CLI of Azure portal
@@ -993,7 +990,7 @@ Een bestaande virtuele machine of een VHD uploaden van de on-premises netwerk om
 * (Optioneel) De installatiekopie van een beheerde schijf maken van de VHD met *az afbeelding maken* -Zie https://docs.microsoft.com/cli/azure/image
 * Maak een nieuwe virtuele machine op te geven de geüploade VHD of installatiekopie voor beheerde schijf als besturingssysteemschijf met *az vm maken* en de parameter *--installatiekopie*
 
-**Template**
+**Sjabloon**
 
 * Gebruik *sysprep* op Windows of *waagent-inrichting* op Linux om te generaliseren van uw virtuele machine - Zie [technische documentatie van Sysprep](https://technet.microsoft.com/library/cc766049.aspx) voor Windows of [vastleggen een Virtuele Linux-machine om te gebruiken als een Resource Manager-sjabloon] [ capture-image-linux-step-2-create-vm-image] voor Linux
 * Uploaden van de VHD met Powershell of Azure CLI
@@ -1326,8 +1323,7 @@ Zie de architectuur verschil tussen het klassieke model en ARM, zoals beschreven
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuratie van de SAP-systeem- en SAP-GUI-connectiviteit via internet
 
-Raadpleeg dit artikel voor meer informatie in dit onderwerp wordt beschreven:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Raadpleeg dit artikel voor meer informatie in dit onderwerp wordt beschreven: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Firewall-instellingen in de virtuele machine wijzigen
 
@@ -2021,12 +2017,10 @@ Echter, in de loop van vorig jaar data center partners ontwikkelde CO locaties n
 Afhankelijk van de SAP-configuratie (Tier-2 of 3-Laagse) er gekozen kan back-up moet worden. De inhoud van de virtuele machine zelf plusteken om een back-up van de database. Back-ups met betrekking tot DBMS-systemen worden worden uitgevoerd met database-methoden verwacht. Een gedetailleerde beschrijving voor de verschillende databases, kunt u vinden in [DBMS-gids][dbms-guide]. Aan de andere kant kunnen de SAP-gegevens worden gemaakt op een offline manier (met inbegrip van de database-inhoud) zoals beschreven in deze sectie of online zoals beschreven in de volgende sectie.
 
 De offline back-up vereist in feite een afsluiten van de virtuele machine via de Azure-portal en een kopie van de virtuele machine basisschijf plus alle gekoppelde schijven aan de virtuele machine. Dit zou een punt in tijd afbeelding van de virtuele machine en de bijbehorende schijf behouden. Het verdient aanbeveling om te kopiëren van de back-ups naar een andere Azure Storage-Account. Daarom de procedure beschreven in het hoofdstuk [kopiëren van schijven tussen Azure-Opslagaccounts] [ planning-guide-5.4.2] van dit document wilt toepassen.
-Naast het afsluiten met behulp van de Azure portal een kunt ook dit doen via Powershell of CLI zoals hier wordt beschreven:
-<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Naast het afsluiten met behulp van de Azure portal een kunt ook dit doen via Powershell of CLI zoals hier wordt beschreven: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Terugzetten van deze status kan bestaan uit van het verwijderen van de basis-VM, evenals de oorspronkelijke schijven van de basis-VM en gekoppelde schijven, weer de schijven opgeslagen in de oorspronkelijke Storage-Account of resource-groep voor beheerde schijven kopiëren en vervolgens opnieuw het systeem te implementeren.
-In dit artikel ziet u een voorbeeld hoe u dit proces in Powershell-script:
-<http://www.westerndevs.com/azure-snapshots/>
+In dit artikel ziet u een voorbeeld hoe u dit proces in Powershell-script: <http://www.westerndevs.com/azure-snapshots/>
 
 Zorg ervoor dat u een nieuwe licentie voor SAP installeren omdat het herstellen van een virtuele machine back-up, zoals hierboven beschreven maakt u een nieuwe hardwaresleutel.
 
@@ -2050,8 +2044,7 @@ Andere virtuele machines binnen de SAP-systeem kunnen worden back-ups met behulp
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Er is geen equivalent voor Windows VSS in Linux. Alleen bestandsconsistente back-ups zijn daarom mogelijk, maar geen toepassingsconsistente back-ups. De SAP DBMS back-up moet worden uitgevoerd met behulp van DBMS-functionaliteit. Het bestandssysteem waarin de SAP-gerelateerde gegevens kan worden opgeslagen, bijvoorbeeld worden tar zoals beschreven hier gebruiken:
-> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Er is geen equivalent voor Windows VSS in Linux. Alleen bestandsconsistente back-ups zijn daarom mogelijk, maar geen toepassingsconsistente back-ups. De SAP DBMS back-up moet worden uitgevoerd met behulp van DBMS-functionaliteit. Het bestandssysteem waarin de SAP-gerelateerde gegevens kan worden opgeslagen, bijvoorbeeld worden tar zoals beschreven hier gebruiken: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

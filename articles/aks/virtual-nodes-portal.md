@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755262"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681026"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Voorbeeld: maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
@@ -32,6 +32,16 @@ De volgende regio's worden ondersteund voor implementaties met virtuele knooppun
 * West-Centraal VS (westcentralus)
 * West Europe (westeurope)
 * VS-West (VS West)
+
+## <a name="known-limitations"></a>Bekende beperkingen
+Virtuele knooppunten functionaliteit is sterk afhankelijk van de ACI-functieset. De volgende scenario's worden nog niet ondersteund met virtuele knooppunten
+
+* Met behulp van service-principal naar pull ACR afbeeldingen. [Tijdelijke oplossing](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is het gebruik van [Kubernetes-geheimen](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Beperkingen op het virtuele netwerk](../container-instances/container-instances-vnet.md) met inbegrip van VNet-peering, Kubernetes-netwerkbeleid en uitgaand verkeer naar internet met netwerkbeveiligingsgroepen.
+* Init containers
+* [Host-aliassen](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumenten](../container-instances/container-instances-exec.md#restrictions) voor exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribueert schillen niet aan de virtuele-knooppunt
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

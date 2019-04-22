@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df8cb048964830f62fe483da63d24356f46538b7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO by Microsoft (V5.2)
@@ -35,7 +35,7 @@ De integratie van JIRA SAML SSO by Microsoft (V5.2) met Azure AD heeft de volgen
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 
 Gebruik uw Microsoft Azure Active Directory-account met JIRA Server van Atlassian om eenmalige aanmelding mogelijk te maken. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties voor aanmelding bij de JIRA-toepassing gebruiken. Deze invoegtoepassing gebruikt SAML 2.0 voor federatie.
 
@@ -78,7 +78,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van JIRA SAML SSO by Microsoft (V5.2) in Azure AD, moet u JIRA SAML SSO by Microsoft (V5.2) uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen JIRA SAML SSO door Microsoft (V5.2) uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om JIRA SAML SSO by Microsoft (V5.2) toe te voegen vanuit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -132,9 +132,9 @@ Voor het configureren van Azure AD-eenmalige aanmelding met JIRA SAML SSO by Mic
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij JIRA SAML SSO by Microsoft (V5.2)](common/sp-identifier-reply.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Typ in het vak **Id** een URL met het volgende patroon: `https://<domain:port>/`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<domain:port>/`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -250,7 +250,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden met JIRA on-premises server, moeten deze zijn ingericht in JIRA on-premises server.
 
-**Voer de volgende stappen uit als u een gebruikersaccount wilt inrichten:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u met uw on-premises JIRA server aan als beheerder.
 
@@ -288,8 +288,8 @@ Als u in het toegangsvenster op de tegel JIRA SAML SSO by Microsoft (V5.2) klikt
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

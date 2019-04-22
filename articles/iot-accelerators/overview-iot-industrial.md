@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491745"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Wat is industriële IoT (IIoT)
@@ -30,7 +30,7 @@ De tijdrovend proces van toegang tot factory floor machines met OPC-Twin vermind
 > [!NOTE]
 > Zie voor meer informatie over Azure industriële IoT-services, GitHub [opslagplaats](https://github.com/Azure/azure-iiot-services).
 Als u niet bekend bent met de werking van Azure IoT Edge-modules, begint u met de volgende artikelen:
-- [Over Azure IoT Edge](../iot-edge/about-iot-edge.md)
+- [Informatie over Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge-modules](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>Verbonden factory
@@ -50,4 +50,4 @@ OPC-kluis is een implementatie van OPC UA globale detectie Server (GDS) die u ku
 Nu dat u een inleiding tot industriële IoT en de bijbehorende onderdelen hebt, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Wat is OPC Twin?](overview-opc-twin.md)
+> [Wat is de OPC-Twin](overview-opc-twin.md)

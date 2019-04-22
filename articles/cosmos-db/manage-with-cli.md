@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 4/8/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495478"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Beheer van Azure Cosmos-resources met behulp van Azure CLI
@@ -116,6 +116,6 @@ az cosmosdb regenerate-key \
 
 Zie voor meer informatie over de Azure CLI:
 
-- [Azure CLI installeren](/cli/azure/install-azure-cli)
-- [Naslaginformatie over de Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Azure-CLI installeren](/cli/azure/install-azure-cli)
+- [Azure CLI-referentie](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Extra Azure CLI-voorbeelden voor Azure Cosmos DB](cli-samples.md)

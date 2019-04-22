@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282862"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680482"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -116,6 +116,14 @@ Ja. Elk ExpressRoute-circuit heeft een redundant paar cross-verbindingen die zij
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Wordt ik wordt verbroken als een van mijn ExpressRoute-koppelingen niet?
 
 U verliest connectiviteit niet als een van de cross-verbindingen mislukt. Een redundante verbinding is beschikbaar voor ondersteuning van de belasting van uw netwerk en een hoge beschikbaarheid van uw ExpressRoute-circuit. Daarnaast kunt u een circuit maken in een andere locatie voor een circuit op serverniveau flexibiliteit.
+
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hoe implementeer ik redundantie op persoonlijke peering?
+
+Meerdere ExpressRoute-circuits van verschillende peeringlocaties kunnen worden verbonden met hetzelfde virtuele netwerk voor hoge beschikbaarheid in het geval dat een enkel-circuit niet beschikbaar is. U kunt vervolgens [hoger gewicht toewijzen](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) naar de lokale verbinding met dit de voorkeur geeft aan een specifieke circuit. Het is raadzaam dat klanten ten minste twee ExpressRoute-circuits om single point of failure te voorkomen dat setup. 
+
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hoe ik redundantie implementeren op Microsoft-peering?
+
+Het is raadzaam wanneer klanten met Microsoft-peering voor toegang tot openbare Azure-services zoals Azure Storage of Azure SQL, evenals de klanten die van Microsoft gebruikmaken-peering voor Office 365 dat meerdere-circuits zijn geïmplementeerd in verschillende-peering Vermijd single point of faiure locaties. Klanten kunnen hetzelfde voorvoegsel op beide circuits adverteren en gebruik [AS-padtoevoeging](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) of andere voorvoegsels om te bepalen het pad van de on-premises adverteren.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hoe kan ik ervoor zorgen dat hoge beschikbaarheid in een virtueel netwerk is verbonden met ExpressRoute?
 

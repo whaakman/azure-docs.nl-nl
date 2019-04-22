@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154368"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680533"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -81,21 +81,6 @@ Het volgende voorbeeld ziet u het gedeelte Azure AD B2C technisch profiel versle
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Identity provider gestart stroom
-
-In een eenmalige aanmelding-sessie (ongevraagde aanvraag) gestart door de id-provider is een ongevraagde SAML-antwoord verzonden naar de serviceprovider in dit geval het technische profiel van een Azure AD B2C. In deze stroom de gebruiker gaat niet via de web-App eerst, maar wordt omgeleid naar de id-provider. Wanneer de aanvraag wordt verzonden, wordt een verificatiepagina aan de gebruiker opgegeven door de id-provider. De gebruiker heeft de aanmelding is voltooid en vervolgens de aanvraag wordt omgeleid naar Azure AD B2C met een SAML-antwoord de asserties bevat. Azure AD B2C leest de asserties en problemen met een nieuwe SAML-token en vervolgens wordt de gebruiker omgeleid naar de relying party-toepassing. De omleidingen moeten worden uitgevoerd door de **AssertionConsumerService** van element **locatie** eigenschap.
-
-
-![SAML-IDP gestart](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Houd rekening met de vereisten voor het volgende bij het maken van een id-provider stroom gestart:
-
-- De eerste indelingsstap moet dat één claims exchange die naar een technische SAML-profiel verwijst.
-- Het technische profiel moet beschikken over een item met de naam metagegevens **IdpInitiatedProfileEnabled** ingesteld op `true`.
-- Het beleid voor relying party moet een SAML relying party.
-- Het beleid voor relying party moet beschikken over een item met de naam metagegevens **IdpInitiatedProfileEnabled** ingesteld op `true`.
-- Het ongevraagde antwoord moet worden verzonden naar de `/your-tenant/your-policy/samlp/sso/assertionconsumer` eindpunt. Een relaystatus opgenomen in het antwoord wordt doorgestuurd naar de relying party. Vervang de volgende waarden: **uw tenant** met de naam van uw tenant. **uw beleid** met de naam van uw relying party-beleid.
     
 ## <a name="protocol"></a>Protocol
 
@@ -155,7 +140,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 De **CryptographicKeys** element bevat de volgende kenmerken:
 
-| Kenmerk |Vereist | Description |
+| Kenmerk |Vereist | Beschrijving |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt voor het ondertekenen van SAML-berichten. Azure AD B2C gebruikt deze sleutel om te ondertekenen van de aanvragen en verzend dit naar de id-provider. |
 | SamlAssertionDecryption |Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt voor het ontsleutelen van SAML-berichten. Dit certificaat moet worden opgegeven door de id-provider. Azure AD B2C gebruikt dit certificaat om de gegevens die is verzonden door de id-provider te ontsleutelen. |

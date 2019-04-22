@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599805"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677439"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure App Service-verkeer met Azure Traffic Manager beheren
 > [!NOTE]
@@ -43,7 +43,7 @@ Met Azure Traffic Manager maakt gebruik van vier verschillende methoden voor het
 Zie voor meer informatie, [methoden voor het doorsturen van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service en Traffic Manager-profielen
-Voor het configureren van het besturingselement van het verkeer van App Service-app, u maakt een profiel in Azure Traffic Manager dat maakt gebruik van een van de drie die eerder zijn beschreven methoden voor taakverdeling laden en voegt u de eindpunten (in dit geval wordt een App Service) waarvoor u wilt voor het beheren van verkeer naar de profiel. De status van uw app (die wordt uitgevoerd, gestopt of verwijderd) regelmatig wordt doorgegeven aan het profiel zodat Azure Traffic Manager dat verkeer dienovereenkomstig instellen kunt.
+Voor het configureren van het besturingselement van het verkeer van App Service-app, u maakt een profiel in Azure Traffic Manager dat maakt gebruik van een van de vier die eerder zijn beschreven methoden voor taakverdeling laden en voegt u de eindpunten (in dit geval wordt een App Service) waarvoor u wilt voor het beheren van verkeer naar de profiel. De status van uw app (die wordt uitgevoerd, gestopt of verwijderd) regelmatig wordt doorgegeven aan het profiel zodat Azure Traffic Manager dat verkeer dienovereenkomstig instellen kunt.
 
 Als u Azure Traffic Manager voor Azure, houd rekening met de volgende punten:
 

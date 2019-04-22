@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501192"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Over het gebruik van Service Bus-wachtrijen met PHP
@@ -35,7 +35,7 @@ In deze zelfstudie leert u hoe u PHP-toepassingen voor het verzenden van bericht
 
         > [!NOTE]
         > U maakt een **wachtrij** in de Service Bus-naamruimte met behulp van PHP in deze zelfstudie. 
-3. [Azure SDK voor PHP](../php-download-sdk.md)
+3. [Azure-SDK voor PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Een PHP-toepassing maken
 De enige vereiste voor het maken van een PHP-toepassing die toegang heeft tot de Azure Blob-service is de verwijzing naar klassen in de [Azure SDK voor PHP](../php-download-sdk.md) uit vanuit uw code. Alle hulpprogramma's voor ontwikkeling kunt u maken van uw toepassing of Kladblok.

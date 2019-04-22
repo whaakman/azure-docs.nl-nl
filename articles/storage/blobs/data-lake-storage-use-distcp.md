@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864057"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678376"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren
 
@@ -27,7 +27,7 @@ DistCp biedt tal van opdrachtregelparameters en we raden u in dit artikel lezen 
 * **Een bestaand Azure Storage-account zonder Data Lake Storage Gen2 mogelijkheden (hiërarchische naamruimte) ingeschakeld**.
 * **Een Azure Storage-account met Data Lake Storage Gen2 functie ingeschakeld**. Zie voor instructies over het maken van een [een Azure Data Lake Storage Gen2 storage-account maken](data-lake-storage-quickstart-create-account.md)
 * **Een bestandssysteem** die in het opslagaccount dat is gemaakt met een hiërarchische naamruimte ingeschakeld.
-* **Azure HDInsight-cluster** met toegang tot een opslagaccount met Data Lake Storage Gen2 is ingeschakeld. Zie [gebruik Azure Data Lake Storage Gen2 met Azure HDInsight-clusters](data-lake-storage-use-hdi-cluster.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Azure HDInsight-cluster** met toegang tot een opslagaccount met Data Lake Storage Gen2 is ingeschakeld. Zie [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>DistCp gebruiken vanuit een HDInsight Linux-cluster
 

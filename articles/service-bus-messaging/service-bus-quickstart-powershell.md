@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499798"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Quickstart: Azure PowerShell gebruiken om een Service Bus-wachtrij te maken
@@ -90,7 +90,7 @@ Ga als volgt te werk om de code uit te voeren:
 
 3. Navigeer naar de voorbeeldmap `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Als u dit nog niet hebt gedaan, haalt u de verbindingsreeks op met behulp van de volgende PowerShell-cmdlet. Vervang `my-resourcegroup` en `namespace-name` met uw specifieke waarden: 
+4. Als u dit nog niet hebt gedaan, haalt u de verbindingsreeks op met behulp van de volgende PowerShell-cmdlet. Zorg dat u `my-resourcegroup`  en  `namespace-name` vervangt door uw specifieke waarden: 
 
    ```azurepowershell-interactive
    Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
@@ -128,7 +128,7 @@ Deze sectie bevat meer informatie over de werking van de voorbeeldcode.
 
 ### <a name="get-connection-string-and-queue"></a>Verbindingsreeks en wachtrij ophalen
 
-De naam van de connection string en wachtrij worden doorgegeven aan de `Main()` methode als opdrachtregelargumenten. `Main()` verklaart de twee tekenreeksvariabelen die voor het opslaan van deze waarden:
+De naam van de connection string en wachtrij worden doorgegeven aan de `Main()` methode als opdrachtregelargumenten. `Main()` declareert twee tekenreeksvariabelen die deze waarden kunnen omvatten:
 
 ```csharp
 static void Main(string[] args)
@@ -262,5 +262,5 @@ In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die
 > [!div class="nextstepaction"]
 > [Berichten verzenden en ontvangen](service-bus-dotnet-get-started-with-queues.md)
 
-[Azure-account maakt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure PowerShell installeren en configureren]: /powershell/azure/install-Az-ps

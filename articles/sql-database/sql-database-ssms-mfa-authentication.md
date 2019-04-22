@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494898"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Met behulp van meerdere factoren AAD-verificatie met Azure SQL Database en Azure SQL Data Warehouse (SSMS-ondersteuning voor MFA)
@@ -32,8 +32,8 @@ Voor alle functies die in dit artikel worden besproken, gebruikt u ten minste ju
 ## <a name="the-five-authentication-options"></a>De vijf verificatie-opties  
 
 De twee niet-interactieve verificatiemethoden biedt ondersteuning voor universele verificatie van Active Directory:
-    - `Active Directory - Password` verificatie
-    - `Active Directory - Integrated` verificatie
+    - `Active Directory - Password` Verificatie
+    - `Active Directory - Integrated` Verificatie
 
 Er zijn twee niet-interactieve verificatiemodellen, die kunnen worden gebruikt in veel verschillende toepassingen (ADO.NET, JDCB, ODC, enz.). Pop-dialoogvensters leiden nooit deze twee methoden: 
 - `Active Directory - Password` 
@@ -51,7 +51,7 @@ Zie voor de configuratiestappen, [Azure SQL-Database configureren multi-factor a
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD domain parameter name of tenant-ID   
 
 Beginnen met [SSMS versie 17](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), gebruikers die zijn geïmporteerd in de huidige Active Directory van andere Azure Active Directory als gastgebruikers, kunnen de Azure AD-domeinnaam opgeven, of tenant-ID wanneer ze verbinding maken. Gastgebruikers ook kunnen bevatten gebruikers van andere Azure Active Directory, Microsoft-accounts, zoals outlook.com, hotmail.com, live.com of andere accounts zoals gmail.com uitgenodigd. Deze informatie kan **Active Directory Universal met MFA-verificatie** voor het identificeren van de juiste verificatie-instantie. Deze optie is ook vereist voor de ondersteuning van Microsoft-accounts (MSA), zoals outlook.com, hotmail.com, live.com of niet-MSA-accounts. Deze gebruikers die moeten worden geverifieerd met behulp van universele authenticatie moeten hun Azure AD-domein invoeren of tenant-ID. Deze parameter geeft de huidige Azure AD-domein naam/tenant-ID de Azure-Server is gekoppeld aan. Bijvoorbeeld, als Azure-Server is gekoppeld aan Azure AD-domein `contosotest.onmicrosoft.com` waar gebruiker `joe@contosodev.onmicrosoft.com` wordt gehost als geïmporteerde gebruiker uit Azure AD-domein `contosodev.onmicrosoft.com`, de domeinnaam die is vereist voor het verifiëren van deze gebruiker is `contosotest.onmicrosoft.com`. Wanneer de gebruiker een systeemeigen gebruiker van de Azure AD die is gekoppeld aan Azure-Server is en niet een MSA-account is, is geen domein of tenant-ID is vereist. Om in te voeren van de parameter (die begint met SSMS versie 17,2), in de **verbinding maken met Database** dialoogvenster vak, voert u in het dialoogvenster selecteren **Active Directory - Universal met MFA** verificatie, klikt u op  **Opties voor**volledige de **gebruikersnaam** vak en klik vervolgens op de **verbindingseigenschappen** tabblad. Controleer de **AD-domein of tenant-ID** vak en bieden verificatieautoriteit, zoals de naam van het domein (**contosotest.onmicrosoft.com**) of de GUID van de tenant-ID.  
-   ![MFA-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD-ondersteuning voor bedrijven   
 Azure AD-gebruikers ondersteund voor Azure AD B2B-scenario's als gastgebruikers (Zie [wat is Azure B2B-samenwerking](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) verbinding kunt maken met SQL-Database en SQL Data Warehouse alleen als onderdeel van de leden van een groep gemaakt in de huidige Azure AD en handmatig toegewezen met de Transact-SQL `CREATE USER` -instructie in een bepaalde database. Bijvoorbeeld, als `steve@gmail.com` wordt uitgenodigd voor Azure AD `contosotest` (met het Azure Ad-domein `contosotest.onmicrosoft.com`), een Azure AD-groep, zoals `usergroup` moeten worden gemaakt in de Azure AD met de `steve@gmail.com` lid. Vervolgens deze groep moet worden gemaakt voor een specifieke database (dat wil zeggen, MijnDatabase) met Azure AD-SQL-beheerder of Azure AD DBO door het uitvoeren van een Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` instructie. Nadat de gebruiker van de database is gemaakt, klikt u vervolgens de gebruiker `steve@gmail.com` kunt aanmelden bij `MyDatabase` met behulp van de optie voor verificatie van SSMS `Active Directory – Universal with MFA support`. Standaard heeft alleen de machtiging connect en eventuele verdere toegang tot gegevens die moet worden verleend in de normale manier waarop de gebruikersgroep. Houd er rekening mee dat de gebruiker `steve@gmail.com` als een gastgebruiker moet het selectievakje in en de naam van de AD-domein toevoegen `contosotest.onmicrosoft.com` in de SSMS **verbindingseigenschap** in het dialoogvenster. De **AD-domein of tenant-ID** optie wordt alleen ondersteund voor de universele met MFA verbindingsopties, anders wordt deze grijs.
@@ -71,10 +71,10 @@ Azure AD-gebruikers ondersteund voor Azure AD B2B-scenario's als gastgebruikers 
 - Zie voor de configuratiestappen, [Azure SQL-Database configureren multi-factor authentication voor SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Anderen toegang verlenen tot uw database: [SQL Database-verificatie en autorisatie: Het verlenen van toegang](sql-database-manage-logins.md)  
 - Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [Een Azure SQL Database-firewallregel op serverniveau met de Azure-portal configureren](sql-database-configure-firewall-settings.md)  
-- [Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
+- [Azure Active Directory-verificatie configureren en beheren met SQL Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Framework voor Microsoft SQL Server-Gegevenslaagtoepassingen (17.0.0 algemene beschikbaarheid)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Een BACPAC-bestand importeren naar een nieuwe Azure SQL Database](../sql-database/sql-database-import.md)  
-- [Een Azure SQL-database naar een BACPAC-bestand exporteren](../sql-database/sql-database-export.md)  
+- [Een BACPAC-bestand importeren in een nieuwe Azure SQL-database](../sql-database/sql-database-import.md)  
+- [Een Azure SQL-database exporteren naar een BACPAC-bestand](../sql-database/sql-database-export.md)  
 - C#-interface [IUniversalAuthProvider-Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Bij het gebruik van **Active Directory - Universal met MFA** verificatie ADAL tracering is beschikbaar in [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Uitgeschakeld standaard, kunt u ADAL tracering met behulp van de **extra**, **opties** menu onder **Azure Services**, **Azure-Cloud**,  **ADAL-venster uitvoer het traceringsniveau**, gevolgd door in te schakelen **uitvoer** in de **weergave** menu. De traceringen zijn beschikbaar in het uitvoervenster weergegeven bij het selecteren van **Azure Active Directory-optie**.  

@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501243"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Microsoft identity-platform
@@ -214,7 +214,7 @@ Als de beheerder heeft de machtigingen voor uw app goedgekeurd, is de geslaagde 
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `tenant` | De directory-tenant die uw toepassing, de machtigingen aangevraagd, in GUID-indeling. |
 | `state` | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. De status wordt gebruikt om informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
@@ -228,7 +228,7 @@ Als de beheerder worden de machtigingen voor uw app niet goedgekeurd, wordt de m
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `error` | Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` | Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een fout identificeren. |

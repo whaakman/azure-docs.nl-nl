@@ -10,23 +10,23 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621478"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678663"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met officiële business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Onze business intelligence-partners
-| Partner | Description | Koppeling naar website/Product |
+| Partner | Beschrijving | Koppeling naar website/Product |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst verbindt de hele organisatie via een netwerk van ineengevlochten gevirtualiseerde BI exemplaren op-bovenaan een gedeelde algemene analytische-infrastructuur|[Productpagina][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory gegevens][2] |**ClearStory gegevens (continue zakelijke inzichten worden verkregen)**<br>Fast-cyclus analysis biedt clearStory gegevens voor verschillende gegevens die zijn opgeslagen in SQL Data Warehouse. ClearStory van geïntegreerde Spark gebaseerd platform en analyses snelheid van toegang tot toepassingsgegevens en onderlinge aanpassing van verschillende gegevenssets. Ze inschakelen van verkenning van fast, samenwerkende waarmee zakelijke gebruikers om te worden gewortelde autonome om inzicht te krijgen. |[Productpagina][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Gegevensvisualisatie Dundas is een toonaangevende, wereldwijde leverancier van de software Business Intelligence en visualisatie van gegevens.  Dundas-dashboards, rapporten en visuele gegevensanalyse bieden naadloze integratie met business-toepassingen en zorgt voor betere beslissingen kunt nemen en sneller inzichten worden verkregen.|[Productpagina][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Hiermee][3] |**IBM Hiermee Analytics**< brCognos Analytics bevat slimme selfservice mogelijkheden waarmee u eenvoudig, duidelijk en gemakkelijk te gebruiken of u nu een ervaren bedrijfsanalist onderzoek van de kinks in een enorme toeleveringsketen of een verkoper optimaliseren een één campagne. Hiermee Analytics maakt gebruik van AI en andere intelligente mogelijkheden voor het zware werk aan om te helpen gegevens verkennen en maken het gemakkelijker voor gebruikers om op te halen van de antwoorden die ze nodig hebben|[Productpagina][cognosanalytics_website]<br>|
+| ![IBM Hiermee][3] |**IBM Hiermee Analytics**<br>Hiermee Analytics bevat slimme selfservice mogelijkheden waarmee u eenvoudig, duidelijk en gemakkelijk te gebruiken of u nu een ervaren bedrijfsanalist onderzoek van de kinks in een enorme toeleveringsketen of een verkoper een enkel campagne te optimaliseren. Hiermee Analytics maakt gebruik van AI en andere intelligente mogelijkheden voor het zware werk aan om te helpen gegevens verkennen en maken het gemakkelijker voor gebruikers om op te halen van de antwoorden die ze nodig hebben|[Productpagina][cognosanalytics_website]<br>|
 | ![Builders van informatie][13] |**Builders van informatie (WebFOCUS)**<br>WebFOCUS business intelligence helpt bedrijven gebruiken gegevens meer strategisch in en buiten de onderneming. Gebruikers en beheerders snel om dashboards te maken die inhoud uit meerdere gegevensbronnen en indelingen combineren en biedt een robuuste beveiliging en uitgebreide governance naadloze waarmee veilig kunnen diverly en delen van BI en analytics inhoud|[Productpagina][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport is een ingesloten BI-oplossing voor de onderneming. De oplossing biedt gebruikers maken van rapporten, dashboards en analyse van gegevens op de cloud, big data en transactionele gegevensbronnen worden verlaagd. Door gegevens te visualiseren, kunt u uw eigen rapportage- en detectie uitvoeren voor flexibele, op het begeven besluitvorming. |[Productpagina][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Kan uw organisatie verzamelen, analyseren en direct reageren op de grootste en meest diverse gegevenssets in de hele wereld samen Logi Analytics en Azure SQL Data Warehouse. |[Productpagina][logianalytics_website]<br>|

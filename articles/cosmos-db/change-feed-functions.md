@@ -4,61 +4,47 @@ description: Gebruik Azure Cosmos DB-wijzigingenfeed met Azure Functions
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469478"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680771"
 ---
-# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Azure Functions in Azure Cosmos DB activeren
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Serverloze op gebeurtenissen gebaseerde architecturen met een Azure Cosmos DB en Azure Functions
 
-Als u Azure Functions, de eenvoudigste manier om verbinding maken met de wijzigingenfeed is om toe te voegen een [Azure Cosmos DB-trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) aan uw Azure Functions-app. Wanneer u een Cosmos DB-trigger in een Azure Functions-app maakt, u verbinding maken met de Cosmos-container selecteren en de functie wordt geactiveerd wanneer u iets in de container worden gewijzigd.
+Azure Functions biedt de eenvoudigste manier om verbinding maken met de [wijzigingenfeed](). Bij elke nieuwe gebeurtenis in uw Azure Cosmos-container wijzigingenfeed kunt u kleine reactieve Azure Functions die automatisch wordt geactiveerd.
 
-Triggers kunnen worden gemaakt in de Azure Functions-portal of in de Azure Cosmos DB-portal of programmatisch. Zie voor meer informatie, [serverless database computing met behulp van Azure Cosmos DB en Azure Functions](serverless-computing-database.md).
+![Serverloze functies maken op basis van gebeurtenissen werken met de Azure Cosmos DB-Trigger](./media/change-feed-functions/functions.png)
 
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
+Met de [Azure Cosmos DB-Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), kunt u gebruikmaken van de [Change Feed Processor](./change-feed-processor.md)het schalen en betrouwbare gebeurtenis detectie functionaliteit zonder de noodzaak om te onderhouden een [worker infrastructuur](./change-feed-processor.md#implementing-the-change-feed-processor-library). Concentreert zich alleen op uw Azure-functie logische zonder u zorgen te maken over de rest van de pijplijn ' event sourcing '. U kunt ook de Trigger combineren met andere [Azure Functions-bindingen](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region"></a>Hoe configureer ik Azure functions om te lezen uit een bepaalde regio?
+> [!NOTE]
+> De Azure Cosmos DB-trigger wordt momenteel ondersteund voor gebruik met de Core (SQL) API alleen.
 
-Het is mogelijk voor het definiëren van de [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations) bij het gebruik van de Azure Cosmos DB-trigger om op te geven van een lijst met regio's. Het is dezelfde tijdens het aanpassen van de ConnectionPolicy, zodat de trigger gelezen uit de gewenste regio's. In het ideale geval wilt u lezen van de dichtstbijzijnde regio waar uw Azure-functies wordt geïmplementeerd.
+## <a name="requirements"></a>Vereisten
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Wat is de standaardgrootte van batches in Azure Functions?
+Voor het implementeren van een serverloze stroom op basis van gebeurtenissen, hebt u het volgende nodig:
 
-De standaardwaarde is 100 items voor elke aanroep van Azure Functions. Dit nummer is echter worden geconfigureerd in de function.json-bestand. Hier is voltooid [lijst met configuratieopties](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Als u lokaal ontwikkelt, werkt u de toepassingsinstellingen in het bestand local.settings.json.
+* **De bewaakte container**: De bewaakte container is de Azure Cosmos-container die worden bewaakt en de gegevens op basis waarvan de wijzigingenfeed is gegenereerd worden opgeslagen. Alle toevoegingen en wijzigingen (bijvoorbeeld CRUD) naar de bewaakte container worden weerspiegeld in de wijzigingenfeed van de container.
+* **De container lease**: De lease-container de status over meerdere bijgehouden en dynamische serverloze Azure Function-exemplaren en kunnen dynamische schaalbaarheid. Deze container lease kan worden handmatig of automatisch gemaakt door de Azure Cosmos DB Trigger.To automatisch maken van de lease-container, stelt u de *CreateLeaseCollectionIfNotExists* markering waarmee wordt aangegeven de [configuratie](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Gepartitioneerde lease-containers zijn vereist om een `/id` sleuteldefinitie partitioneren.
 
-### <a name="i-am-monitoring-a-container-and-reading-its-change-feed-however-i-dont-get-all-the-inserted-documents-some-items-are-missing"></a>Ik ben een container monitoring en de wijzigingenfeed lezen, maar ik krijg geen de ingevoegde documenten, enkele items ontbreken?
+## <a name="create-your-azure-cosmos-db-trigger"></a>Uw Azure Cosmos DB-Trigger maken
 
-Zorg ervoor dat er geen andere Azure-functie voor het lezen van de dezelfde container met de dezelfde lease-container. De ontbrekende documenten worden verwerkt door de andere Azure-functies die ook van de dezelfde lease gebruikmaken.
+Het maken van uw Azure-functie met een Azure Cosmos DB-Trigger wordt nu ondersteund in alle Azure-functies IDE en integraties CLI:
 
-Dus als u meerdere Azure Functions om te lezen dat hetzelfde wijzigingenfeed maakt, moet verschillende lease containers gebruiken of de configuratie "leasePrefix" gebruiken voor het delen van dezelfde container. Wanneer u change feed processor-bibliotheek kunt u meerdere exemplaren van uw Azure-functie starten en de SDK de documenten tussen verschillende exemplaren automatisch voor u wordt verdeeld.
+* [Visual Studio-extensie](../azure-functions/functions-develop-vs.md) voor gebruikers van Visual Studio.
+* [Extensie van Visual Studio-Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) voor gebruikers van Visual Studio Code.
+* En ten slotte [Core CLI tooling](../azure-functions/functions-run-local.md#create-func) voor een platformoverschrijdende IDE agnostische ervaring.
 
-### <a name="azure-cosmos-item-is-updated-every-second-and-i-dont-get-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Azure Cosmos-item per seconde is bijgewerkt, en ik niet alle wijzigingen in Azure Functions luisteren als u wilt wijzigen van de feed?
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Uw Azure Cosmos DB-Trigger lokaal uitvoeren
 
-Azure Functions controleert de feed voor wijzigingen continu met een standaard maximale vertraging van vijf seconden wijzigen. Als er zijn geen wijzigingen in behandeling om te lezen, of als er wijzigingen in behandeling zijn nadat de trigger wordt toegepast, wordt de functie deze meteen gelezen. Echter, als er geen wijzigingen in behandeling zijn, de functie wacht 5 seconden en of er meer wijzigingen.
+U kunt uitvoeren uw [lokaal Azure-functie](../azure-functions/functions-develop-local.md) met de [Azure Cosmos DB-Emulator](./local-emulator.md) wilt maken en ontwikkelen van uw serverloze stromen op basis van gebeurtenissen zonder een Azure-abonnement of er kosten in rekening.
 
-Als uw document meerdere wijzigingen in het hetzelfde interval die nodig de Trigger was worden gecontroleerd op nieuwe wijzigingen ontvangt, ontvangt u mogelijk de nieuwste versie van het document en niet de tussenliggende uit.
-
-Als u wilt pollen feed voor minder dan vijf seconden wijzigen, bijvoorbeeld voor elke seconde, u kunt de polling-tijd "feedPollDelay" configureren, Zie [de volledige configuratie](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Dit is gedefinieerd in milliseconden met een standaardwaarde van 5000. Polling voor minder dan 1 seconde mogelijk is, maar niet aanbevolen wordt omdat begint u met behulp van meer CPU en geheugen.
-
-### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Kan meerdere Azure-functies van één container wijzigingenfeeds lezen?
-
-Ja. Meerdere Azure-functies kunnen dezelfde container wijzigingenfeeds lezen. De Azure-functies moet echter een afzonderlijke "leaseCollectionPrefix" gedefinieerd hebben.
-
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-in-a-batch-of-10-documents-and-i-get-an-error-at-seventh-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-document-ie-seventh-document-in-my-next-feed"></a>Als ik verwerking change feed met behulp van Azure Functions, in een batch van 10 documenten, en er een foutbericht op zevende Document verschijnt. De laatste drie documenten worden in dat geval niet verwerkt hoe kan ik start verwerking uit het document (Internet Explorer, zevende document) in de volgende feed?
-
-Voor het afhandelen van de fout, is het aanbevolen patroon inpakken van uw code met probeer catch-blok en, als u bent iteratie van de lijst met documenten, elke herhaling verpakken in een eigen probeer-catch-blok. Bekijk de fout en plaats van dat document in een wachtrij (dead-letter uitvoeren) en definieer vervolgens logica voor het werken met de documenten die de fout heeft geproduceerd. Met deze methode als u een batch 200-document en slechts één document is mislukt, hebt hoeft u niet te weggooien van de hele batch.
-
-In het geval van fout, moet u het controlepunt terug naar begin niet terugspoelen zal anders u kunt houden ophalen die documenten uit wijzigingenfeed. Denk eraan dat change feed houdt de laatste schermopname van de documenten, omdat u de laatste module kunnen verloren gaan de vorige momentopname van het document. wijzigingenfeed blijft slechts één van de laatste versie van het document en in andere processen kunnen afkomstig zijn en wijzigen van het document.
-
-Als u uw code herstellen houden, vindt u binnenkort geen documenten op dead-letter-wachtrij. Azure Functions wordt automatisch aangeroepen door change feed system en controlepunt intern wordt beheerd door Azure-functie. Als u wilt het controlepunt terugdraaien en elk aspect van het beheren, moet u rekening houden met behulp van de wijziging feed Processor-SDK.
-
-### <a name="are-there-any-extra-costs-for-using-the-azure-cosmos-db-trigger"></a>Zijn er extra kosten voor het gebruik van de Azure Cosmos DB-Trigger?
-
-De Azure Cosmos DB-Trigger maakt intern gebruik van de Change Feed Processor-bibliotheek. Daarom is er een extra verzameling met de naam van de verzameling Leases voor het onderhouden van de status en gedeeltelijke controlepunten vereist. Deze statusbeheer is nodig om te kunnen dynamisch schalen en doorgaan als u wilt stoppen van uw Azure-functies en gaan met de verwerking op een later tijdstip. Zie voor meer informatie, [over het werken met change feed processor-bibliotheek](change-feed-processor.md).
+Als u testen van scenario's voor live in de cloud wilt, kunt u [Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder creditcard of Azure-abonnement nodig.
 
 ## <a name="next-steps"></a>Volgende stappen
 
